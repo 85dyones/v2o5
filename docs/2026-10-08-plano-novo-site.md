@@ -63,9 +63,30 @@ O que a V2O5 entregou para a Motors Store, segundo o repositório `motors-site-o
 
 Isso é um case completo de aquisição e operação, do anúncio à venda. Os outros repositórios da conta (smart-parking-v2o5, rede-auto, freespot, Motogestor-v3, 16V) podem render mais cases ou produtos; depende do que pode ser mostrado (seção 12).
 
+### 2.1 Números que o case já tem
+
+Lidos do banco da Motors em 08/10/2026, só contagens. A tabela de leads começa em 05/09/2026, então o período é de cinco semanas.
+
+| Dado | Valor |
+|---|---|
+| Leads no funil | 56 (44 dos formulários do site, 12 do WhatsApp direto pelo Chatwoot) |
+| Leads do site com `event_id` (deduplicação com a Meta) | 42 de 44 |
+| Leads do site com cookie `_fbp` | 38 de 44 |
+| Leads do site ligados ao veículo de interesse | 37 de 44 |
+| Leads do site com UTM / com `gclid` ou `fbclid` | 28 / 26 de 44 |
+| Desfechos registrados | 3 ganhos, 10 perdidos, 13 descartados, 30 em aberto |
+| Guias publicados | 26 |
+| Veículos no estoque sincronizado | 132, dos quais 46 marcados como vendidos |
+
+Isso sustenta um case de sistema e de qualidade de dado: 95% dos leads do formulário chegam com o identificador que permite deduplicar a conversão na Meta, e cada lead sabe qual carro motivou o contato. Não sustenta ainda um case de resultado comercial: cinco semanas e três vendas registradas são pouco para afirmar ganho.
+
+Faltam três dados. O tempo de primeira resposta não está no banco (o campo `ultimo_contato_em` é outra coisa); o relatório de primeira resposta do Chatwoot tem. Tráfego orgânico e impressões estão no Search Console, que não foi consultado daqui. E o histórico anterior a setembro, se existir em outro lugar.
+
+Proposta: o case entra no lançamento com o que foi construído e os números acima, e ganha uma atualização com 90 dias de dado (cliques orgânicos, leads por mês por origem, vendas atribuídas).
+
 O site da Motors não tem crédito nem link para a V2O5. Um "Desenvolvido por V2O5" no rodapé dela é a menção externa mais fácil de conseguir.
 
-O fato de o mesmo autor assinar os guias da Motors e fundar a V2O5 precisa aparecer no case de forma explícita. Esconder isso e ser descoberto depois custa mais do que declarar.
+Decidido em 08/10: nome, logo e números da Motors podem ser publicados, e o case declara que o fundador da V2O5 é o mesmo profissional que assina os guias da loja.
 
 ## 3. Posicionamento e oferta (proposta)
 
@@ -86,13 +107,21 @@ Os concorrentes pesquisados vendem uma das pontas, ou as três como serviços se
 
 A porta de entrada continua sendo um diagnóstico gratuito, com entrega concreta: em uma conversa de 45 minutos a V2O5 olha site, rastreamento, atendimento e funil, e em até 24 h envia o mapa com as três mudanças de maior retorno, custo e prazo. O "Start Digital" sai do cardápio público e vira a etapa de fundação dentro dos projetos de site. Decisão em aberto na seção 12.
 
-### 3.3 Conceito de marca
+### 3.3 Marca
 
-V2O5 é a fórmula do pentóxido de vanádio, catalisador usado na produção industrial de ácido sulfúrico. Um catalisador acelera uma reação e continua lá no fim. Isso descreve bem a proposta: a V2O5 acelera o negócio e o sistema fica com o cliente.
+V2O5 é a fórmula do pentóxido de vanádio, catalisador usado na produção industrial de ácido sulfúrico (confirmado em 08/10: o nome vem daí). Um catalisador acelera uma reação e continua lá no fim. A V2O5 acelera a venda da revenda e o sistema fica com a loja.
 
-O vanádio tem uma propriedade visual que pode virar sistema de cor. Em solução, cada estado de oxidação tem uma cor: V²⁺ violeta, V³⁺ verde, V⁴⁺ azul, V⁵⁺ amarelo. Quatro estados, quatro linhas de serviço. O amarelo-âmbar do V⁵⁺ (o do V2O5) fica como cor de ação; as outras três aparecem só em diagramas e etiquetas das linhas.
+O vanádio dá também o sistema de cor. Em solução, cada estado de oxidação tem uma cor: V²⁺ violeta, V³⁺ verde, V⁴⁺ azul, V⁵⁺ amarelo. No site, elas viram as etapas do lead: site (violeta), atendimento com IA (verde), CRM (azul) e venda rastreada (âmbar). O âmbar do V⁵⁺, o estado do V2O5, é a única cor de ação.
 
-A mesma química é um problema de busca: "V2O5" sozinho é o composto. A marca precisa de uma forma fixa, usada igual no site, no schema, no Perfil de Empresa e nas redes. "V2O5 ConsultorIA" já existe e desambigua; a alternativa é "V2O5" sempre seguida do mesmo descritor (por exemplo "V2O5 · IA, automação e sites"). Decisão na seção 12.
+Proposta visual no canvas [Marca V2O5: propostas](https://claude.ai/artifact/TJi91r21pMCLXUxL3AEYT3):
+
+- Direção B, recomendada: um funil visto de cima. É uma pirâmide de base quadrada (no cristal de V2O5, cada vanádio fica dentro de uma pirâmide de base quadrada formada por cinco oxigênios) com o vértice deslocado e marcado em âmbar. Funciona a 16 px, no avatar do WhatsApp e no favicon. O vértice fora do centro evita a leitura de "X numa caixa".
+- Direção A: só tipográfica, V₂O₅ com os índices em mono e âmbar. Mais direta, mas o selo pequeno vira um "V" e perde a fórmula.
+- Cores com contraste medido, tipografia (Geist e Geist Mono, duas famílias como na Motors) e aplicações (topo do site, imagem de compartilhamento, conversa no WhatsApp).
+
+Forma fixa do nome, recomendada: "V2O5 Tecnologia", com algarismos normais no texto corrido, igual no site, no schema, no Perfil de Empresa, no WhatsApp Business e nas redes. Tira a marca da colisão com o composto químico sem o trocadilho, que se perde na fala e em minúsculas. "V2O5 ConsultorIA" entra no schema como `alternateName`, para quem já conhecia o nome. A assinatura "Sites, CRM e IA para revendas de veículos" acompanha o nome e pode mudar com o foco; o nome não muda.
+
+O Google pede que o nome no Perfil de Empresa seja o que a empresa usa no mundo real. Se o nome fantasia do CNPJ for outro, vale alinhar os dois.
 
 ## 4. Mercado, busca e arquitetura de páginas
 
@@ -216,7 +245,7 @@ A arquitetura do Modernist vem inteira: tokens `--brand-*` derivados por `color-
 A identidade muda. Proposta para validar em tela antes de codar:
 
 - base clara de papel com seções escuras de tinta onde o assunto é o sistema (diagramas, rastreamento, código), em vez do visual escuro com degradê roxo e esferas brilhantes que quase toda agência de IA usa;
-- âmbar V⁵⁺ como única cor de ação; violeta, verde e azul só para identificar linhas de serviço em diagramas;
+- âmbar V⁵⁺ como única cor de ação; violeta, verde e azul só para identificar as etapas do lead em diagramas e etiquetas (seção 3.3);
 - tipografia em duas famílias (regra testada na Motors): uma grotesca para display e texto e uma mono para rótulos, números e trechos de fluxo. Geist com Geist Mono é a opção de partida; a alternativa é manter a Archivo para títulos e trocar só o texto.
 
 Antes de implementar, a ideia é montar dois estudos visuais da home (hero e uma seção de case) para você escolher.
@@ -291,7 +320,7 @@ O lead grava primeiro e último toque (UTM, `gclid`, `gbraid`, `wbraid`, `fbclid
 
 ### 7.5 Consentimento
 
-A Motors usa interesse legítimo e um aviso informativo. Para uma empresa que vende rastreamento, a recomendação é Consent Mode v2 com banner de aceitar e recusar, funcionando direito, e conversões de lead pelo servidor com base no envio do formulário e no aviso de privacidade. Decisão sua, com orientação jurídica se precisar.
+Decidido em 08/10: o mesmo modelo da Motors. Base legal de interesse legítimo (LGPD, art. 7º, IX), tags carregadas na chegada e aviso de cookies informativo. A oposição fica na página de privacidade: grava `ag_cookie_consent=rejected` e apaga `_fbp`, `_fbc` e as chaves de campanha. O código da Motors (`IntegrationsTracker`, a verificação de oposição antes das tags e o texto de `/privacidade`) vem adaptado. Consent Mode v2 fica documentado como alternativa, como lá.
 
 ## 8. Stack e engenharia
 
