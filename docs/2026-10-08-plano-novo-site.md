@@ -1,6 +1,6 @@
 # Novo site da V2O5: projeto e escopo
 
-Versão 3, 08/10/2026, com as decisões do dia (seção 12). Nada foi implementado.
+Versão 3.1, 08/10/2026, com as decisões do dia (seção 12). Nada foi implementado.
 
 ## 0. Resumo
 
@@ -119,18 +119,20 @@ A porta de entrada continua sendo um diagnóstico gratuito, com entrega concreta
 
 ### 3.3 Preço
 
-Decidido em 08/10: publicar. Proposta abaixo para você validar contra as suas horas e custos. A lógica: implantação mais mensalidade, sem fidelidade, preço "a partir de" em cada página de linha, uma página `/precos` com os pacotes e `offers` no schema. A implantação pode ser paga metade na assinatura e metade na entrega, ou parcelada em até 6 vezes.
+Decidido em 08/10: publicar, com a tabela abaixo aprovada no mesmo dia e o site de estoque a partir de R$ 7.900. A lógica: implantação mais mensalidade, sem fidelidade, preço "a partir de" em cada página de linha, uma página `/precos` com os pacotes e `offers` no schema. A implantação pode ser paga metade na assinatura e metade na entrega, ou parcelada em até 6 vezes.
 
 | Linha | Implantação a partir de | Mensalidade a partir de | O que a mensalidade cobre |
 |---|---|---|---|
-| Site de estoque | R$ 5.900 | R$ 490 | Hospedagem, sincronização do estoque, manutenção, SEO técnico contínuo, relatório mensal |
+| Site de estoque | R$ 7.900 | R$ 490 | Hospedagem, sincronização do estoque, manutenção, SEO técnico contínuo, relatório mensal |
 | Atendimento com IA no WhatsApp | R$ 3.900 | R$ 790 | Agente rodando, uso do modelo de IA dentro de um teto de conversas, ajustes de roteiro |
 | CRM e funil | R$ 4.900 | R$ 590 | Painel, régua de alertas, usuários da loja, suporte |
 | Rastreamento até a venda | R$ 2.900 | R$ 290 | Monitoramento da qualidade do dado, relatório de origem das vendas |
 | Gestão de tráfego (Google Ads e Meta) | sem implantação com o rastreamento ativo | R$ 1.800 + verba | Campanhas otimizadas pela venda registrada no CRM, não pelo lead |
-| Pacote completo (site, IA, CRM, rastreamento e integração com o Revenda Mais) | R$ 14.900 | R$ 1.690 | Tudo das linhas acima, menos tráfego |
-| Pacote completo com tráfego | R$ 14.900 | R$ 2.990 + verba | |
+| Pacote completo (site, IA, CRM, rastreamento e integração com o Revenda Mais) | R$ 16.900 | R$ 1.690 | Tudo das linhas acima, menos tráfego |
+| Pacote completo com tráfego | R$ 16.900 | R$ 2.990 + verba | |
 | Diagnóstico | grátis | | |
+
+Com o novo preço do site, a implantação do pacote completo subiu de R$ 14.900 para R$ 16.900, para o desconto sobre a soma das linhas (R$ 19.600) continuar parecido: 13,8%, antes 15,3%.
 
 Fora do preço: verba de mídia (paga direto ao Google e à Meta), custo por mensagem da Meta quando a loja usar a API oficial do WhatsApp, e produção de fotos e vídeos.
 
@@ -147,7 +149,7 @@ Como esses números se comparam com o mercado, pelas páginas públicas em 08/10
 
 A mensalidade do pacote completo fica perto da pilha do Revenda Mais e abaixo do chatbot da IAEO, sem substituir o sistema de gestão da loja. O argumento da página de preço é custo por venda. O plano de mídia da Motors usa como referência uma margem bruta média de R$ 7.000 por carro; com essa margem, uma venda a mais a cada quatro meses paga a mensalidade do pacote completo (4 × R$ 1.690 = R$ 6.760).
 
-Duas escolhas mudam o preço e são suas (seção 12). Uma é onde fica a infraestrutura: na conta da V2O5, incluída na mensalidade, ou na conta da loja, paga por ela direto à Vercel e ao Supabase. A outra é a cláusula de saída: recomendo que, se a loja cancelar, receba o código, os dados e o domínio em até 15 dias. É o que torna verdadeira a frase "a camada é sua".
+Cláusula de saída (aceita em 08/10 com a tabela): se a loja cancelar, recebe o código, os dados e o domínio em até 15 dias. É o que torna verdadeira a frase "a camada é sua". Fica em aberto onde mora a infraestrutura: na conta da V2O5, incluída na mensalidade, ou na conta da loja, paga por ela direto à Vercel e ao Supabase (seção 12).
 
 ### 3.4 Marca
 
@@ -461,7 +463,7 @@ O WordPress fica no ar em subdomínio de backup por 30 dias antes de cancelar a 
 1. Case Motors: nome, logo e números podem ser publicados, e o case declara que o fundador da V2O5 assina os guias da loja.
 2. Público: Brasil inteiro, com revendas de veículos desde a home. Outros setores continuam atendidos.
 3. Start Digital: sai do cardápio público e vira a fundação dos projetos de site.
-4. Preço: publicar "a partir de" por linha (proposta na seção 3.3).
+4. Preço: publicar "a partir de" por linha; tabela da seção 3.3 aprovada, com o site de estoque a partir de R$ 7.900 e cláusula de saída.
 5. Marca: direção B; nome fixo "V2O5 Vendas e Tecnologia", CNPJ 68.490.470/0001-14.
 6. Consentimento: o mesmo modelo da Motors.
 7. Gestão de tráfego entra como linha de serviço, com página na fase 1.
@@ -470,17 +472,16 @@ O WordPress fica no ar em subdomínio de backup por 30 dias antes de cancelar a 
 
 ### Em aberto
 
-1. Preço: a tabela da seção 3.3 fecha com as suas horas e custos?
-2. Infraestrutura dos clientes: na conta da V2O5, incluída na mensalidade, ou na conta da loja?
-3. Cláusula de saída: a loja leva código, dados e domínio se cancelar? (recomendado)
-4. Endereço: o de Almirante Tamandaré é comercial? Se for residencial, o Perfil de Empresa fica como empresa de área de serviço, sem endereço visível, e o site mostra só cidade e estado.
-5. Fundador: foto para a página Sobre e para os guias.
-6. Agenda: Cal.com, agenda do Google ou só WhatsApp?
-7. GTM server-side na fase 1, na fase 3 ou não usar?
-8. Contas: Vercel e Supabase na mesma conta da Motors ou separadas? Há conta do Google Ads da V2O5 para o Planejador de Palavras-chave?
-9. Crédito "Desenvolvido por V2O5" no rodapé da Motors: pode?
-10. Dados do case: você exporta o relatório de primeira resposta do Chatwoot e o Search Console da Motors, ou libera o acesso para eu buscar?
-11. CNAE: conferir com o contador se os códigos do CNPJ cobrem site, sistema e tráfego.
+1. Infraestrutura dos clientes: na conta da V2O5, incluída na mensalidade, ou na conta da loja?
+2. Site institucional para outros setores: fica a partir de R$ 3.900 ou sobe junto com o de estoque?
+3. Endereço: o de Almirante Tamandaré é comercial? Se for residencial, o Perfil de Empresa fica como empresa de área de serviço, sem endereço visível, e o site mostra só cidade e estado.
+4. Fundador: foto para a página Sobre e para os guias.
+5. Agenda: Cal.com, agenda do Google ou só WhatsApp?
+6. GTM server-side na fase 1, na fase 3 ou não usar?
+7. Contas: Vercel e Supabase na mesma conta da Motors ou separadas? Há conta do Google Ads da V2O5 para o Planejador de Palavras-chave?
+8. Crédito "Desenvolvido por V2O5" no rodapé da Motors: pode?
+9. Dados do case: você exporta o relatório de primeira resposta do Chatwoot e o Search Console da Motors, ou libera o acesso para eu buscar?
+10. CNAE: conferir com o contador se os códigos do CNPJ cobrem site, sistema e tráfego.
 
 ## 13. Riscos
 
