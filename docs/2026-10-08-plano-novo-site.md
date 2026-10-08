@@ -1,6 +1,6 @@
 # Novo site da V2O5: projeto e escopo
 
-Versão 2, 08/10/2026, com as decisões do dia (seção 12). Nada foi implementado.
+Versão 3, 08/10/2026, com as decisões do dia (seção 12). Nada foi implementado.
 
 ## 0. Resumo
 
@@ -80,7 +80,11 @@ Lidos do banco da Motors em 08/10/2026, só contagens. A tabela de leads começa
 
 Isso sustenta um case de sistema e de qualidade de dado: 95% dos leads do formulário chegam com o identificador que permite deduplicar a conversão na Meta, e cada lead sabe qual carro motivou o contato. Não sustenta ainda um case de resultado comercial: cinco semanas e três vendas registradas são pouco para afirmar ganho.
 
-Faltam três dados. O tempo de primeira resposta não está no banco (o campo `ultimo_contato_em` é outra coisa); o relatório de primeira resposta do Chatwoot tem. Tráfego orgânico e impressões estão no Search Console, que não foi consultado daqui. E o histórico anterior a setembro, se existir em outro lugar.
+Sobre tempo de resposta, o banco tem só um indicador indireto: o primeiro contato registrado no painel. Ele existe em 26 dos 56 leads, com mediana de cerca de 3 horas depois da entrada do lead e 10 leads atendidos em até 15 minutos. Isso mede o registro no painel e não a resposta no WhatsApp, então não entra no case. O tempo real de primeira resposta está nos relatórios do Chatwoot.
+
+A consulta encontrou um problema na operação da Motors. Até 22/09, respostas dadas no Chatwoot geravam eventos de contato no funil (30 e 32 por semana nas semanas de 14 e 21/09). Desde 23/09 não houve nenhum, embora as conversas continuem chegando e atualizando a tabela `atendimentos` todo dia. No mesmo período, as transferências automáticas por estagnação saltaram de cerca de 40 para 150 a 220 por dia: são 1.688 no total, para 50 leads, com um lead transferido 154 vezes. A régua da Motors não tem teto de transferências por decisão de 28/08, então o número em si é a régua funcionando; o que parece quebrado é o reconhecimento da resposta humana vinda do Chatwoot. Precisa ser investigado no repositório da Motors antes de o case falar de atendimento.
+
+Faltam dois dados que eu não consegui buscar daqui: o relatório de primeira resposta do Chatwoot (a chave da API está nas variáveis da Vercel e o acesso a credenciais foi bloqueado pela política de permissões desta sessão) e o Search Console (as credenciais do script `conteudo-seo/gsc.js` só existem no `.env.local` da sua máquina).
 
 Proposta: o case entra no lançamento com o que foi construído e os números acima, e ganha uma atualização com 90 dias de dado (cliques orgânicos, leads por mês por origem, vendas atribuídas).
 
@@ -96,7 +100,7 @@ Para revendas de veículos de todo o Brasil, a V2O5 monta a camada que gera e me
 
 Frase de posicionamento para testar: "Fique com o seu sistema de gestão. A camada que gera e mede a venda é sua."
 
-A diferença muda conforme o concorrente (seção 4.1). Frente aos sistemas de gestão e SaaS, é a posse e a profundidade: site com páginas de marca e modelo, atribuição até a venda. Frente às agências de nicho, é medir venda em vez de lead. Frente à Autoconf, que também é de Curitiba e também diz ter nascido dentro de uma loja, é a prova pública com números.
+A diferença muda conforme o concorrente (seção 4.1). Frente aos sistemas de gestão e SaaS, é a posse e a profundidade: site com páginas de marca e modelo, atribuição até a venda. Frente às agências de nicho, é medir venda em vez de lead. Frente à Autoconf, que também é da região de Curitiba e também diz ter nascido dentro de uma loja, é a prova pública com números.
 
 ### 3.2 Linhas de serviço
 
@@ -107,22 +111,43 @@ A diferença muda conforme o concorrente (seção 4.1). Frente aos sistemas de g
 | CRM e funil | Funil da loja com responsável, próximo passo, alerta de estagnação e motivo de perda | `/crm-para-revenda-de-carros` |
 | Rastreamento até a venda | GA4, GTM, API de Conversões da Meta, conversões offline do Google Ads, origem de cada venda | `/rastreamento-ate-a-venda` |
 | Integração com o sistema de gestão | Estoque e leads sincronizados com o Revenda Mais, como na Motors. Outros sistemas só ganham página quando a integração existir | `/integracao-revenda-mais` |
+| Gestão de tráfego | Google Ads e Meta otimizados pela venda registrada no CRM, com conversão offline. Só com o rastreamento ativo | `/trafego-pago-para-loja-de-carros` |
+
+Outros setores continuam atendidos (decidido em 08/10). A home tem um bloco curto para eles, que leva a `/servicos` e às páginas genéricas da fase 2.
 
 A porta de entrada continua sendo um diagnóstico gratuito, com entrega concreta: em uma conversa de 45 minutos a V2O5 olha o site, os anúncios, o atendimento e o funil da loja, e em até 24 h envia o mapa com as três mudanças de maior retorno, custo e prazo. O "Start Digital" sai do cardápio público e vira a etapa de fundação dos projetos de site (decidido em 08/10).
 
 ### 3.3 Preço
 
-Decidido em 08/10: publicar. A proposta é implantação mais mensalidade, com "a partir de" em cada página de linha, uma página `/precos` com os pacotes e `offers` no schema. A mensalidade cobre hospedagem, o agente de IA rodando, manutenção e o acompanhamento dos números.
+Decidido em 08/10: publicar. Proposta abaixo para você validar contra as suas horas e custos. A lógica: implantação mais mensalidade, sem fidelidade, preço "a partir de" em cada página de linha, uma página `/precos` com os pacotes e `offers` no schema. A implantação pode ser paga metade na assinatura e metade na entrega, ou parcelada em até 6 vezes.
 
-O que o lojista já paga, pelas páginas públicas dos fornecedores em 08/10/2026:
+| Linha | Implantação a partir de | Mensalidade a partir de | O que a mensalidade cobre |
+|---|---|---|---|
+| Site de estoque | R$ 5.900 | R$ 490 | Hospedagem, sincronização do estoque, manutenção, SEO técnico contínuo, relatório mensal |
+| Atendimento com IA no WhatsApp | R$ 3.900 | R$ 790 | Agente rodando, uso do modelo de IA dentro de um teto de conversas, ajustes de roteiro |
+| CRM e funil | R$ 4.900 | R$ 590 | Painel, régua de alertas, usuários da loja, suporte |
+| Rastreamento até a venda | R$ 2.900 | R$ 290 | Monitoramento da qualidade do dado, relatório de origem das vendas |
+| Gestão de tráfego (Google Ads e Meta) | sem implantação com o rastreamento ativo | R$ 1.800 + verba | Campanhas otimizadas pela venda registrada no CRM, não pelo lead |
+| Pacote completo (site, IA, CRM, rastreamento e integração com o Revenda Mais) | R$ 14.900 | R$ 1.690 | Tudo das linhas acima, menos tráfego |
+| Pacote completo com tráfego | R$ 14.900 | R$ 2.990 + verba | |
+| Diagnóstico | grátis | | |
+
+Fora do preço: verba de mídia (paga direto ao Google e à Meta), custo por mensagem da Meta quando a loja usar a API oficial do WhatsApp, e produção de fotos e vídeos.
+
+Para outros setores, a mesma lógica com preço de entrada menor: site institucional a partir de R$ 3.900 + R$ 290/mês, agente de IA no WhatsApp a partir de R$ 3.900 + R$ 790/mês, automação no n8n a partir de R$ 1.900 por fluxo, gestão de tráfego a partir de R$ 1.800/mês.
+
+Como esses números se comparam com o mercado, pelas páginas públicas em 08/10/2026:
 
 | Fornecedor | Preço publicado |
 |---|---|
 | Revenda Mais | Gerencial R$ 600/mês + adesão; CRM + R$ 500; NF-e + R$ 400; site sem preço publicado |
 | Autoconf | R$ 299 a R$ 899/mês; plano com agente de IA R$ 1.199 |
 | AutoSDR | R$ 387, R$ 777 ou R$ 1.297/mês, sem fidelidade |
+| IAEO (agência de IA, fora do setor) | Chatbot R$ 2 a 5 mil/mês; automação R$ 5 a 15 mil; sistema R$ 15 a 50 mil |
 
-A comparação que a página de preço precisa sustentar é custo por venda, não por mês: o que a loja paga pela camada da V2O5 contra o que ela gasta em portal e mídia para cada carro vendido. Os valores são seus (seção 12).
+A mensalidade do pacote completo fica perto da pilha do Revenda Mais e abaixo do chatbot da IAEO, sem substituir o sistema de gestão da loja. O argumento da página de preço é custo por venda. O plano de mídia da Motors usa como referência uma margem bruta média de R$ 7.000 por carro; com essa margem, uma venda a mais a cada quatro meses paga a mensalidade do pacote completo (4 × R$ 1.690 = R$ 6.760).
+
+Duas escolhas mudam o preço e são suas (seção 12). Uma é onde fica a infraestrutura: na conta da V2O5, incluída na mensalidade, ou na conta da loja, paga por ela direto à Vercel e ao Supabase. A outra é a cláusula de saída: recomendo que, se a loja cancelar, receba o código, os dados e o domínio em até 15 dias. É o que torna verdadeira a frase "a camada é sua".
 
 ### 3.4 Marca
 
@@ -130,15 +155,17 @@ V2O5 é a fórmula do pentóxido de vanádio, catalisador usado na produção in
 
 O vanádio dá também o sistema de cor. Em solução, cada estado de oxidação tem uma cor: V²⁺ violeta, V³⁺ verde, V⁴⁺ azul, V⁵⁺ amarelo. No site, elas viram as etapas do lead: site (violeta), atendimento com IA (verde), CRM (azul) e venda rastreada (âmbar). O âmbar do V⁵⁺, o estado do V2O5, é a única cor de ação.
 
-Proposta visual no canvas [Marca V2O5: propostas](https://claude.ai/artifact/TJi91r21pMCLXUxL3AEYT3):
+Proposta visual no canvas [Marca V2O5](https://claude.ai/artifact/TJi91r21pMCLXUxL3AEYT3):
 
-- Direção B, recomendada: um funil visto de cima. É uma pirâmide de base quadrada (no cristal de V2O5, cada vanádio fica dentro de uma pirâmide de base quadrada formada por cinco oxigênios) com o vértice deslocado e marcado em âmbar. Funciona a 16 px, no avatar do WhatsApp e no favicon. O vértice fora do centro evita a leitura de "X numa caixa".
+- Direção B, escolhida em 08/10: um funil visto de cima. É uma pirâmide de base quadrada (no cristal de V2O5, cada vanádio fica dentro de uma pirâmide de base quadrada formada por cinco oxigênios) com o vértice deslocado e marcado em âmbar. Funciona a 16 px, no avatar do WhatsApp e no favicon. O vértice fora do centro evita a leitura de "X numa caixa".
 - Direção A: só tipográfica, V₂O₅ com os índices em mono e âmbar. Mais direta, mas o selo pequeno vira um "V" e perde a fórmula.
 - Cores com contraste medido, tipografia (Geist e Geist Mono, duas famílias como na Motors) e aplicações (topo do site, imagem de compartilhamento, conversa no WhatsApp).
 
-Forma fixa do nome, recomendada: "V2O5 Tecnologia", com algarismos normais no texto corrido, igual no site, no schema, no Perfil de Empresa, no WhatsApp Business e nas redes. Tira a marca da colisão com o composto químico sem o trocadilho, que se perde na fala e em minúsculas. "V2O5 ConsultorIA" entra no schema como `alternateName`, para quem já conhecia o nome. A assinatura "Sites, CRM e IA para revendas de veículos" acompanha o nome e pode mudar com o foco; o nome não muda.
+Decidido em 08/10: direção B, e a forma fixa do nome é o nome fantasia do CNPJ, "V2O5 Vendas e Tecnologia", com algarismos normais no texto corrido. Ela vai igual no site, no schema, no Perfil de Empresa, no WhatsApp Business e nas redes. O logo usa só "V2O5"; o nome completo aparece no texto, no rodapé e nos perfis.
 
-O Google pede que o nome no Perfil de Empresa seja o que a empresa usa no mundo real. Se o nome fantasia do CNPJ for outro, vale alinhar os dois.
+Dados públicos do CNPJ 68.490.470/0001-14, consultados em 08/10/2026: razão social V2O5 Tecnologia da Informação Ltda., nome fantasia V2O5 Vendas e Tecnologia, situação ativa desde 10/08/2026, microempresa no Simples Nacional, sede em Almirante Tamandaré/PR, na região metropolitana de Curitiba. No schema entram `legalName`, `taxID` e o nome fantasia como `name`; "V2O5" e "V2O5 ConsultorIA" entram como `alternateName`.
+
+Um ponto para o contador: a atividade principal registrada é intermediação e agenciamento de serviços (7490-1/04), e as secundárias incluem suporte técnico em TI e promoção de vendas. Desenvolvimento de software sob encomenda e agência de publicidade não aparecem. Vale confirmar se os códigos atuais cobrem a emissão de nota para site, sistema e gestão de tráfego.
 
 ## 4. Mercado, busca e arquitetura de páginas
 
@@ -166,7 +193,7 @@ Referências de design e motion fora do Brasil: [Sierra](https://sierra.ai), [De
 
 ### 4.2 Mapa de páginas
 
-Demanda e chance relativas entre si (A alta, M média, B baixa), estimadas por autocomplete e SERP em 08/10/2026, sem ferramenta paga. A home deixa de mirar Curitiba; a cidade aparece como base da empresa, no Sobre e no schema.
+Demanda e chance relativas entre si (A alta, M média, B baixa), estimadas por autocomplete e SERP em 08/10/2026, sem ferramenta paga. A home deixa de mirar Curitiba; a sede, em Almirante Tamandaré, aparece no Sobre e no schema.
 
 | Página | Busca-alvo | Demanda | Chance | Fase |
 |---|---|---|---|---|
@@ -181,7 +208,8 @@ Demanda e chance relativas entre si (A alta, M média, B baixa), estimadas por a
 | `/sobre`, `/diagnostico`, `/diagnostico/recebido` (sem indexação), `/privacidade` | marca, conversão | | | 1 |
 | `/site-para-loja-de-motos` | site para loja de motos | B | A | 2 |
 | `/guias` e primeira onda (abaixo) | informacional com saída comercial | B a M | M a A | 2 |
-| `/trafego-pago-para-loja-de-carros` | tráfego pago e marketing para loja de carros | M | M | 2, se a V2O5 vender gestão de mídia |
+| `/trafego-pago-para-loja-de-carros` | tráfego pago e marketing para loja de carros | M | M | 1 |
+| `/servicos`, `/agente-de-ia-para-whatsapp`, `/consultoria-n8n`, `/criacao-de-sites` | as buscas genéricas da primeira pesquisa, para outros setores | A a B | B a M | 2 |
 | `/integracao-autoconf` e afins | autoconf api | B | A | Só quando a integração existir |
 | `/ferramentas/raio-x-do-site` | | | | 3 |
 
@@ -228,7 +256,7 @@ Herdado da Motors e aplicado desde o primeiro deploy:
 
 Um grafo por página, montado por funções puras e testado pela contagem de nós, como na Motors:
 
-- `Organization` + `ProfessionalService` com `@id` estável, nome fixo da marca, `sameAs` para Perfil de Empresa, Instagram e LinkedIn, `areaServed` Brasil, com endereço-base em Curitiba;
+- `Organization` + `ProfessionalService` com `@id` estável, nome fixo da marca, `sameAs` para Perfil de Empresa, Instagram e LinkedIn, `areaServed` Brasil, `legalName` e `taxID` do CNPJ, endereço com cidade e estado (Almirante Tamandaré, PR);
 - `Person` do fundador (`/sobre#autor`), ligado como autor dos guias e como `founder`;
 - `Service` em cada página de linha, com `provider` apontando para a organização e `offers` com o preço "a partir de";
 - `Article` e `FAQPage` nos guias; `BreadcrumbList` em todas as internas;
@@ -254,7 +282,7 @@ Ações, em ordem de custo:
 2. Perfil de Empresa no Google criado ou revisado, com pedido de avaliação a cada projeto entregue.
 3. Crédito "Desenvolvido por V2O5" no rodapé da Motors e dos próximos clientes, com permissão.
 4. Instagram e LinkedIn reais no ar antes do lançamento, e artigos do fundador no LinkedIn com dado da operação da Motors.
-5. Ecossistema do setor: pedir listagem nas páginas de parceiros e integrações do Revenda Mais; Fenauto (cerca de 48 mil revendas; o Congresso Internacional Fenauto é de 11 a 13/11/2026, no Expo Center Norte, em São Paulo); Assovepar, no Paraná (Liquida Assovepar e Congresso Automotivo na FIEP); mídia do setor (Garagem360, AutoData, Bem Paraná, Tribuna PR); educadores de lojistas (G30 IA, Mentoria TCAR, IBAUTO), como convidado.
+5. Ecossistema do setor: pedir listagem nas páginas de parceiros e integrações do Revenda Mais; Fenauto (cerca de 48 mil revendas; o congresso de 11 a 13/11/2026 fica de fora por decisão de 08/10); Assovepar, no Paraná (Liquida Assovepar e Congresso Automotivo na FIEP); mídia do setor (Garagem360, AutoData, Bem Paraná, Tribuna PR); educadores de lojistas (G30 IA, Mentoria TCAR, IBAUTO), como convidado.
 6. Comunidades técnicas de n8n, Chatwoot e Evolution API, com o case técnico.
 7. Vídeos curtos no YouTube com "V2O5" no título, mostrando um fluxo funcionando.
 
@@ -382,15 +410,16 @@ Para os 90 dias seguintes (acompanhamento, não critério de aceite): leads qual
 
 ### Fase 0: decisões
 
-- respostas pendentes da seção 12, com os valores de preço;
-- números complementares do case: relatório de primeira resposta do Chatwoot e Search Console da Motors;
+- respostas pendentes da seção 12 e validação da tabela de preço;
+- números complementares do case: relatório de primeira resposta do Chatwoot e exportação do Search Console da Motors (seção 2.1 explica por que não saíram daqui);
+- investigação, no repositório da Motors, da parada do reconhecimento de respostas do Chatwoot desde 23/09;
 - validação do mapa de páginas no Planejador de Palavras-chave;
-- escolha da direção de logo no canvas e, em seguida, dois estudos visuais da home.
+- logo final vetorizado a partir da direção B e, em seguida, dois estudos visuais da home.
 
 ### Fase 1: lançamento
 
 - base do projeto (Next.js, tokens, fontes, primitivos, testes de trava, CI, cabeçalhos de segurança);
-- páginas: home, cinco páginas de linha, case Motors, preços, sobre, diagnóstico e recebido, privacidade, 404;
+- páginas: home, seis páginas de linha, case Motors, preços, sobre, diagnóstico e recebido, privacidade, 404;
 - SEO técnico, schema, sitemap, robots, `llms.txt`, redirecionamentos;
 - formulário, `/api/leads`, Supabase, Turnstile, rate limit, webhook n8n, mensagem automática no WhatsApp;
 - camada de dados, GA4, CAPI pelo servidor, captura de primeiro e último toque, consentimento no modelo da Motors;
@@ -402,7 +431,8 @@ O WordPress fica no ar em subdomínio de backup por 30 dias antes de cancelar a 
 ### Fase 2: conteúdo e alcance
 
 - hub `/guias` e a primeira onda (seção 4.2);
-- `/site-para-loja-de-motos` e, se for o caso, `/trafego-pago-para-loja-de-carros`;
+- `/site-para-loja-de-motos`;
+- `/servicos` e as páginas genéricas para outros setores;
 - atualização do case Motors com 90 dias de dado;
 - ecossistema do setor: listagem de parceiro no Revenda Mais, Fenauto, Assovepar, mídia do setor.
 
@@ -413,43 +443,44 @@ O WordPress fica no ar em subdomínio de backup por 30 dias antes de cancelar a 
 - conversões offline do CRM para Google Ads e Meta;
 - GTM server-side, se a decisão da 7.2 for por ele;
 - "este site em números" com dado de campo;
-- páginas para outros setores, se a V2O5 continuar vendendo fora do automotivo.
 
 ## 11. Fora do escopo
 
 - painel administrativo para editar o site (o conteúdo vive no repositório);
 - versão em inglês;
 - loja ou pagamento online;
-- mídia paga (o site fica pronto para ela; campanha é outro projeto);
+- campanhas de mídia da própria V2O5 (o site fica pronto para elas; rodar a campanha é outro projeto);
 - migração do e-mail da Hostinger;
 - página de integração com sistema de gestão que a V2O5 ainda não integrou;
-- páginas locais por cidade (a venda é nacional; o Perfil de Empresa cobre a base em Curitiba).
+- páginas locais por cidade (a venda é nacional; o Perfil de Empresa cobre a sede).
 
 ## 12. Decisões
 
 ### Tomadas em 08/10/2026
 
 1. Case Motors: nome, logo e números podem ser publicados, e o case declara que o fundador da V2O5 assina os guias da loja.
-2. Público: Brasil inteiro, com revendas de veículos desde a home.
+2. Público: Brasil inteiro, com revendas de veículos desde a home. Outros setores continuam atendidos.
 3. Start Digital: sai do cardápio público e vira a fundação dos projetos de site.
-4. Preço: publicar "a partir de" por linha.
-5. Marca: o nome vem do pentóxido de vanádio; o logo pode mudar (proposta no canvas, seção 3.4).
+4. Preço: publicar "a partir de" por linha (proposta na seção 3.3).
+5. Marca: direção B; nome fixo "V2O5 Vendas e Tecnologia", CNPJ 68.490.470/0001-14.
 6. Consentimento: o mesmo modelo da Motors.
+7. Gestão de tráfego entra como linha de serviço, com página na fase 1.
+8. rede-auto e Motogestor-v3 são produtos em estudo, fora do site por ora; o Motogestor vai para a linha da Motors Store.
+9. Fenauto 2026: não.
 
 ### Em aberto
 
-1. Logo: direção A ou B? Forma fixa "V2O5 Tecnologia"? Qual o nome fantasia no CNPJ?
-2. Preços: valores de implantação e mensalidade por linha e do pacote completo.
-3. Outros setores: a V2O5 continua aceitando projetos fora do automotivo? Se sim, a home ganha um bloco "outros setores" e as páginas genéricas entram na fase 3.
-4. Gestão de mídia: a V2O5 vende tráfego pago para revendas? Define se `/trafego-pago-para-loja-de-carros` existe.
-5. Outros projetos: rede-auto e Motogestor-v3 parecem do setor. São clientes, produtos ou estudos? Algum vira case?
-6. Fundador: foto para a página Sobre e para os guias.
-7. Endereço: a V2O5 tem endereço para o Perfil de Empresa ou atende como empresa de área de serviço? CNPJ para o rodapé?
-8. Agenda: Cal.com, agenda do Google ou só WhatsApp?
-9. GTM server-side na fase 1, na fase 3 ou não usar?
-10. Contas: Vercel e Supabase na mesma conta da Motors ou separadas? Há conta do Google Ads da V2O5 para o Planejador de Palavras-chave?
-11. Crédito "Desenvolvido por V2O5" no rodapé da Motors: pode?
-12. Fenauto, de 11 a 13/11/2026: vale ir? O site ficaria no ar antes?
+1. Preço: a tabela da seção 3.3 fecha com as suas horas e custos?
+2. Infraestrutura dos clientes: na conta da V2O5, incluída na mensalidade, ou na conta da loja?
+3. Cláusula de saída: a loja leva código, dados e domínio se cancelar? (recomendado)
+4. Endereço: o de Almirante Tamandaré é comercial? Se for residencial, o Perfil de Empresa fica como empresa de área de serviço, sem endereço visível, e o site mostra só cidade e estado.
+5. Fundador: foto para a página Sobre e para os guias.
+6. Agenda: Cal.com, agenda do Google ou só WhatsApp?
+7. GTM server-side na fase 1, na fase 3 ou não usar?
+8. Contas: Vercel e Supabase na mesma conta da Motors ou separadas? Há conta do Google Ads da V2O5 para o Planejador de Palavras-chave?
+9. Crédito "Desenvolvido por V2O5" no rodapé da Motors: pode?
+10. Dados do case: você exporta o relatório de primeira resposta do Chatwoot e o Search Console da Motors, ou libera o acesso para eu buscar?
+11. CNAE: conferir com o contador se os códigos do CNPJ cobrem site, sistema e tráfego.
 
 ## 13. Riscos
 
@@ -457,7 +488,8 @@ O WordPress fica no ar em subdomínio de backup por 30 dias antes de cancelar a 
 |---|---|
 | Troca de DNS derrubar e-mail ou os subdomínios da VPS | Mudar só o registro do apex e do `www`; conferir MX, SPF, DKIM, DMARC e os A de `n8n`, `chat`, `chatwoot` e `evolution` antes e depois |
 | Case com pouco tempo de dado ser lido como exagero | Publicar só o que a seção 2.1 sustenta, com período, e atualizar com 90 dias |
-| Autoconf ocupar o mesmo discurso em Curitiba | Prova numérica e pública, e a posse do sistema como diferença |
+| Case falar de atendimento com a integração do Chatwoot parada | Corrigir na Motors antes; até lá, o case não cita tempo de resposta |
+| Autoconf ocupar o mesmo discurso na região de Curitiba | Prova numérica e pública, e a posse do sistema como diferença |
 | Prometer integração que não existe | Página de integração só depois da integração em produção |
 | Motion pesar e contradizer a promessa de performance | Orçamento de JS por rota e Lighthouse CI bloqueando o merge |
 | Conteúdo de IA genérico | Método da Motors: critério do lugar vazio, dado próprio, humanizer e teste de marcas |
