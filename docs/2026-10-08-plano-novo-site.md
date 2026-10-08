@@ -4,7 +4,9 @@ Rascunho para discussão, 08/10/2026. Nada foi implementado. As decisões em abe
 
 ## 0. Resumo
 
-O site atual vende IA, automação e produção de sites, mas é um WordPress com Elementor que carrega uma foto de 1,4 MB, abre em inglês para o Google, não tem descrição em nenhuma página e ainda publica o "Hello world!" de instalação. Quem chega pela indicação de um cliente da Motors e abre o v2o5.com.br encontra o oposto do que foi entregue lá.
+O site atual vende IA, automação e produção de sites, mas é um WordPress com Elementor que carrega uma foto de 1,4 MB, abre em inglês para o Google, não tem descrição em nenhuma página e ainda publica o "Hello world!" de instalação. Quem busca "V2O5" encontra o pentóxido de vanádio: a empresa não aparece. Quem chega pela indicação de um cliente da Motors e abre o v2o5.com.br encontra o oposto do que foi entregue lá.
+
+Em Curitiba já existe concorrente fazendo o básico bem feito: a IAEO tem página de preço, páginas por nicho, fundadores identificados e `llms.txt`. O espaço que sobra para a V2O5 é o que ninguém da pesquisa mostrou: case com cliente nomeado e números, e site, rastreamento e automação entregues como um sistema só.
 
 A proposta é reconstruir o site sobre a mesma base técnica da Motors (Next.js, Tailwind, Supabase, Vercel, n8n), com identidade própria, e tratar o site como a primeira prova da oferta. Cada coisa que a V2O5 promete a um cliente precisa estar funcionando no próprio site e ser verificável por quem visita: velocidade medida, SEO, rastreamento até a venda e atendimento automatizado no WhatsApp.
 
@@ -14,31 +16,35 @@ A Motors entra como case principal. É o maior ativo comercial da V2O5 hoje, e o
 
 ### 1.1 O que foi medido
 
-Coleta feita em 08/10/2026 a partir deste ambiente. Lighthouse 12.6, perfil mobile com limitação simulada. Os números de laboratório passam por um proxy e servem para comparar, não como valor absoluto; a Motors foi medida nas mesmas condições.
+Coleta feita em 08/10/2026 a partir deste ambiente. Lighthouse 12.6, perfil mobile com limitação simulada. Os números de laboratório passam por um proxy e servem para comparar, não como valor absoluto; Motors e IAEO foram medidas nas mesmas condições.
 
 | Item | v2o5.com.br hoje | Observação |
 |---|---|---|
 | Plataforma | WordPress 6.8, Astra, Elementor, Hostinger (LiteSpeed) | 5 plugins na home, jQuery, Font Awesome inteiro |
-| Performance (Lighthouse mobile) | 51 | |
+| Performance (Lighthouse mobile) | 51 | IAEO: 66. Motors: 44 |
 | LCP | 13,5 s | O elemento LCP é o fundo do hero: `12-1.jpg`, 1.397 KiB |
 | TBT | 600 ms | GA via Site Kit (175 KiB) e o cliente de login do Google (100 KiB) sem uso visível |
-| Peso total | 2.074 KiB | Para 2.142 caracteres de texto na home |
+| Peso total | 2.074 KiB | Para 2.142 caracteres de texto na home. IAEO: 633 KiB |
 | Idioma declarado | `lang="en-US"` | Site em português |
 | Meta description | Nenhuma página tem | |
 | Dados estruturados (JSON-LD) | Nenhum | Sem Organization, Service, FAQ ou Person |
 | Hierarquia de títulos | H3 antes do H1 | O método "em 4 passos" está numerado 1, 2, 2, 4 |
 | Sitemap | Lista `/hello-world/`, `/test-post/` e `/blog/` vazio | As três respondem 200 |
-| Sitemap de usuários | Publica `/author/dyones/` | Expõe o login do WordPress |
+| Usuários expostos | `/author/dyones/` no sitemap e `/wp-json/wp/v2/users` aberto | Entrega o login do administrador do WordPress |
+| Redes sociais | Ícones de LinkedIn, Facebook, Twitter e WordPress com `href="#"` | São os ícones padrão do tema |
+| Presença na busca | Buscas por "V2O5", "V2O5 ConsultorIA" e pelo domínio só trazem o composto químico | Não foi achado Perfil de Empresa no Google, Instagram ou LinkedIn da empresa. Confirmar no Search Console |
 | Páginas | 4 (início, jornada, soluções, contrate) | Nenhuma mira uma busca com demanda |
 | Prova | Nenhum case, número, logo, depoimento ou foto | |
 | Rastreamento | Tag Google `GT-PBNTV3FG` via Site Kit | Sem eventos de conversão, sem Meta, sem UTM no lead |
 | Conversão | Botões levam a `/contrate`, que leva a um Typebot | Nenhum link de WhatsApp no site |
 
+Até o lançamento, uma correção vale ser feita no WordPress atual: fechar a listagem de usuários (`/wp-json/wp/v2/users` e o sitemap de autores).
+
 ### 1.2 O problema de fundo
 
-A V2O5 diz que faz sites que ranqueiam e convertem, rastreamento e automação com IA. O site não ranqueia (não há página mirando busca nenhuma), não mede conversão e não automatiza nada que o visitante perceba. Para um prospect técnico ou para alguém que compara agências, isso encerra a conversa.
+A V2O5 diz que faz sites que ranqueiam e convertem, rastreamento e automação com IA. O site não ranqueia (não há página mirando busca nenhuma e nem a marca aparece), não mede conversão e não automatiza nada que o visitante perceba. Para um prospect técnico ou para alguém que compara agências, isso encerra a conversa.
 
-Há também um problema de oferta. A página de soluções põe no mesmo nível "Instagram, Facebook, Google Meu Negócio, e-mail profissional" e "automações e SaaS sob medida". O pacote de presença básica é o mais fácil de entender e puxa a percepção de preço para baixo. A promessa "escalamos seu negócio com IA em 10 dias" aparece sem nenhum número que a sustente, e a escassez "só 5 diagnósticos por semana" é um recurso comum em landing pages que o público já reconhece.
+Há também um problema de oferta. A página de soluções põe no mesmo nível "Instagram, Facebook, Google Meu Negócio, e-mail profissional" e "automações e SaaS sob medida". O pacote de presença básica é o mais fácil de entender e puxa a percepção de preço para baixo. A promessa "escalamos seu negócio com IA em 10 dias" aparece sem nenhum número que a sustente, e a escassez "só 5 diagnósticos por semana" é um recurso comum em landing pages que o público já reconhece. O nome "Start Digital" tem outro problema: o autocomplete do Google completa com "reclame aqui", "pablo marçal" e "kiwify".
 
 ### 1.3 O que aproveitar
 
@@ -57,6 +63,8 @@ O que a V2O5 entregou para a Motors Store, segundo o repositório `motors-site-o
 
 Isso é um case completo de aquisição e operação, do anúncio à venda. Os outros repositórios da conta (smart-parking-v2o5, rede-auto, freespot, Motogestor-v3, 16V) podem render mais cases ou produtos; depende do que pode ser mostrado (seção 12).
 
+O site da Motors não tem crédito nem link para a V2O5. Um "Desenvolvido por V2O5" no rodapé dela é a menção externa mais fácil de conseguir.
+
 O fato de o mesmo autor assinar os guias da Motors e fundar a V2O5 precisa aparecer no case de forma explícita. Esconder isso e ser descoberto depois custa mais do que declarar.
 
 ## 3. Posicionamento e oferta (proposta)
@@ -65,18 +73,18 @@ O fato de o mesmo autor assinar os guias da Motors e fundar a V2O5 precisa apare
 
 A V2O5 monta o sistema que leva o cliente do primeiro clique até a venda fechada: site que aparece no Google, rastreamento que diz de onde veio cada venda, e automação com IA que atende e acompanha o lead. O cliente fica com o sistema.
 
-O diferencial frente às agências de automação pesquisadas (seção 4.1) é juntar as três pontas num projeto só e provar com um case que tem número.
+Os concorrentes pesquisados vendem uma das pontas, ou as três como serviços separados (seção 4.1). Juntar as três num projeto e provar com um case nomeado é o que diferencia.
 
 ### 3.2 Linhas de serviço
 
 | Linha | O que entrega | Página |
 |---|---|---|
-| Sites que ranqueiam | Site ou landing em Next.js, SEO técnico, conteúdo com método, Core Web Vitals no verde | `/criacao-de-sites` |
-| Rastreamento e atribuição | GA4, GTM, Meta CAPI, conversões otimizadas do Google Ads, UTM e click ID no CRM, conversão offline | `/rastreamento-e-atribuicao` |
-| Automação e agentes de IA | Atendimento no WhatsApp com IA, n8n, integrações, follow-up, alertas de funil | `/automacao-com-ia` e `/agente-de-ia-whatsapp` |
-| Sistemas sob medida | CRM, painel, funil, integrações com ERP | `/sistemas-sob-medida` |
+| Sites que ranqueiam | Site ou landing em Next.js, SEO técnico, conteúdo com método, Core Web Vitals no verde. Inclui a fundação de presença (Perfil de Empresa no Google, domínio, e-mail) | `/criacao-de-sites-curitiba` |
+| Rastreamento e atribuição | GA4, GTM, API de Conversões da Meta, conversões otimizadas do Google Ads, UTM e click ID no CRM, conversão offline | `/rastreamento-de-conversoes` |
+| Automação e agentes de IA | Atendimento no WhatsApp com IA, n8n, integrações, follow-up, alertas de funil | `/agente-de-ia-para-whatsapp` e `/consultoria-n8n` |
+| Sistemas sob medida | CRM com WhatsApp, painel, funil, integrações com ERP | `/crm-com-whatsapp` |
 
-A porta de entrada continua sendo um diagnóstico gratuito, com entrega concreta: em uma conversa de 45 minutos a V2O5 olha site, rastreamento, atendimento e funil, e em até 24 h envia o mapa com as três mudanças de maior retorno, custo e prazo. O "Start Digital" (redes, Perfil de Empresa no Google, e-mail) sai do cardápio público e vira a etapa de fundação dentro dos projetos de site. Decisão em aberto na seção 12.
+A porta de entrada continua sendo um diagnóstico gratuito, com entrega concreta: em uma conversa de 45 minutos a V2O5 olha site, rastreamento, atendimento e funil, e em até 24 h envia o mapa com as três mudanças de maior retorno, custo e prazo. O "Start Digital" sai do cardápio público e vira a etapa de fundação dentro dos projetos de site. Decisão em aberto na seção 12.
 
 ### 3.3 Conceito de marca
 
@@ -84,30 +92,71 @@ V2O5 é a fórmula do pentóxido de vanádio, catalisador usado na produção in
 
 O vanádio tem uma propriedade visual que pode virar sistema de cor. Em solução, cada estado de oxidação tem uma cor: V²⁺ violeta, V³⁺ verde, V⁴⁺ azul, V⁵⁺ amarelo. Quatro estados, quatro linhas de serviço. O amarelo-âmbar do V⁵⁺ (o do V2O5) fica como cor de ação; as outras três aparecem só em diagramas e etiquetas das linhas.
 
-Precisa de confirmação: se o nome veio mesmo daí, e se a marca atual (logo e o trocadilho "ConsultorIA") fica.
+A mesma química é um problema de busca: "V2O5" sozinho é o composto. A marca precisa de uma forma fixa, usada igual no site, no schema, no Perfil de Empresa e nas redes. "V2O5 ConsultorIA" já existe e desambigua; a alternativa é "V2O5" sempre seguida do mesmo descritor (por exemplo "V2O5 · IA, automação e sites"). Decisão na seção 12.
 
 ## 4. Mercado, busca e arquitetura de páginas
 
+Sem ferramenta paga de SEO, a demanda foi inferida pelo autocomplete do Google e pelo que os concorrentes publicam. Isso mostra se existe busca, não quanta. Antes de escrever o texto final de cada página, os termos passam pelo Planejador de Palavras-chave do Google Ads, que é o critério 1 do método da Motors.
+
 ### 4.1 Concorrência e referências
 
-(preenchido a partir da pesquisa de mercado, ver abaixo)
+| Empresa | O que vende | O que faz bem | Onde falha |
+|---|---|---|---|
+| [IAEO](https://iaeo.com.br), Curitiba | Consultoria e implementação de IA | Página de preço (chatbot R$ 2 a 5 mil/mês, automação R$ 5 a 15 mil, sistema R$ 15 a 50 mil), páginas por nicho, schema local com coordenadas, fundadores identificados, `llms.txt` | Cases com percentual e sem nome de cliente. Lighthouse mobile 66, LCP 5,1 s |
+| [Thothn' Mkt](https://thothnmkt.com/agentes-de-ia/), Curitiba | Agentes de IA, sites e tráfego | Mix parecido com o da V2O5 | Imagens de placeholder, erros de digitação, telefone divergente, nenhuma prova |
+| [Inovação Web](https://inovacaoweb.com.br), São Paulo | Automação de vendas e atendimento com IA | Prova social mais forte do grupo (logos, Sebrae, cases com número e prazo), preço "a partir de" R$ 1.500 | Números sem fonte, escassez forçada, nenhum conteúdo |
+| [Dasckup](https://www.dasckup.com/automacao-para-empresas), São Paulo | n8n com IA | Calculadora de ROI, preço a partir de R$ 4.900 | Texto de exemplo esquecido na página de depoimentos, oferta diluída |
+| [Madweb](https://www.madweb.com.br/automacao-com-ia/), São Paulo | Agência completa com página de n8n | O modelo mais próximo de sites + automação + SEO, FAQ com schema | Estatísticas sem fonte, depoimento anônimo |
+| [AutoSDR](https://blog.autosdr.com.br) | CRM com IA para revendas (SaaS, a partir de R$ 297/mês) | Domina "crm para revenda" com conteúdo comparativo | É produto de prateleira; a V2O5 vende sob medida e integrado |
+
+O que isso muda no plano:
+
+- Publicar faixa de preço é o padrão entre os concorrentes mais fortes (IAEO, Inovação Web, Dasckup). Ficar sem preço passa a ser a exceção.
+- Nenhum deles tem case com cliente nomeado, período e fonte. É a vaga que o case da Motors ocupa.
+- Sites locais fracos como o da Thothn' mostram que dá para ganhar espaço em Curitiba com o básico bem feito.
+- Nenhum concorrente usa a própria performance como argumento. IAEO, o melhor deles, carrega em 5,1 s no mobile.
+
+Referências de design e motion fora do Brasil: [Sierra](https://sierra.ai) (Next.js, animações em Rive, tom editorial), [Decagon](https://decagon.ai) (números de prova na primeira dobra) e [Morningside AI](https://www.morningside.ai) (modelo de agência). Servem de régua de acabamento; o peso de JS delas não serve de modelo.
 
 ### 4.2 Mapa de páginas
 
-(preenchido a partir da pesquisa de mercado, ver abaixo)
+Confiança na demanda: A alta, M média, B baixa.
+
+| Página | Busca-alvo | Intenção | Demanda | Fase |
+|---|---|---|---|---|
+| `/` | automação com IA para empresas em Curitiba, marca | Comercial | M | 1 |
+| `/agente-de-ia-para-whatsapp` | agente de ia para whatsapp, automação de atendimento whatsapp com ia | Comercial | A, com SaaS disputando a versão genérica | 1 |
+| `/consultoria-n8n` | consultoria n8n, automação n8n para empresas | Comercial | B, com pouca concorrência | 1 |
+| `/criacao-de-sites-curitiba` | criação de site profissional curitiba, landing page curitiba | Comercial local | M | 1 |
+| `/rastreamento-de-conversoes` | api de conversões meta, rastreamento de conversões | Comercial técnica | M | 1 |
+| `/crm-com-whatsapp` | crm com whatsapp integrado e ia | Comercial | M | 1 |
+| `/cases/motors-store` | case de revenda em Curitiba | Prova | | 1 |
+| `/sobre` | V2O5, fundador | Marca e entidade | | 1 |
+| `/diagnostico` e `/diagnostico/recebido` | diagnóstico gratuito | Conversão (a segunda sem indexação) | | 1 |
+| `/privacidade` | | Obrigatória | | 1 |
+| `/ia-para-revenda-de-veiculos` | crm para revenda de carros, ia para revenda de veículos, site para loja de carros | Setor | M | 2 |
+| `/quanto-custa-agente-de-ia-whatsapp` | quanto custa um chatbot ou agente de ia para whatsapp | Pesquisa de compra | M | 2 |
+| `/quanto-custa-um-site` | quanto custa um site profissional | Pesquisa de compra | M | 2 |
+| `/guias` e primeira onda | ver abaixo | Informacional com saída comercial | B a M | 2 |
+| `/ia-para-clinicas` | agente de ia para clínicas | Setor | M | Só com case ou decisão de entrar no nicho |
+| `/ferramentas/raio-x-do-site` | | Captação | | 3 |
+
+Candidatos para a primeira onda de guias, todos com dado de operação real como ângulo: API oficial do WhatsApp ou Evolution API (custo e risco de bloqueio), API de Conversões ou só pixel, como integrar WhatsApp com CRM, como medir a venda offline que veio do Google Ads. Termos de "n8n vs make vs zapier" e de curso ficam de fora: há sites que dominam com seis ou mais páginas cada. Buscas com "grátis" ou "github" também ficam de fora, porque são de quem quer fazer sozinho.
+
+O endereço dos guias é `/guias/{slug}`, como na Motors.
 
 ### 4.3 Redirecionamentos do site atual
 
 | De | Para | Código |
 |---|---|---|
 | `/jornada/` | `/sobre` | 301 |
-| `/solucoes/` | `/` (ou `/servicos`, se existir hub) | 301 |
+| `/solucoes/` | `/` | 301 |
 | `/contrate/` | `/diagnostico` | 301 |
 | `/politica-privacidade/` | `/privacidade` | 301 |
 | `/blog/` | `/guias` | 301 |
 | `/author/dyones/` | `/sobre` | 301 |
 | `/hello-world/`, `/test-post/` | | 410 |
-| `/feed/`, `/comments/feed/`, `/wp-sitemap*.xml` | `/sitemap.xml` ou 410 | 301/410 |
+| `/feed/`, `/comments/feed/`, `/wp-sitemap*.xml` | `/sitemap.xml` | 301 |
 
 Os redirecionamentos ficam em `next.config.ts` e um teste trava a lista, como na Motors.
 
@@ -117,9 +166,9 @@ Herdado da Motors e aplicado desde o primeiro deploy:
 
 - `lang="pt-BR"`, `metadataBase` pelo domínio, canonical relativo por página e nunca no layout raiz;
 - título e descrição únicos por página, travados por teste;
-- `sitemap.ts` com `lastModified` real e `robots.ts` com o grupo de robôs de IA igual ao grupo geral;
-- `llms.txt` com os fatos citáveis da V2O5 e o índice de páginas, nos moldes do da Motors;
-- IndexNow por cron na Vercel;
+- `sitemap.ts` com `lastModified` real e `robots.ts` com os robôs de IA (GPTBot, OAI-SearchBot, ClaudeBot, PerplexityBot, Google-Extended) no mesmo grupo do geral, como na Motors;
+- Search Console e Bing Webmaster Tools, com IndexNow por cron na Vercel (o ChatGPT também busca pelo Bing);
+- `llms.txt` com os fatos citáveis da V2O5, como prioridade baixa: o Google diz que não precisa de arquivo especial para aparecer nos recursos de IA ([documentação](https://developers.google.com/search/docs/appearance/ai-features)), mas é barato e outros assistentes leem;
 - imagens via `next/image`, fontes locais com métricas de fallback, sem jQuery, sem biblioteca de ícones inteira;
 - 404 que mantém o status e oferece saída (serviços, cases, diagnóstico).
 
@@ -127,9 +176,9 @@ Herdado da Motors e aplicado desde o primeiro deploy:
 
 Um grafo por página, montado por funções puras e testado pela contagem de nós, como na Motors:
 
-- `Organization` + `ProfessionalService` com `@id` estável, `sameAs` para Instagram, LinkedIn e Perfil de Empresa, `areaServed` Curitiba e Brasil;
+- `Organization` + `ProfessionalService` com `@id` estável, nome fixo da marca, `sameAs` para Perfil de Empresa, Instagram e LinkedIn, `areaServed` Curitiba e Brasil;
 - `Person` do fundador (`/sobre#autor`), ligado como autor dos guias e como `founder`;
-- `Service` em cada página de linha, com `provider` apontando para a organização;
+- `Service` em cada página de linha, com `provider` apontando para a organização e `offers` com a faixa de preço, se for publicada;
 - `Article` e `FAQPage` nos guias; `BreadcrumbList` em todas as internas;
 - nos cases, `Article` com `about` apontando para a organização do cliente.
 
@@ -139,13 +188,24 @@ Sem `AggregateRating` próprio (regra T7 da Motors).
 
 O método da Motors (`conteudo-seo/pacote/00-guia-normativo.md`) vale quase inteiro: os cinco critérios eliminatórios para um tema entrar, a anatomia do guia (H1 igual à busca, resposta em duas frases no primeiro parágrafo, 3 a 6 H2, FAQ idêntico ao schema), uma única saída comercial por guia e publicação em ondas por cluster. As travas específicas de carro (T1, T2, T8) saem; entram travas da V2O5, por exemplo nunca prometer resultado sem número de case e nunca citar preço de ferramenta de terceiro sem data.
 
-O "lugar vazio" da V2O5 é escrever com dados de uma operação real (a da Motors, com autorização) sobre temas que concorrentes tratam em abstrato: quanto tempo de resposta no WhatsApp custa em venda, como medir de onde veio a venda quando o fechamento é offline, o que o pixel deixa de contar e o CAPI recupera.
+O lugar vazio da V2O5 é escrever com dados de uma operação real (a da Motors, com autorização) sobre temas que os concorrentes tratam em abstrato: quanto tempo de resposta no WhatsApp custa em venda, como medir de onde veio a venda quando o fechamento é offline, o que o pixel deixa de contar e o CAPI recupera.
 
 Os textos passam pelo humanizer e por um teste de marcas de IA, como na Motors.
 
 ### 4.7 Busca por IA (GEO/AEO)
 
-(preenchido a partir da pesquisa de mercado, ver abaixo)
+O Google diz que AI Overviews e AI Mode usam os mesmos requisitos da busca comum e que não há otimização especial ([documentação](https://developers.google.com/search/docs/appearance/ai-features)). A base, então, é o SEO das seções anteriores. O que muda é o peso das menções fora do site: um estudo da Ahrefs com 75 mil marcas encontrou correlação de 0,66 a 0,74 entre menções da marca (na web e no YouTube) e visibilidade em respostas de IA, contra cerca de 0,2 para backlinks ([estudo](https://ahrefs.com/blog/ai-brand-visibility-correlations)).
+
+Ações, em ordem de custo:
+
+1. Nome, endereço e telefone iguais em todo lugar, e schema com `sameAs` (seção 4.5).
+2. Perfil de Empresa no Google criado ou revisado, com pedido de avaliação a cada projeto entregue.
+3. Crédito "Desenvolvido por V2O5" no rodapé da Motors e dos próximos clientes, com permissão.
+4. Instagram e LinkedIn reais no ar antes do lançamento, e artigos do fundador no LinkedIn.
+5. Diretórios de agências e listas da imprensa local.
+6. Vídeos curtos no YouTube com "V2O5" no título, mostrando um fluxo funcionando.
+
+As páginas que respostas de IA mais citam nesse mercado são as de preço, os cases com número e os FAQs de resposta direta. As três estão no mapa.
 
 ## 5. Design e motion
 
@@ -193,7 +253,7 @@ No rodapé, "este site em números": peso da página, LCP medido em campo pelo S
 
 - Case Motors com contexto, problema medido, o que foi construído, resultado em número, stack e depoimento. Depende de autorização e dos números (seção 12).
 - Fundador com nome, foto e trajetória na página Sobre e na assinatura dos guias.
-- Faixa de preço por linha de serviço ("projetos a partir de"), se você topar publicar. Filtra lead fora do perfil.
+- Faixa de preço por linha de serviço ("projetos a partir de"), se você topar publicar. Filtra lead fora do perfil e é o que os concorrentes mais fortes já fazem.
 - CNPJ, cidade e canais no rodapé.
 
 ## 7. Rastreabilidade
@@ -227,7 +287,7 @@ Conversões primárias: `generate_lead` e `schedule_call`. `click_whatsapp` com 
 
 ### 7.4 Atribuição até a venda
 
-O lead grava primeiro e último toque (UTM, `gclid`, `gbraid`, `wbraid`, `fbclid`, `_fbc`, `_fbp`, página de entrada, referrer). A Motors guarda só o último entre visitas; aqui os dois ficam. Quando o negócio fecha no CRM da V2O5, o n8n envia a conversão offline ao Google Ads (pelo `gclid`) e ao Meta (CAPI, evento de compra) com o valor. A V2O5 passa a saber quanto cada canal vendeu, e esse fluxo é o que ela vende como "rastreabilidade".
+O lead grava primeiro e último toque (UTM, `gclid`, `gbraid`, `wbraid`, `fbclid`, `_fbc`, `_fbp`, página de entrada, referrer). A Motors guarda só o último entre visitas; aqui os dois ficam. Quando o negócio fecha no CRM da V2O5, o n8n envia a conversão offline ao Google Ads (pelo `gclid`) e ao Meta (CAPI, evento de compra) com o valor. A V2O5 passa a saber quanto cada canal vendeu, e esse fluxo é o que ela vende como rastreabilidade.
 
 ### 7.5 Consentimento
 
@@ -268,26 +328,29 @@ Para os 90 dias seguintes (acompanhamento, não critério de aceite): leads qual
 
 ### Fase 0: decisões (esta conversa)
 
-Respostas da seção 12, números e autorização do case Motors, escolha visual entre os dois estudos.
+- respostas da seção 12;
+- números e autorização do case Motors;
+- validação do mapa de páginas no Planejador de Palavras-chave;
+- escolha visual entre os dois estudos da home.
 
 ### Fase 1: lançamento
 
 - base do projeto (Next.js, tokens, fontes, primitivos, testes de trava, CI, cabeçalhos de segurança);
-- páginas: home, quatro páginas de serviço, case Motors, sobre, diagnóstico e recebido, privacidade, 404;
+- páginas: home, cinco páginas de serviço, case Motors, sobre, diagnóstico e recebido, privacidade, 404;
 - SEO técnico, schema, sitemap, robots, `llms.txt`, redirecionamentos;
 - formulário, `/api/leads`, Supabase, Turnstile, rate limit, webhook n8n, mensagem automática no WhatsApp;
 - camada de dados, GA4, CAPI pelo servidor, captura de primeiro e último toque, consentimento;
-- deploy na Vercel, troca de DNS do apex e `www`, Search Console com o sitemap novo.
+- deploy na Vercel, troca de DNS do apex e `www`, Search Console e Bing Webmaster Tools com o sitemap novo;
+- entidade: Perfil de Empresa no Google, Instagram e LinkedIn reais, crédito no rodapé da Motors.
 
 O WordPress fica no ar em subdomínio de backup por 30 dias antes de cancelar a hospedagem.
 
 ### Fase 2: conteúdo e alcance
 
-- hub `/guias` e a primeira onda (6 a 8 guias de um cluster só);
-- página vertical de revendas de veículos;
-- até duas páginas locais de Curitiba, cada uma escrita à mão (sem gerador, mesma regra da Motors);
+- hub `/guias` e a primeira onda (4 a 6 guias de um cluster só);
+- `/ia-para-revenda-de-veiculos` e as duas páginas de preço;
 - segundo case, se houver;
-- Perfil de Empresa no Google revisado e NAP igual em todos os canais.
+- diretórios, imprensa local, LinkedIn do fundador.
 
 ### Fase 3: produto e atribuição completa
 
@@ -303,21 +366,24 @@ O WordPress fica no ar em subdomínio de backup por 30 dias antes de cancelar a 
 - versão em inglês (dá para planejar `hreflang` depois);
 - loja ou pagamento online;
 - mídia paga (o site fica pronto para ela; campanha é outro projeto);
-- migração do e-mail da Hostinger.
+- migração do e-mail da Hostinger;
+- páginas de nicho sem case ou sem decisão de entrar no nicho.
 
 ## 12. Decisões em aberto
 
-1. Público: PME em geral, com revendas de veículos como vertical de prova, ou foco declarado em revendas e concessionárias desde a home?
+1. Público e geografia: PME em geral com revendas de veículos como vertical de prova, ou foco declarado em revendas desde a home? Curitiba como praça principal ou Brasil inteiro com atendimento remoto?
 2. Oferta: o Start Digital sai do cardápio público e vira fundação dos projetos de site? O diagnóstico continua gratuito e a escassez "5 por semana" é real?
 3. Case Motors: pode publicar nome, logo e quais números (leads por mês, tempo de resposta, tráfego orgânico, conversões rastreadas)? Há depoimento? Como declarar a relação do fundador com a loja?
 4. Outros projetos (smart-parking-v2o5, rede-auto, freespot, Motogestor-v3, 16V): algum é cliente ou produto que possa virar case?
-5. Marca: o nome vem do pentóxido de vanádio? O logo atual fica? O "ConsultorIA" fica?
+5. Marca: o nome vem do pentóxido de vanádio? Qual a forma fixa da marca ("V2O5 ConsultorIA" ou "V2O5" com descritor)? O logo atual fica?
 6. Preço: publicar faixa "a partir de" por linha de serviço?
 7. Fundador: usar nome completo e foto (Dyones Oliveira, como nos guias da Motors)?
-8. Agenda: Cal.com, agenda do Google ou só WhatsApp?
-9. Consentimento: Consent Mode v2 com banner (recomendado) ou interesse legítimo como na Motors?
-10. GTM server-side já na fase 1, na fase 3 ou não usar?
-11. Contas: Vercel e Supabase na mesma conta/organização da Motors ou separadas?
+8. Endereço: a V2O5 tem endereço para o Perfil de Empresa ou atende como empresa de área de serviço, sem endereço público? Há CNPJ para o rodapé?
+9. Agenda: Cal.com, agenda do Google ou só WhatsApp?
+10. Consentimento: Consent Mode v2 com banner (recomendado) ou interesse legítimo como na Motors?
+11. GTM server-side já na fase 1, na fase 3 ou não usar?
+12. Contas: Vercel e Supabase na mesma conta da Motors ou separadas? Há conta do Google Ads da V2O5 para o Planejador de Palavras-chave?
+13. Crédito "Desenvolvido por V2O5" no rodapé da Motors: pode?
 
 ## 13. Riscos
 
@@ -327,4 +393,5 @@ O WordPress fica no ar em subdomínio de backup por 30 dias antes de cancelar a 
 | Case sem número vira texto de agência genérica | Não publicar o case sem pelo menos dois números com fonte e período |
 | Motion pesar e contradizer a promessa de performance | Orçamento de JS por rota e Lighthouse CI bloqueando o merge |
 | Conteúdo de IA genérico | Método da Motors: critério do lugar vazio, dado próprio, humanizer e teste de marcas |
-| Rastreamento sem consentimento adequado | Decisão 9 antes da fase 1, texto de privacidade revisado |
+| Marca seguir invisível por colidir com o composto químico | Forma fixa da marca, schema com `sameAs`, Perfil de Empresa e menções externas desde a fase 1 |
+| Rastreamento sem consentimento adequado | Decisão 10 antes da fase 1, texto de privacidade revisado |
