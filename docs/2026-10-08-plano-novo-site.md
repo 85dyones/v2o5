@@ -162,6 +162,9 @@ Proposta visual no canvas [Marca V2O5](https://claude.ai/artifact/TJi91r21pMCLXU
 - Direção B, escolhida em 08/10: um funil visto de cima. É uma pirâmide de base quadrada (no cristal de V2O5, cada vanádio fica dentro de uma pirâmide de base quadrada formada por cinco oxigênios) com o vértice deslocado e marcado em âmbar. Funciona a 16 px, no avatar do WhatsApp e no favicon. O vértice fora do centro evita a leitura de "X numa caixa".
 - Direção A: só tipográfica, V₂O₅ com os índices em mono e âmbar. Mais direta, mas o selo pequeno vira um "V" e perde a fórmula.
 - Cores com contraste medido, tipografia (Geist e Geist Mono, duas famílias como na Motors) e aplicações (topo do site, imagem de compartilhamento, conversa no WhatsApp).
+- Em comparação desde 08/10, a pedido, duas evoluções do logo atual (a nuvem com as soluções rodando dentro): C1, nuvem neural, em que a rede dentro da nuvem é a molécula V2O5 (dois vanádios e cinco oxigênios) e um sinal a percorre até o ponto âmbar; e C2, nuvem formada por três engrenagens que giram. As duas têm versão animada (só CSS ou SVG, parada com redução de movimento), estática e de impressão em uma cor. O quadro de comparação põe atual, B, C1 e C2 nas mesmas medidas.
+
+O conceito, reforçado em 08/10: a V2O5 é o catalisador, e o catalisador é a IA. A assinatura proposta passa a ser "Catalisador de vendas com IA", com o "IA" em âmbar, como o logo atual já fazia em "ConsultorIA". A frase "Sites, CRM e IA para revendas de veículos" sai da assinatura e fica como descrição no topo do site.
 
 Decidido em 08/10: direção B, e a forma fixa do nome é o nome fantasia do CNPJ, "V2O5 Vendas e Tecnologia", com algarismos normais no texto corrido. Ela vai igual no site, no schema, no Perfil de Empresa, no WhatsApp Business e nas redes. O logo usa só "V2O5"; o nome completo aparece no texto, no rodapé e nos perfis.
 
@@ -473,12 +476,13 @@ O WordPress fica no ar em subdomínio de backup por 30 dias antes de cancelar a 
 
 ### Em aberto
 
-1. Fundador: foto para a página Sobre e para os guias.
-2. Agenda: Cal.com, agenda do Google ou só WhatsApp?
-3. GTM server-side na fase 1, na fase 3 ou não usar?
-4. Contas: Vercel e Supabase na mesma conta da Motors ou separadas? Há conta do Google Ads da V2O5 para o Planejador de Palavras-chave?
-5. Crédito "Desenvolvido por V2O5" no rodapé da Motors: pode?
-6. CNAE: conferir com o contador se os códigos do CNPJ cobrem site, sistema e tráfego.
+1. Logo: confirmar a direção B ou trocar por C1 ou C2 depois da comparação no canvas.
+2. Fundador: foto para a página Sobre e para os guias.
+3. Agenda: Cal.com, agenda do Google ou só WhatsApp?
+4. GTM server-side na fase 1, na fase 3 ou não usar?
+5. Contas: Vercel e Supabase na mesma conta da Motors ou separadas? Há conta do Google Ads da V2O5 para o Planejador de Palavras-chave?
+6. Crédito "Desenvolvido por V2O5" no rodapé da Motors: pode?
+7. CNAE: conferir com o contador se os códigos do CNPJ cobrem site, sistema e tráfego.
 
 ## 13. Riscos
 
