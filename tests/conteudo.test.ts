@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { CASE, FRENTES, LINHAS, PILARES, TITULO_DA_HOME, VISAO_360 } from "@/conteudo/home";
+import { CASE, FRENTES, HERO, LINHAS, PILARES, TITULO_DA_HOME, VISAO_360 } from "@/conteudo/home";
 import { arquivos, ler, semComentarios } from "./fonte";
 
 /**
@@ -89,6 +89,13 @@ describe("os dois pilares do H1", () => {
     expect(mapa).toMatch(/Perfil da Empresa no Google/);
     expect(mapa).toMatch(/SEO/);
     expect(mapa).toMatch(/Google e na Meta/);
+  });
+
+  // Medido no Lighthouse mobile: com 279 caracteres o subtítulo ocupava mais
+  // tela que o H1 e virava o LCP. Com 174, fica em 72% a 81% da área do H1
+  // entre 360 e 430 px de largura.
+  it("o subtítulo do hero é curto o bastante para o H1 seguir como LCP no celular", () => {
+    expect(HERO.subtitulo.length).toBeLessThanOrEqual(180);
   });
 
   it("a frase do fundador só usa o que está publicado (informática desde 1992)", () => {

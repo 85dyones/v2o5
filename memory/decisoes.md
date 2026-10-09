@@ -7,7 +7,7 @@ Log datado. Decisão nova entra no topo do dia; decisão revogada fica riscada c
 - Perfil da Empresa e SEO técnico aparecem como cartões próprios, com preço "incluso em Sites e presença" (é o que a seção 3.2 do plano já põe na fundação dos sites). Sem preço avulso inventado.
 - Integrações ganham cartão, mas só com o que roda em produção: "Em produção hoje: o estoque do Revenda Mais". Preço da automação (R$ 1.900 por fluxo), porque integração é fluxo no n8n.
 - "Gestão de tráfego" vira "Tráfego pago no Google e na Meta" no cartão e no título da página `/gestao-de-trafego` (a URL fica).
-- Subtítulo do hero e descrição da home listam os serviços do mapa (Perfil da Empresa, SEO, anúncios no Google e na Meta) antes dos da operação.
+- Subtítulo do hero e descrição da home listam os serviços do mapa (Perfil no Google, SEO, anúncios, site) antes dos da operação. O subtítulo tem teto de 180 caracteres: com 279, ele ocupava mais tela que o H1 no celular e virava o LCP (medido no Lighthouse). Com 174, fica entre 72% e 81% da área do H1 de 360 a 430 px. A lista completa mora nos pilares.
 - Seção nova "Visão 360" depois das soluções: anel com as seis frentes (mapa, anúncios, site, atendimento, gestão, venda) nas cores das etapas, em volta do símbolo. Texto: uma equipe que enxerga o caminho inteiro do cliente, do anúncio ao sistema. Linha do fundador só com fato confirmado (informática desde 1992); as áreas da formação dele ficam para quando ele contar.
 - Novas cenas de produto: ficha do Perfil da Empresa sobre um mapa, navegador com o botão de WhatsApp, Revenda Mais → n8n → site, CRM e agente.
 

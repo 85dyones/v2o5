@@ -16,7 +16,7 @@ export const TITULO_DA_HOME = "Coloque sua empresa no mapa e multiplique a opera
 
 export const HERO = {
   subtitulo:
-    "Do Google ao WhatsApp, a V2O5 monta o que traz e atende o cliente: Perfil da Empresa, SEO, anúncios no Google e na Meta, site, agentes de IA, automação e CRM, ligados num sistema que mostra de onde veio cada venda. Se um dia quiser sair, você leva o código, os dados e o domínio.",
+    "Perfil no Google, SEO, anúncios, site, agente de IA e CRM num sistema só, que mostra de onde veio cada venda. Se um dia quiser sair, você leva o código, os dados e o domínio.",
   nota: "Diagnóstico gratuito: 45 minutos de conversa e um mapa do que fazer, em até 24 horas.",
 };
 
