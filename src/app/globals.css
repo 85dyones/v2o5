@@ -1,0 +1,336 @@
+@import "tailwindcss";
+
+/* Tokens da marca (memory/context/marca.md). Os valores repetem
+   src/lib/tokens.ts; tests/contraste.test.ts confere os dois lados e o AA de
+   cada par usado. A paleta padrão do Tailwind sai: só existem as cores da
+   marca. */
+@theme {
+  --color-*: initial;
+  --color-tinta: #121418;
+  --color-papel: #F2F1EC;
+  --color-grafite: #2A2D34;
+  --color-superficie: #1A1D22;
+  --color-secundario: #A9ACB4;
+  --color-secundario-claro: #5A5D66;
+  --color-ambar: #F2A516;
+  --color-ambar-forte: #FFB937;
+  --color-ambar-texto: #8A5600;
+  --color-violeta: #6B46C8;
+  --color-verde: #17773F;
+  --color-azul: #2457C5;
+  --color-violeta-claro: #9B8BE0;
+  --color-verde-claro: #5CC48A;
+  --color-azul-claro: #7FA3F0;
+  --color-regua: #D6D4CC;
+  --color-linha: rgb(242 241 236 / 0.1);
+  --color-linha-forte: rgb(242 241 236 / 0.2);
+
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+
+  --ease-saida: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-movimento: cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+@layer base {
+  html {
+    color-scheme: dark;
+    background-color: var(--color-tinta);
+    color: var(--color-papel);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-size-adjust: 100%;
+    scroll-padding-top: 5rem;
+  }
+
+  /* Ruído fino sobre a tinta: um ladrilho SVG de 160 px, sem imagem externa. */
+  body {
+    min-height: 100dvh;
+    font-family: var(--font-sans);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    background-color: var(--color-tinta);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='r'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 .05 0 0 0 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23r)'/%3E%3C/svg%3E");
+    overflow-x: clip;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-ambar);
+    outline-offset: 3px;
+  }
+
+  ::selection {
+    background-color: var(--color-ambar);
+    color: var(--color-tinta);
+  }
+}
+
+@layer components {
+  .conteiner {
+    width: 100%;
+    max-width: 76rem;
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+
+  @media (min-width: 48rem) {
+    .conteiner {
+      padding-inline: 2rem;
+    }
+  }
+
+  /* Rótulo em Geist Mono (marca.md): 500, caixa alta, +0,12em. Só onde o
+     rótulo informa algo (etapa, "demonstração", "exemplo"). */
+  .rotulo {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 500;
+    line-height: 1.3;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .numero {
+    font-family: var(--font-mono);
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .titulo-hero {
+    font-size: clamp(2.5rem, 1.1rem + 5.2vw, 4.75rem);
+    font-weight: 800;
+    line-height: 1.02;
+    letter-spacing: -0.04em;
+  }
+
+  .titulo-secao {
+    font-size: clamp(1.875rem, 1.25rem + 2.4vw, 3rem);
+    font-weight: 700;
+    line-height: 1.08;
+    letter-spacing: -0.03em;
+  }
+
+  .botao {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 3rem;
+    padding-inline: 1.25rem;
+    border-radius: 0.625rem;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1;
+    white-space: nowrap;
+    transition-property: transform, background-color, box-shadow;
+    transition-duration: 150ms;
+    transition-timing-function: var(--ease-saida);
+  }
+
+  .botao:active {
+    transform: scale(0.97);
+  }
+
+  .botao-primario {
+    background-color: var(--color-ambar);
+    color: var(--color-tinta);
+  }
+
+  .botao-secundario {
+    color: var(--color-papel);
+    box-shadow: inset 0 0 0 1px var(--color-linha-forte);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .botao-primario:hover {
+      background-color: var(--color-ambar-forte);
+    }
+
+    .botao-secundario:hover {
+      background-color: rgb(242 241 236 / 0.06);
+    }
+  }
+
+  .link-sublinhado {
+    text-decoration-line: underline;
+    text-decoration-color: var(--color-linha-forte);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.25em;
+    transition: text-decoration-color 150ms ease;
+  }
+
+  .link-sublinhado:hover {
+    text-decoration-color: currentColor;
+  }
+
+  /* Cartão do bento: borda de luz âmbar só no cartão em foco ou sob o
+     cursor. A posição da luz vem de --luz-x/--luz-y (BentoLuz.tsx); sem
+     JavaScript ela fica no canto de cima. */
+  .cartao-luz {
+    position: relative;
+    isolation: isolate;
+    border-radius: 1rem;
+    background-color: var(--color-superficie);
+    box-shadow:
+      inset 0 0 0 1px var(--color-linha),
+      0 1px 0 0 rgb(242 241 236 / 0.04) inset;
+  }
+
+  .cartao-luz::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: inherit;
+    padding: 1px;
+    background: radial-gradient(
+      18rem circle at var(--luz-x, 30%) var(--luz-y, 0%),
+      var(--color-ambar),
+      rgb(242 165 22 / 0.15) 45%,
+      transparent 70%
+    );
+    mask:
+      linear-gradient(#000 0 0) content-box exclude,
+      linear-gradient(#000 0 0);
+    opacity: 0;
+    transition: opacity 200ms ease;
+    pointer-events: none;
+  }
+
+  .cartao-luz:focus-visible {
+    outline-offset: 4px;
+  }
+
+  .cartao-luz:focus-visible::before {
+    opacity: 1;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .cartao-luz:hover::before {
+      opacity: 1;
+    }
+  }
+
+  /* Seções abaixo da dobra: o navegador pula layout e pintura até elas
+     chegarem perto da tela. Assim a Geist Mono (só usada aqui) não é pedida
+     antes do LCP. `auto` guarda a altura real depois da primeira vez. */
+  .adiada {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 900px;
+  }
+
+  /* Hero: o SVG estático fica até o canvas pintar o primeiro quadro. */
+  .molecula-canvas {
+    opacity: 0;
+    transition: opacity 700ms var(--ease-saida);
+  }
+
+  .molecula-canvas[data-pronto] {
+    opacity: 1;
+  }
+
+  .molecula-estatica {
+    transition: opacity 700ms var(--ease-saida);
+  }
+
+  .molecula-canvas[data-pronto] ~ .molecula-estatica {
+    opacity: 0;
+  }
+
+  /* Passos das demonstrações: aparecem quando o componente marca
+     data-visivel; sem JavaScript, todos aparecem. */
+  .passo {
+    transition-property: opacity, transform;
+    transition-duration: 320ms;
+    transition-timing-function: var(--ease-saida);
+  }
+
+  .passo[data-oculto] {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}
+
+/* Com menos movimento nada se move: nem transição, nem animação, nem
+   rolagem suave. Os componentes com canvas, Motion ou timer perguntam a
+   lib/movimento.ts antes de agendar quadro (tests/movimento.test.ts). */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Terminal do case: cada linha aparece conforme a seção entra na tela, por
+   CSS (animation-timeline), sem JavaScript. Sem suporte, as linhas já estão
+   lá. Com menos movimento, a regra global acima desliga. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .linha-terminal {
+      animation: linha-aparece linear both;
+      animation-timeline: view();
+      animation-range: entry calc(20% + var(--i) * 9%) entry calc(45% + var(--i) * 9%);
+    }
+  }
+}
+
+@keyframes linha-aparece {
+  from {
+    opacity: 0;
+    transform: translateX(-6px);
+  }
+}
+
+/* Diagrama: foco por anel âmbar desenhado no SVG (outline em <g> varia por
+   navegador); o núcleo escala a partir do próprio centro. */
+.diagrama .peca {
+  cursor: pointer;
+  outline: none;
+  transition: opacity 200ms ease;
+}
+
+.diagrama .peca .anel-foco {
+  opacity: 0;
+}
+
+.diagrama .peca:focus-visible .anel-foco {
+  opacity: 1;
+}
+
+.diagrama .nucleo {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+/* Card do CRM da demonstração: um brilho âmbar quando atualiza. */
+.cartao-crm[data-pronto] {
+  animation: crm-atualiza 900ms var(--ease-saida);
+}
+
+@keyframes crm-atualiza {
+  from {
+    box-shadow:
+      inset 0 0 0 1px var(--color-linha),
+      0 0 0 1px var(--color-ambar),
+      0 0 32px -4px rgb(242 165 22 / 0.45);
+  }
+}

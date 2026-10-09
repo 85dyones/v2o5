@@ -2,6 +2,15 @@
 
 Log datado. Decisão nova entra no topo do dia; decisão revogada fica riscada com a data da troca.
 
+## 09/10/2026 (protótipo da home, decisões técnicas)
+- Código na raiz em `src/` (Next 16.4, React 19.3, Tailwind 4, Vitest), como na Motors. `cacheComponents` ligado; páginas estáticas.
+- Fontes: recorte latino da Geist variável do pacote `geist` (32 KB, `scripts/subsetar-fontes.sh`), pré-carregada. Geist Mono sai do caminho do LCP: carrega depois do `load` por `FontFace` (`FonteMonoTardia.tsx`). Medido: com as duas no início o LCP passava de 2,4 s.
+- CSS em arquivo, sem `experimental.inlineCss`: inline, o CSS entrava 3 vezes no HTML (style + 2x no payload RSC) e o documento ia de 18 para 38 KB.
+- Orquestrador e diagrama: o servidor entrega o HTML estático (zero JS); a versão interativa chega por `import()` a 700 px da tela. Motion só no pulso do diagrama. Canvas do hero por `import()` depois do `load` + ocioso.
+- `content-visibility: auto` nas seções abaixo da dobra.
+- Cores de etapa para texto e traço sobre a tinta: versões claras derivadas (violeta #9B8BE0, verde #5CC48A, azul #7FA3F0); as puras ficam para preenchimento com texto claro. Travado em `tests/contraste.test.ts`.
+- Partículas amostram a nuvem por conta de arco, não por `getPointAtLength` (que custava ~550 ms de tarefa longa no Lighthouse).
+
 ## 09/10/2026
 - Identidade raiz geral: "digitalização e aceleração de negócios com IA" (colocar no mapa, multiplicar a operação). Automotivo vira o primeiro segmento, com hub `/segmentos/revendas-de-veiculos`. Substitui "revendas desde a home" de 08/10.
 - Direção visual escura e tecnológica, com motion (seção 5 do plano e `memory/context/motion.md`). Formato editorial claro descartado.

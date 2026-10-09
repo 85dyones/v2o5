@@ -1,0 +1,360 @@
+/**
+ * Textos e dados da home, num lugar só para revisar o texto (humanizer) e os
+ * números (fonte e período) sem caçar pelos componentes.
+ *
+ * Regras: português, frases curtas, sem travessão; preço sempre "a partir
+ * de" (`memory/context/oferta.md`); número do case só com fonte e período
+ * (`memory/projects/case-motors.md`), travado por `tests/conteudo.test.ts`.
+ */
+import type { Etapa } from "@/lib/tokens";
+
+/** As duas opções de H1 para o Dyones escolher. A home usa a primeira. */
+export const TITULOS = {
+  a: "Coloque sua empresa no mapa e multiplique a operação com IA.",
+  b: "Vendas mais rápidas com IA, num sistema que fica com a sua empresa.",
+} as const;
+
+export const HERO = {
+  subtitulo:
+    "A V2O5 liga site, agente de IA no WhatsApp, automação e CRM num sistema só, e mostra de onde veio cada venda. Se um dia quiser sair, você leva o código, os dados e o domínio.",
+  nota: "Diagnóstico gratuito: 45 minutos de conversa e um mapa do que fazer, em até 24 horas.",
+};
+
+export const NAVEGACAO = [
+  { rotulo: "Soluções", href: "/#solucoes" },
+  { rotulo: "Automotivo", href: "/segmentos/revendas-de-veiculos" },
+  { rotulo: "Case", href: "/cases/motors-store" },
+  { rotulo: "Preços", href: "/precos" },
+  { rotulo: "Sobre", href: "/sobre" },
+] as const;
+
+export const NOME_DA_ETAPA: Record<Etapa, string> = {
+  violeta: "Atração",
+  verde: "Atendimento",
+  azul: "Gestão",
+  ambar: "Venda",
+};
+
+export interface Linha {
+  titulo: string;
+  frase: string;
+  preco: string;
+  href: string;
+  etapa: Etapa;
+}
+
+/** As seis linhas gerais, na ordem do bento (a primeira ocupa o bloco grande). */
+export const LINHAS: Linha[] = [
+  {
+    titulo: "Agente de IA no WhatsApp",
+    frase:
+      "Responde na hora com as informações do seu negócio. Quando a conversa pede uma pessoa, chama alguém da equipe.",
+    preco: "a partir de R$ 3.900 + R$ 790/mês",
+    href: "/agente-de-ia-para-whatsapp",
+    etapa: "verde",
+  },
+  {
+    titulo: "Sites e presença",
+    frase: "Site rápido, que aparece no Google e nas respostas das IAs de busca.",
+    preco: "a partir de R$ 7.900 + R$ 290/mês",
+    href: "/criacao-de-sites",
+    etapa: "violeta",
+  },
+  {
+    titulo: "CRM e sistemas sob medida",
+    frase: "Cada contato num funil, com a origem e o próximo passo à vista.",
+    preco: "a partir de R$ 4.900 + R$ 590/mês",
+    href: "/crm-com-whatsapp",
+    etapa: "azul",
+  },
+  {
+    titulo: "Automação de processos",
+    frase: "Tarefas repetidas rodando sozinhas entre os sistemas que você já usa.",
+    preco: "a partir de R$ 1.900 por fluxo",
+    href: "/automacao-com-ia",
+    etapa: "azul",
+  },
+  {
+    titulo: "Rastreamento até a venda",
+    frase: "Você sabe qual anúncio trouxe o cliente que comprou.",
+    preco: "a partir de R$ 2.900 + R$ 290/mês",
+    href: "/rastreamento-de-conversoes",
+    etapa: "violeta",
+  },
+  {
+    titulo: "Gestão de tráfego",
+    frase: "Verba no Google e na Meta ajustada pelo que virou venda.",
+    preco: "a partir de R$ 1.800/mês + verba",
+    href: "/gestao-de-trafego",
+    etapa: "violeta",
+  },
+];
+
+// ---------------------------------------------------------------------------
+// Orquestrador: demonstração com dados fictícios
+// ---------------------------------------------------------------------------
+
+export type Passo =
+  | { tipo: "entrada"; autor: string; hora: string; texto: string }
+  | { tipo: "saida"; autor: string; hora: string; texto: string }
+  | { tipo: "sistema"; titulo: string; detalhes: string[]; etapa: Etapa };
+
+export interface CartaoDoCrm {
+  titulo: string;
+  campos: { rotulo: string; valor: string }[];
+  etapa: Etapa;
+  etiqueta: string;
+}
+
+export interface Frente {
+  id: string;
+  aba: string;
+  resumo: string;
+  passos: Passo[];
+  crm: CartaoDoCrm;
+}
+
+export const FRENTES: Frente[] = [
+  {
+    id: "agente",
+    aba: "Agente de IA",
+    resumo: "Uma mensagem chega no WhatsApp da loja às 21h e é respondida na hora.",
+    passos: [
+      {
+        tipo: "entrada",
+        autor: "Cliente",
+        hora: "21:14",
+        texto: "Boa noite! O Onix 2022 do anúncio ainda está disponível?",
+      },
+      {
+        tipo: "sistema",
+        titulo: "Agente consulta a base",
+        detalhes: ["Estoque: Onix LT 1.0 turbo 2022, disponível", "Agenda: test drive amanhã às 10h e às 15h"],
+        etapa: "verde",
+      },
+      {
+        tipo: "saida",
+        autor: "Agente de IA",
+        hora: "21:14",
+        texto: "Está sim! É o LT 1.0 turbo, com 41 mil km. Quer agendar um test drive? Tenho amanhã às 10h ou às 15h.",
+      },
+    ],
+    crm: {
+      titulo: "Onix LT 2022",
+      campos: [
+        { rotulo: "Origem", valor: "Google Ads, campanha Seminovos" },
+        { rotulo: "Interesse", valor: "Test drive" },
+        { rotulo: "Responsável", valor: "Agente de IA" },
+      ],
+      etapa: "verde",
+      etiqueta: "Em atendimento",
+    },
+  },
+  {
+    id: "automacao",
+    aba: "Automação",
+    resumo: "A venda é marcada no CRM e o resto acontece sem ninguém digitar nada.",
+    passos: [
+      {
+        tipo: "sistema",
+        titulo: "CRM: negócio marcado como ganho",
+        detalhes: ["Onix LT 2022, vendido por Carla"],
+        etapa: "azul",
+      },
+      {
+        tipo: "sistema",
+        titulo: "Fluxo no n8n começa",
+        detalhes: ["Site: carro sai da vitrine", "Equipe: aviso no grupo de vendas"],
+        etapa: "azul",
+      },
+      {
+        tipo: "saida",
+        autor: "WhatsApp automático",
+        hora: "09:02",
+        texto: "Obrigado pela compra! Se puder, conta pra gente como foi o atendimento.",
+      },
+      {
+        tipo: "sistema",
+        titulo: "Conversão enviada",
+        detalhes: ["Google Ads e Meta recebem a venda", "Com o identificador do lead, ela conta uma vez só"],
+        etapa: "ambar",
+      },
+    ],
+    crm: {
+      titulo: "Onix LT 2022",
+      campos: [
+        { rotulo: "Origem", valor: "Google Ads, campanha Seminovos" },
+        { rotulo: "Desfecho", valor: "Ganho" },
+        { rotulo: "Venda atribuída", valor: "Anúncio de 02/10" },
+      ],
+      etapa: "ambar",
+      etiqueta: "Venda",
+    },
+  },
+  {
+    id: "rastreamento",
+    aba: "Site e rastreamento",
+    resumo: "Do clique no anúncio ao lead no CRM, com a origem registrada em cada passo.",
+    passos: [
+      {
+        tipo: "sistema",
+        titulo: "Visitante chega de um anúncio",
+        detalhes: ["Origem e clique do Google guardados"],
+        etapa: "violeta",
+      },
+      {
+        tipo: "sistema",
+        titulo: "Abre a ficha e preenche o formulário",
+        detalhes: ["Lead gravado com um identificador único"],
+        etapa: "violeta",
+      },
+      {
+        tipo: "sistema",
+        titulo: "Lead enviado para Meta e Google",
+        detalhes: ["Pelo servidor, com o mesmo identificador do navegador", "Meta e Google contam o lead uma vez só"],
+        etapa: "violeta",
+      },
+      {
+        tipo: "sistema",
+        titulo: "Lead entra no CRM",
+        detalhes: ["Com origem, campanha e veículo de interesse"],
+        etapa: "azul",
+      },
+    ],
+    crm: {
+      titulo: "Novo lead",
+      campos: [
+        { rotulo: "Origem", valor: "Google Ads, campanha Seminovos" },
+        { rotulo: "Veículo", valor: "Onix LT 2022" },
+        { rotulo: "Identificador", valor: "Lead.3f9c2a7e" },
+      ],
+      etapa: "violeta",
+      etiqueta: "Novo",
+    },
+  },
+];
+
+// ---------------------------------------------------------------------------
+// Como tudo se liga
+// ---------------------------------------------------------------------------
+
+export type IdDaPeca = "site" | "whatsapp" | "agente" | "n8n" | "crm" | "rastreamento" | "venda";
+
+export interface Peca {
+  id: IdDaPeca;
+  nome: string;
+  etapa: Etapa;
+  texto: string;
+  /** O caminho que acende quando esta peça é escolhida. */
+  caminho: IdDaPeca[];
+}
+
+export const PECAS: Peca[] = [
+  {
+    id: "site",
+    nome: "Site",
+    etapa: "violeta",
+    texto: "Recebe o visitante e guarda de onde ele veio antes de levá-lo ao WhatsApp ou ao formulário.",
+    caminho: ["site", "whatsapp", "agente", "crm", "venda"],
+  },
+  {
+    id: "whatsapp",
+    nome: "WhatsApp",
+    etapa: "verde",
+    texto: "É onde a conversa acontece. Cada mensagem chega ao agente com o histórico do contato.",
+    caminho: ["site", "whatsapp", "agente", "crm"],
+  },
+  {
+    id: "agente",
+    nome: "Agente de IA",
+    etapa: "verde",
+    texto: "Responde com as informações do seu negócio e qualifica o contato antes de passar para a equipe.",
+    caminho: ["whatsapp", "agente", "n8n", "crm"],
+  },
+  {
+    id: "n8n",
+    nome: "n8n",
+    etapa: "azul",
+    texto: "É a automação entre os sistemas. Atualiza o estoque no site e avisa a equipe quando entra um lead.",
+    caminho: ["agente", "n8n", "crm"],
+  },
+  {
+    id: "crm",
+    nome: "CRM",
+    etapa: "azul",
+    texto: "O funil onde cada lead aparece com a origem e o próximo passo.",
+    caminho: ["agente", "crm", "venda"],
+  },
+  {
+    id: "rastreamento",
+    nome: "Rastreamento",
+    etapa: "violeta",
+    texto: "Liga cada lead e cada venda ao anúncio de origem e devolve a conversão para Google e Meta.",
+    caminho: ["site", "rastreamento", "crm", "venda", "rastreamento"],
+  },
+  {
+    id: "venda",
+    nome: "Venda",
+    etapa: "ambar",
+    texto: "O fechamento registrado no CRM, com a origem conhecida.",
+    caminho: ["crm", "venda", "rastreamento"],
+  },
+];
+
+/** Ligações do diagrama (sem direção; o caminho decide o sentido do pulso). */
+export const LIGACOES_DO_DIAGRAMA: [IdDaPeca, IdDaPeca][] = [
+  ["site", "whatsapp"],
+  ["whatsapp", "agente"],
+  ["agente", "crm"],
+  ["agente", "n8n"],
+  ["n8n", "crm"],
+  ["crm", "venda"],
+  ["site", "rastreamento"],
+  ["rastreamento", "crm"],
+  ["venda", "rastreamento"],
+];
+
+// ---------------------------------------------------------------------------
+// Case Motors Store
+// ---------------------------------------------------------------------------
+
+/**
+ * Só número lido do banco da Motors, com período declarado. Fonte:
+ * `memory/projects/case-motors.md` (leitura de 08/10/2026; a tabela de
+ * leads começa em 05/09/2026).
+ */
+export const CASE = {
+  fonte: "Banco de dados da Motors Store, lido em 08/10/2026. Leads contados de 05/09 a 08/10/2026.",
+  numeros: [
+    {
+      valor: 42,
+      complemento: "de 44",
+      texto: "leads do site chegaram com identificador para não contar a mesma conversão duas vezes",
+    },
+    { valor: 26, complemento: "", texto: "guias publicados, assinados pelo fundador da V2O5" },
+    { valor: 132, complemento: "", texto: "veículos sincronizados com o estoque do Revenda Mais" },
+  ],
+  /** Formato real dos eventos; valores ilustrativos. */
+  terminal: [
+    "03:00:12  estoque.sync       fonte=revenda-mais  alterados=3",
+    "14:32:07  lead.recebido      origem=google/cpc   gclid=sim",
+    "14:32:07  meta.capi.Lead     event_id=Lead.3f9c2a7e  status=200",
+    "14:32:08  ga4.generate_lead  event_id=Lead.3f9c2a7e  status=204",
+    "14:32:08  n8n.novo_lead      aviso=equipe  canal=whatsapp",
+  ],
+};
+
+export const AUTOMOTIVO = {
+  titulo: "Para revendas de veículos",
+  texto:
+    "O pacote é o sistema da Motors Store: site de estoque integrado ao Revenda Mais, agente de IA no WhatsApp, CRM e rastreamento até a venda.",
+  preco: "Pacote completo a partir de R$ 14.900 de implantação e R$ 1.690 por mês.",
+  href: "/segmentos/revendas-de-veiculos",
+};
+
+export const EMPRESA = {
+  nome: "V2O5 Vendas e Tecnologia",
+  razaoSocial: "V2O5 Tecnologia da Informação Ltda.",
+  cnpj: "68.490.470/0001-14",
+  cidade: "Almirante Tamandaré/PR",
+};
