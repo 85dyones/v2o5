@@ -25,7 +25,7 @@ Na migração: trocar só apex e `www` para a Vercel; conferir MX, SPF, DKIM, DM
 ## Contas
 | Serviço | Identificação |
 |---|---|
-| Vercel | time "Dyones' projects" `team_AKoHgpGHOfOR0YOGxDOQIgod` (único time da conta); projeto da Motors `prj_SpfjeogVS4vUwcYiYXUB6Tlty81I`. Projeto da V2O5 ainda não existe, conferido em 09/10 (criar só com OK) |
+| Vercel | time "Dyones' projects" `team_AKoHgpGHOfOR0YOGxDOQIgod` (slug `dyones-projects-a2f07575`); projeto da Motors `prj_SpfjeogVS4vUwcYiYXUB6Tlty81I`; projeto do site `v2o5` `prj_ko8HAaRvhwn03GJxFAsYJEYy4V7I`, ligado ao repo: cada push gera preview (`v2o5-git-<branch>-dyones-projects-a2f07575.vercel.app`), protegido por login da Vercel. O conector da Vercel das sessões não enxerga esse projeto (404 no projeto, 403 nos deploys; conferido em 09/10): a listagem dele não serve para dizer que um projeto não existe |
 | Supabase | org `cibdewzwvofchjqkoxyj`: v2o5-site `xqrmijjkotyoucueyypu` (sa-east-1, criado 09/10, só do site; vazio, sem migrações, conferido em 09/10), motors-oficial `zwbqmzgnagfeqinqkolp`, rede-auto `ztzhsthqetgajharcxhx`, 16-vara-civel (inativo) |
 | GitHub | `85dyones/v2o5` (este), `85dyones/motors-site-oficial` |
 | Google tag atual | `GT-PBNTV3FG` (Site Kit, WordPress) |

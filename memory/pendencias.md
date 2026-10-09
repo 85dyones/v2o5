@@ -6,11 +6,11 @@ Atualize ao resolver: mova a decisão para `decisoes.md` e apague daqui.
 1. Foto para a página Sobre e a assinatura dos guias.
 2. Agenda: recomendação Cal.com ligado ao Google Agenda (webhook dispara `schedule_call`).
 3. GTM server-side: recomendação deixar para a fase 3.
-4. Contas: recomendação projeto novo na Vercel (time atual); criar conta Google Ads da V2O5. O Supabase do site já existe (`v2o5-site`).
+4. Contas: criar conta Google Ads da V2O5. Vercel (`v2o5`) e Supabase (`v2o5-site`) do site já existem.
 5. Crédito "Desenvolvido por V2O5" no rodapé da Motors (recomendado).
 6. CNAE: conferir com o contador se cobre site, sistema e tráfego (principal hoje é 7490-1/04).
 7. Persistência dos plugins: instalar pela conta do claude.ai ou registrar no `.claude/settings.json` do repo.
-8. OK para criar o projeto na Vercel e medir o protótipo no preview (PageSpeed).
+8. Medir o preview da Vercel (PageSpeed): ele está atrás do login da Vercel. Liberar um bypass de proteção para automação ou dar ao conector acesso ao projeto `v2o5`.
 9. WhatsApp e e-mail públicos para o rodapé (hoje "a confirmar").
 
 ## Técnicas
