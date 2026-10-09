@@ -7,7 +7,10 @@ Atualize ao resolver: mova a decisão para `decisoes.md` e apague daqui.
 2. Foto para a página Sobre e a assinatura dos guias.
 3. Agenda: recomendação Cal.com ligado ao Google Agenda (webhook dispara `schedule_call`).
 4. GTM server-side: recomendação deixar para a fase 3.
-5. Contas: recomendação projeto novo na Vercel (time atual) e projeto Supabase separado do da Motors; criar conta Google Ads da V2O5.
+5. Contas: recomendação projeto novo na Vercel (time atual); criar conta Google Ads da V2O5. O Supabase do site já existe (`v2o5-site`).
+12. Remover do Supabase `v2o5-site` o schema `rede`, criado lá por engano pela sessão do rede-auto em 09/10 (18 tabelas; só `rede.schema_migrations` tem uma linha, a do `001_inicial`). A ferramenta do Supabase exige confirmação para comando destrutivo e a confirmação não chegou à sessão. Rodar no SQL Editor do projeto:
+   `DROP SCHEMA rede CASCADE;`
+   `DELETE FROM supabase_migrations.schema_migrations WHERE version = '20261009141853' AND name = 'rede_001_inicial';`
 6. Crédito "Desenvolvido por V2O5" no rodapé da Motors (recomendado).
 7. CNAE: conferir com o contador se cobre site, sistema e tráfego (principal hoje é 7490-1/04).
 9. H1 da home: opção A (no ar em `/`) ou B (`/variantes/titulo-b`). Recomendação: A.

@@ -25,8 +25,8 @@ Na migração: trocar só apex e `www` para a Vercel; conferir MX, SPF, DKIM, DM
 ## Contas
 | Serviço | Identificação |
 |---|---|
-| Vercel | time "Dyones' projects" `team_AKoHgpGHOfOR0YOGxDOQIgod`; projeto da Motors `prj_SpfjeogVS4vUwcYiYXUB6Tlty81I`. Projeto da V2O5 ainda não existe (criar só com OK) |
-| Supabase | org `cibdewzwvofchjqkoxyj`: motors-oficial `zwbqmzgnagfeqinqkolp`, rede-auto `ztzhsthqetgajharcxhx`, 16-vara-civel (inativo) |
+| Vercel | time "Dyones' projects" `team_AKoHgpGHOfOR0YOGxDOQIgod` (único time da conta); projeto da Motors `prj_SpfjeogVS4vUwcYiYXUB6Tlty81I`. Projeto da V2O5 ainda não existe, conferido em 09/10 (criar só com OK) |
+| Supabase | org `cibdewzwvofchjqkoxyj`: v2o5-site `xqrmijjkotyoucueyypu` (sa-east-1, criado 09/10, só do site; `public` vazio), motors-oficial `zwbqmzgnagfeqinqkolp`, rede-auto `ztzhsthqetgajharcxhx`, 16-vara-civel (inativo) |
 | GitHub | `85dyones/v2o5` (este), `85dyones/motors-site-oficial` |
 | Google tag atual | `GT-PBNTV3FG` (Site Kit, WordPress) |
 Credenciais nunca vão para o repo nem para o chat; o acesso a variáveis da Vercel foi bloqueado pela política de permissões e não deve ser contornado.
