@@ -38,3 +38,17 @@ export function razaoDeContraste(corA: string, corB: string): number | null {
   const lb = luminancia(b);
   return (Math.max(la, lb) + 0.05) / (Math.min(la, lb) + 0.05);
 }
+
+/**
+ * Cor que aparece quando `frente` (com opacidade `alfa`) cobre `fundo`:
+ * a mistura normal do CSS. Serve para conferir texto sobre vidro.
+ */
+export function sobrepor(frente: string, alfa: number, fundo: string): string {
+  const a = lerHex(frente);
+  const b = lerHex(fundo);
+  if (!a || !b) throw new Error(`Cor inválida: ${frente} ou ${fundo}`);
+  return `#${a
+    .map((v, i) => Math.round(v * alfa + b[i] * (1 - alfa)))
+    .map((v) => v.toString(16).padStart(2, "0"))
+    .join("")}`;
+}

@@ -41,6 +41,17 @@ export const ATOMOS = Object.fromEntries(
   Object.entries(SIMBOLO_C1D.grande.nos).map(([id, n]) => [id, { ...noPalco(n), r: n.r * ESCALA_DA_MOLECULA }]),
 ) as Record<IdDoAtomo, Ponto & { r: number }>;
 
+/**
+ * Espessuras do vetor grande (`scripts/vetorizar-logo.mjs`, ESPESSURAS.grande:
+ * ligação de 3,8 de largura, respiro de 1,8), levadas ao palco.
+ * `tests/molecula3d.test.ts` confere que batem com o script.
+ */
+export const RAIO_DA_LIGACAO = (3.8 / 2) * ESCALA_DA_MOLECULA;
+export const RESPIRO_DO_AMBAR = 1.8 * ESCALA_DA_MOLECULA;
+
+/** O caminho do sinal no logo: o V, de Ot2 a Ot4. */
+export const V_DO_SINAL: IdDoAtomo[] = ["Ot2", "V1", "Ob", "V2", "Ot4"];
+
 /** O caminho dentro do catalisador, depois da entrada e antes da saída. */
 export const CADEIA: IdDoAtomo[] = ["V1", "Ob", "V2"];
 

@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Geist } from "./fontes";
 import FonteMonoTardia from "@/components/layout/FonteMonoTardia";
+import LuzDoCursor from "@/components/layout/LuzDoCursor";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -31,6 +32,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         </a>
         {children}
         <FonteMonoTardia />
+        <LuzDoCursor />
       </body>
     </html>
   );

@@ -32,6 +32,8 @@
 
   --ease-saida: cubic-bezier(0.23, 1, 0.32, 1);
   --ease-movimento: cubic-bezier(0.645, 0.045, 0.355, 1);
+  /* Mola suave (pouco quique), em linear(): física sem JavaScript. */
+  --ease-mola: linear(0, 0.006, 0.025 2.8%, 0.101 6.1%, 0.539 18.9%, 0.721 25.3%, 0.849 31.5%, 0.937 38.1%, 0.968 41.8%, 0.991 45.7%, 1.006 50.1%, 1.015 55%, 1.017 63.9%, 1.001 85.9%, 1);
 }
 
 @layer base {
@@ -186,7 +188,13 @@
      Botões e links
      --------------------------------------------------------------------- */
 
+  /* Botões em vidro. A luz interna segue o cursor (--luz-x/--luz-y) e o
+     botão é puxado de leve na direção dele (--ima-x/--ima-y), os dois
+     escritos por `LuzDoCursor.tsx`; a volta é uma mola (--ease-mola). Sem
+     JavaScript, a luz fica em cima e nada se move. */
   .botao {
+    position: relative;
+    isolation: isolate;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -199,13 +207,18 @@
     line-height: 1;
     letter-spacing: -0.01em;
     white-space: nowrap;
+    color: var(--color-papel);
+    /* Translação 2D e sem backdrop-filter: cada botão viraria uma camada de
+       composição, e com o canvas do hero animando isso pesa em todo quadro. */
+    transform: translate(var(--ima-x, 0px), var(--ima-y, 0px));
     transition-property: transform, background-color, box-shadow, color;
-    transition-duration: 180ms;
-    transition-timing-function: var(--ease-saida);
+    transition-duration: 650ms, 220ms, 220ms, 220ms;
+    transition-timing-function: var(--ease-mola), ease, ease, ease;
   }
 
   .botao:active {
-    transform: scale(0.97);
+    transform: translate(var(--ima-x, 0px), var(--ima-y, 0px)) scale(0.97);
+    transition-duration: 120ms, 220ms, 220ms, 220ms;
   }
 
   .botao-compacto {
@@ -215,25 +228,34 @@
   }
 
   .botao .seta {
-    transition: transform 180ms var(--ease-saida);
+    transition: transform 400ms var(--ease-mola);
   }
 
+  /* Primário: vidro âmbar escuro, com borda e brilho de luz. O texto em papel
+     passa no AA mesmo no ponto mais claro da luz (tests/contraste.test.ts). */
   .botao-primario {
-    background-color: var(--color-ambar);
-    color: var(--color-tinta);
+    background-color: rgb(46 34 14 / 0.55);
+    background-image:
+      radial-gradient(9rem 6rem at var(--luz-x, 50%) var(--luz-y, -30%), rgb(255 196 92 / 0.25), transparent 70%),
+      linear-gradient(180deg, rgb(242 165 22 / 0.24), rgb(242 165 22 / 0.06));
     box-shadow:
-      inset 0 1px 0 rgb(255 255 255 / 0.4),
-      inset 0 -1px 0 rgb(0 0 0 / 0.12),
-      0 0 0 1px rgb(242 165 22 / 0.6),
-      0 8px 24px -10px rgb(242 165 22 / 0.7);
+      inset 0 1px 0 rgb(255 218 150 / 0.45),
+      inset 0 0 0 1px rgb(242 165 22 / 0.5),
+      inset 0 -10px 20px -12px rgb(242 165 22 / 0.55),
+      0 14px 34px -16px rgb(242 165 22 / 0.6);
   }
 
+  .botao-primario .seta {
+    color: var(--color-ambar-forte);
+  }
+
+  /* Secundário: vidro claro quase transparente. */
   .botao-secundario {
-    color: var(--color-papel);
-    background-color: var(--color-vidro);
+    background-color: rgb(242 241 236 / 0.035);
+    background-image: radial-gradient(8rem 5rem at var(--luz-x, 50%) var(--luz-y, -30%), rgb(242 241 236 / 0.1), transparent 70%);
     box-shadow:
-      inset 0 0 0 1px var(--color-linha-forte),
-      inset 0 1px 0 rgb(255 255 255 / 0.05);
+      inset 0 0 0 1px rgb(242 241 236 / 0.14),
+      inset 0 1px 0 rgb(255 255 255 / 0.06);
   }
 
   @media (hover: hover) and (pointer: fine) {
@@ -242,16 +264,19 @@
     }
 
     .botao-primario:hover {
-      background-color: var(--color-ambar-forte);
+      background-color: rgb(60 43 14 / 0.6);
       box-shadow:
-        inset 0 1px 0 rgb(255 255 255 / 0.45),
-        inset 0 -1px 0 rgb(0 0 0 / 0.12),
-        0 0 0 1px rgb(255 185 55 / 0.7),
-        0 12px 32px -8px rgb(242 165 22 / 0.65);
+        inset 0 1px 0 rgb(255 225 165 / 0.6),
+        inset 0 0 0 1px rgb(255 185 55 / 0.85),
+        inset 0 -12px 24px -12px rgb(242 165 22 / 0.7),
+        0 18px 44px -14px rgb(242 165 22 / 0.75);
     }
 
     .botao-secundario:hover {
-      background-color: var(--color-vidro-forte);
+      background-color: rgb(242 241 236 / 0.07);
+      box-shadow:
+        inset 0 0 0 1px rgb(242 241 236 / 0.26),
+        inset 0 1px 0 rgb(255 255 255 / 0.08);
     }
   }
 
@@ -367,7 +392,7 @@
   }
 
   /* Cartão do bento: borda de luz âmbar só no cartão em foco ou sob o
-     cursor. A posição da luz vem de --luz-x/--luz-y (BentoLuz.tsx); sem
+     cursor. A posição da luz vem de --luz-x/--luz-y (LuzDoCursor.tsx); sem
      JavaScript ela fica no canto de cima. */
   .cartao-luz {
     isolation: isolate;
@@ -460,8 +485,9 @@
   .topo {
     background-color: rgb(18 20 24 / 0.72);
     border-bottom: 1px solid var(--color-linha);
-    backdrop-filter: blur(16px) saturate(150%);
+    /* O prefixo vem antes: na ordem inversa o minificador descarta o padrão. */
     -webkit-backdrop-filter: blur(16px) saturate(150%);
+    backdrop-filter: blur(16px) saturate(150%);
   }
 
   /* ---------------------------------------------------------------------
@@ -506,9 +532,22 @@
     transition: opacity 700ms var(--ease-saida);
   }
 
-  .molecula-canvas {
+  .molecula-canvas,
+  .molecula-3d {
     opacity: 0;
-    transition: opacity 700ms var(--ease-saida);
+    transition: opacity 900ms var(--ease-saida);
+  }
+
+  .molecula-3d[data-pronto] {
+    opacity: 1;
+  }
+
+  .palco-molecula {
+    transition: opacity 900ms var(--ease-saida);
+  }
+
+  .molecula-3d[data-pronto] ~ svg .palco-molecula {
+    opacity: 0;
   }
 
   .molecula-canvas[data-pronto] {
@@ -614,8 +653,8 @@
   from {
     background-color: rgb(18 20 24 / 0);
     border-bottom-color: transparent;
-    backdrop-filter: blur(0) saturate(100%);
     -webkit-backdrop-filter: blur(0) saturate(100%);
+    backdrop-filter: blur(0) saturate(100%);
   }
 }
 

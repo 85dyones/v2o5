@@ -2,6 +2,14 @@
 
 Log datado. Decisão nova entra no topo do dia; decisão revogada fica riscada com a data da troca.
 
+## 09/10/2026 (motion do hero e botões, depois do guia de design futurista do Dyones)
+- Hero: a molécula vira 3D em WebGL 2 (`src/lib/molecula3d.ts`), um fragment shader só, sem biblioteca: função de distância com juntas suaves (metal líquido), material de vidro escuro com borda nas cores dos estados do vanádio e um filamento âmbar dentro do V. Respira e inclina sozinha; com o cursor inclina até ~10° na direção dele (mola) e a luz segue a mão. O pulso percorre o V e dispara o anel e a rajada das partículas (sinal único). Câmera ortográfica: parada, a silhueta é a do SVG, e as partículas continuam chegando nos átomos.
+- Sem placa de vídeo de verdade (SwiftShader, llvmpipe), sem WebGL 2 ou com erro de shader, o hero fica com o SVG, agora também em vidro escuro com o filamento. Medido: rodar o raymarching por software levava o TBT do Lighthouse a 4,2 s. Contexto e compilação em tarefas separadas; qualidade adaptativa (a resolução cai se o quadro passa de 24 ms; no limite, a molécula para).
+- Botões em vidro âmbar escuro (o âmbar chapado ficou datado, pelo Dyones): borda e brilho âmbar, luz interna que segue o cursor e ímã de até 6 px com volta em mola (`--ease-mola`, `linear()` do CSS). `LuzDoCursor.tsx` substitui o `BentoLuz` para cartões e botões. Contraste do texto no ponto mais claro da luz travado em teste.
+- Corrigido: o minificador descartava o `backdrop-filter` do topo (o padrão vinha antes do `-webkit-`); o vidro fosco do menu nunca tinha funcionado no Chrome. Teste trava a ordem.
+- Botões sem `backdrop-filter` e com translação 2D: com o canvas animando, cada botão virava camada de composição.
+- Medido na mesma sessão (Lighthouse 12.6, 7 rodadas, máquina mais lenta que de manhã): versão anterior TBT 218 ms e LCP 2,40 s; versão nova TBT 230 a 241 ms e LCP 2,18 a 2,27 s. Diferença dentro do ruído. O custo da 3D com placa de vídeo real precisa ser medido no preview.
+
 ## 09/10/2026 (refino visual, depois do "ainda está cru" do Dyones)
 - Logo vetorizado: a rede da C1d é uma forma só (união por `paper`, `scripts/vetorizar-logo.mjs` → `src/lib/marca-vetor.ts`), com respiro em volta do átomo âmbar. Fim das peças sobrepostas aparecendo. Dois tamanhos ópticos: `grande` e `pequeno` (topo, rodapé, favicon; só a cadeia em V, traço mais grosso).
 - Tipografia: títulos em Geist 600 com espaçamento fechado (display era 800, títulos 700). Título de seção em dois tons (a segunda frase em cinza). Rótulo em mono caixa alta só onde informa ("Demonstração com dados fictícios", "exemplo").

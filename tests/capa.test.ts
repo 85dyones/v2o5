@@ -18,10 +18,18 @@ describe("a capa da home", () => {
     expect(regra).not.toMatch(/animation|opacity|transform/);
   });
 
-  it("o motor de partículas só entra por import() dinâmico", () => {
+  it("os motores do hero (partículas e 3D) só entram por import() dinâmico", () => {
     const molecula = semComentarios(ler("src/components/home/HeroMolecula.tsx"));
     expect(molecula).toMatch(/await import\("@\/lib\/particulas"\)/);
-    expect(molecula).not.toMatch(/^import \{[^}]*\} from "@\/lib\/particulas"/m);
+    expect(molecula).toMatch(/import\("@\/lib\/molecula3d"\)/);
+    expect(molecula).not.toMatch(/^import \{[^}]*\} from "@\/lib\/(particulas|molecula3d)"/m);
+  });
+
+  it("backdrop-filter vem depois do prefixo -webkit- (na ordem inversa o minificador o descarta)", () => {
+    const linhas = css.split("\n");
+    linhas.forEach((linha, i) => {
+      if (/^\s*backdrop-filter:/.test(linha)) expect(linhas[i - 1], `linha ${i + 1}`).toMatch(/-webkit-backdrop-filter:/);
+    });
   });
 
   it("Motion só aparece no pedaço interativo do diagrama, por import()", () => {

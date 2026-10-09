@@ -38,6 +38,11 @@ export interface OpcoesDasParticulas {
   sinalAutomatico?: boolean;
   /** Chamado depois do primeiro quadro pintado. */
   aoPintar?: () => void;
+  /**
+   * O sinal vem de fora (a molécula 3D desenha o pulso e chama `disparar`):
+   * aqui ficam só o anel e a rajada em Ot4, no fim do percurso.
+   */
+  sinalExterno?: boolean;
 }
 
 export interface MotorDasParticulas {
@@ -45,6 +50,10 @@ export interface MotorDasParticulas {
   acender(fonte: string, ligado: boolean): void;
   /** Posição do ponteiro em px relativos ao canvas, ou `null` ao sair. */
   ponteiro(x: number | null, y?: number): void;
+  /** Começa um sinal agora (quando o sinal é externo). */
+  disparar(): void;
+  /** Volta a agendar o próprio sinal (a molécula 3D caiu). */
+  usarSinalProprio(): void;
   destruir(): void;
 }
 
@@ -223,6 +232,7 @@ export function iniciarParticulas(canvas: HTMLCanvasElement, opcoes: OpcoesDasPa
   let destruido = false;
   let pintou = false;
   const acesos = new Set<string>();
+  let sinalExterno = Boolean(opcoes.sinalExterno);
 
   function acender(fonte: string, ligado: boolean) {
     if (ligado) acesos.add(fonte);
@@ -289,7 +299,7 @@ export function iniciarParticulas(canvas: HTMLCanvasElement, opcoes: OpcoesDasPa
       if (p.s >= trajetos[p.trajeto].total) p.ativa = false;
     }
     // Sinal periódico; a rajada sai quando ele chega ao átomo âmbar.
-    if (relogio >= proximoSinal) {
+    if (!sinalExterno && relogio >= proximoSinal) {
       sinalComecou = relogio;
       const ciclo = acesos.size > 0 || opcoes.sinalAutomatico ? CICLO_DO_SINAL_ACESO : CICLO_DO_SINAL;
       proximoSinal = relogio + ciclo * (opcoes.sinalAutomatico && acesos.size === 0 ? 1.5 : 1);
@@ -376,7 +386,7 @@ export function iniciarParticulas(canvas: HTMLCanvasElement, opcoes: OpcoesDasPa
 
     // O sinal percorrendo o V.
     const idade = relogio - sinalComecou;
-    if (idade >= 0 && idade < PERCURSO_DO_SINAL) {
+    if (!sinalExterno && idade >= 0 && idade < PERCURSO_DO_SINAL) {
       let d = suave(idade / PERCURSO_DO_SINAL) * comprimentoDoSinal;
       let k2 = 0;
       while (k2 < trechos.length - 1 && d > trechos[k2]) d -= trechos[k2++];
@@ -436,7 +446,7 @@ export function iniciarParticulas(canvas: HTMLCanvasElement, opcoes: OpcoesDasPa
 
   // Aquece o fluxo antes do primeiro quadro: já entra no meio do caminho
   // (12 s simulados, em passos largos; só a distribuição importa).
-  for (let k = 0; k < 120; k++) passo(0.1);
+  for (let k = 0; k < 80; k++) passo(0.15);
   relogio = 0;
   proximoSinal = 0.9;
   sinalComecou = -10;
@@ -462,6 +472,13 @@ export function iniciarParticulas(canvas: HTMLCanvasElement, opcoes: OpcoesDasPa
 
   return {
     acender,
+    disparar() {
+      sinalComecou = relogio;
+    },
+    usarSinalProprio() {
+      sinalExterno = false;
+      proximoSinal = relogio + 0.5;
+    },
     ponteiro(x, y) {
       if (x === null || y === undefined || !largura) {
         acesos.delete("ponteiro");

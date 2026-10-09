@@ -10,8 +10,9 @@ Atualize ao resolver: mova a decisão para `decisoes.md` e apague daqui.
 5. Crédito "Desenvolvido por V2O5" no rodapé da Motors (recomendado).
 6. CNAE: conferir com o contador se cobre site, sistema e tráfego (principal hoje é 7490-1/04).
 7. Persistência dos plugins: instalar pela conta do claude.ai ou registrar no `.claude/settings.json` do repo.
-8. Medir o preview da Vercel (PageSpeed): ele está atrás do login da Vercel. Liberar um bypass de proteção para automação ou dar ao conector acesso ao projeto `v2o5`.
+8. Medir o preview da Vercel (PageSpeed): ele está atrás do login da Vercel. Liberar um bypass de proteção para automação ou dar ao conector acesso ao projeto `v2o5`. Ver também a molécula 3D num celular e num notebook comuns (o ambiente daqui só tem WebGL por software).
 9. WhatsApp e e-mail públicos para o rodapé (hoje "a confirmar").
+10. Proposta: "Pergunte ao agente" no hero, uma conversa real com o agente da V2O5 (a demonstração do próprio produto). Precisa de backend, custo de IA e aviso de privacidade; fase 2.
 
 ## Técnicas
 - LCP da home: mediana 2,19 s no Lighthouse simulado (7 rodadas, igual antes e depois do refino visual), critério é 2,0 s. O que sobra antes do LCP é quase todo o JS do Next/React (138 KB gz). Medir no preview da Vercel antes de cortar mais.

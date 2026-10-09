@@ -6,7 +6,7 @@ Escura e tecnológica, acabamento de produto de IA de ponta, raiz da marca manti
 ## O que entra (avaliação da proposta de motion recebida em 09/10)
 | Peça | Como |
 |---|---|
-| Hero catalisador | Feito em 09/10: molécula C1d nítida em SVG; canvas 2D só com o fluxo (entra cinza por Ot1/Ot2, passa âmbar pela cadeia, sai acelerado por Ot4/Ot3; sinal no V com anel). Acende com cursor perto ou hover/foco nos CTAs. Carrega depois do H1; pausa fora da tela; SVG parado com redução de movimento e em aparelho fraco. Geometria em `src/lib/palco.ts` |
+| Hero catalisador | Feito em 09/10: molécula C1d em 3D (WebGL 2, raymarching, vidro escuro com borda nas cores do vanádio e filamento âmbar no V, luz e inclinação seguindo o cursor) + canvas 2D com o fluxo (entra cinza por Ot1/Ot2, sai acelerado por Ot4/Ot3; anel e rajada no fim do pulso). Acende com cursor perto ou hover/foco nos CTAs. Carrega depois do H1, em tarefas separadas; pausa fora da tela; sem GPU de verdade ou com menos movimento fica o SVG em vidro. Geometria em `src/lib/palco.ts` |
 | Diagrama interativo de arquitetura | Clique em WhatsApp, agente, CRM, rastreamento; pulso percorre o fluxo. SVG + Motion, carregado ao entrar na tela. Sem React Flow |
 | Orquestrador de soluções | Simulação: mensagem chega, agente consulta base (RAG), responde, CRM atualiza. Rótulo "demonstração" |
 | Terminal | Pequeno, no case e em "como funciona", com formato real de eventos anonimizados. Fora do hero |
@@ -16,7 +16,7 @@ Escura e tecnológica, acabamento de produto de IA de ponta, raiz da marca manti
 | Simulador de impacto | Régua (time, volume); conta e premissas visíveis; resultado como estimativa; leva ao diagnóstico (fase 2) |
 
 ## Pilha
-Motion (ex-Framer Motion) por seção · CSS `animation-timeline` onde houver suporte · GSAP ScrollTrigger só se precisar · canvas 2D/OGL nas partículas · sem Lenis/rolagem sequestrada · `prefers-reduced-motion` desliga tudo, com teste.
+WebGL 2 puro no hero (um shader, sem Three.js nem OGL) · Motion (ex-Framer Motion) por seção · CSS `animation-timeline` onde houver suporte · GSAP ScrollTrigger só se precisar · canvas 2D/OGL nas partículas · sem Lenis/rolagem sequestrada · `prefers-reduced-motion` desliga tudo, com teste.
 
 ## Referências de acabamento
 sierra.ai, decagon.ai, morningside.ai (acabamento, não peso de JS).

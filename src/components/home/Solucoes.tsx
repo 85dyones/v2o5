@@ -1,6 +1,5 @@
 import Link from "next/link";
 import Icone from "@/components/Icone";
-import BentoLuz from "@/components/home/BentoLuz";
 import VinhetaDaLinha, { PONTO_DA_ETAPA } from "@/components/home/Vinhetas";
 import { LINHAS, NOME_DA_ETAPA, type Linha } from "@/conteudo/home";
 import type { Etapa } from "@/lib/tokens";
@@ -49,7 +48,7 @@ export default function Solucoes() {
           </p>
         </div>
 
-        <BentoLuz className="mt-14 grid gap-4 md:mt-16 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-14 grid gap-4 md:mt-16 md:grid-cols-2 lg:grid-cols-3">
           <Link
             href={destaque.href}
             className="superficie cartao-luz flex flex-col gap-7 p-3 md:col-span-2 lg:row-span-2"
@@ -84,7 +83,7 @@ export default function Solucoes() {
               </div>
             </Link>
           ))}
-        </BentoLuz>
+        </div>
       </div>
     </section>
   );

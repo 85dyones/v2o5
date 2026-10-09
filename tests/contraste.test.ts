@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { lerHex, razaoDeContraste } from "@/lib/contraste";
+import { lerHex, razaoDeContraste, sobrepor } from "@/lib/contraste";
 import { CORES, type NomeDaCor } from "@/lib/tokens";
 import { ler } from "./fonte";
 
@@ -77,6 +77,20 @@ describe("pares de uso passam no AA", () => {
       expect(razaoDeContraste(CORES[cor], CORES.tinta)!, cor).toBeGreaterThanOrEqual(3);
       expect(razaoDeContraste(CORES[cor], CORES.superficie)!, cor).toBeGreaterThanOrEqual(3);
     }
+  });
+
+  it("botão primário em vidro âmbar: papel passa no AA até no ponto mais claro da luz", () => {
+    // As camadas de .botao-primario (globals.css), da de baixo para a de cima,
+    // sobre a tinta: vidro rgb(46 34 14 / .55), degradê âmbar de .24 (o topo,
+    // a parte mais clara) e a luz do cursor rgb(255 196 92 / .25) no centro.
+    const css = ler("src/app/globals.css");
+    expect(css).toMatch(/background-color: rgb\(46 34 14 \/ 0\.55\)/);
+    expect(css).toMatch(/rgb\(255 196 92 \/ 0\.25\)/);
+    expect(css).toMatch(/rgb\(242 165 22 \/ 0\.24\)/);
+    const vidro = sobrepor("#2E220E", 0.55, CORES.tinta);
+    const degrade = sobrepor(CORES.ambar, 0.24, vidro);
+    const luz = sobrepor("#FFC45C", 0.25, degrade);
+    expect(razaoDeContraste(CORES.papel, luz)!).toBeGreaterThanOrEqual(4.5);
   });
 
   it("as cores de etapa puras não servem de texto sobre a tinta (por isso existem as claras)", () => {

@@ -4,21 +4,35 @@ import {
   CENTRO_DA_MOLECULA as C,
   GUIAS,
   PALCO,
+  RESPIRO_DO_AMBAR,
   TRANSFORMACAO_DA_MOLECULA,
+  V_DO_SINAL,
   caminhoDaCurva,
   particulasParadas,
 } from "@/lib/palco";
 import { CORES } from "@/lib/tokens";
 
 const PARADAS = particulasParadas();
+
+/** O filamento âmbar do V, parando no respiro do átomo âmbar. */
+function filamento(): string {
+  const pontos = V_DO_SINAL.map((id) => ATOMOS[id]);
+  const fim = pontos[pontos.length - 1];
+  const antes = pontos[pontos.length - 2];
+  const d = Math.hypot(fim.x - antes.x, fim.y - antes.y);
+  const recuo = (fim.r + RESPIRO_DO_AMBAR) / d;
+  pontos[pontos.length - 1] = { ...fim, x: fim.x - (fim.x - antes.x) * recuo, y: fim.y - (fim.y - antes.y) * recuo };
+  return pontos.map((p, i) => `${i ? "L" : "M"}${r2(p.x)} ${r2(p.y)}`).join("");
+}
 const r1 = (n: number) => Math.round(n * 10) / 10;
 const r2 = (n: number) => Math.round(n * 100) / 100;
 
 /**
  * O palco do hero em SVG, do servidor: aros, trilhos, a molécula C1d e um
  * quadro parado das partículas. É o que aparece primeiro e o que fica com
- * menos movimento. O canvas (`HeroMolecula`) entra por cima com as mesmas
- * coordenadas e, quando pinta, só as partículas paradas saem.
+ * menos movimento. Os canvas de `HeroMolecula` entram por cima com as mesmas
+ * coordenadas: quando a 3D pinta, a molécula daqui sai; quando as partículas
+ * pintam, saem as partículas paradas. Aros e trilhos ficam sempre.
  */
 export default function PalcoDoHero() {
   const v = SIMBOLO_C1D.grande;
@@ -56,9 +70,10 @@ export default function PalcoDoHero() {
           <stop offset="0" stopColor={CORES.ambar} stopOpacity="0.55" />
           <stop offset="1" stopColor={CORES.ambar} stopOpacity="0" />
         </linearGradient>
-        <linearGradient id="palco-molecula" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stopColor={CORES.papel} />
-          <stop offset="1" stopColor={CORES.papel} stopOpacity="0.78" />
+        <linearGradient id="palco-borda" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stopColor={CORES.violetaClaro} />
+          <stop offset="0.5" stopColor={CORES.verdeClaro} />
+          <stop offset="1" stopColor={CORES.azulClaro} />
         </linearGradient>
       </defs>
 
@@ -107,10 +122,37 @@ export default function PalcoDoHero() {
         </g>
       </g>
 
-      <circle cx={r2(ambar.x)} cy={r2(ambar.y)} r={r2(ambar.r * 5.5)} fill="url(#palco-luz-ambar)" />
-      <g transform={TRANSFORMACAO_DA_MOLECULA}>
-        <path d={v.rede} fill="url(#palco-molecula)" />
-        <circle cx={v.ambar.cx} cy={v.ambar.cy} r={v.ambar.r} fill={CORES.ambar} />
+      {/* A molécula parada: some quando a 3D (WebGL) pinta por cima. */}
+      <circle
+        className="palco-molecula"
+        cx={r2(ambar.x)}
+        cy={r2(ambar.y)}
+        r={r2(ambar.r * 5.5)}
+        fill="url(#palco-luz-ambar)"
+      />
+      {/* Vidro escuro com borda nas cores do vanádio e o filamento âmbar no V,
+          como a molécula 3D desenha. */}
+      <g className="palco-molecula">
+        <path
+          d={v.rede}
+          transform={TRANSFORMACAO_DA_MOLECULA}
+          fill="#15181D"
+          stroke="url(#palco-borda)"
+          strokeOpacity={0.75}
+          strokeWidth={1.25}
+          vectorEffect="non-scaling-stroke"
+        />
+        <g fill="none" stroke={CORES.ambar} strokeLinecap="round" strokeLinejoin="round">
+          <path d={filamento()} strokeWidth={3.2} strokeOpacity={0.18} />
+          <path d={filamento()} strokeWidth={0.7} strokeOpacity={0.85} />
+        </g>
+        <circle cx={r2(ambar.x)} cy={r2(ambar.y)} r={r2(ambar.r)} fill={CORES.ambar} />
+        {/* Reflexo de vidro em cada átomo, da luz que vem de cima à esquerda. */}
+        <g fill={CORES.papel}>
+          {Object.values(ATOMOS).map((a, i) => (
+            <circle key={i} cx={r2(a.x - a.r * 0.38)} cy={r2(a.y - a.r * 0.38)} r={r2(a.r * 0.17)} opacity={0.75} />
+          ))}
+        </g>
       </g>
     </svg>
   );
