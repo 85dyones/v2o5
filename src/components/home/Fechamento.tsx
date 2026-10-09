@@ -21,7 +21,7 @@ export default function Fechamento() {
           Comece pelo diagnóstico.
         </h2>
         <p className="texto-guia mt-6 max-w-[36rem]">
-          Em 45 minutos a gente entende como a sua empresa vende hoje. Em até 24 horas você recebe um mapa do
+          Em 45 minutos de conversa com o fundador, a gente entende como a sua empresa vende hoje. Em até 24 horas você recebe um mapa do
           que fazer primeiro, com ou sem a V2O5.
         </p>
         <div className="mt-10 flex flex-wrap justify-center gap-3">

@@ -5,7 +5,6 @@ import {
   HERO,
   LINHAS,
   PILARES,
-  PRECO_NO_DIAGNOSTICO,
   TITULO_DA_HOME,
   VISAO_360,
 } from "@/conteudo/home";
@@ -80,15 +79,10 @@ describe("os dois pilares do H1", () => {
     for (const l of LINHAS) expect(servicos, l.titulo).toContainEqual(l);
   });
 
-  it("serviço sem linha própria diz onde vem incluso, traz preço da tabela ou está nas pendências", () => {
+  it("serviço sem linha própria diz onde vem incluso ou traz preço da tabela", () => {
     const oferta = ler("memory/context/oferta.md");
-    const pendencias = ler("memory/pendencias.md");
     for (const s of servicos.filter((s) => !LINHAS.includes(s as (typeof LINHAS)[number]))) {
-      if (s.preco === PRECO_NO_DIAGNOSTICO) {
-        // Sem preço inventado: o valor fica pendente com o Dyones até entrar em oferta.md.
-        expect(pendencias, s.titulo).toContain(s.titulo);
-        expect(s.href, s.titulo).toBe("/diagnostico");
-      } else if (/incluso em /.test(s.preco)) {
+      if (/incluso em /.test(s.preco)) {
         const linha = s.preco.split("incluso em ")[1];
         expect(LINHAS.map((l) => l.titulo), s.titulo).toContain(linha);
       } else {
@@ -101,6 +95,7 @@ describe("os dois pilares do H1", () => {
   it("o mapa traz branding, Perfil da Empresa no Google, SEO e tráfego no Google e na Meta", () => {
     const mapa = PILARES[0].servicos.map((s) => s.titulo).join(" | ");
     expect(mapa).toMatch(/Branding e gestão de marca/);
+    expect(PILARES[0].servicos[0].preco).toBe("a partir de R$ 1.500");
     expect(mapa).toMatch(/Perfil da Empresa no Google/);
     expect(mapa).toMatch(/SEO/);
     expect(mapa).toMatch(/Google e na Meta/);
@@ -116,19 +111,21 @@ describe("os dois pilares do H1", () => {
 });
 
 describe("Visão 360", () => {
-  it("o fundador aparece com o que ele contou e publicou: Administração, branding, 1992 e os guias da Motors", () => {
-    const { texto } = VISAO_360.fundador;
-    expect(texto).toMatch(/Administração de Empresas/);
-    expect(texto).toMatch(/gestão de marca e branding/);
+  it("o fundador aparece com o que ele contou e publicou: FAE, a Top, 1992, os guias e o diagnóstico", () => {
+    const { texto, escola } = VISAO_360.fundador;
+    expect(escola).toBe("FAE Business School");
+    expect(texto).toContain(`Administração pela ${escola}`);
+    expect(texto).toMatch(/Top Imóveis para Top Soluções Imobiliárias/);
     expect(texto).toMatch(/desde 1992/);
     expect(texto).toMatch(/26 guias/);
+    expect(texto).toMatch(/conduz o diagnóstico/);
     expect(ler("memory/projects/case-motors.md")).toMatch(/\| Guias publicados \| 26 \|/);
   });
 
-  it("cada área traz a base do fundador, e a formação em Administração responde pela gestão", () => {
+  it("cada área traz a base do fundador, e a formação na FAE responde pela gestão", () => {
     expect(VISAO_360.areas.map((a) => a.nome)).toEqual(["Marca", "Marketing", "Vendas", "Gestão"]);
     for (const a of VISAO_360.areas) expect(["Formação", "Experiência", "Prática"]).toContain(a.base.tipo);
-    expect(VISAO_360.areas[3].base).toEqual({ tipo: "Formação", texto: "Administração de Empresas" });
+    expect(VISAO_360.areas[3].base).toEqual({ tipo: "Formação", texto: "Administração na FAE Business School" });
     expect(VISAO_360.costuras).toHaveLength(VISAO_360.areas.length - 1);
   });
 

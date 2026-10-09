@@ -105,7 +105,7 @@ export const PAGINAS: Pagina[] = [
     rota: "/diagnostico",
     titulo: "Pedir diagnóstico",
     descricao:
-      "45 minutos de conversa e um mapa do que fazer, em até 24 horas. O formulário entra na próxima etapa.",
+      "45 minutos de conversa com o fundador e um mapa do que fazer, em até 24 horas. O formulário entra na próxima etapa.",
     atualizadaEm: "2026-10-09",
     pronta: false,
   },

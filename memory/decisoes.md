@@ -2,6 +2,11 @@
 
 Log datado. Decisão nova entra no topo do dia; decisão revogada fica riscada com a data da troca.
 
+## 09/10/2026 (respostas do Dyones para a Visão 360 e o branding)
+- Branding e gestão de marca: a partir de R$ 1.500 (por projeto, sem mensalidade). Entrou em `oferta.md`; o cartão continua levando a `/diagnostico` até existir página própria.
+- Fundador: Administração pela FAE Business School (no texto, na coluna Gestão e no schema como `alumniOf`); caso de branding: a mudança da Top Imóveis para Top Soluções Imobiliárias (coluna Marca e texto do fundador); é ele quem conduz o diagnóstico (texto do fundador, nota do hero, fechamento e página `/diagnostico`: "45 minutos de conversa com o fundador").
+- A busca na web não achou a Top Soluções Imobiliárias pelo nome; a grafia é a do Dyones.
+
 ## 09/10/2026 (Visão 360 refeita e branding no cardápio, depois do "ficou amadora" do Dyones)
 - Visão 360 com conceito próprio: "O cliente se perde nas costuras entre uma área e outra. A V2O5 olha o caminho inteiro, da marca ao caixa." Quatro áreas (Marca, Marketing, Vendas, Gestão), cada uma com a pergunta que o dono faz, o que a V2O5 faz e a base do fundador que responde por ela (Experiência: gestão de marca e branding; Prática: conteúdo, SEO e tráfego da Motors; Prática: funil e CRM da Motors; Formação: Administração de Empresas). Entre as áreas, o que costuma romper: a promessa muda, o contato espera 42 h, a venda entra sem origem. Um fio âmbar em pesponto costura tudo (legenda: "O fio é a tecnologia").
 - O anel de seis arcos e o círculo "DO" saíram (pareciam amadores, pelo Dyones).

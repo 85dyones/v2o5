@@ -49,6 +49,7 @@ export function fundador(): No {
     name: VISAO_360.fundador.nome,
     jobTitle: "Fundador",
     description: VISAO_360.fundador.texto,
+    alumniOf: { "@type": "CollegeOrUniversity", name: VISAO_360.fundador.escola },
     knowsAbout: ["Administração de empresas", "Gestão de marca", "Branding", "Marketing digital", "Automação com IA"],
     worksFor: ref(ID_DA_ORGANIZACAO),
   };

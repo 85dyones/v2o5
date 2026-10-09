@@ -17,7 +17,7 @@ export const TITULO_DA_HOME = "Coloque sua empresa no mapa e multiplique a opera
 export const HERO = {
   subtitulo:
     "Perfil no Google, SEO, anúncios, site, agente de IA e CRM num sistema só, que mostra de onde veio cada venda. Se um dia quiser sair, você leva o código, os dados e o domínio.",
-  nota: "Diagnóstico gratuito: 45 minutos de conversa e um mapa do que fazer, em até 24 horas.",
+  nota: "Diagnóstico gratuito: 45 minutos de conversa com o fundador e um mapa do que fazer, em até 24 horas.",
 };
 
 /**
@@ -131,12 +131,6 @@ export interface Servico {
   vinheta: Vinheta;
 }
 
-/**
- * Serviço do cardápio ainda sem preço na tabela: o orçamento sai do
- * diagnóstico até o Dyones fechar o valor (`memory/pendencias.md`).
- */
-export const PRECO_NO_DIAGNOSTICO = "orçamento no diagnóstico";
-
 const linha = (href: string): Servico => {
   const l = LINHAS.find((x) => x.href === href);
   if (!l) throw new Error(`Linha sem preço em oferta.md: ${href}`);
@@ -161,7 +155,7 @@ export const PILARES: { id: string; sobretitulo: string; titulo: string; frase: 
         titulo: "Branding e gestão de marca",
         frase:
           "Posicionamento, identidade visual e tom de voz, com um guia que mantém a marca igual no perfil, no site, nos anúncios e no atendimento.",
-        preco: PRECO_NO_DIAGNOSTICO,
+        preco: "a partir de R$ 1.500",
         href: "/diagnostico",
         etapa: "violeta",
         vinheta: "marca",
@@ -212,9 +206,10 @@ export const PILARES: { id: string; sobretitulo: string; titulo: string; frase: 
  * Visão 360: o cliente atravessa marca, marketing, vendas e gestão, e a venda
  * se perde nas passagens entre uma área e outra. Cada área traz a base do
  * fundador que responde por ela (formação, experiência ou prática na Motors).
- * Fatos do fundador: o que ele contou (Administração de Empresas, gestão de
- * marca e branding) e o que publicou no site antigo (curso de informática
- * ganho num concurso da escola, em 1992). O número da costura do meio vem do
+ * Fatos do fundador: o que ele contou em 09/10 (Administração na FAE
+ * Business School; rebranding da Top Imóveis para Top Soluções
+ * Imobiliárias; conduz o diagnóstico) e o que publicou no site antigo (curso
+ * de informática ganho num concurso da escola, em 1992). O número da costura do meio vem do
  * estudo da HBR em `evidencia`.
  */
 export const VISAO_360 = {
@@ -234,7 +229,7 @@ export const VISAO_360 = {
       nome: "Marca",
       pergunta: "Por que escolher você?",
       acao: "Uma promessa só, dita do mesmo jeito no Google, no anúncio, no site e na conversa com o agente.",
-      base: { tipo: "Experiência", texto: "Gestão de marca e branding" },
+      base: { tipo: "Experiência", texto: "Rebranding da Top Imóveis para Top Soluções Imobiliárias" },
     },
     {
       nome: "Marketing",
@@ -252,7 +247,7 @@ export const VISAO_360 = {
       nome: "Gestão",
       pergunta: "Quanto sobra no fim do mês?",
       acao: "O projeto começa pela conta da empresa: margem, ticket médio, custo por venda e prazo para se pagar.",
-      base: { tipo: "Formação", texto: "Administração de Empresas" },
+      base: { tipo: "Formação", texto: "Administração na FAE Business School" },
     },
   ],
   /** O que costuma romper na passagem de uma área para a seguinte. */
@@ -265,7 +260,8 @@ export const VISAO_360 = {
     nome: "Dyones Oliveira",
     papel: "Fundador da V2O5",
     texto:
-      "Formado em Administração de Empresas, trabalhou com gestão de marca e branding e está na informática desde 1992, quando ganhou um curso num concurso da escola. Na Motors Store, assina os 26 guias do site.",
+      "Formado em Administração pela FAE Business School, está na informática desde 1992, quando ganhou um curso num concurso da escola. Em branding, fez a mudança da Top Imóveis para Top Soluções Imobiliárias; na Motors Store, assina os 26 guias do site. É ele quem conduz o diagnóstico gratuito.",
+    escola: "FAE Business School",
   },
 };
 
