@@ -48,4 +48,7 @@ Nós: Ot1 (38,48) · Ot2 (40,68) · V1 (51,58) · Ob (64,50) · V2 (77,58) · Ot
 
 **C1c (sólida)**: nuvem C1 preenchida, rede em papel (vazada), Ot3 âmbar. Em uma cor: Ot3 vira anel com ponto central.
 
+**C1d (molécula em V, proposta do Dyones em 09/10, em teste no protótipo)**: a molécula do C1 virada de cabeça para baixo, com a cadeia Ot2–V1–Ob–V2–Ot4 formando um V reto.
+Ot1 (40,65) · Ot2 (42,42) · V1 (53,55) · Ob (64,68) · V2 (75,55) · Ot3 (88,65) · Ot4 (86,42, âmbar). Mesmas ligações do C1; sinal Ot2 → V1 → Ob → V2 → Ot4. Nuvem do C1.
+
 Pequenos tamanhos: 32 px fica só nuvem + V1, V2 e Ot3; 16 px nuvem + ponto âmbar. Versões completas nos quadros do canvas (link no `CLAUDE.md`).

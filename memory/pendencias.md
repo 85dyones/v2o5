@@ -3,7 +3,7 @@
 Atualize ao resolver: mova a decisão para `decisoes.md` e apague daqui.
 
 ## Do Dyones
-1. Variação final do logo (família C1). No código, troca em `SIMBOLO_ATUAL` (`src/lib/marca.ts`).
+1. Variação final do logo. Em teste desde 09/10: C1d, a molécula do C1 virada em V (proposta do Dyones), aplicada no protótipo e no hero. Falta o OK final; troca em `SIMBOLO_ATUAL` (`src/lib/marca.ts`). Comparação: https://claude.ai/artifact/8q5BRtPR4dUgcxsmm3nx6E
 2. Foto para a página Sobre e a assinatura dos guias.
 3. Agenda: recomendação Cal.com ligado ao Google Agenda (webhook dispara `schedule_call`).
 4. GTM server-side: recomendação deixar para a fase 3.

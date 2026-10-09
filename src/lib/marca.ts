@@ -4,12 +4,13 @@
  * estático do hero e as partículas do canvas.
  *
  * A variação final do logo ainda está em aberto (pendência 1 do Dyones).
- * Para trocar o símbolo do site inteiro, mude `SIMBOLO_ATUAL`.
+ * Para trocar o símbolo do site inteiro, mude `SIMBOLO_ATUAL`. Em teste
+ * desde 09/10: C1d, a proposta do Dyones (a molécula do C1 virada em V).
  */
 
-export type VarianteDoSimbolo = "C1" | "C1a" | "C1b" | "C1c";
+export type VarianteDoSimbolo = "C1" | "C1a" | "C1b" | "C1c" | "C1d";
 
-export const SIMBOLO_ATUAL: VarianteDoSimbolo = "C1";
+export const SIMBOLO_ATUAL: VarianteDoSimbolo = "C1d";
 
 /** viewBox comum a toda a família (proporção 1,6). */
 export const VIEWBOX = { x: 8, y: 14, largura: 112, altura: 70 } as const;
@@ -102,15 +103,45 @@ const CEREBRO_C1B: Desenho = {
   sinal: MOLECULA_C1.sinal,
 };
 
+/**
+ * C1d: a molécula do C1 virada de cabeça para baixo, para a cadeia
+ * Ot2–V1–Ob–V2–Ot4 desenhar um V (proposta do Dyones, 09/10). Mesmos 7 nós e
+ * 6 ligações; V1 e V2 descem uma unidade para os cinco nós do V ficarem em
+ * linha reta. O âmbar vai para a ponta de cima à direita, onde o sinal
+ * termina. `tests/marca.test.ts` confere que tudo cabe na nuvem.
+ */
+const MOLECULA_EM_V_C1D: Desenho = {
+  nuvem: NUVEM_C1,
+  nos: [
+    { id: "Ot1", x: 40, y: 65, tipo: "O" },
+    { id: "Ot2", x: 42, y: 42, tipo: "O" },
+    { id: "V1", x: 53, y: 55, tipo: "V" },
+    { id: "Ob", x: 64, y: 68, tipo: "O" },
+    { id: "V2", x: 75, y: 55, tipo: "V" },
+    { id: "Ot3", x: 88, y: 65, tipo: "O" },
+    { id: "Ot4", x: 86, y: 42, tipo: "O", ambar: true },
+  ],
+  ligacoes: MOLECULA_C1.ligacoes,
+  sinal: ["Ot2", "V1", "Ob", "V2", "Ot4"],
+};
+
 export const DESENHOS: Record<VarianteDoSimbolo, Desenho> = {
   C1: MOLECULA_C1,
   C1a: MONOGRAMA_C1A,
   C1b: CEREBRO_C1B,
   C1c: MOLECULA_C1,
+  C1d: MOLECULA_EM_V_C1D,
 };
 
-/** A molécula das partículas do hero é sempre a do C1 (7 nós, 6 ligações). */
-export const MOLECULA = MOLECULA_C1;
+/**
+ * A molécula das partículas do hero segue o símbolo escolhido, para o logo e
+ * o hero serem o mesmo desenho. O monograma C1a não é molécula: usa a do C1.
+ */
+export function moleculaDoHero(variante: VarianteDoSimbolo): Desenho {
+  return variante === "C1a" ? MOLECULA_C1 : DESENHOS[variante];
+}
+
+export const MOLECULA = moleculaDoHero(SIMBOLO_ATUAL);
 
 export const RAIO = { V: 6.5, O: 4.5 } as const;
 

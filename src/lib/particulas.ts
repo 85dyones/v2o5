@@ -165,7 +165,7 @@ export function iniciarParticulas(
   let ponteiro: { x: number; y: number } | null = null;
   let energia = 0;
   let relogioDoSinal = -1; // < 0: parado
-  let anel = -1; // idade do anel em Ot3, em segundos
+  let anel = -1; // idade do anel no nó âmbar, em segundos
 
   // Geometria da tela.
   let largura = 0;
@@ -394,15 +394,15 @@ export function iniciarParticulas(
       }
     }
 
-    // Anel em Ot3 quando o sinal chega.
+    // Anel no nó âmbar (fim do sinal) quando o sinal chega.
     if (anel >= 0) {
-      const ot3 = nos[caminhoDoSinal[caminhoDoSinal.length - 1]];
+      const fimDoSinal = nos[caminhoDoSinal[caminhoDoSinal.length - 1]];
       const f = anel / 0.9;
       ctx.globalAlpha = 1 - f;
       ctx.strokeStyle = "rgb(242,165,22)";
       ctx.lineWidth = Math.max(1, escala * 0.6);
       ctx.beginPath();
-      ctx.arc(px(ot3.x), py(ot3.y), escala * (RAIO.O + 9 * saidaCubica(f)), 0, Math.PI * 2);
+      ctx.arc(px(fimDoSinal.x), py(fimDoSinal.y), escala * (RAIO.O + 9 * saidaCubica(f)), 0, Math.PI * 2);
       ctx.stroke();
     }
 

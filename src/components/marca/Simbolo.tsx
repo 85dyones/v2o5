@@ -1,9 +1,12 @@
-import { DESENHOS, RAIO, SIMBOLO_ATUAL, VIEWBOX, type VarianteDoSimbolo } from "@/lib/marca";
+import { DESENHOS, RAIO, SIMBOLO_ATUAL, VIEWBOX, type No, type VarianteDoSimbolo } from "@/lib/marca";
 
 const VIEWBOX_TEXTO = `${VIEWBOX.x} ${VIEWBOX.y} ${VIEWBOX.largura} ${VIEWBOX.altura}`;
 
-/** Em 32 px ou menos fica só a nuvem, V1, V2 e Ot3 (regra de `marca.md`). */
-const NOS_DO_REDUZIDO = new Set(["V1", "V2", "Ot3", "TR"]);
+/**
+ * Em 32 px ou menos fica só a nuvem, os dois vanádios e o nó âmbar (regra de
+ * `marca.md`: no C1, V1, V2 e Ot3).
+ */
+const noReduzido = (n: No) => n.tipo === "V" || Boolean(n.ambar);
 
 /**
  * O símbolo da V2O5. Server Component, SVG puro: é também o que aparece no
@@ -27,7 +30,7 @@ export default function Simbolo({
   const desenho = DESENHOS[variante];
   const solido = variante === "C1c";
   const porId = new Map(desenho.nos.map((n) => [n.id, n]));
-  const nos = reduzido ? desenho.nos.filter((n) => NOS_DO_REDUZIDO.has(n.id)) : desenho.nos;
+  const nos = reduzido ? desenho.nos.filter(noReduzido) : desenho.nos;
   // No C1c a rede é vazada: desenhada na cor do fundo por cima da nuvem cheia.
   const corDaRede = solido ? "var(--cor-fundo-simbolo, var(--color-tinta))" : "currentColor";
 
