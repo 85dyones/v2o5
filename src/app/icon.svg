@@ -2,6 +2,6 @@
   <rect width="64" height="64" rx="14" fill="#121418"/>
   <g transform="translate(32 33) scale(0.46) translate(-64 -49)">
     <path d="M30 80 A18 18 0 0 1 28.09 44.1 A24 24 0 0 1 67.93 24.05 A20 20 0 0 1 99.58 44.07 A18 18 0 0 1 98 80 Z" fill="none" stroke="#F2F1EC" stroke-width="9" stroke-linejoin="round"/>
-    <circle cx="88" cy="45" r="9" fill="#F2A516"/>
+    <circle cx="86" cy="42" r="9" fill="#F2A516"/>
   </g>
 </svg>

@@ -8,7 +8,7 @@ import CaseMotors from "@/components/home/CaseMotors";
 import Automotivo from "@/components/home/Automotivo";
 import Fechamento from "@/components/home/Fechamento";
 
-/** A home inteira, com o H1 escolhido (`TITULOS` em conteudo/home.ts). */
+/** A home inteira. O H1 vem de `TITULO_DA_HOME` (conteudo/home.ts). */
 export default function Home({ titulo }: { titulo: string }) {
   return (
     <>

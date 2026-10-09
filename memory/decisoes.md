@@ -2,6 +2,10 @@
 
 Log datado. Decisão nova entra no topo do dia; decisão revogada fica riscada com a data da troca.
 
+## 09/10/2026 (escolhas sobre o protótipo)
+- Logo: **C1d**, a molécula do C1 virada em V (proposta do Dyones). Geometria em `memory/context/marca.md`; o hero desenha a mesma molécula em partículas. Comparação: https://claude.ai/artifact/8q5BRtPR4dUgcxsmm3nx6E
+- H1 da home: "Coloque sua empresa no mapa e multiplique a operação com IA." (opção A). Descartada: "Vendas mais rápidas com IA, num sistema que fica com a sua empresa."
+
 ## 09/10/2026 (protótipo da home, decisões técnicas)
 - Código na raiz em `src/` (Next 16.4, React 19.3, Tailwind 4, Vitest), como na Motors. `cacheComponents` ligado; páginas estáticas.
 - Fontes: recorte latino da Geist variável do pacote `geist` (32 KB, `scripts/subsetar-fontes.sh`), pré-carregada. Geist Mono sai do caminho do LCP: carrega depois do `load` por `FontFace` (`FonteMonoTardia.tsx`). Medido: com as duas no início o LCP passava de 2,4 s.
@@ -14,7 +18,7 @@ Log datado. Decisão nova entra no topo do dia; decisão revogada fica riscada c
 ## 09/10/2026
 - Identidade raiz geral: "digitalização e aceleração de negócios com IA" (colocar no mapa, multiplicar a operação). Automotivo vira o primeiro segmento, com hub `/segmentos/revendas-de-veiculos`. Substitui "revendas desde a home" de 08/10.
 - Direção visual escura e tecnológica, com motion (seção 5 do plano e `memory/context/motion.md`). Formato editorial claro descartado.
-- Logo: família C1. Variação final em aberto (C1, C1a, C1b, C1c ou C1b+C1c).
+- ~~Logo: família C1. Variação final em aberto (C1, C1a, C1b, C1c ou C1b+C1c).~~ Fechado em 09/10: C1d.
 - Plugins instalados no ambiente: frontend-design, audit-suite, perf-profiler, parallax-threejs, axe-accessibility.
 - Memória do projeto em `CLAUDE.md` + `memory/`; handoff da próxima etapa em `docs/HANDOFF.md`.
 

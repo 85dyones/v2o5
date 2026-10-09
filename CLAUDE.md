@@ -15,7 +15,7 @@ Novo site da **V2O5 Vendas e Tecnologia** (substitui o WordPress de v2o5.com.br)
 | Termo | Significado |
 |---|---|
 | **Motors** | Motors Store, revenda de seminovos em Curitiba; case principal; repo `85dyones/motors-site-oficial` (base técnica de referência) |
-| **C1, C1a, C1b, C1c** | Família de logo escolhida: nuvem com a rede da molécula V2O5 (a = monograma V, b = cérebro, c = sólida). Variação final em aberto |
+| **C1, C1a…C1d** | Família do logo: nuvem com a rede da molécula V2O5 (a = monograma V, b = cérebro, c = sólida, d = molécula virada em V). **Logo: C1d** (09/10) |
 | **Direção B / A / C2** | Logos descartados (funil, fórmula, engrenagens) |
 | **V²⁺ V³⁺ V⁴⁺ V⁵⁺** | Cores dos estados do vanádio: violeta, verde, azul, âmbar. Âmbar = ação/energia |
 | **Catalisador** | Conceito da marca: V2O5 é catalisador industrial; o catalisador da V2O5 é a IA |
@@ -26,6 +26,7 @@ Novo site da **V2O5 Vendas e Tecnologia** (substitui o WordPress de v2o5.com.br)
 → Glossário completo: `memory/glossary.md`
 
 ## Decisões que mais pesam
+- Logo C1d (molécula em V); H1 "Coloque sua empresa no mapa e multiplique a operação com IA." (09/10)
 - Identidade geral (IA para negócios); automotivo como segmento com hub próprio. (09/10)
 - Visual escuro e tecnológico com motion (partículas da molécula, diagrama interativo, simuladores); formato editorial claro descartado. (09/10)
 - Nome fixo "V2O5 Vendas e Tecnologia"; assinatura "Catalisador de vendas com IA" com "IA" em âmbar. (08–09/10)

@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { CASE, FRENTES, LINHAS, TITULOS } from "@/conteudo/home";
+import { CASE, FRENTES, LINHAS, TITULO_DA_HOME } from "@/conteudo/home";
 import { arquivos, ler, semComentarios } from "./fonte";
 
 /**
@@ -61,8 +61,9 @@ describe("oferta", () => {
 });
 
 describe("texto público", () => {
-  it("há duas opções de H1 para escolher", () => {
-    expect(TITULOS.a).not.toBe(TITULOS.b);
+  it("o H1 da home é o escolhido em 09/10 e a decisão está registrada", () => {
+    expect(TITULO_DA_HOME).toBe("Coloque sua empresa no mapa e multiplique a operação com IA.");
+    expect(ler("memory/decisoes.md")).toContain(TITULO_DA_HOME);
   });
 
   it("sem travessão nos textos da home", () => {

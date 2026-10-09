@@ -8,11 +8,11 @@
  */
 import type { Etapa } from "@/lib/tokens";
 
-/** As duas opções de H1 para o Dyones escolher. A home usa a primeira. */
-export const TITULOS = {
-  a: "Coloque sua empresa no mapa e multiplique a operação com IA.",
-  b: "Vendas mais rápidas com IA, num sistema que fica com a sua empresa.",
-} as const;
+/**
+ * O H1 da home, escolhido em 09/10 entre duas opções (a outra está em
+ * `memory/decisoes.md`).
+ */
+export const TITULO_DA_HOME = "Coloque sua empresa no mapa e multiplique a operação com IA.";
 
 export const HERO = {
   subtitulo:

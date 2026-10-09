@@ -3,9 +3,9 @@
  * `memory/context/marca.md`. O mesmo desenho alimenta o SVG do topo, o SVG
  * estático do hero e as partículas do canvas.
  *
- * A variação final do logo ainda está em aberto (pendência 1 do Dyones).
- * Para trocar o símbolo do site inteiro, mude `SIMBOLO_ATUAL`. Em teste
- * desde 09/10: C1d, a proposta do Dyones (a molécula do C1 virada em V).
+ * Logo escolhido em 09/10: C1d, a proposta do Dyones (a molécula do C1
+ * virada em V). As outras variações ficam para comparação. Para trocar o
+ * símbolo do site inteiro, mude `SIMBOLO_ATUAL`.
  */
 
 export type VarianteDoSimbolo = "C1" | "C1a" | "C1b" | "C1c" | "C1d";
@@ -105,7 +105,7 @@ const CEREBRO_C1B: Desenho = {
 
 /**
  * C1d: a molécula do C1 virada de cabeça para baixo, para a cadeia
- * Ot2–V1–Ob–V2–Ot4 desenhar um V (proposta do Dyones, 09/10). Mesmos 7 nós e
+ * Ot2–V1–Ob–V2–Ot4 desenhar um V (proposta do Dyones, escolhida em 09/10). Mesmos 7 nós e
  * 6 ligações; V1 e V2 descem uma unidade para os cinco nós do V ficarem em
  * linha reta. O âmbar vai para a ponta de cima à direita, onde o sinal
  * termina. `tests/marca.test.ts` confere que tudo cabe na nuvem.
