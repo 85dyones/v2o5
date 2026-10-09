@@ -1,11 +1,10 @@
-import type { Metadata } from "next";
 import PaginaProvisoria from "@/components/PaginaProvisoria";
+import { metadataDa } from "@/conteudo/paginas";
 
-export const metadata: Metadata = {
-  title: "CRM com WhatsApp",
-  description: "Funil com origem, etapa e próximo passo de cada contato.",
-};
+const ROTA = "/crm-com-whatsapp";
+
+export const metadata = metadataDa(ROTA);
 
 export default function Pagina() {
-  return <PaginaProvisoria titulo="CRM com WhatsApp" resumo="Funil com origem, etapa e próximo passo de cada contato." />;
+  return <PaginaProvisoria rota={ROTA} />;
 }

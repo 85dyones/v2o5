@@ -7,6 +7,7 @@ Log datado. Decisão nova entra no topo do dia; decisão revogada fica riscada c
 - H1 da home: "Coloque sua empresa no mapa e multiplique a operação com IA." (opção A). Descartada: "Vendas mais rápidas com IA, num sistema que fica com a sua empresa."
 
 ## 09/10/2026 (protótipo da home, decisões técnicas)
+- Base da fase 1: CI no GitHub Actions (lint, testes, build); cabeçalhos de segurança no `next.config.ts` com CSP sem nonce (páginas estáticas; nonce exigiria renderização dinâmica); mapa de páginas único em `src/conteudo/paginas.ts` (título, descrição, canonical, `noindex` nas páginas em construção, sitemap só com as prontas); `robots.ts` com um grupo só; `llms.txt` gerado do conteúdo da home; redirecionamentos 301 do WordPress e 410 em `/hello-world` e `/test-post`; grafo JSON-LD (Organization + ProfessionalService, WebSite, Person; trilha nas internas), sem `sameAs` até os perfis existirem.
 - Código na raiz em `src/` (Next 16.4, React 19.3, Tailwind 4, Vitest), como na Motors. `cacheComponents` ligado; páginas estáticas.
 - Fontes: recorte latino da Geist variável do pacote `geist` (32 KB, `scripts/subsetar-fontes.sh`), pré-carregada. Geist Mono sai do caminho do LCP: carrega depois do `load` por `FontFace` (`FonteMonoTardia.tsx`). Medido: com as duas no início o LCP passava de 2,4 s.
 - CSS em arquivo, sem `experimental.inlineCss`: inline, o CSS entrava 3 vezes no HTML (style + 2x no payload RSC) e o documento ia de 18 para 38 KB.

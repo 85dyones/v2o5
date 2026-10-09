@@ -1,11 +1,10 @@
-import type { Metadata } from "next";
 import PaginaProvisoria from "@/components/PaginaProvisoria";
+import { metadataDa } from "@/conteudo/paginas";
 
-export const metadata: Metadata = {
-  title: "Gestão de tráfego",
-  description: "Google e Meta ajustados pelo que virou venda.",
-};
+const ROTA = "/gestao-de-trafego";
+
+export const metadata = metadataDa(ROTA);
 
 export default function Pagina() {
-  return <PaginaProvisoria titulo="Gestão de tráfego" resumo="Google e Meta ajustados pelo que virou venda." />;
+  return <PaginaProvisoria rota={ROTA} />;
 }

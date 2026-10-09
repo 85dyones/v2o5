@@ -1,7 +1,7 @@
 import PaginaProvisoria from "@/components/PaginaProvisoria";
 import { metadataDa } from "@/conteudo/paginas";
 
-const ROTA = "/automacao-com-ia";
+const ROTA = "/guias";
 
 export const metadata = metadataDa(ROTA);
 

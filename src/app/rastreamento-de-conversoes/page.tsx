@@ -1,11 +1,10 @@
-import type { Metadata } from "next";
 import PaginaProvisoria from "@/components/PaginaProvisoria";
+import { metadataDa } from "@/conteudo/paginas";
 
-export const metadata: Metadata = {
-  title: "Rastreamento de conversões",
-  description: "Cada lead e cada venda ligados ao anúncio de origem.",
-};
+const ROTA = "/rastreamento-de-conversoes";
+
+export const metadata = metadataDa(ROTA);
 
 export default function Pagina() {
-  return <PaginaProvisoria titulo="Rastreamento de conversões" resumo="Cada lead e cada venda ligados ao anúncio de origem." />;
+  return <PaginaProvisoria rota={ROTA} />;
 }
