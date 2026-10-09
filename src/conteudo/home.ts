@@ -54,7 +54,8 @@ export type Vinheta =
   | "campanhas"
   | "perfil"
   | "site"
-  | "integracoes";
+  | "integracoes"
+  | "marca";
 
 export interface Linha {
   titulo: string;
@@ -130,6 +131,12 @@ export interface Servico {
   vinheta: Vinheta;
 }
 
+/**
+ * Serviço do cardápio ainda sem preço na tabela: o orçamento sai do
+ * diagnóstico até o Dyones fechar o valor (`memory/pendencias.md`).
+ */
+export const PRECO_NO_DIAGNOSTICO = "orçamento no diagnóstico";
+
 const linha = (href: string): Servico => {
   const l = LINHAS.find((x) => x.href === href);
   if (!l) throw new Error(`Linha sem preço em oferta.md: ${href}`);
@@ -148,8 +155,17 @@ export const PILARES: { id: string; sobretitulo: string; titulo: string; frase: 
     sobretitulo: "No mapa",
     titulo: "Coloque sua empresa no mapa.",
     frase:
-      "Ser achado por quem já procura o que você vende: no Google, no Maps, nas redes da Meta e nas respostas das IAs de busca.",
+      "Ser achado e escolhido por quem já procura o que você vende: no Google, no Maps, nas redes da Meta e nas respostas das IAs de busca.",
     servicos: [
+      {
+        titulo: "Branding e gestão de marca",
+        frase:
+          "Posicionamento, identidade visual e tom de voz, com um guia que mantém a marca igual no perfil, no site, nos anúncios e no atendimento.",
+        preco: PRECO_NO_DIAGNOSTICO,
+        href: "/diagnostico",
+        etapa: "violeta",
+        vinheta: "marca",
+      },
       {
         titulo: "Perfil da Empresa no Google",
         frase: "O antigo Google Meu Negócio, completo e verificado, para a empresa aparecer no Maps e na busca da sua região.",
@@ -193,26 +209,64 @@ export const PILARES: { id: string; sobretitulo: string; titulo: string; frase: 
 ];
 
 /**
- * Visão 360: a mesma pessoa olhando o caminho inteiro do cliente. A frase do
- * fundador usa só o que ele publicou (informática desde 1992, na página
- * Jornada do site antigo) e o que ele disse em 09/10 (formação em várias
- * frentes); o detalhe da formação entra quando ele mandar.
+ * Visão 360: o cliente atravessa marca, marketing, vendas e gestão, e a venda
+ * se perde nas passagens entre uma área e outra. Cada área traz a base do
+ * fundador que responde por ela (formação, experiência ou prática na Motors).
+ * Fatos do fundador: o que ele contou (Administração de Empresas, gestão de
+ * marca e branding) e o que publicou no site antigo (curso de informática
+ * ganho num concurso da escola, em 1992). O número da costura do meio vem do
+ * estudo da HBR em `evidencia`.
  */
 export const VISAO_360 = {
   sobretitulo: "Visão 360",
-  titulo: "Marketing, vendas, processos e tecnologia na mesma mesa.",
+  titulo: "O cliente se perde nas costuras entre uma área e outra.",
+  tituloApagado: "A V2O5 olha o caminho inteiro, da marca ao caixa.",
   texto:
-    "É comum a empresa ter uma agência para os anúncios, outra pessoa para o site e um sistema que não conversa com nenhum dos dois. O cliente se perde entre um e outro, e ninguém sabe dizer onde. Na V2O5, quem cuida do anúncio também enxerga o atendimento e o sistema. O caminho inteiro do cliente fica à vista, do primeiro clique à venda registrada, e o ajuste vai para onde ele trava.",
-  fundador:
-    "A V2O5 foi fundada por Dyones Oliveira, que começou na informática em 1992 e junta numa pessoa só o olhar de marketing, vendas, processos e tecnologia.",
-  anel: [
-    { nome: "Mapa", detalhe: "Google, Maps e SEO", etapa: "violeta" },
-    { nome: "Anúncios", detalhe: "Google e Meta", etapa: "violeta" },
-    { nome: "Site", detalhe: "rápido e medido", etapa: "violeta" },
-    { nome: "Atendimento", detalhe: "agente de IA", etapa: "verde" },
-    { nome: "Gestão", detalhe: "CRM e automação", etapa: "azul" },
-    { nome: "Venda", detalhe: "com a origem", etapa: "ambar" },
-  ] satisfies { nome: string; detalhe: string; etapa: Etapa }[],
+    "É comum a empresa contratar por partes: a marca com um designer, os anúncios com uma agência, o site com um programador, enquanto o atendimento fica com a equipe. Cada parte entrega a sua e mede o próprio número, e o trecho entre elas fica sem dono.",
+  evidencia: {
+    texto:
+      "Pesquisadores mandaram um contato pelo site de 2.241 empresas americanas: 23% nunca responderam, e as que responderam levaram 42 horas em média. No mesmo estudo, quem retornou em até uma hora teve quase sete vezes mais chance de conversar com quem decide a compra.",
+    fonte: "Oldroyd, McElheran e Elkington, The Short Life of Online Sales Leads, Harvard Business Review, março de 2011",
+    href: "https://hbr.org/2011/03/the-short-life-of-online-sales-leads",
+  },
+  areas: [
+    {
+      nome: "Marca",
+      pergunta: "Por que escolher você?",
+      acao: "Uma promessa só, dita do mesmo jeito no Google, no anúncio, no site e na conversa com o agente.",
+      base: { tipo: "Experiência", texto: "Gestão de marca e branding" },
+    },
+    {
+      nome: "Marketing",
+      pergunta: "Quem encontra você?",
+      acao: "SEO e anúncios no Google e na Meta para quem já procura o que você vende, com a verba indo para o que virou venda.",
+      base: { tipo: "Prática", texto: "Conteúdo, SEO e tráfego da Motors Store" },
+    },
+    {
+      nome: "Vendas",
+      pergunta: "Quem responde, e quando?",
+      acao: "O agente de IA responde na hora e passa ao vendedor a conversa, o interesse e a origem do cliente.",
+      base: { tipo: "Prática", texto: "Funil e CRM da Motors Store" },
+    },
+    {
+      nome: "Gestão",
+      pergunta: "Quanto sobra no fim do mês?",
+      acao: "O projeto começa pela conta da empresa: margem, ticket médio, custo por venda e prazo para se pagar.",
+      base: { tipo: "Formação", texto: "Administração de Empresas" },
+    },
+  ],
+  /** O que costuma romper na passagem de uma área para a seguinte. */
+  costuras: ["A promessa muda no caminho", "O contato espera 42 h", "A venda entra sem origem"],
+  fio: {
+    titulo: "O fio é a tecnologia.",
+    texto: "Dados num lugar só e integrações que rodam sozinhas, tudo no nome da sua empresa.",
+  },
+  fundador: {
+    nome: "Dyones Oliveira",
+    papel: "Fundador da V2O5",
+    texto:
+      "Formado em Administração de Empresas, trabalhou com gestão de marca e branding e está na informática desde 1992, quando ganhou um curso num concurso da escola. Na Motors Store, assina os 26 guias do site.",
+  },
 };
 
 /**
@@ -268,6 +322,12 @@ export const VINHETAS = {
     passos: ["Anúncio", "Site", "Lead", "Venda"],
     identificador: "Lead.3f9c2a7e",
     lados: ["navegador", "servidor"],
+  },
+  marca: {
+    titulo: "Guia da marca",
+    tipografia: "Tipografia",
+    cores: ["#2B3A67", "#3E8E7E", "#D9C8A9", "#EDE7DC"],
+    tom: { rotulo: "Tom de voz", palavras: ["direto", "próximo"] },
   },
   perfil: {
     nome: "Sua Empresa",

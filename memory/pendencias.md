@@ -13,8 +13,8 @@ Atualize ao resolver: mova a decisão para `decisoes.md` e apague daqui.
 8. Medir o preview da Vercel (PageSpeed): ele está atrás do login da Vercel. Liberar um bypass de proteção para automação ou dar ao conector acesso ao projeto `v2o5`. Ver também a molécula 3D num celular e num notebook comuns (o ambiente daqui só tem WebGL por software); com `?diagnostico` no fim da URL aparece o motivo se ela não rodar.
 9. WhatsApp e e-mail públicos para o rodapé (hoje "a confirmar").
 10. Proposta: "Pergunte ao agente" no hero, uma conversa real com o agente da V2O5 (a demonstração do próprio produto). Precisa de backend, custo de IA e aviso de privacidade; fase 2.
-11. Formação do Dyones para a Visão 360 e a página Sobre: quais áreas, cursos e empresas sustentam o "olhar multidimensional". Hoje o site só diz informática desde 1992 e o olhar de marketing, vendas, processos e tecnologia.
-12. SEO contínuo e Perfil da Empresa avulsos (sem site da V2O5): publicar preço próprio? Hoje aparecem como inclusos em Sites e presença. Se virarem linha, ganham página (`/seo`, `/perfil-da-empresa-no-google`) no mapa de páginas.
+11. Sobre o Dyones, para a Visão 360 e a página Sobre: instituição e ano da formação em Administração de Empresas, onde trabalhou com gestão de marca e branding, e uma foto. Confirmar também se é ele quem conduz o diagnóstico (daria força à seção).
+12. Preço de "Branding e gestão de marca" (no cardápio desde 09/10 como "orçamento no diagnóstico", link para `/diagnostico`). E SEO contínuo e Perfil da Empresa avulsos (sem site da V2O5): publicar preço próprio? Hoje aparecem como inclusos em Sites e presença. Se virarem linha, ganham página (`/branding`, `/seo`, `/perfil-da-empresa-no-google`) no mapa de páginas.
 
 ## Técnicas
 - LCP da home: mediana 2,19 s no Lighthouse simulado (7 rodadas, igual antes e depois do refino visual), critério é 2,0 s. O que sobra antes do LCP é quase todo o JS do Next/React (138 KB gz). Medir no preview da Vercel antes de cortar mais.

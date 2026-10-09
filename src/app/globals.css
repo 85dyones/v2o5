@@ -580,6 +580,191 @@
     background-color: currentColor;
     opacity: 0.4;
   }
+
+  /* ---------------------------------------------------------------------
+     Visão 360: as quatro áreas costuradas por um fio âmbar em pesponto.
+     No celular o fio desce pela esquerda; no desktop corre na linha do meio
+     da grade e cada costura fica em cima da divisa entre duas áreas.
+     --------------------------------------------------------------------- */
+
+  .costura {
+    --pad: 1.5rem;
+    --fio-x: 1.5rem;
+    position: relative;
+    padding-block: 0.25rem 1.75rem;
+    view-timeline-name: --costura;
+  }
+
+  /* Trilho apagado (antes) e fio âmbar (depois, por cima). */
+  .costura::before,
+  .costura::after {
+    content: "";
+    position: absolute;
+    top: 2.25rem;
+    bottom: 2.25rem;
+    left: var(--fio-x);
+    width: 2px;
+  }
+
+  .costura::before {
+    background-color: var(--color-linha-forte);
+  }
+
+  .costura::after {
+    background: repeating-linear-gradient(180deg, var(--color-ambar) 0 10px, transparent 10px 16px);
+    filter: drop-shadow(0 0 5px rgb(242 165 22 / 0.55));
+  }
+
+  .costura-area {
+    position: relative;
+    padding: 1.75rem var(--pad) 0 calc(var(--fio-x) + 1.75rem);
+  }
+
+  /* Nó do fio na altura do nome da área (só no celular). */
+  .costura-area::before {
+    content: "";
+    position: absolute;
+    top: 1.875rem;
+    left: calc(var(--fio-x) - 4px);
+    width: 10px;
+    height: 10px;
+    border-radius: 999px;
+    background-color: rgb(22 25 30);
+    box-shadow: inset 0 0 0 2px var(--color-ambar);
+  }
+
+  .costura-acao {
+    margin-top: 0.75rem;
+  }
+
+  .costura-base {
+    margin-top: 1.25rem;
+    padding-top: 0.875rem;
+    border-top: 1px solid var(--color-linha);
+  }
+
+  /* A costura: o que rompe na passagem, em cima do fio. */
+  .costura-ponto {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: max-content;
+    max-width: 100%;
+    margin: 1.5rem 0 0 calc(-1.75rem - 0.75rem + 1px);
+    padding: 0.4375rem 0.875rem 0.4375rem 0.5rem;
+    border-radius: 999px;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    line-height: 1.25;
+    color: var(--color-papel);
+    background-color: rgb(24 27 32);
+    box-shadow:
+      inset 0 0 0 1px rgb(242 165 22 / 0.5),
+      0 0 28px -10px rgb(242 165 22 / 0.6);
+  }
+
+  .costura-ponto::before {
+    content: "";
+    flex-shrink: 0;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 999px;
+    background-color: var(--color-ambar);
+    box-shadow: 0 0 8px rgb(242 165 22 / 0.8);
+  }
+
+  /* Amostra do fio na legenda. */
+  .fio-amostra {
+    flex-shrink: 0;
+    width: 2.25rem;
+    height: 2px;
+    background: repeating-linear-gradient(90deg, var(--color-ambar) 0 8px, transparent 8px 12px);
+    filter: drop-shadow(0 0 4px rgb(242 165 22 / 0.6));
+  }
+
+  @media (min-width: 64rem) {
+    .costura {
+      --pad: 1.75rem;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-rows: auto 4.5rem auto auto;
+      padding-block: 0;
+    }
+
+    .costura::before,
+    .costura::after {
+      position: static;
+      grid-row: 2;
+      grid-column: 1 / -1;
+      align-self: center;
+      width: auto;
+      height: 2px;
+      mask-image: linear-gradient(90deg, transparent, #000 3%, #000 97%, transparent);
+    }
+
+    .costura::after {
+      background: repeating-linear-gradient(90deg, var(--color-ambar) 0 10px, transparent 10px 16px);
+    }
+
+    .costura-area {
+      grid-row: 1 / span 4;
+      display: grid;
+      grid-template-rows: subgrid;
+      padding: 2rem var(--pad);
+    }
+
+    /* Coluna explícita: o fio já ocupa a linha do meio, e o posicionamento
+       automático jogaria as áreas para colunas novas. */
+    .costura-area:nth-child(2) {
+      grid-column: 2;
+    }
+
+    .costura-area:nth-child(3) {
+      grid-column: 3;
+    }
+
+    .costura-area:nth-child(4) {
+      grid-column: 4;
+    }
+
+    .costura-area:first-child {
+      grid-column: 1;
+    }
+
+    .costura-area + .costura-area {
+      border-left: 1px solid var(--color-linha);
+    }
+
+    .costura-area::before {
+      display: none;
+    }
+
+    .costura-cabeca {
+      grid-row: 1;
+    }
+
+    .costura-acao {
+      grid-row: 3;
+      margin-top: 0;
+    }
+
+    .costura-base {
+      grid-row: 4;
+      align-self: end;
+    }
+
+    .costura-ponto {
+      grid-row: 2;
+      justify-self: end;
+      align-self: center;
+      max-width: none;
+      margin: 0 calc(var(--pad) * -1) 0 0;
+      white-space: nowrap;
+      translate: 50% 0;
+    }
+  }
 }
 
 /* Com menos movimento nada se move: nem transição, nem animação, nem
@@ -612,13 +797,6 @@
     animation-delay: 0.32s;
   }
 
-  /* O anel tracejado da Visão 360 gira devagar. */
-  .anel-gira {
-    transform-box: fill-box;
-    transform-origin: center;
-    animation: gira 80s linear infinite;
-  }
-
   /* Vinhetas que só se mexem com o cursor em cima do cartão. */
   .cartao-luz:hover .fluxo-corre {
     animation: fluxo-corre 900ms linear infinite;
@@ -635,12 +813,6 @@
   35% {
     opacity: 1;
     transform: translateY(-2px);
-  }
-}
-
-@keyframes gira {
-  to {
-    transform: rotate(360deg);
   }
 }
 
@@ -681,6 +853,67 @@
       animation-timeline: view();
       animation-range: entry calc(20% + var(--i) * 9%) entry calc(45% + var(--i) * 9%);
     }
+  }
+}
+
+/* Visão 360: o fio âmbar se desenha conforme a seção rola, e cada costura
+   acende quando o fio chega nela. Sem suporte, já está tudo costurado. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .costura::after {
+      animation: fio-desce linear both;
+      animation-timeline: --costura;
+      animation-range: cover 12% cover 55%;
+    }
+
+    .costura-ponto,
+    .costura-ponto::before {
+      animation: ponto-costura linear both;
+      animation-timeline: --costura;
+      animation-range: cover calc(12% + (var(--i) + 1) * 10.75%) cover calc(15% + (var(--i) + 1) * 10.75%);
+    }
+
+    @media (min-width: 64rem) {
+      .costura::after {
+        animation-name: fio-corre;
+        animation-range: cover 18% cover 48%;
+      }
+
+      .costura-ponto,
+      .costura-ponto::before {
+        animation-range: cover calc(18% + (var(--i) + 1) * 7.5%) cover calc(21% + (var(--i) + 1) * 7.5%);
+      }
+    }
+  }
+}
+
+/* Recorte em vez de escala: o pesponto aparece sem esticar. A folga de 8 px
+   deixa o brilho do fio fora do recorte. */
+@keyframes fio-desce {
+  from {
+    clip-path: inset(-8px -8px 100% -8px);
+  }
+  to {
+    clip-path: inset(-8px);
+  }
+}
+
+@keyframes fio-corre {
+  from {
+    clip-path: inset(-8px 100% -8px -8px);
+  }
+  to {
+    clip-path: inset(-8px);
+  }
+}
+
+@keyframes ponto-costura {
+  from {
+    color: var(--color-secundario);
+    background-color: rgb(24 27 32);
+    box-shadow:
+      inset 0 0 0 1px var(--color-linha-forte),
+      0 0 0 0 transparent;
   }
 }
 

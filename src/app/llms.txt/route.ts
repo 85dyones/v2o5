@@ -1,4 +1,4 @@
-import { AUTOMOTIVO, CASE, EMPRESA, HERO, PILARES } from "@/conteudo/home";
+import { AUTOMOTIVO, CASE, EMPRESA, HERO, PILARES, VISAO_360 } from "@/conteudo/home";
 import { SITE_URL } from "@/lib/site";
 
 /**
@@ -21,7 +21,9 @@ export function textoDoLlms(): string {
     "",
     `> Catalisador de vendas com IA. ${HERO.subtitulo}`,
     "",
-    `${EMPRESA.razaoSocial}, CNPJ ${EMPRESA.cnpj}, ${EMPRESA.cidade}. Atende empresas em todo o Brasil. Fundador: Dyones Oliveira.`,
+    `${EMPRESA.razaoSocial}, CNPJ ${EMPRESA.cnpj}, ${EMPRESA.cidade}. Atende empresas em todo o Brasil.`,
+    "",
+    `Fundador: ${VISAO_360.fundador.nome}. ${VISAO_360.fundador.texto}`,
     "",
     "## Serviços",
     ...pilares,

@@ -13,6 +13,7 @@ Escura e tecnológica, acabamento de produto de IA de ponta, raiz da marca manti
 | Bento grid | Sim, para soluções e números. Borda de luz âmbar só no card em foco; sem tilt 3D (cara de template) |
 | Contadores / decodificação | Só número real do case (ver `memory/projects/case-motors.md`). Proibidos os exemplos do documento ("-70%", "3.4x") |
 | Narrativa por rolagem | Etapas problema → fluxo → resultado ligadas ao scroll, sem travar a tela; no celular vira sequência |
+| Fio da Visão 360 | Feito em 09/10: fio âmbar em pesponto que se desenha com a rolagem e acende as costuras entre as áreas; só CSS (`view-timeline`, `clip-path`), sem JS; sem suporte ou com menos movimento já aparece costurado |
 | Simulador de impacto | Régua (time, volume); conta e premissas visíveis; resultado como estimativa; leva ao diagnóstico (fase 2) |
 
 ## Pilha

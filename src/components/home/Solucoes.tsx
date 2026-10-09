@@ -31,8 +31,9 @@ type Formato = "normal" | "destaque" | "largo";
 
 /**
  * Onde cada cartão cai na grade de 6 colunas (desktop) e 2 (tablet). No
- * mapa: três em cima, dois mais largos embaixo. Na operação: o agente de IA
- * no bloco grande, automação e CRM ao lado, integrações numa faixa inteira.
+ * mapa: duas fileiras de três (marca, perfil e busca; site, anúncios e
+ * rastreamento). Na operação: o agente de IA no bloco grande, automação e
+ * CRM ao lado, integrações numa faixa inteira.
  */
 function arranjo(pilar: string, i: number): { formato: Formato; classe: string } {
   if (pilar === "operacao") {
@@ -40,8 +41,7 @@ function arranjo(pilar: string, i: number): { formato: Formato; classe: string }
     if (i === 3) return { formato: "largo", classe: "md:col-span-2 lg:col-span-6" };
     return { formato: "normal", classe: "lg:col-span-2" };
   }
-  if (i < 3) return { formato: "normal", classe: "lg:col-span-2" };
-  return { formato: "normal", classe: i === 4 ? "md:col-span-2 lg:col-span-3" : "lg:col-span-3" };
+  return { formato: "normal", classe: "lg:col-span-2" };
 }
 
 function Cartao({ servico, formato, classe }: { servico: Servico; formato: Formato; classe: string }) {

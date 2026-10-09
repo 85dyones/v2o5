@@ -1,5 +1,14 @@
 import { describe, expect, it } from "vitest";
-import { CASE, FRENTES, HERO, LINHAS, PILARES, TITULO_DA_HOME, VISAO_360 } from "@/conteudo/home";
+import {
+  CASE,
+  FRENTES,
+  HERO,
+  LINHAS,
+  PILARES,
+  PRECO_NO_DIAGNOSTICO,
+  TITULO_DA_HOME,
+  VISAO_360,
+} from "@/conteudo/home";
 import { arquivos, ler, semComentarios } from "./fonte";
 
 /**
@@ -71,10 +80,15 @@ describe("os dois pilares do H1", () => {
     for (const l of LINHAS) expect(servicos, l.titulo).toContainEqual(l);
   });
 
-  it("serviço sem linha própria diz onde vem incluso ou traz preço da tabela", () => {
+  it("serviço sem linha própria diz onde vem incluso, traz preço da tabela ou está nas pendências", () => {
     const oferta = ler("memory/context/oferta.md");
+    const pendencias = ler("memory/pendencias.md");
     for (const s of servicos.filter((s) => !LINHAS.includes(s as (typeof LINHAS)[number]))) {
-      if (/incluso em /.test(s.preco)) {
+      if (s.preco === PRECO_NO_DIAGNOSTICO) {
+        // Sem preço inventado: o valor fica pendente com o Dyones até entrar em oferta.md.
+        expect(pendencias, s.titulo).toContain(s.titulo);
+        expect(s.href, s.titulo).toBe("/diagnostico");
+      } else if (/incluso em /.test(s.preco)) {
         const linha = s.preco.split("incluso em ")[1];
         expect(LINHAS.map((l) => l.titulo), s.titulo).toContain(linha);
       } else {
@@ -84,8 +98,9 @@ describe("os dois pilares do H1", () => {
     }
   });
 
-  it("o mapa traz Perfil da Empresa no Google, SEO e tráfego no Google e na Meta", () => {
+  it("o mapa traz branding, Perfil da Empresa no Google, SEO e tráfego no Google e na Meta", () => {
     const mapa = PILARES[0].servicos.map((s) => s.titulo).join(" | ");
+    expect(mapa).toMatch(/Branding e gestão de marca/);
     expect(mapa).toMatch(/Perfil da Empresa no Google/);
     expect(mapa).toMatch(/SEO/);
     expect(mapa).toMatch(/Google e na Meta/);
@@ -98,9 +113,33 @@ describe("os dois pilares do H1", () => {
     expect(HERO.subtitulo.length).toBeLessThanOrEqual(180);
   });
 
-  it("a frase do fundador só usa o que está publicado (informática desde 1992)", () => {
-    expect(VISAO_360.fundador).toMatch(/1992/);
-    expect(VISAO_360.anel).toHaveLength(6);
+});
+
+describe("Visão 360", () => {
+  it("o fundador aparece com o que ele contou e publicou: Administração, branding, 1992 e os guias da Motors", () => {
+    const { texto } = VISAO_360.fundador;
+    expect(texto).toMatch(/Administração de Empresas/);
+    expect(texto).toMatch(/gestão de marca e branding/);
+    expect(texto).toMatch(/desde 1992/);
+    expect(texto).toMatch(/26 guias/);
+    expect(ler("memory/projects/case-motors.md")).toMatch(/\| Guias publicados \| 26 \|/);
+  });
+
+  it("cada área traz a base do fundador, e a formação em Administração responde pela gestão", () => {
+    expect(VISAO_360.areas.map((a) => a.nome)).toEqual(["Marca", "Marketing", "Vendas", "Gestão"]);
+    for (const a of VISAO_360.areas) expect(["Formação", "Experiência", "Prática"]).toContain(a.base.tipo);
+    expect(VISAO_360.areas[3].base).toEqual({ tipo: "Formação", texto: "Administração de Empresas" });
+    expect(VISAO_360.costuras).toHaveLength(VISAO_360.areas.length - 1);
+  });
+
+  it("todo número da seção vem do estudo citado, com fonte e link", () => {
+    const { evidencia } = VISAO_360;
+    expect(evidencia.href).toBe("https://hbr.org/2011/03/the-short-life-of-online-sales-leads");
+    expect(evidencia.fonte).toMatch(/Harvard Business Review, março de 2011/);
+    for (const n of ["2.241", "23%", "42 horas", "sete vezes"]) expect(evidencia.texto).toContain(n);
+    const numerosDasCosturas = VISAO_360.costuras.join(" ").match(/\d+/g) ?? [];
+    expect(numerosDasCosturas).toEqual(["42"]);
+    expect(ler("src/components/home/VisaoAmpla.tsx")).toMatch(/v\.evidencia\.fonte/);
   });
 });
 

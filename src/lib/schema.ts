@@ -1,4 +1,4 @@
-import { EMPRESA, PILARES } from "@/conteudo/home";
+import { EMPRESA, PILARES, VISAO_360 } from "@/conteudo/home";
 import { paginaDa } from "@/conteudo/paginas";
 import { SITE_URL } from "@/lib/site";
 
@@ -46,8 +46,10 @@ export function fundador(): No {
   return {
     "@type": "Person",
     "@id": ID_DO_FUNDADOR,
-    name: "Dyones Oliveira",
+    name: VISAO_360.fundador.nome,
     jobTitle: "Fundador",
+    description: VISAO_360.fundador.texto,
+    knowsAbout: ["Administração de empresas", "Gestão de marca", "Branding", "Marketing digital", "Automação com IA"],
     worksFor: ref(ID_DA_ORGANIZACAO),
   };
 }

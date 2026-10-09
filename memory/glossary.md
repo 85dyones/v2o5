@@ -7,8 +7,9 @@ Tudo que aparece abreviado nas conversas do projeto. O que é usado toda hora ta
 |---|---|
 | V2O5 | V2O5 Vendas e Tecnologia (nome fantasia); razão social V2O5 Tecnologia da Informação Ltda.; CNPJ 68.490.470/0001-14 |
 | ConsultorIA | Nome antigo/trocadilho; fica só como `alternateName` no schema |
-| Dyones | Dyones Oliveira, fundador da V2O5; assina os guias da Motors |
+| Dyones | Dyones Oliveira, fundador da V2O5; formado em Administração de Empresas, com experiência em gestão de marca e branding; na informática desde 1992 (curso ganho num concurso da escola); assina os guias da Motors |
 | Motors | Motors Store, revenda de seminovos no Bacacheri, Curitiba; cliente e case |
+| Costuras | Conceito da Visão 360: a venda se perde na passagem entre marca, marketing, vendas e gestão; o fio âmbar (tecnologia) costura as quatro |
 
 ## Marca
 | Termo | Significado |

@@ -10,7 +10,7 @@
 | Rastreamento até a venda | `/rastreamento-de-conversoes` | R$ 2.900 | R$ 290 |
 | Gestão de tráfego | `/gestao-de-trafego` | sem implantação com rastreamento ativo | R$ 1.800 + verba |
 
-Na home, as linhas se dividem nos dois pilares do H1 (mapa: sites, tráfego, rastreamento; operação: agente, automação, CRM). Perfil da Empresa no Google e SEO técnico aparecem como cartões "incluso em Sites e presença"; Integrações entre sistemas, como cartão com o preço da automação por fluxo.
+Na home, as linhas se dividem nos dois pilares do H1 (mapa: sites, tráfego, rastreamento; operação: agente, automação, CRM). Perfil da Empresa no Google e SEO técnico aparecem como cartões "incluso em Sites e presença"; Integrações entre sistemas, como cartão com o preço da automação por fluxo. Branding e gestão de marca está no cardápio (pelo Dyones, 09/10) sem preço publicado: "orçamento no diagnóstico" até o valor entrar nesta tabela.
 
 ## Segmento automotivo
 | Item | Implantação | Mensalidade |

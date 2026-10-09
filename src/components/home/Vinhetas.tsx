@@ -27,6 +27,7 @@ export default function VinhetaDaLinha({ vinheta }: { vinheta: Vinheta }) {
     perfil: <Perfil />,
     site: <Site />,
     integracoes: <Integracoes />,
+    marca: <Marca />,
   };
   return cenas[vinheta];
 }
@@ -377,6 +378,38 @@ function Integracoes() {
           </li>
         ))}
       </ul>
+    </div>
+  );
+}
+
+/** O guia da marca: tipografia, paleta e tom de voz (cores de exemplo). */
+function Marca() {
+  const v = VINHETAS.marca;
+  return (
+    <div aria-hidden="true" className="vinheta flex h-full flex-col p-3.5 text-[0.8125rem]">
+      <p className="flex items-center justify-between gap-2">
+        <span className="font-semibold">{v.titulo}</span>
+        <span className="rotulo text-secundario">exemplo</span>
+      </p>
+      <div className="mt-3 grid min-h-0 flex-1 grid-cols-[5.25rem_1fr] gap-2">
+        <div className="flex flex-col justify-between rounded-[0.625rem] p-2.5 contorno">
+          <span className="text-[2.125rem] font-semibold leading-none tracking-[-0.04em]">Aa</span>
+          <span className="text-xs text-secundario">{v.tipografia}</span>
+        </div>
+        <div className="grid grid-cols-2 gap-1.5">
+          {v.cores.map((cor) => (
+            <span key={cor} className="rounded-md contorno" style={{ backgroundColor: cor }} />
+          ))}
+        </div>
+      </div>
+      <p className="mt-3 flex flex-wrap items-center gap-1.5 text-xs">
+        <span className="mr-1 text-secundario">{v.tom.rotulo}</span>
+        {v.tom.palavras.map((p) => (
+          <span key={p} className="chip">
+            {p}
+          </span>
+        ))}
+      </p>
     </div>
   );
 }
