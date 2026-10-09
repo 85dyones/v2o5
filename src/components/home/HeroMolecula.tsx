@@ -40,11 +40,20 @@ export default function HeroMolecula() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [pronto, setPronto] = useState(false);
   const [pronto3d, setPronto3d] = useState(false);
+  // `?diagnostico` na URL mostra por que a 3D roda ou não, nesta máquina.
+  const [diagnostico, setDiagnostico] = useState<string | null>(null);
 
   useEffect(() => {
     const canvas = canvasRef.current;
     const canvas3d = canvas3dRef.current;
-    if (!canvas || !canvas3d || prefereMenosMovimento()) return;
+    const diagnosticar = new URLSearchParams(window.location.search).has("diagnostico");
+    const anotar = (texto: string) => diagnosticar && setDiagnostico(texto);
+    if (prefereMenosMovimento()) {
+      anotar("3D desligado: o sistema pede menos movimento (no Windows, Configurações > Acessibilidade > Efeitos visuais > Efeitos de animação).");
+      return;
+    }
+    if (!canvas || !canvas3d) return;
+    let lerDiagnostico = 0;
 
     let motor: MotorDasParticulas | null = null;
     let motor3d: MotorDaMolecula3d | null = null;
@@ -90,12 +99,24 @@ export default function HeroMolecula() {
           estatico,
           aoPintar: () => setPronto3d(true),
           aoSinal: () => motor?.disparar(),
+          aoRecusar: (motivo) => anotar(`3D desligado: ${motivo}.`),
           aoFalhar: () => {
             setPronto3d(false);
             motor?.usarSinalProprio();
           },
         });
         if (!motor3d) motor?.usarSinalProprio();
+        else if (diagnosticar) {
+          const ler = () => {
+            const d = motor3d?.diagnostico();
+            if (!d) return;
+            anotar(
+              `3D: ${d.estado} · ${d.quadrosPorSegundo} quadros/s · ${d.pixels.toLocaleString("pt-BR")} px · escala ${d.escala.toFixed(2)}${estatico ? " · aparelho econômico (um quadro só)" : ""} · placa: ${d.placa}`,
+            );
+          };
+          ler();
+          lerDiagnostico = window.setInterval(ler, 1000);
+        }
       });
 
       ouvir(hero, "pointermove", (e) => {
@@ -138,6 +159,7 @@ export default function HeroMolecula() {
 
     return () => {
       encerrado = true;
+      window.clearInterval(lerDiagnostico);
       cancelarEspera();
       cancelar3d();
       consulta.removeEventListener("change", aoMudarPreferencia);
@@ -161,6 +183,14 @@ export default function HeroMolecula() {
         data-pronto={pronto ? "" : undefined}
         className="molecula-canvas absolute inset-0 z-20 h-full w-full"
       />
+      {diagnostico ? (
+        <p
+          role="status"
+          className="fixed bottom-3 left-3 z-50 max-w-[24rem] rounded-xl bg-tinta/95 p-3 font-mono text-xs leading-relaxed text-papel contorno-forte"
+        >
+          {diagnostico}
+        </p>
+      ) : null}
     </>
   );
 }

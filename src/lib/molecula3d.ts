@@ -18,8 +18,10 @@
  *
  * Quem chama já conferiu `prefers-reduced-motion`. Sem WebGL 2, sem placa de
  * vídeo de verdade, com erro de shader ou com contexto perdido, devolve
- * `null` (ou chama `aoFalhar`) e o SVG fica. A qualidade se ajusta sozinha: se o quadro passa do tempo, a
- * resolução cai; se ainda assim não dá, a molécula para num quadro.
+ * `null` (ou chama `aoFalhar`), conta o motivo em `aoRecusar` e o SVG fica.
+ * A qualidade se ajusta pelo ritmo da tela: se o quadro atrasa, a resolução
+ * cai; se ainda assim não dá, desenha um quadro sim, outro não. Nunca
+ * congela.
  */
 import {
   ATOMOS,
@@ -40,12 +42,24 @@ export interface OpcoesDaMolecula3d {
   aoSinal?: () => void;
   /** Contexto perdido ou quadro impossível: volte ao SVG. */
   aoFalhar?: () => void;
+  /** Por que a 3D não vai rodar (sem WebGL 2, sem placa de vídeo, erro de shader). */
+  aoRecusar?: (motivo: string) => void;
+}
+
+export interface DiagnosticoDaMolecula3d {
+  estado: "compilando" | "rodando" | "meia velocidade" | "parada" | "fora da tela" | "falhou";
+  placa: string;
+  /** Pixels desenhados por quadro e a escala em relação ao ideal. */
+  pixels: number;
+  escala: number;
+  quadrosPorSegundo: number;
 }
 
 export interface MotorDaMolecula3d {
   acender(fonte: string, ligado: boolean): void;
   /** Ponteiro em px relativos ao canvas, ou `null` ao sair. */
   ponteiro(x: number | null, y?: number): void;
+  diagnostico(): DiagnosticoDaMolecula3d;
   destruir(): void;
 }
 
@@ -81,6 +95,7 @@ uniform vec2 uRes;
 uniform float uTempo;
 uniform mat3 uRot;
 uniform vec4 uAtomos[7];
+uniform vec3 uPlano[7];
 uniform vec3 uCadeia[5];
 uniform vec3 uLuz;
 uniform float uPulso;
@@ -180,6 +195,23 @@ vec3 sombrear(vec3 p, float material) {
   c += AMBAR * exp(-length(p - uAtomos[6].xyz) / 6.0) * (0.22 + 0.2 * uAceso);
   return c;
 }
+// Distância em 2D (na tela) até a molécula projetada: barata, decide se o
+// pixel precisa caminhar até a superfície ou só recebe o halo.
+float segmento2d(vec2 p, vec2 a, vec2 b) {
+  vec2 pa = p - a, ba = b - a;
+  return length(pa - ba * clamp(dot(pa, ba) / dot(ba, ba), 0.0, 1.0));
+}
+float perto2d(vec2 q) {
+  float d = 1e9;
+  for (int i = 0; i < 7; i++) d = min(d, length(q - uPlano[i].xy) - uPlano[i].z);
+  d = min(d, segmento2d(q, uPlano[0].xy, uPlano[2].xy) - RL);
+  d = min(d, segmento2d(q, uPlano[1].xy, uPlano[2].xy) - RL);
+  d = min(d, segmento2d(q, uPlano[2].xy, uPlano[3].xy) - RL);
+  d = min(d, segmento2d(q, uPlano[3].xy, uPlano[4].xy) - RL);
+  d = min(d, segmento2d(q, uPlano[4].xy, uPlano[5].xy) - RL);
+  d = min(d, segmento2d(q, uPlano[4].xy, uPlano[6].xy) - RL);
+  return d;
+}
 bool caixa(vec3 ro, vec3 rd, out float t0, out float t1) {
   vec3 inv = 1.0 / rd;
   vec3 a = (-CAIXA - ro) * inv, b = (CAIXA - ro) * inv;
@@ -199,10 +231,10 @@ void main() {
   vec3 rgb = vec3(0.0);
   float alfa = 0.0;
   float t0, t1;
-  if (caixa(ro, rd, t0, t1)) {
+  if (perto2d(q) < 3.5 && caixa(ro, rd, t0, t1)) {
     float t = max(t0, 0.0), dMin = 1e9, tMin = t;
     bool acertou = false;
-    for (int i = 0; i < 72; i++) {
+    for (int i = 0; i < 44; i++) {
       float d = mapa(ro + rd * t).x;
       if (d < dMin) { dMin = d; tMin = t; }
       if (d < 0.004 * px + 0.01) { acertou = true; break; }
@@ -245,11 +277,14 @@ function compilar(gl: WebGL2RenderingContext, tipo: number, fonte: string) {
  * Placa de vídeo emulada por software (SwiftShader, llvmpipe): o raymarching
  * ocupa a CPU e trava a página. Nesses casos o hero fica com o SVG.
  */
-function ehSoftware(gl: WebGL2RenderingContext): boolean {
+function nomeDaPlaca(gl: WebGL2RenderingContext): string {
   const info = gl.getExtension("WEBGL_debug_renderer_info");
-  const nome = String(gl.getParameter(info ? info.UNMASKED_RENDERER_WEBGL : gl.RENDERER));
-  return /swiftshader|llvmpipe|software|basic render/i.test(nome);
+  return String(gl.getParameter(info ? info.UNMASKED_RENDERER_WEBGL : gl.RENDERER));
 }
+const ehSoftware = (placa: string) => /swiftshader|llvmpipe|software|basic render/i.test(placa);
+
+/** Pixels por quadro no máximo: acima disso a nitidez não aparece e a GPU sofre. */
+const ORCAMENTO_DE_PIXELS = 480_000;
 
 export function iniciarMolecula3d(canvas: HTMLCanvasElement, opcoes: OpcoesDaMolecula3d = {}): MotorDaMolecula3d | null {
   const gl = canvas.getContext("webgl2", {
@@ -262,7 +297,16 @@ export function iniciarMolecula3d(canvas: HTMLCanvasElement, opcoes: OpcoesDaMol
     // Sem aceleração de verdade, o navegador nem cria o contexto.
     failIfMajorPerformanceCaveat: true,
   });
-  if (!gl || ehSoftware(gl)) return null;
+  if (!gl) {
+    const comWebgl2 = typeof WebGL2RenderingContext !== "undefined";
+    opcoes.aoRecusar?.(comWebgl2 ? "o navegador não liberou a placa de vídeo (sem aceleração)" : "navegador sem WebGL 2");
+    return null;
+  }
+  const placa = nomeDaPlaca(gl);
+  if (ehSoftware(placa)) {
+    opcoes.aoRecusar?.(`placa de vídeo emulada por software: ${placa}`);
+    return null;
+  }
 
   // Criar o contexto e compilar o shader ficam em tarefas separadas (a
   // compilação começa no próximo giro): juntas passavam do limite de tarefa
@@ -303,15 +347,23 @@ export function iniciarMolecula3d(canvas: HTMLCanvasElement, opcoes: OpcoesDaMol
   // Medição de tempo de quadro para a qualidade adaptativa.
   let somaDosQuadros = 0;
   let quadrosMedidos = 0;
-  let parado = false;
+  let quadrosVistos = 0;
+  let intervaloDaTela = Infinity;
+  let meiaVelocidade = false;
+  let pular = false;
+  let falhou = false;
+  let fps = 0;
 
   const atomos = new Float32Array(7 * 4);
+  const plano = new Float32Array(7 * 3);
   const fases = ORDEM.map((_, i) => i * 1.7);
   const cadeia = new Float32Array(cadeiaDoPulso().flat());
   const rotacao = new Float32Array(9);
 
   function dimensionar() {
-    const dpr = Math.min(window.devicePixelRatio || 1, 1.75) * escalaDeQualidade;
+    const ideal = Math.min(window.devicePixelRatio || 1, 1.75);
+    const cabe = Math.sqrt(ORCAMENTO_DE_PIXELS / Math.max(1, largura * altura));
+    const dpr = Math.min(ideal, cabe) * escalaDeQualidade;
     const w = Math.max(1, Math.round(largura * dpr));
     const h = Math.max(1, Math.round(altura * dpr));
     if (canvas.width !== w || canvas.height !== h) {
@@ -363,6 +415,15 @@ export function iniciarMolecula3d(canvas: HTMLCanvasElement, opcoes: OpcoesDaMol
     const sa = Math.sin(atual.arfagem);
     // Rx(arfagem) · Ry(guinada), em ordem de coluna.
     rotacao.set([cg, sa * sg, -ca * sg, 0, ca, sa, sg, -sa * cg, ca * cg]);
+    // Átomos já girados, em 2D: o atalho do shader para pixels longe da molécula.
+    for (let i = 0; i < 7; i++) {
+      const x = atomos[i * 4];
+      const y = atomos[i * 4 + 1];
+      const z = atomos[i * 4 + 2];
+      plano[i * 3] = rotacao[0] * x + rotacao[3] * y + rotacao[6] * z;
+      plano[i * 3 + 1] = rotacao[1] * x + rotacao[4] * y + rotacao[7] * z;
+      plano[i * 3 + 2] = atomos[i * 4 + 3];
+    }
     const luz = [atual.luzX, atual.luzY, 0.9];
     const n = Math.hypot(luz[0], luz[1], luz[2]);
     const idade = relogio - pulsoComecou;
@@ -373,6 +434,7 @@ export function iniciarMolecula3d(canvas: HTMLCanvasElement, opcoes: OpcoesDaMol
     g.uniform1f(u.uTempo, relogio);
     g.uniformMatrix3fv(u.uRot, false, rotacao);
     g.uniform4fv(u.uAtomos, atomos);
+    g.uniform3fv(u.uPlano, plano);
     g.uniform3fv(u.uCadeia, cadeia);
     g.uniform3f(u.uLuz, luz[0] / n, luz[1] / n, luz[2] / n);
     g.uniform1f(u.uPulso, pulso);
@@ -388,37 +450,46 @@ export function iniciarMolecula3d(canvas: HTMLCanvasElement, opcoes: OpcoesDaMol
 
   function laco(agora: number) {
     quadro = 0;
-    if (destruido || !visivel || parado) return;
-    const dt = ultimo ? Math.min(0.05, (agora - ultimo) / 1000) : 0.016;
+    if (destruido || !visivel) return;
+    quadro = requestAnimationFrame(laco);
+    // Em meia velocidade, desenha um quadro sim, outro não (o tempo segue).
+    pular = meiaVelocidade && !pular;
+    if (pular) return;
+    const dt = ultimo ? Math.min(0.08, (agora - ultimo) / 1000) : 0.016;
     if (ultimo) medirQuadro(agora - ultimo);
     ultimo = agora;
     passo(dt);
     desenhar();
-    if (!parado) quadro = requestAnimationFrame(laco);
   }
 
   /**
-   * Qualidade adaptativa: a cada 40 quadros, se a média passou de 24 ms, a
-   * resolução cai um degrau; no último degrau, a molécula para no quadro
-   * atual (continua desenhada, só não anima).
+   * Qualidade adaptativa pelo ritmo da tela, nunca congelando. O intervalo
+   * da tela é o menor visto (16,7 ms a 60 Hz; 33 ms com economia de
+   * bateria, que o Chrome limita a 30 quadros): só conta como lento o que
+   * fica bem acima dele. Lento: a resolução cai em degraus até a metade; se
+   * ainda não der, passa a desenhar um quadro sim, outro não.
    */
   function medirQuadro(ms: number) {
-    somaDosQuadros += ms;
-    if (++quadrosMedidos < 40) return;
+    const real = meiaVelocidade ? ms / 2 : ms;
+    intervaloDaTela = Math.min(intervaloDaTela, real);
+    fps = fps ? fps * 0.9 + (1000 / ms) * 0.1 : 1000 / ms;
+    if (++quadrosVistos < 30) return; // a página ainda está carregando
+    somaDosQuadros += real;
+    if (++quadrosMedidos < 45) return;
     const media = somaDosQuadros / quadrosMedidos;
     somaDosQuadros = 0;
     quadrosMedidos = 0;
-    if (media <= 24) return;
+    if (media <= Math.max(intervaloDaTela * 1.6, 20)) return;
     if (escalaDeQualidade > 0.5) {
-      escalaDeQualidade = Math.max(0.5, escalaDeQualidade * 0.75);
+      escalaDeQualidade = Math.max(0.5, escalaDeQualidade * 0.8);
       dimensionar();
     } else {
-      parado = true;
+      meiaVelocidade = true;
     }
   }
 
   function retomar() {
-    if (destruido || !pronto || opcoes.estatico || parado || quadro || !visivel) return;
+    if (destruido || !pronto || opcoes.estatico || quadro || !visivel) return;
     ultimo = 0;
     quadro = requestAnimationFrame(laco);
   }
@@ -426,12 +497,15 @@ export function iniciarMolecula3d(canvas: HTMLCanvasElement, opcoes: OpcoesDaMol
   function aoFicarPronto() {
     if (destruido) return;
     if (!gl!.getProgramParameter(programa, gl!.LINK_STATUS)) {
-      console.warn("molecula3d:", (fs && gl!.getShaderInfoLog(fs)) || gl!.getProgramInfoLog(programa));
+      const log = (fs && gl!.getShaderInfoLog(fs)) || gl!.getProgramInfoLog(programa) || "";
+      console.warn("molecula3d:", log);
+      falhou = true;
+      opcoes.aoRecusar?.(`erro ao compilar o shader: ${log.slice(0, 160)}`);
       opcoes.aoFalhar?.();
       return;
     }
     u = Object.fromEntries(
-      ["uRes", "uTempo", "uRot", "uAtomos", "uCadeia", "uLuz", "uPulso", "uAceso"].map((nome) => [
+      ["uRes", "uTempo", "uRot", "uAtomos", "uPlano", "uCadeia", "uLuz", "uPulso", "uAceso"].map((nome) => [
         nome,
         gl!.getUniformLocation(programa, nome),
       ]),
@@ -486,6 +560,8 @@ export function iniciarMolecula3d(canvas: HTMLCanvasElement, opcoes: OpcoesDaMol
     cancelAnimationFrame(quadro);
     quadro = 0;
     pronto = false;
+    falhou = true;
+    opcoes.aoRecusar?.("a placa de vídeo perdeu o contexto WebGL");
     opcoes.aoFalhar?.();
   };
   canvas.addEventListener("webglcontextlost", aoPerder);
@@ -514,6 +590,26 @@ export function iniciarMolecula3d(canvas: HTMLCanvasElement, opcoes: OpcoesDaMol
       const perto = Math.hypot(x / largura - 0.54, y / altura - 0.5) < 0.3;
       if (perto) acesos.add("ponteiro");
       else acesos.delete("ponteiro");
+    },
+    diagnostico() {
+      const estado = falhou
+        ? "falhou"
+        : !pronto
+          ? "compilando"
+          : opcoes.estatico
+            ? "parada"
+            : !visivel
+              ? "fora da tela"
+              : meiaVelocidade
+                ? "meia velocidade"
+                : "rodando";
+      return {
+        estado,
+        placa,
+        pixels: canvas.width * canvas.height,
+        escala: escalaDeQualidade,
+        quadrosPorSegundo: Math.round(fps),
+      };
     },
     destruir() {
       destruido = true;

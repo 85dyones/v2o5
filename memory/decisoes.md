@@ -2,6 +2,12 @@
 
 Log datado. Decisão nova entra no topo do dia; decisão revogada fica riscada com a data da troca.
 
+## 09/10/2026 (3D que "não funcionava" na máquina do Dyones)
+- Causa provável corrigida: a qualidade adaptativa media o intervalo entre quadros e, acima de 24 ms, baixava a resolução e depois parava a molécula. Notebook com economia de bateria (Chrome limita a 30 quadros, 33 ms) ou GPU integrada fazia a molécula congelar em segundos e parecer imagem. Agora a referência é o ritmo da própria tela, a resolução cai até a metade e, no limite, desenha um quadro sim, outro não. Nunca congela.
+- Shader mais leve: atalho 2D (só caminha até a superfície quem está a menos de 3,5 unidades da molécula projetada), 44 passos em vez de 72 e teto de 480 mil pixels por quadro.
+- `?diagnostico` na URL mostra um painel com o estado da 3D (rodando, meia velocidade, desligada e o motivo: menos movimento no sistema, sem WebGL 2, placa emulada por software, erro de shader) e a placa de vídeo.
+- Vídeo do hero em `docs/prototipo/hero-3d.mp4`, gravado quadro a quadro com relógio controlado (o ambiente daqui não tem placa de vídeo).
+
 ## 09/10/2026 (motion do hero e botões, depois do guia de design futurista do Dyones)
 - Hero: a molécula vira 3D em WebGL 2 (`src/lib/molecula3d.ts`), um fragment shader só, sem biblioteca: função de distância com juntas suaves (metal líquido), material de vidro escuro com borda nas cores dos estados do vanádio e um filamento âmbar dentro do V. Respira e inclina sozinha; com o cursor inclina até ~10° na direção dele (mola) e a luz segue a mão. O pulso percorre o V e dispara o anel e a rajada das partículas (sinal único). Câmera ortográfica: parada, a silhueta é a do SVG, e as partículas continuam chegando nos átomos.
 - Sem placa de vídeo de verdade (SwiftShader, llvmpipe), sem WebGL 2 ou com erro de shader, o hero fica com o SVG, agora também em vidro escuro com o filamento. Medido: rodar o raymarching por software levava o TBT do Lighthouse a 4,2 s. Contexto e compilação em tarefas separadas; qualidade adaptativa (a resolução cai se o quadro passa de 24 ms; no limite, a molécula para).
