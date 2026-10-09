@@ -10,10 +10,10 @@ Atualize ao resolver: mova a decisão para `decisoes.md` e apague daqui.
 5. Contas: recomendação projeto novo na Vercel (time atual); criar conta Google Ads da V2O5. O Supabase do site já existe (`v2o5-site`).
 6. Crédito "Desenvolvido por V2O5" no rodapé da Motors (recomendado).
 7. CNAE: conferir com o contador se cobre site, sistema e tráfego (principal hoje é 7490-1/04).
+8. Persistência dos plugins: instalar pela conta do claude.ai ou registrar no `.claude/settings.json` do repo.
 9. H1 da home: opção A (no ar em `/`) ou B (`/variantes/titulo-b`). Recomendação: A.
 10. OK para criar o projeto na Vercel e medir o protótipo no preview (PageSpeed).
 11. WhatsApp e e-mail públicos para o rodapé (hoje "a confirmar").
-8. Persistência dos plugins: instalar pela conta do claude.ai ou registrar no `.claude/settings.json` do repo.
 
 ## Técnicas
 - LCP da home: mediana 2,2 s no Lighthouse simulado (7 rodadas), critério é 2,0 s. O que sobra antes do LCP é quase todo o JS do Next/React (138 KB gz). Medir no preview da Vercel antes de cortar mais.
