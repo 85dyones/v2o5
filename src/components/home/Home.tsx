@@ -2,6 +2,7 @@ import Topo from "@/components/layout/Topo";
 import Rodape from "@/components/layout/Rodape";
 import Hero from "@/components/home/Hero";
 import Solucoes from "@/components/home/Solucoes";
+import VisaoAmpla from "@/components/home/VisaoAmpla";
 import Orquestrador from "@/components/home/orquestrador/Orquestrador";
 import ComoSeLiga from "@/components/home/diagrama/ComoSeLiga";
 import CaseMotors from "@/components/home/CaseMotors";
@@ -16,6 +17,7 @@ export default function Home({ titulo }: { titulo: string }) {
       <main id="conteudo">
         <Hero titulo={titulo} />
         <Solucoes />
+        <VisaoAmpla />
         <Orquestrador />
         <ComoSeLiga />
         <CaseMotors />

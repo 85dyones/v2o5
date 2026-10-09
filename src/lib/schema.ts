@@ -1,4 +1,4 @@
-import { EMPRESA, LINHAS } from "@/conteudo/home";
+import { EMPRESA, PILARES } from "@/conteudo/home";
 import { paginaDa } from "@/conteudo/paginas";
 import { SITE_URL } from "@/lib/site";
 
@@ -38,7 +38,7 @@ export function organizacao(): No {
       addressCountry: "BR",
     },
     areaServed: { "@type": "Country", name: "Brasil" },
-    knowsAbout: LINHAS.map((l) => l.titulo),
+    knowsAbout: PILARES.flatMap((p) => p.servicos.map((s) => s.titulo)),
   };
 }
 

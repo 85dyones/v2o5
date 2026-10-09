@@ -16,7 +16,7 @@ export const TITULO_DA_HOME = "Coloque sua empresa no mapa e multiplique a opera
 
 export const HERO = {
   subtitulo:
-    "A V2O5 liga site, agente de IA no WhatsApp, automação e CRM num sistema só, e mostra de onde veio cada venda. Se um dia quiser sair, você leva o código, os dados e o domínio.",
+    "Do Google ao WhatsApp, a V2O5 monta o que traz e atende o cliente: Perfil da Empresa, SEO, anúncios no Google e na Meta, site, agentes de IA, automação e CRM, ligados num sistema que mostra de onde veio cada venda. Se um dia quiser sair, você leva o código, os dados e o domínio.",
   nota: "Diagnóstico gratuito: 45 minutos de conversa e um mapa do que fazer, em até 24 horas.",
 };
 
@@ -45,7 +45,16 @@ export const NOME_DA_ETAPA: Record<Etapa, string> = {
   ambar: "Venda",
 };
 
-export type Vinheta = "agente" | "busca" | "crm" | "fluxo" | "jornada" | "campanhas";
+export type Vinheta =
+  | "agente"
+  | "busca"
+  | "crm"
+  | "fluxo"
+  | "jornada"
+  | "campanhas"
+  | "perfil"
+  | "site"
+  | "integracoes";
 
 export interface Linha {
   titulo: string;
@@ -70,11 +79,11 @@ export const LINHAS: Linha[] = [
   },
   {
     titulo: "Sites e presença",
-    frase: "Site rápido, que aparece no Google e nas respostas das IAs de busca.",
+    frase: "Site rápido no celular, com botão de WhatsApp e formulário que guardam de onde veio cada contato.",
     preco: "a partir de R$ 7.900 + R$ 290/mês",
     href: "/criacao-de-sites",
     etapa: "violeta",
-    vinheta: "busca",
+    vinheta: "site",
   },
   {
     titulo: "CRM e sistemas sob medida",
@@ -101,14 +110,110 @@ export const LINHAS: Linha[] = [
     vinheta: "jornada",
   },
   {
-    titulo: "Gestão de tráfego",
-    frase: "Verba no Google e na Meta ajustada pelo que virou venda.",
+    titulo: "Tráfego pago no Google e na Meta",
+    frase: "Campanhas no Google Ads e na Meta (Instagram e Facebook), com a verba ajustada pelo que virou venda.",
     preco: "a partir de R$ 1.800/mês + verba",
     href: "/gestao-de-trafego",
     etapa: "violeta",
     vinheta: "campanhas",
   },
 ];
+
+/** Um serviço do cardápio, como aparece no bento de soluções. */
+export interface Servico {
+  titulo: string;
+  frase: string;
+  /** "a partir de" da tabela de `oferta.md`, ou em que linha ele vem incluso. */
+  preco: string;
+  href: string;
+  etapa: Etapa;
+  vinheta: Vinheta;
+}
+
+const linha = (href: string): Servico => {
+  const l = LINHAS.find((x) => x.href === href);
+  if (!l) throw new Error(`Linha sem preço em oferta.md: ${href}`);
+  return l;
+};
+
+/**
+ * As duas metades do H1, cada uma com os serviços que a cumprem. Serviço sem
+ * preço próprio na tabela de `oferta.md` diz em qual linha vem incluso
+ * (plano, seção 3.2: o Perfil de Empresa e o SEO técnico estão na fundação
+ * dos sites). `tests/conteudo.test.ts` confere.
+ */
+export const PILARES: { id: string; sobretitulo: string; titulo: string; frase: string; servicos: Servico[] }[] = [
+  {
+    id: "mapa",
+    sobretitulo: "No mapa",
+    titulo: "Coloque sua empresa no mapa.",
+    frase:
+      "Ser achado por quem já procura o que você vende: no Google, no Maps, nas redes da Meta e nas respostas das IAs de busca.",
+    servicos: [
+      {
+        titulo: "Perfil da Empresa no Google",
+        frase: "O antigo Google Meu Negócio, completo e verificado, para a empresa aparecer no Maps e na busca da sua região.",
+        preco: "incluso em Sites e presença",
+        href: "/criacao-de-sites",
+        etapa: "violeta",
+        vinheta: "perfil",
+      },
+      {
+        titulo: "SEO e busca por IA",
+        frase: "SEO técnico e conteúdo com dados estruturados, para ranquear no Google e ser citado nas respostas das IAs.",
+        preco: "SEO técnico incluso em Sites e presença",
+        href: "/criacao-de-sites",
+        etapa: "violeta",
+        vinheta: "busca",
+      },
+      linha("/criacao-de-sites"),
+      linha("/gestao-de-trafego"),
+      linha("/rastreamento-de-conversoes"),
+    ],
+  },
+  {
+    id: "operacao",
+    sobretitulo: "Operação com IA",
+    titulo: "Multiplique a operação com IA.",
+    frase: "O atendimento responde na hora, e o funil anda sem depender de alguém lembrar da próxima tarefa.",
+    servicos: [
+      linha("/agente-de-ia-para-whatsapp"),
+      linha("/automacao-com-ia"),
+      linha("/crm-com-whatsapp"),
+      {
+        titulo: "Integrações entre sistemas",
+        frase: "Site, CRM, ERP e os sistemas do seu setor trocando dados sozinhos. Em produção hoje: o estoque do Revenda Mais.",
+        preco: "a partir de R$ 1.900 por fluxo",
+        href: "/automacao-com-ia",
+        etapa: "azul",
+        vinheta: "integracoes",
+      },
+    ],
+  },
+];
+
+/**
+ * Visão 360: a mesma pessoa olhando o caminho inteiro do cliente. A frase do
+ * fundador usa só o que ele publicou (informática desde 1992, na página
+ * Jornada do site antigo) e o que ele disse em 09/10 (formação em várias
+ * frentes); o detalhe da formação entra quando ele mandar.
+ */
+export const VISAO_360 = {
+  sobretitulo: "Visão 360",
+  titulo: "Marketing, vendas, processos e tecnologia na mesma mesa.",
+  texto:
+    "É comum a empresa ter uma agência para os anúncios, outra pessoa para o site e um sistema que não conversa com nenhum dos dois. O cliente se perde entre um e outro, e ninguém sabe dizer onde. Na V2O5, quem cuida do anúncio também enxerga o atendimento e o sistema. O caminho inteiro do cliente fica à vista, do primeiro clique à venda registrada, e o ajuste vai para onde ele trava.",
+  fundador:
+    "A V2O5 foi fundada por Dyones Oliveira, que começou na informática em 1992 e junta numa pessoa só o olhar de marketing, vendas, processos e tecnologia.",
+  anel: [
+    { nome: "Mapa", detalhe: "Google, Maps e SEO", etapa: "violeta" },
+    { nome: "Anúncios", detalhe: "Google e Meta", etapa: "violeta" },
+    { nome: "Site", detalhe: "rápido e medido", etapa: "violeta" },
+    { nome: "Atendimento", detalhe: "agente de IA", etapa: "verde" },
+    { nome: "Gestão", detalhe: "CRM e automação", etapa: "azul" },
+    { nome: "Venda", detalhe: "com a origem", etapa: "ambar" },
+  ] satisfies { nome: string; detalhe: string; etapa: Etapa }[],
+};
 
 /**
  * Textos das vinhetas do bento: cenas de produto paradas, sem número de
@@ -163,6 +268,24 @@ export const VINHETAS = {
     passos: ["Anúncio", "Site", "Lead", "Venda"],
     identificador: "Lead.3f9c2a7e",
     lados: ["navegador", "servidor"],
+  },
+  perfil: {
+    nome: "Sua Empresa",
+    categoria: "Categoria do negócio · Sua cidade",
+    aberto: "Aberto agora",
+    horario: "fecha às 18h",
+    acoes: ["Rotas", "Ligar", "Site", "WhatsApp"],
+  },
+  site: {
+    endereco: "suaempresa.com.br",
+    botao: "Chamar no WhatsApp",
+    secundario: "Ver serviços",
+  },
+  integracoes: {
+    origem: "Revenda Mais",
+    estado: "em produção",
+    meio: "n8n",
+    destinos: ["Site", "CRM", "Agente de IA"],
   },
   campanhas: {
     criterio: "Otimizando por venda confirmada",

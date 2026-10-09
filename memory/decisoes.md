@@ -2,6 +2,15 @@
 
 Log datado. Decisão nova entra no topo do dia; decisão revogada fica riscada com a data da troca.
 
+## 09/10/2026 (serviços nas duas metades do H1 e Visão 360, pelo Dyones)
+- Soluções em dois pilares que repetem o H1. "Coloque sua empresa no mapa": Perfil da Empresa no Google (o antigo Google Meu Negócio), SEO e busca por IA, Sites e presença, Tráfego pago no Google e na Meta, Rastreamento até a venda. "Multiplique a operação com IA": Agente de IA no WhatsApp (bloco grande), Automação, CRM e sistemas, Integrações entre sistemas. Teste trava que os títulos dos pilares são as metades do H1 e que toda linha da tabela está num pilar.
+- Perfil da Empresa e SEO técnico aparecem como cartões próprios, com preço "incluso em Sites e presença" (é o que a seção 3.2 do plano já põe na fundação dos sites). Sem preço avulso inventado.
+- Integrações ganham cartão, mas só com o que roda em produção: "Em produção hoje: o estoque do Revenda Mais". Preço da automação (R$ 1.900 por fluxo), porque integração é fluxo no n8n.
+- "Gestão de tráfego" vira "Tráfego pago no Google e na Meta" no cartão e no título da página `/gestao-de-trafego` (a URL fica).
+- Subtítulo do hero e descrição da home listam os serviços do mapa (Perfil da Empresa, SEO, anúncios no Google e na Meta) antes dos da operação.
+- Seção nova "Visão 360" depois das soluções: anel com as seis frentes (mapa, anúncios, site, atendimento, gestão, venda) nas cores das etapas, em volta do símbolo. Texto: uma equipe que enxerga o caminho inteiro do cliente, do anúncio ao sistema. Linha do fundador só com fato confirmado (informática desde 1992); as áreas da formação dele ficam para quando ele contar.
+- Novas cenas de produto: ficha do Perfil da Empresa sobre um mapa, navegador com o botão de WhatsApp, Revenda Mais → n8n → site, CRM e agente.
+
 ## 09/10/2026 (3D que "não funcionava" na máquina do Dyones)
 - Causa provável corrigida: a qualidade adaptativa media o intervalo entre quadros e, acima de 24 ms, baixava a resolução e depois parava a molécula. Notebook com economia de bateria (Chrome limita a 30 quadros, 33 ms) ou GPU integrada fazia a molécula congelar em segundos e parecer imagem. Agora a referência é o ritmo da própria tela, a resolução cai até a metade e, no limite, desenha um quadro sim, outro não. Nunca congela.
 - Shader mais leve: atalho 2D (só caminha até a superfície quem está a menos de 3,5 unidades da molécula projetada), 44 passos em vez de 72 e teto de 480 mil pixels por quadro.

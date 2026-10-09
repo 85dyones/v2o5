@@ -24,6 +24,9 @@ export default function VinhetaDaLinha({ vinheta }: { vinheta: Vinheta }) {
     fluxo: <Fluxo />,
     jornada: <Jornada />,
     campanhas: <Campanhas />,
+    perfil: <Perfil />,
+    site: <Site />,
+    integracoes: <Integracoes />,
   };
   return cenas[vinheta];
 }
@@ -271,6 +274,106 @@ function Campanhas() {
               <span className="block text-[0.6875rem] text-secundario">{l.canal}</span>
             </span>
             <span className={`chip ${l.ativa ? "text-ambar" : "text-secundario"}`}>{l.estado}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+/** Perfil da Empresa no Google: um pedaço de mapa com o pino e o cartão. */
+function Perfil() {
+  const v = VINHETAS.perfil;
+  return (
+    <div aria-hidden="true" className="vinheta flex h-full flex-col text-[0.8125rem]">
+      <div className="relative h-[5.5rem] shrink-0 overflow-hidden border-b border-linha bg-[rgb(20_23_28)]">
+        <svg viewBox="0 0 320 88" preserveAspectRatio="xMidYMid slice" className="absolute inset-0 h-full w-full">
+          <g fill="none" stroke="rgb(242 241 236 / 0.07)" strokeWidth="6" strokeLinecap="round">
+            <path d="M-10 62 C60 50 110 70 170 46 S280 20 330 30" />
+            <path d="M90 -10 C96 30 120 60 116 100" />
+            <path d="M232 -10 C224 40 250 62 262 100" />
+          </g>
+          <g fill="none" stroke="rgb(242 241 236 / 0.04)" strokeWidth="2">
+            <path d="M-10 22 H330 M-10 82 H330 M40 -10 V100 M180 -10 V100 M300 -10 V100" />
+          </g>
+          <circle cx="170" cy="40" r="14" fill="rgb(155 139 224 / 0.18)" />
+          <path
+            d="M170 22c-7 0-12 5.2-12 11.6 0 8.7 12 18.4 12 18.4s12-9.7 12-18.4C182 27.2 177 22 170 22z"
+            fill="var(--color-violeta-claro)"
+          />
+          <circle cx="170" cy="34" r="4" fill="rgb(20 23 28)" />
+        </svg>
+      </div>
+      <div className="flex flex-1 flex-col p-3.5">
+        <p className="font-semibold">{v.nome}</p>
+        <p className="mt-0.5 text-xs text-secundario">{v.categoria}</p>
+        <p className="mt-1 text-xs">
+          <span className="text-verde-claro">{v.aberto}</span> <span className="text-secundario">· {v.horario}</span>
+        </p>
+        <p className="mt-auto flex flex-wrap gap-1.5 pt-2">
+          {v.acoes.map((a) => (
+            <span key={a} className="chip text-secundario">
+              {a}
+            </span>
+          ))}
+        </p>
+      </div>
+    </div>
+  );
+}
+
+/** O site: uma janela de navegador com a primeira dobra e o botão do WhatsApp. */
+function Site() {
+  const v = VINHETAS.site;
+  return (
+    <div aria-hidden="true" className="vinheta flex h-full flex-col text-[0.75rem]">
+      <div className="flex items-center gap-2 border-b border-linha px-3 py-2">
+        <span className="flex gap-1">
+          <span className="size-2 rounded-full bg-papel/15" />
+          <span className="size-2 rounded-full bg-papel/15" />
+          <span className="size-2 rounded-full bg-papel/15" />
+        </span>
+        <span className="flex-1 truncate rounded-full bg-vidro-forte px-2.5 py-1 text-center text-secundario">{v.endereco}</span>
+      </div>
+      <div className="flex flex-1 flex-col justify-center gap-2.5 px-4">
+        <span className="block h-2.5 w-[72%] rounded-full bg-papel/25" />
+        <span className="block h-2.5 w-[54%] rounded-full bg-papel/25" />
+        <span className="mt-1 block h-1.5 w-[80%] rounded-full bg-papel/10" />
+        <span className="block h-1.5 w-[64%] rounded-full bg-papel/10" />
+        <span className="mt-2 flex gap-2">
+          <span className="rounded-full bg-verde px-3 py-1.5 font-medium text-papel">{v.botao}</span>
+          <span className="rounded-full px-3 py-1.5 text-secundario contorno">{v.secundario}</span>
+        </span>
+      </div>
+    </div>
+  );
+}
+
+/** Integrações: um sistema de origem, o fluxo no meio e os destinos. */
+function Integracoes() {
+  const v = VINHETAS.integracoes;
+  return (
+    <div aria-hidden="true" className="vinheta flex h-full items-center justify-between gap-3 p-4 text-[0.8125rem]">
+      <div className="shrink-0 rounded-xl bg-vidro px-3 py-2.5 contorno">
+        <p className="font-semibold">{v.origem}</p>
+        <p className="chip chip-ok mt-1.5 text-secundario">{v.estado}</p>
+      </div>
+      <svg viewBox="0 0 60 8" className="hidden h-2 min-w-6 flex-1 sm:block" preserveAspectRatio="none">
+        <line x1="0" y1="4" x2="60" y2="4" className="fluxo-corre" stroke="var(--color-azul-claro)" strokeOpacity="0.7" strokeDasharray="2 6" strokeLinecap="round" />
+      </svg>
+      <div className="flex shrink-0 flex-col items-center gap-1">
+        <span className="flex size-10 items-center justify-center rounded-xl bg-azul/30 text-azul-claro contorno-forte">
+          <Icone nome="fluxo" className="size-4" />
+        </span>
+        <span className="text-xs text-secundario">{v.meio}</span>
+      </div>
+      <svg viewBox="0 0 60 8" className="hidden h-2 min-w-6 flex-1 sm:block" preserveAspectRatio="none">
+        <line x1="0" y1="4" x2="60" y2="4" className="fluxo-corre" stroke="var(--color-azul-claro)" strokeOpacity="0.7" strokeDasharray="2 6" strokeLinecap="round" />
+      </svg>
+      <ul className="grid shrink-0 gap-1.5">
+        {v.destinos.map((d) => (
+          <li key={d} className="rounded-lg bg-vidro px-2.5 py-1.5 contorno">
+            {d}
           </li>
         ))}
       </ul>

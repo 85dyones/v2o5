@@ -26,7 +26,7 @@ export const PAGINAS: Pagina[] = [
     rota: "/",
     titulo: TITULO_PADRAO,
     descricao:
-      "Site, agente de IA no WhatsApp, automação e CRM ligados num sistema que fica com a sua empresa. Diagnóstico gratuito em 45 minutos.",
+      "Perfil no Google, SEO, tráfego pago, site, agente de IA no WhatsApp, automação e CRM num sistema que fica com a sua empresa. Diagnóstico gratuito.",
     atualizadaEm: "2026-10-09",
     pronta: true,
   },
@@ -67,8 +67,8 @@ export const PAGINAS: Pagina[] = [
   },
   {
     rota: "/gestao-de-trafego",
-    titulo: "Gestão de tráfego",
-    descricao: "Google e Meta ajustados pelo que virou venda.",
+    titulo: "Tráfego pago no Google e na Meta",
+    descricao: "Campanhas no Google Ads e na Meta (Instagram e Facebook), ajustadas pelo que virou venda.",
     atualizadaEm: "2026-10-09",
     pronta: false,
   },

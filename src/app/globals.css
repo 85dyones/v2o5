@@ -612,6 +612,13 @@
     animation-delay: 0.32s;
   }
 
+  /* O anel tracejado da Visão 360 gira devagar. */
+  .anel-gira {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: gira 80s linear infinite;
+  }
+
   /* Vinhetas que só se mexem com o cursor em cima do cartão. */
   .cartao-luz:hover .fluxo-corre {
     animation: fluxo-corre 900ms linear infinite;
@@ -628,6 +635,12 @@
   35% {
     opacity: 1;
     transform: translateY(-2px);
+  }
+}
+
+@keyframes gira {
+  to {
+    transform: rotate(360deg);
   }
 }
 

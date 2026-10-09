@@ -10,6 +10,8 @@
 | Rastreamento até a venda | `/rastreamento-de-conversoes` | R$ 2.900 | R$ 290 |
 | Gestão de tráfego | `/gestao-de-trafego` | sem implantação com rastreamento ativo | R$ 1.800 + verba |
 
+Na home, as linhas se dividem nos dois pilares do H1 (mapa: sites, tráfego, rastreamento; operação: agente, automação, CRM). Perfil da Empresa no Google e SEO técnico aparecem como cartões "incluso em Sites e presença"; Integrações entre sistemas, como cartão com o preço da automação por fluxo.
+
 ## Segmento automotivo
 | Item | Implantação | Mensalidade |
 |---|---|---|

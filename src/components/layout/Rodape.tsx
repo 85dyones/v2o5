@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Icone from "@/components/Icone";
 import Simbolo from "@/components/marca/Simbolo";
-import { EMPRESA, LINHAS } from "@/conteudo/home";
+import { EMPRESA, PILARES } from "@/conteudo/home";
 
 const EMPRESA_LINKS = [
   { rotulo: "Revendas de veículos", href: "/segmentos/revendas-de-veiculos" },
@@ -36,10 +36,10 @@ export default function Rodape() {
             Soluções
           </h2>
           <ul className="mt-4 space-y-0.5 text-[0.9375rem] text-secundario">
-            {LINHAS.map((l) => (
-              <li key={l.href}>
-                <Link href={l.href} className={LINK}>
-                  {l.titulo}
+            {PILARES.flatMap((p) => p.servicos).map((s) => (
+              <li key={s.titulo}>
+                <Link href={s.href} className={LINK}>
+                  {s.titulo}
                 </Link>
               </li>
             ))}

@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     template: "%s | V2O5 Vendas e Tecnologia",
   },
   description:
-    "Site, agente de IA no WhatsApp, automação e CRM ligados num sistema que fica com a sua empresa. Diagnóstico gratuito em 45 minutos.",
+    "Perfil no Google, SEO, tráfego pago, site, agente de IA no WhatsApp, automação e CRM num sistema que fica com a sua empresa. Diagnóstico gratuito.",
   applicationName: "V2O5 Vendas e Tecnologia",
 };
 

@@ -1,4 +1,4 @@
-import { AUTOMOTIVO, CASE, EMPRESA, HERO, LINHAS } from "@/conteudo/home";
+import { AUTOMOTIVO, CASE, EMPRESA, HERO, PILARES } from "@/conteudo/home";
 import { SITE_URL } from "@/lib/site";
 
 /**
@@ -8,7 +8,11 @@ import { SITE_URL } from "@/lib/site";
  * nada da requisição.
  */
 export function textoDoLlms(): string {
-  const linhas = LINHAS.map((l) => `- [${l.titulo}](${SITE_URL}${l.href}): ${l.frase} Preço: ${l.preco}.`);
+  const pilares = PILARES.flatMap((p) => [
+    `### ${p.titulo.replace(/\.$/, "")}`,
+    ...p.servicos.map((s) => `- [${s.titulo}](${SITE_URL}${s.href}): ${s.frase} Preço: ${s.preco}.`),
+    "",
+  ]);
   const numeros = CASE.numeros.map(
     (n) => `- ${n.valor}${n.complemento ? ` ${n.complemento}` : ""} ${n.texto}.`,
   );
@@ -19,9 +23,8 @@ export function textoDoLlms(): string {
     "",
     `${EMPRESA.razaoSocial}, CNPJ ${EMPRESA.cnpj}, ${EMPRESA.cidade}. Atende empresas em todo o Brasil. Fundador: Dyones Oliveira.`,
     "",
-    "## Linhas de serviço",
-    ...linhas,
-    "",
+    "## Serviços",
+    ...pilares,
     "## Segmento automotivo",
     `- [${AUTOMOTIVO.titulo}](${SITE_URL}${AUTOMOTIVO.href}): ${AUTOMOTIVO.texto} ${AUTOMOTIVO.preco}`,
     "",

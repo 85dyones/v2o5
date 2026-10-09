@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Icone from "@/components/Icone";
 import VinhetaDaLinha, { PONTO_DA_ETAPA } from "@/components/home/Vinhetas";
-import { LINHAS, NOME_DA_ETAPA, type Linha } from "@/conteudo/home";
+import { NOME_DA_ETAPA, PILARES, type Servico } from "@/conteudo/home";
 import type { Etapa } from "@/lib/tokens";
 
 export function MarcaDeEtapa({ etapa }: { etapa: Etapa }) {
@@ -13,10 +13,10 @@ export function MarcaDeEtapa({ etapa }: { etapa: Etapa }) {
   );
 }
 
-function Rodape({ linha }: { linha: Linha }) {
+function Rodape({ servico }: { servico: Servico }) {
   return (
     <div className="mt-auto flex items-center justify-between gap-4 pt-6">
-      <p className="text-sm font-medium tabular-nums text-papel/90">{linha.preco}</p>
+      <p className="text-sm font-medium tabular-nums text-papel/90">{servico.preco}</p>
       <span
         aria-hidden="true"
         className="seta-do-cartao flex size-8 shrink-0 items-center justify-center rounded-full bg-vidro-forte text-papel contorno"
@@ -27,13 +27,70 @@ function Rodape({ linha }: { linha: Linha }) {
   );
 }
 
+type Formato = "normal" | "destaque" | "largo";
+
 /**
- * As seis linhas gerais (oferta.md), cada uma com a cena de produto dela. O
- * agente de IA ocupa o bloco grande: é a linha que mais muda a operação. A
- * cor da etapa liga cada cartão ao diagrama de "Como tudo se liga".
+ * Onde cada cartão cai na grade de 6 colunas (desktop) e 2 (tablet). No
+ * mapa: três em cima, dois mais largos embaixo. Na operação: o agente de IA
+ * no bloco grande, automação e CRM ao lado, integrações numa faixa inteira.
+ */
+function arranjo(pilar: string, i: number): { formato: Formato; classe: string } {
+  if (pilar === "operacao") {
+    if (i === 0) return { formato: "destaque", classe: "md:col-span-2 lg:col-span-4 lg:row-span-2" };
+    if (i === 3) return { formato: "largo", classe: "md:col-span-2 lg:col-span-6" };
+    return { formato: "normal", classe: "lg:col-span-2" };
+  }
+  if (i < 3) return { formato: "normal", classe: "lg:col-span-2" };
+  return { formato: "normal", classe: i === 4 ? "md:col-span-2 lg:col-span-3" : "lg:col-span-3" };
+}
+
+function Cartao({ servico, formato, classe }: { servico: Servico; formato: Formato; classe: string }) {
+  if (formato === "destaque") {
+    return (
+      <Link href={servico.href} className={`superficie cartao-luz flex min-w-0 flex-col gap-7 p-3 ${classe}`}>
+        <div className="grid gap-x-10 gap-y-4 px-3 pt-4 md:grid-cols-2 md:px-5 md:pt-6">
+          <div>
+            <MarcaDeEtapa etapa={servico.etapa} />
+            <h4 className="mt-4 max-w-[20rem] text-[clamp(1.75rem,1.3rem+1.4vw,2.375rem)] font-semibold leading-[1.05] tracking-[-0.04em]">
+              {servico.titulo}
+            </h4>
+          </div>
+          <div className="flex flex-col md:pt-9">
+            <p className="text-[1.0625rem] leading-relaxed text-secundario">{servico.frase}</p>
+            <Rodape servico={servico} />
+          </div>
+        </div>
+        <div className="flex-1">
+          <VinhetaDaLinha vinheta={servico.vinheta} />
+        </div>
+      </Link>
+    );
+  }
+  const largo = formato === "largo";
+  return (
+    <Link
+      href={servico.href}
+      className={`superficie cartao-luz flex min-w-0 flex-col p-3 ${largo ? "lg:grid lg:grid-cols-2 lg:gap-3" : ""} ${classe}`}
+    >
+      <div className="h-52">
+        <VinhetaDaLinha vinheta={servico.vinheta} />
+      </div>
+      <div className={`flex flex-1 flex-col px-3 pb-3 pt-5 ${largo ? "lg:px-6 lg:pt-6" : ""}`}>
+        <MarcaDeEtapa etapa={servico.etapa} />
+        <h4 className="titulo-cartao mt-2.5">{servico.titulo}</h4>
+        <p className="mt-2 text-[0.9375rem] leading-relaxed text-secundario">{servico.frase}</p>
+        <Rodape servico={servico} />
+      </div>
+    </Link>
+  );
+}
+
+/**
+ * O cardápio, nas duas metades do H1: o que coloca a empresa no mapa e o que
+ * multiplica a operação com IA. Cada cartão traz a cena de produto dele e o
+ * preço "a partir de" da tabela (ou a linha em que vem incluso).
  */
 export default function Solucoes() {
-  const [destaque, ...demais] = LINHAS;
   return (
     <section id="solucoes" aria-labelledby="titulo-solucoes" className="adiada py-24 md:py-36">
       <div className="conteiner">
@@ -48,42 +105,27 @@ export default function Solucoes() {
           </p>
         </div>
 
-        <div className="mt-14 grid gap-4 md:mt-16 md:grid-cols-2 lg:grid-cols-3">
-          <Link
-            href={destaque.href}
-            className="superficie cartao-luz flex flex-col gap-7 p-3 md:col-span-2 lg:row-span-2"
-          >
-            <div className="grid gap-x-10 gap-y-4 px-3 pt-4 md:grid-cols-2 md:px-5 md:pt-6">
+        {PILARES.map((pilar, p) => (
+          <div key={pilar.id} className={p ? "mt-20 md:mt-28" : "mt-14 md:mt-20"}>
+            <div className="grid gap-x-10 gap-y-4 border-t border-linha pt-8 md:grid-cols-2 md:items-end">
               <div>
-                <MarcaDeEtapa etapa={destaque.etapa} />
-                <h3 className="mt-4 max-w-[20rem] text-[clamp(1.75rem,1.3rem+1.4vw,2.375rem)] font-semibold leading-[1.05] tracking-[-0.04em]">
-                  {destaque.titulo}
+                <p className="flex items-center gap-3 text-[0.8125rem] font-medium text-secundario">
+                  <span className="numero text-ambar">{String(p + 1).padStart(2, "0")}</span>
+                  {pilar.sobretitulo}
+                </p>
+                <h3 className="mt-4 text-[clamp(1.75rem,1.3rem+1.6vw,2.625rem)] font-semibold leading-[1.05] tracking-[-0.04em]">
+                  {pilar.titulo}
                 </h3>
               </div>
-              <div className="flex flex-col md:pt-9">
-                <p className="text-[1.0625rem] leading-relaxed text-secundario">{destaque.frase}</p>
-                <Rodape linha={destaque} />
-              </div>
+              <p className="texto-guia max-w-[34rem] md:pb-1">{pilar.frase}</p>
             </div>
-            <div className="flex-1">
-              <VinhetaDaLinha vinheta={destaque.vinheta} />
+            <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-6">
+              {pilar.servicos.map((servico, i) => (
+                <Cartao key={servico.titulo} servico={servico} {...arranjo(pilar.id, i)} />
+              ))}
             </div>
-          </Link>
-
-          {demais.map((linha) => (
-            <Link key={linha.href} href={linha.href} className="superficie cartao-luz flex flex-col p-3">
-              <div className="h-52">
-                <VinhetaDaLinha vinheta={linha.vinheta} />
-              </div>
-              <div className="flex flex-1 flex-col px-3 pb-3 pt-5">
-                <MarcaDeEtapa etapa={linha.etapa} />
-                <h3 className="titulo-cartao mt-2.5">{linha.titulo}</h3>
-                <p className="mt-2 text-[0.9375rem] leading-relaxed text-secundario">{linha.frase}</p>
-                <Rodape linha={linha} />
-              </div>
-            </Link>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
     </section>
   );

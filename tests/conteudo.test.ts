@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { CASE, FRENTES, LINHAS, TITULO_DA_HOME } from "@/conteudo/home";
+import { CASE, FRENTES, LINHAS, PILARES, TITULO_DA_HOME, VISAO_360 } from "@/conteudo/home";
 import { arquivos, ler, semComentarios } from "./fonte";
 
 /**
@@ -57,6 +57,43 @@ describe("oferta", () => {
       for (const v of valores) expect(oferta, `${linha.titulo}: R$ ${v}`).toContain(`R$ ${v}`);
       expect(oferta).toContain(`\`${linha.href}\``);
     }
+  });
+});
+
+describe("os dois pilares do H1", () => {
+  const servicos = PILARES.flatMap((p) => p.servicos);
+
+  it("cada metade do H1 é um pilar, e as seis linhas com preço estão neles", () => {
+    expect(PILARES.map((p) => p.titulo.replace(/\.$/, "").toLowerCase())).toEqual([
+      "coloque sua empresa no mapa",
+      "multiplique a operação com ia",
+    ]);
+    for (const l of LINHAS) expect(servicos, l.titulo).toContainEqual(l);
+  });
+
+  it("serviço sem linha própria diz onde vem incluso ou traz preço da tabela", () => {
+    const oferta = ler("memory/context/oferta.md");
+    for (const s of servicos.filter((s) => !LINHAS.includes(s as (typeof LINHAS)[number]))) {
+      if (/incluso em /.test(s.preco)) {
+        const linha = s.preco.split("incluso em ")[1];
+        expect(LINHAS.map((l) => l.titulo), s.titulo).toContain(linha);
+      } else {
+        expect(s.preco, s.titulo).toMatch(/^a partir de R\$ /);
+        for (const [, v] of s.preco.matchAll(/R\$ ([\d.]+)/g)) expect(oferta).toContain(`R$ ${v}`);
+      }
+    }
+  });
+
+  it("o mapa traz Perfil da Empresa no Google, SEO e tráfego no Google e na Meta", () => {
+    const mapa = PILARES[0].servicos.map((s) => s.titulo).join(" | ");
+    expect(mapa).toMatch(/Perfil da Empresa no Google/);
+    expect(mapa).toMatch(/SEO/);
+    expect(mapa).toMatch(/Google e na Meta/);
+  });
+
+  it("a frase do fundador só usa o que está publicado (informática desde 1992)", () => {
+    expect(VISAO_360.fundador).toMatch(/1992/);
+    expect(VISAO_360.anel).toHaveLength(6);
   });
 });
 
