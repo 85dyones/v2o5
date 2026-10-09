@@ -21,20 +21,20 @@ export default function MenuCelular({ itens }: { itens: { rotulo: string; href: 
   }, [aberto]);
 
   return (
-    <div className="ml-auto sm:ml-2 md:hidden">
+    <div className="md:hidden">
       <button
         ref={botao}
         type="button"
         aria-expanded={aberto}
         aria-controls={id}
         onClick={() => setAberto((v) => !v)}
-        className="flex min-h-11 min-w-11 items-center justify-center gap-2 rounded-md px-2 text-[0.9375rem]"
+        className="flex min-h-11 min-w-11 items-center justify-center gap-2 rounded-full px-3 text-sm font-medium contorno-forte"
       >
-        <svg viewBox="0 0 20 20" className="size-5" aria-hidden="true">
+        <svg viewBox="0 0 20 20" className="size-[1.125rem]" aria-hidden="true">
           {aberto ? (
-            <path d="M5 5l10 10M15 5L5 15" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" />
+            <path d="M5.5 5.5l9 9M14.5 5.5l-9 9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
           ) : (
-            <path d="M3 6h14M3 10h14M3 14h14" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" />
+            <path d="M3.5 7.5h13M3.5 12.5h13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
           )}
         </svg>
         Menu
@@ -42,7 +42,7 @@ export default function MenuCelular({ itens }: { itens: { rotulo: string; href: 
       <div
         id={id}
         hidden={!aberto}
-        className="absolute inset-x-0 top-16 border-b border-linha bg-tinta px-5 pb-6 pt-2"
+        className="absolute inset-x-0 top-16 h-[calc(100dvh-4rem)] overflow-y-auto border-t border-linha bg-tinta px-5 pb-8 pt-3"
       >
         <nav aria-label="Principal no celular">
           <ul>
@@ -51,7 +51,7 @@ export default function MenuCelular({ itens }: { itens: { rotulo: string; href: 
                 <Link
                   href={item.href}
                   onClick={() => setAberto(false)}
-                  className="flex min-h-12 items-center text-lg font-semibold"
+                  className="flex min-h-14 items-center text-xl font-semibold tracking-[-0.02em]"
                 >
                   {item.rotulo}
                 </Link>
@@ -59,7 +59,7 @@ export default function MenuCelular({ itens }: { itens: { rotulo: string; href: 
             ))}
           </ul>
         </nav>
-        <Link href="/diagnostico" onClick={() => setAberto(false)} className="botao botao-primario mt-5 w-full">
+        <Link href="/diagnostico" onClick={() => setAberto(false)} className="botao botao-primario mt-7 w-full">
           Pedir diagnóstico
         </Link>
       </div>

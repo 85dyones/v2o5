@@ -2,6 +2,17 @@
 
 Log datado. Decisão nova entra no topo do dia; decisão revogada fica riscada com a data da troca.
 
+## 09/10/2026 (refino visual, depois do "ainda está cru" do Dyones)
+- Logo vetorizado: a rede da C1d é uma forma só (união por `paper`, `scripts/vetorizar-logo.mjs` → `src/lib/marca-vetor.ts`), com respiro em volta do átomo âmbar. Fim das peças sobrepostas aparecendo. Dois tamanhos ópticos: `grande` e `pequeno` (topo, rodapé, favicon; só a cadeia em V, traço mais grosso).
+- Tipografia: títulos em Geist 600 com espaçamento fechado (display era 800, títulos 700). Título de seção em dois tons (a segunda frase em cinza). Rótulo em mono caixa alta só onde informa ("Demonstração com dados fictícios", "exemplo").
+- H1 em cor sólida: com texto em degradê (`background-clip: text`) o Chrome atribui o LCP ao contêiner do hero, não ao H1.
+- Superfícies com borda de luz em degradê (de cima para baixo) no lugar da linha cinza chapada; botões em pílula com brilho âmbar; topo transparente que vira vidro fosco ao rolar (CSS `animation-timeline: scroll()`).
+- Hero "catalisador": a molécula C1d nítida (SVG do servidor) num palco com aros e trilhos; o canvas só desenha o fluxo: pó cinza lento entra por Ot1/Ot2, calor âmbar passa pela cadeia, rastros âmbar acelerados saem por Ot4 (78%) e Ot3; sinal periódico no V com anel e rajada em Ot4. Geometria única em `src/lib/palco.ts`.
+- Faixa abaixo do hero: "Em produção na Motors Store" + WhatsApp, Meta Ads, GA4, n8n, Revenda Mais. Só integração que roda em produção (regra de `oferta.md`); Google Ads fica fora até a conversão offline existir.
+- Bento de soluções com uma cena de produto por linha (chat do agente com ficha no CRM, busca com resposta de IA, funil, fluxo, jornada com `event_id`, campanhas otimizando por venda). Sem número de resultado; nomes de carro e campanha de exemplo.
+- Orquestrador vira janela de aplicativo (abas em pílula, eventos como chamadas de ferramenta, ficha do CRM com a etapa do funil). Diagrama com peças em ícone. Automotivo com vinheta do estoque (rotulada "exemplo"). Fechamento centrado com o símbolo.
+- Medido depois do refino (Lighthouse 12.6, 7 rodadas, mobile simulado): performance 96, a11y/BP/SEO 100, LCP 2,19 s (H1), TBT 158 ms, CLS 0, JS inicial 138 KB gz, DOM 936 elementos.
+
 ## 09/10/2026 (escolhas sobre o protótipo)
 - Logo: **C1d**, a molécula do C1 virada em V (proposta do Dyones). Geometria em `memory/context/marca.md`; o hero desenha a mesma molécula em partículas. Comparação: https://claude.ai/artifact/8q5BRtPR4dUgcxsmm3nx6E
 - H1 da home: "Coloque sua empresa no mapa e multiplique a operação com IA." (opção A). Descartada: "Vendas mais rápidas com IA, num sistema que fica com a sua empresa."
@@ -14,7 +25,7 @@ Log datado. Decisão nova entra no topo do dia; decisão revogada fica riscada c
 - Orquestrador e diagrama: o servidor entrega o HTML estático (zero JS); a versão interativa chega por `import()` a 700 px da tela. Motion só no pulso do diagrama. Canvas do hero por `import()` depois do `load` + ocioso.
 - `content-visibility: auto` nas seções abaixo da dobra.
 - Cores de etapa para texto e traço sobre a tinta: versões claras derivadas (violeta #9B8BE0, verde #5CC48A, azul #7FA3F0); as puras ficam para preenchimento com texto claro. Travado em `tests/contraste.test.ts`.
-- Partículas amostram a nuvem por conta de arco, não por `getPointAtLength` (que custava ~550 ms de tarefa longa no Lighthouse).
+- ~~Partículas amostram a nuvem por conta de arco, não por `getPointAtLength` (que custava ~550 ms de tarefa longa no Lighthouse).~~ Motor trocado no refino de 09/10; `contorno.ts` ficou só para os testes do logo.
 
 ## 09/10/2026
 - Identidade raiz geral: "digitalização e aceleração de negócios com IA" (colocar no mapa, multiplicar a operação). Automotivo vira o primeiro segmento, com hub `/segmentos/revendas-de-veiculos`. Substitui "revendas desde a home" de 08/10.

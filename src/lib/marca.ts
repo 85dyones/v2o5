@@ -1,7 +1,8 @@
 /**
  * Geometria do símbolo da V2O5 (família C1), copiada de
- * `memory/context/marca.md`. O mesmo desenho alimenta o SVG do topo, o SVG
- * estático do hero e as partículas do canvas.
+ * `memory/context/marca.md`. O desenho do site sai daqui vetorizado
+ * (`scripts/vetorizar-logo.mjs` → `marca-vetor.ts`), e o palco do hero
+ * (`palco.ts`) usa o mesmo vetor.
  *
  * Logo escolhido em 09/10: C1d, a proposta do Dyones (a molécula do C1
  * virada em V). As outras variações ficam para comparação. Para trocar o
@@ -144,9 +145,3 @@ export function moleculaDoHero(variante: VarianteDoSimbolo): Desenho {
 export const MOLECULA = moleculaDoHero(SIMBOLO_ATUAL);
 
 export const RAIO = { V: 6.5, O: 4.5 } as const;
-
-/**
- * Folga em volta do desenho no hero, em fração da caixa. O SVG estático e o
- * canvas usam a mesma, para a troca entre os dois não mexer no desenho.
- */
-export const MARGEM_DO_HERO = 0.06;

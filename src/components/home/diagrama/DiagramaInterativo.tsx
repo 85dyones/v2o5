@@ -31,7 +31,7 @@ export default function DiagramaInterativo({ comecarZerado = false }: { comecarZ
     for (let i = 0; i < caminho.length - 1; i++) {
       const ligacao = ligacaoEntre(caminho[i], caminho[i + 1]);
       const traco = ligacao && svg.querySelector<SVGPathElement>(`[data-pulso="${ligacao.chave}"]`);
-      const nucleo = svg.querySelector<SVGCircleElement>(`[data-peca="${caminho[i + 1]}"] .nucleo`);
+      const nucleo = svg.querySelector<SVGUseElement>(`[data-peca="${caminho[i + 1]}"] .nucleo`);
       if (!ligacao || !traco) continue;
       traco.style.stroke = COR_CLARA[PECAS.find((p) => p.id === caminho[i + 1])!.etapa];
       sequencia.push([

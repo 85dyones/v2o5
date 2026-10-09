@@ -15,9 +15,9 @@ export default function PaginaProvisoria({ rota }: { rota: string }) {
     <>
       <Topo />
       <main id="conteudo" className="conteiner min-h-[60vh] py-20 md:py-28">
-        <p className="rotulo text-secundario">Em construção</p>
-        <h1 className="titulo-secao mt-4 max-w-[40rem]">{titulo}</h1>
-        <p className="mt-5 max-w-[36rem] text-lg text-secundario">{descricao}</p>
+        <p className="sobretitulo">Em construção</p>
+        <h1 className="titulo-secao mt-5 max-w-[40rem]">{titulo}</h1>
+        <p className="texto-guia mt-6 max-w-[36rem]">{descricao}</p>
         <Link href="/" className="botao botao-secundario mt-10">
           Voltar para a página inicial
         </Link>

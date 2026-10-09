@@ -14,8 +14,8 @@ export default function NaoEncontrada() {
     <>
       <Topo />
       <main id="conteudo" className="conteiner min-h-[60vh] py-20 md:py-28">
-        <p className="rotulo text-secundario">Erro 404</p>
-        <h1 className="titulo-secao mt-4 max-w-[40rem]">Esta página não existe</h1>
+        <p className="sobretitulo">Erro 404</p>
+        <h1 className="titulo-secao mt-5 max-w-[40rem]">Esta página não existe</h1>
         <p className="mt-5 max-w-[36rem] text-lg text-secundario">
           O endereço pode ter mudado com o site novo. Estes caminhos levam ao que mais se procura por aqui.
         </p>

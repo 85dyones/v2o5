@@ -1,5 +1,5 @@
 /**
- * A molécula V2O5 em partículas, desenhada em canvas 2D.
+ * O fluxo do catalisador, em canvas 2D, por cima do palco do hero.
  *
  * Módulo sem React e sem dependência: o hero o importa com `import()` só
  * depois do `load` e de um momento ocioso, para o H1 continuar sendo o LCP e o
@@ -7,26 +7,34 @@
  * `prefers-reduced-motion`; mesmo assim, `estatico: true` desenha um quadro
  * só e não agenda nenhum outro (aparelho fraco).
  *
- * Espaço de coordenadas: o mesmo viewBox do símbolo (`marca.ts`). O desenho
- * ocupa o retângulo interno do canvas com `MARGEM` de folga em cada lado, a
- * mesma do SVG estático, para a troca entre os dois não mexer no desenho.
+ * A molécula não é desenhada aqui: ela é o SVG de `PalcoDoHero.tsx`, no
+ * mesmo espaço de coordenadas (`lib/palco.ts`). O canvas só põe as
+ * partículas: cinzas e lentas na entrada, âmbar dentro da cadeia, rastros
+ * acelerados na saída. De tempos em tempos um sinal percorre o V (Ot2, V1,
+ * Ob, V2, Ot4) e o átomo âmbar solta um anel e uma rajada.
  */
-import { amostrarCaminho } from "./contorno";
-import { MARGEM_DO_HERO as MARGEM, MOLECULA, RAIO, VIEWBOX, type No } from "./marca";
-
-const CICLO_DO_SINAL = 4.8; // segundos, o mesmo ciclo do logo animado
-const PERCURSO_DO_SINAL = 0.36; // fração do ciclo em que o sinal anda
-const DISTANCIA_QUE_ACENDE = 24; // unidades do viewBox
-
-const PAPEL = [242, 241, 236] as const;
-const AMBAR = [242, 165, 22] as const;
+import {
+  ATOMOS,
+  CADEIA,
+  CENTRO_DA_MOLECULA,
+  FAIXAS,
+  PALCO,
+  PARTE_QUE_SAI_PELO_AMBAR,
+  curvaDeEntrada,
+  curvaDeSaida,
+  pontoNaCurva,
+  type Entrada,
+  type IdDoAtomo,
+  type Ponto,
+  type Saida,
+} from "./palco";
 
 export interface OpcoesDasParticulas {
   /** Quantas partículas ao todo (o hero escolhe pelo tamanho da tela). */
   quantidade: number;
   /** Um quadro só, sem laço: aparelho fraco. */
   estatico?: boolean;
-  /** Sinal periódico sem precisar de cursor (tela de toque). */
+  /** Sem cursor (tela de toque): o sinal corre sozinho num ciclo mais curto. */
   sinalAutomatico?: boolean;
   /** Chamado depois do primeiro quadro pintado. */
   aoPintar?: () => void;
@@ -40,373 +48,370 @@ export interface MotorDasParticulas {
   destruir(): void;
 }
 
-interface ParticulaDeNo {
-  no: number;
-  raio: number;
-  angulo: number;
-  velocidade: number;
-  achatamento: number;
-  inclinacao: number;
+// Velocidades em unidades do palco por segundo.
+const VELOCIDADE_DE_ENTRADA = 9;
+const VELOCIDADE_DENTRO = 30;
+const VELOCIDADE_FINAL = 150;
+const RASTRO_EM_SEGUNDOS = 0.1;
+const CICLO_DO_SINAL = 4.8;
+const CICLO_DO_SINAL_ACESO = 2.4;
+const PERCURSO_DO_SINAL = 1.5; // segundos para o sinal ir de Ot2 a Ot4
+const VIDA_DO_ANEL = 1.1;
+const TRAJETOS = 48;
+const RAJADA = 6;
+
+const CINZA = [169, 172, 180] as const;
+const AMBAR = [242, 165, 22] as const;
+const AMBAR_CLARO = [255, 214, 140] as const;
+
+interface Trajeto {
+  saida: Saida;
+  xs: Float32Array;
+  ys: Float32Array;
+  /** Normal de cada ponto (para espalhar as partículas em volta do trilho). */
+  nx: Float32Array;
+  ny: Float32Array;
+  acumulado: Float32Array;
+  inicioDentro: number;
+  inicioSaida: number;
+  total: number;
+}
+
+interface Particula {
+  trajeto: number;
+  s: number;
+  i: number;
+  fator: number;
+  desvio: number;
+  espalhamento: number;
   tamanho: number;
   alfa: number;
-}
-
-interface ParticulaDeLigacao {
-  ligacao: number;
-  t: number;
-  velocidade: number;
-  desvio: number;
-  tamanho: number;
-}
-
-interface ParticulaDaNuvem {
-  u: number;
-  velocidade: number;
-  desvio: number;
-  tamanho: number;
-  alfa: number;
-}
-
-interface Entrada {
-  x: number;
-  y: number;
-  atraso: number;
-  duracao: number;
+  ativa: boolean;
 }
 
 const aleatorio = (min: number, max: number) => min + Math.random() * (max - min);
-const saidaCubica = (p: number) => 1 - Math.pow(1 - p, 3);
 const limitar = (v: number, min = 0, max = 1) => Math.min(max, Math.max(min, v));
+const suave = (p: number) => p * p * (3 - 2 * p);
 
-/** Distância de um ponto a um segmento, em unidades do viewBox. */
-function distanciaAoSegmento(px: number, py: number, a: No, b: No): number {
-  const dx = b.x - a.x;
-  const dy = b.y - a.y;
-  const t = limitar(((px - a.x) * dx + (py - a.y) * dy) / (dx * dx + dy * dy));
-  return Math.hypot(px - (a.x + t * dx), py - (a.y + t * dy));
+function montarTrajeto(entrada: Entrada, y0: number, saida: Saida, y1: number): Trajeto {
+  const pontos: Ponto[] = [];
+  const curvaEntrada = curvaDeEntrada(entrada, y0);
+  for (let k = 0; k <= 30; k++) pontos.push(pontoNaCurva(curvaEntrada, k / 30));
+  const indiceDentro = pontos.length - 1;
+  for (const id of CADEIA) pontos.push(ATOMOS[id]);
+  const indiceSaida = pontos.length;
+  const curvaSaida = curvaDeSaida(saida, y1);
+  for (let k = 0; k <= 26; k++) pontos.push(pontoNaCurva(curvaSaida, k / 26));
+
+  const n = pontos.length;
+  const t: Trajeto = {
+    saida,
+    xs: new Float32Array(n),
+    ys: new Float32Array(n),
+    nx: new Float32Array(n),
+    ny: new Float32Array(n),
+    acumulado: new Float32Array(n),
+    inicioDentro: 0,
+    inicioSaida: 0,
+    total: 0,
+  };
+  for (let k = 0; k < n; k++) {
+    t.xs[k] = pontos[k].x;
+    t.ys[k] = pontos[k].y;
+    if (k > 0) t.acumulado[k] = t.acumulado[k - 1] + Math.hypot(pontos[k].x - pontos[k - 1].x, pontos[k].y - pontos[k - 1].y);
+    const a = pontos[Math.max(0, k - 1)];
+    const b = pontos[Math.min(n - 1, k + 1)];
+    const d = Math.hypot(b.x - a.x, b.y - a.y) || 1;
+    t.nx[k] = -(b.y - a.y) / d;
+    t.ny[k] = (b.x - a.x) / d;
+  }
+  t.inicioDentro = t.acumulado[indiceDentro];
+  t.inicioSaida = t.acumulado[indiceSaida];
+  t.total = t.acumulado[n - 1];
+  return t;
 }
 
-/** Brilho radial pré-desenhado: desenhar imagem custa menos que `shadowBlur`. */
-function criarBrilho([r, g, b]: readonly number[]): HTMLCanvasElement {
-  const lado = 64;
+/** Velocidade no ponto `s` do trajeto: devagar, constante, acelerando. */
+function velocidade(t: Trajeto, s: number): number {
+  if (s < t.inicioDentro) return VELOCIDADE_DE_ENTRADA * (1 + 1.6 * (s / t.inicioDentro) ** 2);
+  if (s < t.inicioSaida) return VELOCIDADE_DENTRO;
+  const u = (s - t.inicioSaida) / (t.total - t.inicioSaida);
+  return VELOCIDADE_DENTRO + (VELOCIDADE_FINAL - VELOCIDADE_DENTRO) * u ** 1.6;
+}
+
+/** Ponto de borda macia, mas com miolo cheio (o pó da entrada). */
+function criarPonto([r, g, b]: readonly number[]): HTMLCanvasElement {
+  const lado = 32;
   const c = document.createElement("canvas");
   c.width = c.height = lado;
   const ctx = c.getContext("2d")!;
   const grad = ctx.createRadialGradient(lado / 2, lado / 2, 0, lado / 2, lado / 2, lado / 2);
-  grad.addColorStop(0, `rgba(${r},${g},${b},0.9)`);
-  grad.addColorStop(0.35, `rgba(${r},${g},${b},0.25)`);
+  grad.addColorStop(0, `rgba(${r},${g},${b},1)`);
+  grad.addColorStop(0.45, `rgba(${r},${g},${b},0.85)`);
   grad.addColorStop(1, `rgba(${r},${g},${b},0)`);
   ctx.fillStyle = grad;
   ctx.fillRect(0, 0, lado, lado);
   return c;
 }
 
-export function iniciarParticulas(
-  canvas: HTMLCanvasElement,
-  opcoes: OpcoesDasParticulas,
-): MotorDasParticulas {
+/** Brilho radial pré-desenhado: desenhar imagem custa menos que `shadowBlur`. */
+function criarBrilho([r, g, b]: readonly number[], miolo = 0.9): HTMLCanvasElement {
+  const lado = 64;
+  const c = document.createElement("canvas");
+  c.width = c.height = lado;
+  const ctx = c.getContext("2d")!;
+  const grad = ctx.createRadialGradient(lado / 2, lado / 2, 0, lado / 2, lado / 2, lado / 2);
+  grad.addColorStop(0, `rgba(${r},${g},${b},${miolo})`);
+  grad.addColorStop(0.3, `rgba(${r},${g},${b},${miolo * 0.3})`);
+  grad.addColorStop(1, `rgba(${r},${g},${b},0)`);
+  ctx.fillStyle = grad;
+  ctx.fillRect(0, 0, lado, lado);
+  return c;
+}
+
+export function iniciarParticulas(canvas: HTMLCanvasElement, opcoes: OpcoesDasParticulas): MotorDasParticulas {
   const ctx = canvas.getContext("2d", { alpha: true })!;
-  const nos = MOLECULA.nos;
-  const indice = new Map(nos.map((n, i) => [n.id, i]));
-  const ligacoes = MOLECULA.ligacoes.map(([a, b]) => [indice.get(a)!, indice.get(b)!] as const);
-  const caminhoDoSinal = MOLECULA.sinal.map((id) => indice.get(id)!);
-  const contorno = amostrarCaminho(MOLECULA.nuvem, 360);
-  const brilhoPapel = criarBrilho(PAPEL);
   const brilhoAmbar = criarBrilho(AMBAR);
+  const brilhoClaro = criarBrilho(AMBAR_CLARO, 1);
+  const pontoCinza = criarPonto(CINZA);
 
-  // Partículas: 50% nos nós (proporcional à área), 20% nas ligações, 30% na nuvem.
-  const total = Math.max(60, Math.round(opcoes.quantidade));
-  const pesos = nos.map((n) => RAIO[n.tipo] ** 2);
-  const somaDosPesos = pesos.reduce((a, b) => a + b, 0);
-  const deNo: ParticulaDeNo[] = [];
-  nos.forEach((n, i) => {
-    const qtd = Math.round((total * 0.5 * pesos[i]) / somaDosPesos);
-    for (let k = 0; k < qtd; k++) {
-      deNo.push({
-        no: i,
-        raio: RAIO[n.tipo] * (0.15 + 1.05 * Math.sqrt(Math.random())),
-        angulo: aleatorio(0, Math.PI * 2),
-        velocidade: aleatorio(0.5, 1.5) * (Math.random() < 0.5 ? -1 : 1),
-        achatamento: aleatorio(0.45, 1),
-        inclinacao: aleatorio(0, Math.PI),
-        tamanho: aleatorio(1, 2.2),
-        alfa: aleatorio(0.6, 1),
-      });
-    }
-  });
-  const deLigacao: ParticulaDeLigacao[] = Array.from({ length: Math.round(total * 0.2) }, (_, k) => ({
-    ligacao: k % ligacoes.length,
-    t: Math.random(),
-    velocidade: aleatorio(0.04, 0.1),
-    desvio: aleatorio(-0.9, 0.9),
-    tamanho: aleatorio(0.9, 1.6),
-  }));
-  const daNuvem: ParticulaDaNuvem[] = Array.from({ length: Math.round(total * 0.3) }, () => ({
-    u: Math.random(),
-    velocidade: aleatorio(0.004, 0.012),
-    desvio: aleatorio(-1.6, 1.6) * Math.random(),
-    tamanho: aleatorio(0.9, 2),
-    alfa: aleatorio(0.3, 0.8),
-  }));
-  const tracoDaNuvem = new Path2D(MOLECULA.nuvem);
+  const sortearTrajeto = (): Trajeto => {
+    const entrada: Entrada = Math.random() < 0.5 ? "Ot2" : "Ot1";
+    const saida: Saida = Math.random() < PARTE_QUE_SAI_PELO_AMBAR ? "Ot4" : "Ot3";
+    const [a, b] = FAIXAS[entrada];
+    const [c, d] = FAIXAS[saida];
+    return montarTrajeto(entrada, aleatorio(a, b), saida, aleatorio(c, d));
+  };
+  const trajetos = Array.from({ length: TRAJETOS }, sortearTrajeto);
+  // Trajetos que saem pelo âmbar, para a rajada do fim do sinal.
+  const pelaPontaAmbar = trajetos.flatMap((t, i) => (t.saida === "Ot4" ? [i] : []));
 
-  // Ponto de partida de cada partícula: espalhada, depois se aglutina.
-  const entradas: Entrada[] = Array.from({ length: deNo.length + deLigacao.length + daNuvem.length }, () => ({
-    x: aleatorio(VIEWBOX.x - 10, VIEWBOX.x + VIEWBOX.largura + 10),
-    y: aleatorio(VIEWBOX.y - 8, VIEWBOX.y + VIEWBOX.altura + 8),
-    atraso: aleatorio(0, 0.5),
-    duracao: aleatorio(1.2, 2),
-  }));
+  const nova = (p: Particula, inicio = 0) => {
+    p.trajeto = Math.floor(Math.random() * trajetos.length);
+    p.s = inicio;
+    p.i = 0;
+    p.fator = aleatorio(0.75, 1.3);
+    p.desvio = aleatorio(-1, 1) * aleatorio(2, 9);
+    p.espalhamento = aleatorio(-1, 1) * aleatorio(1, 7);
+    p.tamanho = aleatorio(0.8, 1.6);
+    p.alfa = aleatorio(0.35, 0.9);
+    p.ativa = true;
+    return p;
+  };
+  const total = Math.max(40, Math.round(opcoes.quantidade));
+  const particulas: Particula[] = Array.from({ length: total }, () => nova({} as Particula));
+  const rajada: Particula[] = Array.from({ length: RAJADA }, () => ({ ...nova({} as Particula), ativa: false }));
 
-  // Estado da interação.
-  const intensidade = new Float32Array(ligacoes.length); // 0..1 por ligação
-  const brilhoDoNo = new Float32Array(nos.length);
-  const fontesAcesas = new Set<string>();
-  let ponteiro: { x: number; y: number } | null = null;
-  let energia = 0;
-  let relogioDoSinal = -1; // < 0: parado
-  let anel = -1; // idade do anel no nó âmbar, em segundos
+  // Sinal: o caminho do V, em pontos do palco.
+  const sinal: IdDoAtomo[] = ["Ot2", "V1", "Ob", "V2", "Ot4"];
+  const pontosDoSinal = sinal.map((id) => ATOMOS[id]);
+  const trechos = pontosDoSinal.slice(1).map((p, k) => Math.hypot(p.x - pontosDoSinal[k].x, p.y - pontosDoSinal[k].y));
+  const comprimentoDoSinal = trechos.reduce((a, b) => a + b, 0);
 
-  // Geometria da tela.
   let largura = 0;
   let altura = 0;
-  let escala = 1;
-  let origemX = 0;
-  let origemY = 0;
+  let escala = 1; // px de CSS por unidade do palco
   let dpr = 1;
-  let pontoPx = 1; // tamanho das partículas acompanha a escala do desenho
-
-  function medir() {
-    const caixa = canvas.getBoundingClientRect();
-    largura = caixa.width;
-    altura = caixa.height;
-    dpr = Math.min(window.devicePixelRatio || 1, largura < 640 ? 1.5 : 2);
-    canvas.width = Math.round(largura * dpr);
-    canvas.height = Math.round(altura * dpr);
-    const internoL = largura * (1 - 2 * MARGEM);
-    const internoA = altura * (1 - 2 * MARGEM);
-    escala = Math.min(internoL / VIEWBOX.largura, internoA / VIEWBOX.altura);
-    origemX = (largura - VIEWBOX.largura * escala) / 2 - VIEWBOX.x * escala;
-    origemY = (altura - VIEWBOX.altura * escala) / 2 - VIEWBOX.y * escala;
-    pontoPx = limitar(escala / 4, 0.75, 1.5);
-  }
-
-  const px = (x: number) => origemX + x * escala;
-  const py = (y: number) => origemY + y * escala;
-
-  function posicaoDoSinal(p: number): { x: number; y: number; segmento: number } {
-    const segmentos = caminhoDoSinal.length - 1;
-    const s = Math.min(segmentos - 1, Math.floor(p * segmentos));
-    const local = p * segmentos - s;
-    const a = nos[caminhoDoSinal[s]];
-    const b = nos[caminhoDoSinal[s + 1]];
-    return { x: a.x + (b.x - a.x) * local, y: a.y + (b.y - a.y) * local, segmento: s };
-  }
-
-  let ultimo = 0;
-  let decorrido = 0;
   let quadro = 0;
-  let rodando = false;
+  let ultimo = 0;
+  let relogio = 0;
+  let proximoSinal = 1.2;
+  let sinalComecou = -10;
+  let anelComecou = -10;
+  let intensidade = 1;
   let visivel = true;
+  let destruido = false;
   let pintou = false;
-  let proximoSinalAutomatico = 2.5;
+  const acesos = new Set<string>();
 
-  function atualizar(dt: number) {
-    decorrido += dt;
-    const acesoPorFonte = fontesAcesas.size > 0;
-    let pertoDoPonteiro = false;
-
-    for (let i = 0; i < ligacoes.length; i++) {
-      const [a, b] = ligacoes[i];
-      let alvo = acesoPorFonte ? 1 : 0;
-      if (ponteiro) {
-        const d = distanciaAoSegmento(ponteiro.x, ponteiro.y, nos[a], nos[b]);
-        alvo = Math.max(alvo, limitar(1 - d / DISTANCIA_QUE_ACENDE));
-        if (d < DISTANCIA_QUE_ACENDE) pertoDoPonteiro = true;
-      }
-      intensidade[i] += (alvo - intensidade[i]) * (1 - Math.exp(-dt * 7));
+  function acender(fonte: string, ligado: boolean) {
+    if (ligado) acesos.add(fonte);
+    else acesos.delete(fonte);
+    // Acendeu com o sinal parado: ele sai já, sem esperar o ciclo.
+    if (ligado && relogio - sinalComecou > PERCURSO_DO_SINAL + 0.4 && proximoSinal - relogio > 0.3) {
+      proximoSinal = relogio + 0.15;
     }
-
-    const ativo = acesoPorFonte || pertoDoPonteiro;
-    energia += ((ativo ? 1 : 0) - energia) * (1 - Math.exp(-dt * 4));
-
-    if (opcoes.sinalAutomatico && !ativo) {
-      proximoSinalAutomatico -= dt;
-      if (proximoSinalAutomatico <= 0 && relogioDoSinal < 0) {
-        relogioDoSinal = 0;
-        proximoSinalAutomatico = 7;
-      }
-    }
-    if (ativo && relogioDoSinal < 0) relogioDoSinal = 0;
-
-    if (relogioDoSinal >= 0) {
-      const antes = relogioDoSinal;
-      relogioDoSinal += dt;
-      const duracao = CICLO_DO_SINAL * PERCURSO_DO_SINAL;
-      // Cada nó do caminho acende quando o sinal passa por ele.
-      caminhoDoSinal.forEach((n, k) => {
-        const instante = (k / (caminhoDoSinal.length - 1)) * duracao;
-        if (antes < instante && relogioDoSinal >= instante) brilhoDoNo[n] = 1;
-      });
-      if (antes < duracao && relogioDoSinal >= duracao) anel = 0;
-      if (relogioDoSinal >= CICLO_DO_SINAL) relogioDoSinal = ativo ? 0 : -1;
-    }
-    for (let i = 0; i < brilhoDoNo.length; i++) brilhoDoNo[i] *= Math.exp(-dt * 2.2);
-    if (anel >= 0) {
-      anel += dt;
-      if (anel > 0.9) anel = -1;
-    }
-
-    const aceleracao = 1 + 1.6 * energia;
-    for (const p of deNo) p.angulo += p.velocidade * aceleracao * dt;
-    for (const p of deLigacao) {
-      const lig = intensidade[p.ligacao];
-      p.t = (p.t + p.velocidade * (1 + 7 * lig) * dt) % 1;
-    }
-    for (const p of daNuvem) p.u = (p.u + p.velocidade * dt) % 1;
   }
 
-  /** Progresso da entrada de uma partícula, de 0 (espalhada) a 1 (no lugar). */
-  function chegada(k: number): number {
-    const e = entradas[k];
-    return saidaCubica(limitar((decorrido - e.atraso) / e.duracao));
+  /**
+   * Tamanho vindo do ResizeObserver, que mede depois do layout que o
+   * navegador já ia fazer: `getBoundingClientRect` aqui forçava um layout da
+   * página inteira dentro da tarefa do motor.
+   */
+  function definirTamanho(w: number, h: number) {
+    const novoDpr = Math.min(window.devicePixelRatio || 1, 2);
+    if (w === largura && h === altura && novoDpr === dpr) return false;
+    dpr = novoDpr;
+    largura = w;
+    altura = h;
+    escala = largura / PALCO.largura || 1;
+    // Reatribuir width limpa o canvas: só quando o tamanho muda de fato.
+    canvas.width = Math.max(1, Math.round(largura * dpr));
+    canvas.height = Math.max(1, Math.round(altura * dpr));
+    return true;
   }
 
-  function pintar() {
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    ctx.clearRect(0, 0, largura, altura);
+  function avancar(p: Particula, dt: number) {
+    const t = trajetos[p.trajeto];
+    p.s += velocidade(t, p.s) * p.fator * intensidade * dt;
+    while (p.i < t.acumulado.length - 2 && t.acumulado[p.i + 1] < p.s) p.i++;
+  }
+
+  /** Posição no trajeto, com o espalhamento da entrada e da saída. */
+  function posicao(p: Particula, s: number, i: number, saida: Ponto) {
+    const t = trajetos[p.trajeto];
+    while (i > 0 && t.acumulado[i] > s) i--;
+    const a = t.acumulado[i];
+    const b = t.acumulado[i + 1];
+    const f = b > a ? limitar((s - a) / (b - a)) : 0;
+    let x = t.xs[i] + (t.xs[i + 1] - t.xs[i]) * f;
+    let y = t.ys[i] + (t.ys[i + 1] - t.ys[i]) * f;
+    let afastamento = 0;
+    if (s < t.inicioDentro) afastamento = p.desvio * (1 - suave(s / t.inicioDentro));
+    else if (s > t.inicioSaida) afastamento = p.espalhamento * ((s - t.inicioSaida) / (t.total - t.inicioSaida));
+    x += t.nx[i] * afastamento;
+    y += t.ny[i] * afastamento;
+    saida.x = x;
+    saida.y = y;
+  }
+
+  function passo(dt: number) {
+    relogio += dt;
+    const alvo = acesos.size > 0 ? 1.7 : 1;
+    intensidade += (alvo - intensidade) * Math.min(1, dt * 3);
+    for (const p of particulas) {
+      avancar(p, dt);
+      if (p.s >= trajetos[p.trajeto].total) nova(p);
+    }
+    for (const p of rajada) {
+      if (!p.ativa) continue;
+      avancar(p, dt * 1.6);
+      if (p.s >= trajetos[p.trajeto].total) p.ativa = false;
+    }
+    // Sinal periódico; a rajada sai quando ele chega ao átomo âmbar.
+    if (relogio >= proximoSinal) {
+      sinalComecou = relogio;
+      const ciclo = acesos.size > 0 || opcoes.sinalAutomatico ? CICLO_DO_SINAL_ACESO : CICLO_DO_SINAL;
+      proximoSinal = relogio + ciclo * (opcoes.sinalAutomatico && acesos.size === 0 ? 1.5 : 1);
+    }
+    if (sinalComecou > 0 && relogio - sinalComecou >= PERCURSO_DO_SINAL && anelComecou < sinalComecou) {
+      anelComecou = relogio;
+      for (const p of rajada) {
+        if (!pelaPontaAmbar.length) break;
+        nova(p);
+        p.trajeto = pelaPontaAmbar[Math.floor(Math.random() * pelaPontaAmbar.length)];
+        p.s = trajetos[p.trajeto].inicioSaida;
+        p.i = 0;
+        p.espalhamento = aleatorio(-1, 1) * 10;
+        p.fator = aleatorio(0.9, 1.4);
+      }
+    }
+  }
+
+  const aqui: Ponto = { x: 0, y: 0 };
+  const atras: Ponto = { x: 0, y: 0 };
+
+  function desenhar() {
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    const k = dpr * escala;
+    ctx.setTransform(k, 0, 0, k, 0, 0);
+    const px = 1 / escala; // 1 px de CSS em unidades do palco
+
+    // Entrada: pó cinza, mais nítido conforme chega perto.
+    ctx.globalCompositeOperation = "source-over";
+    for (const p of particulas) {
+      const t = trajetos[p.trajeto];
+      if (p.s >= t.inicioDentro) continue;
+      posicao(p, p.s, p.i, aqui);
+      const perto = p.s / t.inicioDentro;
+      const lado = p.tamanho * (2 + 1.2 * perto) * px;
+      // Some antes de tocar o átomo: o pó não suja a molécula.
+      const antesDoAtomo = limitar((t.inicioDentro - p.s - 5) / 7);
+      ctx.globalAlpha = p.alfa * (0.4 + 0.6 * perto) * antesDoAtomo;
+      if (antesDoAtomo <= 0) continue;
+      ctx.drawImage(pontoCinza, aqui.x - lado / 2, aqui.y - lado / 2, lado, lado);
+    }
+
+    ctx.globalCompositeOperation = "lighter";
+    // Dentro da cadeia: só um calor âmbar macio passando pelas ligações.
+    for (const p of particulas) {
+      const t = trajetos[p.trajeto];
+      if (p.s < t.inicioDentro || p.s >= t.inicioSaida) continue;
+      posicao(p, p.s, p.i, aqui);
+      const lado = (9 + 4 * p.tamanho) * px * (0.8 + 0.3 * intensidade);
+      ctx.globalAlpha = 0.16 * p.alfa * intensidade;
+      ctx.drawImage(brilhoAmbar, aqui.x - lado / 2, aqui.y - lado / 2, lado, lado);
+    }
+
+    // Saída: rastros que aceleram.
     ctx.lineCap = "round";
-
-    // O contorno da nuvem, bem fraco: as partículas correm por cima dele.
-    ctx.save();
-    ctx.setTransform(dpr * escala, 0, 0, dpr * escala, dpr * origemX, dpr * origemY);
-    ctx.globalAlpha = 0.09 * Math.min(1, decorrido / 1.5);
-    ctx.strokeStyle = "rgb(242,241,236)";
-    ctx.lineWidth = 6;
-    ctx.lineJoin = "round";
-    ctx.stroke(tracoDaNuvem);
-    ctx.restore();
-
-    // Ligações: traço fino em papel, âmbar conforme a intensidade.
-    for (let i = 0; i < ligacoes.length; i++) {
-      const [a, b] = ligacoes[i];
-      const na = nos[a];
-      const nb = nos[b];
-      const lig = intensidade[i];
-      ctx.globalAlpha = 0.22 + 0.1 * energia;
-      ctx.strokeStyle = "rgb(242,241,236)";
-      ctx.lineWidth = Math.max(1, escala * 0.45);
-      ctx.beginPath();
-      ctx.moveTo(px(na.x), py(na.y));
-      ctx.lineTo(px(nb.x), py(nb.y));
-      ctx.stroke();
-      if (lig > 0.02) {
-        ctx.globalAlpha = 0.85 * lig;
-        ctx.strokeStyle = "rgb(242,165,22)";
-        ctx.lineWidth = Math.max(1.25, escala * 0.7);
+    const rastros = (lista: Particula[], forca: number) => {
+      for (const p of lista) {
+        const t = trajetos[p.trajeto];
+        if (!p.ativa || p.s < t.inicioSaida) continue;
+        const v = velocidade(t, p.s) * p.fator * intensidade;
+        posicao(p, p.s, p.i, aqui);
+        posicao(p, Math.max(t.inicioSaida, p.s - v * RASTRO_EM_SEGUNDOS), p.i, atras);
+        // Nasce depois de sair do átomo, para o rastro não riscar a molécula.
+        const fora = limitar((p.s - t.inicioSaida - 4) / 5);
+        if (fora <= 0) continue;
+        const g = ctx.createLinearGradient(atras.x, atras.y, aqui.x, aqui.y);
+        g.addColorStop(0, "rgba(242,165,22,0)");
+        g.addColorStop(1, `rgba(255,190,80,${0.85 * forca})`);
+        ctx.globalAlpha = fora;
+        ctx.strokeStyle = g;
+        ctx.lineWidth = (0.9 + 0.5 * p.tamanho) * px;
+        ctx.beginPath();
+        ctx.moveTo(atras.x, atras.y);
+        ctx.lineTo(aqui.x, aqui.y);
         ctx.stroke();
+        const lado = (4 + 2 * p.tamanho) * px;
+        ctx.globalAlpha = 0.8 * forca * fora;
+        ctx.drawImage(brilhoClaro, aqui.x - lado / 2, aqui.y - lado / 2, lado, lado);
       }
+    };
+    rastros(particulas, 1);
+    rastros(rajada, 1);
+
+    // O sinal percorrendo o V.
+    const idade = relogio - sinalComecou;
+    if (idade >= 0 && idade < PERCURSO_DO_SINAL) {
+      let d = suave(idade / PERCURSO_DO_SINAL) * comprimentoDoSinal;
+      let k2 = 0;
+      while (k2 < trechos.length - 1 && d > trechos[k2]) d -= trechos[k2++];
+      const a = pontosDoSinal[k2];
+      const b = pontosDoSinal[k2 + 1];
+      const f = limitar(d / trechos[k2]);
+      const x = a.x + (b.x - a.x) * f;
+      const y = a.y + (b.y - a.y) * f;
+      const lado = 22 * px;
+      ctx.globalAlpha = 0.9;
+      ctx.drawImage(brilhoClaro, x - lado / 2, y - lado / 2, lado, lado);
+      ctx.globalAlpha = 0.5;
+      ctx.drawImage(brilhoAmbar, x - lado, y - lado, lado * 2, lado * 2);
     }
 
-    // Brilho dos nós.
-    nos.forEach((n, i) => {
-      const r = RAIO[n.tipo] * escala * (3.2 + 1.4 * brilhoDoNo[i]);
-      const base = n.ambar ? 0.55 : 0.16;
-      ctx.globalAlpha = Math.min(1, base + 0.15 * energia + 0.7 * brilhoDoNo[i]);
-      ctx.drawImage(n.ambar || brilhoDoNo[i] > 0.05 ? brilhoAmbar : brilhoPapel, px(n.x) - r, py(n.y) - r, r * 2, r * 2);
-    });
-
-    let k = 0;
-    // Partículas da nuvem.
-    ctx.fillStyle = "rgb(242,241,236)";
-    for (const p of daNuvem) {
-      const pos = p.u * contorno.length;
-      const i0 = Math.floor(pos) % contorno.length;
-      const i1 = (i0 + 1) % contorno.length;
-      const f = pos - Math.floor(pos);
-      const a = contorno[i0];
-      const b = contorno[i1];
-      // Normal aproximada pelo segmento, para o desvio sair do contorno.
-      const nx = -(b.y - a.y);
-      const ny = b.x - a.x;
-      const nl = Math.hypot(nx, ny) || 1;
-      const alvoX = a.x + (b.x - a.x) * f + (nx / nl) * p.desvio;
-      const alvoY = a.y + (b.y - a.y) * f + (ny / nl) * p.desvio;
-      const c = chegada(k);
-      const e = entradas[k++];
-      ctx.globalAlpha = p.alfa * (0.4 + 0.6 * c);
-      const t = p.tamanho * pontoPx;
-      ctx.fillRect(px(e.x + (alvoX - e.x) * c) - t / 2, py(e.y + (alvoY - e.y) * c) - t / 2, t, t);
-    }
-
-    // Partículas das ligações: correm mais e ficam âmbar quando a ligação acende.
-    for (const p of deLigacao) {
-      const [a, b] = ligacoes[p.ligacao];
-      const na = nos[a];
-      const nb = nos[b];
-      const dx = nb.x - na.x;
-      const dy = nb.y - na.y;
-      const l = Math.hypot(dx, dy);
-      const alvoX = na.x + dx * p.t + (-dy / l) * p.desvio;
-      const alvoY = na.y + dy * p.t + (dx / l) * p.desvio;
-      const lig = intensidade[p.ligacao];
-      const c = chegada(k);
-      const e = entradas[k++];
-      ctx.fillStyle = lig > 0.35 ? "rgb(242,165,22)" : "rgb(242,241,236)";
-      ctx.globalAlpha = (0.35 + 0.6 * lig) * c;
-      const t = p.tamanho * pontoPx;
-      ctx.fillRect(px(e.x + (alvoX - e.x) * c) - t / 2, py(e.y + (alvoY - e.y) * c) - t / 2, t, t);
-    }
-
-    // Partículas que orbitam os nós.
-    for (const p of deNo) {
-      const n = nos[p.no];
-      const cx = Math.cos(p.angulo) * p.raio;
-      const cy = Math.sin(p.angulo) * p.raio * p.achatamento;
-      const ci = Math.cos(p.inclinacao);
-      const si = Math.sin(p.inclinacao);
-      const alvoX = n.x + cx * ci - cy * si;
-      const alvoY = n.y + cx * si + cy * ci;
-      const c = chegada(k);
-      const e = entradas[k++];
-      ctx.fillStyle = n.ambar || brilhoDoNo[p.no] > 0.4 ? "rgb(242,165,22)" : "rgb(242,241,236)";
-      ctx.globalAlpha = p.alfa * (0.35 + 0.65 * c);
-      const t = p.tamanho * pontoPx * (n.tipo === "V" ? 1.15 : 1);
-      ctx.fillRect(px(e.x + (alvoX - e.x) * c) - t / 2, py(e.y + (alvoY - e.y) * c) - t / 2, t, t);
-    }
-
-    // O sinal: ponto âmbar com rastro curto.
-    if (relogioDoSinal >= 0) {
-      const duracao = CICLO_DO_SINAL * PERCURSO_DO_SINAL;
-      const p = relogioDoSinal / duracao;
-      if (p <= 1) {
-        ctx.fillStyle = "rgb(242,165,22)";
-        for (let r = 0; r < 10; r++) {
-          const q = p - r * 0.012;
-          if (q < 0) break;
-          const s = posicaoDoSinal(q);
-          ctx.globalAlpha = 1 - r / 10;
-          const t = Math.max(2, escala * (1.3 - r * 0.08));
-          ctx.beginPath();
-          ctx.arc(px(s.x), py(s.y), t, 0, Math.PI * 2);
-          ctx.fill();
-        }
-      }
-    }
-
-    // Anel no nó âmbar (fim do sinal) quando o sinal chega.
-    if (anel >= 0) {
-      const fimDoSinal = nos[caminhoDoSinal[caminhoDoSinal.length - 1]];
-      const f = anel / 0.9;
-      ctx.globalAlpha = 1 - f;
+    // Anel e clarão no átomo âmbar.
+    const idadeDoAnel = relogio - anelComecou;
+    if (idadeDoAnel >= 0 && idadeDoAnel < VIDA_DO_ANEL) {
+      const p = idadeDoAnel / VIDA_DO_ANEL;
+      const ot4 = ATOMOS.Ot4;
+      const clarao = (1 - p) ** 2;
+      const lado = ot4.r * 9 * (0.7 + 0.3 * p);
+      ctx.globalAlpha = 0.7 * clarao;
+      ctx.drawImage(brilhoAmbar, ot4.x - lado / 2, ot4.y - lado / 2, lado, lado);
+      ctx.globalCompositeOperation = "source-over";
+      ctx.globalAlpha = 0.7 * (1 - p);
       ctx.strokeStyle = "rgb(242,165,22)";
-      ctx.lineWidth = Math.max(1, escala * 0.6);
+      ctx.lineWidth = 1.2 * px;
       ctx.beginPath();
-      ctx.arc(px(fimDoSinal.x), py(fimDoSinal.y), escala * (RAIO.O + 9 * saidaCubica(f)), 0, Math.PI * 2);
+      ctx.arc(ot4.x, ot4.y, ot4.r * (1.2 + 2.6 * (1 - (1 - p) ** 3)), 0, Math.PI * 2);
       ctx.stroke();
     }
 
     ctx.globalAlpha = 1;
+    ctx.globalCompositeOperation = "source-over";
     if (!pintou) {
       pintou = true;
       opcoes.aoPintar?.();
@@ -414,63 +419,65 @@ export function iniciarParticulas(
   }
 
   function laco(agora: number) {
-    const dt = Math.min(0.05, (agora - ultimo) / 1000);
+    quadro = 0;
+    if (destruido || !visivel) return;
+    const dt = Math.min(0.05, ultimo ? (agora - ultimo) / 1000 : 0.016);
     ultimo = agora;
-    atualizar(dt);
-    pintar();
+    passo(dt);
+    desenhar();
     quadro = requestAnimationFrame(laco);
   }
 
   function retomar() {
-    if (rodando || opcoes.estatico || !visivel || document.hidden) return;
-    rodando = true;
-    ultimo = performance.now();
+    if (destruido || opcoes.estatico || quadro || !visivel) return;
+    ultimo = 0;
     quadro = requestAnimationFrame(laco);
   }
 
-  function pausar() {
-    rodando = false;
-    cancelAnimationFrame(quadro);
-  }
+  // Aquece o fluxo antes do primeiro quadro: já entra no meio do caminho
+  // (12 s simulados, em passos largos; só a distribuição importa).
+  for (let k = 0; k < 120; k++) passo(0.1);
+  relogio = 0;
+  proximoSinal = 0.9;
+  sinalComecou = -10;
+  anelComecou = -10;
 
-  medir();
-  if (opcoes.estatico) {
-    decorrido = 10; // todas as partículas já no lugar
-    pintar();
-  }
-
-  const aoRedimensionar = new ResizeObserver(() => {
-    medir();
-    if (!rodando) pintar();
+  // O primeiro aviso do ResizeObserver traz o tamanho e dispara o primeiro
+  // quadro; os seguintes só redesenham se o tamanho mudou.
+  const aoRedimensionar = new ResizeObserver(([e]) => {
+    const mudou = definirTamanho(e.contentRect.width, e.contentRect.height);
+    if (!pintou) {
+      desenhar();
+      retomar();
+    } else if (mudou && (opcoes.estatico || !quadro)) desenhar();
   });
   aoRedimensionar.observe(canvas);
 
-  // Fora da tela, para; de volta, continua de onde estava.
-  const observador = new IntersectionObserver(([entrada]) => {
-    visivel = entrada.isIntersecting;
-    if (visivel) retomar();
-    else pausar();
+  // Fora da tela, o laço para.
+  const observador = new IntersectionObserver(([e]) => {
+    visivel = e.isIntersecting;
+    if (visivel && pintou) retomar();
   });
   observador.observe(canvas);
 
-  const aoMudarVisibilidade = () => (document.hidden ? pausar() : retomar());
-  document.addEventListener("visibilitychange", aoMudarVisibilidade);
-
-  retomar();
-
   return {
-    acender(fonte, ligado) {
-      if (ligado) fontesAcesas.add(fonte);
-      else fontesAcesas.delete(fonte);
-    },
+    acender,
     ponteiro(x, y) {
-      ponteiro = x === null || y === undefined ? null : { x: (x - origemX) / escala, y: (y - origemY) / escala };
+      if (x === null || y === undefined || !largura) {
+        acesos.delete("ponteiro");
+        return;
+      }
+      const perto = Math.hypot(x / escala - CENTRO_DA_MOLECULA.x, y / escala - CENTRO_DA_MOLECULA.y) < 46;
+      if (perto && !acesos.has("ponteiro")) acender("ponteiro", true);
+      else if (!perto) acesos.delete("ponteiro");
     },
     destruir() {
-      pausar();
+      destruido = true;
+      cancelAnimationFrame(quadro);
       aoRedimensionar.disconnect();
       observador.disconnect();
-      document.removeEventListener("visibilitychange", aoMudarVisibilidade);
+      ctx.setTransform(1, 0, 0, 1, 0, 0);
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
     },
   };
 }

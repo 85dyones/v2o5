@@ -1,4 +1,5 @@
 import type { KeyboardEvent } from "react";
+import { DESENHOS_DOS_ICONES, type NomeDoIcone } from "@/components/Icone";
 import { NOME_DA_ETAPA, PECAS, type IdDaPeca } from "@/conteudo/home";
 import type { Etapa } from "@/lib/tokens";
 import { HORIZONTAL, VERTICAL, ligacaoEntre, type Arranjo } from "./geometria";
@@ -21,6 +22,16 @@ const COR_BASE: Record<Etapa, string> = {
   verde: "var(--color-verde)",
   azul: "var(--color-azul)",
   ambar: "var(--color-ambar)",
+};
+
+const ICONE_DA_PECA: Record<IdDaPeca, NomeDoIcone> = {
+  site: "janela",
+  whatsapp: "conversa",
+  agente: "brilho",
+  n8n: "fluxo",
+  crm: "colunas",
+  rastreamento: "alvo",
+  venda: "etiqueta",
 };
 
 const ETAPA_DA_PECA = Object.fromEntries(PECAS.map((p) => [p.id, p.etapa])) as Record<IdDaPeca, Etapa>;
@@ -47,40 +58,57 @@ export default function DiagramaVisao({ selecionada, aoEscolher }: PropsDoDiagra
   const passos = peca.caminho.map((id) => PECAS.find((p) => p.id === id)!);
 
   return (
-    <div className="grid gap-6 lg:grid-cols-[2.2fr_1fr] lg:items-start">
-      <figure className="rounded-2xl bg-superficie p-4 shadow-[inset_0_0_0_1px_var(--color-linha)] md:p-6">
-        <Svg arranjo={HORIZONTAL} className="hidden md:block" {...{ selecionada, aoEscolher, noCaminho, ligacoesAcesas }} />
-        <Svg arranjo={VERTICAL} className="mx-auto max-w-[22rem] md:hidden" {...{ selecionada, aoEscolher, noCaminho, ligacoesAcesas }} />
-        <figcaption className="mt-4 flex flex-wrap gap-x-5 gap-y-2 border-t border-linha pt-4">
+    <div className="grid gap-4 lg:grid-cols-[2.15fr_1fr] lg:items-stretch">
+      {/* Os ícones das peças, uma vez só: os dois arranjos usam por <use>. */}
+      <svg aria-hidden="true" focusable="false" className="absolute size-0 overflow-hidden">
+        <defs>
+          {Object.entries(ICONE_DA_PECA).map(([peca, icone]) => (
+            <symbol key={peca} id={`icone-da-peca-${peca}`} viewBox="0 0 20 20">
+              {DESENHOS_DOS_ICONES[icone]}
+            </symbol>
+          ))}
+        </defs>
+      </svg>
+      <figure className="superficie overflow-hidden p-4 md:p-6">
+        <div className="rounded-2xl bg-[radial-gradient(rgb(242_241_236/0.06)_1px,transparent_1px)] bg-[length:20px_20px]">
+          <Svg arranjo={HORIZONTAL} className="hidden md:block" {...{ selecionada, aoEscolher, noCaminho, ligacoesAcesas }} />
+          <Svg arranjo={VERTICAL} className="mx-auto max-w-[22rem] md:hidden" {...{ selecionada, aoEscolher, noCaminho, ligacoesAcesas }} />
+        </div>
+        <figcaption className="mt-4 flex flex-wrap gap-2 border-t border-linha pt-4">
           {(Object.keys(NOME_DA_ETAPA) as Etapa[]).map((etapa) => (
-            <span key={etapa} className="rotulo inline-flex items-center gap-2 text-secundario">
-              <span aria-hidden="true" className="size-2 rounded-full" style={{ background: COR_CLARA[etapa] }} />
+            <span key={etapa} className="chip text-secundario">
+              <span aria-hidden="true" className="size-1.5 rounded-full" style={{ background: COR_CLARA[etapa] }} />
               {NOME_DA_ETAPA[etapa]}
             </span>
           ))}
         </figcaption>
       </figure>
 
-      <div aria-live="polite" className="rounded-2xl bg-superficie p-6 shadow-[inset_0_0_0_1px_var(--color-linha)] md:p-7">
-        <p className="rotulo inline-flex items-center gap-2 text-secundario">
-          <span aria-hidden="true" className="size-2 rounded-full" style={{ background: COR_CLARA[peca.etapa] }} />
+      <div aria-live="polite" className="superficie flex flex-col p-6 md:p-8">
+        <p className="inline-flex items-center gap-2 text-[0.8125rem] font-medium text-secundario">
+          <span aria-hidden="true" className="size-1.5 rounded-full" style={{ background: COR_CLARA[peca.etapa] }} />
           {NOME_DA_ETAPA[peca.etapa]}
         </p>
-        <h3 className="mt-3 text-2xl font-bold tracking-[-0.02em]">{peca.nome}</h3>
+        <h3 className="mt-3 text-[1.75rem] font-semibold tracking-[-0.035em]">{peca.nome}</h3>
         <p className="mt-3 text-secundario">{peca.texto}</p>
-        <p className="mt-6 text-sm font-semibold">Caminho que passa por aqui</p>
-        <ol className="mt-3 flex flex-wrap items-center gap-x-1.5 gap-y-2 text-sm">
-          {passos.map((p, i) => (
-            <li key={`${p.id}-${i}`} className="flex items-center gap-1.5">
-              {i > 0 ? (
-                <svg viewBox="0 0 12 12" className="size-3 text-secundario" aria-hidden="true">
-                  <path d="M4 2l4 4-4 4" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-                </svg>
-              ) : null}
-              <span className="rounded-md bg-grafite px-2 py-1">{p.nome}</span>
-            </li>
-          ))}
-        </ol>
+        <div className="mt-auto pt-8">
+          <p className="text-sm font-medium">Caminho que passa por aqui</p>
+          <ol className="mt-3 flex flex-wrap items-center gap-x-1 gap-y-2 text-sm">
+            {passos.map((p, i) => (
+              <li key={`${p.id}-${i}`} className="flex items-center gap-1">
+                {i > 0 ? (
+                  <svg viewBox="0 0 12 12" className="size-3 text-secundario" aria-hidden="true">
+                    <path d="M4 2l4 4-4 4" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                  </svg>
+                ) : null}
+                <span className="chip">
+                  <span aria-hidden="true" className="size-1.5 rounded-full" style={{ background: COR_CLARA[p.etapa] }} />
+                  {p.nome}
+                </span>
+              </li>
+            ))}
+          </ol>
+        </div>
       </div>
     </div>
   );
@@ -100,6 +128,8 @@ function Svg({
   ligacoesAcesas: Map<string, IdDaPeca>;
 }) {
   const r = arranjo.raio;
+  const lado = r * 2;
+  const icone = r * 0.95;
   const aoTeclar = (id: IdDaPeca) => (e: KeyboardEvent<SVGGElement>) => {
     if (e.key !== "Enter" && e.key !== " ") return;
     e.preventDefault();
@@ -109,7 +139,7 @@ function Svg({
   return (
     <svg
       viewBox={arranjo.viewBox}
-      className={`diagrama h-auto w-full ${className}`}
+      className={`diagrama h-auto w-full overflow-visible ${className}`}
       data-diagrama=""
       role="group"
       aria-label="Diagrama: como as peças do sistema se ligam"
@@ -117,14 +147,19 @@ function Svg({
       <g fill="none" strokeLinecap="round">
         {Object.entries(arranjo.ligacoes).map(([chave, d]) => {
           const destino = ligacoesAcesas.get(chave);
-          return (
+          return destino ? (
+            <g key={chave} className="ligacao">
+              <path d={d} stroke={COR_CLARA[ETAPA_DA_PECA[destino]]} strokeWidth={10} opacity={0.12} />
+              <path d={d} stroke={COR_CLARA[ETAPA_DA_PECA[destino]]} strokeWidth={2.5} opacity={0.95} />
+            </g>
+          ) : (
             <path
               key={chave}
               d={d}
               className="ligacao"
-              stroke={destino ? COR_CLARA[ETAPA_DA_PECA[destino]] : "var(--color-linha-forte)"}
-              strokeWidth={destino ? 2.5 : 1.5}
-              opacity={destino ? 0.9 : 0.6}
+              stroke="var(--color-linha-forte)"
+              strokeWidth={1.5}
+              strokeDasharray="1 7"
             />
           );
         })}
@@ -132,16 +167,16 @@ function Svg({
             Fica fora do HTML estático, que não anima. */}
         {aoEscolher
           ? Object.entries(arranjo.ligacoes).map(([chave, d]) => (
-          <path
-            key={`pulso-${chave}`}
-            d={d}
-            data-pulso={chave}
-            pathLength={100}
-            strokeDasharray="14 100"
-            strokeDashoffset={14}
-            stroke="var(--color-ambar)"
-            strokeWidth={4}
-          />
+              <path
+                key={`pulso-${chave}`}
+                d={d}
+                data-pulso={chave}
+                pathLength={100}
+                strokeDasharray="14 100"
+                strokeDashoffset={14}
+                stroke="var(--color-ambar)"
+                strokeWidth={4}
+              />
             ))
           : null}
       </g>
@@ -156,7 +191,6 @@ function Svg({
             data-peca={p.id}
             transform={`translate(${x} ${y})`}
             className="peca"
-            opacity={acesa ? 1 : 0.6}
             {...(aoEscolher
               ? {
                   role: "button",
@@ -170,25 +204,59 @@ function Svg({
           >
             {aoEscolher ? (
               <>
-                <circle r={r + 12} fill="transparent" />
-                <circle className="anel-foco" r={r + 7} fill="none" stroke="var(--color-ambar)" strokeWidth={2} />
+                <rect x={-r - 12} y={-r - 12} width={lado + 24} height={lado + 24} fill="transparent" />
+                <rect
+                  className="anel-foco"
+                  x={-r - 6}
+                  y={-r - 6}
+                  width={lado + 12}
+                  height={lado + 12}
+                  rx={r * 0.55}
+                  fill="none"
+                  stroke="var(--color-ambar)"
+                  strokeWidth={2}
+                />
               </>
             ) : null}
-            <circle
-              r={r}
-              fill={COR_BASE[p.etapa]}
-              fillOpacity={escolhida ? 0.95 : 0.2}
+            {escolhida ? <circle r={r * 1.9} fill={COR_BASE[p.etapa]} opacity={0.18} /> : null}
+            <rect
+              x={-r}
+              y={-r}
+              width={lado}
+              height={lado}
+              rx={r * 0.42}
+              fill={escolhida ? COR_BASE[p.etapa] : "rgb(24 27 32)"}
               stroke={COR_CLARA[p.etapa]}
+              strokeOpacity={escolhida ? 1 : acesa ? 0.6 : 0.25}
               strokeWidth={1.5}
             />
-            <circle className="nucleo" r={escolhida ? 7 : 5.5} fill={escolhida ? "var(--color-papel)" : COR_CLARA[p.etapa]} />
+            <use
+              href={`#icone-da-peca-${p.id}`}
+              className="nucleo"
+              x={-icone / 2}
+              y={-icone / 2}
+              width={icone}
+              height={icone}
+              fill="none"
+              stroke={escolhida ? "var(--color-papel)" : COR_CLARA[p.etapa]}
+              strokeWidth={1.5}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              opacity={acesa ? 1 : 0.4}
+            />
             <text
-              x={rotulo === "direita" ? r + 12 : 0}
-              y={rotulo === "direita" ? arranjo.fonte / 3 : r + arranjo.fonte + 6}
+              x={rotulo === "direita" ? r + 14 : 0}
+              y={rotulo === "direita" ? arranjo.fonte / 3 : r + arranjo.fonte + 10}
               textAnchor={rotulo === "direita" ? "start" : "middle"}
-              fill="var(--color-papel)"
+              fill={acesa ? "var(--color-papel)" : "var(--color-secundario)"}
               fontSize={arranjo.fonte}
-              fontWeight={600}
+              fontWeight={500}
+              letterSpacing="-0.01em"
+              // Halo da cor do cartão: a ligação que passa por baixo não corta o nome.
+              stroke="rgb(25 28 33)"
+              strokeWidth={7}
+              strokeLinejoin="round"
+              paintOrder="stroke"
             >
               {p.nome}
             </text>

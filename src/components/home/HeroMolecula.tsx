@@ -27,10 +27,11 @@ function depoisDaPrimeiraPintura(fn: () => void): () => void {
 }
 
 /**
- * O canvas de partículas do hero. O servidor entrega só o `<canvas>` vazio;
- * o desenho que aparece até aqui é o SVG estático do símbolo, irmão deste
- * componente. O motor (`lib/particulas.ts`) chega por `import()` depois da
- * primeira pintura e nunca chega com menos movimento.
+ * O canvas do fluxo do hero. O servidor entrega só o `<canvas>` vazio; o
+ * palco que aparece até aqui é o SVG de `PalcoDoHero`, irmão deste
+ * componente, que continua embaixo (a molécula é dele). O motor
+ * (`lib/particulas.ts`) chega por `import()` depois da primeira pintura e
+ * nunca chega com menos movimento.
  */
 export default function HeroMolecula() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -60,7 +61,7 @@ export default function HeroMolecula() {
       if (encerrado) return;
       const largura = canvas.getBoundingClientRect().width;
       motor = iniciarParticulas(canvas, {
-        quantidade: largura < 520 ? 240 : 560,
+        quantidade: largura < 520 ? 90 : 170,
         estatico: aparelhoFraco(),
         sinalAutomatico: semCursor(),
         aoPintar: () => setPronto(true),
@@ -105,7 +106,7 @@ export default function HeroMolecula() {
       ref={canvasRef}
       aria-hidden="true"
       data-pronto={pronto ? "" : undefined}
-      className="molecula-canvas absolute inset-0 h-full w-full"
+      className="molecula-canvas absolute inset-0 z-10 h-full w-full"
     />
   );
 }

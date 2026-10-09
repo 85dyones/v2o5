@@ -22,8 +22,10 @@
   --color-verde-claro: #5CC48A;
   --color-azul-claro: #7FA3F0;
   --color-regua: #D6D4CC;
-  --color-linha: rgb(242 241 236 / 0.1);
-  --color-linha-forte: rgb(242 241 236 / 0.2);
+  --color-linha: rgb(242 241 236 / 0.08);
+  --color-linha-forte: rgb(242 241 236 / 0.15);
+  --color-vidro: rgb(242 241 236 / 0.04);
+  --color-vidro-forte: rgb(242 241 236 / 0.08);
 
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
   --font-mono: "Geist Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
@@ -50,7 +52,7 @@
     font-size: 1.0625rem;
     line-height: 1.6;
     background-color: var(--color-tinta);
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='r'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 .05 0 0 0 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23r)'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='r'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 .04 0 0 0 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23r)'/%3E%3C/svg%3E");
     overflow-x: clip;
   }
 
@@ -78,7 +80,7 @@
 @layer components {
   .conteiner {
     width: 100%;
-    max-width: 76rem;
+    max-width: 80rem;
     margin-inline: auto;
     padding-inline: 1.25rem;
   }
@@ -89,51 +91,116 @@
     }
   }
 
-  /* Rótulo em Geist Mono (marca.md): 500, caixa alta, +0,12em. Só onde o
-     rótulo informa algo (etapa, "demonstração", "exemplo"). */
+  @media (min-width: 80rem) {
+    .conteiner {
+      padding-inline: 2.5rem;
+    }
+  }
+
+  /* ---------------------------------------------------------------------
+     Tipografia. Geist 600 nos títulos, com o espaçamento fechado que o
+     corpo grande pede; o texto corrido fica no 400.
+     --------------------------------------------------------------------- */
+
+  /* Cor sólida de propósito: com texto em degradê (background-clip) o
+     Chrome atribui o LCP ao contêiner do hero em vez do H1. */
+  .titulo-hero {
+    font-size: clamp(2.5rem, 1.2rem + 3.75vw, 4.375rem);
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: -0.046em;
+  }
+
+  .titulo-secao {
+    font-size: clamp(2rem, 1.3rem + 2.6vw, 3.5rem);
+    font-weight: 600;
+    line-height: 1.04;
+    letter-spacing: -0.042em;
+  }
+
+  /* Título em dois tons: a segunda frase continua o título em cinza. */
+  .titulo-secao .apagado,
+  .titulo-cartao .apagado {
+    color: var(--color-secundario);
+  }
+
+  .titulo-cartao {
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+  }
+
+  .texto-guia {
+    font-size: clamp(1.0625rem, 1rem + 0.3vw, 1.1875rem);
+    line-height: 1.6;
+    color: var(--color-secundario);
+  }
+
+  /* Sobretítulo: uma linha âmbar curta antes do nome da seção. */
+  .sobretitulo {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.625rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-secundario);
+  }
+
+  .sobretitulo::before {
+    content: "";
+    width: 1.5rem;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--color-ambar));
+  }
+
+  /* Rótulo em Geist Mono, só onde informa algo (demonstração, exemplo). */
   .rotulo {
     font-family: var(--font-mono);
-    font-size: 0.75rem;
+    font-size: 0.6875rem;
     font-weight: 500;
     line-height: 1.3;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
   }
 
   .numero {
     font-family: var(--font-mono);
-    font-weight: 600;
+    font-weight: 500;
     font-variant-numeric: tabular-nums;
   }
 
-  .titulo-hero {
-    font-size: clamp(2.5rem, 1.1rem + 5.2vw, 4.75rem);
-    font-weight: 800;
-    line-height: 1.02;
-    letter-spacing: -0.04em;
+  .numero-grande {
+    font-size: clamp(3.25rem, 2.2rem + 3.4vw, 5rem);
+    font-weight: 600;
+    line-height: 0.9;
+    letter-spacing: -0.055em;
+    font-variant-numeric: tabular-nums;
+    background-image: linear-gradient(180deg, var(--color-papel) 40%, rgb(242 241 236 / 0.55));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
   }
 
-  .titulo-secao {
-    font-size: clamp(1.875rem, 1.25rem + 2.4vw, 3rem);
-    font-weight: 700;
-    line-height: 1.08;
-    letter-spacing: -0.03em;
-  }
+  /* ---------------------------------------------------------------------
+     Botões e links
+     --------------------------------------------------------------------- */
 
   .botao {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    min-height: 3rem;
-    padding-inline: 1.25rem;
-    border-radius: 0.625rem;
-    font-size: 1rem;
+    min-height: 2.875rem;
+    padding-inline: 1.375rem;
+    border-radius: 999px;
+    font-size: 0.9375rem;
     font-weight: 600;
     line-height: 1;
+    letter-spacing: -0.01em;
     white-space: nowrap;
-    transition-property: transform, background-color, box-shadow;
-    transition-duration: 150ms;
+    transition-property: transform, background-color, box-shadow, color;
+    transition-duration: 180ms;
     transition-timing-function: var(--ease-saida);
   }
 
@@ -141,23 +208,50 @@
     transform: scale(0.97);
   }
 
+  .botao-compacto {
+    min-height: 2.5rem;
+    padding-inline: 1.125rem;
+    font-size: 0.875rem;
+  }
+
+  .botao .seta {
+    transition: transform 180ms var(--ease-saida);
+  }
+
   .botao-primario {
     background-color: var(--color-ambar);
     color: var(--color-tinta);
+    box-shadow:
+      inset 0 1px 0 rgb(255 255 255 / 0.4),
+      inset 0 -1px 0 rgb(0 0 0 / 0.12),
+      0 0 0 1px rgb(242 165 22 / 0.6),
+      0 8px 24px -10px rgb(242 165 22 / 0.7);
   }
 
   .botao-secundario {
     color: var(--color-papel);
-    box-shadow: inset 0 0 0 1px var(--color-linha-forte);
+    background-color: var(--color-vidro);
+    box-shadow:
+      inset 0 0 0 1px var(--color-linha-forte),
+      inset 0 1px 0 rgb(255 255 255 / 0.05);
   }
 
   @media (hover: hover) and (pointer: fine) {
+    .botao:hover .seta {
+      transform: translateX(3px);
+    }
+
     .botao-primario:hover {
       background-color: var(--color-ambar-forte);
+      box-shadow:
+        inset 0 1px 0 rgb(255 255 255 / 0.45),
+        inset 0 -1px 0 rgb(0 0 0 / 0.12),
+        0 0 0 1px rgb(255 185 55 / 0.7),
+        0 12px 32px -8px rgb(242 165 22 / 0.65);
     }
 
     .botao-secundario:hover {
-      background-color: rgb(242 241 236 / 0.06);
+      background-color: var(--color-vidro-forte);
     }
   }
 
@@ -173,37 +267,148 @@
     text-decoration-color: currentColor;
   }
 
+  /* Selo do hero: a assinatura numa pílula. */
+  .selo {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.625rem;
+    padding: 0.3125rem 0.875rem 0.3125rem 0.375rem;
+    border-radius: 999px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    background-color: var(--color-vidro);
+    box-shadow:
+      inset 0 0 0 1px var(--color-linha-forte),
+      inset 0 1px 0 rgb(255 255 255 / 0.04);
+  }
+
+  /* Contorno fino por dentro (sombra, não borda: não mexe no tamanho). */
+  .contorno {
+    box-shadow: inset 0 0 0 1px var(--color-linha);
+  }
+
+  .contorno-forte {
+    box-shadow: inset 0 0 0 1px var(--color-linha-forte);
+  }
+
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    min-height: 1.5rem;
+    padding-inline: 0.5rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    line-height: 1;
+    white-space: nowrap;
+    color: var(--color-papel);
+    background-color: var(--color-vidro-forte);
+    box-shadow: inset 0 0 0 1px var(--color-linha);
+  }
+
+  /* Chip com o "certo" verde desenhado por CSS (sem SVG no DOM). */
+  .chip-ok::before {
+    content: "";
+    width: 0.75rem;
+    height: 0.75rem;
+    flex-shrink: 0;
+    background-color: var(--color-verde-claro);
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4.5 10.5l3.5 3.5 7.5-8'/%3E%3C/svg%3E") center / contain no-repeat;
+  }
+
+  /* ---------------------------------------------------------------------
+     Superfícies. A borda é um degradê de luz vindo de cima (fundo no
+     padding-box, borda no border-box), em vez de uma linha cinza chapada.
+     --------------------------------------------------------------------- */
+
+  .superficie {
+    position: relative;
+    border: 1px solid transparent;
+    border-radius: 1.25rem;
+    background:
+      linear-gradient(180deg, rgb(29 32 38), rgb(22 25 30)) padding-box,
+      linear-gradient(180deg, rgb(242 241 236 / 0.16), rgb(242 241 236 / 0.05) 45%, rgb(242 241 236 / 0.03)) border-box;
+    box-shadow:
+      0 1px 2px rgb(0 0 0 / 0.3),
+      0 28px 56px -32px rgb(0 0 0 / 0.8);
+  }
+
+  /* Área de "produto" dentro de um cartão: mais funda que o cartão. */
+  .vinheta {
+    position: relative;
+    overflow: hidden;
+    border-radius: 0.875rem;
+    background-color: rgb(12 13 16 / 0.55);
+    box-shadow:
+      inset 0 0 0 1px var(--color-linha),
+      inset 0 12px 24px -16px rgb(0 0 0 / 0.6);
+  }
+
+  /* Janela de aplicativo (orquestrador, terminal do case). */
+  .janela {
+    overflow: hidden;
+    border-radius: 1.125rem;
+    background-color: rgb(16 18 22);
+    box-shadow:
+      inset 0 0 0 1px var(--color-linha-forte),
+      0 1px 0 0 rgb(255 255 255 / 0.04) inset,
+      0 40px 80px -40px rgb(0 0 0 / 0.9);
+  }
+
+  .janela-barra {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    min-height: 3rem;
+    padding-inline: 1rem;
+    border-bottom: 1px solid var(--color-linha);
+    background-color: rgb(242 241 236 / 0.025);
+  }
+
   /* Cartão do bento: borda de luz âmbar só no cartão em foco ou sob o
      cursor. A posição da luz vem de --luz-x/--luz-y (BentoLuz.tsx); sem
      JavaScript ela fica no canto de cima. */
   .cartao-luz {
-    position: relative;
     isolation: isolate;
-    border-radius: 1rem;
-    background-color: var(--color-superficie);
-    box-shadow:
-      inset 0 0 0 1px var(--color-linha),
-      0 1px 0 0 rgb(242 241 236 / 0.04) inset;
+    transition: transform 240ms var(--ease-saida);
   }
 
   .cartao-luz::before {
     content: "";
     position: absolute;
-    inset: 0;
-    z-index: -1;
+    inset: -1px;
+    z-index: 1;
     border-radius: inherit;
     padding: 1px;
     background: radial-gradient(
-      18rem circle at var(--luz-x, 30%) var(--luz-y, 0%),
+      20rem circle at var(--luz-x, 30%) var(--luz-y, 0%),
       var(--color-ambar),
-      rgb(242 165 22 / 0.15) 45%,
+      rgb(242 165 22 / 0.18) 40%,
       transparent 70%
     );
     mask:
       linear-gradient(#000 0 0) content-box exclude,
       linear-gradient(#000 0 0);
     opacity: 0;
-    transition: opacity 200ms ease;
+    transition: opacity 220ms ease;
+    pointer-events: none;
+  }
+
+  /* Um brilho largo e baixo dentro do cartão, seguindo a mesma luz. */
+  .cartao-luz::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: inherit;
+    background: radial-gradient(
+      28rem circle at var(--luz-x, 30%) var(--luz-y, 0%),
+      rgb(242 165 22 / 0.06),
+      transparent 60%
+    );
+    opacity: 0;
+    transition: opacity 220ms ease;
     pointer-events: none;
   }
 
@@ -211,13 +416,32 @@
     outline-offset: 4px;
   }
 
-  .cartao-luz:focus-visible::before {
+  .cartao-luz:focus-visible::before,
+  .cartao-luz:focus-visible::after {
     opacity: 1;
   }
 
+  .cartao-luz .seta-do-cartao {
+    transition:
+      transform 220ms var(--ease-saida),
+      background-color 220ms ease,
+      color 220ms ease;
+  }
+
   @media (hover: hover) and (pointer: fine) {
-    .cartao-luz:hover::before {
+    .cartao-luz:hover {
+      transform: translateY(-2px);
+    }
+
+    .cartao-luz:hover::before,
+    .cartao-luz:hover::after {
       opacity: 1;
+    }
+
+    .cartao-luz:hover .seta-do-cartao {
+      transform: translateX(2px);
+      background-color: var(--color-ambar);
+      color: var(--color-tinta);
     }
   }
 
@@ -229,7 +453,59 @@
     contain-intrinsic-size: auto 900px;
   }
 
-  /* Hero: o SVG estático fica até o canvas pintar o primeiro quadro. */
+  /* ---------------------------------------------------------------------
+     Topo: transparente sobre o hero, vidro fosco depois de rolar
+     --------------------------------------------------------------------- */
+
+  .topo {
+    background-color: rgb(18 20 24 / 0.72);
+    border-bottom: 1px solid var(--color-linha);
+    backdrop-filter: blur(16px) saturate(150%);
+    -webkit-backdrop-filter: blur(16px) saturate(150%);
+  }
+
+  /* ---------------------------------------------------------------------
+     Hero
+     --------------------------------------------------------------------- */
+
+  .hero-fundo {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  /* Grade fina, que some nas bordas. */
+  .hero-fundo::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(to right, rgb(242 241 236 / 0.045) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(242 241 236 / 0.045) 1px, transparent 1px);
+    background-size: 4rem 4rem;
+    background-position: center -1px;
+    mask-image: radial-gradient(ellipse 65% 70% at 68% 30%, #000 0%, transparent 72%);
+  }
+
+  /* Luz: âmbar atrás da molécula, violeta e azul longe, quase nada. */
+  .hero-fundo::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(42rem 30rem at 74% 40%, rgb(242 165 22 / 0.09), transparent 70%),
+      radial-gradient(40rem 28rem at 100% -10%, rgb(107 70 200 / 0.16), transparent 70%),
+      radial-gradient(36rem 24rem at 0% -10%, rgb(36 87 197 / 0.1), transparent 70%);
+  }
+
+  /* Palco da molécula: o SVG estático fica; o canvas só põe as partículas
+     por cima e, quando pinta, as partículas paradas do SVG saem. */
+  .palco-particulas {
+    transition: opacity 700ms var(--ease-saida);
+  }
+
   .molecula-canvas {
     opacity: 0;
     transition: opacity 700ms var(--ease-saida);
@@ -239,11 +515,7 @@
     opacity: 1;
   }
 
-  .molecula-estatica {
-    transition: opacity 700ms var(--ease-saida);
-  }
-
-  .molecula-canvas[data-pronto] ~ .molecula-estatica {
+  .molecula-canvas[data-pronto] ~ svg .palco-particulas {
     opacity: 0;
   }
 
@@ -251,13 +523,23 @@
      data-visivel; sem JavaScript, todos aparecem. */
   .passo {
     transition-property: opacity, transform;
-    transition-duration: 320ms;
+    transition-duration: 360ms;
     transition-timing-function: var(--ease-saida);
   }
 
   .passo[data-oculto] {
     opacity: 0;
-    transform: translateY(6px);
+    transform: translateY(8px);
+  }
+
+  /* Três pontos de "digitando" (vinheta do agente). */
+  .digitando > span {
+    display: block;
+    width: 0.3125rem;
+    height: 0.3125rem;
+    border-radius: 999px;
+    background-color: currentColor;
+    opacity: 0.4;
   }
 }
 
@@ -277,6 +559,63 @@
 @media (prefers-reduced-motion: no-preference) {
   html {
     scroll-behavior: smooth;
+  }
+
+  .digitando > span {
+    animation: digita 1.3s var(--ease-movimento) infinite;
+  }
+
+  .digitando > span:nth-child(2) {
+    animation-delay: 0.16s;
+  }
+
+  .digitando > span:nth-child(3) {
+    animation-delay: 0.32s;
+  }
+
+  /* Vinhetas que só se mexem com o cursor em cima do cartão. */
+  .cartao-luz:hover .fluxo-corre {
+    animation: fluxo-corre 900ms linear infinite;
+  }
+}
+
+@keyframes digita {
+  0%,
+  70%,
+  100% {
+    opacity: 0.35;
+    transform: translateY(0);
+  }
+  35% {
+    opacity: 1;
+    transform: translateY(-2px);
+  }
+}
+
+@keyframes fluxo-corre {
+  to {
+    stroke-dashoffset: -8;
+  }
+}
+
+/* O topo ganha o vidro conforme a página rola, por CSS. Sem suporte (ou
+   com menos movimento), fica sempre com o vidro. */
+@supports (animation-timeline: scroll()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .topo {
+      animation: topo-aparece linear both;
+      animation-timeline: scroll();
+      animation-range: 0 96px;
+    }
+  }
+}
+
+@keyframes topo-aparece {
+  from {
+    background-color: rgb(18 20 24 / 0);
+    border-bottom-color: transparent;
+    backdrop-filter: blur(0) saturate(100%);
+    -webkit-backdrop-filter: blur(0) saturate(100%);
   }
 }
 
@@ -301,7 +640,7 @@
 }
 
 /* Diagrama: foco por anel âmbar desenhado no SVG (outline em <g> varia por
-   navegador); o núcleo escala a partir do próprio centro. */
+   navegador); o ícone escala a partir do próprio centro. */
 .diagrama .peca {
   cursor: pointer;
   outline: none;
@@ -329,8 +668,7 @@
 @keyframes crm-atualiza {
   from {
     box-shadow:
-      inset 0 0 0 1px var(--color-linha),
-      0 0 0 1px var(--color-ambar),
-      0 0 32px -4px rgb(242 165 22 / 0.45);
+      inset 0 0 0 1px var(--color-ambar),
+      0 0 40px -6px rgb(242 165 22 / 0.45);
   }
 }

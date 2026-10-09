@@ -1,11 +1,10 @@
 /**
  * Pontos ao longo de um caminho SVG feito de `M`, `L`, `A` (arco de círculo)
- * e `Z`, igualmente espaçados pelo comprimento. É o que o canvas do hero usa
- * para pôr partículas no contorno da nuvem do símbolo.
+ * e `Z`, igualmente espaçados pelo comprimento. Os testes do logo usam para
+ * conferir que cada átomo cabe na nuvem com folga (`tests/marca*.test.ts`).
  *
- * Conta pura, sem DOM: `SVGPathElement.getPointAtLength` fazia a mesma coisa,
- * mas 360 chamadas custavam uma tarefa de ~550 ms no celular simulado do
- * Lighthouse (TBT). `tests/contorno.test.ts` confere os pontos.
+ * Conta pura, sem DOM, para rodar no Vitest sem navegador.
+ * `tests/contorno.test.ts` confere os pontos.
  */
 
 export interface Ponto {

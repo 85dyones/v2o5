@@ -7,7 +7,7 @@ Novo site da **V2O5 Vendas e Tecnologia** (substitui o WordPress de v2o5.com.br)
 
 ## Estado (09/10/2026)
 - Plano fechado em `docs/2026-10-08-plano-novo-site.md` (v4, longo: use `grep -n "^##"` e leia só a seção).
-- Protótipo navegável da home pronto em `src/` (`npm run dev`); números e escolhas em `memory/decisoes.md`, pendências em `memory/pendencias.md`.
+- Protótipo navegável da home em `src/` (`npm run dev`), refinado em 09/10 (logo vetorizado, hero catalisador, cenas de produto no bento); números e escolhas em `memory/decisoes.md`, pendências em `memory/pendencias.md`.
 - Plano e memória: branch `claude/v2o5-website-redesign-6vx4i6`, PR https://github.com/85dyones/v2o5/pull/1. Protótipo: branch `claude/gracious-euler-0qzedy`, PR contra a do plano.
 - Canvas de marca (privado): https://claude.ai/artifact/TJi91r21pMCLXUxL3AEYT3
 

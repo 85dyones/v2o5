@@ -6,7 +6,7 @@ Escura e tecnológica, acabamento de produto de IA de ponta, raiz da marca manti
 ## O que entra (avaliação da proposta de motion recebida em 09/10)
 | Peça | Como |
 |---|---|
-| Hero catalisador | Molécula V2O5 em partículas que se aglutinam e aceleram em linhas de energia perto do cursor ou com foco no CTA. Canvas 2D ou OGL, nada de Three.js. Carrega depois do H1; pausa fora da tela; estático com redução de movimento e em aparelho fraco |
+| Hero catalisador | Feito em 09/10: molécula C1d nítida em SVG; canvas 2D só com o fluxo (entra cinza por Ot1/Ot2, passa âmbar pela cadeia, sai acelerado por Ot4/Ot3; sinal no V com anel). Acende com cursor perto ou hover/foco nos CTAs. Carrega depois do H1; pausa fora da tela; SVG parado com redução de movimento e em aparelho fraco. Geometria em `src/lib/palco.ts` |
 | Diagrama interativo de arquitetura | Clique em WhatsApp, agente, CRM, rastreamento; pulso percorre o fluxo. SVG + Motion, carregado ao entrar na tela. Sem React Flow |
 | Orquestrador de soluções | Simulação: mensagem chega, agente consulta base (RAG), responde, CRM atualiza. Rótulo "demonstração" |
 | Terminal | Pequeno, no case e em "como funciona", com formato real de eventos anonimizados. Fora do hero |

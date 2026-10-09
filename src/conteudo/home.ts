@@ -20,6 +20,16 @@ export const HERO = {
   nota: "Diagnóstico gratuito: 45 minutos de conversa e um mapa do que fazer, em até 24 horas.",
 };
 
+/**
+ * Integrações em produção no sistema da Motors Store (`case-motors.md`).
+ * Regra de `oferta.md`: integração só aparece quando roda em produção.
+ * Nome em texto, nunca logotipo.
+ */
+export const FERRAMENTAS = {
+  rotulo: "Em produção na Motors Store",
+  nomes: ["WhatsApp", "Meta Ads", "GA4", "n8n", "Revenda Mais"],
+} as const;
+
 export const NAVEGACAO = [
   { rotulo: "Soluções", href: "/#solucoes" },
   { rotulo: "Automotivo", href: "/segmentos/revendas-de-veiculos" },
@@ -35,12 +45,16 @@ export const NOME_DA_ETAPA: Record<Etapa, string> = {
   ambar: "Venda",
 };
 
+export type Vinheta = "agente" | "busca" | "crm" | "fluxo" | "jornada" | "campanhas";
+
 export interface Linha {
   titulo: string;
   frase: string;
   preco: string;
   href: string;
   etapa: Etapa;
+  /** A cena de produto que ilustra o cartão (`Vinhetas.tsx`). */
+  vinheta: Vinheta;
 }
 
 /** As seis linhas gerais, na ordem do bento (a primeira ocupa o bloco grande). */
@@ -52,6 +66,7 @@ export const LINHAS: Linha[] = [
     preco: "a partir de R$ 3.900 + R$ 790/mês",
     href: "/agente-de-ia-para-whatsapp",
     etapa: "verde",
+    vinheta: "agente",
   },
   {
     titulo: "Sites e presença",
@@ -59,6 +74,7 @@ export const LINHAS: Linha[] = [
     preco: "a partir de R$ 7.900 + R$ 290/mês",
     href: "/criacao-de-sites",
     etapa: "violeta",
+    vinheta: "busca",
   },
   {
     titulo: "CRM e sistemas sob medida",
@@ -66,6 +82,7 @@ export const LINHAS: Linha[] = [
     preco: "a partir de R$ 4.900 + R$ 590/mês",
     href: "/crm-com-whatsapp",
     etapa: "azul",
+    vinheta: "crm",
   },
   {
     titulo: "Automação de processos",
@@ -73,6 +90,7 @@ export const LINHAS: Linha[] = [
     preco: "a partir de R$ 1.900 por fluxo",
     href: "/automacao-com-ia",
     etapa: "azul",
+    vinheta: "fluxo",
   },
   {
     titulo: "Rastreamento até a venda",
@@ -80,6 +98,7 @@ export const LINHAS: Linha[] = [
     preco: "a partir de R$ 2.900 + R$ 290/mês",
     href: "/rastreamento-de-conversoes",
     etapa: "violeta",
+    vinheta: "jornada",
   },
   {
     titulo: "Gestão de tráfego",
@@ -87,8 +106,73 @@ export const LINHAS: Linha[] = [
     preco: "a partir de R$ 1.800/mês + verba",
     href: "/gestao-de-trafego",
     etapa: "violeta",
+    vinheta: "campanhas",
   },
 ];
+
+/**
+ * Textos das vinhetas do bento: cenas de produto paradas, sem número de
+ * resultado. Os nomes de carro e de campanha são de exemplo.
+ */
+export const VINHETAS = {
+  agente: {
+    nome: "Agente da loja",
+    estado: "responde na hora",
+    dia: "Hoje",
+    contato: {
+      iniciais: "MR",
+      nome: "Marina R.",
+      origem: "veio do Google Ads",
+      campos: [
+        { rotulo: "Interesse", valor: "Visita no sábado" },
+        { rotulo: "Próximo passo", valor: "Sábado, 10h" },
+        { rotulo: "Responsável", valor: "Carla" },
+      ],
+      etiqueta: "Em atendimento",
+      aviso: "Carla foi avisada no WhatsApp",
+    },
+    conversa: [
+      { tipo: "entrada", texto: "Oi! Vocês abrem sábado?" },
+      { tipo: "ferramenta", texto: "Consultou os horários da loja" },
+      { tipo: "saida", texto: "Abrimos sim, das 9h às 13h. Quer que eu reserve um horário para você?" },
+      { tipo: "entrada", texto: "Pode ser às 10h." },
+      { tipo: "ferramenta", texto: "Horário reservado e equipe avisada" },
+      { tipo: "saida", texto: "Pronto, sábado às 10h com a Carla. Quer a localização da loja?" },
+      { tipo: "entrada", texto: "Quero sim, obrigado!" },
+    ],
+  },
+  busca: {
+    consulta: "seminovos em curitiba",
+    dominio: "suaempresa.com.br",
+    trilha: "estoque",
+    titulo: "Seminovos revisados em Curitiba",
+    respostaDaIa: "Resposta de IA",
+  },
+  crm: [
+    { coluna: "Novo", etapa: "violeta", cartoes: [["HB20 2021", "Meta Ads"], ["Kicks 2022", "Site"]] },
+    { coluna: "Atendimento", etapa: "verde", cartoes: [["Onix LT 2022", "Google Ads"]] },
+    { coluna: "Venda", etapa: "ambar", cartoes: [["Corolla 2020", "Google Ads"]] },
+  ],
+  fluxo: [
+    { icone: "raio", texto: "Venda marcada no CRM" },
+    { icone: "janela", texto: "Carro sai da vitrine do site" },
+    { icone: "conversa", texto: "Cliente recebe o obrigado" },
+    { icone: "sinal", texto: "Google e Meta recebem a venda" },
+  ],
+  jornada: {
+    passos: ["Anúncio", "Site", "Lead", "Venda"],
+    identificador: "Lead.3f9c2a7e",
+    lados: ["navegador", "servidor"],
+  },
+  campanhas: {
+    criterio: "Otimizando por venda confirmada",
+    linhas: [
+      { nome: "Seminovos", canal: "Google Ads", estado: "gera venda", ativa: true },
+      { nome: "Remarketing", canal: "Meta Ads", estado: "gera venda", ativa: true },
+      { nome: "Institucional", canal: "Meta Ads", estado: "pausada", ativa: false },
+    ],
+  },
+} as const;
 
 // ---------------------------------------------------------------------------
 // Orquestrador: demonstração com dados fictícios
@@ -350,6 +434,18 @@ export const AUTOMOTIVO = {
     "O pacote é o sistema da Motors Store: site de estoque integrado ao Revenda Mais, agente de IA no WhatsApp, CRM e rastreamento até a venda.",
   preco: "Pacote completo a partir de R$ 14.900 de implantação e R$ 1.690 por mês.",
   href: "/segmentos/revendas-de-veiculos",
+  /** Vinheta do estoque: carros de exemplo, rotulada como exemplo. */
+  estoque: {
+    titulo: "Estoque",
+    origem: "sincronizado com o Revenda Mais",
+    destinos: ["no site", "no agente"],
+    carros: [
+      ["Onix LT 1.0 turbo", "2022"],
+      ["HB20 Comfort", "2021"],
+      ["Corolla XEi", "2020"],
+      ["Compass Longitude", "2021"],
+    ],
+  },
 };
 
 export const EMPRESA = {
