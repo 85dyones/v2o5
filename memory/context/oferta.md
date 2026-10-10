@@ -9,6 +9,9 @@
 | CRM e sistemas sob medida | `/crm-com-whatsapp` | R$ 4.900 | R$ 590 |
 | Rastreamento até a venda | `/rastreamento-de-conversoes` | R$ 2.900 | R$ 290 |
 | Gestão de tráfego | `/gestao-de-trafego` | sem implantação com rastreamento ativo | R$ 1.800 + verba |
+| Branding e gestão de marca | sem página ainda (cartão leva a `/diagnostico`) | R$ 1.500 (por projeto) | |
+
+Na home, as linhas se dividem nos dois pilares do H1 (mapa: sites, tráfego, rastreamento; operação: agente, automação, CRM). Perfil da Empresa no Google e SEO técnico aparecem como cartões "incluso em Sites e presença"; Integrações entre sistemas, como cartão com o preço da automação por fluxo. Branding e gestão de marca entrou no cardápio em 09/10, a partir de R$ 1.500 (valor do Dyones; tratado como projeto, sem mensalidade).
 
 ## Segmento automotivo
 | Item | Implantação | Mensalidade |

@@ -27,7 +27,7 @@ Assinatura: **Catalisador de vendas com IA** ("IA" em âmbar, herança do "Consu
 Ordem das etapas do lead: violeta → verde → azul → âmbar (venda). As três primeiras só em diagramas e etiquetas.
 
 ## Tipografia
-Geist (display 800, títulos 700, texto 400) + Geist Mono (rótulos 500 caixa alta +0,12em, números 600). Máximo duas famílias. Carregar local (pacote npm `geist` ou woff2 próprios), nunca `next/font/google` (quebrou build na Motors).
+Geist (display e títulos 600 com espaçamento fechado, texto 400; refino de 09/10, antes 800/700) + Geist Mono (rótulos 500 caixa alta +0,08em, só onde informam; números de terminal). Máximo duas famílias. Carregar local (pacote npm `geist` ou woff2 próprios), nunca `next/font/google` (quebrou build na Motors).
 
 ## Logo: família C1 (geometria para implementar)
 viewBox `8 14 112 70` (proporção 1,6).
@@ -48,4 +48,8 @@ Nós: Ot1 (38,48) · Ot2 (40,68) · V1 (51,58) · Ob (64,50) · V2 (77,58) · Ot
 
 **C1c (sólida)**: nuvem C1 preenchida, rede em papel (vazada), Ot3 âmbar. Em uma cor: Ot3 vira anel com ponto central.
 
-Pequenos tamanhos: 32 px fica só nuvem + V1, V2 e Ot3; 16 px nuvem + ponto âmbar. Versões completas nos quadros do canvas (link no `CLAUDE.md`).
+**C1d (molécula em V): o logo, escolhido em 09/10 (proposta do Dyones)**: a molécula do C1 virada de cabeça para baixo, com a cadeia Ot2–V1–Ob–V2–Ot4 formando um V reto.
+Ot1 (40,65) · Ot2 (42,42) · V1 (53,55) · Ob (64,68) · V2 (75,55) · Ot3 (88,65) · Ot4 (86,42, âmbar). Mesmas ligações do C1; sinal Ot2 → V1 → Ob → V2 → Ot4. Nuvem do C1.
+
+Pequenos tamanhos: 32 px fica só nuvem + V1, V2 e Ot3; 16 px nuvem + ponto âmbar.
+No site o símbolo sai vetorizado (`src/lib/marca-vetor.ts`, gerado por `scripts/vetorizar-logo.mjs`): a rede é uma forma só e o âmbar tem respiro. Tamanho `pequeno` (topo, rodapé, favicon) mostra só a cadeia em V (Ot2, V1, Ob, V2, Ot4) com traço mais grosso. Versões completas nos quadros do canvas (link no `CLAUDE.md`).

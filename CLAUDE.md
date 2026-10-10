@@ -7,15 +7,15 @@ Novo site da **V2O5 Vendas e Tecnologia** (substitui o WordPress de v2o5.com.br)
 
 ## Estado (09/10/2026)
 - Plano fechado em `docs/2026-10-08-plano-novo-site.md` (v4, longo: use `grep -n "^##"` e leia só a seção).
-- Nada implementado. Próximo passo: protótipo navegável da home → `docs/HANDOFF.md`.
-- Branch `claude/v2o5-website-redesign-6vx4i6`, PR rascunho https://github.com/85dyones/v2o5/pull/1.
+- Protótipo navegável da home em `src/` (`npm run dev`), refinado em 09/10 (logo vetorizado, molécula 3D em WebGL no hero, botões em vidro âmbar, soluções nos dois pilares do H1 e seção Visão 360); números e escolhas em `memory/decisoes.md`, pendências em `memory/pendencias.md`.
+- Plano e memória: branch `claude/v2o5-website-redesign-6vx4i6`, PR https://github.com/85dyones/v2o5/pull/1. Protótipo: branch `claude/gracious-euler-0qzedy`, PR contra a do plano.
 - Canvas de marca (privado): https://claude.ai/artifact/TJi91r21pMCLXUxL3AEYT3
 
 ## Termos
 | Termo | Significado |
 |---|---|
 | **Motors** | Motors Store, revenda de seminovos em Curitiba; case principal; repo `85dyones/motors-site-oficial` (base técnica de referência) |
-| **C1, C1a, C1b, C1c** | Família de logo escolhida: nuvem com a rede da molécula V2O5 (a = monograma V, b = cérebro, c = sólida). Variação final em aberto |
+| **C1, C1a…C1d** | Família do logo: nuvem com a rede da molécula V2O5 (a = monograma V, b = cérebro, c = sólida, d = molécula virada em V). **Logo: C1d** (09/10) |
 | **Direção B / A / C2** | Logos descartados (funil, fórmula, engrenagens) |
 | **V²⁺ V³⁺ V⁴⁺ V⁵⁺** | Cores dos estados do vanádio: violeta, verde, azul, âmbar. Âmbar = ação/energia |
 | **Catalisador** | Conceito da marca: V2O5 é catalisador industrial; o catalisador da V2O5 é a IA |
@@ -26,6 +26,7 @@ Novo site da **V2O5 Vendas e Tecnologia** (substitui o WordPress de v2o5.com.br)
 → Glossário completo: `memory/glossary.md`
 
 ## Decisões que mais pesam
+- Logo C1d (molécula em V); H1 "Coloque sua empresa no mapa e multiplique a operação com IA." (09/10)
 - Identidade geral (IA para negócios); automotivo como segmento com hub próprio. (09/10)
 - Visual escuro e tecnológico com motion (partículas da molécula, diagrama interativo, simuladores); formato editorial claro descartado. (09/10)
 - Nome fixo "V2O5 Vendas e Tecnologia"; assinatura "Catalisador de vendas com IA" com "IA" em âmbar. (08–09/10)
