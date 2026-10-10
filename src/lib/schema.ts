@@ -1,5 +1,6 @@
-import { EMPRESA, PILARES, VISAO_360 } from "@/conteudo/home";
+import { EMPRESA, PERGUNTAS, PILARES, VISAO_360 } from "@/conteudo/home";
 import { paginaDa } from "@/conteudo/paginas";
+import { AUTOMOTIVO_PRECO, LINHAS_DE_PRECO } from "@/conteudo/precos";
 import { SITE_URL } from "@/lib/site";
 
 /**
@@ -77,13 +78,85 @@ export function trilha(rota: string): No {
     ],
   };
 }
+/** As perguntas da home e de `/precos`, com as mesmas respostas da página. */
+export function perguntas(rota: string): No {
+  return {
+    "@type": "FAQPage",
+    "@id": `${SITE_URL}${rota}#perguntas`,
+    mainEntity: PERGUNTAS.map((p) => ({
+      "@type": "Question",
+      name: p.pergunta,
+      acceptedAnswer: { "@type": "Answer", text: p.resposta },
+    })),
+  };
+}
+
+const oferta = (nome: string, preco: number, descricao: string): No => ({
+  "@type": "Offer",
+  name: nome,
+  description: descricao,
+  price: preco,
+  priceCurrency: "BRL",
+  availability: "https://schema.org/InStock",
+  areaServed: { "@type": "Country", name: "Brasil" },
+  seller: ref(ID_DA_ORGANIZACAO),
+});
+
+/**
+ * O catálogo de `precos.ts` como ofertas, uma por linha (implantação e
+ * mensalidade separadas, porque são preços diferentes) e o pacote automotivo.
+ * Preço "a partir de": a descrição diz isso.
+ */
+export function catalogo(): No {
+  const itens: No[] = [];
+  for (const l of LINHAS_DE_PRECO) {
+    const servico = { "@type": "Service", name: l.nome, url: `${SITE_URL}${l.href}`, provider: ref(ID_DA_ORGANIZACAO) };
+    if (l.implantacao) {
+      itens.push({
+        ...oferta(l.nome, l.implantacao, `Implantação a partir de${l.unidade ? `, ${l.unidade}` : ""}`),
+        itemOffered: servico,
+      });
+    }
+    if (l.mensalidade) {
+      itens.push({
+        ...oferta(`${l.nome} (mensalidade)`, l.mensalidade, `Mensalidade a partir de${l.maisVerba ? ", mais a verba" : ""}. ${l.cobre}`),
+        itemOffered: servico,
+      });
+    }
+  }
+  const { pacote } = AUTOMOTIVO_PRECO;
+  const pacoteServico = {
+    "@type": "Service",
+    name: "Pacote completo para revendas de veículos",
+    url: `${SITE_URL}/segmentos/revendas-de-veiculos`,
+    provider: ref(ID_DA_ORGANIZACAO),
+  };
+  itens.push({ ...oferta(pacoteServico.name, pacote.implantacao, "Implantação a partir de"), itemOffered: pacoteServico });
+  itens.push({
+    ...oferta(`${pacoteServico.name} (mensalidade)`, pacote.mensalidade, "Mensalidade a partir de"),
+    itemOffered: pacoteServico,
+  });
+  return {
+    "@type": "OfferCatalog",
+    "@id": `${SITE_URL}/precos#catalogo`,
+    name: "Preços da V2O5 Vendas e Tecnologia",
+    itemListElement: itens,
+  };
+}
 
 export function grafoDaHome(): No {
-  return { "@context": "https://schema.org", "@graph": [organizacao(), site(), fundador()] };
+  return { "@context": "https://schema.org", "@graph": [organizacao(), site(), fundador(), perguntas("/")] };
 }
 
 export function grafoDaInterna(rota: string): No {
   return { "@context": "https://schema.org", "@graph": [ref(ID_DA_ORGANIZACAO), trilha(rota)] };
+}
+
+export function grafoDosPrecos(): No {
+  return {
+    "@context": "https://schema.org",
+    "@graph": [ref(ID_DA_ORGANIZACAO), trilha("/precos"), catalogo(), perguntas("/precos")],
+  };
 }
 
 /** JSON pronto para `<script type="application/ld+json">`, sem `<` cru. */

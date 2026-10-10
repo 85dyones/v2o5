@@ -10,7 +10,8 @@ Comando local (Chromium do ambiente):
 A API do PageSpeed estava sem cota em 08/10.
 
 ## Rastreamento
-Conversões pelo servidor: `/api/leads` grava no Supabase, envia `Lead` ao CAPI e `generate_lead` ao GA4 (Measurement Protocol) com o mesmo `event_id`, avisa o n8n. Navegador: camada de dados em código (molde `src/lib/dataLayer.ts` da Motors), tags depois do conteúdo. Primeiro e último toque no lead (UTM, gclid, gbraid, wbraid, fbclid, _fbc, _fbp, entrada, referrer). Eventos: `page_context`, `cta_click`, `click_whatsapp` (`pos_lead` fora da conta), `form_start`, `generate_lead`, `schedule_call`, `tool_use`. Consentimento: modelo da Motors.
+Feito em 10/10: `/api/leads` valida (`src/lib/leads.ts`), gera `event_id` (`Lead.<uuid>`) e entrega ao n8n (`LEADS_WEBHOOK_URL`, segredo `LEADS_WEBHOOK_SECRET` no cabeçalho `X-V2O5-Segredo`); primeiro toque em sessionStorage (`src/lib/origem.ts`) vai junto com o lead. Ainda não: Supabase, CAPI, GA4, Turnstile.
+Plano: `/api/leads` grava no Supabase, envia `Lead` ao CAPI e `generate_lead` ao GA4 (Measurement Protocol) com o mesmo `event_id`, avisa o n8n. Navegador: camada de dados em código (molde `src/lib/dataLayer.ts` da Motors), tags depois do conteúdo. Primeiro e último toque no lead (UTM, gclid, gbraid, wbraid, fbclid, _fbc, _fbp, entrada, referrer). Eventos: `page_context`, `cta_click`, `click_whatsapp` (`pos_lead` fora da conta), `form_start`, `generate_lead`, `schedule_call`, `tool_use`. Consentimento: modelo da Motors.
 Lição: na Motors, Pixel + GTM somam ~2,4 s de TBT no mobile.
 
 ## Infra existente da V2O5

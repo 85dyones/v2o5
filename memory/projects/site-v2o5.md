@@ -1,6 +1,6 @@
 # Projeto: site novo da V2O5
 
-**Status:** plano v4 fechado (09/10); protótipo da home é o próximo passo.
+**Status:** home, `/precos` e `/diagnostico` (formulário → `/api/leads` → n8n) em `main` desde 10/10. Próximo: ligar o webhook no n8n e as variáveis na Vercel, páginas de solução, privacidade, WhatsApp no rodapé.
 **Plano completo:** `docs/2026-10-08-plano-novo-site.md` (seções: 0 resumo, 1 diagnóstico, 2 case, 3 posicionamento/preço/marca, 4 mercado/SEO, 5 design e motion, 6 conversão, 7 rastreamento, 8 stack, 9 metas, 10 fases, 11 fora do escopo, 12 decisões, 13 riscos).
 
 ## Diagnóstico do site atual (08/10, Lighthouse mobile)
