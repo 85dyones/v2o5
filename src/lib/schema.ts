@@ -2,6 +2,7 @@ import { EMPRESA, PERGUNTAS, PILARES, VISAO_360 } from "@/conteudo/home";
 import { paginaDa } from "@/conteudo/paginas";
 import { AUTOMOTIVO_PRECO, LINHAS_DE_PRECO } from "@/conteudo/precos";
 import { SITE_URL } from "@/lib/site";
+import { whatsappInternacional } from "@/lib/whatsapp";
 
 /**
  * O grafo JSON-LD do site, montado por funções puras (molde da Motors) e
@@ -32,6 +33,14 @@ export function organizacao(): No {
     logo: `${SITE_URL}/icon.svg`,
     slogan: "Catalisador de vendas com IA",
     founder: ref(ID_DO_FUNDADOR),
+    telephone: whatsappInternacional(),
+    contactPoint: {
+      "@type": "ContactPoint",
+      contactType: "sales",
+      telephone: whatsappInternacional(),
+      availableLanguage: "pt-BR",
+      areaServed: "BR",
+    },
     address: {
       "@type": "PostalAddress",
       addressLocality: "Almirante Tamandaré",

@@ -126,10 +126,11 @@ export const PAGINAS: Pagina[] = [
   },
   {
     rota: "/privacidade",
-    titulo: "Privacidade",
-    descricao: "Como a V2O5 trata os dados de quem visita o site.",
-    atualizadaEm: "2026-10-09",
-    pronta: false,
+    titulo: "Política de privacidade",
+    descricao:
+      "Quais dados a V2O5 Vendas e Tecnologia coleta neste site, para quê, com quem compartilha, por quanto tempo guarda e como pedir acesso, correção ou exclusão.",
+    atualizadaEm: "2026-10-10",
+    pronta: true,
   },
 ];
 

@@ -2,6 +2,12 @@
 
 Log datado. Decisão nova entra no topo do dia; decisão revogada fica riscada com a data da troca.
 
+## 10/10/2026 (respostas do Dyones: WhatsApp, pacote e privacidade)
+- WhatsApp público: 5541998089550 (`EMPRESA.whatsapp`; link e rótulo saem de `lib/whatsapp.ts`, como na Motors). Entrou no rodapé, no botão fixo do celular da home e de `/precos` (mensagem pré-preenchida por página, `WHATSAPP.mensagens`), como alternativa sob o formulário do diagnóstico e no "recebido", no schema (`telephone` e `contactPoint`) e no `llms.txt`. Links com `data-evento="click_whatsapp"` para a camada de dados futura.
+- Pacote automotivo confirmado em R$ 1.990/mês.
+- `/privacidade` escrita e indexável, no modelo da Motors (seção 7.5 do plano) mas só com o que o código faz hoje: controladora, dados (formulário, origem em sessionStorage, logs da hospedagem, WhatsApp), finalidades, bases legais (procedimentos preliminares, legítimo interesse, obrigação legal), seção de medição dizendo que não há tag nenhuma e com o controle para apagar a origem guardada (`ControleDeOrigem`, o lugar do liga-desliga quando as tags entrarem), compartilhamento (Vercel, n8n/Chatwoot, WhatsApp, autoridades), retenção, direitos do art. 18, segurança, contato (WhatsApp e formulário; encarregado Dyones). `tests/privacidade.test.ts` obriga a página a nomear GA4/Pixel/Turnstile no dia em que entrarem no código.
+- Webhook do n8n e variáveis da Vercel: o Dyones faz em seguida.
+
 ## 10/10/2026 (máquina de vendas: preços, ganchos, /precos e o formulário do diagnóstico)
 - Piso da mensalidade: R$ 590 (Dyones). Sites e presença e Rastreamento sobem de R$ 290 para R$ 590; site de estoque do automotivo também. A mensalidade passa a incluir hospedagem, banco, manutenção, atualizações, monitoramento e relatório mensal; uso de IA e mensagens do WhatsApp continuam pelo valor real na mesma fatura.
 - Pacote automotivo recalculado para manter a lógica do desconto: R$ 14.900 + R$ 1.990/mês (24% e 22% abaixo da soma das linhas, que agora é R$ 19.600 + R$ 2.560); com tráfego R$ 3.290/mês + verba (tráfego a R$ 1.300 dentro do pacote, como antes). Argumento da margem vira "uma venda a mais a cada 3 meses" (3 × 1.990 < 7.000). Proposta minha, não pedida; o Dyones pode reverter para 1.690.

@@ -23,7 +23,7 @@ Na home, as linhas se dividem nos dois pilares do H1 (mapa: branding, Perfil da 
 | Site de estoque | R$ 7.900 | R$ 590 |
 | Pacote completo (site, IA, CRM, rastreamento, integração Revenda Mais) | R$ 14.900 | R$ 1.990 |
 | Pacote completo + tráfego | R$ 14.900 | R$ 3.290 + verba |
-Desconto do pacote: 24% sobre a soma das implantações (R$ 19.600) e 22% sobre a soma das mensalidades (R$ 2.560). O tráfego entra no pacote por R$ 1.300 (avulso é R$ 1.800). Argumento: com margem de R$ 7.000 por carro (referência do plano de mídia da Motors), uma venda a mais a cada 3 meses paga a mensalidade do pacote (3 × R$ 1.990 = R$ 5.970).
+Pacote confirmado pelo Dyones em 10/10. Desconto do pacote: 24% sobre a soma das implantações (R$ 19.600) e 22% sobre a soma das mensalidades (R$ 2.560). O tráfego entra no pacote por R$ 1.300 (avulso é R$ 1.800). Argumento: com margem de R$ 7.000 por carro (referência do plano de mídia da Motors), uma venda a mais a cada 3 meses paga a mensalidade do pacote (3 × R$ 1.990 = R$ 5.970).
 
 ## Regras comerciais
 - Sem fidelidade. Implantação 50% na assinatura + 50% na entrega, ou até 6x.

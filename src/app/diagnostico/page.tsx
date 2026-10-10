@@ -4,7 +4,8 @@ import Topo from "@/components/layout/Topo";
 import Rodape from "@/components/layout/Rodape";
 import Formulario from "@/components/diagnostico/Formulario";
 import { DIAGNOSTICO } from "@/conteudo/diagnostico";
-import { GARANTIAS } from "@/conteudo/home";
+import { GARANTIAS, WHATSAPP } from "@/conteudo/home";
+import { linkWhatsApp } from "@/lib/whatsapp";
 import { metadataDa } from "@/conteudo/paginas";
 import { grafoDaInterna } from "@/lib/schema";
 
@@ -61,8 +62,23 @@ export default function Pagina() {
             </ul>
           </div>
 
-          <div className="superficie relative p-6 md:p-8 lg:sticky lg:top-24 lg:self-start">
-            <Formulario />
+          <div className="lg:sticky lg:top-24 lg:self-start">
+            <div className="superficie relative p-6 md:p-8">
+              <Formulario />
+            </div>
+            <p className="mt-4 flex items-center gap-2 text-[0.9375rem] text-secundario">
+              <Icone nome="conversa" className="size-4 shrink-0 text-verde-claro" />
+              Prefere conversar?{" "}
+              <a
+                href={linkWhatsApp(WHATSAPP.mensagens.diagnostico)}
+                target="_blank"
+                rel="noopener"
+                className="link-sublinhado text-papel"
+                data-evento="click_whatsapp"
+              >
+                Chame no WhatsApp
+              </a>
+            </p>
           </div>
         </div>
       </main>

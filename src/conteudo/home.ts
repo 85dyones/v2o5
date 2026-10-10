@@ -645,6 +645,18 @@ export const EMPRESA = {
   razaoSocial: "V2O5 Tecnologia da Informação Ltda.",
   cnpj: "68.490.470/0001-14",
   cidade: "Almirante Tamandaré/PR",
+  /** Só dígitos, com o 55 (Dyones, 10/10). Link e rótulo saem daqui (`lib/whatsapp.ts`). */
+  whatsapp: "5541998089550",
+};
+
+/** Mensagem pré-preenchida do WhatsApp, por página (plano, seção 6.1). */
+export const WHATSAPP = {
+  mensagens: {
+    home: "Olá! Vim pelo site da V2O5 e quero pedir o diagnóstico gratuito.",
+    precos: "Olá! Vi a página de preços da V2O5 e quero conversar sobre a minha empresa.",
+    diagnostico: "Olá! Quero marcar o diagnóstico gratuito da V2O5.",
+    recebido: "Olá! Acabei de pedir o diagnóstico pelo site e quero adiantar a conversa.",
+  },
 };
 
 // ---------------------------------------------------------------------------

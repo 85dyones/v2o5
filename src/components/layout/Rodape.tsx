@@ -1,7 +1,8 @@
 import Link from "next/link";
 import Icone from "@/components/Icone";
 import Simbolo from "@/components/marca/Simbolo";
-import { EMPRESA, PILARES } from "@/conteudo/home";
+import { EMPRESA, PILARES, WHATSAPP } from "@/conteudo/home";
+import { linkWhatsApp, whatsappParaLer } from "@/lib/whatsapp";
 
 const EMPRESA_LINKS = [
   { rotulo: "Revendas de veículos", href: "/segmentos/revendas-de-veiculos" },
@@ -69,10 +70,12 @@ export default function Rodape() {
                 Pedir diagnóstico
               </Link>
             </li>
-            {/* Número do WhatsApp e e-mail públicos ainda não definidos: não inventar. */}
-            <li className="flex min-h-9 items-center gap-2">
-              WhatsApp <span className="chip text-secundario">a confirmar</span>
+            <li>
+              <a href={linkWhatsApp(WHATSAPP.mensagens.home)} target="_blank" rel="noopener" className={LINK} data-evento="click_whatsapp">
+                WhatsApp {whatsappParaLer()}
+              </a>
             </li>
+            {/* E-mail público ainda não definido: não inventar. */}
             <li className="flex min-h-9 items-center gap-2">
               E-mail <span className="chip text-secundario">a confirmar</span>
             </li>

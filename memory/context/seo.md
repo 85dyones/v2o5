@@ -1,7 +1,7 @@
 # SEO, páginas e mercado
 
 ## Mapa de páginas (fase entre parênteses)
-Prontas e indexáveis em 10/10: `/`, `/precos`, `/diagnostico`. `/diagnostico/recebido` existe com noindex. O resto está provisório (noindex).
+Prontas e indexáveis em 10/10: `/`, `/precos`, `/diagnostico`, `/privacidade`. `/diagnostico/recebido` existe com noindex. O resto está provisório (noindex).
 Home `/` (1) · soluções `/agente-de-ia-para-whatsapp`, `/automacao-com-ia`, `/criacao-de-sites`, `/crm-com-whatsapp`, `/rastreamento-de-conversoes` (1), `/gestao-de-trafego` (2) · segmento `/segmentos/revendas-de-veiculos`, `/site-para-loja-de-carros`, `/agente-de-ia-para-loja-de-carros` (1), `/crm-para-revenda-de-carros`, `/integracao-revenda-mais`, `/trafego-pago-para-loja-de-carros` (2) · `/cases/motors-store`, `/precos`, `/sobre`, `/diagnostico`, `/diagnostico/recebido` (noindex), `/privacidade` (1) · `/simulador`, `/guias/{slug}` (2) · `/ferramentas/raio-x-do-site` (3).
 Termos gerais ("agência de IA") são disputados: home carrega marca; busca qualificada vem das soluções com recorte e do automotivo. Demanda veio de autocomplete, sem ferramenta paga: validar no Planejador de Palavras-chave.
 

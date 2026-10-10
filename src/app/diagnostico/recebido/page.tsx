@@ -4,6 +4,8 @@ import Icone from "@/components/Icone";
 import Topo from "@/components/layout/Topo";
 import Rodape from "@/components/layout/Rodape";
 import { DIAGNOSTICO } from "@/conteudo/diagnostico";
+import { WHATSAPP } from "@/conteudo/home";
+import { linkWhatsApp } from "@/lib/whatsapp";
 import { metadataDa } from "@/conteudo/paginas";
 import { grafoDaInterna } from "@/lib/schema";
 
@@ -26,6 +28,18 @@ export default function Pagina() {
         <p className="texto-guia mt-6 max-w-[36rem]">{r.texto}</p>
         <p className="mt-12 text-sm font-medium text-secundario">{r.enquantoIsso}</p>
         <ul className="mt-4 flex flex-wrap gap-3">
+          <li>
+            <a
+              href={linkWhatsApp(WHATSAPP.mensagens.recebido)}
+              target="_blank"
+              rel="noopener"
+              className="botao botao-primario"
+              data-evento="click_whatsapp"
+            >
+              <Icone nome="conversa" className="size-4" />
+              Adiantar pelo WhatsApp
+            </a>
+          </li>
           <li>
             <Link href="/precos" className="botao botao-secundario">
               Ver os preços

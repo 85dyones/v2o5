@@ -3,6 +3,7 @@ import Icone from "@/components/Icone";
 import JsonLd from "@/components/JsonLd";
 import Topo from "@/components/layout/Topo";
 import Rodape from "@/components/layout/Rodape";
+import BotaoWhatsAppFixo from "@/components/layout/BotaoWhatsAppFixo";
 import Garantias from "@/components/home/Garantias";
 import Perguntas from "@/components/home/Perguntas";
 import Fechamento from "@/components/home/Fechamento";
@@ -83,6 +84,7 @@ export default function Pagina() {
         <Fechamento />
       </main>
       <Rodape />
+      <BotaoWhatsAppFixo pagina="precos" />
       <JsonLd grafo={grafoDosPrecos()} />
     </>
   );

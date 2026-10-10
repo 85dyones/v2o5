@@ -7,7 +7,8 @@ import { lerOrigem, type Origem } from "@/lib/leads";
  * entrada. Fora do navegador (teste, servidor) não faz nada.
  */
 
-const CHAVE = "v2o5.origem";
+export const CHAVE_DA_ORIGEM = "v2o5.origem";
+const CHAVE = CHAVE_DA_ORIGEM;
 
 export function guardarPrimeiroToque(): void {
   try {

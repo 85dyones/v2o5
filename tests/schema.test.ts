@@ -49,6 +49,12 @@ describe("grafo da home", () => {
     });
   });
 
+  it("o WhatsApp entra como telefone e ponto de contato", () => {
+    const o = organizacao();
+    expect(o.telephone).toBe("+55 41 99808-9550");
+    expect(o.contactPoint).toMatchObject({ "@type": "ContactPoint", contactType: "sales", telephone: "+55 41 99808-9550" });
+  });
+
   it("sem perfil inventado e sem nota própria", () => {
     const o = organizacao();
     expect(o).not.toHaveProperty("sameAs");

@@ -7,7 +7,7 @@ Novo site da **V2O5 Vendas e Tecnologia** (substitui o WordPress de v2o5.com.br)
 
 ## Estado (09/10/2026)
 - Plano fechado em `docs/2026-10-08-plano-novo-site.md` (v4, longo: use `grep -n "^##"` e leia só a seção).
-- Home, `/precos` e `/diagnostico` (com formulário → `/api/leads` → webhook do n8n) prontas em `src/` (`npm run dev`); o resto do mapa de páginas é provisório. Preços em `src/conteudo/precos.ts` (piso de R$ 590/mês). Números e escolhas em `memory/decisoes.md`, pendências em `memory/pendencias.md`.
+- Home, `/precos`, `/diagnostico` (formulário → `/api/leads` → webhook do n8n) e `/privacidade` prontas em `src/` (`npm run dev`); o resto do mapa de páginas é provisório. Preços em `src/conteudo/precos.ts` (piso de R$ 590/mês). Números e escolhas em `memory/decisoes.md`, pendências em `memory/pendencias.md`.
 - Tudo em `main` desde 10/10 (PRs #1 e #2 mesclados). Cada rodada nova sai de `main` numa branch `claude/...` com PR contra `main`; a Vercel publica o preview por branch e a produção pelo `main`.
 - Canvas de marca (privado): https://claude.ai/artifact/TJi91r21pMCLXUxL3AEYT3
 
