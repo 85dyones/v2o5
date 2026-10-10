@@ -1,10 +1,14 @@
 import { describe, expect, it } from "vitest";
 import {
   CASE,
+  CHAMADA,
   FRENTES,
+  GARANTIAS,
   HERO,
   LINHAS,
+  PERGUNTAS,
   PILARES,
+  SOLUCOES,
   TITULO_DA_HOME,
   VISAO_360,
 } from "@/conteudo/home";
@@ -59,6 +63,7 @@ describe("oferta", () => {
 
   it("as seis linhas com preço a partir de, iguais à tabela de oferta.md", () => {
     expect(LINHAS).toHaveLength(6);
+    expect(ler("memory/context/oferta.md")).toContain("Piso da mensalidade: R$ 590");
     for (const linha of LINHAS) {
       expect(linha.preco, linha.titulo).toMatch(/^a partir de R\$ /);
       const valores = [...linha.preco.matchAll(/R\$ ([\d.]+)/g)].map((m) => m[1]);
@@ -95,7 +100,7 @@ describe("os dois pilares do H1", () => {
   it("o mapa traz branding, Perfil da Empresa no Google, SEO e tráfego no Google e na Meta", () => {
     const mapa = PILARES[0].servicos.map((s) => s.titulo).join(" | ");
     expect(mapa).toMatch(/Branding e gestão de marca/);
-    expect(PILARES[0].servicos[0].preco).toBe("a partir de R$ 1.500");
+    expect(PILARES[0].servicos[0].preco).toBe("a partir de R$ 1.500 por projeto");
     expect(mapa).toMatch(/Perfil da Empresa no Google/);
     expect(mapa).toMatch(/SEO/);
     expect(mapa).toMatch(/Google e na Meta/);
@@ -137,6 +142,37 @@ describe("Visão 360", () => {
     const numerosDasCosturas = VISAO_360.costuras.join(" ").match(/\d+/g) ?? [];
     expect(numerosDasCosturas).toEqual(["42"]);
     expect(ler("src/components/home/VisaoAmpla.tsx")).toMatch(/v\.evidencia\.fonte/);
+  });
+});
+
+describe("garantias, perguntas e chamadas (regras de oferta.md)", () => {
+  const oferta = ler("memory/context/oferta.md");
+
+  it("as garantias repetem as regras comerciais", () => {
+    expect(GARANTIAS.map((g) => g.titulo)).toEqual([
+      "Sem fidelidade",
+      "Implantação em até 6x",
+      "O sistema é seu",
+      "Mensalidade sem surpresa",
+    ]);
+    expect(oferta).toContain("Sem fidelidade");
+    expect(oferta).toContain("até 6x");
+    expect(oferta).toContain("em até 15 dias");
+    expect(GARANTIAS[2].texto).toContain("15 dias");
+  });
+
+  it("todo valor em real das perguntas está na tabela de oferta.md", () => {
+    const tudo = PERGUNTAS.map((p) => p.resposta).join(" ");
+    const valores = tudo.match(/R\$ [\d.]+/g) ?? [];
+    expect(valores.length).toBeGreaterThan(0);
+    for (const v of valores) expect(oferta, v).toContain(v);
+    expect(PERGUNTAS.length).toBeGreaterThanOrEqual(6);
+  });
+
+  it("as chamadas e o cabeçalho das soluções não prometem nada fora das regras", () => {
+    const textos = [SOLUCOES.texto, CHAMADA.depoisDasSolucoes.texto, CHAMADA.depoisDoCase.texto].join(" ");
+    expect(textos).not.toMatch(/\d+%|\d+x /);
+    expect(SOLUCOES.texto).toContain("sem fidelidade");
   });
 });
 

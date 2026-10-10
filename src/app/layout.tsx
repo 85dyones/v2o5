@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Geist } from "./fontes";
 import FonteMonoTardia from "@/components/layout/FonteMonoTardia";
 import LuzDoCursor from "@/components/layout/LuzDoCursor";
+import PrimeiroToque from "@/components/layout/PrimeiroToque";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -11,7 +12,7 @@ export const metadata: Metadata = {
     template: "%s | V2O5 Vendas e Tecnologia",
   },
   description:
-    "Perfil no Google, SEO, tráfego pago, site, agente de IA no WhatsApp, automação e CRM num sistema que fica com a sua empresa. Diagnóstico gratuito.",
+    "Site, Perfil no Google, anúncios, agente de IA no WhatsApp e CRM montados por uma equipe só, num sistema que mostra de onde veio cada venda. Sem fidelidade.",
   applicationName: "V2O5 Vendas e Tecnologia",
 };
 
@@ -33,6 +34,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         {children}
         <FonteMonoTardia />
         <LuzDoCursor />
+        <PrimeiroToque />
       </body>
     </html>
   );

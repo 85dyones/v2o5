@@ -18,11 +18,11 @@ export default function Fechamento() {
           <Simbolo className="relative h-20 w-auto text-papel md:h-24" />
         </div>
         <h2 id="titulo-fechamento" className="titulo-secao mt-10 max-w-[40rem]">
-          Comece pelo diagnóstico.
+          Comece pelo diagnóstico, que é gratuito.
         </h2>
         <p className="texto-guia mt-6 max-w-[36rem]">
-          Em 45 minutos de conversa com o fundador, a gente entende como a sua empresa vende hoje. Em até 24 horas você recebe um mapa do
-          que fazer primeiro, com ou sem a V2O5.
+          Em 45 minutos de conversa com o fundador, a gente entende como a sua empresa vende hoje. Em até 24 horas
+          você recebe um mapa do que fazer primeiro, com custo e prazo, para usar com ou sem a V2O5.
         </p>
         <div className="mt-10 flex flex-wrap justify-center gap-3">
           <Link href="/diagnostico" className="botao botao-primario">

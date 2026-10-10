@@ -10,7 +10,8 @@ Comando local (Chromium do ambiente):
 A API do PageSpeed estava sem cota em 08/10.
 
 ## Rastreamento
-Conversões pelo servidor: `/api/leads` grava no Supabase, envia `Lead` ao CAPI e `generate_lead` ao GA4 (Measurement Protocol) com o mesmo `event_id`, avisa o n8n. Navegador: camada de dados em código (molde `src/lib/dataLayer.ts` da Motors), tags depois do conteúdo. Primeiro e último toque no lead (UTM, gclid, gbraid, wbraid, fbclid, _fbc, _fbp, entrada, referrer). Eventos: `page_context`, `cta_click`, `click_whatsapp` (`pos_lead` fora da conta), `form_start`, `generate_lead`, `schedule_call`, `tool_use`. Consentimento: modelo da Motors.
+Feito em 10/10: `/api/leads` valida (`src/lib/leads.ts`), gera `event_id` (`Lead.<uuid>`) e entrega ao n8n (`LEADS_WEBHOOK_URL`, segredo `LEADS_WEBHOOK_SECRET` no cabeçalho `X-V2O5-Segredo`); primeiro toque em sessionStorage (`src/lib/origem.ts`) vai junto com o lead. Ainda não: Supabase, CAPI, GA4, Turnstile.
+Plano: `/api/leads` grava no Supabase, envia `Lead` ao CAPI e `generate_lead` ao GA4 (Measurement Protocol) com o mesmo `event_id`, avisa o n8n. Navegador: camada de dados em código (molde `src/lib/dataLayer.ts` da Motors), tags depois do conteúdo. Primeiro e último toque no lead (UTM, gclid, gbraid, wbraid, fbclid, _fbc, _fbp, entrada, referrer). Eventos: `page_context`, `cta_click`, `click_whatsapp` (`pos_lead` fora da conta), `form_start`, `generate_lead`, `schedule_call`, `tool_use`. Consentimento: modelo da Motors.
 Lição: na Motors, Pixel + GTM somam ~2,4 s de TBT no mobile.
 
 ## Infra existente da V2O5
@@ -18,7 +19,7 @@ Lição: na Motors, Pixel + GTM somam ~2,4 s de TBT no mobile.
 |---|---|
 | DNS | Hostinger (ns1/ns2.dns-parking.com) |
 | Site atual | WordPress na Hostinger, A 147.93.37.158 |
-| E-mail | Hostinger (MX mx1/mx2.hostinger.com, SPF, DKIM hostingermail-a, DMARC p=none) |
+| E-mail | Hostinger (MX mx1/mx2.hostinger.com, SPF, DKIM hostingermail-a, DMARC p=none). Endereços públicos: `diagnostico@` e `privacidade@` (alias da caixa principal; o Dyones cria, 10/10) |
 | VPS 168.231.100.245 | n8n.v2o5.com.br, chat.v2o5.com.br e chatwoot.v2o5.com.br (Chatwoot), evolution.v2o5.com.br (Evolution API) |
 Na migração: trocar só apex e `www` para a Vercel; conferir MX, SPF, DKIM, DMARC e os A da VPS antes e depois. WordPress fica 30 dias em subdomínio de backup.
 

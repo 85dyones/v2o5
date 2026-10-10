@@ -7,8 +7,8 @@ Novo site da **V2O5 Vendas e Tecnologia** (substitui o WordPress de v2o5.com.br)
 
 ## Estado (09/10/2026)
 - Plano fechado em `docs/2026-10-08-plano-novo-site.md` (v4, longo: use `grep -n "^##"` e leia só a seção).
-- Protótipo navegável da home em `src/` (`npm run dev`), refinado em 09/10 (logo vetorizado, molécula 3D em WebGL no hero, botões em vidro âmbar, soluções nos dois pilares do H1 e seção Visão 360); números e escolhas em `memory/decisoes.md`, pendências em `memory/pendencias.md`.
-- Plano e memória: branch `claude/v2o5-website-redesign-6vx4i6`, PR https://github.com/85dyones/v2o5/pull/1. Protótipo: branch `claude/gracious-euler-0qzedy`, PR contra a do plano.
+- Home, `/precos`, `/diagnostico` (formulário → `/api/leads` → webhook do n8n) e `/privacidade` prontas em `src/` (`npm run dev`); o resto do mapa de páginas é provisório. Preços em `src/conteudo/precos.ts` (piso de R$ 590/mês). Números e escolhas em `memory/decisoes.md`, pendências em `memory/pendencias.md`.
+- Tudo em `main` desde 10/10 (PRs #1 e #2 mesclados). Cada rodada nova sai de `main` numa branch `claude/...` com PR contra `main`; a Vercel publica o preview por branch e a produção pelo `main`.
 - Canvas de marca (privado): https://claude.ai/artifact/TJi91r21pMCLXUxL3AEYT3
 
 ## Termos
@@ -30,7 +30,7 @@ Novo site da **V2O5 Vendas e Tecnologia** (substitui o WordPress de v2o5.com.br)
 - Identidade geral (IA para negócios); automotivo como segmento com hub próprio. (09/10)
 - Visual escuro e tecnológico com motion (partículas da molécula, diagrama interativo, simuladores); formato editorial claro descartado. (09/10)
 - Nome fixo "V2O5 Vendas e Tecnologia"; assinatura "Catalisador de vendas com IA" com "IA" em âmbar. (08–09/10)
-- Preço publicado "a partir de"; infra repassada na fatura; cláusula de saída (loja leva código, dados e domínio). (08/10)
+- Preço publicado "a partir de", piso de R$ 590/mês com hospedagem e manutenção dentro; IA e WhatsApp repassados na fatura; cláusula de saída (loja leva código, dados e domínio). (08/10, piso em 10/10)
 - Consentimento no modelo da Motors (interesse legítimo + oposição em /privacidade). (08/10)
 → Log completo e datado: `memory/decisoes.md` · Pendências: `memory/pendencias.md`
 
@@ -45,7 +45,7 @@ Novo site da **V2O5 Vendas e Tecnologia** (substitui o WordPress de v2o5.com.br)
 | Preciso de | Arquivo |
 |---|---|
 | Marca, cores, fontes, geometria do logo | `memory/context/marca.md` |
-| Linhas de serviço e preços | `memory/context/oferta.md` |
+| Linhas de serviço e preços | `memory/context/oferta.md` (e `src/conteudo/precos.ts`) |
 | Mapa de páginas, SEO, redirecionamentos, concorrência | `memory/context/seo.md` |
 | Stack, infra, contas, tracking, orçamento de performance | `memory/context/infra.md` |
 | Direção visual e avaliação do motion | `memory/context/motion.md` |

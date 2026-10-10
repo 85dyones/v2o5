@@ -10,6 +10,10 @@ Tudo que aparece abreviado nas conversas do projeto. O que é usado toda hora ta
 | Dyones | Dyones Oliveira, fundador da V2O5; Administração pela FAE Business School; branding (caso: Top Imóveis → Top Soluções Imobiliárias); na informática desde 1992 (curso ganho num concurso da escola); assina os guias da Motors; conduz o diagnóstico |
 | Top | Top Imóveis, hoje Top Soluções Imobiliárias: caso de rebranding do Dyones citado na Visão 360; autorizou a citação (10/10) |
 | Motors | Motors Store, revenda de seminovos no Bacacheri, Curitiba; cliente e case |
+| WhatsApp da V2O5 | 5541998089550, só em `EMPRESA.whatsapp`; links por `lib/whatsapp.ts` |
+| Garantias | Bloco da home e de `/precos` com as regras comerciais (sem fidelidade, até 6x, o sistema é seu, mensalidade sem surpresa) |
+| `/api/leads` | Rota que recebe o formulário do diagnóstico e entrega ao n8n pelo webhook assinado |
+| Primeiro toque | UTM, click IDs, referrer e página de entrada guardados no sessionStorage na primeira página e enviados com o lead |
 | Costuras | Conceito da Visão 360: a venda se perde na passagem entre marca, marketing, vendas e gestão; o fio âmbar (tecnologia) costura as quatro |
 
 ## Marca

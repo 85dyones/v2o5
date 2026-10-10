@@ -1,7 +1,11 @@
 import Topo from "@/components/layout/Topo";
 import Rodape from "@/components/layout/Rodape";
+import BotaoWhatsAppFixo from "@/components/layout/BotaoWhatsAppFixo";
 import Hero from "@/components/home/Hero";
 import Solucoes from "@/components/home/Solucoes";
+import Garantias from "@/components/home/Garantias";
+import ChamadaCurta from "@/components/home/ChamadaCurta";
+import Perguntas from "@/components/home/Perguntas";
 import VisaoAmpla from "@/components/home/VisaoAmpla";
 import Orquestrador from "@/components/home/orquestrador/Orquestrador";
 import ComoSeLiga from "@/components/home/diagrama/ComoSeLiga";
@@ -17,14 +21,18 @@ export default function Home({ titulo }: { titulo: string }) {
       <main id="conteudo">
         <Hero titulo={titulo} />
         <Solucoes />
+        <Garantias />
         <VisaoAmpla />
         <Orquestrador />
         <ComoSeLiga />
         <CaseMotors />
+        <ChamadaCurta qual="depoisDoCase" />
         <Automotivo />
+        <Perguntas />
         <Fechamento />
       </main>
       <Rodape />
+      <BotaoWhatsAppFixo pagina="home" />
     </>
   );
 }

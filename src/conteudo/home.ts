@@ -7,6 +7,7 @@
  * (`memory/projects/case-motors.md`), travado por `tests/conteudo.test.ts`.
  */
 import type { Etapa } from "@/lib/tokens";
+import { AUTOMOTIVO_PRECO, BRL, precoDa, REGRAS } from "@/conteudo/precos";
 
 /**
  * O H1 da home, escolhido em 09/10 entre duas opções (a outra está em
@@ -16,7 +17,7 @@ export const TITULO_DA_HOME = "Coloque sua empresa no mapa e multiplique a opera
 
 export const HERO = {
   subtitulo:
-    "Perfil no Google, SEO, anúncios, site, agente de IA e CRM num sistema só, que mostra de onde veio cada venda. Se um dia quiser sair, você leva o código, os dados e o domínio.",
+    "Site, Google, anúncios, agente de IA e CRM montados por uma equipe só, num sistema que mostra de onde veio cada venda e fica no nome da sua empresa.",
   nota: "Diagnóstico gratuito: 45 minutos de conversa com o fundador e um mapa do que fazer, em até 24 horas.",
 };
 
@@ -72,48 +73,50 @@ export const LINHAS: Linha[] = [
   {
     titulo: "Agente de IA no WhatsApp",
     frase:
-      "Responde na hora com as informações do seu negócio. Quando a conversa pede uma pessoa, chama alguém da equipe.",
-    preco: "a partir de R$ 3.900 + R$ 790/mês",
+      "Responde na hora, a qualquer hora, com as informações do seu negócio. Quando a conversa pede uma pessoa, chama alguém da equipe.",
+    preco: precoDa("agente"),
     href: "/agente-de-ia-para-whatsapp",
     etapa: "verde",
     vinheta: "agente",
   },
   {
     titulo: "Sites e presença",
-    frase: "Site rápido no celular, com botão de WhatsApp e formulário que guardam de onde veio cada contato.",
-    preco: "a partir de R$ 7.900 + R$ 290/mês",
+    frase:
+      "Carrega rápido no celular, aparece no Google e grava de onde veio cada contato. Hospedagem, manutenção e SEO técnico já na mensalidade.",
+    preco: precoDa("sites"),
     href: "/criacao-de-sites",
     etapa: "violeta",
     vinheta: "site",
   },
   {
     titulo: "CRM e sistemas sob medida",
-    frase: "Cada contato num funil, com a origem e o próximo passo à vista.",
-    preco: "a partir de R$ 4.900 + R$ 590/mês",
+    frase: "Nenhum contato esquecido numa conversa: cada um num funil, com a origem, a etapa e o próximo passo à vista.",
+    preco: precoDa("crm"),
     href: "/crm-com-whatsapp",
     etapa: "azul",
     vinheta: "crm",
   },
   {
     titulo: "Automação de processos",
-    frase: "Tarefas repetidas rodando sozinhas entre os sistemas que você já usa.",
-    preco: "a partir de R$ 1.900 por fluxo",
+    frase: "A tarefa que alguém faz à mão toda semana passa a rodar sozinha entre os sistemas que você já usa.",
+    preco: precoDa("automacao"),
     href: "/automacao-com-ia",
     etapa: "azul",
     vinheta: "fluxo",
   },
   {
     titulo: "Rastreamento até a venda",
-    frase: "Você sabe qual anúncio trouxe o cliente que comprou.",
-    preco: "a partir de R$ 2.900 + R$ 290/mês",
+    frase: "Cada venda com a origem: qual anúncio, qual busca, qual página. Sem isso, a verba vai para onde parece funcionar.",
+    preco: precoDa("rastreamento"),
     href: "/rastreamento-de-conversoes",
     etapa: "violeta",
     vinheta: "jornada",
   },
   {
     titulo: "Tráfego pago no Google e na Meta",
-    frase: "Campanhas no Google Ads e na Meta (Instagram e Facebook), com a verba ajustada pelo que virou venda.",
-    preco: "a partir de R$ 1.800/mês + verba",
+    frase:
+      "Campanhas no Google Ads e na Meta (Instagram e Facebook) com a verba ajustada pela venda registrada no CRM. Começa com o rastreamento ligado.",
+    preco: precoDa("trafego"),
     href: "/gestao-de-trafego",
     etapa: "violeta",
     vinheta: "campanhas",
@@ -137,6 +140,14 @@ const linha = (href: string): Servico => {
   return l;
 };
 
+/** Cabeçalho da seção de soluções. */
+export const SOLUCOES = {
+  titulo: "Tudo que leva o cliente do Google ao caixa.",
+  apagado: "Comece pela linha que trava hoje e some as outras depois.",
+  texto:
+    "Cada linha tem preço publicado e sem fidelidade. A mensalidade já inclui hospedagem e manutenção, e todas rodam na mesma base: o que entra por uma aparece nas outras.",
+};
+
 /**
  * As duas metades do H1, cada uma com os serviços que a cumprem. Serviço sem
  * preço próprio na tabela de `oferta.md` diz em qual linha vem incluso
@@ -149,20 +160,21 @@ export const PILARES: { id: string; sobretitulo: string; titulo: string; frase: 
     sobretitulo: "No mapa",
     titulo: "Coloque sua empresa no mapa.",
     frase:
-      "Ser achado e escolhido por quem já procura o que você vende: no Google, no Maps, nas redes da Meta e nas respostas das IAs de busca.",
+      "Quem procura o que você vende acha você ou acha o concorrente. Esta metade cuida de ser você: no Google, no Maps, nos anúncios e nas respostas das IAs de busca.",
     servicos: [
       {
         titulo: "Branding e gestão de marca",
         frase:
-          "Posicionamento, identidade visual e tom de voz, com um guia que mantém a marca igual no perfil, no site, nos anúncios e no atendimento.",
-        preco: "a partir de R$ 1.500",
+          "Antes de anunciar, decida o que a marca promete. Posicionamento, identidade visual e tom de voz num guia que vale para o perfil, o site, os anúncios e o atendimento.",
+        preco: precoDa("branding"),
         href: "/diagnostico",
         etapa: "violeta",
         vinheta: "marca",
       },
       {
         titulo: "Perfil da Empresa no Google",
-        frase: "O antigo Google Meu Negócio, completo e verificado, para a empresa aparecer no Maps e na busca da sua região.",
+        frase:
+          "Quem busca perto de casa vê o Maps antes do site. O antigo Google Meu Negócio, completo e verificado, com a empresa aparecendo na sua região.",
         preco: "incluso em Sites e presença",
         href: "/criacao-de-sites",
         etapa: "violeta",
@@ -170,7 +182,7 @@ export const PILARES: { id: string; sobretitulo: string; titulo: string; frase: 
       },
       {
         titulo: "SEO e busca por IA",
-        frase: "SEO técnico e conteúdo com dados estruturados, para ranquear no Google e ser citado nas respostas das IAs.",
+        frase: "Para ranquear no Google e ser citado nas respostas das IAs: SEO técnico, conteúdo e dados estruturados no site.",
         preco: "SEO técnico incluso em Sites e presença",
         href: "/criacao-de-sites",
         etapa: "violeta",
@@ -185,7 +197,8 @@ export const PILARES: { id: string; sobretitulo: string; titulo: string; frase: 
     id: "operacao",
     sobretitulo: "Operação com IA",
     titulo: "Multiplique a operação com IA.",
-    frase: "O atendimento responde na hora, e o funil anda sem depender de alguém lembrar da próxima tarefa.",
+    frase:
+      "O contato que chega fora do horário recebe resposta na hora e entra no funil com a origem. A equipe começa o dia com o próximo passo pronto.",
     servicos: [
       linha("/agente-de-ia-para-whatsapp"),
       linha("/automacao-com-ia"),
@@ -193,7 +206,7 @@ export const PILARES: { id: string; sobretitulo: string; titulo: string; frase: 
       {
         titulo: "Integrações entre sistemas",
         frase: "Site, CRM, ERP e os sistemas do seu setor trocando dados sozinhos. Em produção hoje: o estoque do Revenda Mais.",
-        preco: "a partir de R$ 1.900 por fluxo",
+        preco: precoDa("automacao"),
         href: "/automacao-com-ia",
         etapa: "azul",
         vinheta: "integracoes",
@@ -611,7 +624,7 @@ export const AUTOMOTIVO = {
   titulo: "Para revendas de veículos",
   texto:
     "O pacote é o sistema da Motors Store: site de estoque integrado ao Revenda Mais, agente de IA no WhatsApp, CRM e rastreamento até a venda.",
-  preco: "Pacote completo a partir de R$ 14.900 de implantação e R$ 1.690 por mês.",
+  preco: `Pacote completo a partir de ${BRL(AUTOMOTIVO_PRECO.pacote.implantacao)} de implantação e ${BRL(AUTOMOTIVO_PRECO.pacote.mensalidade)} por mês.`,
   href: "/segmentos/revendas-de-veiculos",
   /** Vinheta do estoque: carros de exemplo, rotulada como exemplo. */
   estoque: {
@@ -632,4 +645,112 @@ export const EMPRESA = {
   razaoSocial: "V2O5 Tecnologia da Informação Ltda.",
   cnpj: "68.490.470/0001-14",
   cidade: "Almirante Tamandaré/PR",
+  /** Só dígitos, com o 55 (Dyones, 10/10). Link e rótulo saem daqui (`lib/whatsapp.ts`). */
+  whatsapp: "5541998089550",
+  /**
+   * E-mails públicos (10/10), alias da mesma caixa na Hostinger. O do
+   * diagnóstico é a porta de entrada do site, o mesmo lugar para onde todo
+   * botão leva, e a resposta automática ao lead sairá dele. O de privacidade
+   * é o contato do encarregado que a LGPD (art. 41) manda publicar. Links
+   * saem de `lib/email.ts`.
+   */
+  email: "diagnostico@v2o5.com.br",
+  emailPrivacidade: "privacidade@v2o5.com.br",
 };
+
+/** Assunto pré-preenchido do e-mail, por lugar. */
+export const EMAIL = {
+  assuntos: {
+    diagnostico: "Quero o diagnóstico gratuito",
+    privacidade: "Meus dados pessoais",
+  },
+};
+
+/** Mensagem pré-preenchida do WhatsApp, por página (plano, seção 6.1). */
+export const WHATSAPP = {
+  mensagens: {
+    home: "Olá! Vim pelo site da V2O5 e quero pedir o diagnóstico gratuito.",
+    precos: "Olá! Vi a página de preços da V2O5 e quero conversar sobre a minha empresa.",
+    diagnostico: "Olá! Quero marcar o diagnóstico gratuito da V2O5.",
+    recebido: "Olá! Acabei de pedir o diagnóstico pelo site e quero adiantar a conversa.",
+  },
+};
+
+// ---------------------------------------------------------------------------
+// Garantias, perguntas e chamadas (regras comerciais de oferta.md)
+// ---------------------------------------------------------------------------
+
+/** As regras comerciais que tiram o medo de contratar. Cada uma está em `oferta.md`. */
+export const GARANTIAS = [
+  { titulo: "Sem fidelidade", texto: "Mensalidade mês a mês. Cancela quando quiser." },
+  {
+    titulo: `Implantação em até ${REGRAS.parcelas}x`,
+    texto: "Ou metade na assinatura e metade na entrega.",
+  },
+  {
+    titulo: "O sistema é seu",
+    texto: `Se sair, recebe o código, os dados e o domínio em até ${REGRAS.diasParaEntregarNaSaida} dias.`,
+  },
+  {
+    titulo: "Mensalidade sem surpresa",
+    texto: "Hospedagem e manutenção dentro. Uso de IA e mensagens do WhatsApp pelo valor real, na mesma fatura.",
+  },
+];
+
+/** Chamada curta entre seções: a pergunta que o dono está se fazendo e o botão. */
+export const CHAMADA = {
+  depoisDasSolucoes: {
+    titulo: "Quer saber o que fazer primeiro na sua empresa?",
+    texto: "O diagnóstico é gratuito e sai com um mapa do que fazer, com custo e prazo, para usar com ou sem a V2O5.",
+  },
+  depoisDoCase: {
+    titulo: "Quer o mesmo sistema na sua empresa?",
+    texto: "A conversa de 45 minutos é com o fundador, que montou o da Motors Store.",
+  },
+  botao: "Pedir diagnóstico gratuito",
+};
+
+/**
+ * As perguntas que o dono faz antes de contratar, respondidas com as regras
+ * de `oferta.md`. Viram FAQPage no schema. Todo número daqui está na
+ * tabela de preços (`tests/conteudo.test.ts`).
+ */
+export const PERGUNTAS = [
+  {
+    pergunta: "Quanto custa um site com a V2O5?",
+    resposta: `A partir de ${BRL(7900)} de implantação e ${BRL(590)} por mês. A mensalidade cobre hospedagem, manutenção, atualizações de segurança, SEO técnico contínuo e o Perfil da Empresa no Google. Domínio e e-mail profissional entram na fundação do projeto.`,
+  },
+  {
+    pergunta: "O que a mensalidade inclui?",
+    resposta:
+      "Hospedagem, manutenção, atualizações de segurança, monitoramento e um relatório mensal. O uso do modelo de IA e as mensagens da API oficial do WhatsApp são cobrados pelo valor real, discriminados na mesma fatura. A verba de anúncios é paga direto ao Google e à Meta.",
+  },
+  {
+    pergunta: "Tem fidelidade ou multa?",
+    resposta: `Não. A implantação pode ser paga metade na assinatura e metade na entrega, ou em até ${REGRAS.parcelas} vezes, e a mensalidade cancela quando quiser. Se sair, você recebe o código, os dados e o domínio em até ${REGRAS.diasParaEntregarNaSaida} dias.`,
+  },
+  {
+    pergunta: "Preciso trocar o sistema de gestão que já uso?",
+    resposta: `Não. A V2O5 liga o que você já usa. Em produção hoje: o estoque do Revenda Mais sincronizado com o site e o agente da Motors Store. Outras integrações entram como fluxo de automação, a partir de ${BRL(1900)} por fluxo.`,
+  },
+  {
+    pergunta: "O agente de IA atende sozinho?",
+    resposta:
+      "Responde na hora com as informações do seu negócio e, quando a conversa pede uma pessoa, chama alguém da equipe. A conversa fica registrada no CRM, com a origem do contato.",
+  },
+  {
+    pergunta: "Vocês fazem tráfego pago sem rastreamento?",
+    resposta:
+      "Não. Sem rastreamento até a venda, a campanha otimiza pelo formulário preenchido, e verba vai para o anúncio que gera contato barato, mesmo quando ele vende pouco. A gestão de tráfego começa com o rastreamento ligado.",
+  },
+  {
+    pergunta: "Como funciona o diagnóstico gratuito?",
+    resposta:
+      "São 45 minutos de conversa com o fundador sobre presença, atendimento, operação e funil. Em até 24 horas você recebe um mapa do que fazer primeiro, com custo e prazo, para usar com ou sem a V2O5.",
+  },
+  {
+    pergunta: "A V2O5 atende fora de Curitiba?",
+    resposta:
+      "Sim. A sede fica em Almirante Tamandaré, na região de Curitiba, e o atendimento é remoto para empresas de todo o Brasil.",
+  },
+];
