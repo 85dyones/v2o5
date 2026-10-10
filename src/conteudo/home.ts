@@ -142,7 +142,7 @@ const linha = (href: string): Servico => {
 
 /** Cabeçalho da seção de soluções. */
 export const SOLUCOES = {
-  titulo: "Tudo que leva o cliente do Google ao caixa.",
+  titulo: "Tudo que leva o cliente do primeiro clique ao caixa.",
   apagado: "Comece pela linha que trava hoje e some as outras depois.",
   texto:
     "Cada linha tem preço publicado e sem fidelidade. A mensalidade já inclui hospedagem e manutenção, e todas rodam na mesma base: o que entra por uma aparece nas outras.",
