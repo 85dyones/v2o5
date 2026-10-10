@@ -647,6 +647,23 @@ export const EMPRESA = {
   cidade: "Almirante Tamandaré/PR",
   /** Só dígitos, com o 55 (Dyones, 10/10). Link e rótulo saem daqui (`lib/whatsapp.ts`). */
   whatsapp: "5541998089550",
+  /**
+   * E-mails públicos (10/10), alias da mesma caixa na Hostinger. O do
+   * diagnóstico é a porta de entrada do site, o mesmo lugar para onde todo
+   * botão leva, e a resposta automática ao lead sairá dele. O de privacidade
+   * é o contato do encarregado que a LGPD (art. 41) manda publicar. Links
+   * saem de `lib/email.ts`.
+   */
+  email: "diagnostico@v2o5.com.br",
+  emailPrivacidade: "privacidade@v2o5.com.br",
+};
+
+/** Assunto pré-preenchido do e-mail, por lugar. */
+export const EMAIL = {
+  assuntos: {
+    diagnostico: "Quero o diagnóstico gratuito",
+    privacidade: "Meus dados pessoais",
+  },
 };
 
 /** Mensagem pré-preenchida do WhatsApp, por página (plano, seção 6.1). */

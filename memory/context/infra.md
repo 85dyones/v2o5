@@ -19,7 +19,7 @@ Lição: na Motors, Pixel + GTM somam ~2,4 s de TBT no mobile.
 |---|---|
 | DNS | Hostinger (ns1/ns2.dns-parking.com) |
 | Site atual | WordPress na Hostinger, A 147.93.37.158 |
-| E-mail | Hostinger (MX mx1/mx2.hostinger.com, SPF, DKIM hostingermail-a, DMARC p=none) |
+| E-mail | Hostinger (MX mx1/mx2.hostinger.com, SPF, DKIM hostingermail-a, DMARC p=none). Endereços públicos: `diagnostico@` e `privacidade@` (alias da caixa principal; o Dyones cria, 10/10) |
 | VPS 168.231.100.245 | n8n.v2o5.com.br, chat.v2o5.com.br e chatwoot.v2o5.com.br (Chatwoot), evolution.v2o5.com.br (Evolution API) |
 Na migração: trocar só apex e `www` para a Vercel; conferir MX, SPF, DKIM, DMARC e os A da VPS antes e depois. WordPress fica 30 dias em subdomínio de backup.
 

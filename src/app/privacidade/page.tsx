@@ -4,10 +4,11 @@ import JsonLd from "@/components/JsonLd";
 import Topo from "@/components/layout/Topo";
 import Rodape from "@/components/layout/Rodape";
 import ControleDeOrigem from "@/components/privacidade/ControleDeOrigem";
-import { EMPRESA, VISAO_360, WHATSAPP } from "@/conteudo/home";
+import { EMAIL, EMPRESA, VISAO_360, WHATSAPP } from "@/conteudo/home";
 import { metadataDa } from "@/conteudo/paginas";
 import { grafoDaInterna } from "@/lib/schema";
 import { linkWhatsApp, whatsappParaLer } from "@/lib/whatsapp";
+import { linkEmail } from "@/lib/email";
 
 const ROTA = "/privacidade";
 
@@ -90,7 +91,11 @@ export default function Pagina() {
                 A controladora dos dados pessoais tratados neste site é a <strong>{razao}</strong> (nome fantasia{" "}
                 {EMPRESA.nome}), CNPJ {EMPRESA.cnpj}, com sede em {EMPRESA.cidade}. &ldquo;Controladora&rdquo; é o termo que a
                 Lei Geral de Proteção de Dados (Lei nº 13.709/2018) usa para quem decide como e por que os dados são
-                tratados. O encarregado pelo tratamento é {VISAO_360.fundador.nome}, fundador da empresa.
+                tratados. O encarregado pelo tratamento é {VISAO_360.fundador.nome}, fundador da empresa, no endereço{" "}
+                <a href={linkEmail(EMAIL.assuntos.privacidade, EMPRESA.emailPrivacidade)} className="link-sublinhado text-papel">
+                  {EMPRESA.emailPrivacidade}
+                </a>
+                .
               </p>
             </Secao>
 
@@ -237,7 +242,11 @@ export default function Pagina() {
 
             <Secao id="contato" titulo="Como falar com a V2O5">
               <p>
-                Para exercer qualquer direito, tirar dúvidas ou se opor a um tratamento, chame no{" "}
+                Para exercer qualquer direito, tirar dúvidas ou se opor a um tratamento, escreva para{" "}
+                <a href={linkEmail(EMAIL.assuntos.privacidade, EMPRESA.emailPrivacidade)} className="link-sublinhado text-papel">
+                  {EMPRESA.emailPrivacidade}
+                </a>
+                , chame no{" "}
                 <a
                   href={linkWhatsApp(WHATSAPP.mensagens.home)}
                   target="_blank"

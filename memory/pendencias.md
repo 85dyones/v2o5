@@ -11,7 +11,7 @@ Atualize ao resolver: mova a decisão para `decisoes.md` e apague daqui.
 6. CNAE: conferir com o contador se cobre site, sistema e tráfego (principal hoje é 7490-1/04).
 7. Persistência dos plugins: instalar pela conta do claude.ai ou registrar no `.claude/settings.json` do repo.
 8. Medir o preview da Vercel (PageSpeed): ele está atrás do login da Vercel. Liberar um bypass de proteção para automação ou dar ao conector acesso ao projeto `v2o5`. Ver também a molécula 3D num celular e num notebook comuns (o ambiente daqui só tem WebGL por software); com `?diagnostico` no fim da URL aparece o motivo se ela não rodar.
-9. E-mail público para o rodapé (hoje "a confirmar"). O WhatsApp entrou em 10/10 (5541998089550).
+9. Criar na Hostinger os alias `diagnostico@v2o5.com.br` (público) e `privacidade@v2o5.com.br` (encarregado), os dois apontando para a caixa principal. O site já publica os dois desde 10/10. Quando a resposta automática ao lead passar a sair por e-mail, subir o DMARC de `p=none` para `p=quarantine`.
 9a. Ligar o formulário do diagnóstico: criar no n8n um webhook que receba o POST de `/api/leads` (JSON com `event_id`, `recebido_em`, `fonte`, `lead`) e confira o cabeçalho `X-V2O5-Segredo`; definir `LEADS_WEBHOOK_URL` e `LEADS_WEBHOOK_SECRET` no projeto `v2o5` da Vercel (produção e preview). Até lá, o formulário responde "envio em configuração". Depois: aviso no WhatsApp do Dyones e resposta automática ao lead em menos de 1 minuto (plano 6.2), Supabase e Turnstile.
 10. Proposta: "Pergunte ao agente" no hero, uma conversa real com o agente da V2O5 (a demonstração do próprio produto). Precisa de backend, custo de IA e aviso de privacidade; fase 2.
 11. Foto do Dyones para a página Sobre, a Visão 360 e a assinatura dos guias.

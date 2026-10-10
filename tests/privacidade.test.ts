@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import { EMPRESA } from "@/conteudo/home";
 import { paginaDa } from "@/conteudo/paginas";
 import { CHAVES_DE_ORIGEM } from "@/lib/leads";
+import { linkEmail } from "@/lib/email";
 import { linkWhatsApp, whatsappInternacional, whatsappParaLer } from "@/lib/whatsapp";
 import { arquivos, ler, semComentarios } from "./fonte";
 
@@ -39,6 +40,11 @@ describe("página de privacidade", () => {
     }
   });
 
+  it("publica o e-mail do encarregado, que sai de EMPRESA", () => {
+    expect(pagina).toContain("EMPRESA.emailPrivacidade");
+    expect(pagina).toContain("encarregado");
+  });
+
   it("descreve as proteções que a rota de leads tem (armadilha e limite por IP)", () => {
     const rota = semComentarios(ler("src/app/api/leads/route.ts"));
     expect(rota).toContain("JANELA_MS = 10 * 60 * 1000");
@@ -64,6 +70,23 @@ describe("WhatsApp", () => {
     for (const arquivo of fontes) {
       if (arquivo === "src/conteudo/home.ts") continue;
       expect(semComentarios(ler(arquivo)), arquivo).not.toMatch(/wa\.me\/\d|5541998089550|99808-9550/);
+    }
+  });
+});
+
+describe("e-mail", () => {
+  it("os dois endereços são do domínio e o link sai do mesmo campo", () => {
+    expect(EMPRESA.email).toBe("diagnostico@v2o5.com.br");
+    expect(EMPRESA.emailPrivacidade).toBe("privacidade@v2o5.com.br");
+    expect(linkEmail()).toBe("mailto:diagnostico@v2o5.com.br");
+    expect(linkEmail("Quero o diagnóstico")).toBe("mailto:diagnostico@v2o5.com.br?subject=Quero%20o%20diagn%C3%B3stico");
+    expect(linkEmail("Meus dados", EMPRESA.emailPrivacidade)).toBe("mailto:privacidade@v2o5.com.br?subject=Meus%20dados");
+  });
+
+  it("nenhum endereço escrito à mão fora de EMPRESA", () => {
+    for (const arquivo of arquivos("src", /\.(tsx?|css)$/)) {
+      if (arquivo === "src/conteudo/home.ts") continue;
+      expect(semComentarios(ler(arquivo)), arquivo).not.toMatch(/[\w.+-]+@v2o5\.com\.br/);
     }
   });
 });

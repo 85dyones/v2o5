@@ -38,6 +38,7 @@ export function textoDoLlms(): string {
     "## Como começar",
     `- [Diagnóstico gratuito](${SITE_URL}/diagnostico): ${HERO.nota}`,
     `- WhatsApp: ${whatsappParaLer()}`,
+    `- E-mail: ${EMPRESA.email}`,
     `- [Preços](${SITE_URL}/precos) e [privacidade](${SITE_URL}/privacidade).`,
     "",
   ].join("\n");

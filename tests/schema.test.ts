@@ -49,10 +49,16 @@ describe("grafo da home", () => {
     });
   });
 
-  it("o WhatsApp entra como telefone e ponto de contato", () => {
+  it("WhatsApp e e-mail entram como telefone, e-mail e ponto de contato", () => {
     const o = organizacao();
     expect(o.telephone).toBe("+55 41 99808-9550");
-    expect(o.contactPoint).toMatchObject({ "@type": "ContactPoint", contactType: "sales", telephone: "+55 41 99808-9550" });
+    expect(o.email).toBe("diagnostico@v2o5.com.br");
+    expect(o.contactPoint).toMatchObject({
+      "@type": "ContactPoint",
+      contactType: "sales",
+      telephone: "+55 41 99808-9550",
+      email: "diagnostico@v2o5.com.br",
+    });
   });
 
   it("sem perfil inventado e sem nota própria", () => {

@@ -34,10 +34,12 @@ export function organizacao(): No {
     slogan: "Catalisador de vendas com IA",
     founder: ref(ID_DO_FUNDADOR),
     telephone: whatsappInternacional(),
+    email: EMPRESA.email,
     contactPoint: {
       "@type": "ContactPoint",
       contactType: "sales",
       telephone: whatsappInternacional(),
+      email: EMPRESA.email,
       availableLanguage: "pt-BR",
       areaServed: "BR",
     },

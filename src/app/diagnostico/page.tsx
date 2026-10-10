@@ -4,8 +4,9 @@ import Topo from "@/components/layout/Topo";
 import Rodape from "@/components/layout/Rodape";
 import Formulario from "@/components/diagnostico/Formulario";
 import { DIAGNOSTICO } from "@/conteudo/diagnostico";
-import { GARANTIAS, WHATSAPP } from "@/conteudo/home";
+import { EMAIL, EMPRESA, GARANTIAS, WHATSAPP } from "@/conteudo/home";
 import { linkWhatsApp } from "@/lib/whatsapp";
+import { linkEmail } from "@/lib/email";
 import { metadataDa } from "@/conteudo/paginas";
 import { grafoDaInterna } from "@/lib/schema";
 
@@ -66,18 +67,25 @@ export default function Pagina() {
             <div className="superficie relative p-6 md:p-8">
               <Formulario />
             </div>
-            <p className="mt-4 flex items-center gap-2 text-[0.9375rem] text-secundario">
-              <Icone nome="conversa" className="size-4 shrink-0 text-verde-claro" />
-              Prefere conversar?{" "}
-              <a
-                href={linkWhatsApp(WHATSAPP.mensagens.diagnostico)}
-                target="_blank"
-                rel="noopener"
-                className="link-sublinhado text-papel"
-                data-evento="click_whatsapp"
-              >
-                Chame no WhatsApp
-              </a>
+            <p className="mt-4 flex items-start gap-2 text-[0.9375rem] leading-relaxed text-secundario">
+              <Icone nome="conversa" className="mt-1 size-4 shrink-0 text-verde-claro" />
+              <span>
+                Prefere conversar?{" "}
+                <a
+                  href={linkWhatsApp(WHATSAPP.mensagens.diagnostico)}
+                  target="_blank"
+                  rel="noopener"
+                  className="link-sublinhado text-papel"
+                  data-evento="click_whatsapp"
+                >
+                  Chame no WhatsApp
+                </a>{" "}
+                ou escreva para{" "}
+                <a href={linkEmail(EMAIL.assuntos.diagnostico)} className="link-sublinhado text-papel" data-evento="click_email">
+                  {EMPRESA.email}
+                </a>
+                .
+              </span>
             </p>
           </div>
         </div>
