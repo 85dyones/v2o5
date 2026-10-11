@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Icone from "@/components/Icone";
 import VinhetaDaLinha, { PONTO_DA_ETAPA } from "@/components/home/Vinhetas";
-import { NOME_DA_ETAPA, PILARES, type Servico } from "@/conteudo/home";
+import { NOME_DA_ETAPA, PILARES, SOLUCOES, type Servico } from "@/conteudo/home";
 import type { Etapa } from "@/lib/tokens";
 
 export function MarcaDeEtapa({ etapa }: { etapa: Etapa }) {
@@ -97,12 +97,9 @@ export default function Solucoes() {
         <div className="max-w-[52rem]">
           <p className="sobretitulo">Soluções</p>
           <h2 id="titulo-solucoes" className="titulo-secao mt-5">
-            O que a V2O5 monta para a sua empresa.{" "}
-            <span className="apagado">Comece por uma linha e some as outras depois.</span>
+            {SOLUCOES.titulo} <span className="apagado">{SOLUCOES.apagado}</span>
           </h2>
-          <p className="texto-guia mt-6 max-w-[38rem]">
-            Todas usam a mesma base de dados, então o que entra por uma aparece nas outras.
-          </p>
+          <p className="texto-guia mt-6 max-w-[38rem]">{SOLUCOES.texto}</p>
         </div>
 
         {PILARES.map((pilar, p) => (

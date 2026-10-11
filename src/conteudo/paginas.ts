@@ -26,8 +26,8 @@ export const PAGINAS: Pagina[] = [
     rota: "/",
     titulo: TITULO_PADRAO,
     descricao:
-      "Perfil no Google, SEO, tráfego pago, site, agente de IA no WhatsApp, automação e CRM num sistema que fica com a sua empresa. Diagnóstico gratuito.",
-    atualizadaEm: "2026-10-09",
+      "Site, Perfil no Google, anúncios, agente de IA no WhatsApp e CRM montados por uma equipe só, num sistema que mostra de onde veio cada venda. Sem fidelidade.",
+    atualizadaEm: "2026-10-10",
     pronta: true,
   },
   {
@@ -89,10 +89,11 @@ export const PAGINAS: Pagina[] = [
   },
   {
     rota: "/precos",
-    titulo: "Preços",
-    descricao: "Valores de implantação e mensalidade de cada linha, sempre a partir de.",
-    atualizadaEm: "2026-10-09",
-    pronta: false,
+    titulo: "Preços e planos",
+    descricao:
+      "Site a partir de R$ 7.900 + R$ 590/mês, agente de IA no WhatsApp, CRM, tráfego e rastreamento até a venda. Sem fidelidade: código, dados e domínio são seus.",
+    atualizadaEm: "2026-10-10",
+    pronta: true,
   },
   {
     rota: "/sobre",
@@ -103,10 +104,17 @@ export const PAGINAS: Pagina[] = [
   },
   {
     rota: "/diagnostico",
-    titulo: "Pedir diagnóstico",
+    titulo: "Diagnóstico gratuito",
     descricao:
-      "45 minutos de conversa com o fundador e um mapa do que fazer, em até 24 horas. O formulário entra na próxima etapa.",
-    atualizadaEm: "2026-10-09",
+      "45 minutos de conversa com o fundador e, em até 24 horas, um mapa do que fazer primeiro na sua empresa, com custo e prazo. Sem compromisso.",
+    atualizadaEm: "2026-10-10",
+    pronta: true,
+  },
+  {
+    rota: "/diagnostico/recebido",
+    titulo: "Pedido recebido",
+    descricao: "Recebemos o seu pedido de diagnóstico. O que acontece agora e como a V2O5 entra em contato.",
+    atualizadaEm: "2026-10-10",
     pronta: false,
   },
   {
@@ -118,10 +126,11 @@ export const PAGINAS: Pagina[] = [
   },
   {
     rota: "/privacidade",
-    titulo: "Privacidade",
-    descricao: "Como a V2O5 trata os dados de quem visita o site.",
-    atualizadaEm: "2026-10-09",
-    pronta: false,
+    titulo: "Política de privacidade",
+    descricao:
+      "Quais dados a V2O5 Vendas e Tecnologia coleta neste site, para quê, com quem compartilha, por quanto tempo guarda e como pedir acesso, correção ou exclusão.",
+    atualizadaEm: "2026-10-10",
+    pronta: true,
   },
 ];
 

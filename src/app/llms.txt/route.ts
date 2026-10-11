@@ -1,5 +1,6 @@
 import { AUTOMOTIVO, CASE, EMPRESA, HERO, PILARES, VISAO_360 } from "@/conteudo/home";
 import { SITE_URL } from "@/lib/site";
+import { whatsappParaLer } from "@/lib/whatsapp";
 
 /**
  * `llms.txt`: os fatos citáveis da V2O5, para assistentes de IA (seção 4.4 do
@@ -36,6 +37,9 @@ export function textoDoLlms(): string {
     "",
     "## Como começar",
     `- [Diagnóstico gratuito](${SITE_URL}/diagnostico): ${HERO.nota}`,
+    `- WhatsApp: ${whatsappParaLer()}`,
+    `- E-mail: ${EMPRESA.email}`,
+    `- [Preços](${SITE_URL}/precos) e [privacidade](${SITE_URL}/privacidade).`,
     "",
   ].join("\n");
 }
