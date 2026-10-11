@@ -1,3 +1,4 @@
+import { CASE_MOTORS } from "@/conteudo/case";
 import { EMPRESA, PERGUNTAS, PILARES, VISAO_360 } from "@/conteudo/home";
 import { paginaDa } from "@/conteudo/paginas";
 import { AUTOMOTIVO_PRECO, LINHAS_DE_PRECO } from "@/conteudo/precos";
@@ -161,6 +162,36 @@ export function grafoDaHome(): No {
 
 export function grafoDaInterna(rota: string): No {
   return { "@context": "https://schema.org", "@graph": [ref(ID_DA_ORGANIZACAO), trilha(rota)] };
+}
+
+/** O case como artigo assinado pelo fundador, sobre a Motors Store. */
+export function artigoDoCase(): No {
+  const p = paginaDa(CASE_MOTORS.rota);
+  return {
+    "@type": "Article",
+    "@id": `${SITE_URL}${CASE_MOTORS.rota}#artigo`,
+    headline: CASE_MOTORS.titulo,
+    description: p.descricao,
+    inLanguage: "pt-BR",
+    datePublished: "2026-10-11",
+    dateModified: p.atualizadaEm,
+    mainEntityOfPage: `${SITE_URL}${CASE_MOTORS.rota}`,
+    author: ref(ID_DO_FUNDADOR),
+    publisher: ref(ID_DA_ORGANIZACAO),
+    about: {
+      "@type": "Organization",
+      name: CASE_MOTORS.cliente.nome,
+      url: CASE_MOTORS.cliente.url,
+      address: { "@type": "PostalAddress", addressLocality: CASE_MOTORS.cliente.cidade, addressRegion: CASE_MOTORS.cliente.estado, addressCountry: "BR" },
+    },
+  };
+}
+
+export function grafoDoCase(): No {
+  return {
+    "@context": "https://schema.org",
+    "@graph": [ref(ID_DA_ORGANIZACAO), fundador(), trilha(CASE_MOTORS.rota), artigoDoCase()],
+  };
 }
 
 export function grafoDosPrecos(): No {

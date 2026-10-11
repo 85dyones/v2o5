@@ -2,6 +2,12 @@
 
 Log datado. Decisão nova entra no topo do dia; decisão revogada fica riscada com a data da troca.
 
+## 11/10/2026 (PR #3 em main; fluxo do n8n e case Motors)
+- PR #3 mesclado por squash em `main` (5444d84) a pedido do Dyones ("Faça"). A branch `claude/gracious-euler-0qzedy` foi reiniciada a partir do `main`; rodada nova em PR novo.
+- Fluxo do n8n pronto para importar em `docs/n8n/lead-do-diagnostico.json` (LEIA-ME ao lado): webhook com Header Auth `X-V2O5-Segredo`, resposta 200 imediata ao site, aviso ao Dyones e resposta ao lead pela Evolution, contato criado ou atualizado no Chatwoot; e-mail de resposta desligado até o alias existir. Nenhuma chave no arquivo: credenciais por nome. `tests/n8n.test.ts` amarra os rótulos do fluxo aos do formulário.
+- Case Motors Store (`/cases/motors-store`) pronto e indexável: o que foi construído (seis peças, uma por linha do cardápio), seis números com fonte e período, leitura honesta (3 vendas em cinco semanas: mede sistema, não resultado comercial), como a venda fica rastreável (terminal de exemplo, agora componente `TerminalDeEventos` compartilhado com a home), o que entra com 90 dias, stack, assinatura do fundador, CTA para o diagnóstico e `/precos`. Logo da Motors como componente (`MarcaMotors`, do pacote de marca da loja). `Article` no schema, com `about` Motors Store e autor o fundador. Nada de atendimento nem tempo de resposta.
+- Título das Soluções: "Tudo que leva o cliente do primeiro clique ao caixa." (10/10, à noite; ver seção anterior).
+
 ## 10/10/2026 (respostas do Dyones: WhatsApp, pacote e privacidade)
 - WhatsApp público: 5541998089550 (`EMPRESA.whatsapp`; link e rótulo saem de `lib/whatsapp.ts`, como na Motors). Entrou no rodapé, no botão fixo do celular da home e de `/precos` (mensagem pré-preenchida por página, `WHATSAPP.mensagens`), como alternativa sob o formulário do diagnóstico e no "recebido", no schema (`telephone` e `contactPoint`) e no `llms.txt`. Links com `data-evento="click_whatsapp"` para a camada de dados futura.
 - Pacote automotivo confirmado em R$ 1.990/mês.

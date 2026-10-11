@@ -54,7 +54,8 @@ describe("demonstrações rotuladas", () => {
   });
 
   it("o terminal do case é rotulado como exemplo", () => {
-    expect(ler("src/components/home/CaseMotors.tsx")).toMatch(/>exemplo</);
+    expect(ler("src/components/home/TerminalDeEventos.tsx")).toMatch(/>exemplo</);
+    expect(ler("src/components/home/CaseMotors.tsx")).toMatch(/<TerminalDeEventos linhas=\{CASE\.terminal\}/);
   });
 });
 

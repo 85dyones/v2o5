@@ -32,7 +32,7 @@ export function textoDoLlms(): string {
     `- [${AUTOMOTIVO.titulo}](${SITE_URL}${AUTOMOTIVO.href}): ${AUTOMOTIVO.texto} ${AUTOMOTIVO.preco}`,
     "",
     "## Case Motors Store",
-    `Revenda de seminovos em Curitiba. ${CASE.fonte}`,
+    `Revenda de seminovos em Curitiba. ${CASE.fonte} [Case completo](${SITE_URL}/cases/motors-store).`,
     ...numeros,
     "",
     "## Como começar",

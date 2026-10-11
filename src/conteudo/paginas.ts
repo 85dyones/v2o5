@@ -83,9 +83,10 @@ export const PAGINAS: Pagina[] = [
   {
     rota: "/cases/motors-store",
     titulo: "Case Motors Store",
-    descricao: "Como o sistema da V2O5 roda numa revenda de seminovos em Curitiba.",
-    atualizadaEm: "2026-10-09",
-    pronta: false,
+    descricao:
+      "O que a V2O5 montou para a Motors Store, revenda de seminovos em Curitiba, e os números do sistema rodando, lidos no banco de dados da loja.",
+    atualizadaEm: "2026-10-11",
+    pronta: true,
   },
   {
     rota: "/precos",
