@@ -1,7 +1,8 @@
+import { HUB_AUTOMOTIVO } from "@/conteudo/automotivo";
 import { CASE_MOTORS } from "@/conteudo/case";
 import { EMPRESA, PERGUNTAS, PILARES, VISAO_360 } from "@/conteudo/home";
 import { paginaDa } from "@/conteudo/paginas";
-import { AUTOMOTIVO_PRECO, LINHAS_DE_PRECO } from "@/conteudo/precos";
+import { AUTOMOTIVO_PRECO, LINHAS_DE_PRECO, mensalidadeDoPacoteComTrafego } from "@/conteudo/precos";
 import { SITE_URL } from "@/lib/site";
 import { whatsappInternacional } from "@/lib/whatsapp";
 
@@ -90,12 +91,12 @@ export function trilha(rota: string): No {
     ],
   };
 }
-/** As perguntas da home e de `/precos`, com as mesmas respostas da página. */
-export function perguntas(rota: string): No {
+/** As perguntas da página (as da home e de `/precos` por padrão), com as mesmas respostas. */
+export function perguntas(rota: string, lista: { pergunta: string; resposta: string }[] = PERGUNTAS): No {
   return {
     "@type": "FAQPage",
     "@id": `${SITE_URL}${rota}#perguntas`,
-    mainEntity: PERGUNTAS.map((p) => ({
+    mainEntity: lista.map((p) => ({
       "@type": "Question",
       name: p.pergunta,
       acceptedAnswer: { "@type": "Answer", text: p.resposta },
@@ -191,6 +192,36 @@ export function grafoDoCase(): No {
   return {
     "@context": "https://schema.org",
     "@graph": [ref(ID_DA_ORGANIZACAO), fundador(), trilha(CASE_MOTORS.rota), artigoDoCase()],
+  };
+}
+
+/** O pacote automotivo como serviço para revendas, com as três ofertas da página. */
+export function servicoAutomotivo(): No {
+  const { pacote } = AUTOMOTIVO_PRECO;
+  const rota = HUB_AUTOMOTIVO.rota;
+  return {
+    "@type": "Service",
+    "@id": `${SITE_URL}${rota}#servico`,
+    name: "Pacote completo para revendas de veículos",
+    description: HUB_AUTOMOTIVO.resumo,
+    url: `${SITE_URL}${rota}`,
+    provider: ref(ID_DA_ORGANIZACAO),
+    serviceType: "Site de estoque, agente de IA no WhatsApp, CRM e rastreamento até a venda",
+    audience: { "@type": "BusinessAudience", name: "Revendas de veículos" },
+    areaServed: { "@type": "Country", name: "Brasil" },
+    offers: [
+      oferta("Pacote completo (implantação)", pacote.implantacao, "Implantação a partir de"),
+      oferta("Pacote completo (mensalidade)", pacote.mensalidade, `Mensalidade a partir de, com ${pacote.usuarios} usuários`),
+      oferta("Pacote completo com Google Ads e Meta Ads (mensalidade)", mensalidadeDoPacoteComTrafego(), "Mensalidade a partir de, mais a verba"),
+    ],
+  };
+}
+
+export function grafoDoHubAutomotivo(): No {
+  const rota = HUB_AUTOMOTIVO.rota;
+  return {
+    "@context": "https://schema.org",
+    "@graph": [ref(ID_DA_ORGANIZACAO), trilha(rota), servicoAutomotivo(), perguntas(rota, HUB_AUTOMOTIVO.perguntas)],
   };
 }
 

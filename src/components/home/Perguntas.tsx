@@ -5,22 +5,31 @@ import { PERGUNTAS } from "@/conteudo/home";
  * comerciais. `<details>` nativo: abre sem JavaScript, e `name` deixa uma
  * aberta por vez. O schema FAQPage repete as mesmas perguntas (`schema.ts`).
  */
-export default function Perguntas({ id = "perguntas" }: { id?: string }) {
+export default function Perguntas({
+  id = "perguntas",
+  lista = PERGUNTAS,
+  sobretitulo = "Antes de contratar",
+  titulo = "O que todo mundo pergunta",
+  texto = "Preço, fidelidade, o que entra na mensalidade e o que fica de fora. Se a sua pergunta não está aqui, ela cabe no diagnóstico.",
+}: {
+  id?: string;
+  lista?: { pergunta: string; resposta: string }[];
+  sobretitulo?: string;
+  titulo?: string;
+  texto?: string;
+}) {
   return (
     <section id={id} aria-labelledby={`titulo-${id}`} className="adiada py-24 md:py-32">
       <div className="conteiner grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.6fr)] lg:gap-16">
         <div>
-          <p className="sobretitulo">Antes de contratar</p>
+          <p className="sobretitulo">{sobretitulo}</p>
           <h2 id={`titulo-${id}`} className="titulo-secao mt-5">
-            O que todo mundo pergunta <span className="apagado">antes de fechar.</span>
+            {titulo} <span className="apagado">antes de fechar.</span>
           </h2>
-          <p className="texto-guia mt-6 max-w-[30rem]">
-            Preço, fidelidade, o que entra na mensalidade e o que fica de fora. Se a sua pergunta não está aqui, ela cabe
-            no diagnóstico.
-          </p>
+          <p className="texto-guia mt-6 max-w-[30rem]">{texto}</p>
         </div>
         <div className="superficie divide-y divide-linha px-2 md:px-4">
-          {PERGUNTAS.map((p) => (
+          {lista.map((p) => (
             <details key={p.pergunta} name={id} className="pergunta group">
               <summary className="flex min-h-14 cursor-pointer list-none items-center justify-between gap-6 px-4 py-4 text-[1.0625rem] font-semibold leading-snug tracking-[-0.01em] md:px-5">
                 {p.pergunta}

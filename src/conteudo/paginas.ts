@@ -74,11 +74,11 @@ export const PAGINAS: Pagina[] = [
   },
   {
     rota: "/segmentos/revendas-de-veiculos",
-    titulo: "Revendas de veículos",
+    titulo: "Sistema de vendas para revendas de veículos",
     descricao:
-      "Site de estoque, agente de IA, CRM e rastreamento para revendas, com integração ao Revenda Mais.",
-    atualizadaEm: "2026-10-09",
-    pronta: false,
+      "Site de estoque ligado ao Revenda Mais, agente de IA no WhatsApp, CRM e rastreamento até a venda. Pacote a partir de R$ 14.900 + R$ 1.990/mês. Sem fidelidade.",
+    atualizadaEm: "2026-10-12",
+    pronta: true,
   },
   {
     rota: "/cases/motors-store",
@@ -92,8 +92,8 @@ export const PAGINAS: Pagina[] = [
     rota: "/precos",
     titulo: "Preços e planos",
     descricao:
-      "Site a partir de R$ 7.900 + R$ 590/mês, agente de IA no WhatsApp, CRM, tráfego e rastreamento até a venda. Sem fidelidade: código, dados e domínio são seus.",
-    atualizadaEm: "2026-10-10",
+      "Site a partir de R$ 7.900 + R$ 590/mês, agente de IA, CRM, painel, tráfego e reativação de base, com o que cresce já precificado. Sem fidelidade.",
+    atualizadaEm: "2026-10-12",
     pronta: true,
   },
   {

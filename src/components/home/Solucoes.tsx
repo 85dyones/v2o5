@@ -31,14 +31,14 @@ type Formato = "normal" | "destaque" | "largo";
 
 /**
  * Onde cada cartão cai na grade de 6 colunas (desktop) e 2 (tablet). No
- * mapa: duas fileiras de três (marca, perfil e busca; site, anúncios e
- * rastreamento). Na operação: o agente de IA no bloco grande, automação e
- * CRM ao lado, integrações numa faixa inteira.
+ * mapa: três fileiras de três. Na operação: o agente de IA no bloco grande
+ * com CRM e painel ao lado, depois automação, reativação e pós-venda, e as
+ * integrações numa faixa inteira no fim.
  */
-function arranjo(pilar: string, i: number): { formato: Formato; classe: string } {
+function arranjo(pilar: string, i: number, total: number): { formato: Formato; classe: string } {
   if (pilar === "operacao") {
     if (i === 0) return { formato: "destaque", classe: "md:col-span-2 lg:col-span-4 lg:row-span-2" };
-    if (i === 3) return { formato: "largo", classe: "md:col-span-2 lg:col-span-6" };
+    if (i === total - 1) return { formato: "largo", classe: "md:col-span-2 lg:col-span-6" };
     return { formato: "normal", classe: "lg:col-span-2" };
   }
   return { formato: "normal", classe: "lg:col-span-2" };
@@ -118,7 +118,7 @@ export default function Solucoes() {
             </div>
             <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-6">
               {pilar.servicos.map((servico, i) => (
-                <Cartao key={servico.titulo} servico={servico} {...arranjo(pilar.id, i)} />
+                <Cartao key={servico.titulo} servico={servico} {...arranjo(pilar.id, i, pilar.servicos.length)} />
               ))}
             </div>
           </div>
