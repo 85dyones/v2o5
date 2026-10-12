@@ -46,6 +46,29 @@ Pacote confirmado pelo Dyones em 10/10. Desconto do pacote: 24% sobre a soma das
 - Integração só é anunciada quando existe em produção (hoje: Revenda Mais).
 - Tráfego pago só com o rastreamento até a venda ligado.
 
+## Custo da mensalidade e pisos revisados (proposta de 12/10/2026, a confirmar pelo Dyones)
+Custos de infra por cliente (páginas de preço lidas em 12/10/2026; dólar de referência R$ 5,40): Vercel Pro US$ 20/mês por assento de desenvolvedor, 1 TB de banda, compartilhado entre todos os clientes (vercel.com/pricing); Supabase Pro US$ 25/mês na organização e US$ 10/mês por projeto extra (Micro), 8 GB de disco por projeto, excedente US$ 0,125/GB (supabase.com/pricing); VPS Hostinger KVM 2 R$ 43,99 e KVM 4 R$ 59,99 por mês, compartilhada (n8n, Chatwoot, Evolution; hostinger.com/br). Hora do fundador valorada em R$ 150 (mercado de consultoria: R$ 70 a R$ 150).
+
+| Linha | Infra/mês por cliente | Horas/mês | Custo | Piso atual | Margem | Piso proposto |
+|---|---|---|---|---|---|---|
+| Sites e presença (estático, sem banco) | ~R$ 40 | 1,5 | ~R$ 265 | R$ 590 | 55% | mantém R$ 590 |
+| Rastreamento | ~R$ 20 | 2 | ~R$ 320 | R$ 590 | 46% | mantém R$ 590 |
+| Agente de IA | ~R$ 40 (+ IA e WhatsApp repassados) | 3 | ~R$ 490 | R$ 790 | 38% | R$ 790 até 500 conversas/mês; +R$ 190 a cada 500 |
+| CRM | ~R$ 80 (projeto Supabase + Chatwoot) | 3 | ~R$ 530 | R$ 590 | 10% | **R$ 790** com 5 usuários; usuário extra R$ 89/mês; acima de 20 mil contatos ou 8 GB: +R$ 190/mês |
+| Painel do dono | ~R$ 80 (ou compartilha o projeto do CRM) | 3 | ~R$ 530 | (novo) | | **R$ 790** com 3 usuários e 3 fontes; usuário extra R$ 89/mês; fonte extra R$ 1.900 + R$ 190/mês; acima de 8 GB ou 1 milhão de linhas: compute do Supabase repassado + 20% |
+| Conteúdo e redes com IA | ~R$ 250 (ferramentas e IA) | 4 | ~R$ 850 | (novo) | | R$ 1.500 de configuração + **R$ 1.290/mês** (12 posts, 2 redes) |
+
+Referências do usuário extra: Power BI Pro R$ 80,10/usuário/mês (beanalytic, jul/2026); Cubo Suite R$ 267/mês com 3 usuários e R$ 89 por usuário extra (blog.cubosuite.com.br, 2026).
+Pacote automotivo: soma das mensalidades passa a R$ 2.760 (590 + 790 + 790 + 590); pacote segue em R$ 1.990 (28% abaixo), com 5 usuários; usuário extra R$ 89.
+Cláusula: reajuste anual pelo IPCA e repasse de variação cambial acima de 10% nos itens em dólar (Vercel, Supabase, modelos de IA).
+
+**Tráfego, reestruturado**: Google Ads R$ 1.200/mês + verba (Pesquisa, Performance Max, feed de veículos ou Shopping quando couber); Meta Ads R$ 1.200/mês + verba (catálogo de veículos ou produtos como diferencial, públicos da base do CRM, CAPI); os dois juntos R$ 1.990/mês (bônus: feed de catálogo, que vale R$ 1.900, incluso). Substitui a linha única de R$ 1.800. No pacote automotivo os dois continuam a R$ 1.300. Sempre com rastreamento ligado.
+
+**Reativação de base, estrutura**: R$ 1.900 por campanha inclui extração dos dados (ERP, planilha, CRM ou portal), formatação e higienização (deduplicação, DDD, validação do número, opt-out prévio), segmentação, roteiro em duas variantes, cadência e relatório de retorno (respostas, agendamentos, vendas no CRM). Até 5 mil contatos e um canal; canal extra R$ 490; cada 5 mil contatos a mais R$ 290; campanha recorrente depois da primeira R$ 990/mês. Custos do cliente, repassados pelo valor da operadora ou da Meta:
+- WhatsApp oficial (Cloud API, sem BSP): R$ 0,3217 por mensagem de marketing (tabela de fornecedor vigente desde 07/2026; confirmar no painel da Meta). Limites por qualidade: 250/dia sem verificação, depois 1.000, 10.000 e 100.000 por dia conforme o tier; bloqueios acima de 2% reduzem o limite e acima de 5% suspendem; suspensão de 24 a 72 h na primeira infração (clickmassa.com.br, 2026). Opt-out em toda mensagem ("responda PARAR"), template aprovado, 1 a 2 mensagens promocionais por semana.
+- WhatsApp não oficial (Evolution): sem tarifa por mensagem; custo do número dedicado (chip) e R$ 290 por número/mês de operação (instância, aquecimento de 7 a 14 dias com volume crescente, monitoramento). Risco: banimento do número, permanente na primeira ocorrência grave, e sem suporte da Meta; só com termo de aceite do cliente, número exclusivo da campanha (nunca o número principal da loja) e volume de centenas de mensagens por dia, no máximo.
+- SMS: R$ 0,05 a R$ 0,10 por mensagem, pré-pago sem mensalidade (Comtele R$ 0,10 no pacote de 500; SMS Barato R$ 0,079 por 1.000; Zenvia de R$ 0,10 a R$ 0,052 por faixa de volume; páginas lidas em 12/10/2026).
+
 ## Referência de mercado das linhas novas (pesquisa de 12/10/2026, páginas públicas brasileiras)
 Fontes comerciais (blogs de agências, tabelas de fornecedores); nenhuma é levantamento oficial. Cada número abaixo tem a fonte e a data ao lado.
 
