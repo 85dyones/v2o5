@@ -16,6 +16,7 @@ Atualize ao resolver: mova a decisão para `decisoes.md` e apague daqui.
 10. Proposta: "Pergunte ao agente" no hero, uma conversa real com o agente da V2O5 (a demonstração do próprio produto). Precisa de backend, custo de IA e aviso de privacidade; fase 2.
 11. Foto do Dyones para a página Sobre, a Visão 360 e a assinatura dos guias.
 13. A home diz que o sistema da Motors tem "agente de IA no WhatsApp" (`AUTOMOTIVO.texto` e o pacote): a memória do case registra n8n, Evolution e Chatwoot, não um agente de IA na loja. Confirmar com o Dyones se o agente roda na Motors; se não, o texto do pacote passa a prometer o agente como parte do pacote, sem dizer que a Motors já usa. A página do case não cita agente.
+14. Linhas novas (12/10): confirmar os pisos propostos em `oferta.md` (Painel do dono, Reativação de base, Conteúdo e redes com IA, avaliações, catálogo, pós-venda), o nome da empresa parceira de produção de conteúdo e como ela aparece no site. Depois: linha em `precos.ts`, cartão na home, página própria e tabela em `/precos`.
 12. SEO contínuo e Perfil da Empresa avulsos (sem site da V2O5): publicar preço próprio? Hoje aparecem como inclusos em Sites e presença. Página própria para Branding (hoje o cartão leva a `/diagnostico`), e para SEO e Perfil se virarem linha (`/branding`, `/seo`, `/perfil-da-empresa-no-google`), depois do Planejador de Palavras-chave.
 
 ## Técnicas

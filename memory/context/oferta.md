@@ -17,6 +17,17 @@ Piso da mensalidade: R$ 590 (Dyones, 10/10), porque ela cobre hospedagem e manut
 
 Na home, as linhas se dividem nos dois pilares do H1 (mapa: branding, Perfil da Empresa, SEO, sites, tráfego, rastreamento; operação: agente, automação, CRM, integrações). Perfil da Empresa no Google e SEO técnico aparecem como cartões "incluso em Sites e presença"; Integrações entre sistemas, como cartão com o preço da automação por fluxo.
 
+## Linhas novas (12/10, proposta de piso a confirmar pelo Dyones; ainda fora do site)
+| Linha | Pilar | Implantação a partir de | Mensalidade a partir de | O que cobre |
+|---|---|---|---|---|
+| Painel do dono (BI e dashboards) | operação | R$ 3.900 | R$ 590 | funil, verba, custo por lead e vendas por origem; unificação de até 3 fontes (CRM, rastreamento, planilha ou ERP); fonte extra é um fluxo de automação |
+| Reativação de base | operação | R$ 1.900 por campanha | | importação e higienização da base própria, segmentação, roteiro do agente, relatório de retorno; agente de IA e mensagens da API à parte |
+| Conteúdo e redes com IA | mapa | R$ 1.500 (configuração) | R$ 990 | perfis configurados, calendário, 12 publicações/mês montadas do conteúdo existente com link rastreado, relatório; produção de foto, vídeo e peças pela parceira, vendida junto |
+| Avaliações no Google | mapa | fluxo de automação (R$ 1.900) | | pedido de avaliação no WhatsApp depois da venda, com acompanhamento no painel |
+| Anúncios de catálogo (automotivo) | mapa | R$ 1.900 | dentro do tráfego | feed do estoque para Vehicle Ads e catálogo da Meta |
+| Pós-venda e recorrência | operação | fluxo de automação (R$ 1.900) | | régua de retorno (revisão, troca, seguro, recompra) no n8n |
+Treinamento da equipe entra na implantação do CRM e do agente, sem preço próprio.
+
 ## Segmento automotivo
 | Item | Implantação | Mensalidade |
 |---|---|---|

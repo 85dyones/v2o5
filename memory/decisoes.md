@@ -2,6 +2,11 @@
 
 Log datado. Decisão nova entra no topo do dia; decisão revogada fica riscada com a data da troca.
 
+## 12/10/2026 (linhas novas do cardápio, pelo Dyones)
+- Entram quatro linhas, com o enquadramento combinado: **Painel do dono** (BI e dashboards: funil, verba, custo por lead e vendas por origem, alimentado pelo CRM e pelo rastreamento; a unificação e extração de dados é a fundação do painel e só ganha nome próprio quando há sistema legado para puxar); **Reativação de base** (planilha de clientes antigos entra no CRM, o agente abre conversa no WhatsApp, a venda recuperada aparece no painel; só base própria, com registro de origem: lista comprada ou raspada é LGPD e banimento na Meta); **Conteúdo e redes com IA** (configuração dos perfis, calendário e publicação automatizada em cima do que já existe: guias, estoque, cases; cada post com link rastreado; sem gestão de comentários); produção de foto, vídeo e peças é vendida em parceria com outra empresa.
+- Adjacentes aceitos em princípio: avaliações no Google por automação de pós-venda; anúncios de catálogo (Vehicle Ads e catálogo da Meta, feed já existe na Motors); régua de pós-venda e recorrência; treinamento da equipe dentro da implantação. Fora: compra de listas, tráfego sem rastreamento, site avulso barato, qualquer linha cobrada por hora.
+- Preços de piso das linhas novas: proposta em `memory/context/oferta.md`, a confirmar pelo Dyones antes de entrar no site.
+
 ## 11/10/2026 (PR #3 em main; fluxo do n8n e case Motors)
 - Regra do Dyones, depois de ver o case: "não podemos usar parte do texto falando de dados não medidos ou expectativa, clientes compram resultado". Saíram do case o bloco "O que esses números dizem, e o que ainda não dizem" (3 vendas, 10 perdidos, 13 descartados, 30 em aberto, "pouco para afirmar ganho") e o "O que entra com 90 dias de dado". Ficam os seis números medidos, com fonte e período na linha de fonte. Vale para todo texto público; `tests/case.test.ts` cobra no case.
 - PR #3 mesclado por squash em `main` (5444d84) a pedido do Dyones ("Faça"). A branch `claude/gracious-euler-0qzedy` foi reiniciada a partir do `main`; rodada nova em PR novo.
