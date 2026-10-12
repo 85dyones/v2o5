@@ -28,6 +28,12 @@ export default function VinhetaDaLinha({ vinheta }: { vinheta: Vinheta }) {
     site: <Site />,
     integracoes: <Integracoes />,
     marca: <Marca />,
+    painel: <Painel />,
+    reativacao: <Reativacao />,
+    redes: <Redes />,
+    avaliacoes: <Avaliacoes />,
+    catalogo: <Catalogo />,
+    posvenda: <Fluxo passos={VINHETAS.posvenda} />,
   };
   return cenas[vinheta];
 }
@@ -177,8 +183,8 @@ function Crm() {
   );
 }
 
-function Fluxo() {
-  const passos = VINHETAS.fluxo;
+/** Uma régua de passos; serve à automação e, com outros passos, ao pós-venda. */
+function Fluxo({ passos = VINHETAS.fluxo }: { passos?: readonly { icone: string; texto: string }[] }) {
   return (
     <div aria-hidden="true" className="vinheta relative h-full p-4 text-[0.8125rem]">
       <svg className="absolute left-[1.9rem] top-8 h-[calc(100%-4rem)] w-px overflow-visible" aria-hidden="true">
@@ -410,6 +416,156 @@ function Marca() {
           </span>
         ))}
       </p>
+    </div>
+  );
+}
+
+/** O painel do dono: três indicadores e as vendas por origem, sem número (é cena, não resultado). */
+function Painel() {
+  const v = VINHETAS.painel;
+  return (
+    <div aria-hidden="true" className="vinheta flex h-full flex-col p-3.5 text-[0.75rem]">
+      <p className="flex items-center justify-between gap-2">
+        <span className="flex items-center gap-1.5 font-semibold">
+          <Icone nome="colunas" className="size-3.5 text-azul-claro" />
+          {v.titulo}
+        </span>
+        <span className="text-[0.6875rem] text-secundario">{v.atualizacao}</span>
+      </p>
+      <div className="mt-2.5 grid grid-cols-3 gap-1.5">
+        {v.indicadores.map((nome, i) => (
+          <span key={nome} className="rounded-lg bg-vidro px-2 py-1.5 contorno">
+            <span className="block truncate text-[0.6875rem] text-secundario">{nome}</span>
+            <span className={`mt-1.5 block h-2 rounded-full ${i === 2 ? "bg-ambar/80" : "bg-azul-claro/60"}`} style={{ width: ["70%", "45%", "55%"][i] }} />
+          </span>
+        ))}
+      </div>
+      <ul className="mt-3 grid flex-1 content-center gap-1.5">
+        {v.origens.map((o) => (
+          <li key={o.nome} className="grid grid-cols-[4.5rem_1fr] items-center gap-2">
+            <span className="truncate text-secundario">{o.nome}</span>
+            <span className="h-1.5 rounded-full bg-gradient-to-r from-violeta-claro/70 to-ambar/80" style={{ width: o.largura }} />
+          </li>
+        ))}
+      </ul>
+      <p className="mt-2 flex flex-wrap gap-1.5">
+        {v.fontes.map((f) => (
+          <span key={f} className="chip chip-ok text-secundario">
+            {f}
+          </span>
+        ))}
+      </p>
+    </div>
+  );
+}
+
+/** Reativação de base: a campanha, o canal e o que cada contato fez (nomes de exemplo). */
+function Reativacao() {
+  const v = VINHETAS.reativacao;
+  return (
+    <div aria-hidden="true" className="vinheta flex h-full flex-col p-3.5 text-[0.75rem]">
+      <p className="flex items-center justify-between gap-2">
+        <span className="font-semibold">{v.campanha}</span>
+        <span className="chip chip-ok text-secundario">{v.canal}</span>
+      </p>
+      <ul className="mt-3 grid flex-1 content-start gap-1.5">
+        {v.contatos.map((c) => (
+          <li key={c.nome} className="flex items-center gap-2.5 rounded-lg bg-vidro px-2.5 py-1.5 contorno">
+            <span className={`size-1.5 shrink-0 rounded-full ${PONTO_DA_ETAPA[c.etapa]}`} />
+            <span className="font-medium">{c.nome}</span>
+            <span className="ml-auto truncate text-secundario">{c.estado}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+/** Conteúdo e redes: a semana do calendário com os posts montados do que já existe. */
+function Redes() {
+  const v = VINHETAS.redes;
+  return (
+    <div aria-hidden="true" className="vinheta flex h-full flex-col p-3.5 text-[0.75rem]">
+      <p className="flex items-center justify-between gap-2">
+        <span className="font-semibold">{v.titulo}</span>
+        <span className="chip chip-ok text-secundario">{v.rastreado}</span>
+      </p>
+      <ol className="mt-3 grid flex-1 grid-cols-6 gap-1.5">
+        {v.dias.map((dia, i) => {
+          const post = v.posts.find((p) => p.dia === i);
+          return (
+            <li key={dia} className={`flex min-w-0 flex-col rounded-lg p-1.5 ${post ? "bg-vidro contorno" : "bg-papel/[0.03]"}`}>
+              <span className="text-[0.625rem] uppercase tracking-wide text-secundario">{dia}</span>
+              {post ? (
+                <span className="mt-auto">
+                  <span className="block h-7 rounded-md bg-gradient-to-br from-violeta/60 to-azul/50" />
+                  <span className="mt-1 block truncate text-[0.6875rem] font-medium leading-tight">{post.texto}</span>
+                  <span className="block truncate text-[0.625rem] text-secundario">{post.rede}</span>
+                </span>
+              ) : null}
+            </li>
+          );
+        })}
+      </ol>
+    </div>
+  );
+}
+
+/** Avaliações: a mensagem que o cliente recebe depois da venda e a avaliação que aparece no Google. */
+function Avaliacoes() {
+  const v = VINHETAS.avaliacoes;
+  return (
+    <div aria-hidden="true" className="vinheta flex h-full flex-col justify-center gap-2.5 p-3.5 text-[0.75rem]">
+      <p className="ml-auto max-w-[92%] rounded-2xl rounded-br-md bg-verde px-3 py-2 leading-snug text-papel">
+        {v.mensagem} <span className="underline decoration-papel/60">{v.link}</span>
+      </p>
+      <div className="rounded-xl bg-vidro p-3 contorno">
+        <p className="flex items-center gap-2">
+          <span className="flex size-6 items-center justify-center rounded-full bg-gradient-to-br from-violeta/70 to-azul/70 text-[0.625rem] font-semibold">
+            {v.avaliacao.nome.split(" ").map((n) => n[0]).join("")}
+          </span>
+          <span className="font-medium">{v.avaliacao.nome}</span>
+          <span className="ml-auto flex gap-0.5 text-ambar">
+            {Array.from({ length: v.avaliacao.estrelas }, (_, i) => (
+              <svg key={i} viewBox="0 0 20 20" className="size-3 fill-current">
+                <path d="M10 1.8l2.5 5.4 5.9.6-4.4 4 1.2 5.8L10 14.7l-5.2 2.9 1.2-5.8-4.4-4 5.9-.6z" />
+              </svg>
+            ))}
+          </span>
+        </p>
+        <p className="mt-1.5 leading-snug text-secundario">{v.avaliacao.texto}</p>
+      </div>
+    </div>
+  );
+}
+
+/** Anúncios de catálogo: o feed do estoque e para onde cada item vai (carros de exemplo). */
+function Catalogo() {
+  const v = VINHETAS.catalogo;
+  return (
+    <div aria-hidden="true" className="vinheta flex h-full flex-col p-3.5 text-[0.75rem]">
+      <p className="flex items-center justify-between gap-2">
+        <span className="flex items-center gap-1.5 font-semibold">
+          <Icone nome="carro" className="size-3.5 text-secundario" />
+          {v.feed}
+        </span>
+        <span className="text-[0.6875rem] text-secundario">{v.estado}</span>
+      </p>
+      <ul className="mt-3 grid flex-1 content-start gap-1.5">
+        {v.itens.map((item) => (
+          <li
+            key={item.nome}
+            className={`flex items-center gap-2 rounded-lg bg-vidro px-2.5 py-1.5 contorno ${item.ativo ? "" : "opacity-55"}`}
+          >
+            <span className="min-w-0 flex-1 truncate font-medium">{item.nome}</span>
+            {item.destinos.map((d) => (
+              <span key={d} className={`chip ${item.ativo ? "chip-ok text-secundario" : "text-secundario"}`}>
+                {d}
+              </span>
+            ))}
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }

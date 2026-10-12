@@ -5,10 +5,10 @@ Memória de trabalho do projeto. Carrega em toda sessão: mantenha abaixo de ~10
 ## O que é
 Novo site da **V2O5 Vendas e Tecnologia** (substitui o WordPress de v2o5.com.br). A V2O5 digitaliza e acelera negócios com IA: coloca a empresa no mapa (site, busca, presença, rastreamento) e multiplica a operação (agentes, automação, CRM). Automotivo é o primeiro segmento, com o case **Motors Store**. Fundador: **Dyones Oliveira**.
 
-## Estado (09/10/2026)
+## Estado (12/10/2026)
 - Plano fechado em `docs/2026-10-08-plano-novo-site.md` (v4, longo: use `grep -n "^##"` e leia só a seção).
-- Home, `/precos`, `/diagnostico` (formulário → `/api/leads` → webhook do n8n) e `/privacidade` prontas em `src/` (`npm run dev`); o resto do mapa de páginas é provisório. Preços em `src/conteudo/precos.ts` (piso de R$ 590/mês). Números e escolhas em `memory/decisoes.md`, pendências em `memory/pendencias.md`.
-- Tudo em `main` desde 10/10 (PRs #1 e #2 mesclados). Cada rodada nova sai de `main` numa branch `claude/...` com PR contra `main`; a Vercel publica o preview por branch e a produção pelo `main`.
+- Home, `/precos`, `/diagnostico` (formulário → `/api/leads` → webhook do n8n), `/privacidade`, `/cases/motors-store` e o hub `/segmentos/revendas-de-veiculos` prontas em `src/` (`npm run dev`); as 5 páginas de solução e `/sobre` são provisórias. Preços em `src/conteudo/precos.ts` (15 linhas em dois pilares, piso de R$ 590/mês, degraus de usuário, dados e infra, tráfego por plataforma, reativação com três canais; tabela confirmada em 12/10). Fluxo do n8n para o lead em `docs/n8n/` (o Dyones importa). Números e escolhas em `memory/decisoes.md`, pendências em `memory/pendencias.md`.
+- Tudo em `main` desde 10/10 (PRs #1, #2 e #3 mesclados). Cada rodada nova sai de `main` numa branch `claude/...` com PR contra `main`; a Vercel publica o preview por branch e a produção pelo `main`.
 - Canvas de marca (privado): https://claude.ai/artifact/TJi91r21pMCLXUxL3AEYT3
 
 ## Termos
@@ -37,7 +37,7 @@ Novo site da **V2O5 Vendas e Tecnologia** (substitui o WordPress de v2o5.com.br)
 ## Regras do projeto
 - Código, tabelas, commits e textos em português, como na Motors.
 - Texto público passa pelo humanizer: sem travessão, sem "não é X, é Y", sem tríades de efeito.
-- Nunca publicar número sem fonte. Os do case estão em `memory/projects/case-motors.md`, com período.
+- Nunca publicar número sem fonte. Os do case estão em `memory/projects/case-motors.md`, com período. E só número medido: texto público não fala do que ainda não foi medido nem promete dado futuro; cliente compra resultado (Dyones, 11/10).
 - Performance é promessa de venda: LCP é o título (nunca o canvas), motion carrega por seção, `prefers-reduced-motion` desliga tudo.
 - Commit com rodapé de coautoria; push só na branch designada da sessão.
 

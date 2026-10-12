@@ -54,15 +54,16 @@ describe("demonstrações rotuladas", () => {
   });
 
   it("o terminal do case é rotulado como exemplo", () => {
-    expect(ler("src/components/home/CaseMotors.tsx")).toMatch(/>exemplo</);
+    expect(ler("src/components/home/TerminalDeEventos.tsx")).toMatch(/>exemplo</);
+    expect(ler("src/components/home/CaseMotors.tsx")).toMatch(/<TerminalDeEventos linhas=\{CASE\.terminal\}/);
   });
 });
 
 describe("oferta", () => {
   const oferta = ler("memory/context/oferta.md");
 
-  it("as seis linhas com preço a partir de, iguais à tabela de oferta.md", () => {
-    expect(LINHAS).toHaveLength(6);
+  it("as linhas com preço próprio, a partir de, iguais à tabela de oferta.md", () => {
+    expect(LINHAS).toHaveLength(12);
     expect(ler("memory/context/oferta.md")).toContain("Piso da mensalidade: R$ 590");
     for (const linha of LINHAS) {
       expect(linha.preco, linha.titulo).toMatch(/^a partir de R\$ /);
@@ -76,7 +77,7 @@ describe("oferta", () => {
 describe("os dois pilares do H1", () => {
   const servicos = PILARES.flatMap((p) => p.servicos);
 
-  it("cada metade do H1 é um pilar, e as seis linhas com preço estão neles", () => {
+  it("cada metade do H1 é um pilar, e as linhas com preço estão neles", () => {
     expect(PILARES.map((p) => p.titulo.replace(/\.$/, "").toLowerCase())).toEqual([
       "coloque sua empresa no mapa",
       "multiplique a operação com ia",
@@ -104,6 +105,27 @@ describe("os dois pilares do H1", () => {
     expect(mapa).toMatch(/Perfil da Empresa no Google/);
     expect(mapa).toMatch(/SEO/);
     expect(mapa).toMatch(/Google e na Meta/);
+    expect(PILARES[0].servicos).toHaveLength(9);
+  });
+
+  it("a operação traz o agente no bloco grande, painel, reativação e pós-venda, e as integrações por último", () => {
+    const operacao = PILARES[1].servicos.map((s) => s.titulo);
+    expect(operacao[0]).toBe("Agente de IA no WhatsApp");
+    expect(operacao).toContain("Painel do dono");
+    expect(operacao).toContain("Reativação de base");
+    expect(operacao).toContain("Pós-venda e recorrência");
+    expect(operacao[operacao.length - 1]).toBe("Integrações entre sistemas");
+    expect(PILARES[1].servicos).toHaveLength(7);
+  });
+
+  it("as perguntas novas respondem usuário extra, dólar e lista comprada", () => {
+    const perguntas = PERGUNTAS.map((p) => p.pergunta);
+    expect(perguntas).toContain("Tem cobrança por usuário?");
+    expect(perguntas).toContain("Os preços sobem com o dólar?");
+    expect(perguntas).toContain("Vocês disparam para listas compradas?");
+    expect(PERGUNTAS.find((p) => p.pergunta === "Tem cobrança por usuário?")?.resposta).toContain("R$ 89");
+    expect(PERGUNTAS.find((p) => p.pergunta === "Os preços sobem com o dólar?")?.resposta).toMatch(/IPCA.*10%/);
+    expect(PERGUNTAS.find((p) => p.pergunta === "Vocês disparam para listas compradas?")?.resposta).toMatch(/^Não\./);
   });
 
   // Medido no Lighthouse mobile: com 279 caracteres o subtítulo ocupava mais

@@ -1,0 +1,389 @@
+{
+  "name": "V2O5 · Lead do diagnóstico",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "v2o5-diagnostico",
+        "authentication": "headerAuth",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "name": "Pedido do site",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        0,
+        300
+      ],
+      "webhookId": "v2o5-diagnostico",
+      "credentials": {
+        "httpHeaderAuth": {
+          "name": "V2O5 · segredo do site"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "a1",
+              "name": "evolutionUrl",
+              "value": "https://evolution.v2o5.com.br",
+              "type": "string"
+            },
+            {
+              "id": "a2",
+              "name": "evolutionInstancia",
+              "value": "v2o5",
+              "type": "string"
+            },
+            {
+              "id": "a3",
+              "name": "whatsappDyones",
+              "value": "5541998089550",
+              "type": "string"
+            },
+            {
+              "id": "a4",
+              "name": "chatwootUrl",
+              "value": "https://chatwoot.v2o5.com.br",
+              "type": "string"
+            },
+            {
+              "id": "a5",
+              "name": "chatwootConta",
+              "value": "1",
+              "type": "string"
+            },
+            {
+              "id": "a6",
+              "name": "chatwootInbox",
+              "value": "1",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "name": "Configuração",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        240,
+        300
+      ],
+      "notes": "Edite aqui: nome da instância da Evolution, id da conta e da caixa (inbox) do Chatwoot. As chaves ficam nas credenciais, nunca neste nó."
+    },
+    {
+      "parameters": {
+        "jsCode": "// Monta, a partir do POST de /api/leads, os textos do aviso e da resposta.\nconst ROTULOS = {\"segmento\":{\"automotivo\":\"Revenda de veículos\",\"servicos\":\"Serviços\",\"comercio\":\"Comércio\",\"imobiliario\":\"Imobiliário\",\"saude\":\"Saúde\",\"industria\":\"Indústria\",\"outro\":\"Outro\"},\"porte\":{\"1\":\"Só eu\",\"2-5\":\"2 a 5 pessoas\",\"6-20\":\"6 a 20 pessoas\",\"21+\":\"Mais de 20\"},\"objetivos\":{\"aparecer\":\"Aparecer no Google e no Maps\",\"contatos\":\"Mais contatos do site e dos anúncios\",\"responder\":\"Responder mais rápido no WhatsApp\",\"funil\":\"Organizar o funil e o CRM\",\"integrar\":\"Integrar os sistemas que já uso\",\"marca\":\"Rever a marca\"},\"estoque\":{\"ate-30\":\"Até 30 veículos\",\"31-80\":\"31 a 80\",\"81-150\":\"81 a 150\",\"151+\":\"Mais de 150\"},\"sistema\":{\"revenda-mais\":\"Revenda Mais\",\"autoconf\":\"Autoconf\",\"bndv\":\"BNDV\",\"boom\":\"Boom\",\"outro\":\"Outro\",\"nenhum\":\"Nenhum\"}};\nconst corpo = $input.first().json.body || {};\nconst lead = corpo.lead || {};\nconst origem = lead.origem || {};\nconst rotulo = (grupo, valor) => (valor ? ROTULOS[grupo][valor] || valor : \"\");\n\nconst whatsapp = String(lead.whatsapp || \"\").replace(/\\D/g, \"\");\nconst semPais = whatsapp.replace(/^55/, \"\");\nconst meio = semPais.length === 11 ? 7 : 6;\nconst whatsappLegivel = semPais ? \"(\" + semPais.slice(0, 2) + \") \" + semPais.slice(2, meio) + \"-\" + semPais.slice(meio) : \"\";\nconst primeiroNome = String(lead.nome || \"\").trim().split(/\\s+/)[0] || \"\";\nconst objetivos = (lead.objetivos || []).map((o) => rotulo(\"objetivos\", o));\n\nconst partesDaOrigem = [];\nif (origem.gclid || origem.gbraid || origem.wbraid) partesDaOrigem.push(\"Google Ads\");\nif (origem.fbclid) partesDaOrigem.push(\"Meta Ads\");\nif (origem.utm_source) partesDaOrigem.push(\"utm: \" + [origem.utm_source, origem.utm_medium, origem.utm_campaign].filter(Boolean).join(\" / \"));\nif (origem.referrer) partesDaOrigem.push(\"veio de \" + origem.referrer);\nif (origem.entrada) partesDaOrigem.push(\"entrou em \" + origem.entrada);\nconst origemResumo = partesDaOrigem.length ? partesDaOrigem.join(\" · \") : \"direta (sem parâmetro de campanha)\";\n\nconst linhasDoAviso = [\n  \"Novo pedido de diagnóstico pelo site\",\n  \"Nome: \" + lead.nome,\n  \"Empresa: \" + lead.empresa,\n  \"WhatsApp: \" + whatsappLegivel + \" (https://wa.me/\" + whatsapp + \")\",\n  \"E-mail: \" + lead.email,\n  \"Segmento: \" + rotulo(\"segmento\", lead.segmento) + (lead.porte ? \" · Porte: \" + rotulo(\"porte\", lead.porte) : \"\"),\n  objetivos.length ? \"Objetivos: \" + objetivos.join(\"; \") : \"\",\n  lead.estoque ? \"Estoque: \" + rotulo(\"estoque\", lead.estoque) + (lead.sistema ? \" · Sistema: \" + rotulo(\"sistema\", lead.sistema) : \"\") : \"\",\n  lead.mensagem ? \"Mensagem: \" + lead.mensagem : \"\",\n  \"Origem: \" + origemResumo,\n  lead.pagina ? \"Página: \" + lead.pagina : \"\",\n  \"Evento: \" + corpo.event_id,\n].filter(Boolean);\n\nconst respostaParaLead = [\n  \"Olá, \" + primeiroNome + \"! Aqui é a V2O5. Recebemos seu pedido de diagnóstico para a \" + lead.empresa + \".\",\n  \"O próximo passo é marcar os 45 minutos com o Dyones, fundador da V2O5. Que dia e horário ficam bons para você?\",\n  \"Depois da conversa, o mapa do que fazer primeiro chega em até 24 horas.\",\n].join(\"\\n\\n\");\n\nreturn [{\n  json: {\n    event_id: corpo.event_id,\n    recebido_em: corpo.recebido_em,\n    nome: lead.nome,\n    primeiroNome,\n    empresa: lead.empresa,\n    whatsapp,\n    whatsappInternacional: \"+\" + whatsapp,\n    whatsappLegivel,\n    email: lead.email,\n    segmento: rotulo(\"segmento\", lead.segmento),\n    porte: rotulo(\"porte\", lead.porte),\n    objetivos: objetivos.join(\"; \"),\n    estoque: rotulo(\"estoque\", lead.estoque),\n    sistema: rotulo(\"sistema\", lead.sistema),\n    mensagem: lead.mensagem || \"\",\n    pagina: lead.pagina || \"\",\n    origem,\n    origemResumo,\n    avisoParaDyones: linhasDoAviso.join(\"\\n\"),\n    respostaParaLead,\n  },\n}];"
+      },
+      "name": "Lead",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        480,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ JSON.stringify({ ok: true, event_id: $('Lead').item.json.event_id }) }}",
+        "options": {}
+      },
+      "name": "Responder ao site",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        720,
+        120
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $('Configuração').item.json.evolutionUrl }}/message/sendText/{{ $('Configuração').item.json.evolutionInstancia }}",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ number: $('Configuração').item.json.whatsappDyones, text: $('Lead').item.json.avisoParaDyones }) }}",
+        "options": {}
+      },
+      "name": "Avisar o Dyones",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        720,
+        300
+      ],
+      "onError": "continueRegularOutput",
+      "credentials": {
+        "httpHeaderAuth": {
+          "name": "Evolution · apikey"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $('Configuração').item.json.evolutionUrl }}/message/sendText/{{ $('Configuração').item.json.evolutionInstancia }}",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ number: $('Lead').item.json.whatsapp, text: $('Lead').item.json.respostaParaLead }) }}",
+        "options": {}
+      },
+      "name": "Responder ao lead",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        960,
+        300
+      ],
+      "onError": "continueRegularOutput",
+      "credentials": {
+        "httpHeaderAuth": {
+          "name": "Evolution · apikey"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "fromEmail": "diagnostico@v2o5.com.br",
+        "toEmail": "={{ $('Lead').item.json.email }}",
+        "subject": "Recebemos seu pedido de diagnóstico",
+        "emailFormat": "text",
+        "text": "={{ $('Lead').item.json.respostaParaLead }}",
+        "options": {}
+      },
+      "name": "Responder por e-mail",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [
+        720,
+        480
+      ],
+      "disabled": true,
+      "onError": "continueRegularOutput",
+      "credentials": {
+        "smtp": {
+          "name": "Hostinger · diagnostico@"
+        }
+      },
+      "notes": "Desligado até o alias diagnostico@ existir e a credencial SMTP da Hostinger ser criada."
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "={{ $('Configuração').item.json.chatwootUrl }}/api/v1/accounts/{{ $('Configuração').item.json.chatwootConta }}/contacts/search?q={{ encodeURIComponent($('Lead').item.json.whatsappInternacional) }}",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {}
+      },
+      "name": "Buscar contato",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1200,
+        300
+      ],
+      "onError": "continueRegularOutput",
+      "credentials": {
+        "httpHeaderAuth": {
+          "name": "Chatwoot · api_access_token"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "loose"
+          },
+          "conditions": [
+            {
+              "id": "c1",
+              "leftValue": "={{ ($json.payload || []).length }}",
+              "rightValue": 0,
+              "operator": {
+                "type": "number",
+                "operation": "gt"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "name": "Já existe?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        1440,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "method": "PATCH",
+        "url": "={{ $('Configuração').item.json.chatwootUrl }}/api/v1/accounts/{{ $('Configuração').item.json.chatwootConta }}/contacts/{{ $json.payload[0].id }}",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ name: $('Lead').item.json.nome, email: $('Lead').item.json.email, custom_attributes: { empresa: $('Lead').item.json.empresa, segmento: $('Lead').item.json.segmento, porte: $('Lead').item.json.porte, objetivos: $('Lead').item.json.objetivos, estoque: $('Lead').item.json.estoque, sistema: $('Lead').item.json.sistema, origem: $('Lead').item.json.origemResumo, pagina: $('Lead').item.json.pagina, event_id: $('Lead').item.json.event_id, fonte: \"site v2o5.com.br\" } }) }}",
+        "options": {}
+      },
+      "name": "Atualizar contato",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1680,
+        180
+      ],
+      "onError": "continueRegularOutput",
+      "credentials": {
+        "httpHeaderAuth": {
+          "name": "Chatwoot · api_access_token"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $('Configuração').item.json.chatwootUrl }}/api/v1/accounts/{{ $('Configuração').item.json.chatwootConta }}/contacts",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ inbox_id: Number($('Configuração').item.json.chatwootInbox), name: $('Lead').item.json.nome, email: $('Lead').item.json.email, phone_number: $('Lead').item.json.whatsappInternacional, custom_attributes: { empresa: $('Lead').item.json.empresa, segmento: $('Lead').item.json.segmento, porte: $('Lead').item.json.porte, objetivos: $('Lead').item.json.objetivos, estoque: $('Lead').item.json.estoque, sistema: $('Lead').item.json.sistema, origem: $('Lead').item.json.origemResumo, pagina: $('Lead').item.json.pagina, event_id: $('Lead').item.json.event_id, fonte: \"site v2o5.com.br\" } }) }}",
+        "options": {}
+      },
+      "name": "Criar contato",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1680,
+        420
+      ],
+      "onError": "continueRegularOutput",
+      "credentials": {
+        "httpHeaderAuth": {
+          "name": "Chatwoot · api_access_token"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Pedido do site": {
+      "main": [
+        [
+          {
+            "node": "Configuração",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Configuração": {
+      "main": [
+        [
+          {
+            "node": "Lead",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Lead": {
+      "main": [
+        [
+          {
+            "node": "Responder ao site",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Avisar o Dyones",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Responder por e-mail",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Avisar o Dyones": {
+      "main": [
+        [
+          {
+            "node": "Responder ao lead",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Responder ao lead": {
+      "main": [
+        [
+          {
+            "node": "Buscar contato",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Buscar contato": {
+      "main": [
+        [
+          {
+            "node": "Já existe?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Já existe?": {
+      "main": [
+        [
+          {
+            "node": "Atualizar contato",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Criar contato",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "pinData": {},
+  "meta": {
+    "instanceId": ""
+  },
+  "tags": []
+}

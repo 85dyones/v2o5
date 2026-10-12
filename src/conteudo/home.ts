@@ -7,7 +7,7 @@
  * (`memory/projects/case-motors.md`), travado por `tests/conteudo.test.ts`.
  */
 import type { Etapa } from "@/lib/tokens";
-import { AUTOMOTIVO_PRECO, BRL, precoDa, REGRAS } from "@/conteudo/precos";
+import { AUTOMOTIVO_PRECO, BRL, DEGRAUS, precoDa, REAJUSTE, REGRAS } from "@/conteudo/precos";
 
 /**
  * O H1 da home, escolhido em 09/10 entre duas opções (a outra está em
@@ -56,9 +56,17 @@ export type Vinheta =
   | "perfil"
   | "site"
   | "integracoes"
-  | "marca";
+  | "marca"
+  | "painel"
+  | "reativacao"
+  | "redes"
+  | "avaliacoes"
+  | "catalogo"
+  | "posvenda";
 
 export interface Linha {
+  /** O `id` da linha em `precos.ts`, de onde sai o preço. */
+  linha: string;
   titulo: string;
   frase: string;
   preco: string;
@@ -68,18 +76,13 @@ export interface Linha {
   vinheta: Vinheta;
 }
 
-/** As seis linhas gerais, na ordem do bento (a primeira ocupa o bloco grande). */
+/**
+ * As linhas com preço próprio na tabela de `precos.ts`, na ordem da tabela.
+ * Os pilares (abaixo) decidem a ordem dos cartões na home.
+ */
 export const LINHAS: Linha[] = [
   {
-    titulo: "Agente de IA no WhatsApp",
-    frase:
-      "Responde na hora, a qualquer hora, com as informações do seu negócio. Quando a conversa pede uma pessoa, chama alguém da equipe.",
-    preco: precoDa("agente"),
-    href: "/agente-de-ia-para-whatsapp",
-    etapa: "verde",
-    vinheta: "agente",
-  },
-  {
+    linha: "sites",
     titulo: "Sites e presença",
     frase:
       "Carrega rápido no celular, aparece no Google e grava de onde veio cada contato. Hospedagem, manutenção e SEO técnico já na mensalidade.",
@@ -89,22 +92,7 @@ export const LINHAS: Linha[] = [
     vinheta: "site",
   },
   {
-    titulo: "CRM e sistemas sob medida",
-    frase: "Nenhum contato esquecido numa conversa: cada um num funil, com a origem, a etapa e o próximo passo à vista.",
-    preco: precoDa("crm"),
-    href: "/crm-com-whatsapp",
-    etapa: "azul",
-    vinheta: "crm",
-  },
-  {
-    titulo: "Automação de processos",
-    frase: "A tarefa que alguém faz à mão toda semana passa a rodar sozinha entre os sistemas que você já usa.",
-    preco: precoDa("automacao"),
-    href: "/automacao-com-ia",
-    etapa: "azul",
-    vinheta: "fluxo",
-  },
-  {
+    linha: "rastreamento",
     titulo: "Rastreamento até a venda",
     frase: "Cada venda com a origem: qual anúncio, qual busca, qual página. Sem isso, a verba vai para onde parece funcionar.",
     preco: precoDa("rastreamento"),
@@ -113,18 +101,109 @@ export const LINHAS: Linha[] = [
     vinheta: "jornada",
   },
   {
+    linha: "googleAds",
     titulo: "Tráfego pago no Google e na Meta",
     frase:
-      "Campanhas no Google Ads e na Meta (Instagram e Facebook) com a verba ajustada pela venda registrada no CRM. Começa com o rastreamento ligado.",
-    preco: precoDa("trafego"),
+      "Google Ads e Meta Ads por plataforma ou juntos, com a verba ajustada pela venda registrada no CRM. Quem contrata os dois leva o feed de catálogo. Começa com o rastreamento ligado.",
+    preco: precoDa("googleAds"),
     href: "/gestao-de-trafego",
     etapa: "violeta",
     vinheta: "campanhas",
+  },
+  {
+    linha: "catalogo",
+    titulo: "Anúncios de catálogo",
+    frase:
+      "O estoque ou os produtos viram anúncio no Google (anúncios de veículos e Shopping) e na Meta, e saem do ar quando o item é vendido.",
+    preco: precoDa("catalogo"),
+    href: "/gestao-de-trafego",
+    etapa: "violeta",
+    vinheta: "catalogo",
+  },
+  {
+    linha: "redes",
+    titulo: "Conteúdo e redes com IA",
+    frase:
+      "Perfis configurados e um calendário que publica, com IA, o que a empresa já produz: o estoque, os guias, a novidade da semana. Cada post com link rastreado.",
+    preco: precoDa("redes"),
+    href: "/diagnostico",
+    etapa: "violeta",
+    vinheta: "redes",
+  },
+  {
+    linha: "avaliacoes",
+    titulo: "Avaliações no Google",
+    frase:
+      "Depois da venda, o cliente recebe no WhatsApp o pedido de avaliação com o link certo, e o painel mostra quem respondeu.",
+    preco: precoDa("avaliacoes"),
+    href: "/diagnostico",
+    etapa: "ambar",
+    vinheta: "avaliacoes",
+  },
+  {
+    linha: "agente",
+    titulo: "Agente de IA no WhatsApp",
+    frase:
+      "Responde na hora, a qualquer hora, com as informações do seu negócio. Quando a conversa pede uma pessoa, chama alguém da equipe.",
+    preco: precoDa("agente"),
+    href: "/agente-de-ia-para-whatsapp",
+    etapa: "verde",
+    vinheta: "agente",
+  },
+  {
+    linha: "crm",
+    titulo: "CRM e sistemas sob medida",
+    frase: "Nenhum contato esquecido numa conversa: cada um num funil, com a origem, a etapa e o próximo passo à vista.",
+    preco: precoDa("crm"),
+    href: "/crm-com-whatsapp",
+    etapa: "azul",
+    vinheta: "crm",
+  },
+  {
+    linha: "painel",
+    titulo: "Painel do dono",
+    frase:
+      "Funil, verba, custo por lead e vendas por origem numa tela só, atualizada todo dia a partir do CRM e do rastreamento. Sem licença por usuário.",
+    preco: precoDa("painel"),
+    href: "/diagnostico",
+    etapa: "azul",
+    vinheta: "painel",
+  },
+  {
+    linha: "automacao",
+    titulo: "Automação de processos",
+    frase: "A tarefa que alguém faz à mão toda semana passa a rodar sozinha entre os sistemas que você já usa.",
+    preco: precoDa("automacao"),
+    href: "/automacao-com-ia",
+    etapa: "azul",
+    vinheta: "fluxo",
+  },
+  {
+    linha: "posvenda",
+    titulo: "Pós-venda e recorrência",
+    frase:
+      "Revisão, troca, seguro ou recompra: a régua de retorno manda a mensagem na data certa e devolve o cliente ao funil.",
+    preco: precoDa("posvenda"),
+    href: "/diagnostico",
+    etapa: "ambar",
+    vinheta: "posvenda",
+  },
+  {
+    linha: "reativacao",
+    titulo: "Reativação de base",
+    frase:
+      "A sua base de clientes antigos, limpa e segmentada, recebe uma conversa no WhatsApp ou um SMS. Quem responde entra no CRM com a origem.",
+    preco: precoDa("reativacao"),
+    href: "/diagnostico",
+    etapa: "verde",
+    vinheta: "reativacao",
   },
 ];
 
 /** Um serviço do cardápio, como aparece no bento de soluções. */
 export interface Servico {
+  /** O `id` em `precos.ts` quando o preço vem da tabela. */
+  linha?: string;
   titulo: string;
   frase: string;
   /** "a partir de" da tabela de `oferta.md`, ou em que linha ele vem incluso. */
@@ -134,9 +213,9 @@ export interface Servico {
   vinheta: Vinheta;
 }
 
-const linha = (href: string): Servico => {
-  const l = LINHAS.find((x) => x.href === href);
-  if (!l) throw new Error(`Linha sem preço em oferta.md: ${href}`);
+const linha = (id: string): Servico => {
+  const l = LINHAS.find((x) => x.linha === id);
+  if (!l) throw new Error(`Linha sem cartão na home: ${id}`);
   return l;
 };
 
@@ -150,9 +229,12 @@ export const SOLUCOES = {
 
 /**
  * As duas metades do H1, cada uma com os serviços que a cumprem. Serviço sem
- * preço próprio na tabela de `oferta.md` diz em qual linha vem incluso
- * (plano, seção 3.2: o Perfil de Empresa e o SEO técnico estão na fundação
- * dos sites). `tests/conteudo.test.ts` confere.
+ * preço próprio na tabela diz em qual linha vem incluso (plano, seção 3.2: o
+ * Perfil de Empresa e o SEO técnico estão na fundação dos sites).
+ * `tests/conteudo.test.ts` confere. A ordem é a da grade (`Solucoes.tsx`):
+ * no mapa, três fileiras de três; na operação, o agente no bloco grande com
+ * CRM e painel ao lado, depois automação, reativação e pós-venda, e as
+ * integrações numa faixa inteira.
  */
 export const PILARES: { id: string; sobretitulo: string; titulo: string; frase: string; servicos: Servico[] }[] = [
   {
@@ -160,9 +242,10 @@ export const PILARES: { id: string; sobretitulo: string; titulo: string; frase: 
     sobretitulo: "No mapa",
     titulo: "Coloque sua empresa no mapa.",
     frase:
-      "Quem procura o que você vende acha você ou acha o concorrente. Esta metade cuida de ser você: no Google, no Maps, nos anúncios e nas respostas das IAs de busca.",
+      "Quem procura o que você vende acha você ou acha o concorrente. Esta metade cuida de ser você: no Google, no Maps, nos anúncios, nas redes e nas respostas das IAs de busca.",
     servicos: [
       {
+        linha: "branding",
         titulo: "Branding e gestão de marca",
         frase:
           "Antes de anunciar, decida o que a marca promete. Posicionamento, identidade visual e tom de voz num guia que vale para o perfil, o site, os anúncios e o atendimento.",
@@ -188,9 +271,12 @@ export const PILARES: { id: string; sobretitulo: string; titulo: string; frase: 
         etapa: "violeta",
         vinheta: "busca",
       },
-      linha("/criacao-de-sites"),
-      linha("/gestao-de-trafego"),
-      linha("/rastreamento-de-conversoes"),
+      linha("sites"),
+      linha("googleAds"),
+      linha("rastreamento"),
+      linha("catalogo"),
+      linha("redes"),
+      linha("avaliacoes"),
     ],
   },
   {
@@ -198,12 +284,16 @@ export const PILARES: { id: string; sobretitulo: string; titulo: string; frase: 
     sobretitulo: "Operação com IA",
     titulo: "Multiplique a operação com IA.",
     frase:
-      "O contato que chega fora do horário recebe resposta na hora e entra no funil com a origem. A equipe começa o dia com o próximo passo pronto.",
+      "O contato que chega fora do horário recebe resposta na hora e entra no funil com a origem. A equipe começa o dia com o próximo passo pronto, e o dono vê o mês numa tela.",
     servicos: [
-      linha("/agente-de-ia-para-whatsapp"),
-      linha("/automacao-com-ia"),
-      linha("/crm-com-whatsapp"),
+      linha("agente"),
+      linha("crm"),
+      linha("painel"),
+      linha("automacao"),
+      linha("reativacao"),
+      linha("posvenda"),
       {
+        linha: "automacao",
         titulo: "Integrações entre sistemas",
         frase: "Site, CRM, ERP e os sistemas do seu setor trocando dados sozinhos. Em produção hoje: o estoque do Revenda Mais.",
         preco: precoDa("automacao"),
@@ -364,6 +454,57 @@ export const VINHETAS = {
       { nome: "Institucional", canal: "Meta Ads", estado: "pausada", ativa: false },
     ],
   },
+  painel: {
+    titulo: "Painel do dono",
+    atualizacao: "atualizado hoje às 6h",
+    indicadores: ["Leads", "Custo por lead", "Vendas"],
+    origens: [
+      { nome: "Google Ads", largura: "78%" },
+      { nome: "Meta Ads", largura: "54%" },
+      { nome: "Site", largura: "36%" },
+    ],
+    fontes: ["CRM", "Rastreamento", "Revenda Mais"],
+  },
+  reativacao: {
+    campanha: "Clientes de 2023",
+    canal: "WhatsApp pela API oficial",
+    contatos: [
+      { nome: "Paulo S.", estado: "respondeu", etapa: "verde" },
+      { nome: "Ana L.", estado: "agendou visita", etapa: "ambar" },
+      { nome: "Jorge M.", estado: "sem WhatsApp, foi por SMS", etapa: "azul" },
+      { nome: "Rita F.", estado: "pediu para sair", etapa: "violeta" },
+    ],
+  },
+  redes: {
+    titulo: "Calendário",
+    dias: ["seg", "ter", "qua", "qui", "sex", "sáb"],
+    posts: [
+      { dia: 0, texto: "Carro da semana", rede: "Instagram" },
+      { dia: 2, texto: "Guia novo", rede: "Instagram" },
+      { dia: 4, texto: "Cliente levou o dele", rede: "Facebook" },
+    ],
+    rastreado: "link rastreado",
+  },
+  avaliacoes: {
+    mensagem: "Obrigado pela compra, Marina! Se puder, conta como foi o atendimento:",
+    link: "g.page/sua-empresa/review",
+    avaliacao: { nome: "Marina R.", estrelas: 5, texto: "Atendimento rápido e o carro igual ao anúncio." },
+  },
+  catalogo: {
+    feed: "Feed do estoque",
+    estado: "atualizado às 3h",
+    itens: [
+      { nome: "Onix LT 2022", destinos: ["Google", "Meta"], ativo: true },
+      { nome: "HB20 Comfort 2021", destinos: ["Google", "Meta"], ativo: true },
+      { nome: "Corolla XEi 2020", destinos: ["vendido, saiu do ar"], ativo: false },
+    ],
+  },
+  posvenda: [
+    { icone: "etiqueta", texto: "Venda registrada no CRM" },
+    { icone: "relogio", texto: "6 meses: lembrete da revisão" },
+    { icone: "conversa", texto: "12 meses: o seguro vence, quer cotar?" },
+    { icone: "carro", texto: "24 meses: hora de trocar?" },
+  ],
 } as const;
 
 // ---------------------------------------------------------------------------
@@ -673,6 +814,7 @@ export const WHATSAPP = {
     precos: "Olá! Vi a página de preços da V2O5 e quero conversar sobre a minha empresa.",
     diagnostico: "Olá! Quero marcar o diagnóstico gratuito da V2O5.",
     recebido: "Olá! Acabei de pedir o diagnóstico pelo site e quero adiantar a conversa.",
+    revendas: "Olá! Vi a página de revendas da V2O5 e quero conversar sobre a minha loja.",
   },
 };
 
@@ -693,7 +835,8 @@ export const GARANTIAS = [
   },
   {
     titulo: "Mensalidade sem surpresa",
-    texto: "Hospedagem e manutenção dentro. Uso de IA e mensagens do WhatsApp pelo valor real, na mesma fatura.",
+    texto:
+      "Hospedagem e manutenção dentro. O que cresce com você (usuário, dados, conversas) tem preço publicado. IA e mensagens do WhatsApp pelo valor real, na mesma fatura.",
   },
 ];
 
@@ -723,7 +866,15 @@ export const PERGUNTAS = [
   {
     pergunta: "O que a mensalidade inclui?",
     resposta:
-      "Hospedagem, manutenção, atualizações de segurança, monitoramento e um relatório mensal. O uso do modelo de IA e as mensagens da API oficial do WhatsApp são cobrados pelo valor real, discriminados na mesma fatura. A verba de anúncios é paga direto ao Google e à Meta.",
+      "Hospedagem, manutenção, atualizações de segurança, monitoramento e um relatório mensal. O uso do modelo de IA e as mensagens da API oficial do WhatsApp são cobrados pelo valor real, discriminados na mesma fatura. A verba de anúncios é paga direto ao Google e à Meta. Usuário, dados e conversas acima do que vem incluso têm preço publicado na tabela.",
+  },
+  {
+    pergunta: "Tem cobrança por usuário?",
+    resposta: `O CRM vem com 5 usuários e o Painel do dono com 3, sem licença por pessoa. Acima disso, cada usuário extra custa ${BRL(DEGRAUS.usuarioExtra)} por mês. O pacote automotivo vem com ${AUTOMOTIVO_PRECO.pacote.usuarios} usuários.`,
+  },
+  {
+    pergunta: "Os preços sobem com o dólar?",
+    resposta: `A mensalidade é reajustada uma vez por ano pelo ${REAJUSTE.indice}. Hospedagem, banco de dados e modelos de IA são cobrados em dólar: se a variação cambial passar de ${REAJUSTE.gatilhoCambial}% desde a assinatura, a diferença é repassada só nesses itens, com o cálculo na fatura.`,
   },
   {
     pergunta: "Tem fidelidade ou multa?",
@@ -742,6 +893,11 @@ export const PERGUNTAS = [
     pergunta: "Vocês fazem tráfego pago sem rastreamento?",
     resposta:
       "Não. Sem rastreamento até a venda, a campanha otimiza pelo formulário preenchido, e verba vai para o anúncio que gera contato barato, mesmo quando ele vende pouco. A gestão de tráfego começa com o rastreamento ligado.",
+  },
+  {
+    pergunta: "Vocês disparam para listas compradas?",
+    resposta:
+      "Não. A reativação de base usa a base própria da empresa, com registro de origem e saída fácil em toda mensagem. Lista comprada ou raspada fere a LGPD e derruba o número no WhatsApp.",
   },
   {
     pergunta: "Como funciona o diagnóstico gratuito?",

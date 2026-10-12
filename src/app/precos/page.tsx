@@ -7,7 +7,7 @@ import BotaoWhatsAppFixo from "@/components/layout/BotaoWhatsAppFixo";
 import Garantias from "@/components/home/Garantias";
 import Perguntas from "@/components/home/Perguntas";
 import Fechamento from "@/components/home/Fechamento";
-import { ForaDaMensalidade, Pacote, Tabela } from "@/components/precos/TabelaDePrecos";
+import { ForaDaMensalidade, OQueCresce, Pacote, Reativacao, Tabela, Trafego } from "@/components/precos/TabelaDePrecos";
 import { metadataDa } from "@/conteudo/paginas";
 import { BRL, PISO_DA_MENSALIDADE } from "@/conteudo/precos";
 import { grafoDosPrecos } from "@/lib/schema";
@@ -16,10 +16,29 @@ const ROTA = "/precos";
 
 export const metadata = metadataDa(ROTA);
 
+/** Uma seção da página, com título visível e o espaçamento padrão. */
+function Secao({ id, titulo, texto, children }: { id: string; titulo: string; texto?: string; children: React.ReactNode }) {
+  return (
+    <section aria-labelledby={`titulo-${id}`} className="py-12 md:py-16">
+      <div className="conteiner">
+        <div className="max-w-[44rem]">
+          <h2 id={`titulo-${id}`} className="text-[clamp(1.5rem,1.2rem+1.2vw,2rem)] font-semibold leading-tight tracking-[-0.035em]">
+            {titulo}
+          </h2>
+          {texto ? <p className="texto-guia mt-4">{texto}</p> : null}
+        </div>
+        <div className="mt-8">{children}</div>
+      </div>
+    </section>
+  );
+}
+
 /**
- * A página de preço: a tabela inteira, o pacote automotivo com o desconto
- * calculado, o que fica fora, as garantias e as perguntas. Quem chega aqui
- * já quer saber quanto custa; a página responde antes de pedir qualquer coisa.
+ * A página de preço: a tabela inteira nos dois pilares, o que cresce com o
+ * cliente, o tráfego por plataforma, a reativação com os canais, o pacote
+ * automotivo com o desconto calculado, o que fica fora, as garantias e as
+ * perguntas. Quem chega aqui já quer saber quanto custa; a página responde
+ * antes de pedir qualquer coisa.
  */
 export default function Pagina() {
   return (
@@ -31,12 +50,12 @@ export default function Pagina() {
           <div className="conteiner pb-12 pt-14 md:pt-20 lg:pb-16 lg:pt-24">
             <p className="sobretitulo">Preços</p>
             <h1 id="titulo-precos" className="titulo-hero mt-5 max-w-[46rem]">
-              Quanto custa, linha por linha.
+              Quanto custa, linha por linha, e o que cresce com você.
             </h1>
-            <p className="texto-guia mt-7 max-w-[40rem]">
-              Todo valor aqui é a partir de: o preço final sai do diagnóstico, com o escopo fechado antes de começar.
-              Nenhuma mensalidade fica abaixo de {BRL(PISO_DA_MENSALIDADE)}, porque ela cobre hospedagem e manutenção
-              de verdade.
+            {/* Curto de propósito: o LCP da página é o H1, e um parágrafo maior que ele rouba o posto. */}
+            <p className="texto-guia mt-7 max-w-[36rem]">
+              Todo valor é a partir de: o preço final sai do diagnóstico, com o escopo fechado. Nenhuma mensalidade
+              fica abaixo de {BRL(PISO_DA_MENSALIDADE)}.
             </p>
             <div className="mt-9 flex flex-wrap gap-3">
               <Link href="/diagnostico" className="botao botao-primario">
@@ -59,7 +78,31 @@ export default function Pagina() {
           </div>
         </section>
 
-        <section aria-labelledby="titulo-pacote" className="py-10 md:py-14">
+        <Secao
+          id="cresce"
+          titulo="O que cresce com você."
+          texto="Mais gente, mais conversa e mais dado custam mais infra e mais cuidado. O preço de cada degrau está aqui, não na renovação."
+        >
+          <OQueCresce />
+        </Secao>
+
+        <Secao
+          id="trafego"
+          titulo="Tráfego pago, por plataforma ou junto."
+          texto="A gestão é por plataforma. Quem contrata Google Ads e Meta Ads juntos paga menos e leva o feed de catálogo, que põe o estoque ou os produtos no anúncio."
+        >
+          <Trafego />
+        </Secao>
+
+        <Secao
+          id="reativacao"
+          titulo="Reativação de base: o canal muda o custo e o risco."
+          texto="A campanha é a mesma. O que muda é por onde a mensagem sai, quanto a operadora ou a Meta cobram e o que pode acontecer com o número."
+        >
+          <Reativacao />
+        </Secao>
+
+        <section aria-labelledby="titulo-pacote" className="py-12 md:py-16">
           <div className="conteiner">
             <h2 id="titulo-pacote" className="sr-only">
               Pacote para revendas de veículos
@@ -68,16 +111,9 @@ export default function Pagina() {
           </div>
         </section>
 
-        <section aria-labelledby="titulo-fora" className="py-10 md:py-14">
-          <div className="conteiner">
-            <h2 id="titulo-fora" className="text-[1.375rem] font-semibold leading-tight tracking-[-0.03em]">
-              O que fica fora da mensalidade
-            </h2>
-            <div className="mt-6">
-              <ForaDaMensalidade />
-            </div>
-          </div>
-        </section>
+        <Secao id="fora" titulo="O que fica fora da mensalidade.">
+          <ForaDaMensalidade />
+        </Secao>
 
         <Garantias />
         <Perguntas />
