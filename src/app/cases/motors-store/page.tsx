@@ -116,16 +116,6 @@ export default function Pagina() {
               {c.numeros.fonte}
             </p>
 
-            <div className="mt-16 grid gap-8 lg:grid-cols-[1fr_1.1fr] lg:gap-14">
-              <h3 className="text-[clamp(1.5rem,1.2rem+1.2vw,2.125rem)] font-semibold leading-[1.1] tracking-[-0.035em]">
-                {c.leitura.titulo}
-              </h3>
-              <div className="grid gap-4 text-[1.0625rem] leading-relaxed text-secundario">
-                {c.leitura.paragrafos.map((p) => (
-                  <p key={p}>{p}</p>
-                ))}
-              </div>
-            </div>
           </div>
         </section>
 
@@ -142,23 +132,12 @@ export default function Pagina() {
           </div>
         </section>
 
-        <section aria-labelledby="titulo-proximos" className="border-t border-linha">
-          <div className="conteiner grid gap-12 py-20 md:py-28 lg:grid-cols-2 lg:gap-16">
+        <section aria-labelledby="titulo-stack" className="border-t border-linha">
+          <div className="conteiner grid gap-10 py-16 md:py-20 lg:grid-cols-2 lg:gap-16">
             <div>
-              <h2 id="titulo-proximos" className="text-[clamp(1.5rem,1.2rem+1.2vw,2.125rem)] font-semibold leading-[1.1] tracking-[-0.035em]">
-                {c.proximos.titulo}
+              <h2 id="titulo-stack" className="text-[0.8125rem] font-medium text-secundario">
+                {c.stack.titulo}
               </h2>
-              <ul className="mt-6 grid gap-3">
-                {c.proximos.itens.map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-[1.0625rem] leading-relaxed text-secundario">
-                    <Icone nome="relogio" className="mt-1.5 size-4 shrink-0 text-ambar" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <h2 className="text-[0.8125rem] font-medium text-secundario">{c.stack.titulo}</h2>
               <ul className="mt-4 flex flex-wrap gap-2">
                 {c.stack.itens.map((item) => (
                   <li key={item} className="chip">
@@ -166,14 +145,14 @@ export default function Pagina() {
                   </li>
                 ))}
               </ul>
-              <p className="mt-10 text-[1.0625rem] leading-relaxed text-secundario">
-                {c.assinatura.split("Dyones Oliveira")[0]}
-                <Link href="/sobre" className="link-sublinhado text-papel">
-                  Dyones Oliveira
-                </Link>
-                {c.assinatura.split("Dyones Oliveira")[1]}
-              </p>
             </div>
+            <p className="text-[1.0625rem] leading-relaxed text-secundario lg:pt-7">
+              {c.assinatura.split("Dyones Oliveira")[0]}
+              <Link href="/sobre" className="link-sublinhado text-papel">
+                Dyones Oliveira
+              </Link>
+              {c.assinatura.split("Dyones Oliveira")[1]}
+            </p>
           </div>
         </section>
 

@@ -33,7 +33,6 @@ describe("case Motors Store", () => {
     expect(memoria).toMatch(/\| Leads do site com `event_id` \| 42 de 44 \(95%\)/);
     expect(memoria).toMatch(/ligados ao veículo \| 38 \/ 37 de 44/);
     expect(memoria).toMatch(/com gclid ou fbclid \| 28 \/ 26 de 44/);
-    expect(memoria).toMatch(/\| Desfechos \| 3 ganhos, 10 perdidos, 13 descartados, 30 abertos/);
     expect(memoria).toMatch(/\| Guias publicados \| 26 \|/);
     expect(memoria).toMatch(/\| Estoque sincronizado \| 132 veículos, 46 marcados como vendidos/);
     expect(CASE_MOTORS.numeros.itens.map((n) => `${n.valor}${n.complemento ? ` ${n.complemento}` : ""}`)).toEqual([
@@ -44,21 +43,22 @@ describe("case Motors Store", () => {
       "26",
       "132",
     ]);
-    expect(CASE_MOTORS.leitura.paragrafos.join(" ")).toMatch(/3 vendas, 10 negócios perdidos, 13 descartados e 30 em aberto/);
-    expect(CASE_MOTORS.leitura.paragrafos.join(" ")).toMatch(/95%/);
     expect(CASE_MOTORS.construido.pecas.map((p) => p.titulo)).toContain("26 guias com método próprio");
   });
 
   it("a fonte e o período aparecem junto dos números, iguais aos da home", () => {
     expect(CASE_MOTORS.numeros.fonte).toBe(CASE.fonte);
-    expect(CASE_MOTORS.fatos.map((f) => f.valor).join(" ")).toMatch(/05\/09 a 08\/10\/2026/);
     expect(pagina).toContain("{c.numeros.fonte}");
   });
 
   it("não fala de atendimento nem de tempo de resposta como resultado", () => {
-    const corpo = JSON.stringify({ ...CASE_MOTORS, proximos: undefined });
-    expect(corpo).not.toMatch(/tempo de resposta|primeira resposta|respondido em|responde em/i);
-    expect(corpo).not.toMatch(/-70%|3\.4x|3,4x/);
+    expect(textoDoCase).not.toMatch(/tempo de resposta|primeira resposta|respondido em|responde em/i);
+    expect(textoDoCase).not.toMatch(/-70%|3\.4x|3,4x/);
+  });
+
+  it("só número medido: sem ressalva sobre o que não foi medido e sem promessa de dado futuro (Dyones, 11/10)", () => {
+    expect(textoDoCase).not.toMatch(/ainda não|pouco para afirmar|90 dias|entra com|vendas registradas|em aberto|descartad|perdid/i);
+    expect(pagina).not.toMatch(/leitura|proximos/);
   });
 
   it("só usa a marca da Motors com autorização registrada e com o logo do pacote da loja", () => {

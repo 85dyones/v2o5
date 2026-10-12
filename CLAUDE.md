@@ -37,7 +37,7 @@ Novo site da **V2O5 Vendas e Tecnologia** (substitui o WordPress de v2o5.com.br)
 ## Regras do projeto
 - Código, tabelas, commits e textos em português, como na Motors.
 - Texto público passa pelo humanizer: sem travessão, sem "não é X, é Y", sem tríades de efeito.
-- Nunca publicar número sem fonte. Os do case estão em `memory/projects/case-motors.md`, com período.
+- Nunca publicar número sem fonte. Os do case estão em `memory/projects/case-motors.md`, com período. E só número medido: texto público não fala do que ainda não foi medido nem promete dado futuro; cliente compra resultado (Dyones, 11/10).
 - Performance é promessa de venda: LCP é o título (nunca o canvas), motion carrega por seção, `prefers-reduced-motion` desliga tudo.
 - Commit com rodapé de coautoria; push só na branch designada da sessão.
 
