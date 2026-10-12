@@ -2,6 +2,9 @@
 
 Log datado. Decisão nova entra no topo do dia; decisão revogada fica riscada com a data da troca.
 
+## 12/10/2026 (PR #4 em main)
+- PR #4 mesclado por squash em `main` (e83fb73) a pedido do Dyones ("faça o Merge"), depois de CI verde e preview pronto. A branch `claude/gracious-euler-0qzedy` foi reiniciada a partir do `main`; rodada nova em PR novo. Produção (v2o5.vercel.app) passa a ter a tabela confirmada, `/precos` refeita, os cartões novos, o hub automotivo, o case e o fluxo do n8n em `docs/n8n/`.
+
 ## 12/10/2026 (tabela confirmada e levada ao site)
 - "Confirmado" do Dyones para a tabela revisada. Entrou em `precos.ts` (15 linhas em dois pilares, `DEGRAUS`, `REAJUSTE`, `CANAIS_DA_REATIVACAO`, pacote com 5 usuários), e daí na home (12 cartões com preço próprio, 9 no mapa e 7 na operação com o agente no bloco grande e as integrações por último; vinhetas novas para painel, reativação, redes, avaliações, catálogo e pós-venda), em `/precos` (tabela por pilar com inclui, degraus e repasses na linha; seções "O que cresce com você", tráfego por plataforma com o bônus, reativação com os três canais, pacote, o que fica fora) e no hub automotivo. Garantia "Mensalidade sem surpresa" e três perguntas novas (usuário extra, dólar, lista comprada) na home e em `/precos`.
 - Desconto do pacote automotivo passa a 24% e 28% (soma das mensalidades avulsas subiu para R$ 2.760 com o CRM a R$ 790); pacote segue em R$ 14.900 + R$ 1.990.
