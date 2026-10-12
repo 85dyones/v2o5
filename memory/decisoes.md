@@ -2,6 +2,12 @@
 
 Log datado. Decisão nova entra no topo do dia; decisão revogada fica riscada com a data da troca.
 
+## 12/10/2026 (âncoras que caíam no rodapé, pelo Dyones)
+- Reclamação: "por algumas vezes sou levado ao rodapé e não ao topo da informação". Reproduzido com Playwright: em `/precos`, "Ver as perguntas" parava 470px abaixo do título; na home do celular, o botão do hero para `#como-se-liga` errava por 1.890px. Causa: `.adiada` (`content-visibility: auto` com `contain-intrinsic-size: auto 900px`): o navegador rola pela altura estimada e, quando as seções renderizam com a altura real (Soluções tem 9.550px no celular; Garantias, 420px), o conteúdo desliza por baixo da janela. Correção em CSS, sem JS: `html:has(:target) .adiada { content-visibility: visible }` revela as seções quando há fragmento na URL, antes de o navegador calcular a rolagem. Vale para clique na página, carga direta com `#` e voltar/avançar. Na navegação do Next entre páginas (`/#solucoes` vindo de `/precos`) o `:target` não acende; hoje todo alvo desse tipo (`#solucoes`, `#titulo-trafego`, `#titulo-reativacao`) não tem seção adiada acima, então aterrissa certo. Regra: link com `#` via `Link` só para alvo sem `.adiada` acima, ou usar `<a>`.
+- Resto de 52px no celular, só em alvos depois do Orquestrador: o esboço do servidor não tinha o botão "Repetir a demonstração", que no celular cai numa segunda linha; quando a versão interativa chegava, a seção crescia 52px. O botão agora vem no HTML, desligado até o JS chegar.
+- De quebra, reservas da Geist Mono com a mesma largura de avanço (0,6 em) e métricas verticais iguais (`@font-face` com `local()` e `size-adjust`: Menlo e DejaVu Sans Mono 99,65%, Consolas 109,13%), para a chegada tardia da fonte não refluir texto mono. Medido: a troca não movia nada neste ambiente (DejaVu já tem 0,602 em); o ganho é no Windows (Consolas, 0,55 em).
+- Medido depois (32 casos: 8 âncoras × desktop e 390px × rolagem suave e instantânea): todos a 80px do topo da janela, logo abaixo do topo fixo (`scroll-padding-top: 5rem`). `tests/ancoras.test.ts` trava o CSS e o botão.
+
 ## 12/10/2026 (PR #4 em main)
 - PR #4 mesclado por squash em `main` (e83fb73) a pedido do Dyones ("faça o Merge"), depois de CI verde e preview pronto. A branch `claude/gracious-euler-0qzedy` foi reiniciada a partir do `main`; rodada nova em PR novo. Produção (v2o5.vercel.app) passa a ter a tabela confirmada, `/precos` refeita, os cartões novos, o hub automotivo, o case e o fluxo do n8n em `docs/n8n/`.
 
