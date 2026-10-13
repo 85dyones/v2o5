@@ -2,6 +2,12 @@
 
 Log datado. Decisão nova entra no topo do dia; decisão revogada fica riscada com a data da troca.
 
+## 13/10/2026 (página Sobre, pelo Dyones: "prossiga")
+- `/sobre` pronta e indexável (`conteudo/sobre.ts`): o fundador com o mesmo texto da Visão 360 e quatro fatos (FAE, Top Imóveis, 26 guias da Motors, diagnóstico), a origem resumida da página Jornada do site antigo (livros até os sete anos, o concurso de 1992), as quatro áreas com a base dele; o nome (pentóxido de vanádio, catalisador do ácido sulfúrico; as quatro cores do vanádio como as quatro etapas) com o símbolo e a assinatura; cinco regras de como a V2O5 trabalha (diagnóstico primeiro, preço publicado, só número medido, integração só quando roda, o sistema é seu); a relação com a Motors declarada como cliente e case principal, com a autorização registrada; as ferramentas (stack do case) e os dados da empresa (nome, razão social, CNPJ, sede, WhatsApp, e-mail, "antes se apresentava como V2O5 ConsultorIA"). Sem foto (pendência 1 e 11): no lugar, as iniciais num círculo; a foto entra no mesmo cartão quando chegar. Sem data de fundação: o CNPJ está ativo desde 10/08/2026 (`marca.md`) e publicar isso é escolha comercial do Dyones.
+- Schema: trilha, `Person` do fundador (o `@id` `/sobre#autor` finalmente aponta para uma seção que existe) e `AboutPage` com a organização como assunto. `tests/sobre.test.ts` trava texto do fundador igual ao da Visão 360, relação com a Motors com autorização registrada, resumo ≤ 140, grafo e texto sem marcas de IA (inclusive sem aspas tipográficas, para não entrar citação inventada).
+- O que a página não afirma, por falta de registro: se o Dyones tem outra relação com a Motors além de fornecedor (a página diz "cliente e case principal"), equipe além do fundador e ano de fundação da V2O5.
+- Medido (Lighthouse 12.6 mobile, servidor local, mediana de 3): performance 97, LCP 2,46 s (H1), TBT 86 ms, CLS 0; a11y, boas práticas e SEO 100. O H1 "Quem faz a V2O5 e como ela trabalha." perdia o LCP para o parágrafo; passou a "Quem faz a V2O5, de onde vem o nome e como ela trabalha." e o resumo encurtou. 390 px sem rolagem horizontal e sem erro de console.
+
 ## 13/10/2026 (PR #6 em main)
 - PR #6 (cinco páginas de solução) mesclado por squash em `main` (1e80bb1) a pedido do Dyones ("faça o merge"), com CI verde. A branch `claude/gracious-euler-0qzedy` foi reiniciada a partir do `main`; rodada nova em PR novo. Produção passa a ter as cinco páginas indexáveis.
 
