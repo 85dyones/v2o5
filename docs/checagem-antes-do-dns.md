@@ -45,8 +45,8 @@ Dois caminhos levam ao Chatwoot.
 
 ### Você confere (com login)
 
-1. **Chatwoot, Settings > Inboxes**: qual inbox recebe o WhatsApp do 5541998089550. O id é o número na URL da inbox; vai em `chatwootInbox` no nó Configuração do fluxo (vem preenchido com 1).
-2. **Evolution, manager**: a instância ligada a esse número está conectada ("open") e qual é o nome dela; vai em `evolutionInstancia` (vem `v2o5`). Na integração Chatwoot da instância, o endereço tem de ser `https://app.chat.v2o5.com.br`, conta 1, com o token do perfil.
+1. ~~Chatwoot, Settings > Inboxes~~ **Feito em 13/10**: a inbox do WhatsApp é a 12 e a instância da Evolution é `v2o5`, ligada à inbox. Os dois já estão gravados no nó Configuração do fluxo.
+2. **Evolution, manager**: conferir que a instância `v2o5` está conectada ("open") e que a integração Chatwoot dela aponta para `https://app.chat.v2o5.com.br`, conta 1, com o token do perfil.
 3. **Teste A, WhatsApp**: de outro celular, mande "oi" para o número. Tem de aparecer na inbox do Chatwoot em segundos; responda pelo Chatwoot e veja chegar no celular.
 4. **Teste B, formulário**: siga `docs/n8n/LEIA-ME.md` (quatro credenciais, importar o fluxo, nó Configuração, ativar), defina `LEADS_WEBHOOK_URL` e `LEADS_WEBHOOK_SECRET` na Vercel (produção e preview) e rode o `curl` do LEIA-ME. Esperado: aviso no seu WhatsApp, resposta no WhatsApp informado, contato no Chatwoot com os atributos. Depois, um envio real pelo formulário do preview. Até isso, o formulário responde "envio em configuração".
 5. **Chatwoot, operação**: agente com notificações ligadas; Settings > Inbox > horário de atendimento e mensagem fora do horário, se quiser; respostas prontas para "diagnóstico" e "preços"; atributos personalizados da conta para os campos do lead aparecerem na ficha (item do LEIA-ME).
