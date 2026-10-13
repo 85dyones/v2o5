@@ -175,7 +175,7 @@ describe("garantias, perguntas e chamadas (regras de oferta.md)", () => {
       "Sem fidelidade",
       "Implantação em até 6x",
       "O sistema é seu",
-      "Mensalidade sem surpresa",
+      "Mensalidade com piso e teto",
     ]);
     expect(oferta).toContain("Sem fidelidade");
     expect(oferta).toContain("até 6x");
@@ -185,7 +185,7 @@ describe("garantias, perguntas e chamadas (regras de oferta.md)", () => {
 
   it("todo valor em real das perguntas está na tabela de oferta.md", () => {
     const tudo = PERGUNTAS.map((p) => p.resposta).join(" ");
-    const valores = tudo.match(/R\$ [\d.]+/g) ?? [];
+    const valores = tudo.match(/R\$ \d{1,3}(?:\.\d{3})*/g) ?? [];
     expect(valores.length).toBeGreaterThan(0);
     for (const v of valores) expect(oferta, v).toContain(v);
     expect(PERGUNTAS.length).toBeGreaterThanOrEqual(6);

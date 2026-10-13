@@ -23,9 +23,9 @@ Fonte em código: `src/conteudo/precos.ts` (home, `/precos`, hub automotivo, `ll
 | Painel do dono (BI e dashboards) | sem página (`/diagnostico`) | R$ 4.900 | R$ 790 | 3 usuários, 3 fontes, até 8 GB ou 1 milhão de linhas; usuário extra R$ 89/mês; fonte extra R$ 1.900 + R$ 190/mês; infra acima do limite pelo valor real + 20% |
 | Automação de processos (n8n) | `/automacao-com-ia` | R$ 1.900 por fluxo | | manutenção na mensalidade do CRM ou do site |
 | Pós-venda e recorrência | sem página (`/diagnostico`) | R$ 1.900 por fluxo | | régua de retorno (revisão, troca, seguro, recompra) no n8n, ligada ao CRM |
-| Reativação de base | sem página (`/diagnostico`) | R$ 1.900 por campanha | | até 5 mil contatos e 1 canal; canal extra R$ 490; cada 5 mil contatos a mais R$ 290; recorrente depois da primeira R$ 990/mês; número não oficial dedicado R$ 290 por número/mês; mensagens da API oficial, SMS e chip repassados |
+| Reativação de base | sem página (`/diagnostico`) | R$ 950 por campanha (13/10: metade dos R$ 1.900) | | até 5 mil contatos e 1 canal; canal extra R$ 490; cada 5 mil contatos a mais R$ 290; pacote de 3 campanhas R$ 2.490; campanha todo mês R$ 790/mês; número não oficial dedicado R$ 290 por número/mês; mensagens da API oficial, SMS e chip repassados |
 
-Piso da mensalidade: R$ 590 (Dyones, 10/10), porque ela cobre hospedagem e manutenção. Antes, site e rastreamento estavam em R$ 290. CRM subiu de R$ 590 para R$ 790 em 12/10 (banco próprio e 5 usuários inclusos).
+Piso da mensalidade: R$ 590 (Dyones, 10/10), porque ela cobre hospedagem e manutenção. **Teto da mensalidade: R$ 1.990** (Dyones, 13/10): somadas as linhas de sistema (`LINHAS_NO_TETO`: site, rastreamento, agente, CRM, painel), a mensalidade da V2O5 para em R$ 1.990, porque o trabalho está na implantação e manter é barato; sem teto o projeto não fecha para revendas com margem apertada. Fora do teto: degraus de uso, repasses e serviços de produção contínua (tráfego, conteúdo e redes). Decorrência: o pacote automotivo (R$ 1.990) já está no teto, então o painel do dono entra nele sem subir a mensalidade. Antes, site e rastreamento estavam em R$ 290. CRM subiu de R$ 590 para R$ 790 em 12/10 (banco próprio e 5 usuários inclusos).
 
 O que cresce com o cliente (`DEGRAUS` em `precos.ts`): usuário extra R$ 89/mês; conversas do agente R$ 190/mês a cada 500; dados do CRM acima de 20 mil contatos ou 8 GB R$ 190/mês; fonte de dados extra no painel R$ 1.900 + R$ 190/mês; infra acima de 8 GB ou 1 milhão de linhas pelo valor real + 20% de gestão. Reajuste (`REAJUSTE`): IPCA ao ano e repasse de variação cambial acima de 10% só nos itens em dólar (Vercel, Supabase, modelos de IA).
 
@@ -50,6 +50,8 @@ Pacote confirmado pelo Dyones em 10/10; soma recalculada em 12/10 com o CRM a R$
 - Diagnóstico gratuito: 45 min com o fundador + mapa em 24 h. Escassez "5 por semana" só se for verdade.
 - Integração só é anunciada como "em produção" quando existe (hoje: Revenda Mais). Autoconf, BNDV, Boom, Altimus e Syonet são citados como integráveis por fluxo, orçado no diagnóstico (Dyones, 13/10); a lista mora em `conteudo/diagnostico.ts`.
 - Tráfego pago só com o rastreamento até a venda ligado.
+- Mensalidade com piso (R$ 590) e teto (R$ 1.990) para as linhas de sistema; fora do teto: uso, repasses e produção contínua (13/10).
+- Reativação de base: campanha avulsa pela metade (R$ 950); mais de uma campanha vira pacote (3 por R$ 2.490) ou campanha todo mês (R$ 790/mês) (13/10).
 
 ## Custo da mensalidade e pisos revisados (12/10/2026; confirmado pelo Dyones no mesmo dia, valores acima)
 Custos de infra por cliente (páginas de preço lidas em 12/10/2026; dólar de referência R$ 5,40): Vercel Pro US$ 20/mês por assento de desenvolvedor, 1 TB de banda, compartilhado entre todos os clientes (vercel.com/pricing); Supabase Pro US$ 25/mês na organização e US$ 10/mês por projeto extra (Micro), 8 GB de disco por projeto, excedente US$ 0,125/GB (supabase.com/pricing); VPS Hostinger KVM 2 R$ 43,99 e KVM 4 R$ 59,99 por mês, compartilhada (n8n, Chatwoot, Evolution; hostinger.com/br). Hora do fundador valorada em R$ 150 (mercado de consultoria: R$ 70 a R$ 150).

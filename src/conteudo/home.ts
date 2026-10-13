@@ -8,7 +8,7 @@
  */
 import { listaDeSistemasIntegraveis } from "@/conteudo/diagnostico";
 import type { Etapa } from "@/lib/tokens";
-import { AUTOMOTIVO_PRECO, BRL, DEGRAUS, precoDa, REAJUSTE, REGRAS } from "@/conteudo/precos";
+import { AUTOMOTIVO_PRECO, BRL, DEGRAUS, mensalidadeComTeto, PISO_DA_MENSALIDADE, precoDa, REAJUSTE, REGRAS, TETO_DA_MENSALIDADE } from "@/conteudo/precos";
 
 /**
  * O H1 da home, escolhido em 09/10 entre duas opções (a outra está em
@@ -838,9 +838,8 @@ export const GARANTIAS = [
     texto: `Se sair, recebe o código, os dados e o domínio em até ${REGRAS.diasParaEntregarNaSaida} dias.`,
   },
   {
-    titulo: "Mensalidade sem surpresa",
-    texto:
-      "Hospedagem e manutenção dentro. O que cresce com você (usuário, dados, conversas) tem preço publicado. IA e mensagens do WhatsApp pelo valor real, na mesma fatura.",
+    titulo: "Mensalidade com piso e teto",
+    texto: `De ${BRL(PISO_DA_MENSALIDADE)} a ${BRL(TETO_DA_MENSALIDADE)} por mês para o sistema inteiro, com hospedagem e manutenção dentro. O que cresce com você (usuário, dados, conversas) tem preço publicado. IA e mensagens do WhatsApp pelo valor real, na mesma fatura.`,
   },
 ];
 
@@ -871,6 +870,10 @@ export const PERGUNTAS = [
     pergunta: "O que a mensalidade inclui?",
     resposta:
       "Hospedagem, manutenção, atualizações de segurança, monitoramento e um relatório mensal. O uso do modelo de IA e as mensagens da API oficial do WhatsApp são cobrados pelo valor real, discriminados na mesma fatura. A verba de anúncios é paga direto ao Google e à Meta. Usuário, dados e conversas acima do que vem incluso têm preço publicado na tabela.",
+  },
+  {
+    pergunta: "Se eu contratar várias linhas, a mensalidade vai somando?",
+    resposta: `Até o teto. Somadas as linhas de sistema (site, rastreamento, agente de IA, CRM e painel do dono), a mensalidade da V2O5 para em ${BRL(TETO_DA_MENSALIDADE)}. Site, agente, CRM e rastreamento somam ${BRL(mensalidadeComTeto(["sites", "agente", "crm", "rastreamento"]).soma)} e custam ${BRL(TETO_DA_MENSALIDADE)}; com o painel do dono, a mensalidade continua a mesma. Ficam fora do teto o que cresce com o uso, os repasses e os serviços de produção contínua, como tráfego e conteúdo.`,
   },
   {
     pergunta: "Tem cobrança por usuário?",

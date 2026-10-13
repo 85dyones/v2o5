@@ -10,10 +10,13 @@ import {
   linhasDoPilar,
   mensalidadeDoPacoteComTrafego,
   mesesQueUmaVendaPaga,
+  LINHAS_NO_TETO,
+  mensalidadeComTeto,
   PISO_DA_MENSALIDADE,
   precoDa,
   REAJUSTE,
   somaDoPacote,
+  TETO_DA_MENSALIDADE,
 } from "@/conteudo/precos";
 import { AUTOMOTIVO, LINHAS, PILARES } from "@/conteudo/home";
 import { ler } from "./fonte";
@@ -38,6 +41,34 @@ describe("tabela de preços", () => {
       if (l.mensalidade) expect(l.mensalidade, l.nome).toBeGreaterThanOrEqual(PISO_DA_MENSALIDADE);
     }
     expect(AUTOMOTIVO_PRECO.siteDeEstoque.mensalidade).toBeGreaterThanOrEqual(PISO_DA_MENSALIDADE);
+  });
+
+  it("a mensalidade tem teto para as linhas de sistema (Dyones, 13/10)", () => {
+    expect(TETO_DA_MENSALIDADE).toBe(1990);
+    expect(TETO_DA_MENSALIDADE).toBeGreaterThan(PISO_DA_MENSALIDADE);
+    expect([...LINHAS_NO_TETO]).toEqual(["sites", "rastreamento", "agente", "crm", "painel"]);
+    for (const id of LINHAS_NO_TETO) expect(LINHAS_DE_PRECO.find((l) => l.id === id)?.mensalidade, id).toBeGreaterThan(0);
+    expect(mensalidadeComTeto(["sites"])).toEqual({ soma: 590, cobrada: 590 });
+    expect(mensalidadeComTeto(["sites", "agente", "crm", "rastreamento"])).toEqual({ soma: 2760, cobrada: 1990 });
+    expect(mensalidadeComTeto([...LINHAS_NO_TETO])).toEqual({ soma: 3550, cobrada: 1990 });
+    // Tráfego e conteúdo não entram no teto.
+    expect(mensalidadeComTeto(["sites", "trafego", "redes"])).toEqual({ soma: 590, cobrada: 590 });
+    expect(AUTOMOTIVO_PRECO.pacote.mensalidade).toBe(TETO_DA_MENSALIDADE);
+    const oferta = ler("memory/context/oferta.md");
+    expect(oferta).toContain("Teto da mensalidade: R$ 1.990");
+  });
+
+  it("a reativação custa metade por campanha e tem pacote para mais de uma (Dyones, 13/10)", () => {
+    const r = LINHAS_DE_PRECO.find((l) => l.id === "reativacao")!;
+    expect(r.implantacao).toBe(950);
+    expect(r.degraus?.map((d) => [d.rotulo, d.valor])).toEqual([
+      ["Canal extra", 490],
+      ["Cada 5 mil contatos a mais", 290],
+      ["Pacote de 3 campanhas", 2490],
+      ["Campanha todo mês", 790],
+      ["Número dedicado no WhatsApp não oficial", 290],
+    ]);
+    expect(2490 / 3).toBeLessThan(950);
   });
 
   it("cada número do código está em oferta.md", () => {
@@ -93,7 +124,7 @@ describe("tabela de preços", () => {
     expect(precoDa("catalogo")).toBe("a partir de R$ 1.900 por feed");
     expect(precoDa("redes")).toBe("a partir de R$ 1.500 + R$ 1.290/mês");
     expect(precoDa("automacao")).toBe("a partir de R$ 1.900 por fluxo");
-    expect(precoDa("reativacao")).toBe("a partir de R$ 1.900 por campanha");
+    expect(precoDa("reativacao")).toBe("a partir de R$ 950 por campanha");
     expect(precoDa("branding")).toBe("a partir de R$ 1.500 por projeto");
   });
 

@@ -1,5 +1,5 @@
 import { AUTOMOTIVO, CASE, EMPRESA, HERO, PILARES, VISAO_360 } from "@/conteudo/home";
-import { BRL, DEGRAUS, PISO_DA_MENSALIDADE, REAJUSTE } from "@/conteudo/precos";
+import { BRL, DEGRAUS, PISO_DA_MENSALIDADE, REAJUSTE, TETO_DA_MENSALIDADE } from "@/conteudo/precos";
 import { SITE_URL } from "@/lib/site";
 import { whatsappParaLer } from "@/lib/whatsapp";
 
@@ -28,7 +28,7 @@ export function textoDoLlms(): string {
     `Fundador: ${VISAO_360.fundador.nome}. ${VISAO_360.fundador.texto}`,
     "",
     "## Serviços",
-    `Todo preço é a partir de; nenhuma mensalidade fica abaixo de ${BRL(PISO_DA_MENSALIDADE)} (hospedagem e manutenção inclusas). Usuário extra ${BRL(DEGRAUS.usuarioExtra)}/mês; uso de IA e mensagens do WhatsApp pelo valor real, na mesma fatura; reajuste anual pelo ${REAJUSTE.indice}. Sem fidelidade.`,
+    `Todo preço é a partir de; nenhuma mensalidade fica abaixo de ${BRL(PISO_DA_MENSALIDADE)} (hospedagem e manutenção inclusas) e, somadas as linhas de sistema (site, rastreamento, agente, CRM e painel), a mensalidade para no teto de ${BRL(TETO_DA_MENSALIDADE)}. Usuário extra ${BRL(DEGRAUS.usuarioExtra)}/mês; uso de IA e mensagens do WhatsApp pelo valor real, na mesma fatura; reajuste anual pelo ${REAJUSTE.indice}. Sem fidelidade.`,
     "",
     ...pilares,
     "## Segmento automotivo",

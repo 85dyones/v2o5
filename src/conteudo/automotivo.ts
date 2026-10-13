@@ -1,6 +1,6 @@
 import { listaDeSistemasIntegraveis } from "@/conteudo/diagnostico";
 import { CASE } from "@/conteudo/home";
-import { AUTOMOTIVO_PRECO, BRL, DEGRAUS, precoDa, REGRAS } from "@/conteudo/precos";
+import { AUTOMOTIVO_PRECO, BRL, DEGRAUS, linhaDePreco, precoDa, REGRAS, TETO_DA_MENSALIDADE } from "@/conteudo/precos";
 
 /**
  * Hub do segmento automotivo (`/segmentos/revendas-de-veiculos`): o pacote
@@ -136,6 +136,10 @@ export const HUB_AUTOMOTIVO = {
       pergunta: "Minha loja usa outro sistema de gestão. O pacote funciona?",
       resposta:
         `Funciona. A integração com o Revenda Mais está em produção. ${listaDeSistemasIntegraveis()} entram como fluxo de integração, orçado no diagnóstico depois de ver a API ou a exportação que cada um oferece; o mesmo vale para outro sistema que a loja use.`,
+    },
+    {
+      pergunta: "Se eu somar o painel do dono ao pacote, a mensalidade sobe?",
+      resposta: `Não. O pacote já está no teto da mensalidade, ${BRL(TETO_DA_MENSALIDADE)}. O painel entra com a implantação dele, a partir de ${BRL(linhaDePreco("painel").implantacao ?? 0)}, e a mensalidade do conjunto continua em ${BRL(TETO_DA_MENSALIDADE)}. Só o que cresce com o uso (usuários, dados, conversas) e os repasses ficam fora.`,
     },
     {
       pergunta: "Quantos usuários o pacote inclui?",
