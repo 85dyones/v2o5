@@ -37,7 +37,7 @@ export default function Garantias() {
               {c.titulo}
             </h2>
             <p className="mt-3 text-[0.9375rem] leading-relaxed text-secundario">{c.texto}</p>
-            <Link href="/diagnostico" className="botao botao-primario mt-6 self-start">
+            <Link href="/diagnostico" className="botao botao-primario mt-6 self-start" data-evento="cta_click" data-local="garantias">
               {CHAMADA.botao}
               <Icone nome="seta" className="seta size-4" />
             </Link>

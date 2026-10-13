@@ -21,7 +21,7 @@ export default function Automotivo() {
             <p className="mt-8 max-w-[30rem] border-l-2 border-ambar pl-4 font-medium leading-snug">
               {AUTOMOTIVO.preco}
             </p>
-            <Link href={AUTOMOTIVO.href} className="botao botao-primario mt-8">
+            <Link href={AUTOMOTIVO.href} className="botao botao-primario mt-8" data-evento="cta_click" data-local="automotivo">
               Ver a página de revendas
               <Icone nome="seta" className="seta size-4" />
             </Link>

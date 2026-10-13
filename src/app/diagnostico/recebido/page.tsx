@@ -35,6 +35,7 @@ export default function Pagina() {
               rel="noopener"
               className="botao botao-primario"
               data-evento="click_whatsapp"
+              data-local="recebido"
             >
               <Icone nome="conversa" className="size-4" />
               Adiantar pelo WhatsApp

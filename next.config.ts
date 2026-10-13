@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import { COLETA_DE_TERCEIROS, SCRIPTS_DE_TERCEIROS } from "./src/lib/terceiros";
 
 const emDesenvolvimento = process.env.NODE_ENV === "development";
 
@@ -11,16 +12,21 @@ const emDesenvolvimento = process.env.NODE_ENV === "development";
  * O resto fecha: nada de fora da origem, nada de `<object>`, nenhum site pode
  * pôr a página num iframe, formulário só posta para a própria origem.
  *
- * Quando entrarem GA4, Pixel da Meta ou Turnstile (fase 1), os domínios deles
- * entram aqui, um por um, e `tests/cabecalhos.test.ts` muda junto.
+ * Os únicos terceiros são os de `src/lib/terceiros.ts` (Google Analytics 4 e
+ * Pixel da Meta, carregados por `lib/medicao.ts` e nomeados em
+ * `/privacidade`). Turnstile entra do mesmo jeito quando chegar;
+ * `tests/cabecalhos.test.ts` e `tests/medicao.test.ts` cobram a lista exata.
  */
+const scripts = SCRIPTS_DE_TERCEIROS.join(" ");
+const coleta = COLETA_DE_TERCEIROS.join(" ");
+
 export const CSP = [
   "default-src 'self'",
-  `script-src 'self' 'unsafe-inline'${emDesenvolvimento ? " 'unsafe-eval'" : ""}`,
+  `script-src 'self' 'unsafe-inline'${emDesenvolvimento ? " 'unsafe-eval'" : ""} ${scripts}`,
   "style-src 'self' 'unsafe-inline'",
-  "img-src 'self' blob: data:",
+  `img-src 'self' blob: data: ${coleta}`,
   "font-src 'self'",
-  "connect-src 'self'",
+  `connect-src 'self' ${coleta}`,
   "object-src 'none'",
   "base-uri 'self'",
   "form-action 'self'",

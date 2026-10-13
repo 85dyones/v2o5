@@ -56,7 +56,7 @@ export default function CaseMotors() {
               do site sai com um identificador que o navegador e o servidor compartilham, e com ele a Meta e o
               Google contam a conversão uma vez só.
             </p>
-            <Link href="/cases/motors-store" className="botao botao-secundario mt-7">
+            <Link href="/cases/motors-store" className="botao botao-secundario mt-7" data-evento="cta_click" data-local="case">
               Ler o case completo
               <Icone nome="seta" className="seta size-4" />
             </Link>

@@ -6,6 +6,7 @@ import { useId, useState, type FormEvent } from "react";
 import Icone from "@/components/Icone";
 import { DIAGNOSTICO, ESTOQUES, OBJETIVOS, PORTES, SEGMENTOS, SISTEMAS } from "@/conteudo/diagnostico";
 import { validarLead, type Lead } from "@/lib/leads";
+import { formularioIniciado, identificadoresDaMeta, leadGerado, medicaoDesligada } from "@/lib/medicao";
 import { origemDaVisita } from "@/lib/origem";
 
 type Erros = Partial<Record<keyof Lead, string>>;
@@ -36,11 +37,18 @@ function Campo({
   );
 }
 
+const FORM_ID = "diagnostico";
+
 /**
  * O pedido de diagnóstico. Valida no navegador com as mesmas regras da API
  * (`lib/leads.ts`), manda a origem da visita junto e, no sucesso, vai para
  * `/diagnostico/recebido`. O campo `site` é a armadilha para robôs: fica
  * escondido e tem de ir vazio.
+ *
+ * Medição (`lib/medicao.ts`): `form_start` no primeiro campo tocado e
+ * `generate_lead` com o `event_id` que a API devolveu, o mesmo que ela
+ * manda à Meta pelo servidor. Com a medição desligada em `/privacidade`, o
+ * envio avisa a API para não mandar nada à Meta.
  */
 export default function Formulario() {
   const f = DIAGNOSTICO.formulario;
@@ -50,16 +58,25 @@ export default function Formulario() {
   const [objetivos, setObjetivos] = useState<string[]>([]);
   const [erros, setErros] = useState<Erros>({});
   const [estado, setEstado] = useState<"parado" | "enviando" | "erro" | "canal">("parado");
+  const [iniciado, setIniciado] = useState(false);
 
   const campo = (nome: string) => `${id}-${nome}`;
+
+  const aoTocar = () => {
+    if (iniciado) return;
+    setIniciado(true);
+    formularioIniciado(FORM_ID);
+  };
 
   async function enviar(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const form = e.currentTarget;
     const dados = Object.fromEntries(new FormData(form).entries()) as Record<string, unknown>;
     dados.objetivos = objetivos;
-    dados.origem = origemDaVisita();
+    const desligada = medicaoDesligada();
+    dados.origem = desligada ? origemDaVisita() : { ...origemDaVisita(), ...identificadoresDaMeta() };
     dados.pagina = location.pathname;
+    if (desligada) dados.medicao = "desligada";
 
     const validacao = validarLead(dados);
     if (!validacao.ok) {
@@ -77,6 +94,8 @@ export default function Formulario() {
         body: JSON.stringify({ ...dados, site: dados.site ?? "" }),
       });
       if (resposta.ok) {
+        const { event_id } = (await resposta.json().catch(() => ({}))) as { event_id?: string };
+        if (event_id) leadGerado({ event_id, form_id: FORM_ID, lead_type: "diagnostico", segmento: validacao.lead.segmento });
         router.push("/diagnostico/recebido");
         return;
       }
@@ -92,7 +111,7 @@ export default function Formulario() {
     setObjetivos((atual) => (atual.includes(valor) ? atual.filter((v) => v !== valor) : [...atual, valor]));
 
   return (
-    <form onSubmit={enviar} noValidate className="grid gap-5" aria-labelledby={campo("titulo")}>
+    <form onSubmit={enviar} onInput={aoTocar} onChange={aoTocar} noValidate className="grid gap-5" aria-labelledby={campo("titulo")}>
       <h2 id={campo("titulo")} className="text-[1.375rem] font-semibold leading-tight tracking-[-0.03em]">
         {f.titulo}
       </h2>

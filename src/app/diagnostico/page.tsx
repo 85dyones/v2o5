@@ -77,11 +77,12 @@ export default function Pagina() {
                   rel="noopener"
                   className="link-sublinhado text-papel"
                   data-evento="click_whatsapp"
+                  data-local="diagnostico"
                 >
                   Chame no WhatsApp
                 </a>{" "}
                 ou escreva para{" "}
-                <a href={linkEmail(EMAIL.assuntos.diagnostico)} className="link-sublinhado text-papel" data-evento="click_email">
+                <a href={linkEmail(EMAIL.assuntos.diagnostico)} className="link-sublinhado text-papel" data-evento="click_email" data-local="diagnostico">
                   {EMPRESA.email}
                 </a>
                 .

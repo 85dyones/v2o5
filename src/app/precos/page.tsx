@@ -58,11 +58,11 @@ export default function Pagina() {
               fica abaixo de {BRL(PISO_DA_MENSALIDADE)}.
             </p>
             <div className="mt-9 flex flex-wrap gap-3">
-              <Link href="/diagnostico" className="botao botao-primario">
+              <Link href="/diagnostico" className="botao botao-primario" data-evento="cta_click" data-local="hero">
                 Pedir diagnóstico gratuito
                 <Icone nome="seta" className="seta size-4" />
               </Link>
-              <a href="#perguntas" className="botao botao-secundario">
+              <a href="#perguntas" className="botao botao-secundario" data-evento="cta_click" data-local="hero">
                 Ver as perguntas
               </a>
             </div>

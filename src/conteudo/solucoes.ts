@@ -1,3 +1,4 @@
+import { listaDeSistemasIntegraveis } from "@/conteudo/diagnostico";
 import { CASE_MOTORS } from "@/conteudo/case";
 import { CASE, VISAO_360, type Vinheta } from "@/conteudo/home";
 import { BRL, DEGRAUS, linhaDePreco, precoDa, REGRAS, type Pilar } from "@/conteudo/precos";
@@ -319,7 +320,7 @@ export const SOLUCOES: Solucao[] = [
       {
         pergunta: "Preciso trocar o sistema de gestão que já uso?",
         resposta:
-          "Não. A V2O5 liga o que você já usa. Em produção hoje: o estoque do Revenda Mais sincronizado com o site da Motors Store. Outros sistemas entram como fluxo de integração.",
+          `Não. A V2O5 liga o que você já usa. Em produção hoje: o estoque do Revenda Mais sincronizado com o site da Motors Store. ${listaDeSistemasIntegraveis()} e outros sistemas entram como fluxo de integração.`,
       },
       {
         pergunta: "E quando o fluxo quebra?",
@@ -404,7 +405,7 @@ export const SOLUCOES: Solucao[] = [
       },
       {
         pergunta: "Posso integrar com o sistema que já uso?",
-        resposta: `Sim, por fluxo de automação, a partir de ${BRL(automacao.implantacao!)} por fluxo. Em produção hoje: o estoque do Revenda Mais.`,
+        resposta: `Sim, por fluxo de automação, a partir de ${BRL(automacao.implantacao!)} por fluxo. Em produção hoje: o estoque do Revenda Mais. Para revendas, ${listaDeSistemasIntegraveis()} entram do mesmo jeito.`,
       },
       {
         pergunta: "O WhatsApp fica dentro do CRM?",

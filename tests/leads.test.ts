@@ -1,7 +1,11 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { POST, zerarLimite } from "@/app/api/leads/route";
+import { GRAPH_API } from "@/lib/capi";
 import { lerOrigem, normalizarWhatsapp, validarLead } from "@/lib/leads";
 import { DIAGNOSTICO, OBJETIVOS, SEGMENTOS } from "@/conteudo/diagnostico";
+
+// Fora de uma requisição do Next, `after()` roda a tarefa na hora.
+vi.mock("next/server", () => ({ after: (tarefa: () => unknown) => void tarefa() }));
 
 /**
  * O contrato do lead (plano, seção 6.1): o formulário e a API validam com
@@ -74,6 +78,15 @@ describe("validação do lead", () => {
   it("as opções do formulário são as que a validação aceita", () => {
     for (const s of SEGMENTOS) expect(validarLead({ ...valido, segmento: s.valor }).ok).toBe(true);
     for (const o of OBJETIVOS) expect(validarLead({ ...valido, objetivos: [o.valor] }).ok).toBe(true);
+  });
+});
+
+describe("identificadores da Meta na origem", () => {
+  it("aceita só o formato dos cookies da Meta", () => {
+    const v = validarLead({ ...valido, origem: { fbp: "fb.1.1760000000000.42", fbc: "fb.1.1760000000000.IwAR0abc-_x" } });
+    expect(v.ok && v.lead.origem).toEqual({ fbp: "fb.1.1760000000000.42", fbc: "fb.1.1760000000000.IwAR0abc-_x" });
+    const ruim = validarLead({ ...valido, origem: { fbp: "<script>", fbc: "fb.1.x.y" } });
+    expect(ruim.ok && ruim.lead.origem).toEqual({});
   });
 });
 
@@ -168,6 +181,52 @@ describe("rota /api/leads", () => {
   it("corpo que não é JSON é recusado", async () => {
     vi.stubEnv("LEADS_WEBHOOK_URL", "https://n8n.v2o5.com.br/webhook/lead");
     expect((await POST(pedido("{nada"))).status).toBe(400);
+  });
+
+  const comMeta = () => {
+    vi.stubEnv("LEADS_WEBHOOK_URL", "https://n8n.v2o5.com.br/webhook/lead");
+    vi.stubEnv("META_PIXEL_ID", "123456789012345");
+    vi.stubEnv("META_CAPI_TOKEN", "EAAB".padEnd(60, "x"));
+    const fetchFalso = vi.fn(async () => new Response("{}", { status: 200 }));
+    vi.stubGlobal("fetch", fetchFalso);
+    return fetchFalso;
+  };
+
+  it("com a Meta configurada, manda o mesmo event_id à API de Conversões depois do webhook", async () => {
+    const fetchFalso = comMeta();
+    const r = await POST(pedido({ ...valido, origem: { ...valido.origem, fbp: "fb.1.1760000000000.42" } }, { "user-agent": "Teste/1.0" }));
+    expect(r.status).toBe(200);
+    const { event_id } = (await r.json()) as { event_id: string };
+    await vi.waitFor(() => expect(fetchFalso).toHaveBeenCalledTimes(2));
+    const [url, opcoes] = fetchFalso.mock.calls[1] as unknown as [string, RequestInit];
+    expect(url).toBe(`${GRAPH_API}/123456789012345/events`);
+    const corpo = JSON.parse(opcoes.body as string);
+    expect(corpo.data[0].event_id).toBe(event_id);
+    expect(corpo.data[0].event_source_url).toBe("https://v2o5.com.br/diagnostico");
+    expect(corpo.data[0].user_data.client_ip_address).toBe("203.0.113.9");
+    expect(corpo.data[0].user_data.client_user_agent).toBe("Teste/1.0");
+    expect(corpo.data[0].user_data.fbp).toBe("fb.1.1760000000000.42");
+    expect(JSON.stringify(corpo)).not.toContain("marina@exemplo.com.br");
+    expect(JSON.stringify(corpo)).not.toContain("5541999991234");
+  });
+
+  it("com a medição desligada pela pessoa, nada vai à Meta", async () => {
+    const fetchFalso = comMeta();
+    expect((await POST(pedido({ ...valido, medicao: "desligada" }))).status).toBe(200);
+    await new Promise((r) => setTimeout(r, 20));
+    expect(fetchFalso).toHaveBeenCalledTimes(1);
+  });
+
+  it("a Meta fora do ar não muda a resposta ao lead", async () => {
+    vi.spyOn(console, "warn").mockImplementation(() => {});
+    comMeta();
+    vi.stubGlobal(
+      "fetch",
+      vi.fn(async (url: string) => (url.startsWith(GRAPH_API) ? new Response("erro", { status: 500 }) : new Response("ok"))),
+    );
+    expect((await POST(pedido(valido))).status).toBe(200);
+    await new Promise((r) => setTimeout(r, 20));
+    vi.restoreAllMocks();
   });
 });
 

@@ -30,14 +30,22 @@ describe("página de privacidade", () => {
     expect(pagina).toContain("sessão");
   });
 
-  it("diz que não há ferramenta de medição enquanto não houver uma no código", () => {
+  it("nomeia as ferramentas de medição que o código carrega", () => {
     const temTag = /gtag\(|fbq\(|googletagmanager|connect\.facebook\.net|turnstile/i.test(codigo);
-    if (temTag) {
-      expect(pagina).toMatch(/Google Analytics|Meta Pixel|Turnstile/);
-      expect(pagina).not.toContain("não carrega ferramentas de análise nem de publicidade");
-    } else {
-      expect(pagina).toContain("não carrega ferramentas de análise nem de publicidade");
+    expect(temTag).toBe(true);
+    expect(pagina).toContain("Google Analytics 4");
+    expect(pagina).toContain("Pixel da Meta");
+    expect(pagina).toContain("API de Conversões");
+    expect(pagina).not.toContain("não carrega ferramentas de análise nem de publicidade");
+    if (/turnstile/i.test(codigo)) expect(pagina).toContain("Turnstile");
+  });
+
+  it("explica os cookies, o hash no envio ao servidor da Meta e o controle de oposição", () => {
+    for (const trecho of ["_ga", "_fbp", "_fbc", "hash", "legítimo interesse", "<ControleDeMedicao />", "desligar a medição"]) {
+      expect(pagina).toContain(trecho);
     }
+    expect(pagina).toContain('ULTIMA_ATUALIZACAO = "13 de outubro de 2026"');
+    expect(paginaDa("/privacidade").atualizadaEm).toBe("2026-10-13");
   });
 
   it("publica o e-mail do encarregado, que sai de EMPRESA", () => {

@@ -6,6 +6,7 @@
  * de" (`memory/context/oferta.md`); número do case só com fonte e período
  * (`memory/projects/case-motors.md`), travado por `tests/conteudo.test.ts`.
  */
+import { listaDeSistemasIntegraveis } from "@/conteudo/diagnostico";
 import type { Etapa } from "@/lib/tokens";
 import { AUTOMOTIVO_PRECO, BRL, DEGRAUS, precoDa, REAJUSTE, REGRAS } from "@/conteudo/precos";
 
@@ -885,7 +886,7 @@ export const PERGUNTAS = [
   },
   {
     pergunta: "Preciso trocar o sistema de gestão que já uso?",
-    resposta: `Não. A V2O5 liga o que você já usa. Em produção hoje: o estoque do Revenda Mais sincronizado com o site e o agente da Motors Store. Outras integrações entram como fluxo de automação, a partir de ${BRL(1900)} por fluxo.`,
+    resposta: `Não. A V2O5 liga o que você já usa. Em produção hoje: o estoque do Revenda Mais sincronizado com o site e o agente da Motors Store. ${listaDeSistemasIntegraveis()} e outros sistemas entram como fluxo de automação, a partir de ${BRL(1900)} por fluxo.`,
   },
   {
     pergunta: "O agente de IA atende sozinho?",

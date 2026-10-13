@@ -136,7 +136,7 @@ export const PAGINAS: Pagina[] = [
     titulo: "Política de privacidade",
     descricao:
       "Quais dados a V2O5 Vendas e Tecnologia coleta neste site, para quê, com quem compartilha, por quanto tempo guarda e como pedir acesso, correção ou exclusão.",
-    atualizadaEm: "2026-10-10",
+    atualizadaEm: "2026-10-13",
     pronta: true,
   },
 ];
