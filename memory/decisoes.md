@@ -2,6 +2,13 @@
 
 Log datado. Decisão nova entra no topo do dia; decisão revogada fica riscada com a data da troca.
 
+## 13/10/2026 (as cinco páginas de solução, pelo Dyones: "faça as 5 páginas das soluções")
+- Prontas e indexáveis: `/criacao-de-sites`, `/agente-de-ia-para-whatsapp`, `/automacao-com-ia`, `/crm-com-whatsapp`, `/rastreamento-de-conversoes` (as da fase 1 do plano; `/gestao-de-trafego` segue provisória, fase 2, e pode usar o mesmo molde). Molde único `components/solucoes/PaginaDeSolucao.tsx` alimentado por `conteudo/solucoes.ts`: hero com a busca-alvo no H1 e resumo de até 140 caracteres (LCP é o H1), três fatos (preço da tabela, o que a mensalidade cobre, o que roda na Motors), o problema com a cena da linha (vinheta da home), seis entregas, quatro passos, demonstração quando há (Orquestrador na do agente, diagrama "Como tudo se liga" na de automação, bloco "O que este site registrou da sua visita" na de rastreamento, lendo a origem do sessionStorage), o que roda na Motors Store com número do case por referência, o preço da tabela com inclui, degraus e repasses, garantias, cinco perguntas (FAQPage), três linhas que combinam e o fechamento.
+- Regras travadas em `tests/solucoes.test.ts`: preço só de `precos.ts` e todo "R$" em `oferta.md`; número do case só por referência a `CASE`/`CASE_MOTORS`; número de estudo só com fonte e link (o da HBR, na página do agente); a página do agente não cita a Motors (pendência 13); resumo ≤ 140; schema com Service, ofertas e FAQPage iguais às perguntas; sem travessão, sem "não é X, é Y", sem promessa de resultado.
+- Títulos SEO (busca-alvo, plano 4.2): "Agente de IA para WhatsApp", "Automação de processos com IA e n8n", "Criação de site profissional com SEO", "CRM com WhatsApp integrado", "Rastreamento de conversões até a venda". Botão fixo de WhatsApp com mensagem própria por página (`mensagemDaSolucao`).
+- Fora, por decisão do plano: formulário do diagnóstico embutido nas páginas de serviço (seção 6.1) fica para depois; hoje é link. Loja virtual segue fora do cardápio e a página de sites diz isso.
+- Medido (Lighthouse 12.6 mobile, servidor local, mediana de 3): agente performance 98, LCP 2,31 s (H1), TBT 94 ms; rastreamento 97, LCP 2,33 s (H1), TBT 118 ms; sites 98, LCP 2,16 s (H1), TBT 132 ms; CLS 0 e a11y, boas práticas e SEO 100 nas três (a a11y do rastreamento caiu a 96 por um parágrafo dentro de `<dl>`, corrigido antes do commit). 390 px sem rolagem horizontal e sem erro de console nas cinco.
+
 ## 13/10/2026 (PR #5 em main)
 - PR #5 (correção das âncoras) mesclado por squash em `main` (960cf79) a pedido do Dyones ("faça o merge"), com CI verde. A branch `claude/gracious-euler-0qzedy` foi reiniciada a partir do `main`; rodada nova em PR novo. Produção passa a ter as âncoras corrigidas.
 

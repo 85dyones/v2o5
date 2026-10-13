@@ -1,8 +1,9 @@
 import { HUB_AUTOMOTIVO } from "@/conteudo/automotivo";
 import { CASE_MOTORS } from "@/conteudo/case";
+import { solucaoDa } from "@/conteudo/solucoes";
 import { EMPRESA, PERGUNTAS, PILARES, VISAO_360 } from "@/conteudo/home";
 import { paginaDa } from "@/conteudo/paginas";
-import { AUTOMOTIVO_PRECO, LINHAS_DE_PRECO, mensalidadeDoPacoteComTrafego } from "@/conteudo/precos";
+import { AUTOMOTIVO_PRECO, LINHAS_DE_PRECO, linhaDePreco, mensalidadeDoPacoteComTrafego } from "@/conteudo/precos";
 import { SITE_URL } from "@/lib/site";
 import { whatsappInternacional } from "@/lib/whatsapp";
 
@@ -214,6 +215,34 @@ export function servicoAutomotivo(): No {
       oferta("Pacote completo (mensalidade)", pacote.mensalidade, `Mensalidade a partir de, com ${pacote.usuarios} usuários`),
       oferta("Pacote completo com Google Ads e Meta Ads (mensalidade)", mensalidadeDoPacoteComTrafego(), "Mensalidade a partir de, mais a verba"),
     ],
+  };
+}
+
+/** A linha de uma página de solução como serviço, com as ofertas da tabela. */
+export function servicoDaSolucao(rota: string): No {
+  const s = solucaoDa(rota);
+  const l = linhaDePreco(s.linha);
+  const ofertas: No[] = [];
+  if (l.implantacao) ofertas.push(oferta(`${l.nome} (implantação)`, l.implantacao, `Implantação a partir de${l.unidade ? `, ${l.unidade}` : ""}`));
+  if (l.mensalidade) ofertas.push(oferta(`${l.nome} (mensalidade)`, l.mensalidade, `Mensalidade a partir de${l.maisVerba ? ", mais a verba" : ""}. ${l.cobre}`));
+  return {
+    "@type": "Service",
+    "@id": `${SITE_URL}${rota}#servico`,
+    name: l.nome,
+    description: s.resumo,
+    url: `${SITE_URL}${rota}`,
+    provider: ref(ID_DA_ORGANIZACAO),
+    serviceType: s.titulo.replace(/\.$/, ""),
+    areaServed: { "@type": "Country", name: "Brasil" },
+    offers: ofertas,
+  };
+}
+
+export function grafoDaSolucao(rota: string): No {
+  const s = solucaoDa(rota);
+  return {
+    "@context": "https://schema.org",
+    "@graph": [ref(ID_DA_ORGANIZACAO), trilha(rota), servicoDaSolucao(rota), perguntas(rota, s.perguntas)],
   };
 }
 

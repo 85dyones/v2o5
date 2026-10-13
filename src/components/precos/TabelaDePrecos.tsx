@@ -18,12 +18,12 @@ import {
   type Pilar,
 } from "@/conteudo/precos";
 
-function implantacao(l: LinhaDePreco) {
+export function implantacao(l: LinhaDePreco) {
   if (l.implantacao) return `${BRL(l.implantacao)}${l.unidade ? ` ${l.unidade}` : ""}`;
   return l.semImplantacao ?? "";
 }
 
-function mensalidade(l: LinhaDePreco) {
+export function mensalidade(l: LinhaDePreco) {
   if (!l.mensalidade) return l.unidade ? "sem mensalidade" : "";
   return `${BRL(l.mensalidade)}/mês${l.maisVerba ? " + verba" : ""}`;
 }
@@ -35,7 +35,7 @@ const degrau = (d: { rotulo: string; valor: number; unidade: string }) =>
 const minuscula = (t: string) => (/^[A-Z][a-z]/.test(t) ? t.charAt(0).toLowerCase() + t.slice(1) : t);
 
 /** O que vem dentro, o que cresce e o que é repassado, embaixo de "o que cobre". */
-function Detalhes({ l }: { l: LinhaDePreco }) {
+export function Detalhes({ l }: { l: LinhaDePreco }) {
   if (!l.inclui && !l.degraus && !l.repasses && !l.bonus) return null;
   return (
     <div className="mt-3 grid gap-2 text-[0.875rem] leading-snug">

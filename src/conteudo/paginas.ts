@@ -33,37 +33,42 @@ export const PAGINAS: Pagina[] = [
   {
     rota: "/agente-de-ia-para-whatsapp",
     titulo: "Agente de IA para WhatsApp",
-    descricao: "Atendimento na hora, com as informações do seu negócio e passagem para a equipe.",
-    atualizadaEm: "2026-10-09",
-    pronta: false,
+    descricao:
+      "Agente de IA no WhatsApp que responde na hora com as informações do seu negócio, qualifica, agenda e passa para a equipe. A partir de R$ 3.900 + R$ 790/mês.",
+    atualizadaEm: "2026-10-13",
+    pronta: true,
   },
   {
     rota: "/automacao-com-ia",
-    titulo: "Automação com IA",
-    descricao: "Fluxos no n8n ligando os sistemas que a sua empresa já usa.",
-    atualizadaEm: "2026-10-09",
-    pronta: false,
+    titulo: "Automação de processos com IA e n8n",
+    descricao:
+      "Fluxos no n8n que ligam os sistemas que a sua empresa já usa, com IA validada contra invenção de dado e registro de cada execução. R$ 1.900 por fluxo.",
+    atualizadaEm: "2026-10-13",
+    pronta: true,
   },
   {
     rota: "/criacao-de-sites",
-    titulo: "Criação de sites",
-    descricao: "Sites rápidos, achados no Google e nas respostas das IAs de busca.",
-    atualizadaEm: "2026-10-09",
-    pronta: false,
+    titulo: "Criação de site profissional com SEO",
+    descricao:
+      "Site rápido no celular, achado no Google e nas respostas das IAs, que grava de onde veio cada contato. Hospedagem e manutenção na mensalidade de R$ 590.",
+    atualizadaEm: "2026-10-13",
+    pronta: true,
   },
   {
     rota: "/crm-com-whatsapp",
-    titulo: "CRM com WhatsApp",
-    descricao: "Funil com origem, etapa e próximo passo de cada contato.",
-    atualizadaEm: "2026-10-09",
-    pronta: false,
+    titulo: "CRM com WhatsApp integrado",
+    descricao:
+      "CRM sob medida com WhatsApp dentro do funil: cada contato com origem, etapa e próximo passo. 5 usuários inclusos, sem licença por pessoa, a partir de R$ 4.900.",
+    atualizadaEm: "2026-10-13",
+    pronta: true,
   },
   {
     rota: "/rastreamento-de-conversoes",
-    titulo: "Rastreamento de conversões",
-    descricao: "Cada lead e cada venda ligados ao anúncio de origem.",
-    atualizadaEm: "2026-10-09",
-    pronta: false,
+    titulo: "Rastreamento de conversões até a venda",
+    descricao:
+      "GA4, API de Conversões da Meta e conversões offline do Google Ads: cada lead e cada venda ligados ao anúncio que trouxe o cliente. A partir de R$ 2.900.",
+    atualizadaEm: "2026-10-13",
+    pronta: true,
   },
   {
     rota: "/gestao-de-trafego",
