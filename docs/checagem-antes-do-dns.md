@@ -46,8 +46,8 @@ Dois caminhos levam ao Chatwoot.
 ### Você confere (com login)
 
 1. ~~Chatwoot, Settings > Inboxes~~ **Feito em 13/10**: a inbox do WhatsApp é a 12 e a instância da Evolution é `v2o5`, ligada à inbox. Os dois já estão gravados no nó Configuração do fluxo.
-2. **Evolution, manager**: conferir que a instância `v2o5` está conectada ("open") e que a integração Chatwoot dela aponta para `https://app.chat.v2o5.com.br`, conta 1, com o token do perfil.
-3. **Teste A, WhatsApp**: de outro celular, mande "oi" para o número. Tem de aparecer na inbox do Chatwoot em segundos; responda pelo Chatwoot e veja chegar no celular.
+2. ~~Evolution, manager~~ **Feito em 13/10**: a instância `v2o5` está conectada e entregando ao Chatwoot.
+3. ~~Teste A, WhatsApp~~ **Feito em 13/10**: o "oi" chegou na inbox 12 e a resposta voltou ao celular. A linha do WhatsApp está pronta.
 4. **Teste B, formulário**: siga `docs/n8n/LEIA-ME.md` (quatro credenciais, importar o fluxo, nó Configuração, ativar), defina `LEADS_WEBHOOK_URL` e `LEADS_WEBHOOK_SECRET` na Vercel (produção e preview) e rode o `curl` do LEIA-ME. Esperado: aviso no seu WhatsApp, resposta no WhatsApp informado, contato no Chatwoot com os atributos. Depois, um envio real pelo formulário do preview. Até isso, o formulário responde "envio em configuração".
 5. **Chatwoot, operação**: agente com notificações ligadas; Settings > Inbox > horário de atendimento e mensagem fora do horário, se quiser; respostas prontas para "diagnóstico" e "preços"; atributos personalizados da conta para os campos do lead aparecerem na ficha (item do LEIA-ME).
 6. **`chatwoot.v2o5.com.br`**: desligar o host no proxy da VPS ou redirecionar para `app.chat`.
