@@ -50,7 +50,7 @@ export const PAGINAS: Pagina[] = [
     rota: "/criacao-de-sites",
     titulo: "Criação de site profissional com SEO",
     descricao:
-      "Site rápido no celular, achado no Google e nas respostas das IAs, que grava de onde veio cada contato. Hospedagem e manutenção na mensalidade de R$ 590.",
+      "Site rápido no celular, achado no Google e nas respostas das IAs, que grava de onde veio cada contato. Hospedagem e manutenção na mensalidade de R$ 690.",
     atualizadaEm: "2026-10-13",
     pronta: true,
   },
@@ -81,7 +81,7 @@ export const PAGINAS: Pagina[] = [
     rota: "/segmentos/revendas-de-veiculos",
     titulo: "Sistema de vendas para revendas de veículos",
     descricao:
-      "Site de estoque ligado ao Revenda Mais, agente de IA no WhatsApp, CRM e rastreamento até a venda. Pacote a partir de R$ 14.900 + R$ 1.990/mês. Sem fidelidade.",
+      "Site de estoque ligado ao sistema da loja (Revenda Mais, Autoconf e outros), agente de IA no WhatsApp, CRM e rastreamento até a venda, a partir de R$ 14.900.",
     atualizadaEm: "2026-10-12",
     pronta: true,
   },
@@ -97,7 +97,7 @@ export const PAGINAS: Pagina[] = [
     rota: "/precos",
     titulo: "Preços e planos",
     descricao:
-      "Site a partir de R$ 7.900 + R$ 590/mês, agente de IA, CRM, painel, tráfego e reativação de base, com o que cresce já precificado. Sem fidelidade.",
+      "Site a partir de R$ 7.900 + R$ 690/mês, agente de IA, CRM, painel, tráfego e reativação de base, com o que cresce já precificado. Sem fidelidade.",
     atualizadaEm: "2026-10-12",
     pronta: true,
   },

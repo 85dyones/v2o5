@@ -7,6 +7,7 @@ import Perguntas from "@/components/home/Perguntas";
 import Topo from "@/components/layout/Topo";
 import Rodape from "@/components/layout/Rodape";
 import BotaoWhatsAppFixo from "@/components/layout/BotaoWhatsAppFixo";
+import ParceiroDeFotografia from "@/components/precos/ParceiroDeFotografia";
 import { Pacote } from "@/components/precos/TabelaDePrecos";
 import { HUB_AUTOMOTIVO } from "@/conteudo/automotivo";
 import { metadataDa } from "@/conteudo/paginas";
@@ -45,6 +46,18 @@ export default function Pagina() {
                   Ver o pacote
                 </a>
               </div>
+            </div>
+            <div className="mt-9">
+              <p className="text-[0.8125rem] font-medium text-secundario">{h.sistemas.rotulo}</p>
+              <ul className="mt-2.5 flex flex-wrap gap-2">
+                <li className="chip chip-ok">{h.sistemas.emProducao} · em produção</li>
+                {h.sistemas.integraveis.map((s) => (
+                  <li key={s} className="chip text-secundario">
+                    {s}
+                  </li>
+                ))}
+                <li className="chip text-secundario">{h.sistemas.outros}</li>
+              </ul>
             </div>
             <dl className="mt-12 grid gap-4 border-t border-linha pt-8 md:grid-cols-3">
               {h.fatos.map((f) => (
@@ -128,6 +141,9 @@ export default function Pagina() {
               </li>
             ))}
           </ul>
+          <div className="mt-6">
+            <ParceiroDeFotografia />
+          </div>
         </section>
 
         <section aria-labelledby="titulo-medido" className="border-t border-linha py-20 md:py-28">

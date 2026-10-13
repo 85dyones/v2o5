@@ -64,7 +64,7 @@ describe("oferta", () => {
 
   it("as linhas com preço próprio, a partir de, iguais à tabela de oferta.md", () => {
     expect(LINHAS).toHaveLength(12);
-    expect(ler("memory/context/oferta.md")).toContain("Piso da mensalidade: R$ 590");
+    expect(ler("memory/context/oferta.md")).toContain("Piso da mensalidade: R$ 690");
     for (const linha of LINHAS) {
       expect(linha.preco, linha.titulo).toMatch(/^a partir de R\$ /);
       const valores = [...linha.preco.matchAll(/R\$ ([\d.]+)/g)].map((m) => m[1]);

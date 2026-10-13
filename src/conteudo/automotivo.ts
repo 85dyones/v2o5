@@ -1,6 +1,15 @@
-import { listaDeSistemasIntegraveis } from "@/conteudo/diagnostico";
+import { listaDeSistemasIntegraveis, SISTEMA_EM_PRODUCAO, SISTEMAS_INTEGRAVEIS } from "@/conteudo/diagnostico";
 import { CASE } from "@/conteudo/home";
-import { AUTOMOTIVO_PRECO, BRL, DEGRAUS, linhaDePreco, precoDa, REGRAS, TETO_DA_MENSALIDADE } from "@/conteudo/precos";
+import {
+  AUTOMOTIVO_PRECO,
+  BRL,
+  DEGRAUS,
+  FOTOGRAFIA_PARCEIRA,
+  linhaDePreco,
+  precoDa,
+  REGRAS,
+  TETO_DA_MENSALIDADE,
+} from "@/conteudo/precos";
 
 /**
  * Hub do segmento automotivo (`/segmentos/revendas-de-veiculos`): o pacote
@@ -19,7 +28,14 @@ export const HUB_AUTOMOTIVO = {
   titulo: "O sistema da Motors Store, pronto para a sua revenda.",
   /** Curto de propósito: o LCP da página é o H1 (`tests/automotivo.test.ts`). */
   resumo:
-    "Site de estoque ligado ao Revenda Mais, agente de IA no WhatsApp, CRM e rastreamento até a venda, com preço publicado.",
+    "Site de estoque ligado ao sistema que a loja já usa, agente de IA no WhatsApp, CRM e rastreamento até a venda, com preço publicado.",
+  /** Os sistemas de gestão com que o pacote trabalha: um em produção, os outros por fluxo (Dyones, 13/10). */
+  sistemas: {
+    rotulo: "Funciona com o sistema da loja",
+    emProducao: SISTEMA_EM_PRODUCAO,
+    integraveis: SISTEMAS_INTEGRAVEIS,
+    outros: "outro sistema, por fluxo",
+  },
   fatos: [
     {
       rotulo: "Pacote completo",
@@ -36,9 +52,9 @@ export const HUB_AUTOMOTIVO = {
     pecas: [
       {
         linha: "Sites e presença",
-        titulo: "Site de estoque integrado ao Revenda Mais",
+        titulo: "Site de estoque integrado ao sistema da loja",
         texto:
-          `Vitrine, ficha de veículo, páginas por marca e modelo e páginas locais. O carro entra no site quando entra no Revenda Mais e sai quando é vendido. ${listaDeSistemasIntegraveis()} entram por fluxo de integração.`,
+          `Vitrine, ficha de veículo, páginas por marca e modelo e páginas locais. O carro entra no site quando entra no sistema de gestão e sai quando é vendido. Em produção com o Revenda Mais. ${listaDeSistemasIntegraveis()} entram por fluxo de integração.`,
       },
       {
         linha: "Agente de IA no WhatsApp",
@@ -64,8 +80,8 @@ export const HUB_AUTOMOTIVO = {
     texto: "Do carro que entra no estoque à venda que volta para o anúncio, sem ninguém digitar duas vezes.",
     passos: [
       {
-        titulo: "O carro entra no Revenda Mais",
-        texto: "Na sincronização seguinte está no site, na ficha do agente e no feed de anúncios.",
+        titulo: "O carro entra no sistema da loja",
+        texto: `Revenda Mais, ${listaDeSistemasIntegraveis().replace(" e ", ", ")} ou outro: na sincronização seguinte está no site, na ficha do agente e no feed de anúncios.`,
       },
       {
         titulo: "Alguém busca o modelo",
@@ -135,7 +151,7 @@ export const HUB_AUTOMOTIVO = {
     {
       pergunta: "Minha loja usa outro sistema de gestão. O pacote funciona?",
       resposta:
-        `Funciona. A integração com o Revenda Mais está em produção. ${listaDeSistemasIntegraveis()} entram como fluxo de integração, orçado no diagnóstico depois de ver a API ou a exportação que cada um oferece; o mesmo vale para outro sistema que a loja use.`,
+        `Funciona. O pacote lê o estoque do sistema que a loja já usa. Com o Revenda Mais a integração está em produção. ${listaDeSistemasIntegraveis()} entram como fluxo de integração, orçado no diagnóstico depois de ver a API ou a exportação que cada um oferece; o mesmo vale para outro sistema.`,
     },
     {
       pergunta: "Se eu somar o painel do dono ao pacote, a mensalidade sobe?",
@@ -148,12 +164,11 @@ export const HUB_AUTOMOTIVO = {
     {
       pergunta: "O agente responde com o estoque de verdade?",
       resposta:
-        "Sim. Ele consulta o mesmo estoque do site, sincronizado com o Revenda Mais, e só fala do que a ficha confirma. Quando a conversa pede uma pessoa, chama o vendedor.",
+        "Sim. Ele consulta o mesmo estoque do site, sincronizado com o sistema da loja, e só fala do que a ficha confirma. Quando a conversa pede uma pessoa, chama o vendedor.",
     },
     {
       pergunta: "Preciso de fotógrafo?",
-      resposta:
-        "As fotos continuam com a sua equipe ou com o fotógrafo que já atende a loja. O site, o feed de anúncios e o agente usam as fotos que estão no Revenda Mais.",
+      resposta: `Se a loja já tem equipe ou fotógrafo, o site, o feed de anúncios e o agente usam as fotos que estão no sistema. Se não tem, a V2O5 indica parceiros de fotografia, com pacote mensal a partir de ${BRL(FOTOGRAFIA_PARCEIRA.aPartirDe)}.`,
     },
     {
       pergunta: "Posso começar só pelo site de estoque?",

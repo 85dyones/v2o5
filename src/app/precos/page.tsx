@@ -7,6 +7,7 @@ import BotaoWhatsAppFixo from "@/components/layout/BotaoWhatsAppFixo";
 import Garantias from "@/components/home/Garantias";
 import Perguntas from "@/components/home/Perguntas";
 import Fechamento from "@/components/home/Fechamento";
+import ParceiroDeFotografia from "@/components/precos/ParceiroDeFotografia";
 import { ForaDaMensalidade, OQueCresce, Pacote, Reativacao, Tabela, Trafego, Teto } from "@/components/precos/TabelaDePrecos";
 import { metadataDa } from "@/conteudo/paginas";
 import { BRL, PISO_DA_MENSALIDADE, TETO_DA_MENSALIDADE } from "@/conteudo/precos";
@@ -104,8 +105,8 @@ export default function Pagina() {
 
         <Secao
           id="reativacao"
-          titulo="Reativação de base: o canal muda o custo e o risco."
-          texto="A campanha é a mesma. O que muda é por onde a mensagem sai, quanto a operadora ou a Meta cobram e o que pode acontecer com o número."
+          titulo="Reativação de base: o canal muda o custo e o alcance."
+          texto="A campanha é a mesma. O que muda é por onde a mensagem sai, quanto a operadora ou a Meta cobram e quanto volume cada canal aguenta. A escolha sai do diagnóstico, pelo tamanho da base."
         >
           <Reativacao />
         </Secao>
@@ -121,6 +122,9 @@ export default function Pagina() {
 
         <Secao id="fora" titulo="O que fica fora da mensalidade.">
           <ForaDaMensalidade />
+          <div className="mt-6">
+            <ParceiroDeFotografia />
+          </div>
         </Secao>
 
         <Garantias />

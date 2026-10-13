@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Icone from "@/components/Icone";
-import { AUTOMOTIVO_PRECO, BRL, CANAIS_DA_REATIVACAO, DEGRAUS, descontoDoPacote, economiaDoTrafegoJunto, linhaDePreco, LINHAS_NO_TETO, linhasDoPilar, mensalidadeComTeto, mensalidadeDoPacoteComTrafego, mesesQueUmaVendaPaga, PISO_DA_MENSALIDADE, REAJUSTE, REGRAS, somaDoPacote, TETO_DA_MENSALIDADE, type LinhaDePreco, type Pilar } from "@/conteudo/precos";
+import { AUTOMOTIVO_PRECO, BRL, CANAIS_DA_REATIVACAO, DEGRAUS, descontoDoPacote, economiaDoTrafegoJunto, FOTOGRAFIA_PARCEIRA, linhaDePreco, LINHAS_NO_TETO, linhasDoPilar, mensalidadeComTeto, mensalidadeDoPacoteComTrafego, mesesQueUmaVendaPaga, PISO_DA_MENSALIDADE, REAJUSTE, REGRAS, somaDoPacote, TETO_DA_MENSALIDADE, type LinhaDePreco, type Pilar } from "@/conteudo/precos";
 
 export function implantacao(l: LinhaDePreco) {
   if (l.implantacao) return `${BRL(l.implantacao)}${l.unidade ? ` ${l.unidade}` : ""}`;
@@ -309,21 +309,15 @@ export function Reativacao() {
       </div>
       <ul className="grid gap-4 md:grid-cols-3 lg:grid-cols-1">
         {CANAIS_DA_REATIVACAO.map((c) => (
-          <li
-            key={c.nome}
-            className={`rounded-2xl bg-vidro p-5 contorno ${c.recomendado ? "shadow-[inset_0_0_0_1px_rgb(94_198_154/0.4)]" : ""}`}
-          >
-            <p className="flex flex-wrap items-center justify-between gap-2">
-              <span className="font-semibold tracking-[-0.01em]">{c.nome}</span>
-              {c.recomendado ? <span className="chip chip-ok text-secundario">recomendado</span> : null}
-            </p>
+          <li key={c.nome} className="rounded-2xl bg-vidro p-5 contorno">
+            <p className="font-semibold tracking-[-0.01em]">{c.nome}</p>
             <dl className="mt-3 grid gap-2 text-[0.9375rem] leading-relaxed text-secundario lg:grid-cols-[5rem_1fr] lg:gap-x-4 lg:gap-y-1.5">
               <dt className="text-sm text-papel/80 lg:pt-0.5">Custo</dt>
               <dd>{c.paga}</dd>
               <dt className="text-sm text-papel/80 lg:pt-0.5">Regras</dt>
               <dd>{c.regras}</dd>
               <dt className="text-sm text-papel/80 lg:pt-0.5">Risco</dt>
-              <dd className={c.risco.startsWith("Alto") ? "text-ambar" : ""}>{c.risco}</dd>
+              <dd>{c.risco}</dd>
             </dl>
           </li>
         ))}
@@ -398,7 +392,10 @@ export function ForaDaMensalidade() {
         ["Verba de anúncios", "Paga direto ao Google e à Meta, no valor que você decidir."],
         ["Uso de IA e mensagens", "O modelo de IA e as mensagens da API oficial do WhatsApp, pelo valor real, na mesma fatura."],
         ["SMS e número dedicado", "Na reativação de base, o SMS pelo valor da operadora e o chip do número dedicado, quando houver."],
-        ["Fotos, vídeos e peças", "A produção de imagem fica com a sua equipe ou com um parceiro de produção, orçado na proposta."],
+        [
+          "Fotos, vídeos e peças",
+          `A produção de imagem fica com a sua equipe ou com um fotógrafo parceiro que a V2O5 indica, a partir de ${BRL(FOTOGRAFIA_PARCEIRA.aPartirDe)} por mês.`,
+        ],
       ].map(([titulo, texto]) => (
         <li key={titulo} className="rounded-2xl bg-vidro p-5 contorno">
           <p className="font-semibold tracking-[-0.01em]">{titulo}</p>

@@ -35,7 +35,7 @@ Tudo que aparece abreviado nas conversas do projeto. O que é usado toda hora ta
 |---|---|
 | Start Digital | Redes, Perfil de Empresa, domínio, e-mail; saiu do cardápio, é fundação dos sites |
 | Diagnóstico | Gratuito; 45 min + mapa em 24 h com 3 mudanças de maior retorno |
-| Pacote completo | Site de estoque + IA + CRM + rastreamento + integração Revenda Mais: R$ 14.900 + R$ 1.690/mês |
+| Pacote completo | Site de estoque + IA + CRM + rastreamento + integração com o sistema da loja (Revenda Mais em produção): R$ 14.900 + R$ 1.990/mês, o teto da mensalidade |
 | Cláusula de saída | Loja que cancela recebe código, dados e domínio em até 15 dias |
 | Camada | "A camada que gera e mede a venda é sua": frase para o segmento automotivo |
 

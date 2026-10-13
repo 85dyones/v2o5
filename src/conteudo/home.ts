@@ -8,7 +8,7 @@
  */
 import { listaDeSistemasIntegraveis } from "@/conteudo/diagnostico";
 import type { Etapa } from "@/lib/tokens";
-import { AUTOMOTIVO_PRECO, BRL, DEGRAUS, mensalidadeComTeto, PISO_DA_MENSALIDADE, precoDa, REAJUSTE, REGRAS, TETO_DA_MENSALIDADE } from "@/conteudo/precos";
+import { AUTOMOTIVO_PRECO, BRL, DEGRAUS, linhaDePreco, mensalidadeComTeto, PISO_DA_MENSALIDADE, precoDa, REAJUSTE, REGRAS, TETO_DA_MENSALIDADE } from "@/conteudo/precos";
 
 /**
  * O H1 da home, escolhido em 09/10 entre duas opções (a outra está em
@@ -765,7 +765,7 @@ export const CASE = {
 export const AUTOMOTIVO = {
   titulo: "Para revendas de veículos",
   texto:
-    "O pacote é o sistema da Motors Store: site de estoque integrado ao Revenda Mais, agente de IA no WhatsApp, CRM e rastreamento até a venda.",
+    "O pacote é o sistema da Motors Store: site de estoque integrado ao sistema da loja (Revenda Mais, Autoconf e outros), agente de IA no WhatsApp, CRM e rastreamento até a venda.",
   preco: `Pacote completo a partir de ${BRL(AUTOMOTIVO_PRECO.pacote.implantacao)} de implantação e ${BRL(AUTOMOTIVO_PRECO.pacote.mensalidade)} por mês.`,
   href: "/segmentos/revendas-de-veiculos",
   /** Vinheta do estoque: carros de exemplo, rotulada como exemplo. */
@@ -864,7 +864,7 @@ export const CHAMADA = {
 export const PERGUNTAS = [
   {
     pergunta: "Quanto custa um site com a V2O5?",
-    resposta: `A partir de ${BRL(7900)} de implantação e ${BRL(590)} por mês. A mensalidade cobre hospedagem, manutenção, atualizações de segurança, SEO técnico contínuo e o Perfil da Empresa no Google. Domínio e e-mail profissional entram na fundação do projeto.`,
+    resposta: `A partir de ${BRL(linhaDePreco("sites").implantacao!)} de implantação e ${BRL(linhaDePreco("sites").mensalidade!)} por mês. A mensalidade cobre hospedagem, manutenção, atualizações de segurança, SEO técnico contínuo e o Perfil da Empresa no Google. Domínio e e-mail profissional entram na fundação do projeto.`,
   },
   {
     pergunta: "O que a mensalidade inclui?",
