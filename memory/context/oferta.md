@@ -48,7 +48,7 @@ Pacote confirmado pelo Dyones em 10/10; soma recalculada em 12/10 com o CRM a R$
 - Verba de mídia paga direto ao Google e à Meta. Fotos e vídeos não incluídos.
 - Cláusula de saída: código, dados e domínio entregues em até 15 dias.
 - Diagnóstico gratuito: 45 min com o fundador + mapa em 24 h. Escassez "5 por semana" só se for verdade.
-- Integração só é anunciada quando existe em produção (hoje: Revenda Mais).
+- Integração só é anunciada como "em produção" quando existe (hoje: Revenda Mais). Autoconf, BNDV, Boom, Altimus e Syonet são citados como integráveis por fluxo, orçado no diagnóstico (Dyones, 13/10); a lista mora em `conteudo/diagnostico.ts`.
 - Tráfego pago só com o rastreamento até a venda ligado.
 
 ## Custo da mensalidade e pisos revisados (12/10/2026; confirmado pelo Dyones no mesmo dia, valores acima)

@@ -1,3 +1,4 @@
+import { listaDeSistemasIntegraveis } from "@/conteudo/diagnostico";
 import { CASE } from "@/conteudo/home";
 import { AUTOMOTIVO_PRECO, BRL, DEGRAUS, precoDa, REGRAS } from "@/conteudo/precos";
 
@@ -25,6 +26,7 @@ export const HUB_AUTOMOTIVO = {
       valor: `a partir de ${BRL(AUTOMOTIVO_PRECO.pacote.implantacao)} de implantação e ${BRL(AUTOMOTIVO_PRECO.pacote.mensalidade)} por mês`,
     },
     { rotulo: "Integração em produção", valor: "Revenda Mais: o estoque entra no site e no agente sozinho" },
+    { rotulo: "Integráveis por fluxo", valor: listaDeSistemasIntegraveis() },
     { rotulo: "Referência", valor: "Motors Store, revenda de seminovos em Curitiba, com números lidos do banco" },
   ],
   pacote: {
@@ -36,7 +38,7 @@ export const HUB_AUTOMOTIVO = {
         linha: "Sites e presença",
         titulo: "Site de estoque integrado ao Revenda Mais",
         texto:
-          "Vitrine, ficha de veículo, páginas por marca e modelo e páginas locais. O carro entra no site quando entra no Revenda Mais e sai quando é vendido.",
+          `Vitrine, ficha de veículo, páginas por marca e modelo e páginas locais. O carro entra no site quando entra no Revenda Mais e sai quando é vendido. ${listaDeSistemasIntegraveis()} entram por fluxo de integração.`,
       },
       {
         linha: "Agente de IA no WhatsApp",
@@ -133,7 +135,7 @@ export const HUB_AUTOMOTIVO = {
     {
       pergunta: "Minha loja usa outro sistema de gestão. O pacote funciona?",
       resposta:
-        "Funciona. A integração com o Revenda Mais está em produção; outro sistema entra como fluxo de integração, orçado no diagnóstico depois de ver a API ou a exportação que ele oferece.",
+        `Funciona. A integração com o Revenda Mais está em produção. ${listaDeSistemasIntegraveis()} entram como fluxo de integração, orçado no diagnóstico depois de ver a API ou a exportação que cada um oferece; o mesmo vale para outro sistema que a loja use.`,
     },
     {
       pergunta: "Quantos usuários o pacote inclui?",

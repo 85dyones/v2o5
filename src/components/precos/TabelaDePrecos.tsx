@@ -339,7 +339,7 @@ export function Pacote({ destino = "revendas" }: { destino?: "revendas" | "preco
           catálogo incluso. Só o site de estoque: {BRL(siteDeEstoque.implantacao)} de implantação e{" "}
           {BRL(siteDeEstoque.mensalidade)} por mês. Usuário extra {BRL(DEGRAUS.usuarioExtra)} por mês.
         </p>
-        <Link href={destino === "precos" ? "/precos" : "/segmentos/revendas-de-veiculos"} className="botao botao-secundario mt-7">
+        <Link href={destino === "precos" ? "/precos" : "/segmentos/revendas-de-veiculos"} className="botao botao-secundario mt-7" data-evento="cta_click" data-local="pacote">
           {destino === "precos" ? "Ver a tabela completa" : "Ver a página de revendas"}
           <Icone nome="seta" className="seta size-4" />
         </Link>

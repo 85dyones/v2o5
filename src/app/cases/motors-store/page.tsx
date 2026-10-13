@@ -166,11 +166,11 @@ export default function Pagina() {
                 <p className="texto-guia mt-5">{c.chamada.texto}</p>
               </div>
               <div className="flex flex-wrap gap-3 lg:justify-end">
-                <Link href="/diagnostico" className="botao botao-primario">
+                <Link href="/diagnostico" className="botao botao-primario" data-evento="cta_click" data-local="chamada">
                   {c.chamada.botao}
                   <Icone nome="seta" className="seta size-4" />
                 </Link>
-                <Link href="/precos" className="botao botao-secundario">
+                <Link href="/precos" className="botao botao-secundario" data-evento="cta_click" data-local="chamada">
                   {c.chamada.secundario}
                 </Link>
               </div>

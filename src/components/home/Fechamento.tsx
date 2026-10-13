@@ -25,11 +25,11 @@ export default function Fechamento() {
           você recebe um mapa do que fazer primeiro, com custo e prazo, para usar com ou sem a V2O5.
         </p>
         <div className="mt-10 flex flex-wrap justify-center gap-3">
-          <Link href="/diagnostico" className="botao botao-primario">
+          <Link href="/diagnostico" className="botao botao-primario" data-evento="cta_click" data-local="fechamento">
             Pedir diagnóstico
             <Icone nome="seta" className="seta size-4" />
           </Link>
-          <Link href="/precos" className="botao botao-secundario">
+          <Link href="/precos" className="botao botao-secundario" data-evento="cta_click" data-local="fechamento">
             Ver preços
           </Link>
         </div>

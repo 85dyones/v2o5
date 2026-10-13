@@ -1,6 +1,6 @@
 # Projeto: site novo da V2O5
 
-**Status:** home, `/precos`, `/diagnostico` (formulário → `/api/leads` → n8n), `/privacidade`, WhatsApp e e-mails em `main` desde 10/10 (PR #3). Case Motors e o fluxo do n8n (`docs/n8n/`) em 11/10; tabela confirmada, `/precos` refeita e hub automotivo em 12/10 (PR #4); âncoras corrigidas em 13/10 (PR #5); as 5 páginas de solução (PR #6) e `/sobre` em 13/10. Próximo: Dyones importa o fluxo e põe as variáveis na Vercel; depois GA4/CAPI (precisam dos IDs) e DNS.
+**Status:** home, `/precos`, `/diagnostico` (formulário → `/api/leads` → n8n), `/privacidade`, WhatsApp e e-mails em `main` desde 10/10 (PR #3). Case Motors e o fluxo do n8n (`docs/n8n/`) em 11/10; tabela confirmada, `/precos` refeita e hub automotivo em 12/10 (PR #4); âncoras corrigidas em 13/10 (PR #5); as 5 páginas de solução (PR #6), `/sobre` (PR #7) e a camada de dados com GA4, Pixel e CAPI (PR #8) em 13/10. Próximo: Dyones importa o fluxo e põe as variáveis na Vercel (webhook e IDs de medição); depois DNS.
 **Plano completo:** `docs/2026-10-08-plano-novo-site.md` (seções: 0 resumo, 1 diagnóstico, 2 case, 3 posicionamento/preço/marca, 4 mercado/SEO, 5 design e motion, 6 conversão, 7 rastreamento, 8 stack, 9 metas, 10 fases, 11 fora do escopo, 12 decisões, 13 riscos).
 
 ## Diagnóstico do site atual (08/10, Lighthouse mobile)

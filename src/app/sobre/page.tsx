@@ -40,11 +40,11 @@ export default function Pagina() {
               </h1>
               <p className="texto-guia mt-7 max-w-[38rem]">{s.resumo}</p>
               <div className="mt-9 flex flex-wrap gap-3">
-                <Link href="/diagnostico" className="botao botao-primario">
+                <Link href="/diagnostico" className="botao botao-primario" data-evento="cta_click" data-local="hero">
                   {s.chamada.botao}
                   <Icone nome="seta" className="seta size-4" />
                 </Link>
-                <a href="#autor" className="botao botao-secundario">
+                <a href="#autor" className="botao botao-secundario" data-evento="cta_click" data-local="hero">
                   Conhecer o fundador
                 </a>
               </div>
@@ -222,7 +222,7 @@ export default function Pagina() {
               <div className="flex flex-wrap justify-between gap-x-6 gap-y-1 border-t border-linha py-4">
                 <dt className="text-secundario">WhatsApp</dt>
                 <dd>
-                  <a href={linkWhatsApp()} target="_blank" rel="noopener" className="link-sublinhado font-medium" data-evento="click_whatsapp">
+                  <a href={linkWhatsApp()} target="_blank" rel="noopener" className="link-sublinhado font-medium" data-evento="click_whatsapp" data-local="empresa">
                     {whatsappParaLer()}
                   </a>
                 </dd>
@@ -230,7 +230,7 @@ export default function Pagina() {
               <div className="flex flex-wrap justify-between gap-x-6 gap-y-1 border-t border-linha py-4">
                 <dt className="text-secundario">E-mail</dt>
                 <dd>
-                  <a href={linkEmail(EMAIL.assuntos.diagnostico)} className="link-sublinhado font-medium" data-evento="click_email">
+                  <a href={linkEmail(EMAIL.assuntos.diagnostico)} className="link-sublinhado font-medium" data-evento="click_email" data-local="empresa">
                     {EMPRESA.email}
                   </a>
                 </dd>
@@ -249,11 +249,11 @@ export default function Pagina() {
                 <p className="texto-guia mt-5">{s.chamada.texto}</p>
               </div>
               <div className="flex flex-wrap gap-3 lg:justify-end">
-                <Link href="/diagnostico" className="botao botao-primario">
+                <Link href="/diagnostico" className="botao botao-primario" data-evento="cta_click" data-local="chamada">
                   {s.chamada.botao}
                   <Icone nome="seta" className="seta size-4" />
                 </Link>
-                <Link href="/precos" className="botao botao-secundario">
+                <Link href="/precos" className="botao botao-secundario" data-evento="cta_click" data-local="chamada">
                   Ver preços
                 </Link>
               </div>

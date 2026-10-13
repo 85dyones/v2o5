@@ -42,7 +42,7 @@ export default function Topo() {
           </ul>
         </nav>
         <div className="ml-auto flex items-center gap-2 md:justify-self-end">
-          <Link href="/diagnostico" className="botao botao-primario botao-compacto hidden sm:inline-flex">
+          <Link href="/diagnostico" className="botao botao-primario botao-compacto hidden sm:inline-flex" data-evento="cta_click" data-local="topo">
             Pedir diagnóstico
             <Icone nome="seta" className="seta size-3.5" />
           </Link>

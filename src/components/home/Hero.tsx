@@ -29,11 +29,11 @@ export default function Hero({ titulo }: { titulo: string }) {
           </h1>
           <p className="texto-guia mt-7 max-w-[35rem]">{HERO.subtitulo}</p>
           <div className="mt-9 flex flex-wrap gap-3">
-            <Link href="/diagnostico" className="botao botao-primario" data-acende-molecula>
+            <Link href="/diagnostico" className="botao botao-primario" data-acende-molecula data-evento="cta_click" data-local="hero">
               Pedir diagnóstico
               <Icone nome="seta" className="seta size-4" />
             </Link>
-            <a href="#como-se-liga" className="botao botao-secundario" data-acende-molecula>
+            <a href="#como-se-liga" className="botao botao-secundario" data-acende-molecula data-evento="cta_click" data-local="hero">
               Ver como tudo se liga
             </a>
           </div>

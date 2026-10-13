@@ -13,7 +13,7 @@ export default function ChamadaCurta({ qual }: { qual: "depoisDoCase" }) {
             <p className="text-[1.375rem] font-semibold leading-tight tracking-[-0.03em]">{c.titulo}</p>
             <p className="mt-2 text-[0.9375rem] leading-relaxed text-secundario">{c.texto}</p>
           </div>
-          <Link href="/diagnostico" className="botao botao-primario shrink-0 self-start md:self-auto">
+          <Link href="/diagnostico" className="botao botao-primario shrink-0 self-start md:self-auto" data-evento="cta_click" data-local="chamada-curta">
             {CHAMADA.botao}
             <Icone nome="seta" className="seta size-4" />
           </Link>

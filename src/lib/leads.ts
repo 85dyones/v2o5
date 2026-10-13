@@ -23,7 +23,13 @@ export type Origem = Partial<Record<(typeof CHAVES_DE_ORIGEM)[number], string>> 
   referrer?: string;
   /** Primeira página da visita (caminho e busca). */
   entrada?: string;
+  /** Identificadores que o Pixel da Meta grava (`_fbp`, `_fbc`), para a API de Conversões casar o evento. */
+  fbp?: string;
+  fbc?: string;
 };
+
+/** `fb.1.<timestamp>.<id>`, o formato dos dois cookies da Meta. */
+export const FORMATO_DA_META = /^fb\.1\.\d{10,16}\.[\w.-]{1,255}$/;
 
 export interface Lead {
   nome: string;
@@ -96,6 +102,10 @@ function origemValida(v: unknown): Origem {
   if (referrer) origem.referrer = referrer;
   const entrada = texto(o.entrada, LIMITES.origem);
   if (entrada) origem.entrada = entrada;
+  for (const chave of ["fbp", "fbc"] as const) {
+    const v = texto(o[chave], LIMITES.origem);
+    if (FORMATO_DA_META.test(v)) origem[chave] = v;
+  }
   return origem;
 }
 

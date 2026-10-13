@@ -36,11 +36,11 @@ export default function Pagina() {
               </h1>
               <p className="texto-guia mt-7 max-w-[38rem]">{h.resumo}</p>
               <div className="mt-9 flex flex-wrap gap-3">
-                <Link href="/diagnostico" className="botao botao-primario">
+                <Link href="/diagnostico" className="botao botao-primario" data-evento="cta_click" data-local="hero">
                   {h.chamada.botao}
                   <Icone nome="seta" className="seta size-4" />
                 </Link>
-                <a href="#titulo-pacote" className="botao botao-secundario">
+                <a href="#titulo-pacote" className="botao botao-secundario" data-evento="cta_click" data-local="hero">
                   Ver o pacote
                 </a>
               </div>
@@ -159,7 +159,7 @@ export default function Pagina() {
               <Icone nome="check" className="mt-0.5 size-4 shrink-0 text-verde-claro" />
               {h.case.fonte}
             </p>
-            <Link href={h.case.href} className="botao botao-secundario mt-8">
+            <Link href={h.case.href} className="botao botao-secundario mt-8" data-evento="cta_click" data-local="case">
               {h.case.botao}
               <Icone nome="seta" className="seta size-4" />
             </Link>
@@ -183,11 +183,11 @@ export default function Pagina() {
                 <p className="texto-guia mt-5">{h.chamada.texto}</p>
               </div>
               <div className="flex flex-wrap gap-3 lg:justify-end">
-                <Link href="/diagnostico" className="botao botao-primario">
+                <Link href="/diagnostico" className="botao botao-primario" data-evento="cta_click" data-local="chamada">
                   {h.chamada.botao}
                   <Icone nome="seta" className="seta size-4" />
                 </Link>
-                <Link href="/precos" className="botao botao-secundario">
+                <Link href="/precos" className="botao botao-secundario" data-evento="cta_click" data-local="chamada">
                   {h.chamada.secundario}
                 </Link>
               </div>

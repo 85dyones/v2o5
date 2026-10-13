@@ -1,11 +1,19 @@
 import { randomUUID } from "node:crypto";
+import { after } from "next/server";
+import { configDoCapi, enviarAoCapi, eventoLead } from "@/lib/capi";
 import { validarLead } from "@/lib/leads";
+import { SITE_URL } from "@/lib/site";
 
 /**
  * Recebe o pedido de diagnóstico, valida (`lib/leads.ts`) e entrega ao n8n
  * da V2O5 pelo webhook em `LEADS_WEBHOOK_URL`, assinado com
  * `LEADS_WEBHOOK_SECRET` no cabeçalho `X-V2O5-Segredo`. O n8n cuida do
  * resto (aviso no WhatsApp, Chatwoot, planilha ou Supabase).
+ *
+ * Com o lead aceito, manda o mesmo `event_id` à API de Conversões da Meta
+ * (`lib/capi.ts`) depois de responder, se `META_PIXEL_ID` e
+ * `META_CAPI_TOKEN` existirem e a pessoa não tiver desligado a medição
+ * (`medicao: "desligada"` no corpo, gravado em `/privacidade`).
  *
  * Proteções sem serviço de fora: campo armadilha (`site`, que só robô
  * preenche), limite por IP e tamanho máximo do corpo. Turnstile entra quando
@@ -33,6 +41,15 @@ function passouDoLimite(ip: string, agora = Date.now()): boolean {
 /** Só para teste: zera o limite por IP. */
 export function zerarLimite(): void {
   envios.clear();
+}
+
+/** Roda depois de a resposta sair; fora de uma requisição do Next (teste), roda na hora. */
+function depoisDaResposta(tarefa: () => Promise<unknown>): void {
+  try {
+    after(tarefa);
+  } catch {
+    void tarefa();
+  }
 }
 
 const json = (corpo: unknown, status = 200) =>
@@ -88,6 +105,18 @@ export async function POST(req: Request): Promise<Response> {
     return json({ ok: false, erro: "entrega" }, 502);
   } finally {
     clearTimeout(relogio);
+  }
+
+  const capi = configDoCapi();
+  const medicaoDesligada = (dados as { medicao?: unknown }).medicao === "desligada";
+  if (capi && !medicaoDesligada) {
+    const evento = eventoLead(validacao.lead, {
+      event_id,
+      url: `${SITE_URL}${validacao.lead.pagina ?? "/diagnostico"}`,
+      ip: ip === "desconhecido" ? undefined : ip,
+      userAgent: req.headers.get("user-agent") ?? undefined,
+    });
+    depoisDaResposta(() => enviarAoCapi(evento, capi));
   }
 
   return json({ ok: true, event_id });

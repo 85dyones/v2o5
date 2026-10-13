@@ -22,6 +22,7 @@ export default function BotaoWhatsAppFixo({
       rel="noopener"
       className="botao-whatsapp fixed bottom-4 right-4 z-40 flex min-h-12 items-center gap-2 rounded-full pl-3.5 pr-4 text-[0.9375rem] font-semibold md:hidden"
       data-evento="click_whatsapp"
+      data-local="botao-fixo"
     >
       <Icone nome="conversa" className="size-5" />
       WhatsApp

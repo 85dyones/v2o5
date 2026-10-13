@@ -75,11 +75,29 @@ export const ESTOQUES = [
   { valor: "151+", rotulo: "Mais de 150" },
 ] as const;
 
+/**
+ * Sistemas de gestão de revenda que o formulário oferece. O Revenda Mais é
+ * a integração em produção (Motors); os outros nomes são os players grandes
+ * do setor, citados no site como integráveis por fluxo (Dyones, 13/10), e
+ * `tests/automotivo.test.ts` cobra que hub, home e soluções usem esta lista.
+ */
 export const SISTEMAS = [
   { valor: "revenda-mais", rotulo: "Revenda Mais" },
   { valor: "autoconf", rotulo: "Autoconf" },
   { valor: "bndv", rotulo: "BNDV" },
   { valor: "boom", rotulo: "Boom" },
+  { valor: "altimus", rotulo: "Altimus" },
+  { valor: "syonet", rotulo: "Syonet" },
   { valor: "outro", rotulo: "Outro" },
   { valor: "nenhum", rotulo: "Nenhum" },
 ] as const;
+
+export const SISTEMA_EM_PRODUCAO = "Revenda Mais";
+
+/** Os sistemas além do que já roda: "Autoconf, BNDV, Boom, Altimus e Syonet". */
+export const SISTEMAS_INTEGRAVEIS = SISTEMAS.filter((s) => !["revenda-mais", "outro", "nenhum"].includes(s.valor)).map(
+  (s) => s.rotulo,
+);
+
+export const listaDeSistemasIntegraveis = (): string =>
+  `${SISTEMAS_INTEGRAVEIS.slice(0, -1).join(", ")} e ${SISTEMAS_INTEGRAVEIS[SISTEMAS_INTEGRAVEIS.length - 1]}`;

@@ -254,9 +254,16 @@ describe("CSS e fonte", () => {
 
   it("todo código que agenda quadro ou anima pergunta a lib/movimento", () => {
     // Exceções, com motivo: os motores são chamados só por quem já
-    // perguntou (HeroMolecula); a rota de leads usa setTimeout no servidor,
-    // como limite de tempo do webhook, sem animar nada.
-    const excecoes = new Set(["src/lib/particulas.ts", "src/lib/molecula3d.ts", "src/app/api/leads/route.ts"]);
+    // perguntou (HeroMolecula); a rota de leads e o CAPI usam setTimeout no
+    // servidor, como limite de tempo das chamadas; a medição usa setTimeout
+    // para esperar a página carregar antes das tags. Nenhum deles anima.
+    const excecoes = new Set([
+      "src/lib/particulas.ts",
+      "src/lib/molecula3d.ts",
+      "src/app/api/leads/route.ts",
+      "src/lib/capi.ts",
+      "src/lib/medicao.ts",
+    ]);
     const anima = /requestAnimationFrame|import\("motion"\)|from "motion"|setTimeout|iniciarParticulas\(/;
     for (const arquivo of arquivos("src", /\.tsx?$/)) {
       const codigo = semComentarios(ler(arquivo));

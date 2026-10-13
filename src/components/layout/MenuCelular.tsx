@@ -59,7 +59,7 @@ export default function MenuCelular({ itens }: { itens: { rotulo: string; href: 
             ))}
           </ul>
         </nav>
-        <Link href="/diagnostico" onClick={() => setAberto(false)} className="botao botao-primario mt-7 w-full">
+        <Link href="/diagnostico" onClick={() => setAberto(false)} className="botao botao-primario mt-7 w-full" data-evento="cta_click" data-local="menu">
           Pedir diagnóstico
         </Link>
       </div>

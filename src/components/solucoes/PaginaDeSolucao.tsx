@@ -46,11 +46,11 @@ export default function PaginaDeSolucao({ rota, demonstracao }: { rota: string; 
               </h1>
               <p className="texto-guia mt-7 max-w-[38rem]">{s.resumo}</p>
               <div className="mt-9 flex flex-wrap gap-3">
-                <Link href="/diagnostico" className="botao botao-primario">
+                <Link href="/diagnostico" className="botao botao-primario" data-evento="cta_click" data-local="hero">
                   Pedir diagnóstico gratuito
                   <Icone nome="seta" className="seta size-4" />
                 </Link>
-                <a href="#titulo-preco" className="botao botao-secundario">
+                <a href="#titulo-preco" className="botao botao-secundario" data-evento="cta_click" data-local="hero">
                   Ver o preço
                 </a>
               </div>
@@ -191,7 +191,7 @@ export default function PaginaDeSolucao({ rota, demonstracao }: { rota: string; 
                 <Icone nome="check" className="mt-0.5 size-4 shrink-0 text-verde-claro" />
                 {CASE.fonte}
               </p>
-              <Link href="/cases/motors-store" className="botao botao-secundario mt-8">
+              <Link href="/cases/motors-store" className="botao botao-secundario mt-8" data-evento="cta_click" data-local="na-motors">
                 Ler o case completo
                 <Icone nome="seta" className="seta size-4" />
               </Link>
@@ -219,7 +219,7 @@ export default function PaginaDeSolucao({ rota, demonstracao }: { rota: string; 
                 </dl>
                 <p className="mt-5 text-[0.9375rem] leading-relaxed text-secundario">{linha.cobre}</p>
                 <Detalhes l={linha} />
-                <Link href="/precos" className="botao botao-secundario mt-7">
+                <Link href="/precos" className="botao botao-secundario mt-7" data-evento="cta_click" data-local="preco">
                   Ver a tabela completa
                   <Icone nome="seta" className="seta size-4" />
                 </Link>

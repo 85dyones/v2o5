@@ -56,7 +56,8 @@ Tudo que aparece abreviado nas conversas do projeto. O que é usado toda hora ta
 | Termo | Significado |
 |---|---|
 | IAEO | Agência de IA de Curitiba; referência de execução (preço publicado, nichos) |
-| Autoconf | Sistema de gestão de revendas de Curitiba; mesmo discurso "nasceu numa loja" |
+| Autoconf | Sistema de gestão de revendas de Curitiba; mesmo discurso "nasceu numa loja"; citado no site como integrável por fluxo |
+| BNDV, Boom, Altimus, Syonet | Outros sistemas de gestão/CRM de revendas; opções do formulário e citados como integráveis por fluxo (13/10) |
 | AutoSDR | SaaS de IA para revendas; forte em SEO comparativo |
 | Motorleads | Plataforma de sites e mídia para revendas; a mais parecida com a V2O5 |
 | Fenauto / Assovepar | Federação nacional e associação paranaense de revendas (alcance fora do site) |

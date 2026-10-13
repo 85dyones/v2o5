@@ -3,7 +3,7 @@ import Link from "next/link";
 import JsonLd from "@/components/JsonLd";
 import Topo from "@/components/layout/Topo";
 import Rodape from "@/components/layout/Rodape";
-import ControleDeOrigem from "@/components/privacidade/ControleDeOrigem";
+import ControleDeMedicao from "@/components/privacidade/ControleDeMedicao";
 import { EMAIL, EMPRESA, VISAO_360, WHATSAPP } from "@/conteudo/home";
 import { metadataDa } from "@/conteudo/paginas";
 import { grafoDaInterna } from "@/lib/schema";
@@ -15,7 +15,7 @@ const ROTA = "/privacidade";
 export const metadata = metadataDa(ROTA);
 
 /** Data da última revisão do texto. Muda sempre que o conteúdo mudar. */
-export const ULTIMA_ATUALIZACAO = "10 de outubro de 2026";
+export const ULTIMA_ATUALIZACAO = "13 de outubro de 2026";
 
 const SECOES = [
   ["controlador", "Quem responde pelos seus dados"],
@@ -111,8 +111,10 @@ export default function Pagina() {
                 <strong>Enquanto você navega.</strong> Se você chegou por um anúncio ou por um link de campanha, os
                 parâmetros desse link (utm, gclid, gbraid, wbraid, fbclid), o site de onde veio e a primeira página
                 aberta ficam guardados no seu navegador, no armazenamento da sessão, até a aba fechar. Eles só saem do
-                navegador se você enviar o formulário, junto com ele, para sabermos qual canal trouxe o contato. A
-                hospedagem registra, em logs técnicos, o endereço IP e o navegador de cada acesso.
+                navegador se você enviar o formulário, junto com ele, para sabermos qual canal trouxe o contato. As
+                ferramentas de medição da <A href="#medicao">seção de medição</A> recebem as páginas abertas e os
+                cliques nos botões de contato, e gravam cookies próprios. A hospedagem registra, em logs técnicos, o
+                endereço IP e o navegador de cada acesso.
               </p>
               <p>
                 <strong>Quando você chama no WhatsApp.</strong> A conversa acontece no WhatsApp, com o número e o nome
@@ -140,8 +142,8 @@ export default function Pagina() {
                   robô preenche e um limite de envios por endereço IP em dez minutos.
                 </li>
                 <li>
-                  <strong>Melhorar o site.</strong> Entender o que as pessoas procuram, quando as ferramentas de
-                  medição entrarem (veja a seção de medição).
+                  <strong>Melhorar o site e os anúncios.</strong> Entender o que as pessoas procuram e quais
+                  anúncios trazem contatos, com as ferramentas da <A href="#medicao">seção de medição</A>.
                 </li>
               </ul>
             </Secao>
@@ -155,7 +157,7 @@ export default function Pagina() {
                 </li>
                 <li>
                   <strong>Legítimo interesse</strong> (art. 7º, IX): a origem da visita guardada no navegador, a
-                  segurança do formulário e, quando entrarem, a medição de uso e de anúncios. Você pode se opor na{" "}
+                  segurança do formulário e a medição de uso e de anúncios. Você pode se opor na{" "}
                   <A href="#medicao">seção de medição</A> ou pelos canais da <A href="#contato">seção de contato</A>.
                 </li>
                 <li>
@@ -167,16 +169,40 @@ export default function Pagina() {
 
             <Secao id="medicao" titulo="Medição, anúncios e a sua oposição">
               <p>
-                <strong>Hoje este site não carrega ferramentas de análise nem de publicidade.</strong> Não há Google
-                Analytics, Google Ads nem Meta Pixel ativos, e não há cookie de terceiro. O único dado guardado antes
-                do formulário é a origem da visita descrita acima, e só no seu navegador.
+                <strong>Este site mede visitas e o resultado dos anúncios com duas ferramentas</strong>, carregadas
+                depois do conteúdo da página e com base no legítimo interesse: o Google Analytics 4 e, só quando há
+                campanha ativa na Meta, o Pixel da Meta. O controle abaixo diz quais estão ligadas nesta versão do
+                site e deixa você desligar a medição neste navegador.
               </p>
-              <ControleDeOrigem />
+              <ControleDeMedicao />
               <p>
-                Quando as ferramentas de medição entrarem, elas serão carregadas com base no legítimo interesse, para
-                medir o resultado dos nossos anúncios e entender como o site é usado, e esta página mudará antes: o
-                nome de cada ferramenta, o que ela recebe e um controle para desligar a medição neste navegador
-                ficarão nesta seção.
+                <strong>Google Analytics 4</strong> (Google LLC) recebe as páginas abertas, o tipo de cada página, os
+                cliques nos botões de contato e o envio do formulário, com dados técnicos do navegador e do aparelho e
+                uma localização aproximada pelo endereço IP, que o Google não armazena, segundo a documentação do
+                Google Analytics. Grava os cookies <code>_ga</code> e <code>_ga_…</code>, que distinguem o seu
+                navegador por um identificador aleatório e duram até dois anos, segundo a mesma documentação. Os dados
+                vão para googletagmanager.com, google-analytics.com, analytics.google.com e google.com. Não enviamos
+                nome, e-mail nem telefone ao Google.
+              </p>
+              <p>
+                <strong>Pixel da Meta</strong> (Meta Platforms) entra só quando a V2O5 anuncia na Meta, para medir o
+                resultado desses anúncios. Recebe as páginas abertas, o clique no WhatsApp e o envio do formulário,
+                sem a coleta automática de cliques e formulários que o Pixel oferece. Grava os cookies{" "}
+                <code>_fbp</code> e <code>_fbc</code>, que duram até 90 dias, segundo a documentação da Meta. Os
+                dados vão para connect.facebook.net e facebook.com.
+              </p>
+              <p>
+                <strong>Pelo servidor, à Meta.</strong> Com o Pixel ligado, ao enviar o formulário o nosso servidor
+                manda à Meta o mesmo evento, com um identificador comum para a conversão contar uma vez só. Vão
+                e-mail, telefone e nome em hash (uma transformação que não se desfaz), o endereço IP, o navegador e
+                os identificadores <code>_fbp</code> e <code>_fbc</code>, que também seguem com o pedido para a
+                automação da V2O5. Com a medição desligada neste navegador, nada disso é enviado.
+              </p>
+              <p>
+                <strong>Como se opor.</strong> Use o controle acima: ele grava a escolha neste navegador, apaga os
+                cookies das ferramentas e a origem da visita, e vale até você religar. A escolha fica no
+                armazenamento do navegador; limpar os dados do site a apaga. Você também pode pedir pelos canais da{" "}
+                <A href="#contato">seção de contato</A>.
               </p>
             </Secao>
 
@@ -193,6 +219,14 @@ export default function Pagina() {
                 <li>
                   <strong>Automação e atendimento da V2O5</strong> (n8n e Chatwoot, em servidor próprio): recebem o
                   pedido de diagnóstico, avisam a equipe e guardam a conversa.
+                </li>
+                <li>
+                  <strong>Google</strong> (Google Analytics 4): recebe os dados de uso descritos na{" "}
+                  <A href="#medicao">seção de medição</A>, em servidores fora do Brasil.
+                </li>
+                <li>
+                  <strong>Meta</strong> (Pixel e API de Conversões): recebe os dados da{" "}
+                  <A href="#medicao">seção de medição</A>, só quando o Pixel está ligado.
                 </li>
                 <li>
                   <strong>WhatsApp</strong> (Meta): quando você conversa por lá, vale a política do WhatsApp.
@@ -212,6 +246,11 @@ export default function Pagina() {
                 <strong>A origem da visita</strong> fica no seu navegador até a aba fechar. <strong>O endereço IP</strong>{" "}
                 usado no limite de envios fica na memória do servidor por dez minutos. Os logs da hospedagem seguem o
                 prazo da Vercel.
+              </p>
+              <p>
+                <strong>Os cookies de medição</strong> duram o prazo dito na <A href="#medicao">seção de medição</A>{" "}
+                ou até você desligar a medição. O Google Analytics guarda os dados de eventos pelo prazo de retenção
+                configurado na propriedade da V2O5; a Meta, pelas regras da política dela.
               </p>
             </Secao>
 
@@ -234,7 +273,8 @@ export default function Pagina() {
             <Secao id="seguranca" titulo="Segurança">
               <p>
                 O site só funciona por conexão criptografada (HTTPS) e aplica uma política de segurança de conteúdo
-                que impede scripts de fora. O formulário é validado no servidor, e o envio para a automação da V2O5
+                que só permite scripts dos domínios nomeados nesta política (Google e Meta). O formulário é validado
+                no servidor, e o envio para a automação da V2O5
                 vai assinado com um segredo que só os dois lados conhecem. O acesso aos dados é restrito à equipe
                 que atende.
               </p>
@@ -252,10 +292,12 @@ export default function Pagina() {
                   target="_blank"
                   rel="noopener"
                   className="link-sublinhado text-papel"
+                  data-evento="click_whatsapp"
+                  data-local="privacidade"
                 >
                   WhatsApp {whatsappParaLer()}
                 </a>{" "}
-                ou use o <Link href="/diagnostico" className="link-sublinhado text-papel">formulário do site</Link>. O
+                ou use o <Link href="/diagnostico" className="link-sublinhado text-papel" data-evento="cta_click" data-local="privacidade">formulário do site</Link>. O
                 pedido é respondido pelo encarregado, {VISAO_360.fundador.nome}.
               </p>
               <p>

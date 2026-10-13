@@ -1,10 +1,12 @@
 import { describe, expect, it } from "vitest";
 import config, { CABECALHOS_DE_SEGURANCA, CSP } from "../next.config";
+import { COLETA_DE_TERCEIROS, SCRIPTS_DE_TERCEIROS } from "@/lib/terceiros";
 
 /**
  * Cabeçalhos de segurança (lacuna da Motors, seção 8 do plano). A CSP é sem
- * nonce porque as páginas são estáticas; o resto fica fechado. Quando um
- * domínio de terceiro entrar (GA4, Meta, Turnstile), ele entra aqui junto.
+ * nonce porque as páginas são estáticas; o resto fica fechado. Os únicos
+ * domínios de fora são os de `lib/terceiros.ts` (GA4 e Pixel da Meta);
+ * Turnstile entra ali quando chegar.
  */
 
 const diretivas = Object.fromEntries(
@@ -15,10 +17,17 @@ const diretivas = Object.fromEntries(
 );
 
 describe("Content-Security-Policy", () => {
-  it("nada carrega de fora da origem", () => {
-    for (const nome of ["default-src", "script-src", "style-src", "font-src", "connect-src"]) {
+  it("só os terceiros nomeados carregam de fora da origem", () => {
+    const deFora = (nome: string) => diretivas[nome].filter((v: string) => /^https?:/.test(v));
+    for (const nome of ["default-src", "script-src", "style-src", "font-src", "connect-src", "img-src"]) {
       expect(diretivas[nome], nome).toContain("'self'");
-      expect(diretivas[nome].filter((v: string) => /^https?:/.test(v)), nome).toEqual([]);
+    }
+    for (const nome of ["default-src", "style-src", "font-src"]) expect(deFora(nome), nome).toEqual([]);
+    expect(deFora("script-src")).toEqual(SCRIPTS_DE_TERCEIROS);
+    expect(deFora("connect-src")).toEqual(COLETA_DE_TERCEIROS);
+    expect(deFora("img-src")).toEqual(COLETA_DE_TERCEIROS);
+    for (const dominio of [...SCRIPTS_DE_TERCEIROS, ...COLETA_DE_TERCEIROS]) {
+      expect(dominio).toMatch(/^https:\/\/[\w*.-]+$/);
     }
   });
 

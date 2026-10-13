@@ -27,7 +27,7 @@ export default function Rodape() {
           <p className="mt-4 text-[0.9375rem] text-secundario">
             Catalisador de vendas com <span className="text-ambar">IA</span>
           </p>
-          <Link href="/diagnostico" className="botao botao-primario botao-compacto mt-7">
+          <Link href="/diagnostico" className="botao botao-primario botao-compacto mt-7" data-evento="cta_click" data-local="rodape">
             Pedir diagnóstico
             <Icone nome="seta" className="seta size-3.5" />
           </Link>
@@ -67,17 +67,17 @@ export default function Rodape() {
           <h2 className="text-sm font-medium text-papel">Canais</h2>
           <ul className="mt-4 space-y-0.5 text-[0.9375rem] text-secundario">
             <li>
-              <Link href="/diagnostico" className={LINK}>
+              <Link href="/diagnostico" className={LINK} data-evento="cta_click" data-local="rodape">
                 Pedir diagnóstico
               </Link>
             </li>
             <li>
-              <a href={linkWhatsApp(WHATSAPP.mensagens.home)} target="_blank" rel="noopener" className={LINK} data-evento="click_whatsapp">
+              <a href={linkWhatsApp(WHATSAPP.mensagens.home)} target="_blank" rel="noopener" className={LINK} data-evento="click_whatsapp" data-local="rodape">
                 WhatsApp {whatsappParaLer()}
               </a>
             </li>
             <li>
-              <a href={linkEmail(EMAIL.assuntos.diagnostico)} className={LINK} data-evento="click_email">
+              <a href={linkEmail(EMAIL.assuntos.diagnostico)} className={LINK} data-evento="click_email" data-local="rodape">
                 {EMPRESA.email}
               </a>
             </li>

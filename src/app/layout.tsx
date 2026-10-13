@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Geist } from "./fontes";
 import FonteMonoTardia from "@/components/layout/FonteMonoTardia";
 import LuzDoCursor from "@/components/layout/LuzDoCursor";
+import Medicao from "@/components/layout/Medicao";
 import PrimeiroToque from "@/components/layout/PrimeiroToque";
 import "./globals.css";
 
@@ -35,6 +36,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <FonteMonoTardia />
         <LuzDoCursor />
         <PrimeiroToque />
+        <Medicao />
       </body>
     </html>
   );
