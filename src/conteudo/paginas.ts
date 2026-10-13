@@ -103,10 +103,11 @@ export const PAGINAS: Pagina[] = [
   },
   {
     rota: "/sobre",
-    titulo: "Sobre a V2O5",
-    descricao: "Quem é a V2O5 Vendas e Tecnologia e como trabalha.",
-    atualizadaEm: "2026-10-09",
-    pronta: false,
+    titulo: "Sobre a V2O5: quem faz e como trabalha",
+    descricao:
+      "Quem é a V2O5 Vendas e Tecnologia, de onde vem o nome, o fundador que conduz o diagnóstico, a relação com a Motors Store e as regras de todo projeto.",
+    atualizadaEm: "2026-10-13",
+    pronta: true,
   },
   {
     rota: "/diagnostico",

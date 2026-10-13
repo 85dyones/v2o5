@@ -797,6 +797,9 @@ export const EMPRESA = {
    */
   email: "diagnostico@v2o5.com.br",
   emailPrivacidade: "privacidade@v2o5.com.br",
+  /** Fundação da V2O5, pelo Dyones (13/10): dezembro de 2019. Vai para o schema (`foundingDate`) e para `/sobre`. */
+  fundacao: "2019-12",
+  fundacaoPorExtenso: "dezembro de 2019",
 };
 
 /** Assunto pré-preenchido do e-mail, por lugar. */

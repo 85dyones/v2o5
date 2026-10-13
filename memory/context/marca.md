@@ -2,7 +2,7 @@
 
 ## Nome e entidade
 - Nome fixo em todo lugar: **V2O5 Vendas e Tecnologia** (algarismos normais no texto; é o que se digita na busca).
-- Razão social V2O5 Tecnologia da Informação Ltda. · CNPJ 68.490.470/0001-14 · ME, Simples · ativa desde 10/08/2026.
+- Razão social V2O5 Tecnologia da Informação Ltda. · CNPJ 68.490.470/0001-14 · ME, Simples · CNPJ atual ativo desde 10/08/2026. Fundação da V2O5: dezembro de 2019 (Dyones, 13/10; publicada em `/sobre` e no `foundingDate` do schema).
 - Sede residencial em Almirante Tamandaré/PR: publicar só cidade e estado. Perfil de Empresa como área de serviço.
 - Schema: `name` nome fantasia, `legalName`, `taxID`, `alternateName` ["V2O5", "V2O5 ConsultorIA"], `founder` Person Dyones Oliveira.
 - "V2O5" sozinho na busca é o composto químico: sempre usar a forma fixa e `sameAs` consistente.

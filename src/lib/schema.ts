@@ -1,5 +1,6 @@
 import { HUB_AUTOMOTIVO } from "@/conteudo/automotivo";
 import { CASE_MOTORS } from "@/conteudo/case";
+import { SOBRE } from "@/conteudo/sobre";
 import { solucaoDa } from "@/conteudo/solucoes";
 import { EMPRESA, PERGUNTAS, PILARES, VISAO_360 } from "@/conteudo/home";
 import { paginaDa } from "@/conteudo/paginas";
@@ -35,6 +36,7 @@ export function organizacao(): No {
     url: `${SITE_URL}/`,
     logo: `${SITE_URL}/icon.svg`,
     slogan: "Catalisador de vendas com IA",
+    foundingDate: EMPRESA.fundacao,
     founder: ref(ID_DO_FUNDADOR),
     telephone: whatsappInternacional(),
     email: EMPRESA.email,
@@ -251,6 +253,26 @@ export function grafoDoHubAutomotivo(): No {
   return {
     "@context": "https://schema.org",
     "@graph": [ref(ID_DA_ORGANIZACAO), trilha(rota), servicoAutomotivo(), perguntas(rota, HUB_AUTOMOTIVO.perguntas)],
+  };
+}
+
+/** Sobre: a página que o `@id` do fundador aponta (`/sobre#autor`), com a organização como assunto. */
+export function paginaSobre(): No {
+  return {
+    "@type": "AboutPage",
+    "@id": `${SITE_URL}${SOBRE.rota}#pagina`,
+    url: `${SITE_URL}${SOBRE.rota}`,
+    name: paginaDa(SOBRE.rota).titulo,
+    description: paginaDa(SOBRE.rota).descricao,
+    inLanguage: "pt-BR",
+    mainEntity: ref(ID_DA_ORGANIZACAO),
+  };
+}
+
+export function grafoDoSobre(): No {
+  return {
+    "@context": "https://schema.org",
+    "@graph": [ref(ID_DA_ORGANIZACAO), trilha(SOBRE.rota), fundador(), paginaSobre()],
   };
 }
 
