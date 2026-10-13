@@ -2,6 +2,9 @@
 
 Log datado. Decisão nova entra no topo do dia; decisão revogada fica riscada com a data da troca.
 
+## 13/10/2026 (PR #6 em main)
+- PR #6 (cinco páginas de solução) mesclado por squash em `main` (1e80bb1) a pedido do Dyones ("faça o merge"), com CI verde. A branch `claude/gracious-euler-0qzedy` foi reiniciada a partir do `main`; rodada nova em PR novo. Produção passa a ter as cinco páginas indexáveis.
+
 ## 13/10/2026 (as cinco páginas de solução, pelo Dyones: "faça as 5 páginas das soluções")
 - Prontas e indexáveis: `/criacao-de-sites`, `/agente-de-ia-para-whatsapp`, `/automacao-com-ia`, `/crm-com-whatsapp`, `/rastreamento-de-conversoes` (as da fase 1 do plano; `/gestao-de-trafego` segue provisória, fase 2, e pode usar o mesmo molde). Molde único `components/solucoes/PaginaDeSolucao.tsx` alimentado por `conteudo/solucoes.ts`: hero com a busca-alvo no H1 e resumo de até 140 caracteres (LCP é o H1), três fatos (preço da tabela, o que a mensalidade cobre, o que roda na Motors), o problema com a cena da linha (vinheta da home), seis entregas, quatro passos, demonstração quando há (Orquestrador na do agente, diagrama "Como tudo se liga" na de automação, bloco "O que este site registrou da sua visita" na de rastreamento, lendo a origem do sessionStorage), o que roda na Motors Store com número do case por referência, o preço da tabela com inclui, degraus e repasses, garantias, cinco perguntas (FAQPage), três linhas que combinam e o fechamento.
 - Regras travadas em `tests/solucoes.test.ts`: preço só de `precos.ts` e todo "R$" em `oferta.md`; número do case só por referência a `CASE`/`CASE_MOTORS`; número de estudo só com fonte e link (o da HBR, na página do agente); a página do agente não cita a Motors (pendência 13); resumo ≤ 140; schema com Service, ofertas e FAQPage iguais às perguntas; sem travessão, sem "não é X, é Y", sem promessa de resultado.
