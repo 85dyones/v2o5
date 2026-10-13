@@ -7,7 +7,8 @@ import { ETAPAS, type Etapa } from "@/lib/tokens";
  * A apresentação do orquestrador, sem estado nem efeito. O servidor a
  * renderiza no estado final (HTML completo, zero JavaScript); a versão
  * interativa, carregada perto da tela, usa este mesmo componente e só troca o
- * estado. Por isso a troca não mexe no layout: passo oculto é só opacidade.
+ * estado. Por isso a troca não mexe no layout: passo oculto é só opacidade e
+ * o botão de repetir já está no HTML, desligado.
  */
 
 export interface EstadoDoOrquestrador {
@@ -78,18 +79,20 @@ export default function OrquestradorVisao({
             </button>
           ))}
         </div>
-        {aoRepetir ? (
-          <button
-            type="button"
-            onClick={aoRepetir}
-            className="inline-flex min-h-10 items-center gap-2 rounded-full px-3 text-sm text-secundario transition-colors duration-150 hover:bg-vidro hover:text-papel"
-          >
-            <svg viewBox="0 0 20 20" className="size-4" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-              <path d="M4 10a6 6 0 1 0 1.76-4.24L4 7.5M4 4v3.5h3.5" />
-            </svg>
-            Repetir a demonstração
-          </button>
-        ) : null}
+        {/* Sempre no HTML, desligado até a versão interativa chegar: no celular ele
+            cai numa segunda linha, e aparecer só depois empurrava a página 52px
+            (medido em 12/10, âncora #como-se-liga). */}
+        <button
+          type="button"
+          onClick={aoRepetir}
+          disabled={!aoRepetir}
+          className="inline-flex min-h-10 items-center gap-2 rounded-full px-3 text-sm text-secundario transition-colors duration-150 hover:bg-vidro hover:text-papel disabled:opacity-60 disabled:hover:bg-transparent"
+        >
+          <svg viewBox="0 0 20 20" className="size-4" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <path d="M4 10a6 6 0 1 0 1.76-4.24L4 7.5M4 4v3.5h3.5" />
+          </svg>
+          Repetir a demonstração
+        </button>
       </div>
 
       <div
