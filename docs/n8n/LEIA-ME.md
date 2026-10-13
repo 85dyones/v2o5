@@ -37,7 +37,7 @@ Workflows, menu de três pontos, "Import from File", escolha `lead-do-diagnostic
 | `chatwootConta` | id da conta no Chatwoot (o número depois de `/app/accounts/` na URL) |
 | `chatwootInbox` | id da caixa de entrada onde o contato entra (Settings, Inboxes, o id está na URL) |
 
-`evolutionUrl`, `chatwootUrl` e `whatsappDyones` já vêm preenchidos.
+`evolutionUrl` (`https://evolution.v2o5.com.br`), `chatwootUrl` (`https://app.chat.v2o5.com.br`, o Chatwoot que responde; `chatwoot.v2o5.com.br` devolve erro 500 desde 13/10) e `whatsappDyones` já vêm preenchidos. `chatwootConta` vem como 1, o número que aparece na URL do painel (`/app/accounts/1/`); confira `chatwootInbox` e `evolutionInstancia` (vem como `v2o5`) com o que existe nos dois painéis.
 
 Se a Evolution for da versão 1, o corpo do envio muda: em "Avisar o Dyones" e "Responder ao lead", troque `text: ...` por `textMessage: { text: ... }`.
 

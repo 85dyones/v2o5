@@ -56,7 +56,7 @@ describe("fluxo do n8n", () => {
     const campo = (nome: string) => configuracao.assignments.assignments.find((a) => a.name === nome)?.value;
     expect(campo("whatsappDyones")).toBe(EMPRESA.whatsapp);
     expect(campo("evolutionUrl")).toBe("https://evolution.v2o5.com.br");
-    expect(campo("chatwootUrl")).toBe("https://chatwoot.v2o5.com.br");
+    expect(campo("chatwootUrl")).toBe("https://app.chat.v2o5.com.br");
     const email = no("Responder por e-mail");
     expect(email.parameters.fromEmail).toBe(EMPRESA.email);
     expect(email.disabled).toBe(true);
