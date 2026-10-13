@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Geist } from "./fontes";
+import Ancora from "@/components/layout/Ancora";
 import FonteMonoTardia from "@/components/layout/FonteMonoTardia";
 import LuzDoCursor from "@/components/layout/LuzDoCursor";
 import Medicao from "@/components/layout/Medicao";
@@ -37,6 +38,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <LuzDoCursor />
         <PrimeiroToque />
         <Medicao />
+        <Ancora />
       </body>
     </html>
   );

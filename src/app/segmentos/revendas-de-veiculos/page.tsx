@@ -1,4 +1,5 @@
 import Link from "next/link";
+import LinkOuAncora from "@/components/LinkOuAncora";
 import Icone from "@/components/Icone";
 import JsonLd from "@/components/JsonLd";
 import NumeroQueConta from "@/components/home/NumeroQueConta";
@@ -120,9 +121,9 @@ export default function Pagina() {
                 <p className="mt-2 text-[0.9375rem] leading-relaxed text-secundario">{item.texto}</p>
                 <p className="mt-auto flex items-center justify-between gap-4 pt-6 text-sm">
                   <span className="font-medium tabular-nums text-papel/90">{item.preco}</span>
-                  <Link href={item.href} className="link-sublinhado text-secundario">
+                  <LinkOuAncora href={item.href} className="link-sublinhado text-secundario">
                     na tabela
-                  </Link>
+                  </LinkOuAncora>
                 </p>
               </li>
             ))}

@@ -10,7 +10,9 @@ import type { Origem } from "@/lib/leads";
  * registrou da visita dele (plano, seção 6.2): página de entrada, de onde
  * veio, campanha e clique de anúncio. É o mesmo dado que o formulário do
  * diagnóstico manda junto com o lead, e nada mais. Lê o sessionStorage por
- * `useSyncExternalStore`: no servidor não desenha nada.
+ * `useSyncExternalStore`: no servidor desenha o mesmo cartão com a origem
+ * vazia, para a altura não mudar na hidratação e empurrar as âncoras
+ * abaixo (`tests/ancoras.test.ts`).
  */
 
 function assinar(aoMudar: () => void) {
@@ -29,8 +31,7 @@ function lerOrigem(): string {
 const CLIQUES = ["gclid", "gbraid", "wbraid", "fbclid"] as const;
 
 export default function OQueRegistramos() {
-  const bruto = useSyncExternalStore(assinar, lerOrigem, () => null);
-  if (bruto === null) return null;
+  const bruto = useSyncExternalStore(assinar, lerOrigem, () => "{}");
   const origem = JSON.parse(bruto) as Origem;
   const campanha = [origem.utm_source, origem.utm_medium, origem.utm_campaign].filter(Boolean).join(" / ");
   const clique = CLIQUES.find((c) => origem[c]);
@@ -51,8 +52,8 @@ export default function OQueRegistramos() {
         ))}
       </dl>
       <p className="border-t border-linha py-3 text-sm leading-relaxed text-secundario">
-        Só isto, guardado neste navegador até a aba fechar. Sai daqui apenas com o formulário do diagnóstico. Sem cookie e
-        sem ferramenta de medição; o detalhe está na{" "}
+        Só isto, guardado neste navegador até a aba fechar. Sai daqui apenas com o formulário do diagnóstico. As
+        ferramentas de medição, quando ligadas, estão descritas na{" "}
         <Link href="/privacidade" className="link-sublinhado text-papel">
           política de privacidade
         </Link>
