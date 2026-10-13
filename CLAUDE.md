@@ -5,10 +5,10 @@ Memória de trabalho do projeto. Carrega em toda sessão: mantenha abaixo de ~10
 ## O que é
 Novo site da **V2O5 Vendas e Tecnologia** (substitui o WordPress de v2o5.com.br). A V2O5 digitaliza e acelera negócios com IA: coloca a empresa no mapa (site, busca, presença, rastreamento) e multiplica a operação (agentes, automação, CRM). Automotivo é o primeiro segmento, com o case **Motors Store**. Fundador: **Dyones Oliveira**.
 
-## Estado (12/10/2026)
+## Estado (13/10/2026)
 - Plano fechado em `docs/2026-10-08-plano-novo-site.md` (v4, longo: use `grep -n "^##"` e leia só a seção).
-- Home, `/precos`, `/diagnostico` (formulário → `/api/leads` → webhook do n8n), `/privacidade`, `/cases/motors-store` e o hub `/segmentos/revendas-de-veiculos` prontas em `src/` (`npm run dev`); as 5 páginas de solução e `/sobre` são provisórias. Preços em `src/conteudo/precos.ts` (15 linhas em dois pilares, piso de R$ 590/mês, degraus de usuário, dados e infra, tráfego por plataforma, reativação com três canais; tabela confirmada em 12/10). Fluxo do n8n para o lead em `docs/n8n/` (o Dyones importa). Números e escolhas em `memory/decisoes.md`, pendências em `memory/pendencias.md`.
-- Tudo em `main` (PRs #1 a #4 mesclados; o #4 em 12/10). Cada rodada nova sai de `main` numa branch `claude/...` com PR contra `main`; a Vercel publica o preview por branch e a produção pelo `main`.
+- Home, `/precos`, `/diagnostico` (formulário → `/api/leads` → webhook do n8n), `/privacidade`, `/cases/motors-store`, o hub `/segmentos/revendas-de-veiculos` e as 5 páginas de solução (molde `PaginaDeSolucao` + `conteudo/solucoes.ts`) prontas em `src/` (`npm run dev`); `/sobre`, `/gestao-de-trafego` e `/guias` são provisórias. Preços em `src/conteudo/precos.ts` (15 linhas em dois pilares, piso de R$ 590/mês, degraus de usuário, dados e infra, tráfego por plataforma, reativação com três canais; tabela confirmada em 12/10). Fluxo do n8n para o lead em `docs/n8n/` (o Dyones importa). Números e escolhas em `memory/decisoes.md`, pendências em `memory/pendencias.md`.
+- Tudo em `main` (PRs #1 a #5 mesclados; o #5, das âncoras, em 13/10). Cada rodada nova sai de `main` numa branch `claude/...` com PR contra `main`; a Vercel publica o preview por branch e a produção pelo `main`.
 - Canvas de marca (privado): https://claude.ai/artifact/TJi91r21pMCLXUxL3AEYT3
 
 ## Termos
