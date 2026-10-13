@@ -2,6 +2,9 @@
 
 Log datado. Decisão nova entra no topo do dia; decisão revogada fica riscada com a data da troca.
 
+## 13/10/2026 (PR #8 em main)
+- PR #8 (camada de dados: GA4 e Pixel por variável, eventos, CAPI no servidor, oposição em `/privacidade`; sistemas de revenda integráveis) mesclado por squash em `main` (973bf64) a pedido do Dyones ("faça o merge"), com CI verde. A branch `claude/gracious-euler-0qzedy` foi reiniciada a partir do `main`; rodada nova em PR novo. Produção continua sem terceiro algum até os IDs entrarem na Vercel (pendência 16).
+
 ## 13/10/2026 (camada de dados e sistemas integráveis, pelo Dyones: "prossiga" e "além do revenda mais, coloque autoconf e outros players grandes do sistema como passíveis de integração")
 - Camada de dados em código (plano, seção 7), no PR #8: `lib/medicao.ts` + `Medicao` no layout; GA4 e Pixel da Meta por variável de ambiente (sem ID, nada carrega; o preview de hoje segue sem terceiro algum), carregados depois do `load` num momento ocioso; eventos do plano com marcação `data-evento`/`data-local` em todo CTA e link de contato; CAPI pelo servidor com o mesmo `event_id`; oposição em `/privacidade` que apaga cookies e origem e desliga também o envio do servidor; aviso informativo uma vez (decisão de 08/10, modelo da Motors). Detalhe técnico em `context/infra.md`.
 - Desvios do plano, com motivo: GA4 só pelo navegador (o Measurement Protocol não deduplica por `event_id` e sem o cookie não atribui a origem; o CRM é a verdade do lead); `page_context` virou parâmetros do `page_view` (sem GTM é assim que vira dimensão); `click_whatsapp` depois do lead vira o evento `click_whatsapp_pos_lead` em vez de parâmetro (evento-chave do GA4 não filtra por parâmetro). Visita que sai antes do `load` + ocioso não conta: preferimos isso a disputar a thread com o conteúdo (lição da Motors, 2,4 s de TBT).
