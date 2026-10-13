@@ -11,7 +11,8 @@ export const TERCEIROS = {
     nome: "Google Analytics 4",
     /** O gtag.js é servido pelo Google Tag Manager, mesmo sem contêiner do GTM. */
     script: "https://www.googletagmanager.com",
-    coleta: ["https://*.google-analytics.com", "https://*.analytics.google.com"],
+    /** O gtag.js manda o mesmo hit também a www.google.com/g/collect (visto no Playwright, 13/10). */
+    coleta: ["https://*.google-analytics.com", "https://*.analytics.google.com", "https://www.google.com"],
   },
   meta: {
     nome: "Pixel da Meta",

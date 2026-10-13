@@ -181,8 +181,8 @@ export default function Pagina() {
                 uma localização aproximada pelo endereço IP, que o Google não armazena, segundo a documentação do
                 Google Analytics. Grava os cookies <code>_ga</code> e <code>_ga_…</code>, que distinguem o seu
                 navegador por um identificador aleatório e duram até dois anos, segundo a mesma documentação. Os dados
-                vão para googletagmanager.com, google-analytics.com e analytics.google.com. Não enviamos nome, e-mail
-                nem telefone ao Google.
+                vão para googletagmanager.com, google-analytics.com, analytics.google.com e google.com. Não enviamos
+                nome, e-mail nem telefone ao Google.
               </p>
               <p>
                 <strong>Pixel da Meta</strong> (Meta Platforms) entra só quando a V2O5 anuncia na Meta, para medir o
