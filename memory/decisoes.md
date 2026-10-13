@@ -2,6 +2,9 @@
 
 Log datado. Decisão nova entra no topo do dia; decisão revogada fica riscada com a data da troca.
 
+## 13/10/2026 (PR #10 em main)
+- PR #10 (Chatwoot em `app.chat.v2o5.com.br`, fluxo do n8n com conta 1, inbox 12 e instância `v2o5`, roteiro `docs/checagem-antes-do-dns.md`) mesclado por squash em `main` (12e6ed1) a pedido do Dyones ("faça o merge"). A branch `claude/gracious-euler-0qzedy` foi reiniciada a partir do `main`. O Dyones importa o fluxo a partir do arquivo de `main`; a rodada seguinte é a troca do DNS, pela seção 4 do roteiro.
+
 ## 13/10/2026 (checagem antes do DNS, pelo Dyones: "antes de trocar o dns, preciso checar todos os dados, verificar a linha de atendimento com o chatwoot")
 - Sondagem pública dos hosts da VPS (13/10): o Chatwoot de verdade é `app.chat.v2o5.com.br` (4.17.0, CNAME para `cwoot`, conta 1); `chatwoot.v2o5.com.br` responde erro 500 e era o endereço do fluxo do n8n (corrigido para `app.chat` em `docs/n8n/lead-do-diagnostico.json`, LEIA-ME e `tests/n8n.test.ts`); `chat.v2o5.com.br` é o Typebot, não o Chatwoot (memória corrigida); Evolution API 2.3.7 e n8n no ar.
 - Zona DNS lida por DoH e registrada em `docs/checagem-antes-do-dns.md`: apex A 147.93.37.158 e AAAA da Hostinger (o AAAA tem de ser apagado na troca), `www` CNAME para o apex, MX/SPF/DKIM/DMARC da Hostinger (não mudam), subdomínios da VPS. O roteiro tem a lista de dados publicados, a linha de atendimento (o que foi conferido daqui e o que só o Dyones confere com login), e-mail, a ordem da troca e a conferência depois. Pendência 17 criada. Ainda em 13/10, o Dyones ligou a Evolution (instância `v2o5`) à inbox 12 do Chatwoot (conta 1) e o teste do "oi" passou nas duas direções: a linha do WhatsApp está pronta; os três valores foram gravados no fluxo do n8n.
