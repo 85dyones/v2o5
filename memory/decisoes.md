@@ -2,6 +2,9 @@
 
 Log datado. Decisão nova entra no topo do dia; decisão revogada fica riscada com a data da troca.
 
+## 13/10/2026 (PR #9 em main)
+- PR #9 (só a memória do merge do PR #8) mesclado por squash em `main` (14e5eb2) a pedido do Dyones ("faça o merge"). A branch `claude/gracious-euler-0qzedy` foi reiniciada a partir do `main`; a rodada seguinte (roteiro da troca do DNS) sai em PR novo.
+
 ## 13/10/2026 (PR #8 em main)
 - PR #8 (camada de dados: GA4 e Pixel por variável, eventos, CAPI no servidor, oposição em `/privacidade`; sistemas de revenda integráveis) mesclado por squash em `main` (973bf64) a pedido do Dyones ("faça o merge"), com CI verde. A branch `claude/gracious-euler-0qzedy` foi reiniciada a partir do `main`; rodada nova em PR novo. Produção continua sem terceiro algum até os IDs entrarem na Vercel (pendência 16).
 
