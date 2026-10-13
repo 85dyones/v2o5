@@ -86,6 +86,10 @@ export default function Pagina() {
               </h2>
               <p className="texto-guia mt-6">{s.fundador.texto}</p>
               <p className="mt-5 text-[1.0625rem] leading-relaxed text-secundario">{s.fundador.origem}</p>
+              <div className="mt-8 rounded-2xl bg-vidro p-5 contorno">
+                <h3 className="font-semibold tracking-[-0.01em]">{s.equipe.titulo}</h3>
+                <p className="mt-1.5 text-[0.9375rem] leading-relaxed text-secundario">{s.equipe.texto}</p>
+              </div>
               <ul className="mt-8 grid gap-3 sm:grid-cols-2">
                 {VISAO_360.areas.map((a) => (
                   <li key={a.nome} className="rounded-2xl bg-vidro p-4 contorno">
@@ -206,6 +210,7 @@ export default function Pagina() {
               {[
                 ["Nome", s.empresa.nome],
                 ["Razão social", s.empresa.razaoSocial],
+                ["Fundação", s.empresa.fundacao],
                 ["CNPJ", s.empresa.cnpj],
                 ["Sede", s.empresa.cidade],
               ].map(([rotulo, valor]) => (

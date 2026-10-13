@@ -36,6 +36,7 @@ export function organizacao(): No {
     url: `${SITE_URL}/`,
     logo: `${SITE_URL}/icon.svg`,
     slogan: "Catalisador de vendas com IA",
+    foundingDate: EMPRESA.fundacao,
     founder: ref(ID_DO_FUNDADOR),
     telephone: whatsappInternacional(),
     email: EMPRESA.email,

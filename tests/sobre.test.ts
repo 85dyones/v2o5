@@ -1,8 +1,8 @@
 import { describe, expect, it } from "vitest";
-import { VISAO_360 } from "@/conteudo/home";
+import { EMPRESA, VISAO_360 } from "@/conteudo/home";
 import { paginaDa } from "@/conteudo/paginas";
 import { SOBRE } from "@/conteudo/sobre";
-import { grafoDoSobre, ID_DO_FUNDADOR } from "@/lib/schema";
+import { grafoDoSobre, ID_DO_FUNDADOR, organizacao } from "@/lib/schema";
 import { ler, semComentarios } from "./fonte";
 
 /**
@@ -36,12 +36,22 @@ describe("página Sobre", () => {
     expect(ler("memory/projects/case-motors.md")).toMatch(/\| Guias publicados \| 26 \|/);
   });
 
-  it("declara a relação com a Motors como cliente e case, com a autorização registrada", () => {
+  it("declara a relação com a Motors como fornecedora (Dyones, 13/10), com a autorização registrada", () => {
     expect(SOBRE.motors.texto).toMatch(/cliente da V2O5/);
+    expect(SOBRE.motors.texto).toMatch(/fornecedora/);
     expect(SOBRE.motors.texto).toMatch(/case principal/);
     expect(SOBRE.motors.texto).toMatch(/autorizada/);
     expect(ler("memory/projects/case-motors.md")).toMatch(/Autorizado em 08\/10: nome, logo e números/);
     expect(SOBRE.motors.href).toBe("/cases/motors-store");
+  });
+
+  it("a equipe é o fundador com uma equipe completa de IA, e a fundação é dezembro de 2019 (Dyones, 13/10)", () => {
+    expect(SOBRE.equipe.texto).toMatch(/equipe completa de IA/);
+    expect(SOBRE.empresa.fundacao).toBe("dezembro de 2019");
+    expect(EMPRESA.fundacao).toBe("2019-12");
+    expect(organizacao().foundingDate).toBe("2019-12");
+    expect(pagina).toContain('["Fundação", s.empresa.fundacao]');
+    expect(ler("memory/context/marca.md")).toMatch(/dezembro de 2019/);
   });
 
   it("o nome vem do catalisador, e a assinatura é a da marca", () => {

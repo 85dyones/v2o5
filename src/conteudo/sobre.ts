@@ -7,8 +7,11 @@ import { REGRAS } from "@/conteudo/precos";
  * declarando a relação com a Motors; `/jornada/` do site antigo redireciona
  * para cá). Só fato registrado: o que o Dyones contou (FAE, Top, diagnóstico),
  * o que publicou no site antigo (livros até os 7 anos, o concurso de 1992)
- * e o que a memória do case confirma (os 26 guias). Sem foto até ela chegar
- * (pendência 1) e sem citação inventada. `tests/sobre.test.ts` confere.
+ * e o que a memória do case confirma (os 26 guias). Respostas do Dyones em
+ * 13/10: a relação com a Motors é de fornecedora; a equipe é o fundador com
+ * uma equipe completa de IA; a empresa foi fundada em dezembro de 2019. Sem
+ * foto até ela chegar (pendência 1) e sem citação inventada.
+ * `tests/sobre.test.ts` confere.
  */
 export const SOBRE = {
   rota: "/sobre",
@@ -29,6 +32,11 @@ export const SOBRE = {
       { rotulo: "Conteúdo", valor: "Assina os 26 guias do site da Motors Store" },
       { rotulo: "Na V2O5", valor: "Conduz o diagnóstico gratuito e a implantação de cada projeto" },
     ],
+  },
+  equipe: {
+    titulo: "A equipe",
+    texto:
+      "A V2O5 é o fundador com uma equipe completa de IA: agentes que pesquisam, escrevem, programam, testam e medem, sob a direção dele. É o mesmo tipo de sistema que a V2O5 implanta nos clientes, usado primeiro na própria empresa.",
   },
   nome: {
     titulo: "O nome vem de um catalisador.",
@@ -67,7 +75,7 @@ export const SOBRE = {
   motors: {
     titulo: "A relação com a Motors Store.",
     texto:
-      "A Motors Store, revenda de seminovos em Curitiba, é cliente da V2O5 e o case principal do site. O fundador montou e mantém o sistema da loja e assina os guias publicados nela. Os números do case são lidos no banco de dados da Motors, com fonte e período, e a publicação do nome, do logo e dos números foi autorizada pela loja.",
+      "A Motors Store, revenda de seminovos em Curitiba, é cliente da V2O5 e o case principal do site. A relação é de fornecedora: a V2O5 montou e mantém o sistema da loja, e o fundador assina os guias publicados nela. Os números do case são lidos no banco de dados da Motors, com fonte e período, e a publicação do nome, do logo e dos números foi autorizada pela loja.",
     href: CASE_MOTORS.rota,
     botao: "Ler o case da Motors Store",
   },
@@ -82,6 +90,7 @@ export const SOBRE = {
     razaoSocial: EMPRESA.razaoSocial,
     cnpj: EMPRESA.cnpj,
     cidade: EMPRESA.cidade,
+    fundacao: EMPRESA.fundacaoPorExtenso,
     atendimento: "Atendimento remoto para empresas de todo o Brasil; reunião presencial na região de Curitiba quando o projeto pede.",
     antes: "Antes do site novo, a V2O5 se apresentava como V2O5 ConsultorIA.",
   },
