@@ -5,10 +5,10 @@ Memória de trabalho do projeto. Carrega em toda sessão: mantenha abaixo de ~10
 ## O que é
 Novo site da **V2O5 Vendas e Tecnologia** (substitui o WordPress de v2o5.com.br). A V2O5 digitaliza e acelera negócios com IA: coloca a empresa no mapa (site, busca, presença, rastreamento) e multiplica a operação (agentes, automação, CRM). Automotivo é o primeiro segmento, com o case **Motors Store**. Fundador: **Dyones Oliveira**.
 
-## Estado (13/10/2026)
+## Estado (14/10/2026)
 - Plano fechado em `docs/2026-10-08-plano-novo-site.md` (v4, longo: use `grep -n "^##"` e leia só a seção).
 - Home, `/precos`, `/diagnostico` (formulário → `/api/leads` → webhook do n8n), `/privacidade`, `/cases/motors-store`, o hub `/segmentos/revendas-de-veiculos`, as 5 páginas de solução (molde `PaginaDeSolucao` + `conteudo/solucoes.ts`) e `/sobre` prontas em `src/` (`npm run dev`); `/gestao-de-trafego` e `/guias` são provisórias. Camada de dados pronta em 13/10 (`lib/medicao.ts`: GA4 e Pixel por variável, CAPI em `lib/capi.ts`, oposição em `/privacidade`); falta o Dyones pôr os IDs na Vercel (`.env.example`). Preços em `src/conteudo/precos.ts` (15 linhas em dois pilares, piso de R$ 690/mês e teto de R$ 1.990 nas linhas de sistema, degraus de usuário, dados e infra, tráfego por plataforma, reativação com três canais, sem canal recomendado; indicação de fotógrafo parceiro a partir de R$ 890/mês; tabela confirmada em 12/10). Fluxo do n8n para o lead em `docs/n8n/` (o Dyones importa; Chatwoot em `app.chat.v2o5.com.br`, conta 1, inbox 12, instância `v2o5`). Roteiro da troca do DNS em `docs/checagem-antes-do-dns.md`; a linha do WhatsApp foi provada em 13/10. Números e escolhas em `memory/decisoes.md`, pendências em `memory/pendencias.md`.
-- Tudo em `main` (PRs #1 a #10 mesclados; o #8, da camada de dados, e o #10, da checagem antes do DNS com o fluxo do n8n corrigido, em 13/10). Cada rodada nova sai de `main` numa branch `claude/...` com PR contra `main`; a Vercel publica o preview por branch e a produção pelo `main`.
+- Tudo em `main` (PRs #1 a #11 mesclados; o #11, de teto e piso da mensalidade, reativação sem canal recomendado, hub com todos os sistemas, fotógrafo parceiro e âncoras corrigidas, em 14/10). Cada rodada nova sai de `main` numa branch `claude/...` com PR contra `main`; a Vercel publica o preview por branch e a produção pelo `main`.
 - Canvas de marca (privado): https://claude.ai/artifact/TJi91r21pMCLXUxL3AEYT3
 
 ## Termos

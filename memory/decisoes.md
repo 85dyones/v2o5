@@ -2,6 +2,9 @@
 
 Log datado. Decisão nova entra no topo do dia; decisão revogada fica riscada com a data da troca.
 
+## 14/10/2026 (PR #11 em main)
+- PR #11 (teto de R$ 1.990 e piso de R$ 690 na mensalidade, reativação pela metade com pacote de campanhas e três canais sem recomendado, hub automotivo com Revenda Mais em produção e Autoconf, BNDV, Boom, Altimus e Syonet integráveis, fotógrafo parceiro a partir de R$ 890/mês, âncoras sem rolagem suave com correção de pouso) mesclado por squash em `main` (4428d3a) a pedido do Dyones ("Faça o merge"), sem review nem comentário no PR; CI verde no head feff3c2. A branch `claude/gracious-euler-0qzedy` foi reiniciada a partir do `main`. Continuam em aberto, com o Dyones: painel do dono dentro do teto (custo de 12/10 perto de R$ 2.100 contra R$ 1.990 cobrados) e os valores do pacote de campanhas (3 por R$ 2.490; mensal R$ 790), que são proposta minha.
+
 ## 13/10/2026 (fotógrafo parceiro, pelo Dyones: "precisa de fotografo? temos parceiros incríveis para lhe indicar, a partir de R$ 890,00 mensais, saiba mais")
 - Indicação de fotógrafo parceiro publicada, **a partir de R$ 890 por mês** (`FOTOGRAFIA_PARCEIRA` em `precos.ts`, componente `ParceiroDeFotografia`): cartão no hub automotivo depois das linhas avulsas, cartão em `/precos` dentro de "O que fica fora da mensalidade", e as perguntas "Preciso de fotógrafo?" (hub) e "Preciso ter fotos e textos prontos?" (`/criacao-de-sites`). O "Saiba mais" abre o WhatsApp da V2O5 com mensagem pronta (evento `click_whatsapp`, local `fotografia`). Sem nome de parceiro no site (revoga o "só na proposta comercial" de 08/10 para a indicação; o nome continua só na proposta). Texto sem "incríveis", pela regra do humanizer; o preço é do parceiro e vai "a partir de".
 - Reativação sem canal recomendado e piso de R$ 690: ver a entrada do teto, abaixo.
