@@ -256,13 +256,15 @@ describe("CSS e fonte", () => {
     // Exceções, com motivo: os motores são chamados só por quem já
     // perguntou (HeroMolecula); a rota de leads e o CAPI usam setTimeout no
     // servidor, como limite de tempo das chamadas; a medição usa setTimeout
-    // para esperar a página carregar antes das tags. Nenhum deles anima.
+    // para esperar a página carregar antes das tags; a âncora confere o pouso
+    // em momentos marcados. Nenhum deles anima.
     const excecoes = new Set([
       "src/lib/particulas.ts",
       "src/lib/molecula3d.ts",
       "src/app/api/leads/route.ts",
       "src/lib/capi.ts",
       "src/lib/medicao.ts",
+      "src/lib/ancora.ts",
     ]);
     const anima = /requestAnimationFrame|import\("motion"\)|from "motion"|setTimeout|iniciarParticulas\(/;
     for (const arquivo of arquivos("src", /\.tsx?$/)) {

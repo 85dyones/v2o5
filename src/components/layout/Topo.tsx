@@ -1,4 +1,5 @@
 import Link from "next/link";
+import LinkOuAncora from "@/components/LinkOuAncora";
 import Icone from "@/components/Icone";
 import Simbolo from "@/components/marca/Simbolo";
 import MenuCelular from "@/components/layout/MenuCelular";
@@ -31,12 +32,12 @@ export default function Topo() {
           <ul className="flex items-center gap-0.5">
             {NAVEGACAO.map((item) => (
               <li key={item.href}>
-                <Link
+                <LinkOuAncora
                   href={item.href}
                   className="flex min-h-10 items-center rounded-full px-3.5 text-sm font-medium text-secundario transition-colors duration-150 hover:bg-vidro hover:text-papel"
                 >
                   {item.rotulo}
-                </Link>
+                </LinkOuAncora>
               </li>
             ))}
           </ul>

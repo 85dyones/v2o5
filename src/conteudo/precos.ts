@@ -4,17 +4,30 @@
  * `memory/context/oferta.md` repete os mesmos valores e
  * `tests/precos.test.ts` confere os dois lados.
  *
- * Regra de 10/10 (Dyones): nenhuma mensalidade abaixo de R$ 590, porque ela
- * cobre hospedagem e manutenção. O uso do modelo de IA e as mensagens da
+ * Regra de 10/10 (Dyones): nenhuma mensalidade abaixo do piso, porque ela
+ * cobre hospedagem e manutenção. O piso foi R$ 590 até 13/10 e passou a
+ * R$ 690 ("pensando melhor, linha começa com mensalidade de R$ 690,00"). O uso do modelo de IA e as mensagens da
  * API oficial do WhatsApp continuam fora, pelo valor real, na mesma fatura.
  *
  * Regra de 12/10 (Dyones): o que cresce com o cliente tem preço publicado,
  * para a margem não cair: usuário extra, dados e infra (`DEGRAUS`). CRM e
  * Painel do dono sobem para R$ 790 porque cada um ganha banco próprio.
  * Tráfego vira Google Ads e Meta Ads, avulsos ou juntos com bônus.
+ *
+ * Regra de 13/10 (Dyones): a mensalidade parte do piso e tem teto. Somadas
+ * as linhas de sistema (`LINHAS_NO_TETO`), a mensalidade da V2O5 para em
+ * R$ 1.990: o trabalho está na implantação e, montado, manter é barato; sem
+ * teto o projeto não fecha para revendas com margem apertada. Fora do teto:
+ * o que cresce com o uso (`DEGRAUS`), os repasses e os serviços de produção
+ * contínua (tráfego, conteúdo e redes). A campanha de reativação cai pela
+ * metade e mais de uma campanha vira pacote.
  */
 
-export const PISO_DA_MENSALIDADE = 590;
+export const PISO_DA_MENSALIDADE = 690;
+export const TETO_DA_MENSALIDADE = 1990;
+
+/** As linhas que mantêm sistema no ar: só elas somam para o teto. */
+export const LINHAS_NO_TETO = ["sites", "rastreamento", "agente", "crm", "painel"] as const;
 
 export type Pilar = "mapa" | "operacao";
 
@@ -72,7 +85,7 @@ export const LINHAS_DE_PRECO: LinhaDePreco[] = [
     href: "/criacao-de-sites",
     pilar: "mapa",
     implantacao: 7900,
-    mensalidade: 590,
+    mensalidade: 690,
     cobre:
       "Hospedagem, manutenção, atualizações de segurança, SEO técnico contínuo, Perfil da Empresa no Google e relatório mensal.",
   },
@@ -82,7 +95,7 @@ export const LINHAS_DE_PRECO: LinhaDePreco[] = [
     href: "/rastreamento-de-conversoes",
     pilar: "mapa",
     implantacao: 2900,
-    mensalidade: 590,
+    mensalidade: 690,
     cobre:
       "Tags e API de Conversões em dia, conferência mensal da qualidade do dado e relatório de origem das vendas.",
   },
@@ -225,7 +238,7 @@ export const LINHAS_DE_PRECO: LinhaDePreco[] = [
     nome: "Reativação de base",
     href: "/diagnostico",
     pilar: "operacao",
-    implantacao: 1900,
+    implantacao: 950,
     unidade: "por campanha",
     cobre:
       "Extração dos dados, formatação e higienização da base própria, segmentação, roteiro em duas variantes, cadência e relatório de retorno no CRM.",
@@ -233,7 +246,8 @@ export const LINHAS_DE_PRECO: LinhaDePreco[] = [
     degraus: [
       { rotulo: "Canal extra", valor: 490, unidade: "por campanha" },
       { rotulo: "Cada 5 mil contatos a mais", valor: 290, unidade: "por campanha" },
-      { rotulo: "Campanha recorrente, depois da primeira", valor: 990, unidade: "/mês" },
+      { rotulo: "Pacote de 3 campanhas", valor: 2490, unidade: "por pacote" },
+      { rotulo: "Campanha todo mês", valor: 790, unidade: "/mês" },
       { rotulo: "Número dedicado no WhatsApp não oficial", valor: 290, unidade: "por número/mês" },
     ],
     repasses: ["Mensagens da API oficial do WhatsApp", "SMS, pelo valor da operadora", "Chip do número dedicado"],
@@ -241,31 +255,30 @@ export const LINHAS_DE_PRECO: LinhaDePreco[] = [
 ];
 
 /**
- * Os canais da reativação de base e o que cada um custa e arrisca. Sem tarifa
- * em número: a da Meta e a das operadoras mudam e são repassadas pelo valor
- * cobrado. Os limites de envio da API oficial são definidos pela Meta pela
- * qualidade do número.
+ * Os canais da reativação de base e o que cada um custa e arrisca, sem
+ * recomendar um (Dyones, 13/10): a API oficial pode não fechar em projetos
+ * grandes, pela tarifa por mensagem e pelo limite diário, e o número não
+ * oficial é operado com o método da V2O5. Sem tarifa em número: a da Meta e
+ * a das operadoras mudam e são repassadas pelo valor cobrado.
  */
 export const CANAIS_DA_REATIVACAO = [
   {
     nome: "WhatsApp pela API oficial",
-    recomendado: true,
     paga: "A tarifa da Meta por mensagem de marketing entregue, repassada pelo valor cobrado, sem acréscimo.",
     regras:
-      "Modelo de mensagem aprovado pela Meta, saída fácil em toda mensagem e limite diário de envios que cresce com a qualidade do número.",
-    risco: "Baixo. Bloqueios e denúncias em excesso reduzem o limite e podem suspender o número por um período.",
+      "Modelo de mensagem aprovado pela Meta, saída fácil em toda mensagem e limite diário de envios que cresce com a qualidade do número. Em bases grandes, a tarifa e o limite diário pesam no custo e no prazo da campanha.",
+    risco: "Baixo. Bloqueios e denúncias em excesso reduzem o limite diário.",
   },
   {
     nome: "WhatsApp por número não oficial",
-    recomendado: false,
     paga: `R$ 290 por número/mês de operação (instância, aquecimento, monitoramento) e o chip. Sem tarifa por mensagem.`,
     regras:
-      "Número exclusivo da campanha, nunca o número principal da empresa; aquecimento de uma a duas semanas; centenas de mensagens por dia, no máximo; termo de aceite assinado.",
-    risco: "Alto. A Meta pode bloquear o número de forma permanente na primeira ocorrência grave, sem suporte.",
+      "Número exclusivo da campanha, nunca o principal da empresa; aquecimento de uma a duas semanas; volume diário que cresce aos poucos; monitoramento da V2O5 e termo de aceite.",
+    risco:
+      "Controlado pelo método da V2O5: número exclusivo e descartável, volume gradual e pausa ao primeiro sinal de bloqueio. Sem tarifa por mensagem, é o canal que atende bases grandes.",
   },
   {
     nome: "SMS",
-    recomendado: false,
     paga: "O valor da operadora por mensagem, pré-pago, repassado sem acréscimo.",
     regras: "Texto curto com o nome da empresa e a saída fácil. Serve para quem não tem WhatsApp ou para o lembrete.",
     risco: "Baixo. Entrega sem garantia de leitura.",
@@ -274,7 +287,7 @@ export const CANAIS_DA_REATIVACAO = [
 
 /** O pacote do segmento automotivo (o sistema da Motors Store). */
 export const AUTOMOTIVO_PRECO = {
-  siteDeEstoque: { implantacao: 7900, mensalidade: 590 },
+  siteDeEstoque: { implantacao: 7900, mensalidade: 690 },
   /** Site de estoque, agente de IA, CRM, rastreamento e integração com o Revenda Mais. */
   pacote: { implantacao: 14900, mensalidade: 1990, usuarios: 5, linhas: ["sites", "agente", "crm", "rastreamento"] },
   /** As duas plataformas de tráfego entram no pacote por menos que avulsas. */
@@ -290,6 +303,21 @@ export const REGRAS = {
 
 export const BRL = (n: number) => `R$ ${n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}`;
 
+/**
+ * Indicação de fotógrafo parceiro (Dyones, 13/10: "precisa de fotógrafo?
+ * temos parceiros incríveis para lhe indicar, a partir de R$ 890,00 mensais,
+ * saiba mais"). O preço é do parceiro, "a partir de"; a V2O5 indica e o
+ * "saiba mais" abre o WhatsApp da V2O5. Sem nome de parceiro no site.
+ */
+const FOTOGRAFO_A_PARTIR_DE = 890;
+export const FOTOGRAFIA_PARCEIRA = {
+  pergunta: "Precisa de fotógrafo?",
+  aPartirDe: FOTOGRAFO_A_PARTIR_DE,
+  texto: `A V2O5 indica parceiros de fotografia, com pacote mensal a partir de ${BRL(FOTOGRAFO_A_PARTIR_DE)}.`,
+  botao: "Saiba mais",
+  mensagem: "Olá! Vi no site da V2O5 a indicação de fotógrafo parceiro e quero saber mais.",
+};
+
 export function linhaDePreco(id: string): LinhaDePreco {
   const l = LINHAS_DE_PRECO.find((x) => x.id === id);
   if (!l) throw new Error(`Linha sem preço: ${id}`);
@@ -298,7 +326,14 @@ export function linhaDePreco(id: string): LinhaDePreco {
 
 export const linhasDoPilar = (pilar: Pilar) => LINHAS_DE_PRECO.filter((l) => l.pilar === pilar);
 
-/** "a partir de R$ 7.900 + R$ 590/mês", como aparece nos cartões. */
+/** Soma das mensalidades das linhas de sistema escolhidas e o que é cobrado, com o teto. */
+export function mensalidadeComTeto(ids: readonly string[]): { soma: number; cobrada: number } {
+  const noTeto = ids.filter((id) => (LINHAS_NO_TETO as readonly string[]).includes(id));
+  const soma = noTeto.reduce((s, id) => s + (linhaDePreco(id).mensalidade ?? 0), 0);
+  return { soma, cobrada: Math.min(soma, TETO_DA_MENSALIDADE) };
+}
+
+/** "a partir de R$ 7.900 + R$ 690/mês", como aparece nos cartões. */
 export function precoDa(id: string): string {
   const l = linhaDePreco(id);
   const partes: string[] = [];

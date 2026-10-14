@@ -5,13 +5,13 @@ Fonte em código: `src/conteudo/precos.ts` (home, `/precos`, hub automotivo, `ll
 ## No mapa
 | Linha | Página | Implantação a partir de | Mensalidade a partir de | Inclui, degraus e repasses |
 |---|---|---|---|---|
-| Sites e presença (institucional) | `/criacao-de-sites` | R$ 7.900 | R$ 590 | hospedagem, manutenção, SEO técnico, Perfil da Empresa, relatório |
-| Rastreamento até a venda | `/rastreamento-de-conversoes` | R$ 2.900 | R$ 590 | tags e API de Conversões, conferência mensal do dado |
+| Sites e presença (institucional) | `/criacao-de-sites` | R$ 7.900 | R$ 690 | hospedagem, manutenção, SEO técnico, Perfil da Empresa, relatório |
+| Rastreamento até a venda | `/rastreamento-de-conversoes` | R$ 2.900 | R$ 690 | tags e API de Conversões, conferência mensal do dado |
 | Google Ads | `/gestao-de-trafego` | sem implantação, com rastreamento ativo | R$ 1.200 + verba | Pesquisa, Performance Max, anúncios de veículos ou Shopping |
 | Meta Ads | `/gestao-de-trafego` | sem implantação, com rastreamento ativo | R$ 1.200 + verba | Instagram e Facebook com catálogo, públicos da base do CRM, CAPI |
 | Google Ads e Meta Ads juntos | `/gestao-de-trafego` | sem implantação, com rastreamento ativo | R$ 1.990 + verba | bônus: feed de catálogo (R$ 1.900) incluso; R$ 410 a menos que os dois avulsos |
 | Anúncios de catálogo | `/gestao-de-trafego` | R$ 1.900 por feed | | feed do estoque ou dos produtos para Google (veículos, Shopping) e Meta; incluso nos dois juntos |
-| Conteúdo e redes com IA | sem página (cartão leva a `/diagnostico`) | R$ 1.500 | R$ 1.290 | 12 publicações por mês, 2 redes, link rastreado, relatório; produção de foto, vídeo e peças à parte (parceira Igor Alves Media só na proposta comercial) |
+| Conteúdo e redes com IA | sem página (cartão leva a `/diagnostico`) | R$ 1.500 | R$ 1.290 | 12 publicações por mês, 2 redes, link rastreado, relatório; produção de foto, vídeo e peças à parte (fotógrafo parceiro indicado no site, ver "Parceiros indicados") |
 | Avaliações no Google | sem página (`/diagnostico`) | R$ 1.900 por fluxo | | pedido de avaliação no WhatsApp depois da venda; manutenção na mensalidade do CRM ou do site |
 | Branding e gestão de marca | sem página (`/diagnostico`) | R$ 1.500 por projeto | | posicionamento, identidade visual, tom de voz, guia |
 
@@ -23,23 +23,25 @@ Fonte em código: `src/conteudo/precos.ts` (home, `/precos`, hub automotivo, `ll
 | Painel do dono (BI e dashboards) | sem página (`/diagnostico`) | R$ 4.900 | R$ 790 | 3 usuários, 3 fontes, até 8 GB ou 1 milhão de linhas; usuário extra R$ 89/mês; fonte extra R$ 1.900 + R$ 190/mês; infra acima do limite pelo valor real + 20% |
 | Automação de processos (n8n) | `/automacao-com-ia` | R$ 1.900 por fluxo | | manutenção na mensalidade do CRM ou do site |
 | Pós-venda e recorrência | sem página (`/diagnostico`) | R$ 1.900 por fluxo | | régua de retorno (revisão, troca, seguro, recompra) no n8n, ligada ao CRM |
-| Reativação de base | sem página (`/diagnostico`) | R$ 1.900 por campanha | | até 5 mil contatos e 1 canal; canal extra R$ 490; cada 5 mil contatos a mais R$ 290; recorrente depois da primeira R$ 990/mês; número não oficial dedicado R$ 290 por número/mês; mensagens da API oficial, SMS e chip repassados |
+| Reativação de base | sem página (`/diagnostico`) | R$ 950 por campanha (13/10: metade dos R$ 1.900) | | até 5 mil contatos e 1 canal; canal extra R$ 490; cada 5 mil contatos a mais R$ 290; pacote de 3 campanhas R$ 2.490; campanha todo mês R$ 790/mês; número não oficial dedicado R$ 290 por número/mês; mensagens da API oficial, SMS e chip repassados |
 
-Piso da mensalidade: R$ 590 (Dyones, 10/10), porque ela cobre hospedagem e manutenção. Antes, site e rastreamento estavam em R$ 290. CRM subiu de R$ 590 para R$ 790 em 12/10 (banco próprio e 5 usuários inclusos).
+Piso da mensalidade: R$ 690 (Dyones, 13/10, "pensando melhor, linha começa com mensalidade de R$ 690,00"; era R$ 590 desde 10/10), porque ela cobre hospedagem e manutenção. **Teto da mensalidade: R$ 1.990** (Dyones, 13/10): somadas as linhas de sistema (`LINHAS_NO_TETO`: site, rastreamento, agente, CRM, painel), a mensalidade da V2O5 para em R$ 1.990, porque o trabalho está na implantação e manter é barato; sem teto o projeto não fecha para revendas com margem apertada. Fora do teto: degraus de uso, repasses e serviços de produção contínua (tráfego, conteúdo e redes). Decorrência: o pacote automotivo (R$ 1.990) já está no teto, então o painel do dono entra nele sem subir a mensalidade. Antes, site e rastreamento estavam em R$ 290. CRM subiu de R$ 590 para R$ 790 em 12/10 (banco próprio e 5 usuários inclusos).
 
 O que cresce com o cliente (`DEGRAUS` em `precos.ts`): usuário extra R$ 89/mês; conversas do agente R$ 190/mês a cada 500; dados do CRM acima de 20 mil contatos ou 8 GB R$ 190/mês; fonte de dados extra no painel R$ 1.900 + R$ 190/mês; infra acima de 8 GB ou 1 milhão de linhas pelo valor real + 20% de gestão. Reajuste (`REAJUSTE`): IPCA ao ano e repasse de variação cambial acima de 10% só nos itens em dólar (Vercel, Supabase, modelos de IA).
 
-Canais da reativação (`CANAIS_DA_REATIVACAO`): WhatsApp pela API oficial (recomendado; tarifa da Meta por mensagem de marketing repassada sem acréscimo; modelo aprovado, saída fácil, limite diário por qualidade; risco baixo), WhatsApp por número não oficial (R$ 290 por número/mês + chip; número exclusivo da campanha, aquecimento de uma a duas semanas, centenas de mensagens por dia no máximo, termo de aceite; risco alto, banimento permanente possível) e SMS (valor da operadora, pré-pago; risco baixo, sem garantia de leitura). Nenhuma tarifa de terceiro em número no site: a da Meta e a das operadoras mudam.
+Canais da reativação (`CANAIS_DA_REATIVACAO`), sem canal recomendado (Dyones, 13/10: "a api oficial pode ser inviável em grandes projetos"): WhatsApp pela API oficial (tarifa da Meta por mensagem de marketing repassada sem acréscimo; modelo aprovado, saída fácil, limite diário por qualidade; em bases grandes a tarifa e o limite pesam), WhatsApp por número não oficial (R$ 290 por número/mês + chip; número exclusivo e descartável, aquecimento de uma a duas semanas, volume gradual, monitoramento da V2O5 e termo de aceite; risco apresentado como controlado pelo método, sem o destaque em amarelo; é o canal para bases grandes) e SMS (valor da operadora, pré-pago; risco baixo, sem garantia de leitura). Nenhuma tarifa de terceiro em número no site: a da Meta e a das operadoras mudam.
+
+Parceiros indicados (`FOTOGRAFIA_PARCEIRA` em `precos.ts`): fotógrafo parceiro com pacote mensal **a partir de R$ 890** (Dyones, 13/10: "precisa de fotografo? temos parceiros incríveis para lhe indicar, a partir de R$ 890,00 mensais, saiba mais"). Preço do parceiro, não da V2O5; sem nome de parceiro no site (a Igor Alves Media continua só na proposta); o "Saiba mais" abre o WhatsApp da V2O5 com mensagem pronta. Aparece no hub automotivo (cartão depois das linhas avulsas e pergunta "Preciso de fotógrafo?"), em `/precos` (cartão em "O que fica fora da mensalidade") e na pergunta "Preciso ter fotos e textos prontos?" de `/criacao-de-sites`.
 
 Na home, as linhas se dividem nos dois pilares do H1 (mapa: branding, Perfil da Empresa, SEO, sites, tráfego no Google e na Meta, rastreamento, anúncios de catálogo, conteúdo e redes, avaliações; operação: agente, CRM, painel, automação, reativação, pós-venda, integrações). Perfil da Empresa no Google e SEO técnico aparecem como cartões "incluso em Sites e presença"; Integrações entre sistemas, como cartão com o preço da automação por fluxo. O cartão de tráfego mostra o preço por plataforma (R$ 1.200) e diz que os dois juntos levam o feed. Treinamento da equipe entra na implantação do CRM e do agente, sem preço próprio.
 
 ## Segmento automotivo
 | Item | Implantação | Mensalidade |
 |---|---|---|
-| Site de estoque | R$ 7.900 | R$ 590 |
+| Site de estoque | R$ 7.900 | R$ 690 |
 | Pacote completo (site, IA, CRM com 5 usuários, rastreamento, integração Revenda Mais) | R$ 14.900 | R$ 1.990 |
 | Pacote completo + Google Ads e Meta Ads (feed incluso) | R$ 14.900 | R$ 3.290 + verba |
-Pacote confirmado pelo Dyones em 10/10; soma recalculada em 12/10 com o CRM a R$ 790. Desconto do pacote: 24% sobre a soma das implantações (R$ 19.600) e 28% sobre a soma das mensalidades (R$ 2.760). O tráfego entra no pacote por R$ 1.300 (avulso, as duas plataformas juntas custam R$ 1.990). Usuário extra R$ 89/mês. Argumento: com margem de R$ 7.000 por carro (referência do plano de mídia da Motors), uma venda a mais a cada 3 meses paga a mensalidade do pacote (3 × R$ 1.990 = R$ 5.970). Hub em `/segmentos/revendas-de-veiculos` (pronto em 12/10) com o pacote, o caminho do lead, as linhas avulsas que fazem sentido depois, os números do case e perguntas próprias.
+Pacote confirmado pelo Dyones em 10/10; soma recalculada em 12/10 com o CRM a R$ 790. Desconto do pacote: 24% sobre a soma das implantações (R$ 19.600) e 33% sobre a soma das mensalidades (R$ 2.960, com o piso de R$ 690). O tráfego entra no pacote por R$ 1.300 (avulso, as duas plataformas juntas custam R$ 1.990). Usuário extra R$ 89/mês. Argumento: com margem de R$ 7.000 por carro (referência do plano de mídia da Motors), uma venda a mais a cada 3 meses paga a mensalidade do pacote (3 × R$ 1.990 = R$ 5.970). Hub em `/segmentos/revendas-de-veiculos` (pronto em 12/10) com o pacote, o caminho do lead, as linhas avulsas que fazem sentido depois, os números do case e perguntas próprias.
 
 ## Regras comerciais
 - Sem fidelidade. Implantação 50% na assinatura + 50% na entrega, ou até 6x.
@@ -50,6 +52,8 @@ Pacote confirmado pelo Dyones em 10/10; soma recalculada em 12/10 com o CRM a R$
 - Diagnóstico gratuito: 45 min com o fundador + mapa em 24 h. Escassez "5 por semana" só se for verdade.
 - Integração só é anunciada como "em produção" quando existe (hoje: Revenda Mais). Autoconf, BNDV, Boom, Altimus e Syonet são citados como integráveis por fluxo, orçado no diagnóstico (Dyones, 13/10); a lista mora em `conteudo/diagnostico.ts`.
 - Tráfego pago só com o rastreamento até a venda ligado.
+- Mensalidade com piso (R$ 690) e teto (R$ 1.990) para as linhas de sistema; fora do teto: uso, repasses e produção contínua (13/10).
+- Reativação de base: campanha avulsa pela metade (R$ 950); mais de uma campanha vira pacote (3 por R$ 2.490) ou campanha todo mês (R$ 790/mês) (13/10).
 
 ## Custo da mensalidade e pisos revisados (12/10/2026; confirmado pelo Dyones no mesmo dia, valores acima)
 Custos de infra por cliente (páginas de preço lidas em 12/10/2026; dólar de referência R$ 5,40): Vercel Pro US$ 20/mês por assento de desenvolvedor, 1 TB de banda, compartilhado entre todos os clientes (vercel.com/pricing); Supabase Pro US$ 25/mês na organização e US$ 10/mês por projeto extra (Micro), 8 GB de disco por projeto, excedente US$ 0,125/GB (supabase.com/pricing); VPS Hostinger KVM 2 R$ 43,99 e KVM 4 R$ 59,99 por mês, compartilhada (n8n, Chatwoot, Evolution; hostinger.com/br). Hora do fundador valorada em R$ 150 (mercado de consultoria: R$ 70 a R$ 150).
@@ -64,7 +68,7 @@ Custos de infra por cliente (páginas de preço lidas em 12/10/2026; dólar de r
 | Conteúdo e redes com IA | ~R$ 250 (ferramentas e IA) | 4 | ~R$ 850 | (novo) | | R$ 1.500 de configuração + **R$ 1.290/mês** (12 posts, 2 redes) |
 
 Referências do usuário extra: Power BI Pro R$ 80,10/usuário/mês (beanalytic, jul/2026); Cubo Suite R$ 267/mês com 3 usuários e R$ 89 por usuário extra (blog.cubosuite.com.br, 2026).
-Pacote automotivo: soma das mensalidades passa a R$ 2.760 (590 + 790 + 790 + 590); pacote segue em R$ 1.990 (28% abaixo), com 5 usuários; usuário extra R$ 89.
+Pacote automotivo: soma das mensalidades passou a R$ 2.760 (590 + 790 + 790 + 590) em 12/10 e a R$ 2.960 com o piso de R$ 690 em 13/10; pacote segue em R$ 1.990 (33% abaixo), com 5 usuários; usuário extra R$ 89.
 Cláusula: reajuste anual pelo IPCA e repasse de variação cambial acima de 10% nos itens em dólar (Vercel, Supabase, modelos de IA).
 
 **Tráfego, reestruturado**: Google Ads R$ 1.200/mês + verba (Pesquisa, Performance Max, feed de veículos ou Shopping quando couber); Meta Ads R$ 1.200/mês + verba (catálogo de veículos ou produtos como diferencial, públicos da base do CRM, CAPI); os dois juntos R$ 1.990/mês (bônus: feed de catálogo, que vale R$ 1.900, incluso). Substitui a linha única de R$ 1.800. No pacote automotivo os dois continuam a R$ 1.300. Sempre com rastreamento ligado.

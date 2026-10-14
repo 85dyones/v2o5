@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import LinkOuAncora from "@/components/LinkOuAncora";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import {
@@ -71,9 +71,9 @@ export default function Medicao() {
       <p>
         Este site mede visitas e o resultado dos anúncios com base no legítimo interesse. Você pode desligar a medição
         neste navegador na{" "}
-        <Link href="/privacidade#medicao" className="link-sublinhado text-papel" onClick={fechar}>
+        <LinkOuAncora href="/privacidade#medicao" className="link-sublinhado text-papel" onClick={fechar}>
           página de privacidade
-        </Link>
+        </LinkOuAncora>
         .
       </p>
       <button type="button" onClick={fechar} className="botao botao-secundario botao-compacto mt-3">

@@ -951,11 +951,11 @@
   }
 }
 
+/* Âncoras rolam sem suavidade de propósito: com rolagem suave o navegador
+   não reancora o alvo quando algo acima dele muda de altura durante a
+   animação (hidratação, seção adiada, fonte), e a página pousava no lugar
+   errado. lib/ancora.ts confere o pouso depois da carga. */
 @media (prefers-reduced-motion: no-preference) {
-  html {
-    scroll-behavior: smooth;
-  }
-
   .digitando > span {
     animation: digita 1.3s var(--ease-movimento) infinite;
   }

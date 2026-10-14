@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import LinkOuAncora from "@/components/LinkOuAncora";
 import Topo from "@/components/layout/Topo";
 import Rodape from "@/components/layout/Rodape";
 
@@ -26,9 +27,9 @@ export default function NaoEncontrada() {
             </Link>
           </li>
           <li>
-            <Link href="/#solucoes" className="botao botao-secundario">
+            <LinkOuAncora href="/#solucoes" className="botao botao-secundario">
               Ver as soluções
-            </Link>
+            </LinkOuAncora>
           </li>
           <li>
             <Link href="/cases/motors-store" className="botao botao-secundario">

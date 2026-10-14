@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import LinkOuAncora from "@/components/LinkOuAncora";
 import { useEffect, useId, useRef, useState } from "react";
 
 /** Menu do celular: abaixo de 768 px a navegação vira este painel. */
@@ -48,13 +49,13 @@ export default function MenuCelular({ itens }: { itens: { rotulo: string; href: 
           <ul>
             {itens.map((item) => (
               <li key={item.href} className="border-b border-linha">
-                <Link
+                <LinkOuAncora
                   href={item.href}
                   onClick={() => setAberto(false)}
                   className="flex min-h-14 items-center text-xl font-semibold tracking-[-0.02em]"
                 >
                   {item.rotulo}
-                </Link>
+                </LinkOuAncora>
               </li>
             ))}
           </ul>

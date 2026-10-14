@@ -1,7 +1,7 @@
 import { listaDeSistemasIntegraveis } from "@/conteudo/diagnostico";
 import { CASE_MOTORS } from "@/conteudo/case";
 import { CASE, VISAO_360, type Vinheta } from "@/conteudo/home";
-import { BRL, DEGRAUS, linhaDePreco, precoDa, REGRAS, type Pilar } from "@/conteudo/precos";
+import { BRL, DEGRAUS, FOTOGRAFIA_PARCEIRA, linhaDePreco, precoDa, REGRAS, type Pilar } from "@/conteudo/precos";
 import type { Etapa } from "@/lib/tokens";
 
 /**
@@ -146,8 +146,7 @@ export const SOLUCOES: Solucao[] = [
       },
       {
         pergunta: "Preciso ter fotos e textos prontos?",
-        resposta:
-          "Os textos a V2O5 escreve e revisa com você. Fotos e vídeos ficam com a sua equipe ou com um parceiro de produção, orçado à parte na proposta.",
+        resposta: `Os textos a V2O5 escreve e revisa com você. Fotos e vídeos ficam com a sua equipe ou com um fotógrafo parceiro que a V2O5 indica, a partir de ${BRL(FOTOGRAFIA_PARCEIRA.aPartirDe)} por mês.`,
       },
       {
         pergunta: "O site vem com loja virtual?",

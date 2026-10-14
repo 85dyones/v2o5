@@ -7,9 +7,10 @@ import BotaoWhatsAppFixo from "@/components/layout/BotaoWhatsAppFixo";
 import Garantias from "@/components/home/Garantias";
 import Perguntas from "@/components/home/Perguntas";
 import Fechamento from "@/components/home/Fechamento";
-import { ForaDaMensalidade, OQueCresce, Pacote, Reativacao, Tabela, Trafego } from "@/components/precos/TabelaDePrecos";
+import ParceiroDeFotografia from "@/components/precos/ParceiroDeFotografia";
+import { ForaDaMensalidade, OQueCresce, Pacote, Reativacao, Tabela, Trafego, Teto } from "@/components/precos/TabelaDePrecos";
 import { metadataDa } from "@/conteudo/paginas";
-import { BRL, PISO_DA_MENSALIDADE } from "@/conteudo/precos";
+import { BRL, PISO_DA_MENSALIDADE, TETO_DA_MENSALIDADE } from "@/conteudo/precos";
 import { grafoDosPrecos } from "@/lib/schema";
 
 const ROTA = "/precos";
@@ -54,8 +55,8 @@ export default function Pagina() {
             </h1>
             {/* Curto de propósito: o LCP da página é o H1, e um parágrafo maior que ele rouba o posto. */}
             <p className="texto-guia mt-7 max-w-[36rem]">
-              Todo valor é a partir de: o preço final sai do diagnóstico, com o escopo fechado. Nenhuma mensalidade
-              fica abaixo de {BRL(PISO_DA_MENSALIDADE)}.
+              Todo valor é a partir de: o preço final sai do diagnóstico, com o escopo fechado. A mensalidade vai de{" "}
+              {BRL(PISO_DA_MENSALIDADE)} a {BRL(TETO_DA_MENSALIDADE)}, somando o que quiser.
             </p>
             <div className="mt-9 flex flex-wrap gap-3">
               <Link href="/diagnostico" className="botao botao-primario" data-evento="cta_click" data-local="hero">
@@ -79,6 +80,14 @@ export default function Pagina() {
         </section>
 
         <Secao
+          id="teto"
+          titulo="Piso e teto da mensalidade."
+          texto="Some as linhas de sistema que quiser: a mensalidade da V2O5 para no teto. Só o uso, os repasses e os serviços de produção contínua ficam fora."
+        >
+          <Teto />
+        </Secao>
+
+        <Secao
           id="cresce"
           titulo="O que cresce com você."
           texto="Mais gente, mais conversa e mais dado custam mais infra e mais cuidado. O preço de cada degrau está aqui, não na renovação."
@@ -96,8 +105,8 @@ export default function Pagina() {
 
         <Secao
           id="reativacao"
-          titulo="Reativação de base: o canal muda o custo e o risco."
-          texto="A campanha é a mesma. O que muda é por onde a mensagem sai, quanto a operadora ou a Meta cobram e o que pode acontecer com o número."
+          titulo="Reativação de base: o canal muda o custo e o alcance."
+          texto="A campanha é a mesma. O que muda é por onde a mensagem sai, quanto a operadora ou a Meta cobram e quanto volume cada canal aguenta. A escolha sai do diagnóstico, pelo tamanho da base."
         >
           <Reativacao />
         </Secao>
@@ -113,6 +122,9 @@ export default function Pagina() {
 
         <Secao id="fora" titulo="O que fica fora da mensalidade.">
           <ForaDaMensalidade />
+          <div className="mt-6">
+            <ParceiroDeFotografia />
+          </div>
         </Secao>
 
         <Garantias />

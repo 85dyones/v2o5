@@ -1,4 +1,5 @@
 import Link from "next/link";
+import LinkOuAncora from "@/components/LinkOuAncora";
 import Icone from "@/components/Icone";
 import JsonLd from "@/components/JsonLd";
 import NumeroQueConta from "@/components/home/NumeroQueConta";
@@ -6,6 +7,7 @@ import Perguntas from "@/components/home/Perguntas";
 import Topo from "@/components/layout/Topo";
 import Rodape from "@/components/layout/Rodape";
 import BotaoWhatsAppFixo from "@/components/layout/BotaoWhatsAppFixo";
+import ParceiroDeFotografia from "@/components/precos/ParceiroDeFotografia";
 import { Pacote } from "@/components/precos/TabelaDePrecos";
 import { HUB_AUTOMOTIVO } from "@/conteudo/automotivo";
 import { metadataDa } from "@/conteudo/paginas";
@@ -44,6 +46,18 @@ export default function Pagina() {
                   Ver o pacote
                 </a>
               </div>
+            </div>
+            <div className="mt-9">
+              <p className="text-[0.8125rem] font-medium text-secundario">{h.sistemas.rotulo}</p>
+              <ul className="mt-2.5 flex flex-wrap gap-2">
+                <li className="chip chip-ok">{h.sistemas.emProducao} · em produção</li>
+                {h.sistemas.integraveis.map((s) => (
+                  <li key={s} className="chip text-secundario">
+                    {s}
+                  </li>
+                ))}
+                <li className="chip text-secundario">{h.sistemas.outros}</li>
+              </ul>
             </div>
             <dl className="mt-12 grid gap-4 border-t border-linha pt-8 md:grid-cols-3">
               {h.fatos.map((f) => (
@@ -120,13 +134,16 @@ export default function Pagina() {
                 <p className="mt-2 text-[0.9375rem] leading-relaxed text-secundario">{item.texto}</p>
                 <p className="mt-auto flex items-center justify-between gap-4 pt-6 text-sm">
                   <span className="font-medium tabular-nums text-papel/90">{item.preco}</span>
-                  <Link href={item.href} className="link-sublinhado text-secundario">
+                  <LinkOuAncora href={item.href} className="link-sublinhado text-secundario">
                     na tabela
-                  </Link>
+                  </LinkOuAncora>
                 </p>
               </li>
             ))}
           </ul>
+          <div className="mt-6">
+            <ParceiroDeFotografia />
+          </div>
         </section>
 
         <section aria-labelledby="titulo-medido" className="border-t border-linha py-20 md:py-28">

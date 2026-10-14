@@ -32,7 +32,7 @@ const SECOES = [
 
 function Secao({ id, titulo, children }: { id: string; titulo: string; children: ReactNode }) {
   return (
-    <section id={id} aria-labelledby={`titulo-${id}`} className="scroll-mt-24">
+    <section id={id} aria-labelledby={`titulo-${id}`}>
       <h2 id={`titulo-${id}`} className="text-[1.375rem] font-semibold leading-tight tracking-[-0.03em]">
         {titulo}
       </h2>

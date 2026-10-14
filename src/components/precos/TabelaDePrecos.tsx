@@ -1,22 +1,6 @@
 import Link from "next/link";
 import Icone from "@/components/Icone";
-import {
-  AUTOMOTIVO_PRECO,
-  BRL,
-  CANAIS_DA_REATIVACAO,
-  DEGRAUS,
-  descontoDoPacote,
-  economiaDoTrafegoJunto,
-  linhaDePreco,
-  linhasDoPilar,
-  mensalidadeDoPacoteComTrafego,
-  mesesQueUmaVendaPaga,
-  REAJUSTE,
-  REGRAS,
-  somaDoPacote,
-  type LinhaDePreco,
-  type Pilar,
-} from "@/conteudo/precos";
+import { AUTOMOTIVO_PRECO, BRL, CANAIS_DA_REATIVACAO, DEGRAUS, descontoDoPacote, economiaDoTrafegoJunto, FOTOGRAFIA_PARCEIRA, linhaDePreco, LINHAS_NO_TETO, linhasDoPilar, mensalidadeComTeto, mensalidadeDoPacoteComTrafego, mesesQueUmaVendaPaga, PISO_DA_MENSALIDADE, REAJUSTE, REGRAS, somaDoPacote, TETO_DA_MENSALIDADE, type LinhaDePreco, type Pilar } from "@/conteudo/precos";
 
 export function implantacao(l: LinhaDePreco) {
   if (l.implantacao) return `${BRL(l.implantacao)}${l.unidade ? ` ${l.unidade}` : ""}`;
@@ -175,6 +159,53 @@ export function Tabela() {
  * preço. Regra de 12/10 (Dyones): mais usuários, mais dados e mais infra
  * não podem reduzir a margem.
  */
+/**
+ * Piso e teto da mensalidade (Dyones, 13/10): somadas as linhas de sistema,
+ * a mensalidade da V2O5 para em `TETO_DA_MENSALIDADE`. Os exemplos saem do
+ * cálculo, não de número escrito à mão.
+ */
+export function Teto() {
+  const pacote = mensalidadeComTeto(["sites", "agente", "crm", "rastreamento"]);
+  const tudo = mensalidadeComTeto([...LINHAS_NO_TETO]);
+  const nomes = LINHAS_NO_TETO.map((id) => linhaDePreco(id).nome.replace(" e sistemas sob medida", "").replace(" até a venda", ""));
+  return (
+    <div className="grid gap-4 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)]">
+      <div className="superficie p-6 md:p-7">
+        <p className="text-sm text-secundario">Linhas de sistema</p>
+        <p className="mt-1.5 text-[1.375rem] font-semibold leading-tight tracking-[-0.03em]">
+          De {BRL(PISO_DA_MENSALIDADE)} a {BRL(TETO_DA_MENSALIDADE)} por mês, somando o que quiser
+        </p>
+        <p className="mt-3 text-[0.9375rem] leading-relaxed text-secundario">
+          {nomes.slice(0, -1).join(", ")} e {nomes[nomes.length - 1]} somam entre si até o teto. O trabalho pesado está na
+          implantação; depois de montado, manter é barato, e a mensalidade reflete isso.
+        </p>
+        <dl className="mt-5 grid gap-2 text-[0.9375rem] sm:grid-cols-2">
+          <div className="rounded-xl bg-vidro p-4 contorno">
+            <dt className="text-sm text-secundario">Site, agente, CRM e rastreamento</dt>
+            <dd className="mt-1 tabular-nums">
+              somam {BRL(pacote.soma)}, custam <strong>{BRL(pacote.cobrada)}</strong>
+            </dd>
+          </div>
+          <div className="rounded-xl bg-vidro p-4 contorno">
+            <dt className="text-sm text-secundario">Com o painel do dono</dt>
+            <dd className="mt-1 tabular-nums">
+              somam {BRL(tudo.soma)}, custam os mesmos <strong>{BRL(tudo.cobrada)}</strong>
+            </dd>
+          </div>
+        </dl>
+      </div>
+      <div className="superficie p-6 md:p-7">
+        <p className="text-sm text-secundario">Fora do teto</p>
+        <ul className="mt-3 grid gap-2.5 text-[0.9375rem] leading-relaxed text-secundario">
+          <li>O que cresce com o uso: usuário extra, dados e conversas do agente, com o preço de cada degrau abaixo.</li>
+          <li>Os repasses pelo valor real: uso do modelo de IA e mensagens da API oficial do WhatsApp.</li>
+          <li>Os serviços de produção contínua: gestão de tráfego e conteúdo e redes, que têm equipe trabalhando todo mês.</li>
+        </ul>
+      </div>
+    </div>
+  );
+}
+
 export function OQueCresce() {
   const itens = [
     {
@@ -278,21 +309,15 @@ export function Reativacao() {
       </div>
       <ul className="grid gap-4 md:grid-cols-3 lg:grid-cols-1">
         {CANAIS_DA_REATIVACAO.map((c) => (
-          <li
-            key={c.nome}
-            className={`rounded-2xl bg-vidro p-5 contorno ${c.recomendado ? "shadow-[inset_0_0_0_1px_rgb(94_198_154/0.4)]" : ""}`}
-          >
-            <p className="flex flex-wrap items-center justify-between gap-2">
-              <span className="font-semibold tracking-[-0.01em]">{c.nome}</span>
-              {c.recomendado ? <span className="chip chip-ok text-secundario">recomendado</span> : null}
-            </p>
+          <li key={c.nome} className="rounded-2xl bg-vidro p-5 contorno">
+            <p className="font-semibold tracking-[-0.01em]">{c.nome}</p>
             <dl className="mt-3 grid gap-2 text-[0.9375rem] leading-relaxed text-secundario lg:grid-cols-[5rem_1fr] lg:gap-x-4 lg:gap-y-1.5">
               <dt className="text-sm text-papel/80 lg:pt-0.5">Custo</dt>
               <dd>{c.paga}</dd>
               <dt className="text-sm text-papel/80 lg:pt-0.5">Regras</dt>
               <dd>{c.regras}</dd>
               <dt className="text-sm text-papel/80 lg:pt-0.5">Risco</dt>
-              <dd className={c.risco.startsWith("Alto") ? "text-ambar" : ""}>{c.risco}</dd>
+              <dd>{c.risco}</dd>
             </dl>
           </li>
         ))}
@@ -367,7 +392,10 @@ export function ForaDaMensalidade() {
         ["Verba de anúncios", "Paga direto ao Google e à Meta, no valor que você decidir."],
         ["Uso de IA e mensagens", "O modelo de IA e as mensagens da API oficial do WhatsApp, pelo valor real, na mesma fatura."],
         ["SMS e número dedicado", "Na reativação de base, o SMS pelo valor da operadora e o chip do número dedicado, quando houver."],
-        ["Fotos, vídeos e peças", "A produção de imagem fica com a sua equipe ou com um parceiro de produção, orçado na proposta."],
+        [
+          "Fotos, vídeos e peças",
+          `A produção de imagem fica com a sua equipe ou com um fotógrafo parceiro que a V2O5 indica, a partir de ${BRL(FOTOGRAFIA_PARCEIRA.aPartirDe)} por mês.`,
+        ],
       ].map(([titulo, texto]) => (
         <li key={titulo} className="rounded-2xl bg-vidro p-5 contorno">
           <p className="font-semibold tracking-[-0.01em]">{titulo}</p>

@@ -34,7 +34,7 @@ describe("hub automotivo", () => {
   });
 
   it("todo valor em real está na tabela de oferta.md", () => {
-    const valores = texto.match(/R\$ [\d.]+/g) ?? [];
+    const valores = texto.match(/R\$ \d{1,3}(?:\.\d{3})*/g) ?? [];
     expect(valores.length).toBeGreaterThan(3);
     for (const v of valores) expect(oferta, v).toContain(v);
     expect(HUB_AUTOMOTIVO.fatos[0].valor).toContain(BRL(AUTOMOTIVO_PRECO.pacote.implantacao));
