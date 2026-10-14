@@ -38,7 +38,7 @@ Dois caminhos levam ao Chatwoot.
 | Host | O que respondeu | Consequência |
 |---|---|---|
 | `app.chat.v2o5.com.br` (CNAME para `cwoot.v2o5.com.br`) | **Chatwoot 4.17.0**, `/api` com filas e dados "ok", tela de login no ar | é o Chatwoot de verdade; conta 1 (a URL que você passou) |
-| `chatwoot.v2o5.com.br` | **erro 500** da aplicação | era o endereço do fluxo do n8n. **Corrigido em 13/10** para `app.chat`. Desligar este host ou apontar para o mesmo serviço, para não sobrar link quebrado |
+| `chatwoot.v2o5.com.br` | conferido de novo em 14/10: `/` e `/app/login` 200, `/api/v1/profile` 401 (app no ar pedindo token); só a rota de saúde `/api` responde 500. Assets do Vite com hashes diferentes dos de `app.chat` | **outra instalação do Chatwoot, em produção para um cliente (conta 3). Não desligar nem redirecionar**: derruba o atendimento do cliente. O 500 em `/api` sugere problema de Redis ou banco nessa instalação, a investigar na VPS. Era o endereço do fluxo do n8n; o fluxo passou a usar `app.chat` em 13/10, onde ficam a conta 1 e a inbox 12 da V2O5 |
 | `chat.v2o5.com.br` | **Typebot** | a memória dizia Chatwoot; corrigida. Nada do site depende dele |
 | `evolution.v2o5.com.br` | Evolution API 2.3.7 | instância usada pelo fluxo: `v2o5` (a confirmar) |
 | `n8n.v2o5.com.br` | no ar | webhook `/webhook/v2o5-diagnostico` entra quando o fluxo for importado e ativado |
@@ -50,7 +50,7 @@ Dois caminhos levam ao Chatwoot.
 3. ~~Teste A, WhatsApp~~ **Feito em 13/10**: o "oi" chegou na inbox 12 e a resposta voltou ao celular. A linha do WhatsApp está pronta.
 4. **Teste B, formulário**: siga `docs/n8n/LEIA-ME.md` (quatro credenciais, importar o fluxo, nó Configuração, ativar), defina `LEADS_WEBHOOK_URL` e `LEADS_WEBHOOK_SECRET` na Vercel (produção e preview) e rode o `curl` do LEIA-ME. Esperado: aviso no seu WhatsApp, resposta no WhatsApp informado, contato no Chatwoot com os atributos. Depois, um envio real pelo formulário do preview. Até isso, o formulário responde "envio em configuração".
 5. **Chatwoot, operação**: agente com notificações ligadas; Settings > Inbox > horário de atendimento e mensagem fora do horário, se quiser; respostas prontas para "diagnóstico" e "preços"; atributos personalizados da conta para os campos do lead aparecerem na ficha (item do LEIA-ME).
-6. **`chatwoot.v2o5.com.br`**: desligar o host no proxy da VPS ou redirecionar para `app.chat`.
+6. **`chatwoot.v2o5.com.br`**: não mexer no host nem no proxy (instalação de um cliente, conta 3). Na VPS, investigar por que a rota `/api` dessa instalação responde 500 (Redis ou banco), sem parar o serviço.
 
 ## 3. E-mail (nada disso muda na troca do DNS)
 
@@ -94,7 +94,7 @@ Zona hoje (Hostinger, `ns1`/`ns2.dns-parking.com`), lida em 13/10:
 
 1. Alias de e-mail (seção 3).
 2. Fluxo do n8n, credenciais, variáveis na Vercel e teste do formulário (seção 2, teste B).
-3. Linha do WhatsApp: inbox, instância, teste A, `chatwoot.v2o5.com.br` (seção 2).
+3. Linha do WhatsApp: inbox, instância, teste A (seção 2). O `chatwoot.v2o5.com.br` fica fora da troca: é do cliente da conta 3.
 4. GA4 e `NEXT_PUBLIC_GA4_ID` (pendência 16).
 5. Domínios na Vercel e TTL baixo (seção 4, passos 1 a 3).
 6. Backup do WordPress (passo 4).

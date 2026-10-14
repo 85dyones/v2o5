@@ -22,7 +22,7 @@ Novo site da **V2O5 Vendas e Tecnologia** (substitui o WordPress de v2o5.com.br)
 | **Start Digital** | Pacote antigo de presença; fora do cardápio público, vira fundação dos sites |
 | **Diagnóstico** | Porta de entrada gratuita: 45 min + mapa em 24 h |
 | **Modernist** | Design system da Motors; herdamos a engenharia, não a estética |
-| **VPS** | Servidor da V2O5: n8n, Chatwoot, Evolution API (detalhe em `memory/context/infra.md`) |
+| **VPS** | Servidor da V2O5: n8n, Chatwoot, Evolution API (detalhe em `memory/context/infra.md`). `chatwoot.v2o5.com.br` é o Chatwoot de um cliente (conta 3): não desligar nem redirecionar |
 → Glossário completo: `memory/glossary.md`
 
 ## Decisões que mais pesam
