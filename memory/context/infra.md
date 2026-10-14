@@ -21,7 +21,7 @@ Lição: na Motors, Pixel + GTM somam ~2,4 s de TBT no mobile. Aqui a carga é d
 | DNS | Hostinger (ns1/ns2.dns-parking.com) |
 | Site atual | WordPress na Hostinger, A 147.93.37.158 |
 | E-mail | Hostinger (MX mx1/mx2.hostinger.com, SPF, DKIM hostingermail-a, DMARC p=none). Endereços públicos: `diagnostico@` e `privacidade@` (alias da caixa principal; o Dyones cria, 10/10) |
-| VPS 168.231.100.245 | Conferido em 13/10 (sem login, só respostas públicas): **Chatwoot 4.17.0 em `app.chat.v2o5.com.br`** (CNAME para `cwoot.v2o5.com.br`; painel `/app/accounts/1/`, conta 1); `chat.v2o5.com.br` é o **Typebot**, não o Chatwoot; `chatwoot.v2o5.com.br` responde **erro 500** (host antigo ou proxy quebrado: desligar ou apontar para o mesmo Chatwoot); `evolution.v2o5.com.br` é a Evolution API 2.3.7 (instância `v2o5` no fluxo do n8n, a confirmar no manager); `n8n.v2o5.com.br`. O fluxo do n8n usava `chatwoot.v2o5.com.br` e passou a usar `app.chat` em 13/10 |
+| VPS 168.231.100.245 | Conferido em 13/10 (sem login, só respostas públicas): **Chatwoot 4.17.0 em `app.chat.v2o5.com.br`** (CNAME para `cwoot.v2o5.com.br`; painel `/app/accounts/1/`, conta 1); `chat.v2o5.com.br` é o **Typebot**, não o Chatwoot; `chatwoot.v2o5.com.br` respondeu **erro 500** em 13/10 e voltou (200, API com 401) em 14/10; é o host que o fluxo da 16ª Vara Cível usa (conta 3, caixa 25), então não desligar: monitorar; `evolution.v2o5.com.br` é a Evolution API 2.3.7 (instância `v2o5` no fluxo do n8n, a confirmar no manager); `n8n.v2o5.com.br`. O fluxo do n8n usava `chatwoot.v2o5.com.br` e passou a usar `app.chat` em 13/10 |
 Na migração: trocar só apex e `www` para a Vercel; conferir MX, SPF, DKIM, DMARC e os A da VPS antes e depois. WordPress fica 30 dias em subdomínio de backup.
 
 ## Contas
