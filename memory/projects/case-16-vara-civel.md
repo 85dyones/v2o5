@@ -50,7 +50,7 @@ Workflow ativo, 77 nós, fuso America/Sao_Paulo, sem nó de IA. O desenho é **T
 2. **Contato no Chatwoot**: cria o contato na conta 3, caixa 25; se o telefone já existe (422), busca o contato e as conversas dele e reaproveita a conversa aberta ou pendente, senão abre uma nova.
 3. **Atributos da conversa**: motivo, nome declarado, tipo de representante, número do processo, observação, urgência, setor e `fluxo_status` ("Aguardando retorno do setor" ou "Finalizado"); no contato, `status_typebot: Ligado`.
 4. **Atribuição** da conversa ao time do setor.
-Nós soltos nesta versão (sem conexão): seis "Create a row" na tabela `typebot_handoffs` da Supabase (registro do handoff: nome, telefone, motivo, processo, setor, time, urgência, datas), "teams ID", "Ler atributos da conversa" e "Respond". Ou seja, o registro na Supabase foi desligado na 3.0, o que explica o projeto `16-vara-civel` pausado por inatividade.
+Nós soltos nesta versão (sem conexão): cinco dos seis "Create a row" na tabela `typebot_handoffs` da Supabase (registro do handoff: nome, telefone, motivo, processo, setor, time, urgência, datas), "teams ID", "Ler atributos da conversa" e "Respond". O sexto, "Create a row2", segue ligado depois da atribuição na consulta de contato novo, mas sem campos; com a Supabase pausada, essa execução termina em erro, e não há workflow de erro configurado. O registro na Supabase foi desligado na 3.0, o que explica o projeto `16-vara-civel` pausado por inatividade. Outro risco: quando o contato já existe e não tem conversa aberta ou pendente, os nós If não têm saída falsa e o handoff para sem abrir conversa.
 
 Chatwoot do fluxo: `https://chatwoot.v2o5.com.br`, conta 3, caixa 25 (a V2O5 usa a conta 1 em `app.chat.v2o5.com.br`). Em 13/10 esse host respondia erro 500; em 14/10, `/` respondeu HTTP 200 e `/api/v1/accounts/3/conversations` respondeu 401 (em `app.chat`, o mesmo caminho respondeu 401; 401 significa app no ar pedindo token). Se o host do fluxo não responder, os handoffs do tribunal estão falhando.
 
@@ -58,6 +58,9 @@ Onde está a IA: não neste workflow. O orçamento fala em agente de atendimento
 
 ## Segurança (14/10)
 A exportação do n8n traz o token da API do Chatwoot em texto puro nos quatro nós "Info Base" (Set) e dados de exemplo (pinData) com nomes e telefones. As três exportações do Typebot trazem, nos blocos Webhook, a chave do cabeçalho `KeyAPI` que autentica os webhooks do n8n (credencial "16VC"), e os textos trazem os e-mails dos gabinetes. Por isso nenhum dos JSONs entra no repositório (que é público) nem vai para `docs/n8n/`. Recomendado: mover o token do Chatwoot para a credencial `chatwoot_api` que o próprio fluxo já usa nos nós novos; trocar o token do Chatwoot e a chave `KeyAPI` (os dois circularam em arquivos) e atualizar os cinco blocos Webhook dos typebots; limpar o pinData antes de compartilhar de novo.
+
+## Redesign e SaaS (14/10/2026)
+O Dyones pediu um worktree independente para o redesign técnico e de layout, para a renovação de 1 ano, já pensando num SaaS de atendimento para serventias. Branch `claude/redesign-serventias` no repositório `85dyones/16V`, PR em rascunho https://github.com/85dyones/16V/pull/1, com `docs/plano-redesign.md` (problemas, proposta da fase 1, base do SaaS, decisões em aberto) e as exportações sem segredos em `fluxos/atual/`. Aberto como tarefa para sessão local.
 
 ## O que falta para virar case publicável
 - ~~Ler o fluxo do n8n e os do Typebot~~ (lidos em 14/10, acima). Linha do tempo: compose em 30/04/2025, Supabase em 05/05, fluxograma em 07/05, orçamento em 13/05, proposta à 1ª Vara em 25/07/2025, typebots e workflow 3.0 de 14 a 21/01/2026, exportações lidas em 14/10/2026.
