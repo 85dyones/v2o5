@@ -68,5 +68,5 @@ Tudo que aparece abreviado nas conversas do projeto. O que é usado toda hora ta
 | 85dyones/v2o5 | Este projeto |
 | 85dyones/motors-site-oficial | Site e painel da Motors (Next.js); base técnica de referência |
 | rede-auto, Motogestor-v3 | Produtos em estudo; Motogestor vai para a linha da Motors |
-| 16V, Vara Cível | Case de triagem automatizada por WhatsApp da 16ª Vara Cível de Curitiba (Typebot + n8n + Chatwoot, WhatsApp pela Evolution; sem IA na versão de 01/2026; o compose de 2025 previa API da Meta, OpenAI e RAG na Supabase `16-vara-civel`), proposto também à 1ª Vara Cível; repo `85dyones/16V` só com o compose; resumo preliminar em `memory/projects/case-16-vara-civel.md` |
+| 16V, Vara Cível | Case de triagem automatizada por WhatsApp da 16ª Vara Cível de Curitiba (Typebot + n8n + Chatwoot); detalhe no repositório privado `85dyones/16V`; resumo para o site em `memory/projects/case-16-vara-civel.md` |
 | smart-parking-v2o5, freespot | Outros projetos; sem decisão de virar case |
