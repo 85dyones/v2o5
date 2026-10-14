@@ -68,5 +68,5 @@ Tudo que aparece abreviado nas conversas do projeto. O que é usado toda hora ta
 | 85dyones/v2o5 | Este projeto |
 | 85dyones/motors-site-oficial | Site e painel da Motors (Next.js); base técnica de referência |
 | rede-auto, Motogestor-v3 | Produtos em estudo; Motogestor vai para a linha da Motors |
-| 16V | Projeto jurídico (Supabase "16-vara-civel"), fora do setor |
+| 16V, Vara Cível | Case de atendimento automatizado da 16ª Vara Cível de Curitiba (n8n, agente de IA, RAG na Supabase `16-vara-civel`), proposto também à 1ª Vara Cível; resumo preliminar em `memory/projects/case-16-vara-civel.md` |
 | smart-parking-v2o5, freespot | Outros projetos; sem decisão de virar case |

@@ -105,7 +105,7 @@ export const LINHAS: Linha[] = [
     linha: "googleAds",
     titulo: "Tráfego pago no Google e na Meta",
     frase:
-      "Google Ads e Meta Ads por plataforma ou juntos, com a verba ajustada pela venda registrada no CRM. Quem contrata os dois leva o feed de catálogo. Começa com o rastreamento ligado.",
+      "Google Ads e Meta Ads por plataforma ou juntos, com anúncios que abrem conversa no WhatsApp e a verba ajustada pela venda registrada no CRM. Quem contrata os dois leva o feed de catálogo. Começa com o rastreamento ligado.",
     preco: precoDa("googleAds"),
     href: "/gestao-de-trafego",
     etapa: "violeta",

@@ -50,6 +50,7 @@ Novo site da **V2O5 Vendas e Tecnologia** (substitui o WordPress de v2o5.com.br)
 | Stack, infra, contas, tracking, orçamento de performance | `memory/context/infra.md` |
 | Direção visual e avaliação do motion | `memory/context/motion.md` |
 | Números do case Motors e problema do Chatwoot | `memory/projects/case-motors.md` |
+| Case 16ª Vara Cível (atendimento automatizado; resumo preliminar) | `memory/projects/case-16-vara-civel.md` |
 | Projeto do site (escopo, fases) | `memory/projects/site-v2o5.md` |
 | Plugins instalados e como reinstalar | `memory/context/ferramentas.md` |
 

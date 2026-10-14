@@ -119,7 +119,7 @@ export const LINHAS_DE_PRECO: LinhaDePreco[] = [
     maisVerba: true,
     semImplantacao: "sem implantação, com o rastreamento ativo",
     cobre:
-      "Instagram e Facebook com o catálogo de veículos ou produtos, públicos da base do CRM e API de Conversões. Relatório mensal.",
+      "Instagram e Facebook com o catálogo de veículos ou produtos, anúncios que abrem conversa no WhatsApp, públicos da base do CRM e API de Conversões. Relatório mensal.",
   },
   {
     id: "trafego",

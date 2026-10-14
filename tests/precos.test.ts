@@ -150,6 +150,8 @@ describe("tabela de preços", () => {
     expect(precoDa("googleAds")).toBe(precoDa("metaAds"));
     expect(economiaDoTrafegoJunto()).toBe(410);
     expect(LINHAS_DE_PRECO.find((x) => x.id === "trafego")?.bonus).toMatch(/Feed de catálogo incluso/);
+    expect(LINHAS_DE_PRECO.find((x) => x.id === "metaAds")?.cobre, "Meta Ads abre conversa no WhatsApp (Dyones, 14/10)").toMatch(/WhatsApp/);
+    expect(oferta).toMatch(/Meta Ads[^\n]*WhatsApp/);
     expect(AUTOMOTIVO_PRECO.trafegoNoPacote).toBeLessThan(LINHAS_DE_PRECO.find((x) => x.id === "trafego")!.mensalidade!);
     expect(mensalidadeDoPacoteComTrafego()).toBe(3290);
   });
