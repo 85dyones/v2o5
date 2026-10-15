@@ -40,7 +40,8 @@ Antes de vender repasse e consulta para outra loja: tirar o que é da Motors (no
 ## Serviços
 | Serviço | Implantação a partir de | Mensalidade a partir de |
 |---|---|---|
-| Conteúdo e redes com IA | R$ 1.500 | R$ 1.290 (12 publicações, 2 redes; produção de imagem à parte) |
+| Conteúdo e gestão de redes sociais | R$ 1.500 | R$ 1.699 (2 redes, 12 publicações por mês; produção de foto, vídeo e peças à parte; resposta a comentários e mensagens à parte) |
+| Gestão de comentários e Direct | R$ 1.900 | R$ 590, somada ao conteúdo (automação no Instagram e no Facebook, 500 conversas por mês; R$ 190 a cada 500 a mais; uso do modelo de IA repassado; o que a automação não resolve vai para a equipe do cliente) |
 | Fluxo de automação | R$ 1.900 por fluxo | sem (manutenção na mensalidade do plano) |
 | Branding e gestão de marca | sob consulta | sob consulta |
 
@@ -62,7 +63,7 @@ O preço de cada cartão sai de `precoDa` (`CAPACIDADES` em `precos.ts`): o plan
 | Agente de IA no WhatsApp, CRM | plano Atendimento | `/agente-de-ia-para-whatsapp`, `/crm-com-whatsapp` |
 | Painel do dono, Reativação de base | módulos | `/diagnostico` |
 | Automação de processos, Pós-venda, Integrações | fluxo de automação | `/automacao-com-ia`, `/diagnostico` |
-| Conteúdo e redes com IA, Branding | serviços | `/diagnostico` |
+| Conteúdo e gestão de redes sociais, Branding (Gestão de comentários e Direct só na tabela) | serviços | `/diagnostico` |
 
 ## Segmento automotivo
 O hub `/segmentos/revendas-de-veiculos` vende o plano Completo com o site de estoque (R$ 14.900 + R$ 1.990/mês até 31/12/2026; depois R$ 2.290), os módulos de revenda (consulta veicular, área de repasse) e o tráfego no Completo (R$ 1.300). Argumento: com margem de R$ 7.000 por carro (referência do plano de mídia da Motors), uma venda a mais a cada 3 meses paga a mensalidade do Completo. Revenda Mais em produção; Autoconf, BNDV, Boom, Altimus e Syonet integráveis por fluxo.
@@ -89,8 +90,12 @@ Custo pela tabela de 12/10 (abaixo): infra por cliente e hora do fundador a R$ 1
 | Reativação e campanhas | R$ 290 | R$ 75 | 74% |
 | Consulta veicular | R$ 190 | R$ 75 | 61% (e R$ 19,90 por placa, 40%) |
 | Área de repasse | R$ 390 | R$ 160 | 59% |
+| Conteúdo e gestão de redes sociais | R$ 1.699 | R$ 850 (4 h e ferramentas) | 50% |
+| Gestão de comentários e Direct | R$ 590 | R$ 330 (2 h e VPS) | 44% |
 
 ## Histórico
+- 15/10/2026: entra Gestão de comentários e Direct, R$ 1.900 + R$ 590/mês, separada do conteúdo (Dyones: "gestão é um valor a parte, vamos fazer com automação").
+- 15/10/2026: "Conteúdo e redes com IA" (R$ 1.500 + R$ 1.290/mês) vira "Conteúdo e gestão de redes sociais" a R$ 1.500 + R$ 1.699/mês (sobe só a mensalidade), sem "IA" no nome; escopo igual (2 redes, 12 publicações, produção à parte). Referência de mercado: TagX Crescimento R$ 1.590 (até 2 redes, até 12 posts).
 - 10/10 a 14/10/2026: tabela de quinze linhas em dois pilares (site R$ 7.900 + R$ 690, rastreamento R$ 2.900 + R$ 690, agente R$ 3.900 + R$ 790, CRM e painel R$ 4.900 + R$ 790, reativação R$ 950 por campanha, branding R$ 1.500), piso de R$ 690 e teto de R$ 1.990 para as linhas de sistema, pacote automotivo R$ 14.900 + R$ 1.990. Substituída pelo cardápio de 15/10.
 
 ## Custo da mensalidade e pisos revisados (12/10/2026; base da tabela de margem acima)
@@ -103,7 +108,7 @@ Custos de infra por cliente (páginas de preço lidas em 12/10/2026; dólar de r
 | Agente de IA | ~R$ 40 (+ IA e WhatsApp repassados) | 3 | ~R$ 490 | R$ 790 | 38% | R$ 790 até 500 conversas/mês; +R$ 190 a cada 500 |
 | CRM | ~R$ 80 (projeto Supabase + Chatwoot) | 3 | ~R$ 530 | R$ 590 | 10% | **R$ 790** com 5 usuários; usuário extra R$ 89/mês; acima de 20 mil contatos ou 8 GB: +R$ 190/mês |
 | Painel do dono | ~R$ 80 (ou compartilha o projeto do CRM) | 3 | ~R$ 530 | (novo) | | **R$ 790** com 3 usuários e 3 fontes; usuário extra R$ 89/mês; fonte extra R$ 1.900 + R$ 190/mês; acima de 8 GB ou 1 milhão de linhas: compute do Supabase repassado + 20% |
-| Conteúdo e redes com IA | ~R$ 250 (ferramentas e IA) | 4 | ~R$ 850 | (novo) | | R$ 1.500 de configuração + **R$ 1.290/mês** (12 posts, 2 redes) |
+| Conteúdo e redes com IA | ~R$ 250 (ferramentas e IA) | 4 | ~R$ 850 | (novo) | | R$ 1.500 de configuração + ~~R$ 1.290/mês~~ **R$ 1.699/mês** desde 15/10 (12 posts, 2 redes) |
 
 Referências do usuário extra: Power BI Pro R$ 80,10/usuário/mês (beanalytic, jul/2026); Cubo Suite R$ 267/mês com 3 usuários e R$ 89 por usuário extra (blog.cubosuite.com.br, 2026).
 Pacote automotivo: soma das mensalidades passou a R$ 2.760 (590 + 790 + 790 + 590) em 12/10 e a R$ 2.960 com o piso de R$ 690 em 13/10; pacote segue em R$ 1.990 (33% abaixo), com 5 usuários; usuário extra R$ 89.
@@ -124,6 +129,13 @@ Fontes comerciais (blogs de agências, tabelas de fornecedores); nenhuma é leva
 - Agência pequena: R$ 1.000 a R$ 3.500/mês (plusbusiness, jun/2026); post2go (2026) cita R$ 2.000 a R$ 4.000 por 1 rede e R$ 4.000 a R$ 8.000 por 3 redes.
 - Tabela pública da TagX (Florianópolis, lida em 12/10/2026): Essencial R$ 1.090/mês (1 rede, até 8 posts), Crescimento R$ 1.590 (até 2 redes, até 12 posts, relatório), Domínio R$ 2.290 (até 3 redes, até 20 posts). Edição de vídeo só com material do cliente; produção de vídeo e resposta a mensagens fora de todos os planos; ciclo mínimo de 3 meses.
 - Ferramentas de agendamento e IA: mLabs R$ 139 a R$ 739/mês, Etus R$ 99 a R$ 346, Post2GO R$ 297 a R$ 897 (post2go, 2026).
+
+**Gestão de comentários e Direct (pesquisa de 15/10/2026)**
+- Feita por pessoa: pacotes de R$ 800 a R$ 1.500 não incluem; de R$ 1.500 a R$ 3.500 incluem, em horário comercial (jamilefernandes.com.br, atualizado em 19/08/2026). Pacotes com monitoramento ativo de comentários e mensagens passam de R$ 5.000 (agenciadbox.com.br, 25/08/2026).
+- Robô de atendimento (WhatsApp, site, Instagram): implantação R$ 500 a R$ 3.000; mensalidade R$ 80 a R$ 250 com fluxo fixo, R$ 300 a R$ 600 com IA conversacional, R$ 600 a R$ 1.200 integrado ao CRM (spinmidia.com.br, 03/06/2026).
+- Automação de Instagram com IA: MVP de um fluxo R$ 2.000 a R$ 3.000 + R$ 800/mês (gruponogueiramkt.com, 15/01/2025; vende o serviço e os números da página divergem entre seções).
+- Ferramentas: ManyChat Pro a partir de US$ 15/mês por contatos ativos, IA US$ 29/mês (eesel.ai, 2026); WiiChat R$ 197 e R$ 297/mês; BotConversa R$ 189 e R$ 199/mês no anual, foco em WhatsApp.
+- Meta: sem tarifa por mensagem na API do Instagram (fontes de terceiros: blotato, getphyllo, 2026). Resposta privada a comentário: uma mensagem, em até 7 dias; a conversa continua na janela de 24 h se a pessoa responder (developers.facebook.com, Private Replies).
 
 **BI e dashboards**
 - Consultoria Power BI: hora de R$ 50 a mais de R$ 150 conforme senioridade; dashboard simples leva 40 a 80 horas; projeto pontual "parte de alguns milhares de reais" (beanalytic.com.br, 28/07/2026). Data Facts (nov/2025, revisado jan/2026): projetos pequenos R$ 5.000 a R$ 15.000 (dashboards pontuais, fontes simples), médios R$ 20.000 a R$ 50.000, enterprise acima de R$ 100.000; fee mensal de sustentação sem valor publicado.
