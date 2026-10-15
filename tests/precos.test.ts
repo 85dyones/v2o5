@@ -68,13 +68,16 @@ describe("tabela de preços", () => {
     expect(new Date(`${OFERTA_DO_COMPLETO.ate}T23:59:59-03:00`).getTime()).toBeGreaterThan(Date.now());
   });
 
-  it("nenhuma mensalidade que mantém sistema no ar fica abaixo do piso; módulos rodam em cima do plano", () => {
+  it("nenhuma mensalidade que mantém sistema no ar fica abaixo do piso; módulos e adicionais rodam em cima de outra mensalidade", () => {
     expect(PISO_DA_MENSALIDADE).toBe(690);
     for (const p of PLANOS) expect(mensalidadeDoPlano(p), p.nome).toBeGreaterThanOrEqual(PISO_DA_MENSALIDADE);
+    // Abaixo do piso só o que é vendido somado a outra mensalidade, que já paga o custo fixo.
+    const somadas: Record<string, RegExp> = { trafegoNoCompleto: /plano Completo/, comentarios: /Conteúdo e gestão de redes sociais/ };
     for (const l of LINHAS_DE_PRECO) {
       if (!l.mensalidade) continue;
       if (l.grupo === "modulo") expect(l.requisito, l.nome).toMatch(/Atendimento ou Completo/);
-      else if (l.id !== "trafegoNoCompleto") expect(l.mensalidade, l.nome).toBeGreaterThanOrEqual(PISO_DA_MENSALIDADE);
+      else if (somadas[l.id]) expect(l.requisito, l.nome).toMatch(somadas[l.id]);
+      else expect(l.mensalidade, l.nome).toBeGreaterThanOrEqual(PISO_DA_MENSALIDADE);
     }
   });
 
@@ -98,7 +101,7 @@ describe("tabela de preços", () => {
     expect(b.sobConsulta).toBe(true);
     expect(b.implantacao).toBeUndefined();
     expect(precoDa("branding")).toBe("sob consulta");
-    expect(linhasDoGrupo("servico").map((l) => l.id)).toEqual(["redes", "automacao", "branding"]);
+    expect(linhasDoGrupo("servico").map((l) => l.id)).toEqual(["redes", "comentarios", "automacao", "branding"]);
   });
 
   it("cada número do código está em oferta.md", () => {
@@ -142,6 +145,7 @@ describe("tabela de preços", () => {
     expect(precoDa("trafego")).toBe("a partir de R$ 1.990/mês + verba");
     expect(precoDa("catalogo")).toBe("incluso no Google Ads e Meta Ads juntos");
     expect(precoDa("redes")).toBe("a partir de R$ 1.500 + R$ 1.699/mês");
+    expect(precoDaLinha(linhaDePreco("comentarios"))).toBe("a partir de R$ 1.900 + R$ 590/mês");
     expect(precoDa("automacao")).toBe("a partir de R$ 1.900 por fluxo");
     expect(precoDa("reativacao")).toBe("a partir de R$ 1.900 + R$ 290/mês");
     expect(precoDa("painel")).toBe("a partir de R$ 3.900 + R$ 490/mês; implantação de bônus no Completo");

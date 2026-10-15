@@ -349,8 +349,22 @@ export const LINHAS_DE_PRECO: LinhaDePreco[] = [
     implantacao: 1500,
     mensalidade: 1699,
     cobre:
-      "Duas redes com perfis configurados, calendário e 12 publicações por mês feitas do que a empresa já produz, cada uma com link rastreado, e relatório mensal. Produção de foto, vídeo e peças fica à parte.",
+      "Duas redes com perfis configurados, calendário e 12 publicações por mês feitas do que a empresa já produz, cada uma com link rastreado, e relatório mensal. Produção de foto, vídeo e peças fica à parte, e a resposta a comentários e mensagens também.",
     inclui: ["12 publicações por mês", "2 redes"],
+  },
+  {
+    id: "comentarios",
+    nome: "Gestão de comentários e Direct",
+    href: "/diagnostico",
+    grupo: "servico",
+    implantacao: 1900,
+    mensalidade: 590,
+    cobre:
+      "Entra somada ao Conteúdo e gestão de redes sociais. Comentários e mensagens do Instagram e do Facebook são respondidos por automação: no comentário vai uma resposta curta e a informação segue no Direct, e ofensa e spam ficam escondidos. No Direct, um agente tira as dúvidas frequentes e manda o lead para o WhatsApp com link rastreado. Reclamação, ou quem pede para falar com alguém, vai para a caixa de atendimento da equipe da empresa.",
+    inclui: [`${DEGRAUS.conversas.bloco} conversas por mês`],
+    degraus: [{ rotulo: `Cada ${DEGRAUS.conversas.bloco} conversas a mais`, valor: DEGRAUS.conversas.valor, unidade: "/mês" }],
+    repasses: ["Uso do modelo de IA"],
+    requisito: "Somada à mensalidade do Conteúdo e gestão de redes sociais",
   },
   {
     id: "automacao",
