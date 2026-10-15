@@ -8,6 +8,9 @@ claude plugin install audit-suite@anthropic-plugin-directory
 claude plugin install perf-profiler-lighthouse-and-core-web-vitals@anthropic-plugin-directory
 claude plugin install parallax-threejs@anthropic-plugin-directory
 claude plugin install axe-accessibility@anthropic-plugin-directory
+# 15/10: marketplace oficial (não vem configurado no contêiner)
+claude plugin marketplace add anthropics/claude-plugins-official
+claude plugin install hostinger@claude-plugins-official
 ```
 Plugins carregam na sessão seguinte à instalação. Sem recarregar, leia o `SKILL.md` direto em `~/.claude/plugins/cache/anthropic-plugin-directory/<plugin>/<versão>/skills/<skill>/SKILL.md`.
 
@@ -18,6 +21,7 @@ Plugins carregam na sessão seguinte à instalação. Sem recarregar, leia o `SK
 | perf-profiler | Lighthouse e Core Web Vitals explicados |
 | parallax-threejs | Depuração de WebGL e regressão visual (MCPs de Chrome DevTools e Playwright) |
 | axe-accessibility | Habilidades de a11y; o scanner MCP exige conta Deque (não temos). Alternativa: `@axe-core/playwright` |
+| hostinger (1.2.0) | MCP remoto `https://mcp.hostinger.com` (DNS, e-mail, domínios, hospedagem, VPS) e 7 skills de deploy. Login por OAuth no navegador na primeira chamada: até o Dyones autorizar, as ferramentas não respondem. Serve para os alias de e-mail (pendência 9) e para a troca do DNS (`docs/checagem-antes-do-dns.md`) |
 
 ## Já disponíveis
 Skills: humanizer (texto público), searchfit-seo (schema, on-page, auditoria), marketing, artifact-design (canvas). MCPs: Supabase, Vercel, GitHub. Chromium em `/opt/pw-browsers` (não rodar `playwright install`).
