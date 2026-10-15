@@ -2,6 +2,9 @@
 
 Log datado. Decisão nova entra no topo do dia; decisão revogada fica riscada com a data da troca.
 
+## 15/10/2026 (DNS e subdomínio dos painéis, pelo Dyones: "preciso que me oriente para direcionar o dns do site oficial que está na hostinger, para a vercel, apenas o site, vou manter o domínio lá, tenho hospedagem de sites contratada até 2027 lá, quero criar um subdominio para hospedar os paineis gerenciais de alguns clientes, a começar pela 16ª Vara Cível")
+- Domínio e DNS seguem na Hostinger; só apex e `www` vão para a Vercel. A hospedagem de sites (até 2027) serve `painel.v2o5.com.br`: um subdomínio só, uma pasta com senha por cliente (subdomínio por cliente exporia o nome nos registros públicos de certificados), `noindex`, só HTTPS, páginas estáticas com números agregados, sem dado pessoal e sem banco aberto para a internet. Primeiro cliente: a 16ª Vara Cível. O WordPress sai da hospedagem depois do backup. Roteiro em `docs/checagem-antes-do-dns.md` (seções 4 a 6).
+
 ## 15/10/2026 (confirmações do cardápio, pelo Dyones: "confirmados ambos os casos")
 - O preço de R$ 1.990/mês do Completo vale até **31/12/2026**. O bônus de fechamento cobre só a **implantação** do Painel do dono (R$ 3.900); a mensalidade do painel (R$ 490) segue. As duas leituras já estavam publicadas; nada muda no site. Sai a pendência 19.
 
