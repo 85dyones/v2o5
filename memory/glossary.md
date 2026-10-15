@@ -35,7 +35,9 @@ Tudo que aparece abreviado nas conversas do projeto. O que é usado toda hora ta
 |---|---|
 | Start Digital | Redes, Perfil de Empresa, domínio, e-mail; saiu do cardápio, é fundação dos sites |
 | Diagnóstico | Gratuito; 45 min + mapa em 24 h com 3 mudanças de maior retorno |
-| Pacote completo | Site de estoque + IA + CRM + rastreamento + integração com o sistema da loja (Revenda Mais em produção): R$ 14.900 + R$ 1.990/mês, o teto da mensalidade |
+| Pacote completo | Nome até 14/10 do que virou o plano Completo |
+| Presença, Atendimento, Completo | Os três planos do cardápio de 15/10: ser encontrado (site, Google, rastreamento); responder (agente e CRM); os dois mais integração e um fluxo, o sistema da Motors |
+| Módulo | Peça vendida em cima do Atendimento ou do Completo: painel do dono, reativação e campanhas, funil sob medida, consulta veicular, área de repasse |
 | Cláusula de saída | Loja que cancela recebe código, dados e domínio em até 15 dias |
 | Camada | "A camada que gera e mede a venda é sua": frase para o segmento automotivo |
 

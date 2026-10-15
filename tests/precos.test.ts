@@ -1,23 +1,27 @@
 import { describe, expect, it } from "vitest";
 import {
-  AUTOMOTIVO_PRECO,
   BRL,
-  CANAIS_DA_REATIVACAO,
+  CAPACIDADES,
+  dataBR,
   DEGRAUS,
-  descontoDoPacote,
   economiaDoTrafegoJunto,
   FOTOGRAFIA_PARCEIRA,
   LINHAS_DE_PRECO,
-  linhasDoPilar,
-  mensalidadeDoPacoteComTrafego,
+  linhaDePreco,
+  linhasDoGrupo,
+  mensalidadeDoCompletoComTrafego,
+  mensalidadeDoPlano,
   mesesQueUmaVendaPaga,
-  LINHAS_NO_TETO,
-  mensalidadeComTeto,
+  OFERTA_DO_COMPLETO,
+  ofertaDaCapacidade,
   PISO_DA_MENSALIDADE,
+  plano,
+  PLANOS,
   precoDa,
+  precoDaLinha,
   REAJUSTE,
-  somaDoPacote,
-  TETO_DA_MENSALIDADE,
+  somaDosPlanosSeparados,
+  USUARIOS_NO_CRM,
 } from "@/conteudo/precos";
 import { HUB_AUTOMOTIVO } from "@/conteudo/automotivo";
 import { AUTOMOTIVO, LINHAS, PILARES } from "@/conteudo/home";
@@ -25,157 +29,159 @@ import { ler } from "./fonte";
 
 /**
  * `precos.ts` é a fonte; `memory/context/oferta.md` repete os números. Aqui
- * os dois lados são comparados, e a regra do piso de R$ 690 fica travada.
+ * os dois lados são comparados, e as decisões do cardápio de 15/10 ficam
+ * travadas.
  */
 
 const oferta = ler("memory/context/oferta.md");
 
 describe("tabela de preços", () => {
-  it("formata em real com ponto de milhar", () => {
+  it("formata em real com ponto de milhar, e centavos só quando há", () => {
     expect(BRL(690)).toBe("R$ 690");
     expect(BRL(7900)).toBe("R$ 7.900");
     expect(BRL(14900)).toBe("R$ 14.900");
+    expect(BRL(49.9)).toBe("R$ 49,90");
+    expect(dataBR("2026-12-31")).toBe("31/12/2026");
   });
 
-  it("nenhuma mensalidade fica abaixo do piso de hospedagem e manutenção", () => {
-    expect(PISO_DA_MENSALIDADE).toBe(690);
-    for (const l of LINHAS_DE_PRECO) {
-      if (l.mensalidade) expect(l.mensalidade, l.nome).toBeGreaterThanOrEqual(PISO_DA_MENSALIDADE);
-    }
-    expect(AUTOMOTIVO_PRECO.siteDeEstoque.mensalidade).toBeGreaterThanOrEqual(PISO_DA_MENSALIDADE);
-  });
-
-  it("a mensalidade tem teto para as linhas de sistema (Dyones, 13/10)", () => {
-    expect(TETO_DA_MENSALIDADE).toBe(1990);
-    expect(TETO_DA_MENSALIDADE).toBeGreaterThan(PISO_DA_MENSALIDADE);
-    expect([...LINHAS_NO_TETO]).toEqual(["sites", "rastreamento", "agente", "crm", "painel"]);
-    for (const id of LINHAS_NO_TETO) expect(LINHAS_DE_PRECO.find((l) => l.id === id)?.mensalidade, id).toBeGreaterThan(0);
-    expect(mensalidadeComTeto(["sites"])).toEqual({ soma: 690, cobrada: 690 });
-    expect(mensalidadeComTeto(["sites", "agente", "crm", "rastreamento"])).toEqual({ soma: 2960, cobrada: 1990 });
-    expect(mensalidadeComTeto([...LINHAS_NO_TETO])).toEqual({ soma: 3750, cobrada: 1990 });
-    // Tráfego e conteúdo não entram no teto.
-    expect(mensalidadeComTeto(["sites", "trafego", "redes"])).toEqual({ soma: 690, cobrada: 690 });
-    expect(AUTOMOTIVO_PRECO.pacote.mensalidade).toBe(TETO_DA_MENSALIDADE);
-    const oferta = ler("memory/context/oferta.md");
-    expect(oferta).toContain("Teto da mensalidade: R$ 1.990");
-  });
-
-  it("a reativação custa metade por campanha e tem pacote para mais de uma (Dyones, 13/10)", () => {
-    const r = LINHAS_DE_PRECO.find((l) => l.id === "reativacao")!;
-    expect(r.implantacao).toBe(950);
-    expect(r.degraus?.map((d) => [d.rotulo, d.valor])).toEqual([
-      ["Canal extra", 490],
-      ["Cada 5 mil contatos a mais", 290],
-      ["Pacote de 3 campanhas", 2490],
-      ["Campanha todo mês", 790],
-      ["Número dedicado no WhatsApp não oficial", 290],
+  it("três planos com preço fechado (Dyones, 15/10)", () => {
+    expect(PLANOS.map((p) => [p.id, p.implantacao, p.mensalidade])).toEqual([
+      ["presenca", 8900, 990],
+      ["atendimento", 7900, 1590],
+      ["completo", 14900, 2290],
     ]);
-    expect(2490 / 3).toBeLessThan(950);
+    expect(somaDosPlanosSeparados()).toEqual({ implantacao: 16800, mensalidade: 2580 });
+    expect(plano("completo").rodape).toContain("R$ 16.800 + R$ 2.580/mês");
+    expect(plano("completo").mensalidade).toBeLessThan(somaDosPlanosSeparados().mensalidade);
+    expect(plano("atendimento").inclui.join(" ")).toContain(`${USUARIOS_NO_CRM} usuários`);
+  });
+
+  it("o Completo passou de 7 horas e foi a R$ 2.290, com R$ 1.990 por tempo limitado e o painel de bônus", () => {
+    const c = plano("completo");
+    expect(OFERTA_DO_COMPLETO.mensalidade).toBe(1990);
+    expect(mensalidadeDoPlano(c)).toBe(1990);
+    expect(c.bonus).toMatch(/Painel do dono/);
+    expect(linhaDePreco("painel").bonus).toMatch(/Completo/);
+    expect(oferta).toContain("R$ 1.990 por tempo limitado, até 31/12/2026");
+    // A oferta não pode ficar no ar vencida: quando a data passar, este teste
+    // falha e o preço temporário sai de `precos.ts` (ou ganha data nova).
+    expect(new Date(`${OFERTA_DO_COMPLETO.ate}T23:59:59-03:00`).getTime()).toBeGreaterThan(Date.now());
+  });
+
+  it("nenhuma mensalidade que mantém sistema no ar fica abaixo do piso; módulos rodam em cima do plano", () => {
+    expect(PISO_DA_MENSALIDADE).toBe(690);
+    for (const p of PLANOS) expect(mensalidadeDoPlano(p), p.nome).toBeGreaterThanOrEqual(PISO_DA_MENSALIDADE);
+    for (const l of LINHAS_DE_PRECO) {
+      if (!l.mensalidade) continue;
+      if (l.grupo === "modulo") expect(l.requisito, l.nome).toMatch(/Atendimento ou Completo/);
+      else if (l.id !== "trafegoNoCompleto") expect(l.mensalidade, l.nome).toBeGreaterThanOrEqual(PISO_DA_MENSALIDADE);
+    }
+  });
+
+  it("módulos: painel, reativação, funil, consulta e repasse, os dois últimos só no hub de revendas", () => {
+    expect(linhasDoGrupo("modulo").map((l) => l.id)).toEqual(["painel", "reativacao", "funil"]);
+    expect(linhasDoGrupo("modulo", "revendas").map((l) => l.id)).toEqual(["consulta", "repasse"]);
+    const valores = (id: string) => [linhaDePreco(id).implantacao, linhaDePreco(id).mensalidade];
+    expect(valores("painel")).toEqual([3900, 490]);
+    expect(valores("reativacao")).toEqual([1900, 290]);
+    expect(valores("funil")).toEqual([1900, undefined]);
+    expect(valores("consulta")).toEqual([990, 190]);
+    expect(valores("repasse")).toEqual([2900, 390]);
+    expect(linhaDePreco("consulta").porUso).toEqual({ valor: 49.9, unidade: "por placa" });
+    expect(precoDaLinha(linhaDePreco("consulta"))).toBe("a partir de R$ 990 + R$ 190/mês e R$ 49,90 por placa");
+    expect(linhaDePreco("reativacao").degraus?.map((d) => d.valor)).toEqual([950, 2490]);
+    expect(linhaDePreco("reativacao").cobre, "SMS testado e funcional (Dyones, 15/10)").toMatch(/SMS/);
+  });
+
+  it("branding sai da tabela e fica anunciado como serviço sob consulta", () => {
+    const b = linhaDePreco("branding");
+    expect(b.sobConsulta).toBe(true);
+    expect(b.implantacao).toBeUndefined();
+    expect(precoDa("branding")).toBe("sob consulta");
+    expect(linhasDoGrupo("servico").map((l) => l.id)).toEqual(["redes", "automacao", "branding"]);
   });
 
   it("cada número do código está em oferta.md", () => {
     const valores = new Set<number>();
+    for (const p of PLANOS) [p.implantacao, p.mensalidade].forEach((v) => valores.add(v));
     for (const l of LINHAS_DE_PRECO) {
       if (l.implantacao) valores.add(l.implantacao);
       if (l.mensalidade) valores.add(l.mensalidade);
+      if (l.porUso) valores.add(l.porUso.valor);
       for (const d of l.degraus ?? []) valores.add(d.valor);
     }
-    for (const v of [DEGRAUS.usuarioExtra, DEGRAUS.conversas.valor, DEGRAUS.dados.valor, DEGRAUS.fonteExtra.implantacao, DEGRAUS.fonteExtra.mensalidade]) {
-      valores.add(v);
-    }
+    for (const v of [DEGRAUS.usuarioExtra, DEGRAUS.conversas.valor, DEGRAUS.dados.valor, OFERTA_DO_COMPLETO.mensalidade]) valores.add(v);
     valores.add(economiaDoTrafegoJunto());
-    const { siteDeEstoque, pacote, trafegoNoPacote } = AUTOMOTIVO_PRECO;
-    for (const v of [siteDeEstoque.implantacao, siteDeEstoque.mensalidade, pacote.implantacao, pacote.mensalidade, trafegoNoPacote]) {
-      valores.add(v);
-    }
-    valores.add(mensalidadeDoPacoteComTrafego());
-    valores.add(somaDoPacote().implantacao);
-    valores.add(somaDoPacote().mensalidade);
+    valores.add(mensalidadeDoCompletoComTrafego());
+    valores.add(somaDosPlanosSeparados().implantacao);
+    valores.add(somaDosPlanosSeparados().mensalidade);
+    valores.add(FOTOGRAFIA_PARCEIRA.aPartirDe);
     for (const v of valores) expect(oferta, BRL(v)).toContain(BRL(v));
+    for (const l of LINHAS_DE_PRECO) expect(oferta, l.nome).toContain(l.nome.replace(" (cada plataforma)", ""));
   });
 
-  it("os cartões da home e o pacote usam o texto da tabela", () => {
+  it("cada cartão da home mora num plano ou numa linha, e o preço sai de lá", () => {
     for (const l of LINHAS) {
-      const daTabela = LINHAS_DE_PRECO.find((x) => x.id === l.linha);
-      expect(daTabela, l.titulo).toBeDefined();
-      expect(daTabela!.href, l.titulo).toBe(l.href);
-      expect(l.preco).toBe(precoDa(daTabela!.id));
+      expect(CAPACIDADES[l.linha], l.titulo).toBeDefined();
+      expect(l.preco, l.titulo).toBe(precoDa(l.linha));
+      expect(oferta).toContain(`\`${l.href}\``);
     }
     for (const s of PILARES.flatMap((p) => p.servicos)) {
       if (s.linha) expect(s.preco, s.titulo).toBe(precoDa(s.linha));
     }
-    expect(PILARES[0].servicos[0].preco).toBe(precoDa("branding"));
-    expect(AUTOMOTIVO.preco).toContain(BRL(AUTOMOTIVO_PRECO.pacote.implantacao));
-    expect(AUTOMOTIVO.preco).toContain(BRL(AUTOMOTIVO_PRECO.pacote.mensalidade));
-  });
-
-  it("o desconto do pacote e a conta da margem batem com oferta.md", () => {
-    const d = descontoDoPacote();
-    expect(d.implantacao).toBe(24);
-    expect(d.mensalidade).toBe(33);
-    expect(oferta).toContain(`${d.implantacao}% sobre a soma das implantações`);
-    expect(oferta).toContain(`${d.mensalidade}% sobre a soma das mensalidades`);
-    expect(mesesQueUmaVendaPaga()).toBe(3);
-    expect(oferta).toContain("uma venda a mais a cada 3 meses");
+    expect(AUTOMOTIVO.preco).toContain(BRL(plano("completo").implantacao));
+    expect(AUTOMOTIVO.preco).toContain(BRL(OFERTA_DO_COMPLETO.mensalidade));
   });
 
   it("os textos de preço seguem o formato dos cartões", () => {
-    expect(precoDa("sites")).toBe("a partir de R$ 7.900 + R$ 690/mês");
-    expect(precoDa("googleAds")).toBe("a partir de R$ 1.200/mês + verba");
+    expect(precoDa("sites")).toBe("no plano Presença, a partir de R$ 8.900 + R$ 990/mês");
+    expect(precoDa("agente")).toBe("no plano Atendimento, a partir de R$ 7.900 + R$ 1.590/mês");
+    expect(precoDa("avaliacoes")).toBe("incluso no plano Presença");
+    expect(precoDa("rastreamento")).toBe("a partir de R$ 2.900 + R$ 690/mês, ou no plano Presença");
+    expect(precoDa("googleAds")).toBe("a partir de R$ 1.200/mês + verba, por plataforma");
     expect(precoDa("trafego")).toBe("a partir de R$ 1.990/mês + verba");
-    expect(precoDa("catalogo")).toBe("a partir de R$ 1.900 por feed");
+    expect(precoDa("catalogo")).toBe("incluso no Google Ads e Meta Ads juntos");
     expect(precoDa("redes")).toBe("a partir de R$ 1.500 + R$ 1.290/mês");
     expect(precoDa("automacao")).toBe("a partir de R$ 1.900 por fluxo");
-    expect(precoDa("reativacao")).toBe("a partir de R$ 950 por campanha");
-    expect(precoDa("branding")).toBe("a partir de R$ 1.500 por projeto");
+    expect(precoDa("reativacao")).toBe("a partir de R$ 1.900 + R$ 290/mês");
+    expect(precoDa("painel")).toBe("a partir de R$ 3.900 + R$ 490/mês; implantação de bônus no Completo");
   });
 
-  it("o que cresce com o cliente tem preço publicado, e CRM e painel sobem para 790 (Dyones, 12/10)", () => {
+  it("a página de solução mostra o plano em que a peça mora, ou a linha própria", () => {
+    expect(ofertaDaCapacidade("sites")).toMatchObject({ nome: "Plano Presença", implantacao: 8900, mensalidade: 990 });
+    expect(ofertaDaCapacidade("crm")).toMatchObject({ nome: "Plano Atendimento", implantacao: 7900, mensalidade: 1590 });
+    expect(ofertaDaCapacidade("rastreamento")).toMatchObject({ id: "rastreamento", implantacao: 2900, mensalidade: 690 });
+    expect(ofertaDaCapacidade("automacao")).toMatchObject({ id: "automacao", implantacao: 1900 });
+  });
+
+  it("o que cresce com o cliente tem preço publicado", () => {
     expect(DEGRAUS.usuarioExtra).toBe(89);
-    expect(oferta).toContain("usuário extra R$ 89/mês");
-    for (const id of ["crm", "painel"]) {
-      const l = LINHAS_DE_PRECO.find((x) => x.id === id)!;
-      expect(l.mensalidade, id).toBe(790);
-      expect(l.inclui?.join(" "), id).toMatch(/usuários/);
-      expect(l.degraus?.map((d) => d.rotulo), id).toContain("Usuário extra");
-    }
-    const agente = LINHAS_DE_PRECO.find((x) => x.id === "agente")!;
-    expect(agente.degraus?.[0]).toEqual({ rotulo: "Cada 500 conversas a mais", valor: 190, unidade: "/mês" });
+    expect(oferta).toContain("Usuário extra R$ 89/mês");
+    expect(linhaDePreco("painel").degraus?.map((d) => d.rotulo)).toContain("Usuário extra");
     expect(REAJUSTE).toEqual({ indice: "IPCA", gatilhoCambial: 10 });
     expect(oferta).toContain("IPCA ao ano");
     expect(oferta).toContain("acima de 10%");
   });
 
-  it("tráfego por plataforma, os dois juntos com o feed de bônus, e a soma do pacote com as duas plataformas", () => {
-    expect(precoDa("googleAds")).toBe(precoDa("metaAds"));
+  it("tráfego por plataforma, as duas juntas com o feed, e o preço no Completo", () => {
+    expect(precoDaLinha(linhaDePreco("googleAds"))).toBe(precoDaLinha(linhaDePreco("metaAds")));
     expect(economiaDoTrafegoJunto()).toBe(410);
-    expect(LINHAS_DE_PRECO.find((x) => x.id === "trafego")?.bonus).toMatch(/Feed de catálogo incluso/);
-    expect(LINHAS_DE_PRECO.find((x) => x.id === "metaAds")?.cobre, "Meta Ads abre conversa no WhatsApp (Dyones, 14/10)").toMatch(/WhatsApp/);
+    expect(linhaDePreco("trafego").bonus).toMatch(/Feed de catálogo incluso/);
+    expect(linhaDePreco("metaAds").cobre, "Meta Ads abre conversa no WhatsApp (Dyones, 14/10)").toMatch(/WhatsApp/);
     expect(oferta).toMatch(/Meta Ads[^\n]*WhatsApp/);
-    expect(AUTOMOTIVO_PRECO.trafegoNoPacote).toBeLessThan(LINHAS_DE_PRECO.find((x) => x.id === "trafego")!.mensalidade!);
-    expect(mensalidadeDoPacoteComTrafego()).toBe(3290);
+    expect(linhaDePreco("trafegoNoCompleto").mensalidade).toBeLessThan(linhaDePreco("trafego").mensalidade!);
+    expect(mensalidadeDoCompletoComTrafego()).toBe(3290);
   });
 
-  it("a reativação de base tem três canais, nenhum recomendado, e sem tarifa de terceiro em número (Dyones, 13/10)", () => {
-    for (const c of CANAIS_DA_REATIVACAO) expect(c).not.toHaveProperty("recomendado");
-    expect(CANAIS_DA_REATIVACAO.map((c) => c.nome)).toEqual(["WhatsApp pela API oficial", "WhatsApp por número não oficial", "SMS"]);
-    expect(CANAIS_DA_REATIVACAO[0].regras).toMatch(/bases grandes/);
-    expect(CANAIS_DA_REATIVACAO[1].risco).not.toMatch(/^Alto/);
-    expect(CANAIS_DA_REATIVACAO[1].risco).toMatch(/método da V2O5/);
-    expect(CANAIS_DA_REATIVACAO[1].regras).toMatch(/termo de aceite/);
-    const tabela = ler("src/components/precos/TabelaDePrecos.tsx");
-    const reativacao = tabela.slice(tabela.indexOf("export function Reativacao"), tabela.indexOf("export function Pacote"));
-    expect(reativacao).not.toMatch(/recomendado|text-ambar/);
-    for (const c of CANAIS_DA_REATIVACAO) {
-      for (const v of c.paga.match(/R\$ [\d.,]+/g) ?? []) expect(v, c.nome).toBe("R$ 290");
-    }
+  it("a conta da margem por carro bate com oferta.md", () => {
+    expect(mesesQueUmaVendaPaga()).toBe(3);
+    expect(oferta).toContain("uma venda a mais a cada 3 meses");
   });
 
   it("fotógrafo parceiro: indicação a partir de R$ 890 por mês, no hub, em /precos e nas perguntas (Dyones, 13/10)", () => {
     expect(FOTOGRAFIA_PARCEIRA.aPartirDe).toBe(890);
     expect(FOTOGRAFIA_PARCEIRA.texto).toContain("a partir de R$ 890");
     expect(FOTOGRAFIA_PARCEIRA.texto).not.toMatch(/incr[ií]ve/);
-    expect(oferta).toContain("R$ 890");
     expect(ler("src/app/segmentos/revendas-de-veiculos/page.tsx")).toContain("<ParceiroDeFotografia />");
     expect(ler("src/app/precos/page.tsx")).toContain("<ParceiroDeFotografia />");
     expect(ler("src/components/precos/ParceiroDeFotografia.tsx")).toContain('data-evento="click_whatsapp"');
@@ -183,8 +189,14 @@ describe("tabela de preços", () => {
     expect(ler("src/components/precos/TabelaDePrecos.tsx")).toContain("FOTOGRAFIA_PARCEIRA.aPartirDe");
   });
 
-  it("cada linha está num pilar do H1, e os dois pilares cobrem a tabela inteira", () => {
-    expect(linhasDoPilar("mapa").length + linhasDoPilar("operacao").length).toBe(LINHAS_DE_PRECO.length);
-    for (const l of LINHAS_DE_PRECO) expect(oferta, l.nome).toContain(l.nome.replace(" (BI e dashboards)", ""));
+  it("piso e teto saem do site: o texto público não fala mais em teto", () => {
+    const publico = [
+      ler("src/app/precos/page.tsx"),
+      ler("src/components/precos/TabelaDePrecos.tsx"),
+      JSON.stringify(HUB_AUTOMOTIVO),
+      ler("src/conteudo/home.ts"),
+      ler("src/app/llms.txt/route.ts"),
+    ].join(" ");
+    expect(publico).not.toMatch(/\bteto\b/i);
   });
 });

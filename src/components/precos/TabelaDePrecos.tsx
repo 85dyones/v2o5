@@ -1,13 +1,35 @@
 import Link from "next/link";
 import Icone from "@/components/Icone";
-import { AUTOMOTIVO_PRECO, BRL, CANAIS_DA_REATIVACAO, DEGRAUS, descontoDoPacote, economiaDoTrafegoJunto, FOTOGRAFIA_PARCEIRA, linhaDePreco, LINHAS_NO_TETO, linhasDoPilar, mensalidadeComTeto, mensalidadeDoPacoteComTrafego, mesesQueUmaVendaPaga, PISO_DA_MENSALIDADE, REAJUSTE, REGRAS, somaDoPacote, TETO_DA_MENSALIDADE, type LinhaDePreco, type Pilar } from "@/conteudo/precos";
+import {
+  BRL,
+  dataBR,
+  DEGRAUS,
+  economiaDoTrafegoJunto,
+  FOTOGRAFIA_PARCEIRA,
+  linhaDePreco,
+  linhasDoGrupo,
+  mensalidadeDoCompletoComTrafego,
+  mesesQueUmaVendaPaga,
+  OFERTA_DO_COMPLETO,
+  plano,
+  PLANOS,
+  precoDaLinha,
+  REAJUSTE,
+  REGRAS,
+  somaDosPlanosSeparados,
+  USUARIOS_NO_CRM,
+  type LinhaDePreco,
+  type Plano,
+} from "@/conteudo/precos";
 
 export function implantacao(l: LinhaDePreco) {
+  if (l.sobConsulta) return "sob consulta";
   if (l.implantacao) return `${BRL(l.implantacao)}${l.unidade ? ` ${l.unidade}` : ""}`;
   return l.semImplantacao ?? "";
 }
 
 export function mensalidade(l: LinhaDePreco) {
+  if (l.sobConsulta) return "sob consulta";
   if (!l.mensalidade) return l.unidade ? "sem mensalidade" : "";
   return `${BRL(l.mensalidade)}/mês${l.maisVerba ? " + verba" : ""}`;
 }
@@ -57,161 +79,168 @@ export function Detalhes({ l }: { l: LinhaDePreco }) {
   );
 }
 
-const PILARES_DA_TABELA: { id: Pilar; numero: string; titulo: string; frase: string }[] = [
-  {
-    id: "mapa",
-    numero: "01",
-    titulo: "Coloque sua empresa no mapa.",
-    frase: "Site, Google, anúncios, redes e avaliações. O que faz quem procura achar você.",
-  },
-  {
-    id: "operacao",
-    numero: "02",
-    titulo: "Multiplique a operação com IA.",
-    frase: "Agente, CRM, painel e automações. O que atende, organiza e devolve o cliente ao funil.",
-  },
-];
+/** Preço do cartão de plano: o Completo mostra a oferta e a mensalidade de tabela riscada. */
+function PrecoDoPlano({ p }: { p: Plano }) {
+  const emOferta = p.id === "completo";
+  return (
+    <dl className="grid grid-cols-2 gap-x-4 gap-y-1 border-t border-linha pt-5">
+      <dt className="text-[0.75rem] font-medium uppercase tracking-[0.06em] text-secundario">Implantação</dt>
+      <dt className="text-[0.75rem] font-medium uppercase tracking-[0.06em] text-secundario">Mensalidade</dt>
+      <dd className="text-[1.375rem] font-semibold tabular-nums tracking-[-0.02em]">{BRL(p.implantacao)}</dd>
+      <dd className="text-[1.375rem] font-semibold tabular-nums tracking-[-0.02em]">
+        {BRL(emOferta ? OFERTA_DO_COMPLETO.mensalidade : p.mensalidade)}
+        <span className="text-sm font-medium text-secundario">/mês</span>
+      </dd>
+      {emOferta ? (
+        <dd className="col-start-2 text-sm text-secundario">
+          <s className="tabular-nums">{BRL(p.mensalidade)}</s> até {dataBR(OFERTA_DO_COMPLETO.ate)}
+        </dd>
+      ) : null}
+    </dl>
+  );
+}
 
 /**
- * A tabela de `precos.ts`, nos dois pilares do H1: tabela de verdade no
- * desktop, cartões no celular. Todo valor é "a partir de"; o final sai do
- * diagnóstico, com escopo fechado. O que vem incluso, o que cresce e o que
- * é repassado aparecem na própria linha, sem letra miúda.
+ * Os três planos (Dyones, 15/10): quem chega escolhe pelo problema que tem.
+ * O Completo vem destacado, com o preço por tempo limitado e o bônus de
+ * fechamento. Todo valor é "a partir de"; o final sai do diagnóstico.
  */
-export function Tabela() {
+export function Planos() {
   return (
-    <div className="grid gap-14 md:gap-20">
-      {PILARES_DA_TABELA.map((p) => {
-        const linhas = linhasDoPilar(p.id);
+    <ul className="grid gap-4 lg:grid-cols-3">
+      {PLANOS.map((p) => {
+        const completo = p.id === "completo";
         return (
-          <div key={p.id}>
-            <div className="grid gap-x-10 gap-y-3 border-t border-linha pt-7 md:grid-cols-2 md:items-end">
-              <h3 className="flex items-baseline gap-3 text-[clamp(1.5rem,1.2rem+1.2vw,2rem)] font-semibold leading-tight tracking-[-0.035em]">
-                <span className="numero text-base text-ambar">{p.numero}</span>
-                {p.titulo}
-              </h3>
-              <p className="text-[0.9375rem] leading-relaxed text-secundario md:pb-1">{p.frase}</p>
-            </div>
-
-            <table className="mt-6 hidden w-full border-collapse text-left md:table">
-              <thead>
-                <tr className="text-sm text-secundario">
-                  <th scope="col" className="w-[17%] pb-4 pr-4 font-medium">
-                    Linha
-                  </th>
-                  <th scope="col" className="w-[17%] pb-4 pr-4 font-medium">
-                    Implantação a partir de
-                  </th>
-                  <th scope="col" className="w-[17%] pb-4 pr-4 font-medium">
-                    Mensalidade a partir de
-                  </th>
-                  <th scope="col" className="pb-4 font-medium">
-                    O que cobre
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {linhas.map((l) => (
-                  <tr key={l.id} className="border-t border-linha align-top">
-                    <th scope="row" className="py-5 pr-4 font-semibold tracking-[-0.01em]">
-                      <Link href={l.href} className="link-sublinhado">
-                        {l.nome}
-                      </Link>
-                    </th>
-                    <td className="py-5 pr-4 tabular-nums">{implantacao(l)}</td>
-                    <td className="py-5 pr-4 tabular-nums">{mensalidade(l)}</td>
-                    <td className="max-w-[26rem] py-5 text-[0.9375rem] leading-relaxed text-secundario">
-                      {l.cobre}
-                      <Detalhes l={l} />
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-
-            <ul className="mt-6 grid gap-3 md:hidden">
-              {linhas.map((l) => (
-                <li key={l.id} className="superficie p-5">
-                  <Link href={l.href} className="titulo-cartao link-sublinhado">
-                    {l.nome}
-                  </Link>
-                  <dl className="mt-3 grid grid-cols-[auto_1fr] gap-x-4 gap-y-1 text-[0.9375rem]">
-                    <dt className="text-secundario">Implantação</dt>
-                    <dd className="tabular-nums">{implantacao(l) || "sem"}</dd>
-                    <dt className="text-secundario">Mensalidade</dt>
-                    <dd className="tabular-nums">{mensalidade(l) || "sem"}</dd>
-                  </dl>
-                  <p className="mt-3 text-[0.9375rem] leading-relaxed text-secundario">{l.cobre}</p>
-                  <Detalhes l={l} />
+          <li
+            key={p.id}
+            id={`plano-${p.id}`}
+            className={`superficie flex flex-col gap-4 p-6 md:p-7 ${completo ? "shadow-[inset_0_0_0_1px_rgb(242_165_22/0.55)]" : ""}`}
+          >
+            <p className="flex flex-wrap items-center justify-between gap-2 text-[0.75rem] font-medium uppercase tracking-[0.08em] text-secundario">
+              <span>{p.pilar}</span>
+              {p.destaque ? <span className="text-ambar">{p.destaque}</span> : null}
+            </p>
+            <h3 className="text-[1.5rem] font-semibold leading-tight tracking-[-0.03em]">{p.nome}</h3>
+            <p className="text-[0.9375rem] leading-relaxed text-secundario">{p.para}</p>
+            <ul className="grid flex-1 content-start gap-2 text-[0.9375rem] leading-snug">
+              {p.inclui.map((i) => (
+                <li key={i} className="flex items-start gap-2">
+                  <Icone nome="check" className="mt-0.5 size-4 shrink-0 text-verde-claro" />
+                  {i}
                 </li>
               ))}
             </ul>
-          </div>
+            <PrecoDoPlano p={p} />
+            {p.bonus ? (
+              <p className="flex items-start gap-1.5 text-sm text-verde-claro">
+                <Icone nome="brilho" className="mt-0.5 size-3.5 shrink-0" />
+                {p.bonus}
+              </p>
+            ) : null}
+            <p className={`text-sm leading-relaxed ${completo ? "text-papel" : "text-secundario"}`}>{p.rodape}</p>
+            <Link
+              href="/diagnostico"
+              className={`botao ${completo ? "botao-primario" : "botao-secundario"} justify-center`}
+              data-evento="cta_click"
+              data-local="planos"
+            >
+              Pedir diagnóstico
+              <Icone nome="seta" className="seta size-4" />
+            </Link>
+          </li>
         );
       })}
-    </div>
+    </ul>
   );
 }
 
-/**
- * O que cresce com o cliente tem preço publicado antes de crescer: usuário,
- * conversas, dados, fonte e infra. E a regra de reajuste, que também é
- * preço. Regra de 12/10 (Dyones): mais usuários, mais dados e mais infra
- * não podem reduzir a margem.
- */
-/**
- * Piso e teto da mensalidade (Dyones, 13/10): somadas as linhas de sistema,
- * a mensalidade da V2O5 para em `TETO_DA_MENSALIDADE`. Os exemplos saem do
- * cálculo, não de número escrito à mão.
- */
-export function Teto() {
-  const pacote = mensalidadeComTeto(["sites", "agente", "crm", "rastreamento"]);
-  const tudo = mensalidadeComTeto([...LINHAS_NO_TETO]);
-  const nomes = LINHAS_NO_TETO.map((id) => linhaDePreco(id).nome.replace(" e sistemas sob medida", "").replace(" até a venda", ""));
+/** Uma linha de preço numa lista: nome, preço, o que cobre e os detalhes. */
+function LinhaDaLista({ l }: { l: LinhaDePreco }) {
   return (
-    <div className="grid gap-4 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)]">
-      <div className="superficie p-6 md:p-7">
-        <p className="text-sm text-secundario">Linhas de sistema</p>
-        <p className="mt-1.5 text-[1.375rem] font-semibold leading-tight tracking-[-0.03em]">
-          De {BRL(PISO_DA_MENSALIDADE)} a {BRL(TETO_DA_MENSALIDADE)} por mês, somando o que quiser
-        </p>
-        <p className="mt-3 text-[0.9375rem] leading-relaxed text-secundario">
-          {nomes.slice(0, -1).join(", ")} e {nomes[nomes.length - 1]} somam entre si até o teto. O trabalho pesado está na
-          implantação; depois de montado, manter é barato, e a mensalidade reflete isso.
-        </p>
-        <dl className="mt-5 grid gap-2 text-[0.9375rem] sm:grid-cols-2">
-          <div className="rounded-xl bg-vidro p-4 contorno">
-            <dt className="text-sm text-secundario">Site, agente, CRM e rastreamento</dt>
-            <dd className="mt-1 tabular-nums">
-              somam {BRL(pacote.soma)}, custam <strong>{BRL(pacote.cobrada)}</strong>
-            </dd>
-          </div>
-          <div className="rounded-xl bg-vidro p-4 contorno">
-            <dt className="text-sm text-secundario">Com o painel do dono</dt>
-            <dd className="mt-1 tabular-nums">
-              somam {BRL(tudo.soma)}, custam os mesmos <strong>{BRL(tudo.cobrada)}</strong>
-            </dd>
-          </div>
-        </dl>
+    <li className="grid gap-x-6 gap-y-1 border-t border-linha py-5 first:border-t-0 first:pt-0 md:grid-cols-[minmax(0,1fr)_auto]">
+      <p className="font-semibold tracking-[-0.01em]">{l.nome}</p>
+      <p className="tabular-nums md:text-right">{precoDaLinha(l).replace(/^a partir de /, "")}</p>
+      <div className="md:col-span-2">
+        <p className="text-[0.9375rem] leading-relaxed text-secundario">{l.cobre}</p>
+        <Detalhes l={l} />
       </div>
-      <div className="superficie p-6 md:p-7">
-        <p className="text-sm text-secundario">Fora do teto</p>
-        <ul className="mt-3 grid gap-2.5 text-[0.9375rem] leading-relaxed text-secundario">
-          <li>O que cresce com o uso: usuário extra, dados e conversas do agente, com o preço de cada degrau abaixo.</li>
-          <li>Os repasses pelo valor real: uso do modelo de IA e mensagens da API oficial do WhatsApp.</li>
-          <li>Os serviços de produção contínua: gestão de tráfego e conteúdo e redes, que têm equipe trabalhando todo mês.</li>
-        </ul>
+    </li>
+  );
+}
+
+/** Google Ads, Meta Ads, os dois juntos e o preço no Completo, mais o rastreamento para quem já tem site. */
+export function Trafego() {
+  const google = linhaDePreco("googleAds");
+  const juntos = linhaDePreco("trafego");
+  const noCompleto = linhaDePreco("trafegoNoCompleto");
+  const rastreamento = linhaDePreco("rastreamento");
+  const cartoes = [
+    { nome: "Google Ads ou Meta Ads", valor: google.mensalidade ?? 0, nota: "Cada plataforma. Google com Pesquisa, Performance Max e anúncios de veículos ou Shopping; Meta com catálogo, públicos do CRM e anúncios que abrem conversa no WhatsApp.", destaque: false },
+    { nome: juntos.nome, valor: juntos.mensalidade ?? 0, nota: `${BRL(economiaDoTrafegoJunto())} a menos por mês que as duas separadas, com o feed de catálogo incluso.`, destaque: true },
+    { nome: "As duas, no Completo", valor: noCompleto.mensalidade ?? 0, nota: "A mesma gestão das duas plataformas, com o feed, para quem tem o plano Completo.", destaque: false },
+  ];
+  return (
+    <div className="grid gap-4">
+      <div className="grid gap-4 lg:grid-cols-3">
+        {cartoes.map((c) => (
+          <div key={c.nome} className={`superficie flex flex-col p-6 md:p-7 ${c.destaque ? "shadow-[inset_0_0_0_1px_rgb(242_165_22/0.45)]" : ""}`}>
+            <p className="flex items-center justify-between gap-3">
+              <span className="titulo-cartao">{c.nome}</span>
+              {c.destaque ? <span className="chip text-ambar">com bônus</span> : null}
+            </p>
+            <p className="mt-4 text-[1.5rem] font-semibold tabular-nums leading-none tracking-[-0.03em]">
+              {BRL(c.valor)}
+              <span className="text-base font-medium text-secundario">/mês + verba</span>
+            </p>
+            <p className="mt-4 text-[0.9375rem] leading-relaxed text-secundario">{c.nota}</p>
+          </div>
+        ))}
       </div>
+      <p className="rounded-2xl bg-vidro p-5 text-[0.9375rem] leading-relaxed text-secundario contorno">
+        <span className="font-semibold text-papel">Sem implantação, com o rastreamento ligado.</span> Ele vem na Presença e no
+        Completo. Já tem site? O rastreamento entra sozinho por {BRL(rastreamento.implantacao ?? 0)} de implantação e{" "}
+        {BRL(rastreamento.mensalidade ?? 0)} por mês.
+      </p>
     </div>
   );
 }
 
+/**
+ * Os módulos: para quem já tem Atendimento ou Completo. Em `/precos`, os de
+ * qualquer negócio; no hub, os de revenda (consulta veicular e repasse).
+ */
+export function Modulos({ onde = "precos" }: { onde?: "precos" | "revendas" }) {
+  return (
+    <ul className="superficie p-6 md:p-8">
+      {linhasDoGrupo("modulo", onde).map((l) => (
+        <LinhaDaLista key={l.id} l={l} />
+      ))}
+    </ul>
+  );
+}
+
+/** Os serviços feitos pela V2O5: conteúdo, fluxos e branding sob consulta. */
+export function Servicos() {
+  return (
+    <ul className="superficie p-6 md:p-8">
+      {linhasDoGrupo("servico").map((l) => (
+        <LinhaDaLista key={l.id} l={l} />
+      ))}
+    </ul>
+  );
+}
+
+/**
+ * O que cresce com o cliente tem preço publicado antes de crescer, e a regra
+ * de reajuste também é preço. Regra de 12/10 (Dyones): mais usuários, mais
+ * dados e mais conversas não podem reduzir a margem.
+ */
 export function OQueCresce() {
   const itens = [
     {
       titulo: "Usuário extra",
       valor: `${BRL(DEGRAUS.usuarioExtra)}/mês`,
-      texto: `O CRM vem com 5 usuários e o Painel do dono com 3. Cada pessoa a mais custa isso, sem licença por assento de software.`,
+      texto: `O CRM vem com ${USUARIOS_NO_CRM} usuários e o Painel do dono com 3. Cada pessoa a mais custa isso, sem licença por assento de software.`,
     },
     {
       titulo: "Conversas do agente",
@@ -224,23 +253,13 @@ export function OQueCresce() {
       texto: `Acima de ${DEGRAUS.dados.limite} de dados, a base ganha mais espaço e backup, e a mensalidade sobe este degrau.`,
     },
     {
-      titulo: "Fonte de dados extra no painel",
-      valor: `${BRL(DEGRAUS.fonteExtra.implantacao)} + ${BRL(DEGRAUS.fonteExtra.mensalidade)}/mês`,
-      texto: "O painel lê 3 fontes (CRM, rastreamento e uma planilha ou ERP). A quarta é um fluxo de integração novo, mantido todo mês.",
-    },
-    {
-      titulo: "Infra acima do incluso",
-      valor: `valor real + ${DEGRAUS.infraAcima.gestao}%`,
-      texto: `Acima de ${DEGRAUS.infraAcima.limite}, o banco e o processamento são cobrados pelo que custam, com ${DEGRAUS.infraAcima.gestao}% de gestão, discriminados na fatura.`,
-    },
-    {
       titulo: "Reajuste",
       valor: `${REAJUSTE.indice} ao ano`,
       texto: `Hospedagem, banco e modelos de IA são cobrados em dólar. Se o câmbio variar mais de ${REAJUSTE.gatilhoCambial}% desde a assinatura, a diferença é repassada só nesses itens.`,
     },
   ];
   return (
-    <ul className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+    <ul className="grid gap-4 md:grid-cols-2">
       {itens.map((i) => (
         <li key={i.titulo} className="superficie flex flex-col p-6">
           <p className="text-sm text-secundario">{i.titulo}</p>
@@ -252,120 +271,51 @@ export function OQueCresce() {
   );
 }
 
-/** Google Ads, Meta Ads e os dois juntos, com o bônus do feed. */
-export function Trafego() {
-  const google = linhaDePreco("googleAds");
-  const meta = linhaDePreco("metaAds");
-  const juntos = linhaDePreco("trafego");
-  const feed = linhaDePreco("catalogo");
-  const economia = economiaDoTrafegoJunto();
-  const cartoes = [
-    { l: google, destaque: false, nota: "Pesquisa, Performance Max e anúncios de veículos ou Shopping." },
-    { l: meta, destaque: false, nota: "Instagram e Facebook com o catálogo e os públicos da base do CRM." },
-    {
-      l: juntos,
-      destaque: true,
-      nota: `${BRL(economia)} a menos por mês que os dois avulsos, e o feed de catálogo (${BRL(feed.implantacao ?? 0)} ${feed.unidade}) incluso.`,
-    },
-  ];
-  return (
-    <div className="grid gap-4 lg:grid-cols-3">
-      {cartoes.map(({ l, destaque, nota }) => (
-        <div
-          key={l.id}
-          className={`superficie flex flex-col p-6 md:p-7 ${destaque ? "shadow-[inset_0_0_0_1px_rgb(242_165_22/0.45)]" : ""}`}
-        >
-          <p className="flex items-center justify-between gap-3">
-            <span className="titulo-cartao">{l.nome}</span>
-            {destaque ? <span className="chip text-ambar">com bônus</span> : null}
-          </p>
-          <p className="mt-4 text-[1.5rem] font-semibold tabular-nums leading-none tracking-[-0.03em]">
-            {BRL(l.mensalidade ?? 0)}
-            <span className="text-base font-medium text-secundario">/mês + verba</span>
-          </p>
-          <p className="mt-4 text-[0.9375rem] leading-relaxed text-secundario">{nota}</p>
-          <p className="mt-auto pt-5 text-sm text-secundario">Sem implantação. Começa com o rastreamento até a venda ligado.</p>
-        </div>
-      ))}
-    </div>
-  );
-}
-
-/** Os canais da reativação de base, com o que cada um custa e arrisca. */
-export function Reativacao() {
-  const l = linhaDePreco("reativacao");
-  return (
-    <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)]">
-      <div className="superficie p-6 md:p-7">
-        <p className="titulo-cartao">{l.nome}</p>
-        <p className="mt-4 text-[1.5rem] font-semibold tabular-nums leading-none tracking-[-0.03em]">
-          {BRL(l.implantacao ?? 0)} <span className="text-base font-medium text-secundario">{l.unidade}</span>
-        </p>
-        <p className="mt-4 text-[0.9375rem] leading-relaxed text-secundario">{l.cobre}</p>
-        <Detalhes l={l} />
-        <p className="mt-5 text-sm leading-relaxed text-secundario">
-          Só base própria, com registro de origem e saída fácil em toda mensagem. Lista comprada ou raspada não entra.
-        </p>
-      </div>
-      <ul className="grid gap-4 md:grid-cols-3 lg:grid-cols-1">
-        {CANAIS_DA_REATIVACAO.map((c) => (
-          <li key={c.nome} className="rounded-2xl bg-vidro p-5 contorno">
-            <p className="font-semibold tracking-[-0.01em]">{c.nome}</p>
-            <dl className="mt-3 grid gap-2 text-[0.9375rem] leading-relaxed text-secundario lg:grid-cols-[5rem_1fr] lg:gap-x-4 lg:gap-y-1.5">
-              <dt className="text-sm text-papel/80 lg:pt-0.5">Custo</dt>
-              <dd>{c.paga}</dd>
-              <dt className="text-sm text-papel/80 lg:pt-0.5">Regras</dt>
-              <dd>{c.regras}</dd>
-              <dt className="text-sm text-papel/80 lg:pt-0.5">Risco</dt>
-              <dd>{c.risco}</dd>
-            </dl>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-}
-
 /**
- * O pacote automotivo com o desconto calculado sobre as linhas avulsas. Em
- * `/precos` o botão leva à página de revendas; no hub, à tabela completa.
+ * O Completo na revenda: o sistema da Motors Store, com o preço por tempo
+ * limitado, o bônus e a conta da margem por carro.
  */
-export function Pacote({ destino = "revendas" }: { destino?: "revendas" | "precos" }) {
-  const { pacote, siteDeEstoque } = AUTOMOTIVO_PRECO;
-  const soma = somaDoPacote();
-  const desconto = descontoDoPacote();
+export function CompletoParaRevendas() {
+  const p = plano("completo");
+  const separados = somaDosPlanosSeparados();
   const meses = mesesQueUmaVendaPaga();
   return (
     <div className="superficie grid overflow-hidden lg:grid-cols-[1.2fr_1fr]">
       <div className="p-7 md:p-9">
-        <p className="sobretitulo">Revendas de veículos</p>
+        <p className="sobretitulo">Plano Completo</p>
         <h3 className="mt-4 text-[clamp(1.5rem,1.2rem+1.2vw,2rem)] font-semibold leading-tight tracking-[-0.035em]">
-          Pacote completo: o sistema da Motors Store na sua loja.
+          O sistema da Motors Store na sua loja.
         </h3>
         <p className="mt-4 max-w-[32rem] text-[0.9375rem] leading-relaxed text-secundario">
-          Site de estoque integrado ao Revenda Mais, agente de IA no WhatsApp, CRM com {pacote.usuarios} usuários e
-          rastreamento até a venda. As mesmas linhas avulsas somam {BRL(soma.implantacao)} de implantação e{" "}
-          {BRL(soma.mensalidade)} por mês.
+          Site de estoque integrado ao sistema da loja, agente de IA no WhatsApp, CRM com {USUARIOS_NO_CRM} usuários,
+          rastreamento até a venda e um fluxo de automação. Presença e Atendimento separados somam {BRL(separados.implantacao)}{" "}
+          de implantação e {BRL(separados.mensalidade)} por mês.
         </p>
         <dl className="mt-6 grid gap-4 sm:grid-cols-2">
           <div className="rounded-xl bg-vidro p-4 contorno">
             <dt className="text-sm text-secundario">Implantação a partir de</dt>
-            <dd className="mt-1 text-2xl font-semibold tabular-nums tracking-[-0.03em]">{BRL(pacote.implantacao)}</dd>
-            <dd className="mt-1 text-sm text-verde-claro">{desconto.implantacao}% menos que as linhas avulsas</dd>
+            <dd className="mt-1 text-2xl font-semibold tabular-nums tracking-[-0.03em]">{BRL(p.implantacao)}</dd>
           </div>
           <div className="rounded-xl bg-vidro p-4 contorno">
             <dt className="text-sm text-secundario">Mensalidade a partir de</dt>
-            <dd className="mt-1 text-2xl font-semibold tabular-nums tracking-[-0.03em]">{BRL(pacote.mensalidade)}</dd>
-            <dd className="mt-1 text-sm text-verde-claro">{desconto.mensalidade}% menos que as linhas avulsas</dd>
+            <dd className="mt-1 text-2xl font-semibold tabular-nums tracking-[-0.03em]">{BRL(OFERTA_DO_COMPLETO.mensalidade)}</dd>
+            <dd className="mt-1 text-sm text-secundario">
+              <s className="tabular-nums">{BRL(p.mensalidade)}</s> até {dataBR(OFERTA_DO_COMPLETO.ate)}
+            </dd>
           </div>
         </dl>
-        <p className="mt-5 text-[0.9375rem] leading-relaxed text-secundario">
-          Com Google Ads e Meta Ads: {BRL(mensalidadeDoPacoteComTrafego())} por mês mais a verba, com o feed de
-          catálogo incluso. Só o site de estoque: {BRL(siteDeEstoque.implantacao)} de implantação e{" "}
-          {BRL(siteDeEstoque.mensalidade)} por mês. Usuário extra {BRL(DEGRAUS.usuarioExtra)} por mês.
+        {p.bonus ? (
+          <p className="mt-5 flex items-start gap-1.5 text-sm text-verde-claro">
+            <Icone nome="brilho" className="mt-0.5 size-3.5 shrink-0" />
+            {p.bonus}
+          </p>
+        ) : null}
+        <p className="mt-4 text-[0.9375rem] leading-relaxed text-secundario">
+          Com Google Ads e Meta Ads: {BRL(mensalidadeDoCompletoComTrafego())} por mês mais a verba, com o feed de catálogo
+          incluso. Usuário extra {BRL(DEGRAUS.usuarioExtra)} por mês.
         </p>
-        <Link href={destino === "precos" ? "/precos" : "/segmentos/revendas-de-veiculos"} className="botao botao-secundario mt-7" data-evento="cta_click" data-local="pacote">
-          {destino === "precos" ? "Ver a tabela completa" : "Ver a página de revendas"}
+        <Link href="/precos" className="botao botao-secundario mt-7" data-evento="cta_click" data-local="pacote">
+          Ver todos os planos
           <Icone nome="seta" className="seta size-4" />
         </Link>
       </div>
@@ -373,7 +323,7 @@ export function Pacote({ destino = "revendas" }: { destino?: "revendas" | "preco
         <p className="text-sm font-medium text-secundario">A conta que importa</p>
         <p className="mt-3 text-[1.125rem] leading-snug">
           Com uma margem de {BRL(REGRAS.margemPorCarro)} por carro, uma venda a mais a cada {meses} meses paga a
-          mensalidade do pacote.
+          mensalidade do Completo.
         </p>
         <p className="mt-4 text-sm leading-relaxed text-secundario">
           A margem é a referência do plano de mídia da Motors Store. Na sua loja, a conta sai no diagnóstico, com o
@@ -391,7 +341,7 @@ export function ForaDaMensalidade() {
       {[
         ["Verba de anúncios", "Paga direto ao Google e à Meta, no valor que você decidir."],
         ["Uso de IA e mensagens", "O modelo de IA e as mensagens da API oficial do WhatsApp, pelo valor real, na mesma fatura."],
-        ["SMS e número dedicado", "Na reativação de base, o SMS pelo valor da operadora e o chip do número dedicado, quando houver."],
+        ["SMS", "Nas campanhas para a base, o SMS pelo valor do provedor, discriminado na mesma fatura."],
         [
           "Fotos, vídeos e peças",
           `A produção de imagem fica com a sua equipe ou com um fotógrafo parceiro que a V2O5 indica, a partir de ${BRL(FOTOGRAFIA_PARCEIRA.aPartirDe)} por mês.`,

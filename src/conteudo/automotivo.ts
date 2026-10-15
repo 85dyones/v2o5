@@ -1,26 +1,31 @@
 import { listaDeSistemasIntegraveis, SISTEMA_EM_PRODUCAO, SISTEMAS_INTEGRAVEIS } from "@/conteudo/diagnostico";
 import { CASE } from "@/conteudo/home";
 import {
-  AUTOMOTIVO_PRECO,
   BRL,
+  dataBR,
   DEGRAUS,
   FOTOGRAFIA_PARCEIRA,
   linhaDePreco,
-  precoDa,
+  OFERTA_DO_COMPLETO,
+  plano,
+  precoDaLinha,
   REGRAS,
-  TETO_DA_MENSALIDADE,
+  USUARIOS_NO_CRM,
 } from "@/conteudo/precos";
 
+const completo = plano("completo");
+const presenca = plano("presenca");
+
 /**
- * Hub do segmento automotivo (`/segmentos/revendas-de-veiculos`): o pacote
- * que junta quatro linhas do cardápio, o caminho de um lead na revenda, as
- * linhas avulsas que fazem sentido depois, os números do case e as perguntas
- * de dono de loja. Preço só de `precos.ts`; número só de `CASE` (lido do
+ * Hub do segmento automotivo (`/segmentos/revendas-de-veiculos`): o plano
+ * Completo com o site de estoque (o sistema da Motors Store), o caminho de um
+ * lead na revenda, os módulos de revenda que entram depois, os números do
+ * case e as perguntas de dono de loja. Preço só de `precos.ts`; número só de `CASE` (lido do
  * banco da Motors, com fonte e período). `tests/automotivo.test.ts` confere.
  *
  * Sobre o agente: a memória do case registra n8n, Evolution e Chatwoot na
  * Motors, não um agente de IA. Por isso o texto diz que o agente completa o
- * pacote, sem afirmar que roda na loja (pendência 13).
+ * sistema, sem afirmar que roda na loja (pendência 13).
  */
 export const HUB_AUTOMOTIVO = {
   rota: "/segmentos/revendas-de-veiculos",
@@ -29,7 +34,7 @@ export const HUB_AUTOMOTIVO = {
   /** Curto de propósito: o LCP da página é o H1 (`tests/automotivo.test.ts`). */
   resumo:
     "Site de estoque ligado ao sistema que a loja já usa, agente de IA no WhatsApp, CRM e rastreamento até a venda, com preço publicado.",
-  /** Os sistemas de gestão com que o pacote trabalha: um em produção, os outros por fluxo (Dyones, 13/10). */
+  /** Os sistemas de gestão com que o Completo trabalha: um em produção, os outros por fluxo (Dyones, 13/10). */
   sistemas: {
     rotulo: "Funciona com o sistema da loja",
     emProducao: SISTEMA_EM_PRODUCAO,
@@ -38,17 +43,17 @@ export const HUB_AUTOMOTIVO = {
   },
   fatos: [
     {
-      rotulo: "Pacote completo",
-      valor: `a partir de ${BRL(AUTOMOTIVO_PRECO.pacote.implantacao)} de implantação e ${BRL(AUTOMOTIVO_PRECO.pacote.mensalidade)} por mês`,
+      rotulo: "Plano Completo",
+      valor: `a partir de ${BRL(completo.implantacao)} de implantação e ${BRL(OFERTA_DO_COMPLETO.mensalidade)} por mês até ${dataBR(OFERTA_DO_COMPLETO.ate)}`,
     },
     { rotulo: "Integração em produção", valor: "Revenda Mais: o estoque entra no site e no agente sozinho" },
     { rotulo: "Integráveis por fluxo", valor: listaDeSistemasIntegraveis() },
     { rotulo: "Referência", valor: "Motors Store, revenda de seminovos em Curitiba, com números lidos do banco" },
   ],
   pacote: {
-    titulo: "O que vem no pacote.",
+    titulo: "O que vem no Completo.",
     texto:
-      "Quatro linhas do cardápio na mesma base: o que entra por uma aparece nas outras. Site, rastreamento, painel e automações rodam na Motors Store; o agente de IA no WhatsApp completa o pacote.",
+      "Quatro peças na mesma base: o que entra por uma aparece nas outras. Site, rastreamento, painel e automações rodam na Motors Store; o agente de IA no WhatsApp completa o sistema.",
     pecas: [
       {
         linha: "Sites e presença",
@@ -65,7 +70,7 @@ export const HUB_AUTOMOTIVO = {
       {
         linha: "CRM e sistemas sob medida",
         titulo: "Funil com origem e próximo passo",
-        texto: `Cada lead com o carro de interesse, o anúncio que trouxe a pessoa e o responsável. ${AUTOMOTIVO_PRECO.pacote.usuarios} usuários inclusos.`,
+        texto: `Cada lead com o carro de interesse, o anúncio que trouxe a pessoa e o responsável. ${USUARIOS_NO_CRM} usuários inclusos.`,
       },
       {
         linha: "Rastreamento até a venda",
@@ -102,40 +107,44 @@ export const HUB_AUTOMOTIVO = {
     ],
   },
   extras: {
-    titulo: "Para a revenda, depois do pacote.",
-    texto: "Linhas avulsas da tabela que fazem sentido com o pacote rodando. Cada uma com preço publicado.",
+    titulo: "Módulos para a revenda.",
+    texto: "Entram em cima do Completo ou do Atendimento, na mesma base. Cada um com preço publicado.",
     itens: [
       {
-        nome: "Google Ads e Meta Ads no pacote",
-        preco: `${BRL(AUTOMOTIVO_PRECO.trafegoNoPacote)}/mês + verba`,
+        nome: linhaDePreco("consulta").nome,
+        preco: precoDaLinha(linhaDePreco("consulta")),
+        href: "/diagnostico",
+        link: "no diagnóstico",
+        texto:
+          "Antes de comprar: FIPE do mês sem custo, histórico de 24 meses com tendência e faixa de compra, e a placa com dez checagens (leilão, sinistro, gravame, roubo, débitos, recall e outras) e um veredito.",
+      },
+      {
+        nome: linhaDePreco("repasse").nome,
+        preco: precoDaLinha(linhaDePreco("repasse")),
+        href: "/diagnostico",
+        link: "no diagnóstico",
+        texto:
+          "O carro que não vai para a vitrine sai às claras: laudo, conta aberta contra a FIPE e ficha de defeitos com foto, para lojistas e consumidores inscritos.",
+      },
+      {
+        nome: "Google Ads e Meta Ads no Completo",
+        preco: precoDaLinha(linhaDePreco("trafegoNoCompleto")),
         href: "/precos#titulo-trafego",
         texto:
           "As duas plataformas pela mesma equipe: anúncios de veículos no Google, catálogo na Meta e o feed do estoque incluso. Começa com o rastreamento ligado.",
       },
       {
-        nome: "Reativação de base",
-        preco: precoDa("reativacao"),
-        href: "/precos#titulo-reativacao",
+        nome: linhaDePreco("reativacao").nome,
+        preco: precoDaLinha(linhaDePreco("reativacao")),
+        href: "/precos#titulo-modulos",
         texto:
-          "Quem comprou há dois ou três anos recebe a conversa certa: troca, avaliação do usado, oferta do mês. Só base própria, com saída fácil.",
+          "Quem comprou há dois ou três anos recebe a mensagem certa: troca, avaliação do usado, oferta do mês. SMS com link rastreado e campanha de WhatsApp, só com base própria.",
       },
       {
-        nome: "Pós-venda e recorrência",
-        preco: precoDa("posvenda"),
-        href: "/precos",
-        texto: "Revisão, seguro e troca na data certa, pelo WhatsApp, ligados ao CRM.",
-      },
-      {
-        nome: "Avaliações no Google",
-        preco: precoDa("avaliacoes"),
-        href: "/precos",
-        texto: "Pedido de avaliação depois da entrega do carro, com o link certo e o acompanhamento no painel.",
-      },
-      {
-        nome: "Painel do dono",
-        preco: precoDa("painel"),
-        href: "/precos",
-        texto: `Leads, custo por lead e vendas por origem, com o estoque na mesma tela. Usuário extra ${BRL(DEGRAUS.usuarioExtra)} por mês.`,
+        nome: linhaDePreco("painel").nome,
+        preco: precoDaLinha(linhaDePreco("painel")),
+        href: "/precos#titulo-modulos",
+        texto: `Leads, custo por lead e vendas por origem, com o estoque na mesma tela. No Completo, a implantação é bônus de fechamento. Usuário extra ${BRL(DEGRAUS.usuarioExtra)} por mês.`,
       },
     ],
   },
@@ -149,17 +158,17 @@ export const HUB_AUTOMOTIVO = {
   },
   perguntas: [
     {
-      pergunta: "Minha loja usa outro sistema de gestão. O pacote funciona?",
+      pergunta: "Minha loja usa outro sistema de gestão. O Completo funciona?",
       resposta:
-        `Funciona. O pacote lê o estoque do sistema que a loja já usa. Com o Revenda Mais a integração está em produção. ${listaDeSistemasIntegraveis()} entram como fluxo de integração, orçado no diagnóstico depois de ver a API ou a exportação que cada um oferece; o mesmo vale para outro sistema.`,
+        `Funciona. O Completo lê o estoque do sistema que a loja já usa. Com o Revenda Mais a integração está em produção. ${listaDeSistemasIntegraveis()} entram como fluxo de integração, orçado no diagnóstico depois de ver a API ou a exportação que cada um oferece; o mesmo vale para outro sistema.`,
     },
     {
-      pergunta: "Se eu somar o painel do dono ao pacote, a mensalidade sobe?",
-      resposta: `Não. O pacote já está no teto da mensalidade, ${BRL(TETO_DA_MENSALIDADE)}. O painel entra com a implantação dele, a partir de ${BRL(linhaDePreco("painel").implantacao ?? 0)}, e a mensalidade do conjunto continua em ${BRL(TETO_DA_MENSALIDADE)}. Só o que cresce com o uso (usuários, dados, conversas) e os repasses ficam fora.`,
+      pergunta: "O painel do dono vem no Completo?",
+      resposta: `A implantação do painel, a partir de ${BRL(linhaDePreco("painel").implantacao ?? 0)}, vem de bônus para quem fecha o Completo. A mensalidade dele, a partir de ${BRL(linhaDePreco("painel").mensalidade ?? 0)}, entra na mesma fatura do plano. O que cresce com o uso (usuários, dados, conversas) e os repasses ficam fora.`,
     },
     {
-      pergunta: "Quantos usuários o pacote inclui?",
-      resposta: `${AUTOMOTIVO_PRECO.pacote.usuarios} usuários no CRM, sem licença por pessoa. Cada usuário extra custa ${BRL(DEGRAUS.usuarioExtra)} por mês.`,
+      pergunta: "Quantos usuários o Completo inclui?",
+      resposta: `${USUARIOS_NO_CRM} usuários no CRM, sem licença por pessoa. Cada usuário extra custa ${BRL(DEGRAUS.usuarioExtra)} por mês.`,
     },
     {
       pergunta: "O agente responde com o estoque de verdade?",
@@ -172,7 +181,11 @@ export const HUB_AUTOMOTIVO = {
     },
     {
       pergunta: "Posso começar só pelo site de estoque?",
-      resposta: `Pode. O site de estoque avulso custa a partir de ${BRL(AUTOMOTIVO_PRECO.siteDeEstoque.implantacao)} de implantação e ${BRL(AUTOMOTIVO_PRECO.siteDeEstoque.mensalidade)} por mês, e as outras linhas entram depois, na mesma base.`,
+      resposta: `Pode. O site de estoque vem no plano Presença, a partir de ${BRL(presenca.implantacao)} de implantação e ${BRL(presenca.mensalidade)} por mês, com o Google e o rastreamento até a venda. O Atendimento entra depois, na mesma base.`,
+    },
+    {
+      pergunta: "Quanto custa a consulta por placa?",
+      resposta: `${BRL(linhaDePreco("consulta").porUso!.valor)} por placa, na fatura do mês, além do módulo (${BRL(linhaDePreco("consulta").implantacao!)} de implantação e ${BRL(linhaDePreco("consulta").mensalidade!)} por mês). A FIPE do mês sai sem custo, e uma placa já consultada abre do histórico sem cobrar de novo.`,
     },
     {
       pergunta: "O site e os dados são meus?",
@@ -180,7 +193,7 @@ export const HUB_AUTOMOTIVO = {
     },
   ],
   chamada: {
-    titulo: "Quer ver o pacote rodando na sua revenda?",
+    titulo: "Quer ver o Completo rodando na sua revenda?",
     texto:
       "O diagnóstico é gratuito: 45 minutos com o fundador, que montou o sistema da Motors Store, e um mapa do que fazer primeiro, com custo e prazo.",
     botao: "Pedir diagnóstico gratuito",

@@ -97,8 +97,8 @@ export const PAGINAS: Pagina[] = [
     rota: "/precos",
     titulo: "Preços e planos",
     descricao:
-      "Site a partir de R$ 7.900 + R$ 690/mês, agente de IA, CRM, painel, tráfego e reativação de base, com o que cresce já precificado. Sem fidelidade.",
-    atualizadaEm: "2026-10-12",
+      "Três planos com preço fechado: Presença a partir de R$ 8.900 + R$ 990/mês, Atendimento com agente de IA e CRM, e o Completo. Sem fidelidade.",
+    atualizadaEm: "2026-10-15",
     pronta: true,
   },
   {

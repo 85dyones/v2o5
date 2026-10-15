@@ -1,7 +1,7 @@
 import { listaDeSistemasIntegraveis } from "@/conteudo/diagnostico";
 import { CASE_MOTORS } from "@/conteudo/case";
 import { CASE, VISAO_360, type Vinheta } from "@/conteudo/home";
-import { BRL, DEGRAUS, FOTOGRAFIA_PARCEIRA, linhaDePreco, precoDa, REGRAS, type Pilar } from "@/conteudo/precos";
+import { BRL, capacidade, DEGRAUS, FOTOGRAFIA_PARCEIRA, linhaDePreco, plano, precoDa, REGRAS, USUARIOS_NO_CRM, type Pilar } from "@/conteudo/precos";
 import type { Etapa } from "@/lib/tokens";
 
 /**
@@ -26,7 +26,7 @@ export interface Numero {
 
 export interface Solucao {
   rota: string;
-  /** O `id` da linha em `precos.ts`. */
+  /** A capacidade em `precos.ts` (`CAPACIDADES`): o plano ou a linha de onde sai o preço. */
   linha: string;
   pilar: Pilar;
   etapa: Etapa;
@@ -47,9 +47,8 @@ export interface Solucao {
   relacionadas: string[];
 }
 
-const sites = linhaDePreco("sites");
+const presenca = plano("presenca");
 const automacao = linhaDePreco("automacao");
-const crm = linhaDePreco("crm");
 const rastreamento = linhaDePreco("rastreamento");
 
 export const SOLUCOES: Solucao[] = [
@@ -65,7 +64,10 @@ export const SOLUCOES: Solucao[] = [
       "Site que carrega rápido no celular, aparece no Google e grava de onde veio cada contato. Hospedagem e manutenção na mensalidade.",
     fatos: [
       { rotulo: "Preço", valor: precoDa("sites") },
-      { rotulo: "A mensalidade cobre", valor: sites.cobre },
+      {
+        rotulo: "A mensalidade cobre",
+        valor: "Hospedagem, manutenção, atualizações de segurança, SEO técnico, Perfil da Empresa no Google, rastreamento até a venda e relatório mensal",
+      },
       {
         rotulo: "Em produção",
         valor: `Motors Store: site de estoque com ${CASE.numeros[2].valor} veículos sincronizados e ${CASE.numeros[1].valor} guias`,
@@ -133,7 +135,7 @@ export const SOLUCOES: Solucao[] = [
     perguntas: [
       {
         pergunta: "Quanto custa um site profissional?",
-        resposta: `A partir de ${BRL(sites.implantacao!)} de implantação e ${BRL(sites.mensalidade!)} por mês. A mensalidade cobre hospedagem, manutenção, atualizações de segurança, SEO técnico contínuo e o Perfil da Empresa no Google. Domínio e e-mail profissional entram na fundação do projeto.`,
+        resposta: `O site vem no plano Presença, a partir de ${BRL(presenca.implantacao)} de implantação e ${BRL(presenca.mensalidade)} por mês, junto com o Perfil da Empresa no Google, o SEO técnico, o rastreamento até a venda e o pedido de avaliação. A mensalidade cobre hospedagem, manutenção, atualizações de segurança e o relatório mensal. Domínio e e-mail profissional entram na fundação do projeto.`,
       },
       {
         pergunta: "Posso aproveitar o site que já tenho?",
@@ -168,7 +170,7 @@ export const SOLUCOES: Solucao[] = [
       "Responde na hora, a qualquer hora, com as informações do seu negócio. Quando a conversa pede uma pessoa, chama alguém da equipe.",
     fatos: [
       { rotulo: "Preço", valor: precoDa("agente") },
-      { rotulo: "Inclui", valor: `${DEGRAUS.conversas.bloco} conversas por mês, ajustes de roteiro e da base de conhecimento, suporte` },
+      { rotulo: "Inclui", valor: `${DEGRAUS.conversas.bloco} conversas por mês, o CRM com ${USUARIOS_NO_CRM} usuários, ajustes de roteiro e da base de conhecimento, suporte` },
       { rotulo: "Por fora, pelo valor real", valor: "uso do modelo de IA e mensagens da API oficial do WhatsApp, na mesma fatura" },
     ],
     problema: {
@@ -351,7 +353,7 @@ export const SOLUCOES: Solucao[] = [
       "Cada contato num funil, com a origem, a etapa e o próximo passo à vista. Sem licença por usuário e no nome da sua empresa.",
     fatos: [
       { rotulo: "Preço", valor: precoDa("crm") },
-      { rotulo: "Inclui", valor: `${crm.inclui!.join(", ").toLowerCase()}, banco próprio, backups e suporte` },
+      { rotulo: "Inclui", valor: `${USUARIOS_NO_CRM} usuários, o agente de IA no WhatsApp, banco próprio, backups e suporte` },
       { rotulo: "Em produção", valor: "Motors Store: painel com funil, estoque, clientes, investidores e mídia paga" },
     ],
     problema: {
@@ -383,7 +385,7 @@ export const SOLUCOES: Solucao[] = [
       },
       {
         titulo: "Sem licença por usuário",
-        texto: `${crm.inclui![0]} inclusos; usuário extra ${BRL(DEGRAUS.usuarioExtra)} por mês. Acima de ${DEGRAUS.dados.limite} de dados, mais ${BRL(DEGRAUS.dados.valor)} por mês.`,
+        texto: `${USUARIOS_NO_CRM} usuários inclusos; usuário extra ${BRL(DEGRAUS.usuarioExtra)} por mês. Acima de ${DEGRAUS.dados.limite} de dados, mais ${BRL(DEGRAUS.dados.valor)} por mês.`,
       },
     ],
     comoFunciona: [
@@ -400,7 +402,7 @@ export const SOLUCOES: Solucao[] = [
     perguntas: [
       {
         pergunta: "Tem cobrança por usuário?",
-        resposta: `O CRM vem com ${crm.inclui![0]}, sem licença por pessoa. Acima disso, cada usuário extra custa ${BRL(DEGRAUS.usuarioExtra)} por mês.`,
+        resposta: `O CRM vem com ${USUARIOS_NO_CRM} usuários, sem licença por pessoa. Acima disso, cada usuário extra custa ${BRL(DEGRAUS.usuarioExtra)} por mês.`,
       },
       {
         pergunta: "Posso integrar com o sistema que já uso?",
@@ -524,4 +526,4 @@ export function solucaoDa(rota: string): Solucao {
 
 /** A mensagem do botão fixo de WhatsApp, por página de solução. */
 export const mensagemDaSolucao = (s: Solucao) =>
-  `Olá! Vi a página de ${linhaDePreco(s.linha).nome} no site da V2O5 e quero conversar sobre a minha empresa.`;
+  `Olá! Vi a página de ${capacidade(s.linha).nome} no site da V2O5 e quero conversar sobre a minha empresa.`;

@@ -11,7 +11,7 @@ import {
   organizacao,
 } from "@/lib/schema";
 import { PERGUNTAS } from "@/conteudo/home";
-import { LINHAS_DE_PRECO } from "@/conteudo/precos";
+import { LINHAS_DE_PRECO, PLANOS } from "@/conteudo/precos";
 
 /** Seção 4.5 do plano e `marca.md`: um grafo por página, contado por teste. */
 
@@ -76,7 +76,12 @@ describe("página de preços", () => {
     expect(catalogo["@type"]).toBe("OfferCatalog");
     expect(faq["@type"]).toBe("FAQPage");
     const ofertas = catalogo.itemListElement as No[];
-    const esperadas = LINHAS_DE_PRECO.reduce((n, l) => n + (l.implantacao ? 1 : 0) + (l.mensalidade ? 1 : 0), 0) + 2;
+    const daLinha = LINHAS_DE_PRECO.filter((l) => !l.sobConsulta).reduce(
+      (n, l) => n + (l.implantacao ? 1 : 0) + (l.mensalidade ? 1 : 0) + (l.porUso ? 1 : 0),
+      0,
+    );
+    // Cada plano tem implantação e mensalidade; o Completo, mais a mensalidade por tempo limitado.
+    const esperadas = daLinha + PLANOS.length * 2 + 1;
     expect(ofertas).toHaveLength(esperadas);
     for (const o of ofertas) {
       expect(o["@type"]).toBe("Offer");
