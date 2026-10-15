@@ -2,6 +2,9 @@
 
 Log datado. Decisão nova entra no topo do dia; decisão revogada fica riscada com a data da troca.
 
+## 15/10/2026 (PR #12 em main)
+- PR #12 (cardápio de três planos com módulos e serviços, Meta Ads com clique para o WhatsApp, resumo do case da 16ª Vara Cível) mesclado por squash em `main` (3907b6b) a pedido do Dyones ("faça o merge"), sem review; CI verde no head 243c193. A branch `claude/gracious-euler-0qzedy` foi reiniciada a partir do `main`. Continuam para confirmar: a data do fim do preço temporário do Completo (31/12/2026) e se o bônus de fechamento cobre só a implantação do painel (pendência 19).
+
 ## 15/10/2026 (cardápio enxuto, pelo Dyones: "estou olhando este catálogo e achando confuso, como podemos ter um menu mais enxuto de pacotes, com lucratividade e clareza de propósito?"; respostas: "1 concordo / 2 no site completo é bonus de fechamento / 3 concordo / 4 [...] precisamos de um lucro, 49,90 / 5 foi testado, está funcional / 6 fora do escopo, mas anunciado como serviço sob consulta / 7 passa de 7 horas, ajuste. coloque um bonus temporário pelo preço de R$ 1.990,00")
 - A tabela de quinze linhas vira **três planos com preço fechado**: Presença R$ 8.900 + R$ 990/mês (site, Google, rastreamento, avaliações), Atendimento R$ 7.900 + R$ 1.590/mês (agente de IA, CRM com 5 usuários), Completo R$ 14.900 + **R$ 2.290/mês** (os dois mais integração e um fluxo), porque a manutenção integrada passa de 7 horas por mês. O Completo sai a **R$ 1.990/mês por tempo limitado** (`OFERTA_DO_COMPLETO`, até 31/12/2026, data proposta por mim) e leva a **implantação do Painel do dono de bônus de fechamento** (a mensalidade do painel, R$ 490, segue: leitura minha de "bônus de fechamento", a confirmar).
 - Tráfego à parte (R$ 1.200 por plataforma, R$ 1.990 as duas com o feed, R$ 1.300 no Completo); rastreamento sozinho R$ 2.900 + R$ 690 para quem já tem site (é o piso).
