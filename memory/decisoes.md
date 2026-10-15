@@ -4,7 +4,7 @@ Log datado. Decisão nova entra no topo do dia; decisão revogada fica riscada c
 
 ## 15/10/2026 (Typebot do site antigo, pelo Dyones: "aposente")
 - O Typebot `v-2-o-5-m6h4adv` (`chat.v2o5.com.br`, embutido só em `/contrate` do WordPress) sai do ar na troca do DNS. O `/diagnostico` faz o trabalho dele com telefone pela Evolution, marca `origem = v2o5`, resposta ao lead e agente; `/contrate` já redireciona para `/diagnostico` (`next.config.ts`). Dois funis com dados diferentes para o mesmo diagnóstico não compensam.
-- Até a troca, o `/contrate` antigo segue no ar pela ponte "V2O5 · Atendimento do Typebot (credencial)" (`d8OWkweEIyNydwa2`), que substitui o "v2o5 atendimento" (`kSFBHak3ARmgHsE7`, apikey em texto no nó). Depois da troca: desligar e apagar os dois fluxos e despublicar o bot. A planilha "LEADS V2O5" fica como histórico.
+- Até a troca, o `/contrate` antigo segue no ar pela ponte "V2O5 · Atendimento do Typebot (credencial)" (`d8OWkweEIyNydwa2`), que substitui o "v2o5 atendimento" (`kSFBHak3ARmgHsE7`, apikey em texto no nó). O Dyones adiantou a aposentadoria no mesmo dia: bot despublicado e os dois fluxos arquivados no n8n; o `/contrate` antigo fica sem funil até a troca. A planilha "LEADS V2O5" fica como histórico.
 
 ## 15/10/2026 (atendimento configurado pela API, pela regra do Dyones: "veja se a conta 1 tem o Captain [...] Se não tiver: crie um agent bot do Chatwoot apontando para um fluxo do n8n")
 - Captain: a instalação está no plano enterprise (`enterprisePlanName` na página do Chatwoot), mas o recurso Captain (`captain_integration`) está desligado na conta 1; ligar é no Super Admin, com login. Pela regra, o agente é um agent bot do Chatwoot ("Agente da V2O5", id 1) que chama o fluxo `docs/n8n/agente-da-v2o5.json`.

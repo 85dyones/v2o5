@@ -102,7 +102,7 @@ Zona hoje (Hostinger, `ns1`/`ns2.dns-parking.com`), lida em 13/10 e de novo em 1
 4. **Backup do WordPress**: exportar arquivos e banco pelo hPanel e guardar fora da Hostinger. Depois da troca, apagar o WordPress da hospedagem: mesmo sem o domínio apontando para ele, quem mandar o cabeçalho `Host: v2o5.com.br` para o IP da Hostinger ainda chega nele, e um WordPress sem manutenção na mesma conta dos painéis põe os arquivos dos painéis em risco.
 5. **A troca**: apex A para o valor da Vercel; apagar o AAAA; `www` CNAME para o valor da Vercel. Nada mais.
 6. **Conferência** (em até uma hora): a Vercel mostra "Valid Configuration" e emite o certificado; abrir `https://v2o5.com.br`, `https://www.v2o5.com.br` (tem de redirecionar), `/sitemap.xml`, `/robots.txt`, `/jornada` (301 para `/sobre`), `/blog` (301 para `/guias`), `/wp-json/wp/v2/users` (404 no site novo); mandar e receber um e-mail de teste em `diagnostico@`; abrir `app.chat`, `n8n` e `evolution` (continuam na VPS).
-7. **Typebot aposentado** (decisão de 15/10): com o site novo no ar, `/contrate` redireciona para `/diagnostico` e o Typebot `v-2-o-5-m6h4adv` fica sem entrada. No n8n, desligue e apague "V2O5 · Atendimento do Typebot (credencial)" (`d8OWkweEIyNydwa2`) e o antigo "v2o5 atendimento" (`kSFBHak3ARmgHsE7`), se ainda existir; no Typebot, despublique o bot. A planilha "LEADS V2O5" fica como histórico.
+7. **Typebot aposentado**: feito em 15/10, antes da troca. Bot `v-2-o-5-m6h4adv` despublicado; no n8n, "v2o5 atendimento" (`kSFBHak3ARmgHsE7`) e "V2O5 · Atendimento do Typebot (credencial)" (`d8OWkweEIyNydwa2`) desligados e arquivados. Com o site novo no ar, `/contrate` redireciona para `/diagnostico`. A planilha "LEADS V2O5" fica como histórico.
 8. **Depois**: Search Console com propriedade de domínio (um TXT na Hostinger) e envio do sitemap; Bing Webmaster; Perfil da Empresa no Google com o site novo.
 
 ## 5. Subdomínio dos painéis de clientes (Hostinger)
@@ -144,6 +144,6 @@ Os detalhes de cada cliente (o que o painel mostra, de onde vem o dado, como é 
 6. Backup do WordPress (passo 4).
 7. Troca e conferência (passos 5, 6 e 8).
 8. Apagar o WordPress da hospedagem, com o backup guardado (passo 4).
-9. Aposentar o Typebot e os dois fluxos dele no n8n (seção 4, passo 7).
+9. ~~Aposentar o Typebot e os dois fluxos dele no n8n~~ feito em 15/10 (seção 4, passo 7).
 
 O subdomínio dos painéis (seção 5) não depende da troca e pode ser feito antes.
