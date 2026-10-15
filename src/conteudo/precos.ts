@@ -346,8 +346,8 @@ export const LINHAS_DE_PRECO: LinhaDePreco[] = [
     nome: "Conteúdo e gestão de redes sociais",
     href: "/diagnostico",
     grupo: "servico",
+    implantacao: 1500,
     mensalidade: 1699,
-    semImplantacao: "sem implantação",
     cobre:
       "Duas redes com perfis configurados, calendário e 12 publicações por mês feitas do que a empresa já produz, cada uma com link rastreado, e relatório mensal. Produção de foto, vídeo e peças fica à parte.",
     inclui: ["12 publicações por mês", "2 redes"],

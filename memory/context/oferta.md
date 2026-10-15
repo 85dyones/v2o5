@@ -40,7 +40,7 @@ Antes de vender repasse e consulta para outra loja: tirar o que é da Motors (no
 ## Serviços
 | Serviço | Implantação a partir de | Mensalidade a partir de |
 |---|---|---|
-| Conteúdo e gestão de redes sociais | sem implantação | R$ 1.699 (2 redes, 12 publicações por mês; produção de foto, vídeo e peças à parte) |
+| Conteúdo e gestão de redes sociais | R$ 1.500 | R$ 1.699 (2 redes, 12 publicações por mês; produção de foto, vídeo e peças à parte) |
 | Fluxo de automação | R$ 1.900 por fluxo | sem (manutenção na mensalidade do plano) |
 | Branding e gestão de marca | sob consulta | sob consulta |
 
@@ -92,7 +92,7 @@ Custo pela tabela de 12/10 (abaixo): infra por cliente e hora do fundador a R$ 1
 | Conteúdo e gestão de redes sociais | R$ 1.699 | R$ 850 (4 h e ferramentas) | 50% |
 
 ## Histórico
-- 15/10/2026: "Conteúdo e redes com IA" (R$ 1.500 + R$ 1.290/mês) vira "Conteúdo e gestão de redes sociais" a R$ 1.699/mês, sem implantação e sem "IA" no nome; escopo igual (2 redes, 12 publicações, produção à parte). Referência de mercado: TagX Crescimento R$ 1.590 (até 2 redes, até 12 posts).
+- 15/10/2026: "Conteúdo e redes com IA" (R$ 1.500 + R$ 1.290/mês) vira "Conteúdo e gestão de redes sociais" a R$ 1.500 + R$ 1.699/mês (sobe só a mensalidade), sem "IA" no nome; escopo igual (2 redes, 12 publicações, produção à parte). Referência de mercado: TagX Crescimento R$ 1.590 (até 2 redes, até 12 posts).
 - 10/10 a 14/10/2026: tabela de quinze linhas em dois pilares (site R$ 7.900 + R$ 690, rastreamento R$ 2.900 + R$ 690, agente R$ 3.900 + R$ 790, CRM e painel R$ 4.900 + R$ 790, reativação R$ 950 por campanha, branding R$ 1.500), piso de R$ 690 e teto de R$ 1.990 para as linhas de sistema, pacote automotivo R$ 14.900 + R$ 1.990. Substituída pelo cardápio de 15/10.
 
 ## Custo da mensalidade e pisos revisados (12/10/2026; base da tabela de margem acima)
@@ -105,7 +105,7 @@ Custos de infra por cliente (páginas de preço lidas em 12/10/2026; dólar de r
 | Agente de IA | ~R$ 40 (+ IA e WhatsApp repassados) | 3 | ~R$ 490 | R$ 790 | 38% | R$ 790 até 500 conversas/mês; +R$ 190 a cada 500 |
 | CRM | ~R$ 80 (projeto Supabase + Chatwoot) | 3 | ~R$ 530 | R$ 590 | 10% | **R$ 790** com 5 usuários; usuário extra R$ 89/mês; acima de 20 mil contatos ou 8 GB: +R$ 190/mês |
 | Painel do dono | ~R$ 80 (ou compartilha o projeto do CRM) | 3 | ~R$ 530 | (novo) | | **R$ 790** com 3 usuários e 3 fontes; usuário extra R$ 89/mês; fonte extra R$ 1.900 + R$ 190/mês; acima de 8 GB ou 1 milhão de linhas: compute do Supabase repassado + 20% |
-| Conteúdo e redes com IA | ~R$ 250 (ferramentas e IA) | 4 | ~R$ 850 | (novo) | | ~~R$ 1.500 de configuração + R$ 1.290/mês~~ (12 posts, 2 redes); 15/10: R$ 1.699/mês sem implantação |
+| Conteúdo e redes com IA | ~R$ 250 (ferramentas e IA) | 4 | ~R$ 850 | (novo) | | R$ 1.500 de configuração + ~~R$ 1.290/mês~~ **R$ 1.699/mês** desde 15/10 (12 posts, 2 redes) |
 
 Referências do usuário extra: Power BI Pro R$ 80,10/usuário/mês (beanalytic, jul/2026); Cubo Suite R$ 267/mês com 3 usuários e R$ 89 por usuário extra (blog.cubosuite.com.br, 2026).
 Pacote automotivo: soma das mensalidades passou a R$ 2.760 (590 + 790 + 790 + 590) em 12/10 e a R$ 2.960 com o piso de R$ 690 em 13/10; pacote segue em R$ 1.990 (33% abaixo), com 5 usuários; usuário extra R$ 89.

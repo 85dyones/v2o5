@@ -141,7 +141,7 @@ describe("tabela de preços", () => {
     expect(precoDa("googleAds")).toBe("a partir de R$ 1.200/mês + verba, por plataforma");
     expect(precoDa("trafego")).toBe("a partir de R$ 1.990/mês + verba");
     expect(precoDa("catalogo")).toBe("incluso no Google Ads e Meta Ads juntos");
-    expect(precoDa("redes")).toBe("a partir de R$ 1.699/mês");
+    expect(precoDa("redes")).toBe("a partir de R$ 1.500 + R$ 1.699/mês");
     expect(precoDa("automacao")).toBe("a partir de R$ 1.900 por fluxo");
     expect(precoDa("reativacao")).toBe("a partir de R$ 1.900 + R$ 290/mês");
     expect(precoDa("painel")).toBe("a partir de R$ 3.900 + R$ 490/mês; implantação de bônus no Completo");
