@@ -2,6 +2,9 @@
 
 Log datado. Decisão nova entra no topo do dia; decisão revogada fica riscada com a data da troca.
 
+## 15/10/2026 (confirmações do cardápio, pelo Dyones: "confirmados ambos os casos")
+- O preço de R$ 1.990/mês do Completo vale até **31/12/2026**. O bônus de fechamento cobre só a **implantação** do Painel do dono (R$ 3.900); a mensalidade do painel (R$ 490) segue. As duas leituras já estavam publicadas; nada muda no site. Sai a pendência 19.
+
 ## 15/10/2026 (PR #14 em main)
 - PR #14 (Conteúdo e gestão de redes sociais a R$ 1.500 + R$ 1.699/mês, Gestão de comentários e Direct a R$ 1.900 + R$ 590/mês somada ao conteúdo, registro do merge do PR #12) mesclado por squash em `main` (f29cb43) a pedido do Dyones ("faça o merge"), sem review; CI verde no head 7b50387. A branch `claude/gracious-euler-0qzedy` foi reiniciada a partir do `main`. O PR #13 segue aberto.
 
