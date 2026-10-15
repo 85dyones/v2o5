@@ -21,9 +21,18 @@
         "httpHeaderAuth": {
           "name": "V2O5 · segredo do site"
         }
-      }
+      },
+      "id": "560b86f8-07a3-5a90-8e6d-be6576108569"
     },
     {
+      "id": "18447dc9-3860-5b61-8c77-b8331a33c6ed",
+      "name": "Configuração",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        240,
+        300
+      ],
       "parameters": {
         "assignments": {
           "assignments": [
@@ -62,20 +71,30 @@
               "name": "chatwootInbox",
               "value": "12",
               "type": "string"
+            },
+            {
+              "id": "a7",
+              "name": "atributoOrigem",
+              "value": "origem",
+              "type": "string"
+            },
+            {
+              "id": "a8",
+              "name": "valorOrigem",
+              "value": "v2o5",
+              "type": "string"
+            },
+            {
+              "id": "a9",
+              "name": "etiquetaOrigem",
+              "value": "origem-v2o5",
+              "type": "string"
             }
           ]
         },
         "includeOtherFields": true,
         "options": {}
-      },
-      "name": "Configuração",
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.4,
-      "position": [
-        240,
-        300
-      ],
-      "notes": "Edite aqui: nome da instância da Evolution, id da conta e da caixa (inbox) do Chatwoot. As chaves ficam nas credenciais, nunca neste nó."
+      }
     },
     {
       "parameters": {
@@ -87,79 +106,31 @@
       "position": [
         480,
         300
-      ]
+      ],
+      "id": "184044b0-70c2-57fe-8987-a18b21242f2e"
     },
     {
-      "parameters": {
-        "respondWith": "json",
-        "responseBody": "={{ JSON.stringify({ ok: true, event_id: $('Lead').item.json.event_id }) }}",
-        "options": {}
-      },
+      "id": "e57dffe8-bbf6-5a67-94ef-8f69582e0310",
       "name": "Responder ao site",
       "type": "n8n-nodes-base.respondToWebhook",
       "typeVersion": 1.1,
       "position": [
         720,
-        120
-      ]
-    },
-    {
-      "parameters": {
-        "method": "POST",
-        "url": "={{ $('Configuração').item.json.evolutionUrl }}/message/sendText/{{ $('Configuração').item.json.evolutionInstancia }}",
-        "authentication": "genericCredentialType",
-        "genericAuthType": "httpHeaderAuth",
-        "sendBody": true,
-        "specifyBody": "json",
-        "jsonBody": "={{ JSON.stringify({ number: $('Configuração').item.json.whatsappDyones, text: $('Lead').item.json.avisoParaDyones }) }}",
-        "options": {}
-      },
-      "name": "Avisar o Dyones",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
-      "position": [
-        720,
-        300
+        100
       ],
-      "onError": "continueRegularOutput",
-      "credentials": {
-        "httpHeaderAuth": {
-          "name": "Evolution · apikey"
-        }
-      }
-    },
-    {
       "parameters": {
-        "method": "POST",
-        "url": "={{ $('Configuração').item.json.evolutionUrl }}/message/sendText/{{ $('Configuração').item.json.evolutionInstancia }}",
-        "authentication": "genericCredentialType",
-        "genericAuthType": "httpHeaderAuth",
-        "sendBody": true,
-        "specifyBody": "json",
-        "jsonBody": "={{ JSON.stringify({ number: $('Lead').item.json.whatsapp, text: $('Lead').item.json.respostaParaLead }) }}",
+        "respondWith": "json",
+        "responseBody": "={{ JSON.stringify({ ok: true, event_id: $('Lead').first().json.event_id }) }}",
         "options": {}
-      },
-      "name": "Responder ao lead",
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
-      "position": [
-        960,
-        300
-      ],
-      "onError": "continueRegularOutput",
-      "credentials": {
-        "httpHeaderAuth": {
-          "name": "Evolution · apikey"
-        }
       }
     },
     {
       "parameters": {
         "fromEmail": "diagnostico@v2o5.com.br",
-        "toEmail": "={{ $('Lead').item.json.email }}",
+        "toEmail": "={{ $('Lead').first().json.email }}",
         "subject": "Recebemos seu pedido de diagnóstico",
         "emailFormat": "text",
-        "text": "={{ $('Lead').item.json.respostaParaLead }}",
+        "text": "={{ $('Lead').first().json.respostaParaLead }}",
         "options": {}
       },
       "name": "Responder por e-mail",
@@ -167,7 +138,7 @@
       "typeVersion": 2.1,
       "position": [
         720,
-        480
+        520
       ],
       "disabled": true,
       "onError": "continueRegularOutput",
@@ -176,31 +147,123 @@
           "name": "Hostinger · diagnostico@"
         }
       },
-      "notes": "Desligado até o alias diagnostico@ existir e a credencial SMTP da Hostinger ser criada."
+      "notes": "Desligado até o alias diagnostico@ existir e a credencial SMTP da Hostinger ser criada.",
+      "id": "5bfe5f47-5762-555f-b719-14bdff9bdc4c"
     },
     {
-      "parameters": {
-        "method": "GET",
-        "url": "={{ $('Configuração').item.json.chatwootUrl }}/api/v1/accounts/{{ $('Configuração').item.json.chatwootConta }}/contacts/search?q={{ encodeURIComponent($('Lead').item.json.whatsappInternacional) }}",
-        "authentication": "genericCredentialType",
-        "genericAuthType": "httpHeaderAuth",
-        "options": {}
-      },
-      "name": "Buscar contato",
+      "id": "371f1c47-f93a-515d-aad3-7aae2d7fadbb",
+      "name": "Avisar o Dyones",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
+      "position": [
+        720,
+        300
+      ],
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $('Configuração').first().json.evolutionUrl }}/message/sendText/{{ $('Configuração').first().json.evolutionInstancia }}",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {},
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ number: $('Configuração').first().json.whatsappDyones, text: $('Lead').first().json.avisoParaDyones }) }}"
+      },
+      "credentials": {
+        "httpHeaderAuth": {
+          "name": "Evolution · apikey"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "id": "99d1b5cc-9910-5069-bde1-c2d6d7add9d0",
+      "name": "Conferir WhatsApp",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        960,
+        300
+      ],
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $('Configuração').first().json.evolutionUrl }}/chat/whatsappNumbers/{{ $('Configuração').first().json.evolutionInstancia }}",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {},
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ numbers: [$('Lead').first().json.whatsapp] }) }}"
+      },
+      "credentials": {
+        "httpHeaderAuth": {
+          "name": "Evolution · apikey"
+        }
+      },
+      "notes": "Pergunta à Evolution como o WhatsApp grava este número (com ou sem o nono dígito).",
+      "onError": "continueRegularOutput"
+    },
+    {
+      "id": "c5ddbc5b-0dcd-56e5-a049-deaec6c50ab8",
+      "name": "Telefone",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
       "position": [
         1200,
         300
       ],
-      "onError": "continueRegularOutput",
+      "parameters": {
+        "jsCode": "// O número como a Evolution o usa. No Brasil, o WhatsApp de muitos celulares\n// não tem o nono dígito: a Evolution grava o contato do Chatwoot com o número\n// dela (+55, DDD e 8 dígitos) e o identificador \"número@s.whatsapp.net\". O\n// contato que este fluxo marca tem de ser esse, ou a conversa abre num\n// contato sem marca e o agente não responde.\nconst digitado = String($(\"Lead\").first().json.whatsapp || \"\");\nconst respostas = $input.all().map((i) => i.json || {});\nconst achado = respostas.find((r) => r.exists === true && /^\\d+@s\\.whatsapp\\.net$/.test(String(r.jid || \"\")));\nconst numero = achado ? achado.jid.split(\"@\")[0] : digitado;\n\n// As duas grafias de um celular brasileiro, com e sem o nono dígito: é assim\n// que a própria Evolution procura o contato no Chatwoot.\nconst variantes = [numero];\nif (/^55\\d{2}9\\d{8}$/.test(numero)) variantes.push(numero.slice(0, 4) + numero.slice(5));\nif (/^55\\d{2}[6-9]\\d{7}$/.test(numero)) variantes.push(numero.slice(0, 4) + \"9\" + numero.slice(4));\n\nconst filtro = [];\nfor (const v of variantes) {\n  filtro.push({ attribute_key: \"identifier\", filter_operator: \"equal_to\", values: [v + \"@s.whatsapp.net\"], query_operator: \"OR\" });\n  filtro.push({ attribute_key: \"phone_number\", filter_operator: \"equal_to\", values: [\"+\" + v], query_operator: \"OR\" });\n}\nfiltro[filtro.length - 1].query_operator = null;\n\nreturn [{\n  json: {\n    numero,\n    telefone: \"+\" + numero,\n    identificador: achado ? achado.jid : null,\n    temWhatsApp: Boolean(achado),\n    variantes,\n    filtro,\n  },\n}];\n"
+      }
+    },
+    {
+      "id": "3a8c95a5-bef5-5596-8149-27f820413313",
+      "name": "Buscar contato",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1440,
+        300
+      ],
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $('Configuração').first().json.chatwootUrl }}/api/v1/accounts/{{ $('Configuração').first().json.chatwootConta }}/contacts/filter",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {},
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ payload: $('Telefone').first().json.filtro }) }}"
+      },
       "credentials": {
         "httpHeaderAuth": {
           "name": "Chatwoot · api_access_token"
         }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "id": "81a280fe-ac67-5b55-89df-c9d457fe0d86",
+      "name": "Contato existente",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1680,
+        300
+      ],
+      "parameters": {
+        "jsCode": "// Escolhe o contato que a Evolution vai achar e monta o que gravar nele. A\n// marca de origem (atributo e etiqueta) entra aqui, antes de qualquer\n// mensagem ao lead: é ela que libera o agente de IA.\nconst cfg = $(\"Configuração\").first().json;\nconst lead = $(\"Lead\").first().json;\nconst tel = $(\"Telefone\").first().json;\nconst achados = Array.isArray($input.first().json.payload) ? $input.first().json.payload : [];\nconst contato =\n  achados.find((c) => tel.identificador && c.identifier === tel.identificador) ||\n  achados.find((c) => c.phone_number === tel.telefone) ||\n  achados[0] ||\n  null;\n\nconst atributos = {\n  [cfg.atributoOrigem]: cfg.valorOrigem,\n  entrada: \"formulário do diagnóstico\",\n  empresa: lead.empresa,\n  segmento: lead.segmento,\n  porte: lead.porte,\n  objetivos: lead.objetivos,\n  estoque: lead.estoque,\n  sistema: lead.sistema,\n  origem_da_visita: lead.origemResumo,\n  pagina: lead.pagina,\n  email_do_formulario: lead.email,\n  event_id: lead.event_id,\n  fonte: \"site v2o5.com.br\",\n};\n\n// Contato que já existe: o nome do formulário vale; e-mail, telefone e\n// identificador só entram se estiverem vazios (trocar o que existe pode\n// colidir com outro contato e derrubar a gravação inteira, marca junto).\nconst corpoAtualizar = { name: lead.nome, custom_attributes: atributos };\nif (contato && !contato.email && lead.email) corpoAtualizar.email = lead.email;\nif (contato && !contato.phone_number) corpoAtualizar.phone_number = tel.telefone;\nif (contato && !contato.identifier && tel.identificador) corpoAtualizar.identifier = tel.identificador;\n\nconst corpoCriarSemEmail = {\n  inbox_id: Number(cfg.chatwootInbox),\n  name: lead.nome,\n  phone_number: tel.telefone,\n  custom_attributes: atributos,\n};\nif (tel.identificador) corpoCriarSemEmail.identifier = tel.identificador;\nconst corpoCriar = lead.email ? { ...corpoCriarSemEmail, email: lead.email } : corpoCriarSemEmail;\n\nreturn [{ json: { contatoId: contato ? contato.id : null, corpoAtualizar, corpoCriar, corpoCriarSemEmail } }];\n"
       }
     },
     {
+      "id": "513066cc-e302-57ce-9468-9adb571d5d75",
+      "name": "Já existe?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        1920,
+        300
+      ],
       "parameters": {
         "conditions": {
           "options": {
@@ -211,75 +274,309 @@
           "conditions": [
             {
               "id": "c1",
-              "leftValue": "={{ ($json.payload || []).length }}",
-              "rightValue": 0,
+              "leftValue": "={{ $json.contatoId }}",
               "operator": {
                 "type": "number",
-                "operation": "gt"
+                "operation": "exists",
+                "singleValue": true
               }
             }
           ],
           "combinator": "and"
         },
         "options": {}
-      },
-      "name": "Já existe?",
-      "type": "n8n-nodes-base.if",
-      "typeVersion": 2,
-      "position": [
-        1440,
-        300
-      ]
+      }
     },
     {
-      "parameters": {
-        "method": "PATCH",
-        "url": "={{ $('Configuração').item.json.chatwootUrl }}/api/v1/accounts/{{ $('Configuração').item.json.chatwootConta }}/contacts/{{ $json.payload[0].id }}",
-        "authentication": "genericCredentialType",
-        "genericAuthType": "httpHeaderAuth",
-        "sendBody": true,
-        "specifyBody": "json",
-        "jsonBody": "={{ JSON.stringify({ name: $('Lead').item.json.nome, email: $('Lead').item.json.email, custom_attributes: { empresa: $('Lead').item.json.empresa, segmento: $('Lead').item.json.segmento, porte: $('Lead').item.json.porte, objetivos: $('Lead').item.json.objetivos, estoque: $('Lead').item.json.estoque, sistema: $('Lead').item.json.sistema, origem: $('Lead').item.json.origemResumo, pagina: $('Lead').item.json.pagina, event_id: $('Lead').item.json.event_id, fonte: \"site v2o5.com.br\" } }) }}",
-        "options": {}
-      },
+      "id": "d9187913-e78b-534b-b69f-8af306978a77",
       "name": "Atualizar contato",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        1680,
-        180
+        2160,
+        160
       ],
-      "onError": "continueRegularOutput",
+      "parameters": {
+        "method": "PATCH",
+        "url": "={{ $('Configuração').first().json.chatwootUrl }}/api/v1/accounts/{{ $('Configuração').first().json.chatwootConta }}/contacts/{{ $json.contatoId }}",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {},
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify($json.corpoAtualizar) }}"
+      },
       "credentials": {
         "httpHeaderAuth": {
           "name": "Chatwoot · api_access_token"
         }
-      }
+      },
+      "onError": "continueRegularOutput"
     },
     {
-      "parameters": {
-        "method": "POST",
-        "url": "={{ $('Configuração').item.json.chatwootUrl }}/api/v1/accounts/{{ $('Configuração').item.json.chatwootConta }}/contacts",
-        "authentication": "genericCredentialType",
-        "genericAuthType": "httpHeaderAuth",
-        "sendBody": true,
-        "specifyBody": "json",
-        "jsonBody": "={{ JSON.stringify({ inbox_id: Number($('Configuração').item.json.chatwootInbox), name: $('Lead').item.json.nome, email: $('Lead').item.json.email, phone_number: $('Lead').item.json.whatsappInternacional, custom_attributes: { empresa: $('Lead').item.json.empresa, segmento: $('Lead').item.json.segmento, porte: $('Lead').item.json.porte, objetivos: $('Lead').item.json.objetivos, estoque: $('Lead').item.json.estoque, sistema: $('Lead').item.json.sistema, origem: $('Lead').item.json.origemResumo, pagina: $('Lead').item.json.pagina, event_id: $('Lead').item.json.event_id, fonte: \"site v2o5.com.br\" } }) }}",
-        "options": {}
-      },
+      "id": "4c44a3cf-31f1-569e-8183-a86381d6ed0c",
       "name": "Criar contato",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        1680,
-        420
+        2160,
+        400
       ],
-      "onError": "continueRegularOutput",
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $('Configuração').first().json.chatwootUrl }}/api/v1/accounts/{{ $('Configuração').first().json.chatwootConta }}/contacts",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {},
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify($json.corpoCriar) }}"
+      },
       "credentials": {
         "httpHeaderAuth": {
           "name": "Chatwoot · api_access_token"
         }
+      },
+      "onError": "continueErrorOutput",
+      "notes": "Se o e-mail já for de outro contato, o Chatwoot recusa (422) e o fluxo cria sem e-mail."
+    },
+    {
+      "id": "ae1b1ecd-9026-5d7f-aa2a-0e0deb5b0118",
+      "name": "Criar sem e-mail",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2400,
+        520
+      ],
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $('Configuração').first().json.chatwootUrl }}/api/v1/accounts/{{ $('Configuração').first().json.chatwootConta }}/contacts",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {},
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify($('Contato existente').first().json.corpoCriarSemEmail) }}"
+      },
+      "credentials": {
+        "httpHeaderAuth": {
+          "name": "Chatwoot · api_access_token"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "id": "de24a71e-4719-5e33-b1c7-b6919d9042a1",
+      "name": "Contato marcado",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2640,
+        300
+      ],
+      "parameters": {
+        "jsCode": "// Junta os caminhos (atualizado, criado, criado sem e-mail) num id só.\nconst existente = $(\"Contato existente\").first().json.contatoId;\nconst p = $input.first().json.payload || {};\nconst gravado = (p.contact && p.contact.id) || p.id || null;\nreturn [{ json: { contatoId: existente || gravado } }];\n"
       }
+    },
+    {
+      "id": "8405771d-a954-50cf-be14-36cd92167e88",
+      "name": "Contato salvo?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        2880,
+        300
+      ],
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "loose"
+          },
+          "conditions": [
+            {
+              "id": "c1",
+              "leftValue": "={{ $json.contatoId }}",
+              "operator": {
+                "type": "number",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      }
+    },
+    {
+      "id": "bd011479-0e4c-5b99-a0c4-006095090639",
+      "name": "Etiquetas do contato",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        3120,
+        200
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "={{ $('Configuração').first().json.chatwootUrl }}/api/v1/accounts/{{ $('Configuração').first().json.chatwootConta }}/contacts/{{ $json.contatoId }}/labels",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {}
+      },
+      "credentials": {
+        "httpHeaderAuth": {
+          "name": "Chatwoot · api_access_token"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "id": "226b00f0-ffc9-5de8-b5a1-3716602ddeb4",
+      "name": "Somar etiqueta",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3360,
+        200
+      ],
+      "parameters": {
+        "jsCode": "// A API troca a lista inteira de etiquetas: soma a da origem às que já existem.\nconst cfg = $(\"Configuração\").first().json;\nconst atuais = Array.isArray($input.first().json.payload) ? $input.first().json.payload : [];\nreturn [{ json: { labels: [...new Set([...atuais, cfg.etiquetaOrigem])] } }];\n"
+      }
+    },
+    {
+      "id": "570c42d4-b894-56e3-afb3-c8f3b7de4ffc",
+      "name": "Etiquetar contato",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        3600,
+        200
+      ],
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $('Configuração').first().json.chatwootUrl }}/api/v1/accounts/{{ $('Configuração').first().json.chatwootConta }}/contacts/{{ $('Contato marcado').first().json.contatoId }}/labels",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {},
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ labels: $json.labels }) }}"
+      },
+      "credentials": {
+        "httpHeaderAuth": {
+          "name": "Chatwoot · api_access_token"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "id": "9ae26bf7-bdaa-5da6-a2a6-5c7cac2fdbbe",
+      "name": "Responder ao lead",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        3840,
+        300
+      ],
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $('Configuração').first().json.evolutionUrl }}/message/sendText/{{ $('Configuração').first().json.evolutionInstancia }}",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {},
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ number: $('Telefone').first().json.numero, text: $('Lead').first().json.respostaParaLead }) }}"
+      },
+      "credentials": {
+        "httpHeaderAuth": {
+          "name": "Evolution · apikey"
+        }
+      },
+      "notes": "Só depois da marca: quando a Evolution abrir a conversa no Chatwoot, o contato já é lead da V2O5.",
+      "onError": "continueRegularOutput"
+    },
+    {
+      "id": "d463cf3e-3f24-5646-a6b2-dd9cf0f74572",
+      "name": "Esperar a conversa",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        4080,
+        300
+      ],
+      "parameters": {
+        "resume": "timeInterval",
+        "amount": 10,
+        "unit": "seconds"
+      },
+      "webhookId": "9f290c0e-925e-5b23-87e6-9805244496cd"
+    },
+    {
+      "id": "2a9a3e27-9c6b-58b3-8e12-f2d4518bc0e4",
+      "name": "Conversas do contato",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        4320,
+        300
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "={{ $('Configuração').first().json.chatwootUrl }}/api/v1/accounts/{{ $('Configuração').first().json.chatwootConta }}/contacts/{{ $('Contato marcado').first().json.contatoId }}/conversations",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {}
+      },
+      "credentials": {
+        "httpHeaderAuth": {
+          "name": "Chatwoot · api_access_token"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "id": "ddc4b8fe-4457-5001-919f-ef9c149fd67f",
+      "name": "Conversas para etiquetar",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        4560,
+        300
+      ],
+      "parameters": {
+        "jsCode": "// Depois da resposta ao lead, a Evolution abre (ou reaproveita) a conversa\n// na caixa do WhatsApp. Etiqueta as conversas abertas ou pendentes do\n// contato nessa caixa que ainda não têm a etiqueta da origem.\nconst cfg = $(\"Configuração\").first().json;\nif (!$(\"Contato marcado\").first().json.contatoId) return [];\nconst conversas = Array.isArray($input.first().json.payload) ? $input.first().json.payload : [];\nreturn conversas\n  .filter((c) => String(c.inbox_id) === String(cfg.chatwootInbox) && c.status !== \"resolved\")\n  .filter((c) => !(c.labels || []).includes(cfg.etiquetaOrigem))\n  .map((c) => ({ json: { conversaId: c.id, labels: [...new Set([...(c.labels || []), cfg.etiquetaOrigem])] } }));\n"
+      }
+    },
+    {
+      "id": "9005ef4b-5f59-5705-86c1-22cc1f204e23",
+      "name": "Etiquetar conversa",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        4800,
+        300
+      ],
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $('Configuração').first().json.chatwootUrl }}/api/v1/accounts/{{ $('Configuração').first().json.chatwootConta }}/conversations/{{ $json.conversaId }}/labels",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {},
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ labels: $json.labels }) }}"
+      },
+      "credentials": {
+        "httpHeaderAuth": {
+          "name": "Chatwoot · api_access_token"
+        }
+      },
+      "onError": "continueRegularOutput"
     }
   ],
   "connections": {
@@ -330,14 +627,25 @@
       "main": [
         [
           {
-            "node": "Responder ao lead",
+            "node": "Conferir WhatsApp",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "Responder ao lead": {
+    "Conferir WhatsApp": {
+      "main": [
+        [
+          {
+            "node": "Telefone",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Telefone": {
       "main": [
         [
           {
@@ -349,6 +657,17 @@
       ]
     },
     "Buscar contato": {
+      "main": [
+        [
+          {
+            "node": "Contato existente",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Contato existente": {
       "main": [
         [
           {
@@ -376,14 +695,155 @@
           }
         ]
       ]
+    },
+    "Atualizar contato": {
+      "main": [
+        [
+          {
+            "node": "Contato marcado",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Criar contato": {
+      "main": [
+        [
+          {
+            "node": "Contato marcado",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Criar sem e-mail",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Criar sem e-mail": {
+      "main": [
+        [
+          {
+            "node": "Contato marcado",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Contato marcado": {
+      "main": [
+        [
+          {
+            "node": "Contato salvo?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Contato salvo?": {
+      "main": [
+        [
+          {
+            "node": "Etiquetas do contato",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Responder ao lead",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Etiquetas do contato": {
+      "main": [
+        [
+          {
+            "node": "Somar etiqueta",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Somar etiqueta": {
+      "main": [
+        [
+          {
+            "node": "Etiquetar contato",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Etiquetar contato": {
+      "main": [
+        [
+          {
+            "node": "Responder ao lead",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Responder ao lead": {
+      "main": [
+        [
+          {
+            "node": "Esperar a conversa",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Esperar a conversa": {
+      "main": [
+        [
+          {
+            "node": "Conversas do contato",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Conversas do contato": {
+      "main": [
+        [
+          {
+            "node": "Conversas para etiquetar",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Conversas para etiquetar": {
+      "main": [
+        [
+          {
+            "node": "Etiquetar conversa",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "settings": {
     "executionOrder": "v1"
-  },
-  "pinData": {},
-  "meta": {
-    "instanceId": ""
-  },
-  "tags": []
+  }
 }

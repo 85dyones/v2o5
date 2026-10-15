@@ -1,79 +1,107 @@
-# Fluxo do n8n: lead do diagnóstico
+# Fluxos do n8n: atendimento da V2O5
 
-Arquivo: `lead-do-diagnostico.json`, pronto para importar no n8n da V2O5 (n8n.v2o5.com.br).
+Três fluxos para importar no n8n da V2O5 (n8n.v2o5.com.br). Juntos, fazem uma coisa: o lead que veio do site fica marcado no Chatwoot com o atributo de contato `origem = v2o5` e a etiqueta `origem-v2o5`, e só esse lead conversa com o agente de IA. Quem escreve para o WhatsApp da V2O5 por outro caminho cai na caixa como conversa aberta, sem resposta automática, para a equipe atender.
 
-O que o fluxo faz, nesta ordem:
+| Arquivo | Gatilho | O que faz |
+|---|---|---|
+| `lead-do-diagnostico.json` | `POST /webhook/v2o5-diagnostico`, chamado por `/api/leads` | avisa o Dyones, normaliza o telefone pela Evolution, cria ou atualiza o contato já marcado, só então responde ao lead e etiqueta a conversa |
+| `origem-do-lead.json` | `POST /webhook/v2o5-origem`, webhook da conta 1 no Chatwoot (caixa 12, `message_created`) | primeira mensagem da conversa com "site da V2O5" marca o contato; contato marcado ganha a etiqueta em cada conversa nova |
+| `agente-da-v2o5.json` | `POST /webhook/v2o5-agente`, agent bot "Agente da V2O5" da caixa 12 | conversa pendente de lead marcado: responde com o Claude; de contato sem marca: passa para aberta sem responder |
 
-1. Recebe o POST que `/api/leads` envia e confere o segredo do cabeçalho `X-V2O5-Segredo`.
-2. Responde 200 ao site na hora, para a pessoa ver a página "Pedido recebido" mesmo que um passo seguinte falhe.
-3. Avisa o Dyones no WhatsApp com o lead inteiro (nome, empresa, contato, objetivos, origem da visita, evento).
-4. Responde ao lead no WhatsApp em menos de um minuto, convidando a marcar os 45 minutos.
-5. Busca o contato no Chatwoot pelo telefone: se existe, atualiza; se não, cria, com os dados do lead nos atributos.
-
-O nó "Responder por e-mail" vem desligado. Ligue quando o alias `diagnostico@v2o5.com.br` existir e a credencial SMTP estiver criada.
-
-## 1. Credenciais no n8n (Credentials, Add credential)
-
-O arquivo não traz chave nenhuma. Crie estas quatro, com estes nomes, antes de importar:
-
-| Nome da credencial | Tipo | Name (cabeçalho) | Value |
-|---|---|---|---|
-| `V2O5 · segredo do site` | Header Auth | `X-V2O5-Segredo` | um segredo novo, por exemplo o resultado de `openssl rand -hex 32` |
-| `Evolution · apikey` | Header Auth | `apikey` | a chave da Evolution (a global `AUTHENTICATION_API_KEY` ou a da instância) |
-| `Chatwoot · api_access_token` | Header Auth | `api_access_token` | o token do seu perfil no Chatwoot (Perfil, Access Token) |
-| `Hostinger · diagnostico@` | SMTP | `smtp.hostinger.com`, porta 465, SSL | usuário e senha da caixa principal; o remetente do nó é o alias |
-
-Guarde o segredo do site: ele vai também na Vercel (passo 4).
-
-## 2. Importar
-
-Workflows, menu de três pontos, "Import from File", escolha `lead-do-diagnostico.json`. Abra cada nó que usa credencial (Pedido do site, Avisar o Dyones, Responder ao lead, Buscar contato, Atualizar contato, Criar contato, Responder por e-mail) e selecione a credencial de mesmo nome.
-
-## 3. Configurar o nó "Configuração"
-
-| Campo | O que colocar |
-|---|---|
-| `evolutionInstancia` | nome da instância da Evolution ligada ao número da V2O5. Vem `v2o5`, confirmado em 13/10 |
-| `chatwootConta` | id da conta no Chatwoot (o número depois de `/app/accounts/` na URL). Vem `1`, confirmado em 13/10 |
-| `chatwootInbox` | id da caixa de entrada onde o contato entra (Settings, Inboxes, o id está na URL). Vem `12`, a inbox do WhatsApp ligada à Evolution, confirmado em 13/10 |
-
-`evolutionUrl` (`https://evolution.v2o5.com.br`), `chatwootUrl` (`https://app.chat.v2o5.com.br`, o Chatwoot que responde; `chatwoot.v2o5.com.br` devolve erro 500 desde 13/10) e `whatsappDyones` já vêm preenchidos. Os três campos da tabela acima também já vêm preenchidos com os valores confirmados em 13/10; só mude se a inbox ou a instância forem recriadas.
-
-Se a Evolution for da versão 1, o corpo do envio muda: em "Avisar o Dyones" e "Responder ao lead", troque `text: ...` por `textMessage: { text: ... }`.
-
-## 4. Ativar e ligar ao site
-
-Ligue o fluxo (Active). A URL de produção fica:
+Endereços de produção:
 
 ```
 https://n8n.v2o5.com.br/webhook/v2o5-diagnostico
+https://n8n.v2o5.com.br/webhook/v2o5-origem
+https://n8n.v2o5.com.br/webhook/v2o5-agente
 ```
 
 A URL com `/webhook-test/` só responde com o editor aberto em "Listen for test event".
 
-Na Vercel, projeto `v2o5`, Settings, Environment Variables:
+## O que já está no Chatwoot (conta 1, criado pela API em 15/10)
 
-| Variável | Valor | Ambientes |
+| Peça | Id | Situação |
 |---|---|---|
-| `LEADS_WEBHOOK_URL` | a URL acima | Production e Preview |
-| `LEADS_WEBHOOK_SECRET` | o mesmo valor da credencial `V2O5 · segredo do site` | Production e Preview |
+| Atributo de contato `origem` (texto) | 34 | pronto |
+| Etiqueta `origem-v2o5` (âmbar, na barra lateral) | 23 | pronta |
+| Webhook "n8n · origem do lead (caixa 12)", evento `message_created`, para `/webhook/v2o5-origem` | 3 | ativo do lado do Chatwoot; até o fluxo ser ativado, o n8n responde 404 e nada acontece |
+| Agent bot "Agente da V2O5", para `/webhook/v2o5-agente` | 1 | criado **sem** ligar à caixa 12 (passo 4) |
 
-Depois, Deployments, menu do último deploy, Redeploy: variável nova só entra num deploy novo.
+Por que o bot e não o Captain: decisão de 15/10 em `memory/decisoes.md`. Em resumo, no Chatwoot 4.17 a conversa já nasce "aberta" quando o contato não bate com o público do Captain, e o Captain só responde conversa pendente; o lead do botão é marcado segundos depois da primeira mensagem e ficaria sem IA.
+
+## 1. Credenciais no n8n (Credentials, Add credential)
+
+Os arquivos não trazem chave nenhuma, só o nome da credencial. Crie estas, com estes nomes:
+
+| Nome da credencial | Tipo | Name (cabeçalho) | Value | Usada em |
+|---|---|---|---|---|
+| `V2O5 · segredo do site` | Header Auth | `X-V2O5-Segredo` | um segredo novo, por exemplo o resultado de `openssl rand -hex 32` | diagnóstico |
+| `Evolution · apikey` | Header Auth | `apikey` | a chave da Evolution (a global `AUTHENTICATION_API_KEY` ou a da instância `v2o5`) | diagnóstico |
+| `Chatwoot · api_access_token` | Header Auth | `api_access_token` | o token do seu perfil no Chatwoot (Perfil, Access Token) | os três |
+| `Chatwoot · agent bot` | Header Auth | `api_access_token` | o token do bot: Settings, Bots, "Agente da V2O5", Access Token (copiar) | agente |
+| `Anthropic · x-api-key` | Header Auth | `x-api-key` | uma chave da API da Anthropic (console.anthropic.com) | agente |
+| `Hostinger · diagnostico@` | SMTP | `smtp.hostinger.com`, porta 465, SSL | usuário e senha da caixa principal; o remetente do nó é o alias | diagnóstico (nó desligado) |
+
+Guarde o segredo do site: ele vai também na Vercel (passo 4). O token do bot responde e passa a conversa em nome do bot: com ele, a mensagem aparece como do "Agente da V2O5" e a passagem de pendente para aberta é a oficial do Chatwoot.
+
+## 2. Importar
+
+Pela tela: Workflows, menu de três pontos, "Import from File", um arquivo por vez. Abra cada nó que usa credencial e selecione a credencial de mesmo nome.
+
+Pela API do n8n (`X-N8N-API-KEY`): `GET /api/v1/credentials` lista nome, tipo e id das credenciais, sem o segredo. Troque em cada nó `"credentials": {"httpHeaderAuth": {"name": "..."}}` pelo mesmo objeto com o `id` da credencial de mesmo nome e envie só `name`, `nodes`, `connections` e `settings` para `POST /api/v1/workflows`; depois, `POST /api/v1/workflows/{id}/activate`.
+
+## 3. Configuração (nó "Configuração" de cada fluxo)
+
+Já vêm preenchidos. Só mude se a caixa, a instância ou o Chatwoot forem recriados.
+
+| Campo | Valor | Fluxos |
+|---|---|---|
+| `chatwootUrl` | `https://app.chat.v2o5.com.br` (o único Chatwoot; `chatwoot.v2o5.com.br` não existe mais desde 15/10) | os três |
+| `chatwootConta` | `1`, confirmado em 13/10 | os três |
+| `chatwootInbox` | `12`, a caixa do WhatsApp ligada à Evolution, confirmado em 13/10 | os três |
+| `atributoOrigem`, `valorOrigem`, `etiquetaOrigem` | `origem`, `v2o5`, `origem-v2o5` | os três |
+| `evolutionUrl`, `evolutionInstancia` | `https://evolution.v2o5.com.br`, `v2o5` (confirmado em 13/10) | diagnóstico |
+| `whatsappDyones` | o WhatsApp público da V2O5 | diagnóstico |
+| `marcaDoSite` | `site da V2O5`, o trecho que toda mensagem pronta do site traz (`MARCA_DO_SITE` em `src/conteudo/home.ts`) | origem, agente |
+| `modeloIA`, `esforcoIA` | `claude-opus-5-5`, `low` | agente |
+| `conhecimentoUrl` | `https://v2o5.vercel.app/llms.txt`, o `llms.txt` de produção do site: preços e serviços saem do mesmo conteúdo das páginas, e o agente nunca fala um preço diferente do publicado | agente |
+| `mensagensNoHistorico` | `30` | agente |
+
+Se a Evolution for da versão 1, o corpo do envio muda: em "Avisar o Dyones" e "Responder ao lead", troque `text: ...` por `textMessage: { text: ... }`.
+
+## 4. Ativar e ligar
+
+Nesta ordem:
+
+1. Ative os três fluxos (Active).
+2. **Site**: na Vercel, projeto `v2o5`, Settings, Environment Variables, para Production e Preview: `LEADS_WEBHOOK_URL` = `https://n8n.v2o5.com.br/webhook/v2o5-diagnostico` e `LEADS_WEBHOOK_SECRET` = o mesmo valor da credencial `V2O5 · segredo do site`. Depois, Deployments, Redeploy: variável nova só entra num deploy novo.
+3. **Origem**: nada a fazer; o webhook 3 do Chatwoot já aponta para o fluxo.
+4. **Agente**: só com o fluxo do agente ativo, ligue o bot à caixa: Settings, Inboxes, "Whats v2o5", Bot Configuration, "Agente da V2O5". (Pela API: `POST /api/v1/accounts/1/inboxes/12/set_agent_bot` com `{"agent_bot": 1}`.) Daí em diante, toda conversa nova da caixa 12 nasce pendente; o fluxo responde o lead marcado e passa as outras para aberta em cerca de 6 segundos. Se o n8n cair, o Chatwoot passa a conversa para aberta sozinho, com um aviso na conversa.
+
+Para tirar o agente do ar: desligue o bot na mesma tela (a caixa volta a abrir toda conversa como aberta). As conversas abertas de antes não mudam.
 
 ## 5. Testar
 
-Direto no n8n, com o segredo no lugar de `SEGREDO`:
+Direto no n8n, com o segredo no lugar de `SEGREDO` e o seu número no lugar de `55DDNUMERO`:
 
 ```bash
 curl -s -X POST https://n8n.v2o5.com.br/webhook/v2o5-diagnostico \
   -H 'Content-Type: application/json' \
   -H 'X-V2O5-Segredo: SEGREDO' \
-  -d '{"event_id":"Lead.teste-1","recebido_em":"2026-10-11T12:00:00Z","fonte":"teste","lead":{"nome":"Teste da V2O5","whatsapp":"5541998089550","email":"diagnostico@v2o5.com.br","empresa":"Teste","segmento":"automotivo","porte":"2-5","objetivos":["aparecer","responder"],"estoque":"31-80","sistema":"revenda-mais","mensagem":"Teste do fluxo.","pagina":"/diagnostico","origem":{"utm_source":"google","utm_medium":"cpc","gclid":"g123","entrada":"/?utm_source=google"}}}'
+  -d '{"event_id":"Lead.teste-1","recebido_em":"2026-10-15T12:00:00Z","fonte":"teste","lead":{"nome":"Teste da V2O5","whatsapp":"55DDNUMERO","email":"diagnostico@v2o5.com.br","empresa":"Teste","segmento":"automotivo","porte":"2-5","objetivos":["aparecer","responder"],"estoque":"31-80","sistema":"revenda-mais","mensagem":"Teste do fluxo.","pagina":"/diagnostico","origem":{"utm_source":"google","utm_medium":"cpc","gclid":"g123","entrada":"/?utm_source=google"}}}'
 ```
 
-Esperado: `{"ok":true,"event_id":"Lead.teste-1"}` na hora, o aviso no seu WhatsApp, a resposta no WhatsApp informado e o contato no Chatwoot. Com o segredo errado o n8n responde 403.
+Esperado: `{"ok":true,"event_id":"Lead.teste-1"}` na hora; com o segredo errado, 403.
 
-Depois, no site (preview ou produção): envie o formulário em `/diagnostico` com dados de teste. Se aparecer "O envio está em configuração", a variável não chegou ao deploy. Se o n8n recusar, o site responde "entrega" (502) e o formulário pede para tentar de novo.
+Os três testes antes do DNS (`docs/checagem-antes-do-dns.md`, seção 2):
+
+| Teste | Como | Esperado |
+|---|---|---|
+| (a) formulário | envie `/diagnostico` no preview da Vercel com o seu número | aviso no WhatsApp da V2O5; resposta no seu WhatsApp; no Chatwoot, o contato com `origem = v2o5`, a etiqueta e a conversa etiquetada; ao responder a mensagem, o agente responde |
+| (b) sem marca | de um número que nunca usou o site, mande "bom dia" para o WhatsApp da V2O5 | nenhuma resposta; a conversa aparece aberta na caixa 12, sem etiqueta |
+| (c) botão | de outro número, toque no botão de WhatsApp do site e envie a mensagem pronta | contato marcado, conversa etiquetada e resposta do agente em poucos segundos |
+
+Onde olhar se algo falhar: Executions de cada fluxo no n8n; no Chatwoot, a ficha do contato (atributo e etiqueta) e as notas privadas do bot na conversa.
 
 ## O que chega do site
 
@@ -99,10 +127,20 @@ Depois, no site (preview ou produção): envie o formulário em `/diagnostico` c
 }
 ```
 
-Os valores de `segmento`, `porte`, `objetivos`, `estoque` e `sistema` são os códigos de `src/conteudo/diagnostico.ts`; o nó "Lead" traduz para os rótulos que a pessoa viu no formulário (`tests/n8n.test.ts` confere que os dois lados batem).
+Os valores de `segmento`, `porte`, `objetivos`, `estoque` e `sistema` são os códigos de `src/conteudo/diagnostico.ts`; o nó "Lead" traduz para os rótulos que a pessoa viu no formulário. A campanha de onde a pessoa veio vai para o atributo `origem_da_visita` (antes de 15/10 ia para `origem`, que agora é só a marca `v2o5`).
+
+## Como cada fluxo decide
+
+**Telefone (diagnóstico).** O fluxo pergunta à Evolution (`/chat/whatsappNumbers`) como o WhatsApp grava o número. Em muitos celulares brasileiros, o WhatsApp não tem o nono dígito, e a Evolution grava o contato do Chatwoot como `+55DD` e 8 dígitos, com o identificador `número@s.whatsapp.net`. O fluxo procura o contato pelas duas grafias, no identificador e no telefone, como a Evolution faz, e grava a marca nesse contato. Se a Evolution não achar o número no WhatsApp, vale o número digitado.
+
+**Primeira mensagem (origem e agente).** Conta só mensagem recebida, não privada; a comparação ignora maiúscula, acento e espaço repetido. O agente faz a mesma conta por conta própria, para não depender de o fluxo da origem já ter gravado a marca quando o evento chega.
+
+**Agente.** Espera 5 segundos (várias mensagens seguidas viram uma resposta), relê conversa, contato e mensagens pela API e só age em conversa pendente, sem pessoa atribuída, quando a última mensagem é a do evento. A IA devolve JSON (resposta, passar para a equipe, nota para a equipe). Recusa, erro da API ou resposta fora do formato: nada vai para o contato, o bot deixa uma nota privada e passa a conversa para aberta. Para assumir uma conversa que o agente está atendendo, abra-a (status aberta) ou atribua a você.
 
 ## Limites conhecidos
 
-- Se a Evolution ou o Chatwoot falharem, o site já recebeu o 200. O erro fica em Executions, no n8n. Um "Error Workflow" com aviso no WhatsApp cobre isso, se quiser.
-- O telefone é o que o lead digitou. Se não tiver WhatsApp ativo, a Evolution devolve erro nesse passo e o resto segue.
-- Os atributos do contato no Chatwoot aparecem na ficha quando existem como atributos personalizados da conta (Settings, Custom Attributes). Sem isso, ficam gravados e saem na API.
+- O site recebe o 200 antes do resto. Se a Evolution ou o Chatwoot falharem, o erro fica em Executions; um "Error Workflow" com aviso no WhatsApp cobre isso, se quiser.
+- Se o Chatwoot recusar o contato, o lead ainda recebe a resposta, mas sem marca o agente não atende a conversa dele: ela fica aberta para a equipe.
+- Os webhooks do Chatwoot não levam cabeçalho de autenticação. Os fluxos da origem e do agente usam do evento só os números (conversa, contato, mensagem) e releem tudo pela API, então um evento forjado não faz o agente responder nada que não esteja na conversa real.
+- Se a assinatura de mensagens estiver ligada na integração do Chatwoot na Evolution, a resposta do agente sai no WhatsApp com o nome do bot no topo.
+- Os atributos do contato aparecem na ficha quando existem como atributos personalizados da conta (Settings, Custom Attributes). Só `origem` foi criado; os outros ficam gravados e saem na API.
