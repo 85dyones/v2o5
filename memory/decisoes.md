@@ -2,6 +2,11 @@
 
 Log datado. Decisão nova entra no topo do dia; decisão revogada fica riscada com a data da troca.
 
+## 15/10/2026 (atendimento antes do DNS, pelo Dyones: "preciso dos webhooks da v2o5 funcionando, do chatwoot configurado com interaçao do captain apenas para leads taggeados com origem na v2o5. crie isso tudo antes de virarmos o dns"; "este é o chatwoot, a outra não existe mais")
+- O DNS só vira com o webhook do diagnóstico ativo e testado e com o Chatwoot configurado. O Chatwoot é só o `app.chat.v2o5.com.br` (conta 1, da V2O5); `chatwoot.v2o5.com.br` não existe mais.
+- A IA só conversa com lead marcado com origem na V2O5: atributo de contato `origem = v2o5` e etiqueta `origem-v2o5`. Quem marca é o n8n: o fluxo do diagnóstico marca o contato antes da primeira mensagem; o lead do botão de WhatsApp é reconhecido pela mensagem pronta do site, que sempre traz "site da V2O5". Captain, se a instalação tiver a licença paga que ele exige no Chatwoot próprio (com a regra de público pelo atributo); sem a licença, o agente roda pelo n8n como agent bot da caixa do WhatsApp. A configuração foi para uma sessão nova com acesso ao n8n e ao Chatwoot por variáveis do ambiente.
+- A vara entra como case no site (Dyones); o nome e os números dependem da autorização da vara (`memory/projects/case-16-vara-civel.md`).
+
 ## 15/10/2026 (DNS e subdomínio dos painéis, pelo Dyones: "preciso que me oriente para direcionar o dns do site oficial que está na hostinger, para a vercel, apenas o site, vou manter o domínio lá, tenho hospedagem de sites contratada até 2027 lá, quero criar um subdominio para hospedar os paineis gerenciais de alguns clientes, a começar pela 16ª Vara Cível")
 - Domínio e DNS seguem na Hostinger; só apex e `www` vão para a Vercel. A hospedagem de sites (até 2027) serve `painel.v2o5.com.br`: um subdomínio só, uma pasta com senha por cliente (subdomínio por cliente exporia o nome nos registros públicos de certificados), `noindex`, só HTTPS, páginas estáticas com números agregados, sem dado pessoal e sem banco aberto para a internet. Primeiro cliente: a 16ª Vara Cível. O WordPress sai da hospedagem depois do backup. Roteiro em `docs/checagem-antes-do-dns.md` (seções 4 a 6).
 
