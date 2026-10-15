@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import { CASE_MOTORS } from "@/conteudo/case";
 import { CASE, LINHAS, VISAO_360 } from "@/conteudo/home";
 import { paginaDa } from "@/conteudo/paginas";
-import { linhaDePreco, precoDa } from "@/conteudo/precos";
+import { ofertaDaCapacidade, precoDa } from "@/conteudo/precos";
 import { SOLUCOES, solucaoDa } from "@/conteudo/solucoes";
 import { grafoDaSolucao, servicoDaSolucao } from "@/lib/schema";
 import { ler, semComentarios } from "./fonte";
@@ -74,7 +74,7 @@ describe("páginas de solução", () => {
       const grafo = grafoDaSolucao(s.rota) as { "@graph": ({ "@type"?: string; mainEntity?: { name: string }[] })[] };
       expect(grafo["@graph"].slice(1).map((n) => n["@type"])).toEqual(["BreadcrumbList", "Service", "FAQPage"]);
       expect(grafo["@graph"][3].mainEntity?.map((p) => p.name)).toEqual(s.perguntas.map((p) => p.pergunta));
-      const l = linhaDePreco(s.linha);
+      const l = ofertaDaCapacidade(s.linha);
       const servico = servicoDaSolucao(s.rota) as { offers: { price: number }[] };
       expect(servico.offers.map((o) => o.price)).toEqual([l.implantacao, l.mensalidade].filter(Boolean));
     }

@@ -62,11 +62,11 @@ describe("demonstrações rotuladas", () => {
 describe("oferta", () => {
   const oferta = ler("memory/context/oferta.md");
 
-  it("as linhas com preço próprio, a partir de, iguais à tabela de oferta.md", () => {
+  it("cada cartão diz o preço a partir de, o plano em que mora ou onde vem incluso, com os valores de oferta.md", () => {
     expect(LINHAS).toHaveLength(12);
     expect(ler("memory/context/oferta.md")).toContain("Piso da mensalidade: R$ 690");
     for (const linha of LINHAS) {
-      expect(linha.preco, linha.titulo).toMatch(/^a partir de R\$ /);
+      expect(linha.preco, linha.titulo).toMatch(/^(a partir de R\$ |no plano |incluso no )/);
       const valores = [...linha.preco.matchAll(/R\$ ([\d.]+)/g)].map((m) => m[1]);
       for (const v of valores) expect(oferta, `${linha.titulo}: R$ ${v}`).toContain(`R$ ${v}`);
       expect(oferta).toContain(`\`${linha.href}\``);
@@ -85,13 +85,13 @@ describe("os dois pilares do H1", () => {
     for (const l of LINHAS) expect(servicos, l.titulo).toContainEqual(l);
   });
 
-  it("serviço sem linha própria diz onde vem incluso ou traz preço da tabela", () => {
+  it("serviço sem cartão próprio diz em que plano vem incluso, é sob consulta ou traz preço da tabela", () => {
     const oferta = ler("memory/context/oferta.md");
     for (const s of servicos.filter((s) => !LINHAS.includes(s as (typeof LINHAS)[number]))) {
-      if (/incluso em /.test(s.preco)) {
-        const linha = s.preco.split("incluso em ")[1];
-        expect(LINHAS.map((l) => l.titulo), s.titulo).toContain(linha);
-      } else {
+      if (/incluso no plano /.test(s.preco)) {
+        const nome = s.preco.split("incluso no plano ")[1];
+        expect(["Presença", "Atendimento", "Completo"], s.titulo).toContain(nome);
+      } else if (s.preco !== "sob consulta") {
         expect(s.preco, s.titulo).toMatch(/^a partir de R\$ /);
         for (const [, v] of s.preco.matchAll(/R\$ ([\d.]+)/g)) expect(oferta).toContain(`R$ ${v}`);
       }
@@ -101,7 +101,7 @@ describe("os dois pilares do H1", () => {
   it("o mapa traz branding, Perfil da Empresa no Google, SEO e tráfego no Google e na Meta", () => {
     const mapa = PILARES[0].servicos.map((s) => s.titulo).join(" | ");
     expect(mapa).toMatch(/Branding e gestão de marca/);
-    expect(PILARES[0].servicos[0].preco).toBe("a partir de R$ 1.500 por projeto");
+    expect(PILARES[0].servicos[0].preco, "branding sob consulta (Dyones, 15/10)").toBe("sob consulta");
     expect(mapa).toMatch(/Perfil da Empresa no Google/);
     expect(mapa).toMatch(/SEO/);
     expect(mapa).toMatch(/Google e na Meta/);
@@ -175,7 +175,7 @@ describe("garantias, perguntas e chamadas (regras de oferta.md)", () => {
       "Sem fidelidade",
       "Implantação em até 6x",
       "O sistema é seu",
-      "Mensalidade com piso e teto",
+      "Mensalidade fechada por plano",
     ]);
     expect(oferta).toContain("Sem fidelidade");
     expect(oferta).toContain("até 6x");

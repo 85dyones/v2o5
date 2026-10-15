@@ -8,7 +8,7 @@
  */
 import { listaDeSistemasIntegraveis } from "@/conteudo/diagnostico";
 import type { Etapa } from "@/lib/tokens";
-import { AUTOMOTIVO_PRECO, BRL, DEGRAUS, linhaDePreco, mensalidadeComTeto, PISO_DA_MENSALIDADE, precoDa, REAJUSTE, REGRAS, TETO_DA_MENSALIDADE } from "@/conteudo/precos";
+import { BRL, dataBR, DEGRAUS, linhaDePreco, mensalidadeDoPlano, OFERTA_DO_COMPLETO, plano, PLANOS, precoDa, REAJUSTE, REGRAS, somaDosPlanosSeparados, USUARIOS_NO_CRM } from "@/conteudo/precos";
 
 /**
  * O H1 da home, escolhido em 09/10 entre duas opções (a outra está em
@@ -66,7 +66,7 @@ export type Vinheta =
   | "posvenda";
 
 export interface Linha {
-  /** O `id` da linha em `precos.ts`, de onde sai o preço. */
+  /** A capacidade em `precos.ts` (`CAPACIDADES`), de onde sai o texto de preço. */
   linha: string;
   titulo: string;
   frase: string;
@@ -78,8 +78,9 @@ export interface Linha {
 }
 
 /**
- * As linhas com preço próprio na tabela de `precos.ts`, na ordem da tabela.
- * Os pilares (abaixo) decidem a ordem dos cartões na home.
+ * As peças do cardápio que a home mostra em cartão. O preço de cada uma sai
+ * de `precoDa`: o plano em que ela mora ou a linha de preço própria. Os
+ * pilares (abaixo) decidem a ordem dos cartões na home.
  */
 export const LINHAS: Linha[] = [
   {
@@ -105,7 +106,7 @@ export const LINHAS: Linha[] = [
     linha: "googleAds",
     titulo: "Tráfego pago no Google e na Meta",
     frase:
-      "Google Ads e Meta Ads por plataforma ou juntos, com a verba ajustada pela venda registrada no CRM. Quem contrata os dois leva o feed de catálogo. Começa com o rastreamento ligado.",
+      "Google Ads e Meta Ads por plataforma ou juntos, com anúncios que abrem conversa no WhatsApp e a verba ajustada pela venda registrada no CRM. Quem contrata os dois leva o feed de catálogo. Começa com o rastreamento ligado.",
     preco: precoDa("googleAds"),
     href: "/gestao-de-trafego",
     etapa: "violeta",
@@ -203,11 +204,11 @@ export const LINHAS: Linha[] = [
 
 /** Um serviço do cardápio, como aparece no bento de soluções. */
 export interface Servico {
-  /** O `id` em `precos.ts` quando o preço vem da tabela. */
+  /** A capacidade em `precos.ts` quando o preço vem da tabela. */
   linha?: string;
   titulo: string;
   frase: string;
-  /** "a partir de" da tabela de `oferta.md`, ou em que linha ele vem incluso. */
+  /** O texto de preço da tabela, ou em que plano ele vem incluso. */
   preco: string;
   href: string;
   etapa: Etapa;
@@ -223,9 +224,9 @@ const linha = (id: string): Servico => {
 /** Cabeçalho da seção de soluções. */
 export const SOLUCOES = {
   titulo: "Tudo que leva o cliente do primeiro clique ao caixa.",
-  apagado: "Comece pela linha que trava hoje e some as outras depois.",
+  apagado: "Comece pelo que trava hoje e some o resto depois.",
   texto:
-    "Cada linha tem preço publicado e sem fidelidade. A mensalidade já inclui hospedagem e manutenção, e todas rodam na mesma base: o que entra por uma aparece nas outras.",
+    "Tudo com preço publicado e sem fidelidade, em três planos ou avulso. A mensalidade já inclui hospedagem e manutenção, e tudo roda na mesma base: o que entra por uma peça aparece nas outras.",
 };
 
 /**
@@ -259,7 +260,7 @@ export const PILARES: { id: string; sobretitulo: string; titulo: string; frase: 
         titulo: "Perfil da Empresa no Google",
         frase:
           "Quem busca perto de casa vê o Maps antes do site. O antigo Google Meu Negócio, completo e verificado, com a empresa aparecendo na sua região.",
-        preco: "incluso em Sites e presença",
+        preco: "incluso no plano Presença",
         href: "/criacao-de-sites",
         etapa: "violeta",
         vinheta: "perfil",
@@ -267,7 +268,7 @@ export const PILARES: { id: string; sobretitulo: string; titulo: string; frase: 
       {
         titulo: "SEO e busca por IA",
         frase: "Para ranquear no Google e ser citado nas respostas das IAs: SEO técnico, conteúdo e dados estruturados no site.",
-        preco: "SEO técnico incluso em Sites e presença",
+        preco: "SEO técnico incluso no plano Presença",
         href: "/criacao-de-sites",
         etapa: "violeta",
         vinheta: "busca",
@@ -766,7 +767,7 @@ export const AUTOMOTIVO = {
   titulo: "Para revendas de veículos",
   texto:
     "O pacote é o sistema da Motors Store: site de estoque integrado ao sistema da loja (Revenda Mais, Autoconf e outros), agente de IA no WhatsApp, CRM e rastreamento até a venda.",
-  preco: `Pacote completo a partir de ${BRL(AUTOMOTIVO_PRECO.pacote.implantacao)} de implantação e ${BRL(AUTOMOTIVO_PRECO.pacote.mensalidade)} por mês.`,
+  preco: `Plano Completo a partir de ${BRL(plano("completo").implantacao)} de implantação e ${BRL(OFERTA_DO_COMPLETO.mensalidade)} por mês até ${dataBR(OFERTA_DO_COMPLETO.ate)}; depois, ${BRL(plano("completo").mensalidade)}.`,
   href: "/segmentos/revendas-de-veiculos",
   /** Vinheta do estoque: carros de exemplo, rotulada como exemplo. */
   estoque: {
@@ -838,8 +839,8 @@ export const GARANTIAS = [
     texto: `Se sair, recebe o código, os dados e o domínio em até ${REGRAS.diasParaEntregarNaSaida} dias.`,
   },
   {
-    titulo: "Mensalidade com piso e teto",
-    texto: `De ${BRL(PISO_DA_MENSALIDADE)} a ${BRL(TETO_DA_MENSALIDADE)} por mês para o sistema inteiro, com hospedagem e manutenção dentro. O que cresce com você (usuário, dados, conversas) tem preço publicado. IA e mensagens do WhatsApp pelo valor real, na mesma fatura.`,
+    titulo: "Mensalidade fechada por plano",
+    texto: `Três planos de ${BRL(Math.min(...PLANOS.map(mensalidadeDoPlano)))} a ${BRL(Math.max(...PLANOS.map((p) => p.mensalidade)))} por mês, com hospedagem e manutenção dentro. O que cresce com você (usuário, dados, conversas) tem preço publicado. IA e mensagens do WhatsApp pelo valor real, na mesma fatura.`,
   },
 ];
 
@@ -864,7 +865,7 @@ export const CHAMADA = {
 export const PERGUNTAS = [
   {
     pergunta: "Quanto custa um site com a V2O5?",
-    resposta: `A partir de ${BRL(linhaDePreco("sites").implantacao!)} de implantação e ${BRL(linhaDePreco("sites").mensalidade!)} por mês. A mensalidade cobre hospedagem, manutenção, atualizações de segurança, SEO técnico contínuo e o Perfil da Empresa no Google. Domínio e e-mail profissional entram na fundação do projeto.`,
+    resposta: `O site vem no plano Presença, a partir de ${BRL(plano("presenca").implantacao)} de implantação e ${BRL(plano("presenca").mensalidade)} por mês, junto com o Perfil da Empresa no Google, o SEO técnico, o rastreamento até a venda e o pedido de avaliação. A mensalidade cobre hospedagem, manutenção, atualizações de segurança e o relatório mensal. Domínio e e-mail profissional entram na fundação do projeto.`,
   },
   {
     pergunta: "O que a mensalidade inclui?",
@@ -872,12 +873,12 @@ export const PERGUNTAS = [
       "Hospedagem, manutenção, atualizações de segurança, monitoramento e um relatório mensal. O uso do modelo de IA e as mensagens da API oficial do WhatsApp são cobrados pelo valor real, discriminados na mesma fatura. A verba de anúncios é paga direto ao Google e à Meta. Usuário, dados e conversas acima do que vem incluso têm preço publicado na tabela.",
   },
   {
-    pergunta: "Se eu contratar várias linhas, a mensalidade vai somando?",
-    resposta: `Até o teto. Somadas as linhas de sistema (site, rastreamento, agente de IA, CRM e painel do dono), a mensalidade da V2O5 para em ${BRL(TETO_DA_MENSALIDADE)}. Site, agente, CRM e rastreamento somam ${BRL(mensalidadeComTeto(["sites", "agente", "crm", "rastreamento"]).soma)} e custam ${BRL(TETO_DA_MENSALIDADE)}; com o painel do dono, a mensalidade continua a mesma. Ficam fora do teto o que cresce com o uso, os repasses e os serviços de produção contínua, como tráfego e conteúdo.`,
+    pergunta: "Quero o site e o agente. Pago os dois planos?",
+    resposta: `Não precisa. O Completo junta a Presença e o Atendimento por ${BRL(plano("completo").mensalidade)} por mês (${BRL(OFERTA_DO_COMPLETO.mensalidade)} até ${dataBR(OFERTA_DO_COMPLETO.ate)}), contra ${BRL(somaDosPlanosSeparados().mensalidade)} dos dois separados, e ainda traz a integração com o sistema de gestão, um fluxo de automação e a implantação do Painel do dono de bônus. Tráfego, conteúdo e módulos ficam fora do plano, com preço publicado.`,
   },
   {
     pergunta: "Tem cobrança por usuário?",
-    resposta: `O CRM vem com 5 usuários e o Painel do dono com 3, sem licença por pessoa. Acima disso, cada usuário extra custa ${BRL(DEGRAUS.usuarioExtra)} por mês. O pacote automotivo vem com ${AUTOMOTIVO_PRECO.pacote.usuarios} usuários.`,
+    resposta: `O CRM do Atendimento e do Completo vem com ${USUARIOS_NO_CRM} usuários e o Painel do dono com 3, sem licença por pessoa. Acima disso, cada usuário extra custa ${BRL(DEGRAUS.usuarioExtra)} por mês.`,
   },
   {
     pergunta: "Os preços sobem com o dólar?",
@@ -889,7 +890,7 @@ export const PERGUNTAS = [
   },
   {
     pergunta: "Preciso trocar o sistema de gestão que já uso?",
-    resposta: `Não. A V2O5 liga o que você já usa. Em produção hoje: o estoque do Revenda Mais sincronizado com o site e o agente da Motors Store. ${listaDeSistemasIntegraveis()} e outros sistemas entram como fluxo de automação, a partir de ${BRL(1900)} por fluxo.`,
+    resposta: `Não. A V2O5 liga o que você já usa. Em produção hoje: o estoque do Revenda Mais sincronizado com o site e o agente da Motors Store. ${listaDeSistemasIntegraveis()} e outros sistemas entram como fluxo de automação, a partir de ${BRL(linhaDePreco("automacao").implantacao!)} por fluxo.`,
   },
   {
     pergunta: "O agente de IA atende sozinho?",
@@ -905,6 +906,11 @@ export const PERGUNTAS = [
     pergunta: "Vocês disparam para listas compradas?",
     resposta:
       "Não. A reativação de base usa a base própria da empresa, com registro de origem e saída fácil em toda mensagem. Lista comprada ou raspada fere a LGPD e derruba o número no WhatsApp.",
+  },
+  {
+    pergunta: "Por onde sai a campanha de reativação?",
+    resposta:
+      "Por SMS, com link rastreado e saída fácil, disparado do painel; ou por WhatsApp, numa campanha operada pela V2O5, pela API oficial ou por um número dedicado à campanha, nunca o principal da empresa. A API oficial cobra por mensagem e limita o volume diário, por isso o canal sai do diagnóstico, pelo tamanho da base. SMS e mensagens pelo valor do provedor, na mesma fatura.",
   },
   {
     pergunta: "Como funciona o diagnóstico gratuito?",

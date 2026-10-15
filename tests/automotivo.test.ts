@@ -2,12 +2,13 @@ import { describe, expect, it } from "vitest";
 import { HUB_AUTOMOTIVO } from "@/conteudo/automotivo";
 import { CASE } from "@/conteudo/home";
 import { paginaDa } from "@/conteudo/paginas";
-import { AUTOMOTIVO_PRECO, BRL, mensalidadeDoPacoteComTrafego } from "@/conteudo/precos";
+import { BRL, linhaDePreco, mensalidadeDoCompletoComTrafego, OFERTA_DO_COMPLETO, plano } from "@/conteudo/precos";
 import { grafoDoHubAutomotivo, servicoAutomotivo } from "@/lib/schema";
 import { ler, semComentarios } from "./fonte";
 
 /**
- * O hub automotivo só publica preço de `precos.ts` e número de `CASE` (lido
+ * O hub automotivo só publica preço de `precos.ts` (o plano Completo e os
+ * módulos de revenda) e número de `CASE` (lido
  * do banco da Motors, com fonte e período). Sobre o agente, não afirma que
  * roda na Motors (pendência 13).
  */
@@ -24,9 +25,10 @@ describe("hub automotivo", () => {
     expect(grafo["@graph"].slice(1).map((n) => n["@type"])).toEqual(["BreadcrumbList", "Service", "FAQPage"]);
     const servico = servicoAutomotivo() as { offers: { price: number; description: string }[] };
     expect(servico.offers.map((o) => o.price)).toEqual([
-      AUTOMOTIVO_PRECO.pacote.implantacao,
-      AUTOMOTIVO_PRECO.pacote.mensalidade,
-      mensalidadeDoPacoteComTrafego(),
+      plano("completo").implantacao,
+      OFERTA_DO_COMPLETO.mensalidade,
+      plano("completo").mensalidade,
+      mensalidadeDoCompletoComTrafego(),
     ]);
     for (const o of servico.offers) expect(o.description).toMatch(/a partir de/);
     const faq = grafo["@graph"][3] as { mainEntity: { name: string }[] };
@@ -37,20 +39,23 @@ describe("hub automotivo", () => {
     const valores = texto.match(/R\$ \d{1,3}(?:\.\d{3})*/g) ?? [];
     expect(valores.length).toBeGreaterThan(3);
     for (const v of valores) expect(oferta, v).toContain(v);
-    expect(HUB_AUTOMOTIVO.fatos[0].valor).toContain(BRL(AUTOMOTIVO_PRECO.pacote.implantacao));
-    expect(HUB_AUTOMOTIVO.fatos[0].valor).toContain(BRL(AUTOMOTIVO_PRECO.pacote.mensalidade));
-    expect(HUB_AUTOMOTIVO.extras.itens[0].preco).toContain(BRL(AUTOMOTIVO_PRECO.trafegoNoPacote));
+    expect(HUB_AUTOMOTIVO.fatos[0].valor).toContain(BRL(plano("completo").implantacao));
+    expect(HUB_AUTOMOTIVO.fatos[0].valor).toContain(BRL(OFERTA_DO_COMPLETO.mensalidade));
+    const extras = HUB_AUTOMOTIVO.extras.itens.map((i) => i.nome);
+    expect(extras.slice(0, 2), "consulta e repasse só no hub").toEqual([linhaDePreco("consulta").nome, linhaDePreco("repasse").nome]);
+    expect(JSON.stringify(HUB_AUTOMOTIVO.extras)).toContain(BRL(linhaDePreco("trafegoNoCompleto").mensalidade!));
+    expect(JSON.stringify(HUB_AUTOMOTIVO)).toContain("R$ 49,90 por placa");
   });
 
   it("os números são os do case, com a mesma fonte e período", () => {
     expect(HUB_AUTOMOTIVO.case.numeros).toBe(CASE.numeros);
     expect(HUB_AUTOMOTIVO.case.fonte).toBe(CASE.fonte);
     expect(pagina).toContain("{h.case.fonte}");
-    expect(pagina).toContain("<Pacote destino=\"precos\" />");
+    expect(pagina).toContain("<CompletoParaRevendas />");
   });
 
   it("não afirma que o agente roda na Motors e não promete resultado sem medir", () => {
-    expect(HUB_AUTOMOTIVO.pacote.texto).toMatch(/o agente de IA no WhatsApp completa o pacote/);
+    expect(HUB_AUTOMOTIVO.pacote.texto).toMatch(/o agente de IA no WhatsApp completa o sistema/);
     expect(texto).not.toMatch(/agente (de IA )?(da|na) Motors/i);
     expect(texto).not.toMatch(/\d+%|\d+x /);
     expect(texto).not.toMatch(/ainda não|em breve|vai aumentar|garantimos/i);

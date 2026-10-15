@@ -5,10 +5,10 @@ Memória de trabalho do projeto. Carrega em toda sessão: mantenha abaixo de ~10
 ## O que é
 Novo site da **V2O5 Vendas e Tecnologia** (substitui o WordPress de v2o5.com.br). A V2O5 digitaliza e acelera negócios com IA: coloca a empresa no mapa (site, busca, presença, rastreamento) e multiplica a operação (agentes, automação, CRM). Automotivo é o primeiro segmento, com o case **Motors Store**. Fundador: **Dyones Oliveira**.
 
-## Estado (13/10/2026)
+## Estado (15/10/2026)
 - Plano fechado em `docs/2026-10-08-plano-novo-site.md` (v4, longo: use `grep -n "^##"` e leia só a seção).
-- Home, `/precos`, `/diagnostico` (formulário → `/api/leads` → webhook do n8n), `/privacidade`, `/cases/motors-store`, o hub `/segmentos/revendas-de-veiculos`, as 5 páginas de solução (molde `PaginaDeSolucao` + `conteudo/solucoes.ts`) e `/sobre` prontas em `src/` (`npm run dev`); `/gestao-de-trafego` e `/guias` são provisórias. Camada de dados pronta em 13/10 (`lib/medicao.ts`: GA4 e Pixel por variável, CAPI em `lib/capi.ts`, oposição em `/privacidade`); falta o Dyones pôr os IDs na Vercel (`.env.example`). Preços em `src/conteudo/precos.ts` (15 linhas em dois pilares, piso de R$ 690/mês e teto de R$ 1.990 nas linhas de sistema, degraus de usuário, dados e infra, tráfego por plataforma, reativação com três canais, sem canal recomendado; indicação de fotógrafo parceiro a partir de R$ 890/mês; tabela confirmada em 12/10). Fluxo do n8n para o lead em `docs/n8n/` (o Dyones importa; Chatwoot em `app.chat.v2o5.com.br`, conta 1, inbox 12, instância `v2o5`). Roteiro da troca do DNS em `docs/checagem-antes-do-dns.md`; a linha do WhatsApp foi provada em 13/10. Números e escolhas em `memory/decisoes.md`, pendências em `memory/pendencias.md`.
-- Tudo em `main` (PRs #1 a #10 mesclados; o #8, da camada de dados, e o #10, da checagem antes do DNS com o fluxo do n8n corrigido, em 13/10). Cada rodada nova sai de `main` numa branch `claude/...` com PR contra `main`; a Vercel publica o preview por branch e a produção pelo `main`.
+- Home, `/precos`, `/diagnostico` (formulário → `/api/leads` → webhook do n8n), `/privacidade`, `/cases/motors-store`, o hub `/segmentos/revendas-de-veiculos`, as 5 páginas de solução (molde `PaginaDeSolucao` + `conteudo/solucoes.ts`) e `/sobre` prontas em `src/` (`npm run dev`); `/gestao-de-trafego` e `/guias` são provisórias. Camada de dados pronta em 13/10 (`lib/medicao.ts`: GA4 e Pixel por variável, CAPI em `lib/capi.ts`, oposição em `/privacidade`); falta o Dyones pôr os IDs na Vercel (`.env.example`). Preços em `src/conteudo/precos.ts`: cardápio de 15/10 com três planos (Presença R$ 8.900 + R$ 990, Atendimento R$ 7.900 + R$ 1.590, Completo R$ 14.900 + R$ 2.290, a R$ 1.990 até 31/12/2026 com a implantação do painel de bônus), tráfego por plataforma, módulos para quem tem o sistema (painel, reativação e campanhas, funil sob medida; consulta veicular a R$ 49,90 por placa e área de repasse só no hub) e serviços (branding sob consulta); fotógrafo parceiro a partir de R$ 890/mês. Fluxo do n8n para o lead em `docs/n8n/` (o Dyones importa; Chatwoot em `app.chat.v2o5.com.br`, conta 1, inbox 12, instância `v2o5`). Roteiro da troca do DNS em `docs/checagem-antes-do-dns.md`; a linha do WhatsApp foi provada em 13/10. Números e escolhas em `memory/decisoes.md`, pendências em `memory/pendencias.md`.
+- Em `main` até o PR #11 (14/10). O PR #12 (Meta Ads com WhatsApp, case da 16ª e o cardápio de três planos de 15/10) está aberto na branch `claude/gracious-euler-0qzedy`. Cada rodada nova sai de `main` numa branch `claude/...` com PR contra `main`; a Vercel publica o preview por branch e a produção pelo `main`.
 - Canvas de marca (privado): https://claude.ai/artifact/TJi91r21pMCLXUxL3AEYT3
 
 ## Termos
@@ -30,7 +30,7 @@ Novo site da **V2O5 Vendas e Tecnologia** (substitui o WordPress de v2o5.com.br)
 - Identidade geral (IA para negócios); automotivo como segmento com hub próprio. (09/10)
 - Visual escuro e tecnológico com motion (partículas da molécula, diagrama interativo, simuladores); formato editorial claro descartado. (09/10)
 - Nome fixo "V2O5 Vendas e Tecnologia"; assinatura "Catalisador de vendas com IA" com "IA" em âmbar. (08–09/10)
-- Preço publicado "a partir de", piso de R$ 690/mês (13/10; era 590) e teto de R$ 1.990 (13/10) com hospedagem e manutenção dentro; IA e WhatsApp repassados na fatura; cláusula de saída (loja leva código, dados e domínio). (08/10, piso em 10/10)
+- Preço publicado "a partir de" em três planos com preço fechado (15/10; antes, quinze linhas com piso e teto), hospedagem e manutenção dentro; módulos só para quem tem o sistema; IA, WhatsApp e SMS repassados na fatura; cláusula de saída (loja leva código, dados e domínio). (08/10, planos em 15/10)
 - Consentimento no modelo da Motors (interesse legítimo + oposição em /privacidade). (08/10)
 → Log completo e datado: `memory/decisoes.md` · Pendências: `memory/pendencias.md`
 
@@ -50,6 +50,7 @@ Novo site da **V2O5 Vendas e Tecnologia** (substitui o WordPress de v2o5.com.br)
 | Stack, infra, contas, tracking, orçamento de performance | `memory/context/infra.md` |
 | Direção visual e avaliação do motion | `memory/context/motion.md` |
 | Números do case Motors e problema do Chatwoot | `memory/projects/case-motors.md` |
+| Case 16ª Vara Cível (triagem automatizada por WhatsApp: Typebot + n8n + Chatwoot) | `memory/projects/case-16-vara-civel.md` |
 | Projeto do site (escopo, fases) | `memory/projects/site-v2o5.md` |
 | Plugins instalados e como reinstalar | `memory/context/ferramentas.md` |
 

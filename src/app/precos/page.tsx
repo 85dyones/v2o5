@@ -8,9 +8,8 @@ import Garantias from "@/components/home/Garantias";
 import Perguntas from "@/components/home/Perguntas";
 import Fechamento from "@/components/home/Fechamento";
 import ParceiroDeFotografia from "@/components/precos/ParceiroDeFotografia";
-import { ForaDaMensalidade, OQueCresce, Pacote, Reativacao, Tabela, Trafego, Teto } from "@/components/precos/TabelaDePrecos";
+import { ForaDaMensalidade, Modulos, OQueCresce, Planos, Servicos, Trafego } from "@/components/precos/TabelaDePrecos";
 import { metadataDa } from "@/conteudo/paginas";
-import { BRL, PISO_DA_MENSALIDADE, TETO_DA_MENSALIDADE } from "@/conteudo/precos";
 import { grafoDosPrecos } from "@/lib/schema";
 
 const ROTA = "/precos";
@@ -35,11 +34,11 @@ function Secao({ id, titulo, texto, children }: { id: string; titulo: string; te
 }
 
 /**
- * A página de preço: a tabela inteira nos dois pilares, o que cresce com o
- * cliente, o tráfego por plataforma, a reativação com os canais, o pacote
- * automotivo com o desconto calculado, o que fica fora, as garantias e as
- * perguntas. Quem chega aqui já quer saber quanto custa; a página responde
- * antes de pedir qualquer coisa.
+ * A página de preço no cardápio de 15/10/2026: três planos com preço
+ * fechado, o tráfego, os módulos para quem já tem o sistema, os serviços,
+ * o que cresce com o uso e o que fica fora, as garantias e as perguntas.
+ * Quem chega aqui já quer saber quanto custa; a página responde antes de
+ * pedir qualquer coisa.
  */
 export default function Pagina() {
   return (
@@ -51,12 +50,12 @@ export default function Pagina() {
           <div className="conteiner pb-12 pt-14 md:pt-20 lg:pb-16 lg:pt-24">
             <p className="sobretitulo">Preços</p>
             <h1 id="titulo-precos" className="titulo-hero mt-5 max-w-[46rem]">
-              Quanto custa, linha por linha, e o que cresce com você.
+              Três planos. Escolha pelo que falta na sua empresa.
             </h1>
             {/* Curto de propósito: o LCP da página é o H1, e um parágrafo maior que ele rouba o posto. */}
             <p className="texto-guia mt-7 max-w-[36rem]">
-              Todo valor é a partir de: o preço final sai do diagnóstico, com o escopo fechado. A mensalidade vai de{" "}
-              {BRL(PISO_DA_MENSALIDADE)} a {BRL(TETO_DA_MENSALIDADE)}, somando o que quiser.
+              Todo valor é a partir de, e o preço final sai do diagnóstico gratuito. Hospedagem, manutenção e suporte
+              estão dentro da mensalidade.
             </p>
             <div className="mt-9 flex flex-wrap gap-3">
               <Link href="/diagnostico" className="botao botao-primario" data-evento="cta_click" data-local="hero">
@@ -70,21 +69,40 @@ export default function Pagina() {
           </div>
         </section>
 
-        <section aria-labelledby="titulo-tabela" className="py-10 md:py-14">
+        <section aria-labelledby="titulo-planos" className="py-10 md:py-14">
           <div className="conteiner">
-            <h2 id="titulo-tabela" className="sr-only">
-              Tabela de preços
+            <h2 id="titulo-planos" className="sr-only">
+              Planos
             </h2>
-            <Tabela />
+            <Planos />
           </div>
         </section>
 
         <Secao
-          id="teto"
-          titulo="Piso e teto da mensalidade."
-          texto="Some as linhas de sistema que quiser: a mensalidade da V2O5 para no teto. Só o uso, os repasses e os serviços de produção contínua ficam fora."
+          id="trafego"
+          titulo="Para trazer mais gente: tráfego pago."
+          texto="A gestão é por plataforma. Quem contrata Google Ads e Meta Ads juntos paga menos e leva o feed de catálogo, que põe o estoque ou os produtos no anúncio."
         >
-          <Teto />
+          <Trafego />
+        </Secao>
+
+        <Secao
+          id="modulos"
+          titulo="Módulos, para quem já tem o sistema."
+          texto="Entram em cima do Atendimento ou do Completo, na mesma base: o que um módulo registra aparece no CRM e no painel."
+        >
+          <Modulos />
+          <p className="mt-5 text-[0.9375rem] leading-relaxed text-secundario">
+            Para revendas, a consulta veicular completa e a área de repasse estão na{" "}
+            <Link href="/segmentos/revendas-de-veiculos" className="link-sublinhado text-papel">
+              página de revendas
+            </Link>
+            .
+          </p>
+        </Secao>
+
+        <Secao id="servicos" titulo="Serviços feitos pela V2O5.">
+          <Servicos />
         </Secao>
 
         <Secao
@@ -94,31 +112,6 @@ export default function Pagina() {
         >
           <OQueCresce />
         </Secao>
-
-        <Secao
-          id="trafego"
-          titulo="Tráfego pago, por plataforma ou junto."
-          texto="A gestão é por plataforma. Quem contrata Google Ads e Meta Ads juntos paga menos e leva o feed de catálogo, que põe o estoque ou os produtos no anúncio."
-        >
-          <Trafego />
-        </Secao>
-
-        <Secao
-          id="reativacao"
-          titulo="Reativação de base: o canal muda o custo e o alcance."
-          texto="A campanha é a mesma. O que muda é por onde a mensagem sai, quanto a operadora ou a Meta cobram e quanto volume cada canal aguenta. A escolha sai do diagnóstico, pelo tamanho da base."
-        >
-          <Reativacao />
-        </Secao>
-
-        <section aria-labelledby="titulo-pacote" className="py-12 md:py-16">
-          <div className="conteiner">
-            <h2 id="titulo-pacote" className="sr-only">
-              Pacote para revendas de veículos
-            </h2>
-            <Pacote />
-          </div>
-        </section>
 
         <Secao id="fora" titulo="O que fica fora da mensalidade.">
           <ForaDaMensalidade />

@@ -8,7 +8,7 @@ import Topo from "@/components/layout/Topo";
 import Rodape from "@/components/layout/Rodape";
 import BotaoWhatsAppFixo from "@/components/layout/BotaoWhatsAppFixo";
 import ParceiroDeFotografia from "@/components/precos/ParceiroDeFotografia";
-import { Pacote } from "@/components/precos/TabelaDePrecos";
+import { CompletoParaRevendas } from "@/components/precos/TabelaDePrecos";
 import { HUB_AUTOMOTIVO } from "@/conteudo/automotivo";
 import { metadataDa } from "@/conteudo/paginas";
 import { grafoDoHubAutomotivo } from "@/lib/schema";
@@ -18,9 +18,9 @@ const ROTA = HUB_AUTOMOTIVO.rota;
 export const metadata = metadataDa(ROTA);
 
 /**
- * O hub do segmento automotivo (plano, seção 6.2): o pacote, o caminho de um
- * lead, as linhas avulsas que fazem sentido depois, os números do case, as
- * perguntas de dono de loja e a chamada. Conteúdo em `conteudo/automotivo.ts`.
+ * O hub do segmento automotivo (plano, seção 6.2): o plano Completo com o
+ * site de estoque, o caminho de um lead, os módulos de revenda, os números do
+ * case, as perguntas de dono de loja e a chamada. Conteúdo em `conteudo/automotivo.ts`.
  */
 export default function Pagina() {
   const h = HUB_AUTOMOTIVO;
@@ -90,9 +90,9 @@ export default function Pagina() {
 
         <section aria-labelledby="titulo-pacote" className="conteiner pb-20 md:pb-28">
           <h2 id="titulo-pacote" className="sr-only">
-            Preço do pacote
+            Preço do plano Completo
           </h2>
-          <Pacote destino="precos" />
+          <CompletoParaRevendas />
         </section>
 
         <section
@@ -135,7 +135,7 @@ export default function Pagina() {
                 <p className="mt-auto flex items-center justify-between gap-4 pt-6 text-sm">
                   <span className="font-medium tabular-nums text-papel/90">{item.preco}</span>
                   <LinkOuAncora href={item.href} className="link-sublinhado text-secundario">
-                    na tabela
+                    {item.link ?? "na tabela"}
                   </LinkOuAncora>
                 </p>
               </li>

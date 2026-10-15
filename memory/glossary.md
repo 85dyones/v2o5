@@ -35,7 +35,9 @@ Tudo que aparece abreviado nas conversas do projeto. O que é usado toda hora ta
 |---|---|
 | Start Digital | Redes, Perfil de Empresa, domínio, e-mail; saiu do cardápio, é fundação dos sites |
 | Diagnóstico | Gratuito; 45 min + mapa em 24 h com 3 mudanças de maior retorno |
-| Pacote completo | Site de estoque + IA + CRM + rastreamento + integração com o sistema da loja (Revenda Mais em produção): R$ 14.900 + R$ 1.990/mês, o teto da mensalidade |
+| Pacote completo | Nome até 14/10 do que virou o plano Completo |
+| Presença, Atendimento, Completo | Os três planos do cardápio de 15/10: ser encontrado (site, Google, rastreamento); responder (agente e CRM); os dois mais integração e um fluxo, o sistema da Motors |
+| Módulo | Peça vendida em cima do Atendimento ou do Completo: painel do dono, reativação e campanhas, funil sob medida, consulta veicular, área de repasse |
 | Cláusula de saída | Loja que cancela recebe código, dados e domínio em até 15 dias |
 | Camada | "A camada que gera e mede a venda é sua": frase para o segmento automotivo |
 
@@ -68,5 +70,5 @@ Tudo que aparece abreviado nas conversas do projeto. O que é usado toda hora ta
 | 85dyones/v2o5 | Este projeto |
 | 85dyones/motors-site-oficial | Site e painel da Motors (Next.js); base técnica de referência |
 | rede-auto, Motogestor-v3 | Produtos em estudo; Motogestor vai para a linha da Motors |
-| 16V | Projeto jurídico (Supabase "16-vara-civel"), fora do setor |
+| 16V, Vara Cível | Case de triagem automatizada por WhatsApp da 16ª Vara Cível de Curitiba (Typebot + n8n + Chatwoot); detalhe no repositório privado `85dyones/16V`; resumo para o site em `memory/projects/case-16-vara-civel.md` |
 | smart-parking-v2o5, freespot | Outros projetos; sem decisão de virar case |

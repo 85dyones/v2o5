@@ -13,7 +13,7 @@ import Rodape from "@/components/layout/Rodape";
 import BotaoWhatsAppFixo from "@/components/layout/BotaoWhatsAppFixo";
 import { Detalhes, implantacao, mensalidade } from "@/components/precos/TabelaDePrecos";
 import { CASE, LINHAS } from "@/conteudo/home";
-import { linhaDePreco } from "@/conteudo/precos";
+import { capacidade, ofertaDaCapacidade } from "@/conteudo/precos";
 import { mensagemDaSolucao, solucaoDa } from "@/conteudo/solucoes";
 import { grafoDaSolucao } from "@/lib/schema";
 
@@ -26,7 +26,8 @@ import { grafoDaSolucao } from "@/lib/schema";
  */
 export default function PaginaDeSolucao({ rota, demonstracao }: { rota: string; demonstracao?: ReactNode }) {
   const s = solucaoDa(rota);
-  const linha = linhaDePreco(s.linha);
+  const linha = ofertaDaCapacidade(s.linha);
+  const nomeDaLinha = capacidade(s.linha).nome;
   const relacionadas = s.relacionadas.map((id) => {
     const l = LINHAS.find((x) => x.linha === id);
     if (!l) throw new Error(`Linha relacionada sem cartão: ${id}`);
@@ -241,7 +242,7 @@ export default function PaginaDeSolucao({ rota, demonstracao }: { rota: string; 
         <Perguntas
           lista={s.perguntas}
           sobretitulo="Antes de contratar"
-          titulo={`O que perguntam sobre ${linha.nome.toLowerCase()}`}
+          titulo={`O que perguntam sobre ${nomeDaLinha.toLowerCase()}`}
           texto="Preço, o que entra, o que fica de fora e o que acontece se você sair. O resto cabe no diagnóstico."
         />
 
