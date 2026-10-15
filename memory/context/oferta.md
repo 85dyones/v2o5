@@ -12,8 +12,8 @@ Fonte em código: `src/conteudo/precos.ts` (home, `/precos`, hub automotivo, pá
 | Completo | Do anúncio à venda, tudo ligado e medido (o sistema da Motors Store) | tudo da Presença e do Atendimento, integração com o sistema de gestão, um fluxo de automação, tráfego das duas plataformas por R$ 1.300/mês se quiser | R$ 14.900 | R$ 2.290 de tabela; **R$ 1.990 por tempo limitado, até 31/12/2026** |
 
 - Separados, Presença e Atendimento somam R$ 16.800 + R$ 2.580/mês.
-- **Bônus de fechamento do Completo:** a implantação do Painel do dono (R$ 3.900) fica por conta da V2O5; a mensalidade do painel (R$ 490) segue.
-- A data do preço temporário (31/12/2026) é proposta minha, a confirmar; `tests/precos.test.ts` falha quando ela passa, para a oferta não ficar no ar vencida.
+- **Bônus de fechamento do Completo:** a implantação do Painel do dono (R$ 3.900) fica por conta da V2O5; a mensalidade do painel (R$ 490) segue (confirmado pelo Dyones em 15/10).
+- O preço temporário vale até 31/12/2026 (confirmado pelo Dyones em 15/10); `tests/precos.test.ts` falha quando a data passa, para a oferta não ficar no ar vencida.
 - Piso da mensalidade: R$ 690 (rastreamento sozinho). Nenhuma mensalidade que mantém sistema no ar fica abaixo dele; os módulos rodam em cima da mensalidade do plano.
 
 ## Tráfego
