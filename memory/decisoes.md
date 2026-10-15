@@ -2,6 +2,9 @@
 
 Log datado. Decisão nova entra no topo do dia; decisão revogada fica riscada com a data da troca.
 
+## 15/10/2026 (conteúdo e redes, pelo Dyones: "conteúdo e gestão de redes sociais, retire o IA, valor 1.699,00. 2 redes, 12 publicações. Produção de foto e vídeo e peças à parte")
+- O serviço passa a se chamar **Conteúdo e gestão de redes sociais**, sem "IA" no nome nem no cartão da home. Preço: **R$ 1.699/mês**, sem implantação (antes R$ 1.500 + R$ 1.290/mês). Li "valor" como a mensalidade e tirei a implantação por ser um valor só; a configuração dos perfis entra no primeiro mês. Escopo: 2 redes, 12 publicações por mês com link rastreado, relatório mensal; produção de foto, vídeo e peças à parte (o fotógrafo parceiro segue em "O que fica fora"). Margem estimada de 50% pelo custo de 12/10 (R$ 850).
+
 ## 15/10/2026 (PR #12 em main)
 - PR #12 (cardápio de três planos com módulos e serviços, Meta Ads com clique para o WhatsApp, resumo do case da 16ª Vara Cível) mesclado por squash em `main` (3907b6b) a pedido do Dyones ("faça o merge"), sem review; CI verde no head 243c193. A branch `claude/gracious-euler-0qzedy` foi reiniciada a partir do `main`. Continuam para confirmar: a data do fim do preço temporário do Completo (31/12/2026) e se o bônus de fechamento cobre só a implantação do painel (pendência 19).
 

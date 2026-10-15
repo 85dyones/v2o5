@@ -124,9 +124,9 @@ export const LINHAS: Linha[] = [
   },
   {
     linha: "redes",
-    titulo: "Conteúdo e redes com IA",
+    titulo: "Conteúdo e gestão de redes sociais",
     frase:
-      "Perfis configurados e um calendário que publica, com IA, o que a empresa já produz: o estoque, os guias, a novidade da semana. Cada post com link rastreado.",
+      "Duas redes com perfis configurados e um calendário de 12 publicações por mês feitas do que a empresa já produz: o estoque, os guias, a novidade da semana. Cada post com link rastreado.",
     preco: precoDa("redes"),
     href: "/diagnostico",
     etapa: "violeta",

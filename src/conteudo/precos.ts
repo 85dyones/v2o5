@@ -343,13 +343,13 @@ export const LINHAS_DE_PRECO: LinhaDePreco[] = [
   },
   {
     id: "redes",
-    nome: "Conteúdo e redes com IA",
+    nome: "Conteúdo e gestão de redes sociais",
     href: "/diagnostico",
     grupo: "servico",
-    implantacao: 1500,
-    mensalidade: 1290,
+    mensalidade: 1699,
+    semImplantacao: "sem implantação",
     cobre:
-      "Perfis configurados, calendário e 12 publicações por mês montadas do que a empresa já produz, cada uma com link rastreado, e relatório mensal. Produção de foto, vídeo e peças à parte.",
+      "Duas redes com perfis configurados, calendário e 12 publicações por mês feitas do que a empresa já produz, cada uma com link rastreado, e relatório mensal. Produção de foto, vídeo e peças fica à parte.",
     inclui: ["12 publicações por mês", "2 redes"],
   },
   {
@@ -426,7 +426,7 @@ export const CAPACIDADES: Record<string, Capacidade> = {
   metaAds: { nome: "Meta Ads", linha: "metaAds" },
   trafego: { nome: "Google Ads e Meta Ads juntos", linha: "trafego" },
   catalogo: { nome: "Anúncios de catálogo", linha: "trafego", preco: () => "incluso no Google Ads e Meta Ads juntos" },
-  redes: { nome: "Conteúdo e redes com IA", linha: "redes" },
+  redes: { nome: "Conteúdo e gestão de redes sociais", linha: "redes" },
   avaliacoes: { nome: "Avaliações no Google", plano: "presenca", incluso: true },
   agente: { nome: "Agente de IA no WhatsApp", plano: "atendimento" },
   crm: { nome: "CRM e sistemas sob medida", plano: "atendimento" },
