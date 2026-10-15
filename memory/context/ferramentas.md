@@ -21,7 +21,10 @@ Plugins carregam na sessão seguinte à instalação. Sem recarregar, leia o `SK
 | perf-profiler | Lighthouse e Core Web Vitals explicados |
 | parallax-threejs | Depuração de WebGL e regressão visual (MCPs de Chrome DevTools e Playwright) |
 | axe-accessibility | Habilidades de a11y; o scanner MCP exige conta Deque (não temos). Alternativa: `@axe-core/playwright` |
-| hostinger (1.2.0) | MCP remoto `https://mcp.hostinger.com` (DNS, e-mail, domínios, hospedagem, VPS) e 7 skills de deploy. Login por OAuth no navegador na primeira chamada: até o Dyones autorizar, as ferramentas não respondem. Serve para os alias de e-mail (pendência 9) e para a troca do DNS (`docs/checagem-antes-do-dns.md`) |
+| hostinger (1.2.0) | MCP remoto `https://mcp.hostinger.com` e 7 skills de deploy. Só entra por OAuth no navegador, que a nuvem não abre, e não usa o token: para a API, ver "Hostinger por token" abaixo. No catálogo do claude.ai há o "Hostinger Connector" (1.3.0): ativado lá, sincroniza em toda sessão |
+
+## Hostinger por token (15/10)
+O Dyones pôs `HOSTINGER_API_TOKEN` no ambiente da nuvem. Variável nova só chega a uma sessão aberta quando a VM dela reinicia (depois de ociosa); sessão nova já recebe. Quem usa o token é o `.mcp.json` da raiz: servidor oficial `hostinger-api-mcp` (npm, da Hostinger), fixado na 3.0.0, com 421 operações (DNS, e-mail, domínios, hospedagem, VPS) atrás de três ferramentas: `search`, `execute` e `multi-execute`. Testado em 15/10 no Node 22: sobe e lista as ferramentas; a chamada autenticada ainda não foi feita. A nuvem só carrega o `.mcp.json` em sessão com um repositório. Sem o MCP, a mesma API responde por curl: `https://developers.hostinger.com/api/...` com `Authorization: Bearer $HOSTINGER_API_TOKEN` (zona: `/api/dns/v1/zones/v2o5.com.br`). Serve para os alias de e-mail (pendência 9) e para a troca do DNS (`docs/checagem-antes-do-dns.md`).
 
 ## Já disponíveis
 Skills: humanizer (texto público), searchfit-seo (schema, on-page, auditoria), marketing, artifact-design (canvas). MCPs: Supabase, Vercel, GitHub. Chromium em `/opt/pw-browsers` (não rodar `playwright install`).
