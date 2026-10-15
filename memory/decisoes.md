@@ -2,6 +2,10 @@
 
 Log datado. Decisão nova entra no topo do dia; decisão revogada fica riscada com a data da troca.
 
+## 15/10/2026 (Typebot do site antigo, pelo Dyones: "aposente")
+- O Typebot `v-2-o-5-m6h4adv` (`chat.v2o5.com.br`, embutido só em `/contrate` do WordPress) sai do ar na troca do DNS. O `/diagnostico` faz o trabalho dele com telefone pela Evolution, marca `origem = v2o5`, resposta ao lead e agente; `/contrate` já redireciona para `/diagnostico` (`next.config.ts`). Dois funis com dados diferentes para o mesmo diagnóstico não compensam.
+- Até a troca, o `/contrate` antigo segue no ar pela ponte "V2O5 · Atendimento do Typebot (credencial)" (`d8OWkweEIyNydwa2`), que substitui o "v2o5 atendimento" (`kSFBHak3ARmgHsE7`, apikey em texto no nó). Depois da troca: desligar e apagar os dois fluxos e despublicar o bot. A planilha "LEADS V2O5" fica como histórico.
+
 ## 15/10/2026 (atendimento configurado pela API, pela regra do Dyones: "veja se a conta 1 tem o Captain [...] Se não tiver: crie um agent bot do Chatwoot apontando para um fluxo do n8n")
 - Captain: a instalação está no plano enterprise (`enterprisePlanName` na página do Chatwoot), mas o recurso Captain (`captain_integration`) está desligado na conta 1; ligar é no Super Admin, com login. Pela regra, o agente é um agent bot do Chatwoot ("Agente da V2O5", id 1) que chama o fluxo `docs/n8n/agente-da-v2o5.json`.
 - Mesmo ligado, o Captain do 4.17 não atenderia o lead do botão (código lido na tag v4.17.0): a conversa nasce aberta quando o contato não bate com o público do assistente (`Enterprise::Conversation#determine_conversation_status`), o Captain só responde conversa pendente (`Enterprise::MessageTemplates::HookExecutionService`) e a marca chega segundos depois da primeira mensagem. E a resposta ao formulário sai pela Evolution e volta ao Chatwoot como mensagem de usuário, que no Captain abre a conversa (`mark_pending_conversation_as_open_for_human_response`). O agent bot não tem nenhum dos dois problemas: o fluxo reconhece a primeira mensagem com "site da V2O5" por conta própria.
