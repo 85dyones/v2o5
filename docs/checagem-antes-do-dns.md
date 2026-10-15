@@ -33,7 +33,7 @@ Dois caminhos levam ao Chatwoot, e os dois terminam no mesmo lugar: o contato ma
 
 **Formulário do diagnóstico**: `/api/leads` → fluxo `lead-do-diagnostico` → (1) aviso para você no WhatsApp, (2) telefone normalizado pela Evolution (com ou sem o nono dígito, como o WhatsApp grava), (3) contato criado ou atualizado já marcado, (4) só então a resposta ao lead no WhatsApp e (5) a etiqueta na conversa que a Evolution abre.
 
-**Agente de IA**: agent bot "Agente da V2O5" na caixa 12 → fluxo `agente-da-v2o5`. Responde conversa pendente de lead marcado (Claude, com o `llms.txt` do site como conhecimento) e passa as outras para aberta. O Captain ficou de fora: a conta 1 não tem o recurso ligado e, pelo código do 4.17, ele não atenderia o lead do botão (detalhe em `memory/decisoes.md`, 15/10).
+**Agente de IA**: agent bot "Agente da V2O5" na caixa 12 → fluxo `agente-da-v2o5`. Responde conversa pendente de lead marcado (OpenAI, com o `llms.txt` do site como conhecimento) e passa as outras para aberta. O Captain ficou de fora: a conta 1 não tem o recurso ligado e, pelo código do 4.17, ele não atenderia o lead do botão (detalhe em `memory/decisoes.md`, 15/10).
 
 **Pronto no Chatwoot em 15/10** (pela API, conta 1): atributo de contato `origem` (id 34), etiqueta `origem-v2o5` (id 23), webhook da caixa 12 para o fluxo da origem (id 3) e o agent bot (id 1), **ainda não ligado à caixa 12**: liga depois de o fluxo do agente estar ativo (LEIA-ME, passo 4).
 
@@ -45,22 +45,22 @@ Dois caminhos levam ao Chatwoot, e os dois terminam no mesmo lugar: o contato ma
 | `chatwoot.v2o5.com.br` | **erro 500** da aplicação | era o endereço do fluxo do n8n. **Corrigido em 13/10** para `app.chat`. Desligar este host ou apontar para o mesmo serviço, para não sobrar link quebrado |
 | `chat.v2o5.com.br` | **Typebot** | a memória dizia Chatwoot; corrigida. Nada do site depende dele |
 | `evolution.v2o5.com.br` | Evolution API 2.3.7 | instância usada pelo fluxo: `v2o5` (a confirmar) |
-| `n8n.v2o5.com.br` | no ar | os três fluxos foram importados pela API em 15/10 e estão **desligados** (faltam credenciais); os webhooks `/webhook/v2o5-diagnostico`, `v2o5-origem` e `v2o5-agente` respondem 404 até a ativação |
+| `n8n.v2o5.com.br` | no ar | os três fluxos estão **ativos** desde 15/10: `/webhook/v2o5-diagnostico` recusa com 403 pedido sem o segredo certo; `v2o5-origem` e `v2o5-agente` respondem 200 e ignoram evento que não é mensagem recebida |
 
 ### Você confere (com login)
 
 1. ~~Chatwoot, Settings > Inboxes~~ **Feito em 13/10**: a inbox do WhatsApp é a 12 e a instância da Evolution é `v2o5`, ligada à inbox. Os dois já estão gravados no nó Configuração do fluxo.
 2. ~~Evolution, manager~~ **Feito em 13/10**: a instância `v2o5` está conectada e entregando ao Chatwoot.
 3. ~~Teste A, WhatsApp~~ **Feito em 13/10**: o "oi" chegou na inbox 12 e a resposta voltou ao celular. A linha do WhatsApp está pronta.
-4. **Fluxos e credenciais**: os três fluxos já estão no n8n (importados pela API em 15/10, desligados, nó Configuração conferido: `app.chat.v2o5.com.br`, conta 1, caixa 12, instância `v2o5`):
+4. **Fluxos e credenciais**: os três fluxos estão no n8n e **ativos** desde 15/10, com cada nó ligado à sua credencial (nó Configuração conferido: `app.chat.v2o5.com.br`, conta 1, caixa 12, instância `v2o5`):
 
    | Fluxo | Id no n8n | Credenciais que pede |
    |---|---|---|
    | V2O5 · Lead do diagnóstico | `cN2DdwdFUVBBK2zi` | `V2O5 · segredo do site`, `Evolution · apikey`, `Chatwoot · api_access_token` (e `Hostinger · diagnostico@` no nó de e-mail, desligado) |
    | V2O5 · Origem do lead (botão de WhatsApp) | `GkYbQIyXXYoGy37y` | `Chatwoot · api_access_token` |
-   | V2O5 · Agente de IA (agent bot da caixa 12) | `E6dLwHlEcUQrW022` | `Chatwoot · api_access_token`, `Chatwoot · agent bot`, `Anthropic · x-api-key` |
+   | V2O5 · Agente de IA (agent bot da caixa 12) | `E6dLwHlEcUQrW022` | `Chatwoot · api_access_token`, `Chatwoot · agent bot`, `OpenAi account` (OpenAI, já existe) |
 
-   Nenhuma das cinco credenciais existia no n8n em 15/10. Crie-as com esses nomes exatos (tabela do LEIA-ME, passo 1); depois, em cada fluxo, abra os nós com credencial, selecione a de mesmo nome e ative (ou peça a uma sessão com a API que faça a troca e ative). Já existe uma `Evolution — apikey (v2o5)` (Header Auth): se for a chave da instância `v2o5` com o cabeçalho `apikey`, basta renomeá-la para `Evolution · apikey`. Em seguida, `LEADS_WEBHOOK_URL` e `LEADS_WEBHOOK_SECRET` na Vercel (produção e preview, com redeploy) e, por último, ligar o bot à caixa 12. Até as variáveis entrarem, o formulário responde "envio em configuração". Os testes sem WhatsApp (403 com segredo errado no diagnóstico; 200 e parada em "Mensagem recebida" na origem e no agente) ficam para depois da ativação.
+   Credenciais criadas em 15/10: `V2O5 · segredo do site`, `Evolution · apikey`, `Chatwoot · api_access_token` e `Chatwoot · agent bot`; o agente usa a `OpenAi account`, que já existia (sem crédito na Anthropic, decisão de 15/10). Testes sem WhatsApp feitos em 15/10: diagnóstico 403 com segredo errado e sem segredo; origem e agente param em "Mensagem recebida". Falta: `LEADS_WEBHOOK_URL` e `LEADS_WEBHOOK_SECRET` (o mesmo valor da credencial do segredo) na Vercel, produção e preview, com redeploy; por último, ligar o bot à caixa 12 (ainda fora dela em 15/10). Até as variáveis entrarem, o formulário responde "envio em configuração".
 5. **Os três testes** (tabela do LEIA-ME, passo 5): (a) formulário do preview com o seu número: aviso no WhatsApp da V2O5, resposta no seu, contato marcado e o agente respondendo; (b) mensagem de um número sem marca: nenhuma resposta, conversa aberta para você; (c) mensagem pronta do botão: contato marcado e atendido pelo agente. O DNS só vira com os três certos.
 6. **Chatwoot, operação**: agente com notificações ligadas; Settings > Inbox > horário de atendimento e mensagem fora do horário, se quiser; respostas prontas para "diagnóstico" e "preços".
 7. **`chatwoot.v2o5.com.br`**: em 15/10 o nome ainda resolvia para a VPS (168.231.100.245) e respondia 404. Conferido no n8n em 15/10 (só leitura): **nenhum fluxo ativo chama esse endereço**. O "16VC 3.0" (`kvu8YkUgxxwq7FNa`) está desligado e ainda tem 19 nós com ele ("Info Base" a "Info Base3", campo do valor da URL; "teams ID", "Ler atributos da conversa1", "CW-Cattributes-intimacao" a "…7" e "CW Status_Typebot" a "…4", campo URL); a versão no ar é o "16VC 3.1 (app.chat conta 4)" (`wbKYizAUofFiXTHz`), sem nenhuma chamada ao endereço antigo. Outros fluxos desligados também o citam (16VC 4.0 e 6.0, AENT, "16VC religa bot (sessoes Evolution)", "Chatwoot Handoff Universal", "manager evolution", "criador de empresa", "criador de instancias"). Pode tirar o registro do DNS; os fluxos desligados só voltam a funcionar se alguém trocar o endereço neles, e o 16VC só muda com o seu ok.

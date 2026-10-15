@@ -75,7 +75,7 @@
             {
               "id": "a8",
               "name": "modeloIA",
-              "value": "claude-opus-5-5",
+              "value": "gpt-5-mini",
               "type": "string"
             },
             {
@@ -277,12 +277,12 @@
         200
       ],
       "parameters": {
-        "jsCode": "// Monta o pedido à Messages API: instruções e conhecimento (o llms.txt do\n// site, a mesma fonte dos preços publicados) no system com cache; os dados do\n// contato num bloco à parte, fora do cache; a conversa como histórico.\nconst cfg = $(\"Configuração\").first().json;\nconst contato = $(\"Contato\").first().json.payload || {};\nconst mensagens = (Array.isArray($(\"Mensagens da conversa\").first().json.payload) ? $(\"Mensagens da conversa\").first().json.payload : [])\n  .slice()\n  .sort((a, b) => Number(a.id) - Number(b.id));\nconst conhecimento = typeof $input.first().json.data === \"string\" ? $input.first().json.data.trim() : \"\";\n\nconst INSTRUCOES = \"Você atende o WhatsApp da V2O5 Vendas e Tecnologia. Quem escreve chegou pelo site da V2O5: pelo formulário do diagnóstico ou pelo botão de WhatsApp de uma das páginas.\\n\\nA V2O5 coloca a empresa no mapa (site, Google, anúncios e rastreamento) e multiplica a operação com IA (agente no WhatsApp, automação e CRM). O fundador é o Dyones Oliveira, que conduz o diagnóstico.\\n\\nSeu objetivo é entender o que a pessoa precisa e levá-la ao diagnóstico gratuito: uma conversa de 45 minutos com o Dyones e, em até 24 horas depois, o mapa do que fazer primeiro.\\n\\nComo escrever\\n- Português do Brasil, cordial e direto, como alguém da equipe escreveria no WhatsApp.\\n- No máximo três frases por mensagem e uma pergunta por vez.\\n- Sem travessão, sem lista, sem negrito ou markdown. Emoji só se a pessoa usar, e no máximo um.\\n- Chame a pessoa pelo primeiro nome quando souber.\\n- Se perguntarem, diga que é o assistente virtual da V2O5 e que o Dyones acompanha a conversa.\\n\\nO que perguntar, aos poucos e só o que faltar: o nome da empresa, o segmento e o que a pessoa quer resolver primeiro. Use os dados do contato para não repetir pergunta.\\n\\nFatos e preços\\n- Fale só do que está no conhecimento abaixo. Preço sempre como \\\"a partir de\\\", do jeito que aparece lá, com implantação e mensalidade.\\n- Não invente número, prazo, desconto, cliente ou resultado. Número do case Motors Store só como está no conhecimento.\\n- Se a resposta não estiver no conhecimento, diga que o Dyones confirma no diagnóstico. Se o conhecimento estiver vazio, não fale de preço.\\n- Nunca peça CPF, senha, cartão ou documento.\\n\\nQuando passar para a equipe (passar_para_humano = true)\\n- A pessoa pede para falar com alguém, com o Dyones ou por ligação.\\n- A pessoa sugere dia e horário para o diagnóstico ou pede para marcar. Responda que anotou e que o Dyones confirma o horário por aqui.\\n- Negociação de preço, desconto, contrato, proposta formal ou forma de pagamento.\\n- Cliente atual pedindo suporte, reclamação, fornecedor, vaga de emprego ou assunto fora do que a V2O5 vende.\\n- Mensagem só com áudio, imagem ou arquivo: peça para escrever em texto; se já pediu antes, passe.\\n- Quando estiver em dúvida.\\nAo passar, escreva em nota_para_equipe uma linha para o Dyones com quem é, o que quer e por que passou. A resposta ao contato pode ficar vazia se não houver nada útil a dizer.\\n\\nResponda só com o JSON pedido.\";\nconst ESQUEMA = {\"type\": \"object\", \"properties\": {\"resposta\": {\"type\": \"string\", \"description\": \"Mensagem para o contato no WhatsApp. Pode ficar vazia ao passar para a equipe.\"}, \"passar_para_humano\": {\"type\": \"boolean\", \"description\": \"true quando a conversa deve ir para a equipe.\"}, \"nota_para_equipe\": {\"type\": \"string\", \"description\": \"Uma linha para o Dyones ao passar: quem é, o que quer, por que passou. Vazia se não passar.\"}}, \"required\": [\"resposta\", \"passar_para_humano\", \"nota_para_equipe\"], \"additionalProperties\": false};\n\nconst recebida = (m) => (m.message_type === 0 || m.message_type === \"incoming\") && !m.private;\nconst enviada = (m) => (m.message_type === 1 || m.message_type === \"outgoing\") && !m.private;\nconst textoDa = (m) => {\n  const texto = String(m.content ?? \"\").trim();\n  if (texto) return texto;\n  const anexos = (m.attachments || []).map((a) => a.file_type || \"arquivo\");\n  return anexos.length ? \"[enviou \" + anexos.join(\", \") + \"]\" : \"\";\n};\n\nconst linhas = mensagens\n  .filter((m) => recebida(m) || enviada(m))\n  .slice(-Number(cfg.mensagensNoHistorico || 30))\n  .map((m) => ({ role: recebida(m) ? \"user\" : \"assistant\", content: textoDa(m) }))\n  .filter((l) => l.content);\n// A API pede que a conversa comece pelo contato. Quando quem abriu foi a\n// V2O5 (a resposta ao formulário), um aviso curto ocupa esse lugar.\nif (linhas.length && linhas[0].role === \"assistant\") {\n  linhas.unshift({ role: \"user\", content: \"[A conversa começou com a mensagem da V2O5 abaixo.]\" });\n}\nconst historico = [];\nfor (const l of linhas) {\n  const anterior = historico[historico.length - 1];\n  if (anterior && anterior.role === l.role) anterior.content += \"\\n\" + l.content;\n  else historico.push({ ...l });\n}\n\nconst a = contato.custom_attributes || {};\nconst hoje = new Date().toLocaleDateString(\"pt-BR\", { timeZone: \"America/Sao_Paulo\" });\nconst dados = [\n  \"Dados do contato no Chatwoot (podem estar incompletos):\",\n  \"Nome: \" + (contato.name || \"não informado\"),\n  a.empresa ? \"Empresa: \" + a.empresa : \"\",\n  a.segmento ? \"Segmento: \" + a.segmento : \"\",\n  a.porte ? \"Porte: \" + a.porte : \"\",\n  a.objetivos ? \"Objetivos: \" + a.objetivos : \"\",\n  a.estoque ? \"Estoque: \" + a.estoque : \"\",\n  a.sistema ? \"Sistema: \" + a.sistema : \"\",\n  a.entrada ? \"Entrada: \" + a.entrada : \"\",\n  a.pagina ? \"Página: \" + a.pagina : \"\",\n  \"Hoje: \" + hoje,\n].filter(Boolean).join(\"\\n\");\n\nconst corpo = {\n  model: cfg.modeloIA,\n  max_tokens: 8000,\n  fallbacks: \"default\",\n  output_config: { effort: cfg.esforcoIA, format: { type: \"json_schema\", schema: ESQUEMA } },\n  system: [\n    { type: \"text\", text: INSTRUCOES + \"\\n\\n# Conhecimento (site da V2O5)\\n\\n\" + (conhecimento || \"(vazio)\"), cache_control: { type: \"ephemeral\" } },\n    { type: \"text\", text: dados },\n  ],\n  messages: historico,\n};\nreturn [{ json: { corpo } }];\n"
+        "jsCode": "// Monta o pedido à Chat Completions da OpenAI: instruções e conhecimento (o\n// llms.txt do site, a mesma fonte dos preços publicados) na primeira mensagem\n// de sistema, que não muda entre conversas e entra no cache automático da\n// OpenAI; os dados do contato numa segunda, à parte; a conversa como histórico.\nconst cfg = $(\"Configuração\").first().json;\nconst contato = $(\"Contato\").first().json.payload || {};\nconst mensagens = (Array.isArray($(\"Mensagens da conversa\").first().json.payload) ? $(\"Mensagens da conversa\").first().json.payload : [])\n  .slice()\n  .sort((a, b) => Number(a.id) - Number(b.id));\nconst conhecimento = typeof $input.first().json.data === \"string\" ? $input.first().json.data.trim() : \"\";\n\nconst INSTRUCOES = \"Você atende o WhatsApp da V2O5 Vendas e Tecnologia. Quem escreve chegou pelo site da V2O5: pelo formulário do diagnóstico ou pelo botão de WhatsApp de uma das páginas.\\n\\nA V2O5 coloca a empresa no mapa (site, Google, anúncios e rastreamento) e multiplica a operação com IA (agente no WhatsApp, automação e CRM). O fundador é o Dyones Oliveira, que conduz o diagnóstico.\\n\\nSeu objetivo é entender o que a pessoa precisa e levá-la ao diagnóstico gratuito: uma conversa de 45 minutos com o Dyones e, em até 24 horas depois, o mapa do que fazer primeiro.\\n\\nComo escrever\\n- Português do Brasil, cordial e direto, como alguém da equipe escreveria no WhatsApp.\\n- No máximo três frases por mensagem e uma pergunta por vez.\\n- Sem travessão, sem lista, sem negrito ou markdown. Emoji só se a pessoa usar, e no máximo um.\\n- Chame a pessoa pelo primeiro nome quando souber.\\n- Se perguntarem, diga que é o assistente virtual da V2O5 e que o Dyones acompanha a conversa.\\n\\nO que perguntar, aos poucos e só o que faltar: o nome da empresa, o segmento e o que a pessoa quer resolver primeiro. Use os dados do contato para não repetir pergunta.\\n\\nFatos e preços\\n- Fale só do que está no conhecimento abaixo. Preço sempre como \\\"a partir de\\\", do jeito que aparece lá, com implantação e mensalidade.\\n- Não invente número, prazo, desconto, cliente ou resultado. Número do case Motors Store só como está no conhecimento.\\n- Se a resposta não estiver no conhecimento, diga que o Dyones confirma no diagnóstico. Se o conhecimento estiver vazio, não fale de preço.\\n- Nunca peça CPF, senha, cartão ou documento.\\n\\nQuando passar para a equipe (passar_para_humano = true)\\n- A pessoa pede para falar com alguém, com o Dyones ou por ligação.\\n- A pessoa sugere dia e horário para o diagnóstico ou pede para marcar. Responda que anotou e que o Dyones confirma o horário por aqui.\\n- Negociação de preço, desconto, contrato, proposta formal ou forma de pagamento.\\n- Cliente atual pedindo suporte, reclamação, fornecedor, vaga de emprego ou assunto fora do que a V2O5 vende.\\n- Mensagem só com áudio, imagem ou arquivo: peça para escrever em texto; se já pediu antes, passe.\\n- Quando estiver em dúvida.\\nAo passar, escreva em nota_para_equipe uma linha para o Dyones com quem é, o que quer e por que passou. A resposta ao contato pode ficar vazia se não houver nada útil a dizer.\\n\\nResponda só com o JSON pedido.\";\nconst ESQUEMA = {\"type\": \"object\", \"properties\": {\"resposta\": {\"type\": \"string\", \"description\": \"Mensagem para o contato no WhatsApp. Pode ficar vazia ao passar para a equipe.\"}, \"passar_para_humano\": {\"type\": \"boolean\", \"description\": \"true quando a conversa deve ir para a equipe.\"}, \"nota_para_equipe\": {\"type\": \"string\", \"description\": \"Uma linha para o Dyones ao passar: quem é, o que quer, por que passou. Vazia se não passar.\"}}, \"required\": [\"resposta\", \"passar_para_humano\", \"nota_para_equipe\"], \"additionalProperties\": false};\n\nconst recebida = (m) => (m.message_type === 0 || m.message_type === \"incoming\") && !m.private;\nconst enviada = (m) => (m.message_type === 1 || m.message_type === \"outgoing\") && !m.private;\nconst textoDa = (m) => {\n  const texto = String(m.content ?? \"\").trim();\n  if (texto) return texto;\n  const anexos = (m.attachments || []).map((a) => a.file_type || \"arquivo\");\n  return anexos.length ? \"[enviou \" + anexos.join(\", \") + \"]\" : \"\";\n};\n\nconst linhas = mensagens\n  .filter((m) => recebida(m) || enviada(m))\n  .slice(-Number(cfg.mensagensNoHistorico || 30))\n  .map((m) => ({ role: recebida(m) ? \"user\" : \"assistant\", content: textoDa(m) }))\n  .filter((l) => l.content);\n// O histórico começa pelo contato. Quando quem abriu foi a V2O5 (a resposta\n// ao formulário), um aviso curto ocupa esse lugar.\nif (linhas.length && linhas[0].role === \"assistant\") {\n  linhas.unshift({ role: \"user\", content: \"[A conversa começou com a mensagem da V2O5 abaixo.]\" });\n}\nconst historico = [];\nfor (const l of linhas) {\n  const anterior = historico[historico.length - 1];\n  if (anterior && anterior.role === l.role) anterior.content += \"\\n\" + l.content;\n  else historico.push({ ...l });\n}\n\nconst a = contato.custom_attributes || {};\nconst hoje = new Date().toLocaleDateString(\"pt-BR\", { timeZone: \"America/Sao_Paulo\" });\nconst dados = [\n  \"Dados do contato no Chatwoot (podem estar incompletos):\",\n  \"Nome: \" + (contato.name || \"não informado\"),\n  a.empresa ? \"Empresa: \" + a.empresa : \"\",\n  a.segmento ? \"Segmento: \" + a.segmento : \"\",\n  a.porte ? \"Porte: \" + a.porte : \"\",\n  a.objetivos ? \"Objetivos: \" + a.objetivos : \"\",\n  a.estoque ? \"Estoque: \" + a.estoque : \"\",\n  a.sistema ? \"Sistema: \" + a.sistema : \"\",\n  a.entrada ? \"Entrada: \" + a.entrada : \"\",\n  a.pagina ? \"Página: \" + a.pagina : \"\",\n  \"Hoje: \" + hoje,\n].filter(Boolean).join(\"\\n\");\n\nconst corpo = {\n  model: cfg.modeloIA,\n  reasoning_effort: cfg.esforcoIA,\n  max_completion_tokens: 8000,\n  response_format: { type: \"json_schema\", json_schema: { name: \"resposta_do_agente\", strict: true, schema: ESQUEMA } },\n  messages: [\n    { role: \"system\", content: INSTRUCOES + \"\\n\\n# Conhecimento (site da V2O5)\\n\\n\" + (conhecimento || \"(vazio)\") },\n    { role: \"system\", content: dados },\n    ...historico,\n  ],\n};\nreturn [{ json: { corpo } }];\n"
       }
     },
     {
       "id": "c68c09fb-76c3-5e53-afed-ebb247c723ec",
-      "name": "Claude",
+      "name": "OpenAI",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
@@ -291,22 +291,9 @@
       ],
       "parameters": {
         "method": "POST",
-        "url": "https://api.anthropic.com/v1/messages",
-        "authentication": "genericCredentialType",
-        "genericAuthType": "httpHeaderAuth",
-        "sendHeaders": true,
-        "headerParameters": {
-          "parameters": [
-            {
-              "name": "anthropic-version",
-              "value": "2023-06-01"
-            },
-            {
-              "name": "anthropic-beta",
-              "value": "server-side-fallback-2026-07-01"
-            }
-          ]
-        },
+        "url": "https://api.openai.com/v1/chat/completions",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "openAiApi",
         "sendBody": true,
         "specifyBody": "json",
         "jsonBody": "={{ JSON.stringify($json.corpo) }}",
@@ -315,8 +302,8 @@
         }
       },
       "credentials": {
-        "httpHeaderAuth": {
-          "name": "Anthropic · x-api-key"
+        "openAiApi": {
+          "name": "OpenAi account"
         }
       },
       "onError": "continueRegularOutput"
@@ -331,7 +318,7 @@
         200
       ],
       "parameters": {
-        "jsCode": "// Lê a saída estruturada. Recusa, erro da API ou JSON fora do formato:\n// nada vai para o contato e a conversa passa para a equipe com uma nota.\nconst r = $input.first().json || {};\nlet saida = null;\nif (r.stop_reason !== \"refusal\" && Array.isArray(r.content)) {\n  const texto = r.content.filter((b) => b.type === \"text\").map((b) => b.text).join(\"\");\n  try {\n    saida = JSON.parse(texto);\n  } catch (e) {\n    saida = null;\n  }\n}\nif (!saida || typeof saida.resposta !== \"string\") {\n  const motivo = r.error?.message || r.stop_reason || \"resposta fora do formato\";\n  return [{ json: { resposta: \"\", passar: true, nota: \"O agente não respondeu (\" + motivo + \"). A conversa ficou aberta para a equipe.\" } }];\n}\n// Regra do texto público da V2O5: sem travessão.\nconst resposta = saida.resposta.replace(/\\s*[—–]\\s*/g, \", \").trim();\nreturn [{ json: { resposta, passar: saida.passar_para_humano === true || !resposta, nota: String(saida.nota_para_equipe || \"\").trim() } }];\n"
+        "jsCode": "// Lê a saída estruturada. Recusa, erro da API, resposta cortada ou JSON fora\n// do formato: nada vai para o contato e a conversa passa para a equipe com uma nota.\nconst r = $input.first().json || {};\nconst escolha = Array.isArray(r.choices) ? r.choices[0] || {} : {};\nconst mensagem = escolha.message || {};\nlet saida = null;\nif (!mensagem.refusal && escolha.finish_reason === \"stop\" && typeof mensagem.content === \"string\") {\n  try {\n    saida = JSON.parse(mensagem.content);\n  } catch (e) {\n    saida = null;\n  }\n}\nif (!saida || typeof saida.resposta !== \"string\") {\n  const motivo = r.error?.message || (mensagem.refusal ? \"recusa\" : escolha.finish_reason) || \"resposta fora do formato\";\n  return [{ json: { resposta: \"\", passar: true, nota: \"O agente não respondeu (\" + motivo + \"). A conversa ficou aberta para a equipe.\" } }];\n}\n// Regra do texto público da V2O5: sem travessão.\nconst resposta = saida.resposta.replace(/\\s*[—–]\\s*/g, \", \").trim();\nreturn [{ json: { resposta, passar: saida.passar_para_humano === true || !resposta, nota: String(saida.nota_para_equipe || \"\").trim() } }];\n"
       }
     },
     {
@@ -632,18 +619,7 @@
       "main": [
         [
           {
-            "node": "Claude",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Claude": {
-      "main": [
-        [
-          {
-            "node": "Ler resposta",
+            "node": "OpenAI",
             "type": "main",
             "index": 0
           }
@@ -724,6 +700,17 @@
         [
           {
             "node": "Passar para a equipe",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI": {
+      "main": [
+        [
+          {
+            "node": "Ler resposta",
             "type": "main",
             "index": 0
           }

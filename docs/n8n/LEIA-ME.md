@@ -6,7 +6,7 @@ Três fluxos para importar no n8n da V2O5 (n8n.v2o5.com.br). Juntos, fazem uma c
 |---|---|---|
 | `lead-do-diagnostico.json` | `POST /webhook/v2o5-diagnostico`, chamado por `/api/leads` | avisa o Dyones, normaliza o telefone pela Evolution, cria ou atualiza o contato já marcado, só então responde ao lead e etiqueta a conversa |
 | `origem-do-lead.json` | `POST /webhook/v2o5-origem`, webhook da conta 1 no Chatwoot (caixa 12, `message_created`) | primeira mensagem da conversa com "site da V2O5" marca o contato; contato marcado ganha a etiqueta em cada conversa nova |
-| `agente-da-v2o5.json` | `POST /webhook/v2o5-agente`, agent bot "Agente da V2O5" da caixa 12 | conversa pendente de lead marcado: responde com o Claude; de contato sem marca: passa para aberta sem responder |
+| `agente-da-v2o5.json` | `POST /webhook/v2o5-agente`, agent bot "Agente da V2O5" da caixa 12 | conversa pendente de lead marcado: responde com a IA da OpenAI; de contato sem marca: passa para aberta sem responder |
 
 Endereços de produção:
 
@@ -39,7 +39,7 @@ Os arquivos não trazem chave nenhuma, só o nome da credencial. Crie estas, com
 | `Evolution · apikey` | Header Auth | `apikey` | a chave da Evolution (a global `AUTHENTICATION_API_KEY` ou a da instância `v2o5`) | diagnóstico |
 | `Chatwoot · api_access_token` | Header Auth | `api_access_token` | o token do seu perfil no Chatwoot (Perfil, Access Token) | os três |
 | `Chatwoot · agent bot` | Header Auth | `api_access_token` | o token do bot: Settings, Bots, "Agente da V2O5", Access Token (copiar) | agente |
-| `Anthropic · x-api-key` | Header Auth | `x-api-key` | uma chave da API da Anthropic (console.anthropic.com) | agente |
+| `OpenAi account` (já existe no n8n) | OpenAI | não se aplica | a chave da API da OpenAI (platform.openai.com), a mesma conta que já tem crédito | agente |
 | `Hostinger · diagnostico@` | SMTP | `smtp.hostinger.com`, porta 465, SSL | usuário e senha da caixa principal; o remetente do nó é o alias | diagnóstico (nó desligado) |
 
 Guarde o segredo do site: ele vai também na Vercel (passo 4). O token do bot responde e passa a conversa em nome do bot: com ele, a mensagem aparece como do "Agente da V2O5" e a passagem de pendente para aberta é a oficial do Chatwoot.
@@ -63,7 +63,7 @@ Já vêm preenchidos. Só mude se a caixa, a instância ou o Chatwoot forem recr
 | `evolutionUrl`, `evolutionInstancia` | `https://evolution.v2o5.com.br`, `v2o5` (confirmado em 13/10) | diagnóstico |
 | `whatsappDyones` | o WhatsApp público da V2O5 | diagnóstico |
 | `marcaDoSite` | `site da V2O5`, o trecho que toda mensagem pronta do site traz (`MARCA_DO_SITE` em `src/conteudo/home.ts`) | origem, agente |
-| `modeloIA`, `esforcoIA` | `claude-opus-5-5`, `low` | agente |
+| `modeloIA`, `esforcoIA` | `gpt-5-mini`, `low` (troque aqui se a conta da OpenAI usar outro modelo) | agente |
 | `conhecimentoUrl` | `https://v2o5.vercel.app/llms.txt`, o `llms.txt` de produção do site: preços e serviços saem do mesmo conteúdo das páginas, e o agente nunca fala um preço diferente do publicado | agente |
 | `mensagensNoHistorico` | `30` | agente |
 

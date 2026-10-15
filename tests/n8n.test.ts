@@ -372,7 +372,7 @@ describe("fluxo do agente", () => {
     expect(decidir({ inbox_id: 5 }, marcado, [msg(503, 0)])).toEqual([]);
   });
 
-  it("monta o pedido à API com cache no system, saída estruturada e histórico que começa e termina no contato", () => {
+  it("monta o pedido à OpenAI com instruções e conhecimento na frente, saída estruturada e histórico que começa e termina no contato", () => {
     const [saida] = rodar(agente, "Montar pedido", [{ data: "# V2O5 Vendas e Tecnologia\nPlano Presença a partir de R$ 8.900." }], {
       Configuração: cfg,
       Contato: { payload: { name: "Marina", custom_attributes: { empresa: "Auto Center Ribeiro", entrada: "formulário do diagnóstico" } } },
@@ -382,23 +382,24 @@ describe("fluxo do agente", () => {
     });
     const corpo = saida.json.corpo as {
       model: string;
-      fallbacks: string;
-      output_config: { effort: string; format: { type: string; schema: { required: string[]; additionalProperties: boolean } } };
-      system: { text: string; cache_control?: { type: string } }[];
+      reasoning_effort: string;
+      response_format: { type: string; json_schema: { strict: boolean; schema: { required: string[]; additionalProperties: boolean } } };
       messages: { role: string; content: string }[];
     };
-    expect(corpo.model).toBe("claude-opus-5-5");
-    expect(corpo.fallbacks).toBe("default");
-    expect(corpo.output_config.effort).toBe("low");
-    expect(corpo.output_config.format.type).toBe("json_schema");
-    expect(corpo.output_config.format.schema.required).toEqual(["resposta", "passar_para_humano", "nota_para_equipe"]);
-    expect(corpo.output_config.format.schema.additionalProperties).toBe(false);
-    expect(corpo.system[0].cache_control).toEqual({ type: "ephemeral" });
-    expect(corpo.system[0].text).toContain("Plano Presença a partir de R$ 8.900.");
-    expect(corpo.system[1].cache_control).toBeUndefined();
-    expect(corpo.system[1].text).toContain("Empresa: Auto Center Ribeiro");
-    expect(corpo.messages.map((m) => m.role)).toEqual(["user", "assistant", "user"]);
-    expect(corpo.messages[2].content).toBe("oi\ntudo bem?\nquanto custa?");
+    expect(corpo.model).toBe("gpt-5-mini");
+    expect(corpo.reasoning_effort).toBe("low");
+    expect(corpo.response_format.type).toBe("json_schema");
+    expect(corpo.response_format.json_schema.strict).toBe(true);
+    expect(corpo.response_format.json_schema.schema.required).toEqual(["resposta", "passar_para_humano", "nota_para_equipe"]);
+    expect(corpo.response_format.json_schema.schema.additionalProperties).toBe(false);
+    expect(corpo.messages[0].role).toBe("system");
+    expect(corpo.messages[0].content).toContain("Plano Presença a partir de R$ 8.900.");
+    expect(corpo.messages[0].content).not.toContain("Auto Center Ribeiro");
+    expect(corpo.messages[1].role).toBe("system");
+    expect(corpo.messages[1].content).toContain("Empresa: Auto Center Ribeiro");
+    const conversa = corpo.messages.slice(2);
+    expect(conversa.map((m) => m.role)).toEqual(["user", "assistant", "user"]);
+    expect(conversa[2].content).toBe("oi\ntudo bem?\nquanto custa?");
   });
 
   it("as instruções do agente seguem as regras do texto público e levam ao diagnóstico", () => {
@@ -410,13 +411,12 @@ describe("fluxo do agente", () => {
 
   it("recusa, erro ou JSON fora do formato passam para a equipe sem mandar nada ao contato", () => {
     const ler = (r: unknown) => rodar(agente, "Ler resposta", [r])[0].json;
-    expect(ler({ stop_reason: "refusal", content: [] })).toMatchObject({ resposta: "", passar: true });
-    expect(ler({ error: { message: "overloaded" } })).toMatchObject({ resposta: "", passar: true });
-    expect(ler({ stop_reason: "end_turn", content: [{ type: "text", text: "não é JSON" }] })).toMatchObject({ resposta: "", passar: true });
-    const certo = ler({
-      stop_reason: "end_turn",
-      content: [{ type: "text", text: JSON.stringify({ resposta: "Oi, Marina — tudo certo!", passar_para_humano: false, nota_para_equipe: "" }) }],
-    });
+    const escolha = (message: unknown, finish_reason = "stop") => ({ choices: [{ finish_reason, message }] });
+    expect(ler(escolha({ role: "assistant", content: null, refusal: "não posso ajudar" }))).toMatchObject({ resposta: "", passar: true });
+    expect(ler({ error: { message: "Rate limit reached" } })).toMatchObject({ resposta: "", passar: true });
+    expect(ler(escolha({ role: "assistant", content: "não é JSON" }))).toMatchObject({ resposta: "", passar: true });
+    expect(ler(escolha({ role: "assistant", content: '{"resposta":"Oi' }, "length"))).toMatchObject({ resposta: "", passar: true });
+    const certo = ler(escolha({ role: "assistant", content: JSON.stringify({ resposta: "Oi, Marina — tudo certo!", passar_para_humano: false, nota_para_equipe: "" }) }));
     expect(certo).toEqual({ resposta: "Oi, Marina, tudo certo!", passar: false, nota: "" });
   });
 
@@ -427,10 +427,9 @@ describe("fluxo do agente", () => {
     for (const nome of ["Conversa", "Contato", "Mensagens da conversa"]) {
       expect(no(agente, nome).credentials?.httpHeaderAuth.name, nome).toBe("Chatwoot · api_access_token");
     }
-    const claude = no(agente, "Claude");
-    expect(claude.credentials?.httpHeaderAuth.name).toBe("Anthropic · x-api-key");
-    expect(claude.parameters.url).toBe("https://api.anthropic.com/v1/messages");
-    expect(JSON.stringify(claude.parameters.headerParameters)).toContain("server-side-fallback-2026-07-01");
+    const ia = no(agente, "OpenAI");
+    expect(ia.credentials?.openAiApi.name).toBe("OpenAi account");
+    expect(ia.parameters).toMatchObject({ url: "https://api.openai.com/v1/chat/completions", authentication: "predefinedCredentialType", nodeCredentialType: "openAiApi" });
     expect(no(agente, "Passar para a equipe").parameters.jsonBody).toContain("status: 'open'");
     expect(no(agente, "Evento do bot").parameters).toMatchObject({ httpMethod: "POST", path: "v2o5-agente" });
   });
