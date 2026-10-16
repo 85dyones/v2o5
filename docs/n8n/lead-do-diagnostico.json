@@ -55,6 +55,18 @@
               "type": "string"
             },
             {
+              "id": "a10",
+              "name": "agenteDyones",
+              "value": "1",
+              "type": "string"
+            },
+            {
+              "id": "a11",
+              "name": "nomeDyones",
+              "value": "Dyones Oliveira",
+              "type": "string"
+            },
+            {
               "id": "a4",
               "name": "chatwootUrl",
               "value": "https://app.chat.v2o5.com.br",
@@ -152,12 +164,12 @@
     },
     {
       "id": "371f1c47-f93a-515d-aad3-7aae2d7fadbb",
-      "name": "Avisar o Dyones",
+      "name": "Avisar pelo WhatsApp",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        720,
-        300
+        5040,
+        640
       ],
       "parameters": {
         "method": "POST",
@@ -577,6 +589,77 @@
         }
       },
       "onError": "continueRegularOutput"
+    },
+    {
+      "id": "f9ea8884-4fae-511e-a207-19f31eb9644a",
+      "name": "Conversa do lead",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        4560,
+        520
+      ],
+      "parameters": {
+        "jsCode": "// O aviso do lead vai para o Dyones como nota privada na conversa que a\n// Evolution abriu ao responder: com a menção, o Chatwoot notifica no app e\n// por e-mail. Escolhe a conversa mais recente do contato na caixa do WhatsApp\n// que não está resolvida. Sem conversa (contato recusado, Evolution fora), o\n// aviso segue pelo WhatsApp, para o lead não se perder.\nconst cfg = $(\"Configuração\").first().json;\nconst aviso = $(\"Lead\").first().json.avisoParaDyones;\nconst mencao = \"[@\" + cfg.nomeDyones + \"](mention://user/\" + cfg.agenteDyones + \"/\" + encodeURIComponent(cfg.nomeDyones) + \")\";\nconst conversas = $(\"Contato marcado\").first().json.contatoId && Array.isArray($input.first().json.payload) ? $input.first().json.payload : [];\nconst conversa = conversas\n  .filter((c) => String(c.inbox_id) === String(cfg.chatwootInbox) && c.status !== \"resolved\")\n  .sort((a, b) => Number(b.id) - Number(a.id))[0];\nreturn [{ json: { conversaId: conversa ? conversa.id : null, nota: mencao + \" \" + aviso } }];\n"
+      }
+    },
+    {
+      "id": "d692e66d-7611-5391-b416-565868e46270",
+      "name": "Achou a conversa?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        4800,
+        520
+      ],
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "loose"
+          },
+          "conditions": [
+            {
+              "id": "c1",
+              "leftValue": "={{ $json.conversaId }}",
+              "operator": {
+                "type": "number",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      }
+    },
+    {
+      "id": "692da958-6ab4-5ab3-a5ba-ece89b5a46c0",
+      "name": "Nota para o Dyones",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        5040,
+        460
+      ],
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $('Configuração').first().json.chatwootUrl }}/api/v1/accounts/{{ $('Configuração').first().json.chatwootConta }}/conversations/{{ $json.conversaId }}/messages",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {},
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ content: $json.nota, message_type: 'outgoing', private: true }) }}"
+      },
+      "credentials": {
+        "httpHeaderAuth": {
+          "name": "Chatwoot · agent bot"
+        }
+      },
+      "onError": "continueRegularOutput"
     }
   ],
   "connections": {
@@ -611,23 +694,12 @@
             "index": 0
           },
           {
-            "node": "Avisar o Dyones",
+            "node": "Conferir WhatsApp",
             "type": "main",
             "index": 0
           },
           {
             "node": "Responder por e-mail",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Avisar o Dyones": {
-      "main": [
-        [
-          {
-            "node": "Conferir WhatsApp",
             "type": "main",
             "index": 0
           }
@@ -827,6 +899,11 @@
             "node": "Conversas para etiquetar",
             "type": "main",
             "index": 0
+          },
+          {
+            "node": "Conversa do lead",
+            "type": "main",
+            "index": 0
           }
         ]
       ]
@@ -836,6 +913,35 @@
         [
           {
             "node": "Etiquetar conversa",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Conversa do lead": {
+      "main": [
+        [
+          {
+            "node": "Achou a conversa?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Achou a conversa?": {
+      "main": [
+        [
+          {
+            "node": "Nota para o Dyones",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Avisar pelo WhatsApp",
             "type": "main",
             "index": 0
           }

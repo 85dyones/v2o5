@@ -4,7 +4,7 @@ Três fluxos para importar no n8n da V2O5 (n8n.v2o5.com.br). Juntos, fazem uma c
 
 | Arquivo | Gatilho | O que faz |
 |---|---|---|
-| `lead-do-diagnostico.json` | `POST /webhook/v2o5-diagnostico`, chamado por `/api/leads` | avisa o Dyones, normaliza o telefone pela Evolution, cria ou atualiza o contato já marcado, só então responde ao lead e etiqueta a conversa |
+| `lead-do-diagnostico.json` | `POST /webhook/v2o5-diagnostico`, chamado por `/api/leads` | normaliza o telefone pela Evolution, cria ou atualiza o contato já marcado, só então responde ao lead, etiqueta a conversa |
 | `origem-do-lead.json` | `POST /webhook/v2o5-origem`, webhook da conta 1 no Chatwoot (caixa 12, `message_created`) | primeira mensagem da conversa com "site da V2O5" marca o contato; contato marcado ganha a etiqueta em cada conversa nova |
 | `agente-da-v2o5.json` | `POST /webhook/v2o5-agente`, agent bot "Agente da V2O5" da caixa 12 | conversa pendente de lead marcado: responde com a IA da OpenAI; de contato sem marca: passa para aberta sem responder |
 
@@ -38,7 +38,7 @@ Os arquivos não trazem chave nenhuma, só o nome da credencial. Crie estas, com
 | `V2O5 · segredo do site` | Header Auth | `X-V2O5-Segredo` | um segredo novo, por exemplo o resultado de `openssl rand -hex 32` | diagnóstico |
 | `Evolution · apikey` | Header Auth | `apikey` | a chave da Evolution (a global `AUTHENTICATION_API_KEY` ou a da instância `v2o5`) | diagnóstico |
 | `Chatwoot · api_access_token` | Header Auth | `api_access_token` | o token do seu perfil no Chatwoot (Perfil, Access Token) | os três |
-| `Chatwoot · agent bot` | Header Auth | `api_access_token` | o token do bot: Settings, Bots, "Agente da V2O5", Access Token (copiar) | agente |
+| `Chatwoot · agent bot` | Header Auth | `api_access_token` | o token do bot: Settings, Bots, "Agente da V2O5", Access Token (copiar) | agente; diagnóstico (nota para o Dyones) |
 | `OpenAi account` (já existe no n8n) | OpenAI | não se aplica | a chave da API da OpenAI (platform.openai.com), a mesma conta que já tem crédito | agente |
 | `Hostinger · diagnostico@` | SMTP | `smtp.hostinger.com`, porta 465, SSL | usuário e senha da caixa principal; o remetente do nó é o alias | diagnóstico (nó desligado) |
 
@@ -61,13 +61,14 @@ Já vêm preenchidos. Só mude se a caixa, a instância ou o Chatwoot forem recr
 | `chatwootInbox` | `12`, a caixa do WhatsApp ligada à Evolution, confirmado em 13/10 | os três |
 | `atributoOrigem`, `valorOrigem`, `etiquetaOrigem` | `origem`, `v2o5`, `origem-v2o5` | os três |
 | `evolutionUrl`, `evolutionInstancia` | `https://evolution.v2o5.com.br`, `v2o5` (confirmado em 13/10) | diagnóstico |
-| `whatsappDyones` | o WhatsApp público da V2O5 | diagnóstico |
+| `agenteDyones`, `nomeDyones` | `1`, `Dyones Oliveira`: o usuário do Dyones na conta 1, mencionado na nota do lead | diagnóstico |
+| `whatsappDyones` | o WhatsApp da V2O5; só recebe o aviso quando o lead fica sem conversa no Chatwoot (é o mesmo número da instância, então o aviso cai no chat "Você") | diagnóstico |
 | `marcaDoSite` | `site da V2O5`, o trecho que toda mensagem pronta do site traz (`MARCA_DO_SITE` em `src/conteudo/home.ts`) | origem, agente |
 | `modeloIA`, `esforcoIA` | `gpt-5-mini`, `low` (troque aqui se a conta da OpenAI usar outro modelo) | agente |
 | `conhecimentoUrl` | `https://v2o5.vercel.app/llms.txt`, o `llms.txt` de produção do site: preços e serviços saem do mesmo conteúdo das páginas, e o agente nunca fala um preço diferente do publicado | agente |
 | `mensagensNoHistorico` | `30` | agente |
 
-Se a Evolution for da versão 1, o corpo do envio muda: em "Avisar o Dyones" e "Responder ao lead", troque `text: ...` por `textMessage: { text: ... }`.
+Se a Evolution for da versão 1, o corpo do envio muda: em "Avisar pelo WhatsApp" e "Responder ao lead", troque `text: ...` por `textMessage: { text: ... }`.
 
 ## 4. Ativar e ligar
 
@@ -97,7 +98,7 @@ Os três testes antes do DNS (`docs/checagem-antes-do-dns.md`, seção 2):
 
 | Teste | Como | Esperado |
 |---|---|---|
-| (a) formulário | envie `/diagnostico` no preview da Vercel com o seu número | aviso no WhatsApp da V2O5; resposta no seu WhatsApp; no Chatwoot, o contato com `origem = v2o5`, a etiqueta e a conversa etiquetada; ao responder a mensagem, o agente responde |
+| (a) formulário | envie `/diagnostico` no preview da Vercel com o seu número | resposta no seu WhatsApp; nota privada com menção ao Dyones na conversa (notificação no app do Chatwoot); no Chatwoot, o contato com `origem = v2o5`, a etiqueta e a conversa etiquetada; ao responder a mensagem, o agente responde |
 | (b) sem marca | de um número que nunca usou o site, mande "bom dia" para o WhatsApp da V2O5 | nenhuma resposta; a conversa aparece aberta na caixa 12, sem etiqueta |
 | (c) botão | de outro número, toque no botão de WhatsApp do site e envie a mensagem pronta | contato marcado, conversa etiquetada e resposta do agente em poucos segundos |
 
@@ -138,6 +139,8 @@ Os valores de `segmento`, `porte`, `objetivos`, `estoque` e `sistema` são os c�
 **Agente.** Espera 5 segundos (várias mensagens seguidas viram uma resposta), relê conversa, contato e mensagens pela API e só age em conversa pendente, sem pessoa atribuída, quando a última mensagem é a do evento. A IA devolve JSON (resposta, passar para a equipe, nota para a equipe). Recusa, erro da API ou resposta fora do formato: nada vai para o contato, o bot deixa uma nota privada e passa a conversa para aberta. Para assumir uma conversa que o agente está atendendo, abra-a (status aberta) ou atribua a você.
 
 ## Limites conhecidos
+
+- O aviso do lead é uma nota privada do bot na conversa, com menção ao Dyones (`mention://user/1/...`). A notificação depende de "menção" ligada em Perfil, Notificações, no app e no e-mail do Chatwoot. A instância `v2o5` e o WhatsApp do Dyones são o mesmo número (15/10), por isso o aviso não vai mais pelo WhatsApp, a não ser como reserva.
 
 - O site recebe o 200 antes do resto. Se a Evolution ou o Chatwoot falharem, o erro fica em Executions; um "Error Workflow" com aviso no WhatsApp cobre isso, se quiser.
 - Se o Chatwoot recusar o contato, o lead ainda recebe a resposta, mas sem marca o agente não atende a conversa dele: ela fica aberta para a equipe.

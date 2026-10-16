@@ -252,6 +252,28 @@ describe("fluxo do diagnóstico", () => {
     expect(saida.map((i) => i.json)).toEqual([{ conversaId: 1, labels: ["origem-v2o5"] }]);
   });
 
+  it("avisa o Dyones por nota privada com menção na conversa do lead; sem conversa, pelo WhatsApp", () => {
+    expect(campo(diagnostico, "agenteDyones")).toBe("1");
+    expect(caminhos(diagnostico, "Lead", "Avisar pelo WhatsApp").every((c) => c.includes("Achou a conversa?"))).toBe(true);
+    const conversas = [
+      { id: 7, inbox_id: 12, status: "open" },
+      { id: 9, inbox_id: 12, status: "pending" },
+      { id: 11, inbox_id: 12, status: "resolved" },
+      { id: 13, inbox_id: 5, status: "open" },
+    ];
+    const contexto = { Configuração: cfg, Lead: { avisoParaDyones: "Novo pedido de diagnóstico pelo site" }, "Contato marcado": { contatoId: 9 } };
+    const [achou] = rodar(diagnostico, "Conversa do lead", [{ payload: conversas }], contexto);
+    expect(achou.json.conversaId).toBe(9);
+    expect(achou.json.nota).toBe("[@Dyones Oliveira](mention://user/1/Dyones%20Oliveira) Novo pedido de diagnóstico pelo site");
+    const [semConversa] = rodar(diagnostico, "Conversa do lead", [{ payload: [conversas[2]] }], contexto);
+    expect(semConversa.json.conversaId).toBeNull();
+    const [semContato] = rodar(diagnostico, "Conversa do lead", [{ error: { message: "404" } }], { ...contexto, "Contato marcado": {} });
+    expect(semContato.json.conversaId).toBeNull();
+    const nota = no(diagnostico, "Nota para o Dyones");
+    expect(nota.credentials?.httpHeaderAuth.name).toBe("Chatwoot · agent bot");
+    expect(nota.parameters.jsonBody).toContain("private: true");
+  });
+
   it("os textos para o lead e para o Dyones seguem as regras do site (sem travessão)", () => {
     const codigo = js(diagnostico, "Lead");
     expect(codigo).not.toMatch(/[—–]/);

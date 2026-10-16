@@ -2,6 +2,9 @@
 
 Log datado. Decisão nova entra no topo do dia; decisão revogada fica riscada com a data da troca.
 
+## 16/10/2026 (aviso do lead, pelo Dyones: "ela é o mesmo número, só tenho 1"; proposta: "acho ótima a ideia")
+- O aviso de lead novo deixa o WhatsApp (a instância `v2o5` e o WhatsApp do Dyones são o mesmo número, e o aviso caía no chat "Você", sem notificação) e vira nota privada do bot na conversa do lead no Chatwoot, com menção ao Dyones (usuário 1 da conta 1): notifica no app e no e-mail. O WhatsApp fica como reserva, só quando o lead não tem conversa no Chatwoot.
+
 ## 15/10/2026 (IA do agente, pelo Dyones: "2 porque não tenho crédito na antropic")
 - O agente da V2O5 usa a OpenAI (Chat Completions, `gpt-5-mini`, `reasoning_effort` `low`, saída em JSON com esquema estrito) pela credencial `OpenAi account` que já existe no n8n. O Captain segue desligado na conta 1: o ChatGPT do Chatwoot não atende o lead marcado (decisão abaixo). Modelo e esforço ficam no nó Configuração; voltar ao Claude é trocar o nó "OpenAI" e o "Ler resposta" de novo.
 
