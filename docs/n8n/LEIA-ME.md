@@ -5,8 +5,8 @@ Três fluxos para importar no n8n da V2O5 (n8n.v2o5.com.br). Juntos, fazem uma c
 | Arquivo | Gatilho | O que faz |
 |---|---|---|
 | `lead-do-diagnostico.json` | `POST /webhook/v2o5-diagnostico`, chamado por `/api/leads` | normaliza o telefone pela Evolution, cria ou atualiza o contato já marcado, só então responde ao lead, etiqueta a conversa |
-| `origem-do-lead.json` | `POST /webhook/v2o5-origem`, webhook da conta 1 no Chatwoot (caixa 12, `message_created`) | primeira mensagem da conversa com "site da V2O5" marca o contato; contato marcado ganha a etiqueta em cada conversa nova |
-| `agente-da-v2o5.json` | `POST /webhook/v2o5-agente`, agent bot "Agente da V2O5" da caixa 12 | conversa pendente de lead marcado: responde com a IA da OpenAI; de contato sem marca: passa para aberta sem responder |
+| `origem-do-lead.json` | `POST /webhook/v2o5-origem`, webhook da conta 1 no Chatwoot (caixa 12, `message_created`) | primeira mensagem da conversa com "site da V2O5" ou "Dyones. Vi o diagnóstico da" (link das páginas de diagnóstico) marca o contato; repassa toda mensagem recebida ao fluxo do agente; contato marcado ganha a etiqueta em cada conversa nova |
+| `agente-da-v2o5.json` | `POST /webhook/v2o5-agente`, repassado pelo fluxo da origem (o agent bot "Agente da V2O5" da caixa 12 só deixa a conversa pendente; o evento direto dele é ignorado) | conversa pendente de lead marcado: responde com a IA da OpenAI; de contato sem marca: passa para aberta sem responder |
 
 Endereços de produção:
 
@@ -64,6 +64,8 @@ Já vêm preenchidos. Só mude se a caixa, a instância ou o Chatwoot forem recr
 | `agenteDyones`, `nomeDyones` | `1`, `Dyones Oliveira`: o usuário do Dyones na conta 1, mencionado na nota do lead | diagnóstico |
 | `whatsappDyones` | o WhatsApp da V2O5; só recebe o aviso quando o lead fica sem conversa no Chatwoot (é o mesmo número da instância, então o aviso cai no chat "Você") | diagnóstico |
 | `marcaDoSite` | `site da V2O5`, o trecho que toda mensagem pronta do site traz (`MARCA_DO_SITE` em `src/conteudo/home.ts`) | origem, agente |
+| `marcaDoDiagnostico` | `Dyones. Vi o diagnóstico da`, o começo das mensagens prontas das páginas de diagnóstico (`cta_texto` e botões dos caminhos no modelo do diagnóstico de presença) | origem, agente |
+| `agenteUrl` | `https://n8n.v2o5.com.br/webhook/v2o5-agente`, para onde a origem repassa as mensagens | origem |
 | `modeloIA`, `esforcoIA` | `gpt-5-mini`, `low` (troque aqui se a conta da OpenAI usar outro modelo) | agente |
 | `conhecimentoUrl` | `https://v2o5.vercel.app/llms.txt`, o `llms.txt` de produção do site: preços e serviços saem do mesmo conteúdo das páginas, e o agente nunca fala um preço diferente do publicado | agente |
 | `mensagensNoHistorico` | `30` | agente |
@@ -134,11 +136,14 @@ Os valores de `segmento`, `porte`, `objetivos`, `estoque` e `sistema` são os c�
 
 **Telefone (diagnóstico).** O fluxo pergunta à Evolution (`/chat/whatsappNumbers`) como o WhatsApp grava o número. Em muitos celulares brasileiros, o WhatsApp não tem o nono dígito, e a Evolution grava o contato do Chatwoot como `+55DD` e 8 dígitos, com o identificador `número@s.whatsapp.net`. O fluxo procura o contato pelas duas grafias, no identificador e no telefone, como a Evolution faz, e grava a marca nesse contato. Se a Evolution não achar o número no WhatsApp, vale o número digitado.
 
-**Primeira mensagem (origem e agente).** Conta só mensagem recebida, não privada; a comparação ignora maiúscula, acento e espaço repetido. O agente faz a mesma conta por conta própria, para não depender de o fluxo da origem já ter gravado a marca quando o evento chega.
+**Primeira mensagem (origem e agente).** É o "cabeçalho" da conversa: a mensagem pronta de quem mandou a pessoa, do site ou da página de diagnóstico. Só essas duas entradas (e o contato do formulário) recebem o agente. Conta só mensagem recebida, não privada; a comparação ignora maiúscula, acento e espaço repetido. O agente faz a mesma conta por conta própria, para não depender de o fluxo da origem já ter gravado a marca quando o evento chega.
 
 **Agente.** Espera 5 segundos (várias mensagens seguidas viram uma resposta), relê conversa, contato e mensagens pela API e só age em conversa pendente, sem pessoa atribuída, quando a última mensagem é a do evento. A IA devolve JSON (resposta, passar para a equipe, nota para a equipe). Recusa, erro da API ou resposta fora do formato: nada vai para o contato, o bot deixa uma nota privada e passa a conversa para aberta. Para assumir uma conversa que o agente está atendendo, abra-a (status aberta) ou atribua a você.
 
 ## Limites conhecidos
+
+- O Chatwoot desta instalação não entrega `message_created` ao agent bot (só `message_updated`; conferido em 16/10 nas execuções do n8n). Por isso o fluxo da origem, que recebe o webhook da conta, repassa cada mensagem recebida da caixa 12 ao agente com `repasse: "origem"`, e o agente só aceita o repasse. Se o webhook 3 do Chatwoot parar, o agente também para; as conversas ficam pendentes com o bot até alguém abri-las.
+- A instância `v2o5` é o WhatsApp pessoal do Dyones: toda conversa pessoal também entra na caixa 12. O agente passa as sem marca para aberta, sem responder.
 
 - O aviso do lead é uma nota privada do bot na conversa, com menção ao Dyones (`mention://user/1/...`). A notificação depende de "menção" ligada em Perfil, Notificações, no app e no e-mail do Chatwoot. A instância `v2o5` e o WhatsApp do Dyones são o mesmo número (15/10), por isso o aviso não vai mais pelo WhatsApp, a não ser como reserva.
 

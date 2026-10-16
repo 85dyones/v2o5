@@ -2,6 +2,10 @@
 
 Log datado. Decisão nova entra no topo do dia; decisão revogada fica riscada com a data da troca.
 
+## 16/10/2026 (quem o agente atende, pelo Dyones: "faça o bot reconhecer o resumo da conversa recebido no cabeçalho, apenas as mensagens com origem no site ou em links de diagnóstico recebem o bot ativamente")
+- O agente atende só quem abre a conversa com a mensagem pronta do site ("site da V2O5") ou de uma página de diagnóstico ("Dyones. Vi o diagnóstico da", do modelo do diagnóstico de presença), além do contato do formulário. A origem marca o contato com `entrada` = "link do diagnóstico" nesse caso; o agente não oferece de novo o diagnóstico gratuito, pergunta o melhor horário e passa para o Dyones.
+- O Chatwoot não entrega `message_created` ao agent bot nesta instalação (16/10). A origem repassa toda mensagem recebida da caixa 12 ao agente, que só aceita o repasse: um caminho só, sem resposta em dobro.
+
 ## 16/10/2026 (aviso do lead, pelo Dyones: "ela é o mesmo número, só tenho 1"; proposta: "acho ótima a ideia")
 - O aviso de lead novo deixa o WhatsApp (a instância `v2o5` e o WhatsApp do Dyones são o mesmo número, e o aviso caía no chat "Você", sem notificação) e vira nota privada do bot na conversa do lead no Chatwoot, com menção ao Dyones (usuário 1 da conta 1): notifica no app e no e-mail. O WhatsApp fica como reserva, só quando o lead não tem conversa no Chatwoot.
 

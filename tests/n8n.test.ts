@@ -109,7 +109,21 @@ describe("os três fluxos", () => {
     const semAcento = (codigo: string) => codigo.split("\n").find((l) => l.startsWith("const semAcento"));
     expect(semAcento(js(origem, "Decidir"))).toBeTruthy();
     expect(semAcento(js(origem, "Decidir"))).toBe(semAcento(js(agente, "Decidir")));
-    expect(js(origem, "Mensagem recebida")).toBe(js(agente, "Mensagem recebida"));
+    // O agente aceita a mesma mensagem que a origem, mas só quando ela vem repassada pela origem.
+    const doAgente = js(agente, "Mensagem recebida").split("\n").filter((l) => !l.startsWith("//")).join("\n");
+    const daOrigem = js(origem, "Mensagem recebida").split("\n").filter((l) => !l.startsWith("//")).join("\n");
+    expect(doAgente).toBe(daOrigem.replace('evento.event !== "message_created" ||', 'evento.event !== "message_created" || evento.repasse !== "origem" ||'));
+  });
+
+  it("a origem repassa ao agente toda mensagem recebida da caixa 12, e o agente ignora o evento direto do bot", () => {
+    const cfgOrigem = configuracao(origem);
+    expect(cfgOrigem.agenteUrl).toBe("https://n8n.v2o5.com.br/webhook/v2o5-agente");
+    expect(caminhos(origem, "Evento do Chatwoot", "Repassar ao agente")).toEqual([["Evento do Chatwoot", "Configuração", "Mensagem recebida", "Repassar ao agente"]]);
+    expect(no(origem, "Repassar ao agente").parameters.jsonBody).toContain("repasse: 'origem'");
+    const cfgAgente = configuracao(agente);
+    const comRepasse = { body: { ...evento().body, repasse: "origem" } };
+    expect(rodar(agente, "Mensagem recebida", [comRepasse], { Configuração: cfgAgente })[0].json).toMatchObject({ conversaId: 77, mensagemId: 501 });
+    expect(rodar(agente, "Mensagem recebida", [evento()], { Configuração: cfgAgente })).toEqual([]);
   });
 
   it("o LEIA-ME documenta os três endereços e as credenciais pelo nome", () => {
@@ -322,6 +336,15 @@ describe("fluxo da origem (botão de WhatsApp)", () => {
       "Mensagens da conversa": { meta: { labels, contact: { id: dono } }, payload: mensagens },
     });
 
+  it("marca o contato quando a primeira mensagem é a do link de diagnóstico", () => {
+    const diagnostico = "Olá, Dyones. Vi o diagnostico da Auto Center Ribeiro e quero seguir pelo caminho Completo.";
+    const [saida] = decidir({ custom_attributes: {} }, [msg(501, 0, diagnostico)]);
+    expect(saida.json).toMatchObject({ marcarContato: true, etiquetarConversa: true });
+    expect(saida.json.atributos).toMatchObject({ origem: "v2o5", entrada: "link do diagnóstico" });
+    expect(decidir({ custom_attributes: {} }, [msg(501, 0, "fiz um diagnóstico no médico hoje")])).toEqual([]);
+    expect(decidir({ custom_attributes: {} }, [msg(501, 0, "vi o diagnóstico da minha mãe")])).toEqual([]);
+  });
+
   it("marca o contato na primeira mensagem com o trecho, sem diferença de maiúscula ou acento", () => {
     const [saida] = decidir({ custom_attributes: {} }, [msg(501, 0, botao)]);
     expect(saida.json).toMatchObject({ marcarContato: true, etiquetarConversa: true, contatoId: 300, conversaId: 77 });
@@ -377,6 +400,13 @@ describe("fluxo do agente", () => {
     expect(decidir({ labels: ["origem-v2o5"] }, semMarca, [msg(503, 0)])[0].json.acao).toBe("responder");
   });
 
+  it("responde quem abriu a conversa com a mensagem do link de diagnóstico e avisa o pedido disso", () => {
+    const [saida] = decidir({}, semMarca, [msg(503, 0, "Olá, Dyones. Vi o diagnóstico da Auto Center Ribeiro e quero conversar sobre os próximos passos.")]);
+    expect(saida.json).toMatchObject({ acao: "responder", entrada: "diagnostico" });
+    expect(decidir({}, semMarca, [msg(503, 0, "vi o diagnóstico do exame")])[0].json.acao).toBe("passar");
+    expect(js(agente, "Montar pedido")).toContain("não ofereça o diagnóstico gratuito de novo");
+  });
+
   it("atende o lead do botão mesmo antes de o fluxo da origem gravar a marca", () => {
     const primeira = msg(503, 0, "Olá! Vim pelo site da V2O5 e quero pedir o diagnóstico gratuito.");
     expect(decidir({}, semMarca, [primeira])[0].json.acao).toBe("responder");
@@ -397,6 +427,7 @@ describe("fluxo do agente", () => {
   it("monta o pedido à OpenAI com instruções e conhecimento na frente, saída estruturada e histórico que começa e termina no contato", () => {
     const [saida] = rodar(agente, "Montar pedido", [{ data: "# V2O5 Vendas e Tecnologia\nPlano Presença a partir de R$ 8.900." }], {
       Configuração: cfg,
+      Decidir: { acao: "responder", entrada: "site" },
       Contato: { payload: { name: "Marina", custom_attributes: { empresa: "Auto Center Ribeiro", entrada: "formulário do diagnóstico" } } },
       "Mensagens da conversa": {
         payload: [msg(504, 0, "quanto custa?"), msg(501, 1, "Olá, Marina! Recebemos seu pedido."), msg(502, 0, "oi"), msg(503, 0, "tudo bem?"), { id: 500, message_type: 2, content: "Conversa atribuída" }, { ...msg(505, 1, "nota"), private: true }],
