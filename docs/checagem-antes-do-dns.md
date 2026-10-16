@@ -27,11 +27,15 @@ Os dois e-mails são a única pendência de dado: o site já os publica em produ
 
 ## 2. Linha de atendimento
 
-Dois caminhos levam ao Chatwoot.
+Dois caminhos levam ao Chatwoot, e os dois terminam no mesmo lugar: o contato marcado com `origem = v2o5` e a etiqueta `origem-v2o5`. Só contato marcado conversa com o agente de IA; o resto da caixa 12 abre para a equipe, sem resposta automática (decisão de 15/10). Os três fluxos estão em `docs/n8n/` (`LEIA-ME.md`).
 
-**Botão de WhatsApp** (todas as páginas, mensagem pré-preenchida por página): abre `wa.me/5541998089550`. A conversa entra no número da V2O5, a Evolution API a entrega ao Chatwoot e alguém responde de lá. As mensagens pré-preenchidas dizem de onde a pessoa veio ("Vim pelo site", "Vi a página de preços", "Vi a página de revendas", "Acabei de pedir o diagnóstico pelo site"): dá para criar uma regra de automação no Chatwoot que etiqueta a conversa por esse texto.
+**Botão de WhatsApp** (todas as páginas, mensagem pré-preenchida por página): abre `wa.me/5541998089550`. A conversa entra no número da V2O5 e a Evolution API a entrega à caixa 12. Toda mensagem pronta traz "site da V2O5" (`MARCA_DO_SITE`; `tests/n8n.test.ts` trava): o fluxo `origem-do-lead`, chamado pelo webhook do Chatwoot, marca o contato quando a primeira mensagem da conversa tem esse trecho.
 
-**Formulário do diagnóstico**: `/api/leads` → webhook do n8n → (1) aviso para você no WhatsApp, (2) resposta ao lead no WhatsApp, (3) contato criado ou atualizado no Chatwoot. Tudo via Evolution e API do Chatwoot (`docs/n8n/LEIA-ME.md`).
+**Formulário do diagnóstico**: `/api/leads` → fluxo `lead-do-diagnostico` → (1) aviso para você no WhatsApp, (2) telefone normalizado pela Evolution (com ou sem o nono dígito, como o WhatsApp grava), (3) contato criado ou atualizado já marcado, (4) só então a resposta ao lead no WhatsApp e (5) a etiqueta na conversa que a Evolution abre.
+
+**Agente de IA**: agent bot "Agente da V2O5" na caixa 12 → fluxo `agente-da-v2o5`. Responde conversa pendente de lead marcado (OpenAI, com o `llms.txt` do site como conhecimento) e passa as outras para aberta. O Captain ficou de fora: a conta 1 não tem o recurso ligado e, pelo código do 4.17, ele não atenderia o lead do botão (detalhe em `memory/decisoes.md`, 15/10).
+
+**Pronto no Chatwoot em 15/10** (pela API, conta 1): atributo de contato `origem` (id 34), etiqueta `origem-v2o5` (id 23), webhook da caixa 12 para o fluxo da origem (id 3) e o agent bot (id 1), **ainda não ligado à caixa 12**: liga depois de o fluxo do agente estar ativo (LEIA-ME, passo 4).
 
 ### Conferido daqui (13/10)
 
@@ -41,16 +45,25 @@ Dois caminhos levam ao Chatwoot.
 | `chatwoot.v2o5.com.br` | **erro 500** da aplicação | era o endereço do fluxo do n8n. **Corrigido em 13/10** para `app.chat`. Desligar este host ou apontar para o mesmo serviço, para não sobrar link quebrado |
 | `chat.v2o5.com.br` | **Typebot** | a memória dizia Chatwoot; corrigida. Nada do site depende dele |
 | `evolution.v2o5.com.br` | Evolution API 2.3.7 | instância usada pelo fluxo: `v2o5` (a confirmar) |
-| `n8n.v2o5.com.br` | no ar | webhook `/webhook/v2o5-diagnostico` entra quando o fluxo for importado e ativado |
+| `n8n.v2o5.com.br` | no ar | os três fluxos estão **ativos** desde 15/10: `/webhook/v2o5-diagnostico` recusa com 403 pedido sem o segredo certo; `v2o5-origem` e `v2o5-agente` respondem 200 e ignoram evento que não é mensagem recebida |
 
 ### Você confere (com login)
 
 1. ~~Chatwoot, Settings > Inboxes~~ **Feito em 13/10**: a inbox do WhatsApp é a 12 e a instância da Evolution é `v2o5`, ligada à inbox. Os dois já estão gravados no nó Configuração do fluxo.
 2. ~~Evolution, manager~~ **Feito em 13/10**: a instância `v2o5` está conectada e entregando ao Chatwoot.
 3. ~~Teste A, WhatsApp~~ **Feito em 13/10**: o "oi" chegou na inbox 12 e a resposta voltou ao celular. A linha do WhatsApp está pronta.
-4. **Teste B, formulário**: siga `docs/n8n/LEIA-ME.md` (quatro credenciais, importar o fluxo, nó Configuração, ativar), defina `LEADS_WEBHOOK_URL` e `LEADS_WEBHOOK_SECRET` na Vercel (produção e preview) e rode o `curl` do LEIA-ME. Esperado: aviso no seu WhatsApp, resposta no WhatsApp informado, contato no Chatwoot com os atributos. Depois, um envio real pelo formulário do preview. Até isso, o formulário responde "envio em configuração".
-5. **Chatwoot, operação**: agente com notificações ligadas; Settings > Inbox > horário de atendimento e mensagem fora do horário, se quiser; respostas prontas para "diagnóstico" e "preços"; atributos personalizados da conta para os campos do lead aparecerem na ficha (item do LEIA-ME).
-6. **`chatwoot.v2o5.com.br`**: desligar o host no proxy da VPS ou redirecionar para `app.chat`.
+4. **Fluxos e credenciais**: os três fluxos estão no n8n e **ativos** desde 15/10, com cada nó ligado à sua credencial (nó Configuração conferido: `app.chat.v2o5.com.br`, conta 1, caixa 12, instância `v2o5`):
+
+   | Fluxo | Id no n8n | Credenciais que pede |
+   |---|---|---|
+   | V2O5 · Lead do diagnóstico | `cN2DdwdFUVBBK2zi` | `V2O5 · segredo do site`, `Evolution · apikey`, `Chatwoot · api_access_token` (e `Hostinger · diagnostico@` no nó de e-mail, desligado) |
+   | V2O5 · Origem do lead (botão de WhatsApp) | `GkYbQIyXXYoGy37y` | `Chatwoot · api_access_token` |
+   | V2O5 · Agente de IA (agent bot da caixa 12) | `E6dLwHlEcUQrW022` | `Chatwoot · api_access_token`, `Chatwoot · agent bot`, `OpenAi account` (OpenAI, já existe) |
+
+   Credenciais criadas em 15/10: `V2O5 · segredo do site`, `Evolution · apikey`, `Chatwoot · api_access_token` e `Chatwoot · agent bot`; o agente usa a `OpenAi account`, que já existia (sem crédito na Anthropic, decisão de 15/10). Testes sem WhatsApp feitos em 15/10: diagnóstico 403 com segredo errado e sem segredo; origem e agente param em "Mensagem recebida". Feito em 15/10 pelo Dyones: `LEADS_WEBHOOK_URL` e `LEADS_WEBHOOK_SECRET` na Vercel, com redeploy, e o bot "Agente da V2O5" ligado à caixa 12 (conferido pela API). Falta só o item 5.
+5. **Os três testes** (tabela do LEIA-ME, passo 5): (a) formulário do preview com o seu número: resposta no seu WhatsApp, nota com menção a você na conversa do Chatwoot, contato marcado e o agente respondendo; (b) mensagem de um número sem marca: nenhuma resposta, conversa aberta para você; (c) mensagem pronta do botão: contato marcado e atendido pelo agente. O DNS só vira com os três certos.
+6. **Chatwoot, operação**: agente com notificações ligadas; Settings > Inbox > horário de atendimento e mensagem fora do horário, se quiser; respostas prontas para "diagnóstico" e "preços".
+7. **`chatwoot.v2o5.com.br`**: em 15/10 o nome ainda resolvia para a VPS (168.231.100.245) e respondia 404. Conferido no n8n em 15/10 (só leitura): **nenhum fluxo ativo chama esse endereço**. O "16VC 3.0" (`kvu8YkUgxxwq7FNa`) está desligado e ainda tem 19 nós com ele ("Info Base" a "Info Base3", campo do valor da URL; "teams ID", "Ler atributos da conversa1", "CW-Cattributes-intimacao" a "…7" e "CW Status_Typebot" a "…4", campo URL); a versão no ar é o "16VC 3.1 (app.chat conta 4)" (`wbKYizAUofFiXTHz`), sem nenhuma chamada ao endereço antigo. Outros fluxos desligados também o citam (16VC 4.0 e 6.0, AENT, "16VC religa bot (sessoes Evolution)", "Chatwoot Handoff Universal", "manager evolution", "criador de empresa", "criador de instancias"). Pode tirar o registro do DNS; os fluxos desligados só voltam a funcionar se alguém trocar o endereço neles, e o 16VC só muda com o seu ok.
 
 ## 3. E-mail (nada disso muda na troca do DNS)
 
@@ -68,14 +81,15 @@ Falta: criar os alias `diagnostico@` e `privacidade@` na Hostinger, os dois para
 
 ## 4. DNS: o que existe e o que muda
 
-Zona hoje (Hostinger, `ns1`/`ns2.dns-parking.com`), lida em 13/10:
+Zona hoje (Hostinger, `ns1`/`ns2.dns-parking.com`), lida em 13/10 e de novo em 15/10, sem mudança. O domínio e a hospedagem de sites ficam na Hostinger (hospedagem contratada até 2027); só o site muda de casa, e a hospedagem passa a servir o subdomínio dos painéis (seção 5).
 
 | Registro | Valor hoje | TTL | Na troca |
 |---|---|---|---|
 | `v2o5.com.br` A | 147.93.37.158 (WordPress) | 1800 | **vira o A da Vercel** |
 | `v2o5.com.br` AAAA | 2a02:4780:13:1994:0:2295:287f:2 (Hostinger) | 1800 | **apagar**: com ele no ar, quem navega por IPv6 continua caindo no WordPress |
 | `www` CNAME | `v2o5.com.br` | 300 | **vira o CNAME da Vercel** |
-| `ftp` A | 147.93.37.158 | 1800 | pode ficar enquanto o WordPress existir |
+| `ftp` A | 147.93.37.158 | 1800 | fica: é por onde se envia arquivo para a hospedagem |
+| `painel` A | (novo) 147.93.37.158, criado pelo hPanel | | **novo**, seção 5 |
 | MX, SPF, DKIM, DMARC, autodiscover | Hostinger | | **não mexer** |
 | `app.chat`/`cwoot`, `chat`, `chatwoot`, `evolution`, `n8n` | 168.231.100.245 (VPS) | | **não mexer** |
 | NS | dns-parking (Hostinger) | | não mexer: o DNS continua na Hostinger, só o site muda de casa |
@@ -85,17 +99,51 @@ Zona hoje (Hostinger, `ns1`/`ns2.dns-parking.com`), lida em 13/10:
 1. **Na Vercel**, projeto `v2o5`, Settings > Domains: adicionar `v2o5.com.br` e `www.v2o5.com.br`, com `www` redirecionando para o apex. A tela mostra os valores exatos a usar (hoje a documentação da Vercel indica um registro A para o apex e `cname.vercel-dns.com` para `www`; use o que a sua tela mostrar).
 2. **Variáveis de produção** na Vercel antes da troca: `LEADS_WEBHOOK_URL`, `LEADS_WEBHOOK_SECRET` e `NEXT_PUBLIC_GA4_ID` (pendências 9a e 16).
 3. **Um dia antes**: na zona da Hostinger, baixar o TTL do A e do AAAA do apex para 300. Isso faz a troca (e um eventual retorno) valer em minutos.
-4. **Backup do WordPress**: exportar arquivos e banco pelo hPanel. Se quiser o antigo navegável por 30 dias, criar o subdomínio `antigo.v2o5.com.br` apontando para o mesmo WordPress e ajustar a URL do site no WordPress para ele; se não, o backup basta.
+4. **Backup do WordPress**: exportar arquivos e banco pelo hPanel e guardar fora da Hostinger. Depois da troca, apagar o WordPress da hospedagem: mesmo sem o domínio apontando para ele, quem mandar o cabeçalho `Host: v2o5.com.br` para o IP da Hostinger ainda chega nele, e um WordPress sem manutenção na mesma conta dos painéis põe os arquivos dos painéis em risco.
 5. **A troca**: apex A para o valor da Vercel; apagar o AAAA; `www` CNAME para o valor da Vercel. Nada mais.
 6. **Conferência** (em até uma hora): a Vercel mostra "Valid Configuration" e emite o certificado; abrir `https://v2o5.com.br`, `https://www.v2o5.com.br` (tem de redirecionar), `/sitemap.xml`, `/robots.txt`, `/jornada` (301 para `/sobre`), `/blog` (301 para `/guias`), `/wp-json/wp/v2/users` (404 no site novo); mandar e receber um e-mail de teste em `diagnostico@`; abrir `app.chat`, `n8n` e `evolution` (continuam na VPS).
-7. **Depois**: Search Console com propriedade de domínio (um TXT na Hostinger) e envio do sitemap; Bing Webmaster; Perfil da Empresa no Google com o site novo.
+7. **Typebot aposentado**: feito em 15/10, antes da troca. Bot `v-2-o-5-m6h4adv` despublicado; no n8n, "v2o5 atendimento" (`kSFBHak3ARmgHsE7`) e "V2O5 · Atendimento do Typebot (credencial)" (`d8OWkweEIyNydwa2`) desligados e arquivados. Com o site novo no ar, `/contrate` redireciona para `/diagnostico`. A planilha "LEADS V2O5" fica como histórico.
+8. **Depois**: Search Console com propriedade de domínio (um TXT na Hostinger) e envio do sitemap; Bing Webmaster; Perfil da Empresa no Google com o site novo.
 
-## 5. Ordem recomendada do todo
+## 5. Subdomínio dos painéis de clientes (Hostinger)
+
+Recomendação (15/10): um subdomínio só, `painel.v2o5.com.br`, com uma pasta por cliente (`/cliente-a/`, `/cliente-b/`). Subdomínio por cliente publica o nome do cliente nos registros públicos de certificados (Certificate Transparency); o caminho da pasta não aparece neles.
+
+O que a hospedagem compartilhada faz bem aqui: páginas estáticas ou PHP atrás de senha. O dado não mora nela: o painel mensal é gerado a partir do banco do cliente (na VPS ou na Supabase) e enviado pronto, só com números agregados, sem dado pessoal. O banco nunca fica aberto para a internet. Painel ao vivo, que consulta o banco a cada acesso, vai para a Vercel ou para a VPS, não para a hospedagem compartilhada.
+
+1. **Criar o subdomínio** no hPanel: Sites > `v2o5.com.br` > Domínios > Subdomínios > `painel`. Com o DNS na Hostinger, o hPanel cria o registro A sozinho; conferir na Zona DNS que `painel` aponta para 147.93.37.158.
+2. **SSL**: em Segurança > SSL, conferir que `painel.v2o5.com.br` tem certificado (a Hostinger emite de graça; instalar se não aparecer).
+3. **Arquivos da raiz** do subdomínio (pelo Gerenciador de Arquivos ou FTP):
+   - `robots.txt` com `User-agent: *` e `Disallow: /`;
+   - `index.html` vazio ou com uma frase neutra, para a raiz não listar as pastas;
+   - `.htaccess` com o bloco abaixo. O `RewriteEngine On` próprio também impede que as regras do WordPress na pasta de cima valham aqui.
+     ```apache
+     RewriteEngine On
+     RewriteCond %{HTTPS} !=on
+     RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+     Options -Indexes
+     <IfModule mod_headers.c>
+       Header always set X-Robots-Tag "noindex, nofollow"
+       Header always set X-Frame-Options "DENY"
+       Header always set Referrer-Policy "no-referrer"
+       Header always set Strict-Transport-Security "max-age=31536000"
+     </IfModule>
+     ```
+4. **Uma pasta por cliente** com senha própria: hPanel > Avançado > Proteger pastas com senha. Usuário e senha vão para o cliente por um canal à parte, nunca por e-mail junto com o link e nunca no repositório.
+5. **Conferência**: `https://painel.v2o5.com.br/` abre sem listar pastas; `http://` vira `https://`; a pasta do cliente pede senha; `curl -I` mostra o `X-Robots-Tag`.
+
+Os detalhes de cada cliente (o que o painel mostra, de onde vem o dado, como é gerado) ficam no repositório do cliente, não aqui.
+
+## 6. Ordem recomendada do todo
 
 1. Alias de e-mail (seção 3).
-2. Fluxo do n8n, credenciais, variáveis na Vercel e teste do formulário (seção 2, teste B).
-3. Linha do WhatsApp: inbox, instância, teste A, `chatwoot.v2o5.com.br` (seção 2).
+2. Os três fluxos do n8n, credenciais, variáveis na Vercel, o bot na caixa 12 e os testes (a), (b) e (c) (seção 2, itens 4 e 5).
+3. Linha do WhatsApp: inbox, instância e teste A feitos em 13/10; falta `chatwoot.v2o5.com.br` (seção 2, item 7).
 4. GA4 e `NEXT_PUBLIC_GA4_ID` (pendência 16).
 5. Domínios na Vercel e TTL baixo (seção 4, passos 1 a 3).
 6. Backup do WordPress (passo 4).
-7. Troca e conferência (passos 5 a 7).
+7. Troca e conferência (passos 5, 6 e 8).
+8. Apagar o WordPress da hospedagem, com o backup guardado (passo 4).
+9. ~~Aposentar o Typebot e os dois fluxos dele no n8n~~ feito em 15/10 (seção 4, passo 7).
+
+O subdomínio dos painéis (seção 5) não depende da troca e pode ser feito antes.

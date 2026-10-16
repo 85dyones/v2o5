@@ -1,0 +1,502 @@
+{
+  "name": "V2O5 · Origem do lead (botão de WhatsApp)",
+  "nodes": [
+    {
+      "id": "41056125-ede2-59c3-bf87-5129f97ff46c",
+      "name": "Evento do Chatwoot",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        0,
+        300
+      ],
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "v2o5-origem",
+        "options": {}
+      },
+      "webhookId": "ec1d8b97-536b-56ba-b6ea-842661b3a6a5",
+      "notes": "Webhook da conta 1 no Chatwoot (Settings, Integrations, Webhooks), só a caixa 12, evento message_created."
+    },
+    {
+      "id": "fb0256c4-e108-55da-8260-3696a85503ad",
+      "name": "Configuração",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        240,
+        300
+      ],
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "a1",
+              "name": "chatwootUrl",
+              "value": "https://app.chat.v2o5.com.br",
+              "type": "string"
+            },
+            {
+              "id": "a2",
+              "name": "chatwootConta",
+              "value": "1",
+              "type": "string"
+            },
+            {
+              "id": "a3",
+              "name": "chatwootInbox",
+              "value": "12",
+              "type": "string"
+            },
+            {
+              "id": "a4",
+              "name": "atributoOrigem",
+              "value": "origem",
+              "type": "string"
+            },
+            {
+              "id": "a5",
+              "name": "valorOrigem",
+              "value": "v2o5",
+              "type": "string"
+            },
+            {
+              "id": "a6",
+              "name": "etiquetaOrigem",
+              "value": "origem-v2o5",
+              "type": "string"
+            },
+            {
+              "id": "a7",
+              "name": "marcaDoSite",
+              "value": "site da V2O5",
+              "type": "string"
+            },
+            {
+              "id": "m1",
+              "name": "marcaDoDiagnostico",
+              "value": "Dyones. Vi o diagnóstico da",
+              "type": "string"
+            },
+            {
+              "id": "m2",
+              "name": "agenteUrl",
+              "value": "https://n8n.v2o5.com.br/webhook/v2o5-agente",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      }
+    },
+    {
+      "id": "036975e7-da4f-55bd-93a2-8cd786284f9a",
+      "name": "Mensagem recebida",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        480,
+        300
+      ],
+      "parameters": {
+        "jsCode": "// Só interessa mensagem que o contato mandou na caixa do WhatsApp da V2O5.\n// O endereço do webhook é público: o resto do fluxo relê tudo pela API do\n// Chatwoot e usa daqui só os números (conversa, contato, mensagem).\nconst cfg = $(\"Configuração\").first().json;\nconst evento = $input.first().json.body || {};\nconst conversa = evento.conversation || {};\nconst recebida = evento.message_type === \"incoming\" || evento.message_type === 0;\nconst daConta = String(evento.account?.id) === String(cfg.chatwootConta);\nconst daCaixa = String(conversa.inbox_id ?? evento.inbox?.id) === String(cfg.chatwootInbox);\nconst contatoId = conversa.meta?.sender?.id ?? evento.sender?.id;\nif (evento.event !== \"message_created\" || !recebida || evento.private || !daConta || !daCaixa || !conversa.id || !contatoId) return [];\nreturn [{\n  json: {\n    conversaId: conversa.id,\n    contatoId,\n    mensagemId: evento.id,\n    texto: String(evento.content ?? \"\"),\n    rotulosDaConversa: Array.isArray(conversa.labels) ? conversa.labels : [],\n  },\n}];\n"
+      }
+    },
+    {
+      "id": "91cc679d-1f15-529b-8f7a-f3bc06f9beec",
+      "name": "Contato",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        720,
+        300
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "={{ $('Configuração').first().json.chatwootUrl }}/api/v1/accounts/{{ $('Configuração').first().json.chatwootConta }}/contacts/{{ $json.contatoId }}",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {}
+      },
+      "credentials": {
+        "httpHeaderAuth": {
+          "name": "Chatwoot · api_access_token"
+        }
+      },
+      "onError": "stopWorkflow"
+    },
+    {
+      "id": "91eddebe-c5c6-510b-8808-bf658c295765",
+      "name": "Mensagens da conversa",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        960,
+        300
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "={{ $('Configuração').first().json.chatwootUrl }}/api/v1/accounts/{{ $('Configuração').first().json.chatwootConta }}/conversations/{{ $('Mensagem recebida').first().json.conversaId }}/messages",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {}
+      },
+      "credentials": {
+        "httpHeaderAuth": {
+          "name": "Chatwoot · api_access_token"
+        }
+      },
+      "onError": "stopWorkflow"
+    },
+    {
+      "id": "1293977a-0622-5b0b-b50b-c5ca027334c4",
+      "name": "Decidir",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1200,
+        300
+      ],
+      "parameters": {
+        "jsCode": "// Lead do botão de WhatsApp: a primeira mensagem da conversa é a mensagem\n// pronta de quem mandou a pessoa. As do site trazem \"site da V2O5\"\n// (MARCA_DO_SITE em src/conteudo/home.ts); as das páginas de diagnóstico\n// (diagnostico.v2o5.com.br) trazem \"Vi o diagnóstico da\". Primeira mensagem\n// recebida com um desses trechos marca o contato. Contato já marcado só ganha\n// a etiqueta na conversa nova.\nconst cfg = $(\"Configuração\").first().json;\nconst ev = $(\"Mensagem recebida\").first().json;\nconst contato = $(\"Contato\").first().json.payload || {};\nconst lista = $(\"Mensagens da conversa\").first().json;\nconst mensagens = Array.isArray(lista.payload) ? lista.payload : [];\nconst semAcento = (t) => String(t ?? \"\").normalize(\"NFD\").replace(/[̀-ͯ]/g, \"\").toLowerCase().replace(/\\s+/g, \" \").trim();\nconst recebida = (m) => (m.message_type === 0 || m.message_type === \"incoming\") && !m.private;\n\n// Texto e dono da conversa vêm da API, não do evento: o endereço do webhook\n// é público e um evento forjado não pode marcar contato nenhum.\nconst atual = mensagens.find((m) => Number(m.id) === Number(ev.mensagemId) && recebida(m));\nif (!atual || String(atual.inbox_id) !== String(cfg.chatwootInbox) || Number(lista.meta?.contact?.id) !== Number(ev.contatoId)) return [];\nconst primeira = mensagens.filter(recebida).every((m) => Number(m.id) >= Number(atual.id));\nconst texto = semAcento(atual.content);\nconst doSite = texto.includes(semAcento(cfg.marcaDoSite));\nconst doDiagnostico = texto.includes(semAcento(cfg.marcaDoDiagnostico));\nconst temMarca = doSite || doDiagnostico;\nconst jaMarcado = semAcento((contato.custom_attributes || {})[cfg.atributoOrigem]) === semAcento(cfg.valorOrigem);\nconst marcarContato = !jaMarcado && primeira && temMarca;\nconst rotulos = Array.isArray(lista.meta?.labels) ? lista.meta.labels : ev.rotulosDaConversa;\nconst etiquetarConversa = (jaMarcado || marcarContato) && !rotulos.includes(cfg.etiquetaOrigem);\nif (!marcarContato && !etiquetarConversa) return [];\nreturn [{\n  json: {\n    contatoId: ev.contatoId,\n    conversaId: ev.conversaId,\n    marcarContato,\n    etiquetarConversa,\n    rotulosDaConversa: [...new Set([...rotulos, cfg.etiquetaOrigem])],\n    atributos: { [cfg.atributoOrigem]: cfg.valorOrigem, entrada: doDiagnostico && !doSite ? \"link do diagnóstico\" : \"botão de WhatsApp do site\", primeira_mensagem: String(atual.content ?? \"\").slice(0, 300) },\n  },\n}];\n"
+      }
+    },
+    {
+      "id": "57b554a4-8d36-5763-9080-e54c67ce865b",
+      "name": "Marcar contato?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        1440,
+        180
+      ],
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "loose"
+          },
+          "conditions": [
+            {
+              "id": "c1",
+              "leftValue": "={{ $json.marcarContato }}",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      }
+    },
+    {
+      "id": "51ac8db4-d362-5dad-bf6d-ebc24148f25f",
+      "name": "Gravar origem",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1680,
+        100
+      ],
+      "parameters": {
+        "method": "PATCH",
+        "url": "={{ $('Configuração').first().json.chatwootUrl }}/api/v1/accounts/{{ $('Configuração').first().json.chatwootConta }}/contacts/{{ $('Decidir').first().json.contatoId }}",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {},
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ custom_attributes: $('Decidir').first().json.atributos }) }}"
+      },
+      "credentials": {
+        "httpHeaderAuth": {
+          "name": "Chatwoot · api_access_token"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "id": "552b9efd-a04b-5121-852d-e59aaf00eaa7",
+      "name": "Etiquetas do contato",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1920,
+        100
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "={{ $('Configuração').first().json.chatwootUrl }}/api/v1/accounts/{{ $('Configuração').first().json.chatwootConta }}/contacts/{{ $('Decidir').first().json.contatoId }}/labels",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {}
+      },
+      "credentials": {
+        "httpHeaderAuth": {
+          "name": "Chatwoot · api_access_token"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "id": "9fb302a1-b995-5640-b0db-b0f49f2aacae",
+      "name": "Somar etiqueta",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2160,
+        100
+      ],
+      "parameters": {
+        "jsCode": "// A API troca a lista inteira de etiquetas: soma a da origem às que já existem.\nconst cfg = $(\"Configuração\").first().json;\nconst atuais = Array.isArray($input.first().json.payload) ? $input.first().json.payload : [];\nreturn [{ json: { labels: [...new Set([...atuais, cfg.etiquetaOrigem])] } }];\n"
+      }
+    },
+    {
+      "id": "19e7ade1-2bbf-56e4-9cf5-f9202ea85098",
+      "name": "Etiquetar contato",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2400,
+        100
+      ],
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $('Configuração').first().json.chatwootUrl }}/api/v1/accounts/{{ $('Configuração').first().json.chatwootConta }}/contacts/{{ $('Decidir').first().json.contatoId }}/labels",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {},
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ labels: $json.labels }) }}"
+      },
+      "credentials": {
+        "httpHeaderAuth": {
+          "name": "Chatwoot · api_access_token"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "id": "1e379e7a-68d0-517c-8a47-e8a592205d6c",
+      "name": "Etiquetar conversa?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        1440,
+        420
+      ],
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "loose"
+          },
+          "conditions": [
+            {
+              "id": "c1",
+              "leftValue": "={{ $('Decidir').first().json.etiquetarConversa }}",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      }
+    },
+    {
+      "id": "3b8ff180-2bbe-5ced-b22b-6b94a57c1716",
+      "name": "Etiquetar conversa",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1680,
+        420
+      ],
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $('Configuração').first().json.chatwootUrl }}/api/v1/accounts/{{ $('Configuração').first().json.chatwootConta }}/conversations/{{ $('Decidir').first().json.conversaId }}/labels",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {},
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ labels: $('Decidir').first().json.rotulosDaConversa }) }}"
+      },
+      "credentials": {
+        "httpHeaderAuth": {
+          "name": "Chatwoot · api_access_token"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "id": "80bddb72-0930-57d9-84c2-eb4a4fcdd8c2",
+      "name": "Repassar ao agente",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        720,
+        520
+      ],
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $('Configuração').first().json.agenteUrl }}",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ ...$('Evento do Chatwoot').first().json.body, repasse: 'origem' }) }}",
+        "options": {
+          "timeout": 10000
+        }
+      },
+      "notes": "O Chatwoot 4.17 desta instalação não entrega message_created ao agent bot (só message_updated, conferido em 16/10). O webhook da conta entrega: este fluxo repassa cada mensagem recebida da caixa 12 ao fluxo do agente, que aceita só o repasse.",
+      "onError": "continueRegularOutput"
+    }
+  ],
+  "connections": {
+    "Evento do Chatwoot": {
+      "main": [
+        [
+          {
+            "node": "Configuração",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Configuração": {
+      "main": [
+        [
+          {
+            "node": "Mensagem recebida",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Mensagem recebida": {
+      "main": [
+        [
+          {
+            "node": "Contato",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Repassar ao agente",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Contato": {
+      "main": [
+        [
+          {
+            "node": "Mensagens da conversa",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Mensagens da conversa": {
+      "main": [
+        [
+          {
+            "node": "Decidir",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Decidir": {
+      "main": [
+        [
+          {
+            "node": "Marcar contato?",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Etiquetar conversa?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Marcar contato?": {
+      "main": [
+        [
+          {
+            "node": "Gravar origem",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gravar origem": {
+      "main": [
+        [
+          {
+            "node": "Etiquetas do contato",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Etiquetas do contato": {
+      "main": [
+        [
+          {
+            "node": "Somar etiqueta",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Somar etiqueta": {
+      "main": [
+        [
+          {
+            "node": "Etiquetar contato",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Etiquetar conversa?": {
+      "main": [
+        [
+          {
+            "node": "Etiquetar conversa",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  }
+}

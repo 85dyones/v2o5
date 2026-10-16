@@ -812,14 +812,23 @@ export const EMAIL = {
   },
 };
 
+/**
+ * O trecho que toda mensagem pronta do WhatsApp carrega. O n8n reconhece o
+ * lead do site por ele na primeira mensagem da conversa e marca o contato
+ * com `origem = v2o5` (`docs/n8n/origem-do-lead.json`); só contato marcado
+ * fala com o agente de IA. Mudar aqui exige mudar nos fluxos.
+ */
+export const MARCA_DO_SITE = "site da V2O5";
+
 /** Mensagem pré-preenchida do WhatsApp, por página (plano, seção 6.1). */
 export const WHATSAPP = {
   mensagens: {
-    home: "Olá! Vim pelo site da V2O5 e quero pedir o diagnóstico gratuito.",
-    precos: "Olá! Vi a página de preços da V2O5 e quero conversar sobre a minha empresa.",
-    diagnostico: "Olá! Quero marcar o diagnóstico gratuito da V2O5.",
-    recebido: "Olá! Acabei de pedir o diagnóstico pelo site e quero adiantar a conversa.",
-    revendas: "Olá! Vi a página de revendas da V2O5 e quero conversar sobre a minha loja.",
+    home: `Olá! Vim pelo ${MARCA_DO_SITE} e quero pedir o diagnóstico gratuito.`,
+    precos: `Olá! Vi a página de preços no ${MARCA_DO_SITE} e quero conversar sobre a minha empresa.`,
+    diagnostico: `Olá! Vim pelo ${MARCA_DO_SITE} e quero marcar o diagnóstico gratuito.`,
+    recebido: `Olá! Acabei de pedir o diagnóstico no ${MARCA_DO_SITE} e quero adiantar a conversa.`,
+    revendas: `Olá! Vi a página de revendas no ${MARCA_DO_SITE} e quero conversar sobre a minha loja.`,
+    sobre: `Olá! Vi a página Sobre no ${MARCA_DO_SITE} e quero conversar sobre a minha empresa.`,
   },
 };
 

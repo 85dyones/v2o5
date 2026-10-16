@@ -1,0 +1,730 @@
+{
+  "name": "V2O5 · Agente de IA (agent bot da caixa 12)",
+  "nodes": [
+    {
+      "id": "3ac76534-3a03-5709-bc68-2815b351f675",
+      "name": "Evento do bot",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        0,
+        300
+      ],
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "v2o5-agente",
+        "options": {}
+      },
+      "webhookId": "8a9b0911-2419-588a-98cb-a6f25a28653d",
+      "notes": "Endereço do agent bot \"Agente da V2O5\" no Chatwoot (conta 1), ligado à caixa 12."
+    },
+    {
+      "id": "14f88df9-4917-5eda-aa7d-bbbb57cc6594",
+      "name": "Configuração",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        240,
+        300
+      ],
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "a1",
+              "name": "chatwootUrl",
+              "value": "https://app.chat.v2o5.com.br",
+              "type": "string"
+            },
+            {
+              "id": "a2",
+              "name": "chatwootConta",
+              "value": "1",
+              "type": "string"
+            },
+            {
+              "id": "a3",
+              "name": "chatwootInbox",
+              "value": "12",
+              "type": "string"
+            },
+            {
+              "id": "a4",
+              "name": "atributoOrigem",
+              "value": "origem",
+              "type": "string"
+            },
+            {
+              "id": "a5",
+              "name": "valorOrigem",
+              "value": "v2o5",
+              "type": "string"
+            },
+            {
+              "id": "a6",
+              "name": "etiquetaOrigem",
+              "value": "origem-v2o5",
+              "type": "string"
+            },
+            {
+              "id": "a7",
+              "name": "marcaDoSite",
+              "value": "site da V2O5",
+              "type": "string"
+            },
+            {
+              "id": "m1",
+              "name": "marcaDoDiagnostico",
+              "value": "Dyones. Vi o diagnóstico da",
+              "type": "string"
+            },
+            {
+              "id": "a8",
+              "name": "modeloIA",
+              "value": "gpt-5-mini",
+              "type": "string"
+            },
+            {
+              "id": "a9",
+              "name": "esforcoIA",
+              "value": "low",
+              "type": "string"
+            },
+            {
+              "id": "a10",
+              "name": "conhecimentoUrl",
+              "value": "https://v2o5.vercel.app/llms.txt",
+              "type": "string"
+            },
+            {
+              "id": "a11",
+              "name": "mensagensNoHistorico",
+              "value": "30",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      }
+    },
+    {
+      "id": "f6e8ae41-3204-5d3f-bf01-58e9379e0811",
+      "name": "Mensagem recebida",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        480,
+        300
+      ],
+      "parameters": {
+        "jsCode": "// Só interessa mensagem que o contato mandou na caixa do WhatsApp da V2O5,\n// repassada pelo fluxo da origem (o Chatwoot não entrega message_created ao\n// agent bot nesta instalação; o evento direto do bot é ignorado, para a mesma\n// mensagem nunca ser respondida duas vezes). O endereço do webhook é público:\n// o resto do fluxo relê tudo pela API do Chatwoot e usa daqui só os números\n// (conversa, contato, mensagem).\nconst cfg = $(\"Configuração\").first().json;\nconst evento = $input.first().json.body || {};\nconst conversa = evento.conversation || {};\nconst recebida = evento.message_type === \"incoming\" || evento.message_type === 0;\nconst daConta = String(evento.account?.id) === String(cfg.chatwootConta);\nconst daCaixa = String(conversa.inbox_id ?? evento.inbox?.id) === String(cfg.chatwootInbox);\nconst contatoId = conversa.meta?.sender?.id ?? evento.sender?.id;\nif (evento.event !== \"message_created\" || evento.repasse !== \"origem\" || !recebida || evento.private || !daConta || !daCaixa || !conversa.id || !contatoId) return [];\nreturn [{\n  json: {\n    conversaId: conversa.id,\n    contatoId,\n    mensagemId: evento.id,\n    texto: String(evento.content ?? \"\"),\n    rotulosDaConversa: Array.isArray(conversa.labels) ? conversa.labels : [],\n  },\n}];\n"
+      }
+    },
+    {
+      "id": "f35efae3-d9dd-56c3-a2a7-7ee9dc67624e",
+      "name": "Juntar mensagens",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        720,
+        300
+      ],
+      "parameters": {
+        "resume": "timeInterval",
+        "amount": 5,
+        "unit": "seconds"
+      },
+      "webhookId": "e8469ac2-4818-59d6-b75e-10294971f20f"
+    },
+    {
+      "id": "18b835e9-a58d-5986-b08c-c80e38de4d04",
+      "name": "Conversa",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        960,
+        300
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "={{ $('Configuração').first().json.chatwootUrl }}/api/v1/accounts/{{ $('Configuração').first().json.chatwootConta }}/conversations/{{ $('Mensagem recebida').first().json.conversaId }}",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {}
+      },
+      "credentials": {
+        "httpHeaderAuth": {
+          "name": "Chatwoot · api_access_token"
+        }
+      },
+      "onError": "stopWorkflow"
+    },
+    {
+      "id": "ba478099-165b-52a2-9754-933f5fbb03f4",
+      "name": "Contato",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1200,
+        300
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "={{ $('Configuração').first().json.chatwootUrl }}/api/v1/accounts/{{ $('Configuração').first().json.chatwootConta }}/contacts/{{ $('Mensagem recebida').first().json.contatoId }}",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {}
+      },
+      "credentials": {
+        "httpHeaderAuth": {
+          "name": "Chatwoot · api_access_token"
+        }
+      },
+      "onError": "stopWorkflow"
+    },
+    {
+      "id": "2ad83f54-e1d6-58cc-a3cc-a44a90469deb",
+      "name": "Mensagens da conversa",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1440,
+        300
+      ],
+      "parameters": {
+        "method": "GET",
+        "url": "={{ $('Configuração').first().json.chatwootUrl }}/api/v1/accounts/{{ $('Configuração').first().json.chatwootConta }}/conversations/{{ $('Mensagem recebida').first().json.conversaId }}/messages",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {}
+      },
+      "credentials": {
+        "httpHeaderAuth": {
+          "name": "Chatwoot · api_access_token"
+        }
+      },
+      "onError": "stopWorkflow"
+    },
+    {
+      "id": "8a15229d-d7e8-5c9d-b8ea-ba4be3694734",
+      "name": "Decidir",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1680,
+        300
+      ],
+      "parameters": {
+        "jsCode": "// O agente só fala com lead que veio do site ou de um link de diagnóstico:\n// contato marcado com origem na V2O5 (formulário ou botão), conversa\n// etiquetada, ou primeira mensagem da conversa com a mensagem pronta do site\n// (\"site da V2O5\") ou da página de diagnóstico (\"Vi o diagnóstico da\").\n// Conversa de outro contato vai para \"aberta\", sem resposta, para a equipe.\nconst cfg = $(\"Configuração\").first().json;\nconst ev = $(\"Mensagem recebida\").first().json;\nconst conversa = $(\"Conversa\").first().json;\nconst contato = $(\"Contato\").first().json.payload || {};\nconst mensagens = (Array.isArray($(\"Mensagens da conversa\").first().json.payload) ? $(\"Mensagens da conversa\").first().json.payload : [])\n  .slice()\n  .sort((a, b) => Number(a.id) - Number(b.id));\nconst semAcento = (t) => String(t ?? \"\").normalize(\"NFD\").replace(/[̀-ͯ]/g, \"\").toLowerCase().replace(/\\s+/g, \" \").trim();\nconst recebida = (m) => (m.message_type === 0 || m.message_type === \"incoming\") && !m.private;\nconst enviada = (m) => (m.message_type === 1 || m.message_type === \"outgoing\") && !m.private;\n\n// Só conversa pendente é do agente; aberta, resolvida ou com gente atribuída\n// já é da equipe.\nif (conversa.status !== \"pending\") return [];\n// O evento vem de um endereço público: conversa e contato precisam bater com\n// o que a API diz.\nif (String(conversa.inbox_id) !== String(cfg.chatwootInbox) || Number(conversa.meta?.sender?.id) !== Number(ev.contatoId)) return [];\nconst tipoAtribuido = conversa.meta?.assignee_type;\nif (conversa.meta?.assignee && tipoAtribuido !== \"AgentBot\") return [];\n\n// Várias mensagens seguidas: responde uma vez, no evento da última.\nconst conversaveis = mensagens.filter((m) => recebida(m) || enviada(m));\nconst ultima = conversaveis[conversaveis.length - 1];\nif (!ultima || !recebida(ultima) || Number(ultima.id) !== Number(ev.mensagemId)) return [];\n\nconst primeiraRecebida = mensagens.find(recebida);\nconst doDiagnostico =\n  semAcento((contato.custom_attributes || {}).entrada) === semAcento(\"link do diagnóstico\") ||\n  (primeiraRecebida !== undefined && semAcento(primeiraRecebida.content).includes(semAcento(cfg.marcaDoDiagnostico)));\nconst marcado =\n  semAcento((contato.custom_attributes || {})[cfg.atributoOrigem]) === semAcento(cfg.valorOrigem) ||\n  (conversa.labels || []).includes(cfg.etiquetaOrigem) ||\n  (primeiraRecebida !== undefined && semAcento(primeiraRecebida.content).includes(semAcento(cfg.marcaDoSite))) ||\n  doDiagnostico;\n\nreturn [{ json: { acao: marcado ? \"responder\" : \"passar\", conversaId: ev.conversaId, contatoId: ev.contatoId, entrada: doDiagnostico ? \"diagnostico\" : \"site\" } }];\n"
+      }
+    },
+    {
+      "id": "be94ae34-08a0-5fb1-abab-1829d319e986",
+      "name": "Responder?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        1920,
+        300
+      ],
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "loose"
+          },
+          "conditions": [
+            {
+              "id": "c1",
+              "leftValue": "={{ $json.acao }}",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              },
+              "rightValue": "responder"
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      }
+    },
+    {
+      "id": "febecbc2-b3a2-5934-9ca8-67cd58985172",
+      "name": "Conhecimento",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2160,
+        200
+      ],
+      "parameters": {
+        "url": "={{ $('Configuração').first().json.conhecimentoUrl }}",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text"
+            }
+          },
+          "timeout": 10000
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "id": "0f5404da-5c59-5284-9e71-70bdd8b15aa2",
+      "name": "Montar pedido",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2400,
+        200
+      ],
+      "parameters": {
+        "jsCode": "// Monta o pedido à Chat Completions da OpenAI: instruções e conhecimento (o\n// llms.txt do site, a mesma fonte dos preços publicados) na primeira mensagem\n// de sistema, que não muda entre conversas e entra no cache automático da\n// OpenAI; os dados do contato numa segunda, à parte; a conversa como histórico.\nconst cfg = $(\"Configuração\").first().json;\nconst contato = $(\"Contato\").first().json.payload || {};\nconst mensagens = (Array.isArray($(\"Mensagens da conversa\").first().json.payload) ? $(\"Mensagens da conversa\").first().json.payload : [])\n  .slice()\n  .sort((a, b) => Number(a.id) - Number(b.id));\nconst conhecimento = typeof $input.first().json.data === \"string\" ? $input.first().json.data.trim() : \"\";\n\nconst INSTRUCOES = \"Você atende o WhatsApp da V2O5 Vendas e Tecnologia. Quem escreve chegou pelo site da V2O5 (pelo formulário do diagnóstico ou pelo botão de WhatsApp de uma das páginas) ou pelo link de um diagnóstico de presença digital que o Dyones mandou para a empresa.\\n\\nA V2O5 coloca a empresa no mapa (site, Google, anúncios e rastreamento) e multiplica a operação com IA (agente no WhatsApp, automação e CRM). O fundador é o Dyones Oliveira, que conduz o diagnóstico.\\n\\nSeu objetivo é entender o que a pessoa precisa e levá-la ao diagnóstico gratuito: uma conversa de 45 minutos com o Dyones e, em até 24 horas depois, o mapa do que fazer primeiro.\\n\\nQuem veio do link do diagnóstico já recebeu o diagnóstico da empresa e quer falar dos próximos passos: não ofereça o diagnóstico gratuito de novo. Agradeça, pergunte o melhor dia e horário para conversar com o Dyones e passe para a equipe. Se a pessoa disser qual caminho quer seguir, passe para a equipe na hora.\\n\\nComo escrever\\n- Português do Brasil, cordial e direto, como alguém da equipe escreveria no WhatsApp.\\n- No máximo três frases por mensagem e uma pergunta por vez.\\n- Sem travessão, sem lista, sem negrito ou markdown. Emoji só se a pessoa usar, e no máximo um.\\n- Chame a pessoa pelo primeiro nome quando souber.\\n- Se perguntarem, diga que é o assistente virtual da V2O5 e que o Dyones acompanha a conversa.\\n\\nO que perguntar, aos poucos e só o que faltar: o nome da empresa, o segmento e o que a pessoa quer resolver primeiro. Use os dados do contato para não repetir pergunta.\\n\\nFatos e preços\\n- Fale só do que está no conhecimento abaixo. Preço sempre como \\\"a partir de\\\", do jeito que aparece lá, com implantação e mensalidade.\\n- Não invente número, prazo, desconto, cliente ou resultado. Número do case Motors Store só como está no conhecimento.\\n- Se a resposta não estiver no conhecimento, diga que o Dyones confirma no diagnóstico. Se o conhecimento estiver vazio, não fale de preço.\\n- Nunca peça CPF, senha, cartão ou documento.\\n\\nQuando passar para a equipe (passar_para_humano = true)\\n- A pessoa pede para falar com alguém, com o Dyones ou por ligação.\\n- A pessoa sugere dia e horário para o diagnóstico ou pede para marcar. Responda que anotou e que o Dyones confirma o horário por aqui.\\n- Negociação de preço, desconto, contrato, proposta formal ou forma de pagamento.\\n- Cliente atual pedindo suporte, reclamação, fornecedor, vaga de emprego ou assunto fora do que a V2O5 vende.\\n- Mensagem só com áudio, imagem ou arquivo: peça para escrever em texto; se já pediu antes, passe.\\n- Quando estiver em dúvida.\\nAo passar, escreva em nota_para_equipe uma linha para o Dyones com quem é, o que quer e por que passou. A resposta ao contato pode ficar vazia se não houver nada útil a dizer.\\n\\nResponda só com o JSON pedido.\";\nconst ESQUEMA = {\"type\": \"object\", \"properties\": {\"resposta\": {\"type\": \"string\", \"description\": \"Mensagem para o contato no WhatsApp. Pode ficar vazia ao passar para a equipe.\"}, \"passar_para_humano\": {\"type\": \"boolean\", \"description\": \"true quando a conversa deve ir para a equipe.\"}, \"nota_para_equipe\": {\"type\": \"string\", \"description\": \"Uma linha para o Dyones ao passar: quem é, o que quer, por que passou. Vazia se não passar.\"}}, \"required\": [\"resposta\", \"passar_para_humano\", \"nota_para_equipe\"], \"additionalProperties\": false};\n\nconst recebida = (m) => (m.message_type === 0 || m.message_type === \"incoming\") && !m.private;\nconst enviada = (m) => (m.message_type === 1 || m.message_type === \"outgoing\") && !m.private;\nconst textoDa = (m) => {\n  const texto = String(m.content ?? \"\").trim();\n  if (texto) return texto;\n  const anexos = (m.attachments || []).map((a) => a.file_type || \"arquivo\");\n  return anexos.length ? \"[enviou \" + anexos.join(\", \") + \"]\" : \"\";\n};\n\nconst linhas = mensagens\n  .filter((m) => recebida(m) || enviada(m))\n  .slice(-Number(cfg.mensagensNoHistorico || 30))\n  .map((m) => ({ role: recebida(m) ? \"user\" : \"assistant\", content: textoDa(m) }))\n  .filter((l) => l.content);\n// O histórico começa pelo contato. Quando quem abriu foi a V2O5 (a resposta\n// ao formulário), um aviso curto ocupa esse lugar.\nif (linhas.length && linhas[0].role === \"assistant\") {\n  linhas.unshift({ role: \"user\", content: \"[A conversa começou com a mensagem da V2O5 abaixo.]\" });\n}\nconst historico = [];\nfor (const l of linhas) {\n  const anterior = historico[historico.length - 1];\n  if (anterior && anterior.role === l.role) anterior.content += \"\\n\" + l.content;\n  else historico.push({ ...l });\n}\n\nconst a = contato.custom_attributes || {};\nconst hoje = new Date().toLocaleDateString(\"pt-BR\", { timeZone: \"America/Sao_Paulo\" });\nconst dados = [\n  \"Dados do contato no Chatwoot (podem estar incompletos):\",\n  \"Nome: \" + (contato.name || \"não informado\"),\n  a.empresa ? \"Empresa: \" + a.empresa : \"\",\n  a.segmento ? \"Segmento: \" + a.segmento : \"\",\n  a.porte ? \"Porte: \" + a.porte : \"\",\n  a.objetivos ? \"Objetivos: \" + a.objetivos : \"\",\n  a.estoque ? \"Estoque: \" + a.estoque : \"\",\n  a.sistema ? \"Sistema: \" + a.sistema : \"\",\n  a.entrada ? \"Entrada: \" + a.entrada : \"\",\n  a.pagina ? \"Página: \" + a.pagina : \"\",\n  $(\"Decidir\").first().json.entrada === \"diagnostico\" ? \"Veio do link do diagnóstico de presença digital.\" : \"\",\n  \"Hoje: \" + hoje,\n].filter(Boolean).join(\"\\n\");\n\nconst corpo = {\n  model: cfg.modeloIA,\n  reasoning_effort: cfg.esforcoIA,\n  max_completion_tokens: 8000,\n  response_format: { type: \"json_schema\", json_schema: { name: \"resposta_do_agente\", strict: true, schema: ESQUEMA } },\n  messages: [\n    { role: \"system\", content: INSTRUCOES + \"\\n\\n# Conhecimento (site da V2O5)\\n\\n\" + (conhecimento || \"(vazio)\") },\n    { role: \"system\", content: dados },\n    ...historico,\n  ],\n};\nreturn [{ json: { corpo } }];\n"
+      }
+    },
+    {
+      "id": "c68c09fb-76c3-5e53-afed-ebb247c723ec",
+      "name": "OpenAI",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2640,
+        200
+      ],
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.openai.com/v1/chat/completions",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "openAiApi",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify($json.corpo) }}",
+        "options": {
+          "timeout": 90000
+        }
+      },
+      "credentials": {
+        "openAiApi": {
+          "name": "OpenAi account"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "id": "9eefd24b-ed9c-5cbe-84a3-8cc39ff3b094",
+      "name": "Ler resposta",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2880,
+        200
+      ],
+      "parameters": {
+        "jsCode": "// Lê a saída estruturada. Recusa, erro da API, resposta cortada ou JSON fora\n// do formato: nada vai para o contato e a conversa passa para a equipe com uma nota.\nconst r = $input.first().json || {};\nconst escolha = Array.isArray(r.choices) ? r.choices[0] || {} : {};\nconst mensagem = escolha.message || {};\nlet saida = null;\nif (!mensagem.refusal && escolha.finish_reason === \"stop\" && typeof mensagem.content === \"string\") {\n  try {\n    saida = JSON.parse(mensagem.content);\n  } catch (e) {\n    saida = null;\n  }\n}\nif (!saida || typeof saida.resposta !== \"string\") {\n  const motivo = r.error?.message || (mensagem.refusal ? \"recusa\" : escolha.finish_reason) || \"resposta fora do formato\";\n  return [{ json: { resposta: \"\", passar: true, nota: \"O agente não respondeu (\" + motivo + \"). A conversa ficou aberta para a equipe.\" } }];\n}\n// Regra do texto público da V2O5: sem travessão.\nconst resposta = saida.resposta.replace(/\\s*[—–]\\s*/g, \", \").trim();\nreturn [{ json: { resposta, passar: saida.passar_para_humano === true || !resposta, nota: String(saida.nota_para_equipe || \"\").trim() } }];\n"
+      }
+    },
+    {
+      "id": "5b80e55b-d3d7-595e-87a1-4052e7013a85",
+      "name": "Tem resposta?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        3120,
+        200
+      ],
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "loose"
+          },
+          "conditions": [
+            {
+              "id": "c1",
+              "leftValue": "={{ $json.resposta }}",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      }
+    },
+    {
+      "id": "7f5a3acc-46ee-5ba2-a10f-ee1fddeec36a",
+      "name": "Enviar resposta",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        3360,
+        100
+      ],
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $('Configuração').first().json.chatwootUrl }}/api/v1/accounts/{{ $('Configuração').first().json.chatwootConta }}/conversations/{{ $('Mensagem recebida').first().json.conversaId }}/messages",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {},
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ content: $('Ler resposta').first().json.resposta, message_type: 'outgoing' }) }}"
+      },
+      "credentials": {
+        "httpHeaderAuth": {
+          "name": "Chatwoot · agent bot"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "id": "d3747b5f-f0cb-59fe-8c4c-e535b989f5d6",
+      "name": "Passar depois?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        3600,
+        100
+      ],
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "loose"
+          },
+          "conditions": [
+            {
+              "id": "c1",
+              "leftValue": "={{ $('Ler resposta').first().json.passar }}",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      }
+    },
+    {
+      "id": "ba409815-f3e9-5714-8240-909d5c897086",
+      "name": "Tem nota?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        3840,
+        300
+      ],
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "loose"
+          },
+          "conditions": [
+            {
+              "id": "c1",
+              "leftValue": "={{ $('Ler resposta').first().json.nota }}",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      }
+    },
+    {
+      "id": "22496e58-e653-5b7f-8f00-b7522ef059fe",
+      "name": "Nota para a equipe",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        4080,
+        220
+      ],
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $('Configuração').first().json.chatwootUrl }}/api/v1/accounts/{{ $('Configuração').first().json.chatwootConta }}/conversations/{{ $('Mensagem recebida').first().json.conversaId }}/messages",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {},
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ content: $('Ler resposta').first().json.nota, message_type: 'outgoing', private: true }) }}"
+      },
+      "credentials": {
+        "httpHeaderAuth": {
+          "name": "Chatwoot · agent bot"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "id": "bcb86b5b-1967-5747-8bb5-bad79ab570a8",
+      "name": "Passar para a equipe",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        4320,
+        400
+      ],
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $('Configuração').first().json.chatwootUrl }}/api/v1/accounts/{{ $('Configuração').first().json.chatwootConta }}/conversations/{{ $('Mensagem recebida').first().json.conversaId }}/toggle_status",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {},
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ status: 'open' }) }}"
+      },
+      "credentials": {
+        "httpHeaderAuth": {
+          "name": "Chatwoot · agent bot"
+        }
+      },
+      "notes": "Com o token do bot, pendente para aberta é a passagem oficial do Chatwoot (bot_handoff).",
+      "onError": "continueRegularOutput"
+    }
+  ],
+  "connections": {
+    "Evento do bot": {
+      "main": [
+        [
+          {
+            "node": "Configuração",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Configuração": {
+      "main": [
+        [
+          {
+            "node": "Mensagem recebida",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Mensagem recebida": {
+      "main": [
+        [
+          {
+            "node": "Juntar mensagens",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Juntar mensagens": {
+      "main": [
+        [
+          {
+            "node": "Conversa",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Conversa": {
+      "main": [
+        [
+          {
+            "node": "Contato",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Contato": {
+      "main": [
+        [
+          {
+            "node": "Mensagens da conversa",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Mensagens da conversa": {
+      "main": [
+        [
+          {
+            "node": "Decidir",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Decidir": {
+      "main": [
+        [
+          {
+            "node": "Responder?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Responder?": {
+      "main": [
+        [
+          {
+            "node": "Conhecimento",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Passar para a equipe",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Conhecimento": {
+      "main": [
+        [
+          {
+            "node": "Montar pedido",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Montar pedido": {
+      "main": [
+        [
+          {
+            "node": "OpenAI",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ler resposta": {
+      "main": [
+        [
+          {
+            "node": "Tem resposta?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Tem resposta?": {
+      "main": [
+        [
+          {
+            "node": "Enviar resposta",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Tem nota?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Enviar resposta": {
+      "main": [
+        [
+          {
+            "node": "Passar depois?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Passar depois?": {
+      "main": [
+        [
+          {
+            "node": "Tem nota?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Tem nota?": {
+      "main": [
+        [
+          {
+            "node": "Nota para a equipe",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Passar para a equipe",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Nota para a equipe": {
+      "main": [
+        [
+          {
+            "node": "Passar para a equipe",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI": {
+      "main": [
+        [
+          {
+            "node": "Ler resposta",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  }
+}

@@ -9,7 +9,7 @@ import { VISAO_360 } from "@/conteudo/home";
 import { metadataDa } from "@/conteudo/paginas";
 import { SOBRE } from "@/conteudo/sobre";
 import { linkEmail } from "@/lib/email";
-import { EMPRESA, EMAIL } from "@/conteudo/home";
+import { EMPRESA, EMAIL, WHATSAPP } from "@/conteudo/home";
 import { grafoDoSobre } from "@/lib/schema";
 import { linkWhatsApp, whatsappParaLer } from "@/lib/whatsapp";
 
@@ -222,7 +222,7 @@ export default function Pagina() {
               <div className="flex flex-wrap justify-between gap-x-6 gap-y-1 border-t border-linha py-4">
                 <dt className="text-secundario">WhatsApp</dt>
                 <dd>
-                  <a href={linkWhatsApp()} target="_blank" rel="noopener" className="link-sublinhado font-medium" data-evento="click_whatsapp" data-local="empresa">
+                  <a href={linkWhatsApp(WHATSAPP.mensagens.sobre)} target="_blank" rel="noopener" className="link-sublinhado font-medium" data-evento="click_whatsapp" data-local="empresa">
                     {whatsappParaLer()}
                   </a>
                 </dd>
@@ -262,7 +262,7 @@ export default function Pagina() {
         </section>
       </main>
       <Rodape />
-      <BotaoWhatsAppFixo pagina="home" mensagem="Olá! Vi a página Sobre da V2O5 e quero conversar sobre a minha empresa." />
+      <BotaoWhatsAppFixo pagina="sobre" />
       <JsonLd grafo={grafoDoSobre()} />
     </>
   );

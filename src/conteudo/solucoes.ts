@@ -1,6 +1,6 @@
 import { listaDeSistemasIntegraveis } from "@/conteudo/diagnostico";
 import { CASE_MOTORS } from "@/conteudo/case";
-import { CASE, VISAO_360, type Vinheta } from "@/conteudo/home";
+import { CASE, MARCA_DO_SITE, VISAO_360, type Vinheta } from "@/conteudo/home";
 import { BRL, capacidade, DEGRAUS, FOTOGRAFIA_PARCEIRA, linhaDePreco, plano, precoDa, REGRAS, USUARIOS_NO_CRM, type Pilar } from "@/conteudo/precos";
 import type { Etapa } from "@/lib/tokens";
 
@@ -526,4 +526,4 @@ export function solucaoDa(rota: string): Solucao {
 
 /** A mensagem do botão fixo de WhatsApp, por página de solução. */
 export const mensagemDaSolucao = (s: Solucao) =>
-  `Olá! Vi a página de ${capacidade(s.linha).nome} no site da V2O5 e quero conversar sobre a minha empresa.`;
+  `Olá! Vi a página de ${capacidade(s.linha).nome} no ${MARCA_DO_SITE} e quero conversar sobre a minha empresa.`;
