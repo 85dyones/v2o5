@@ -7,6 +7,7 @@ import { BRL, dataBR, mensalidadeDoPlano, OFERTA_DO_COMPLETO, PLANOS, REGRAS } f
 import { whatsappParaLer } from "@/lib/whatsapp";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
+import { SIMBOLO_C1D } from "@/lib/marca-vetor";
 import { ler, RAIZ } from "./fonte";
 
 /**
@@ -71,7 +72,9 @@ describe("prévia da raiz no WhatsApp e nas redes", () => {
   it("tem título, descrição, endereço e imagem antes do CSS", () => {
     for (const p of ["og:title", "og:description", "og:url", "og:image"]) expect(meta(p), p).not.toBe("");
     expect(meta("og:url")).toBe("https://diagnostico.v2o5.com.br/");
-    expect(meta("og:image")).toBe("https://diagnostico.v2o5.com.br/og.jpg");
+    // ?v= troca quando a imagem muda, para as redes que guardam a imagem pelo endereço buscarem a nova.
+    const imagem = new URL(meta("og:image"));
+    expect(`${imagem.origin}${imagem.pathname}`).toBe("https://diagnostico.v2o5.com.br/og.jpg");
     expect(Buffer.byteLength(fonte.slice(0, fonte.indexOf("</head>")))).toBeLessThan(300_000);
     expect(fonte.indexOf('property="og:image"')).toBeLessThan(fonte.indexOf("<style>"));
     expect(raiz.querySelector('meta[name="twitter:card"]')?.getAttribute("content")).toBe("summary_large_image");
@@ -100,6 +103,17 @@ describe("raiz de diagnostico.v2o5.com.br", () => {
       expect(d.documentElement.lang).toBe("pt-BR");
     }
     expect(ler("subdominios/diagnostico/index.html")).toMatch(/@media \(prefers-reduced-motion: reduce\)/);
+  });
+
+  it("logo oficial parado no lugar da animação (o movimento fica no site principal)", () => {
+    const fonte = ler("subdominios/diagnostico/index.html");
+    expect(fonte).not.toMatch(/@keyframes|animation:/);
+    expect(raiz.querySelectorAll("script")).toHaveLength(0);
+    for (const arquivo of ["index.html", "og.html"]) {
+      const d = ler(`subdominios/diagnostico/${arquivo}`);
+      expect(d, arquivo).toContain(`d="${SIMBOLO_C1D.grande.rede}"`);
+      expect(d, arquivo).toContain(`d="${SIMBOLO_C1D.grande.nuvem}"`);
+    }
   });
 
   it("texto sem travessão", () => {
