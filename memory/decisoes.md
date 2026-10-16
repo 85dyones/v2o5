@@ -2,6 +2,9 @@
 
 Log datado. Decisão nova entra no topo do dia; decisão revogada fica riscada com a data da troca.
 
+## 16/10/2026 (animação da raiz dos diagnósticos, pelo Dyones: "essa animação da página está marcando as formas, ficou muito amador, podemos deixar a logo da v2o5 grande no lugar dela se for melhor, aí a animação fica só no site principal")
+- A raiz de `diagnostico.v2o5.com.br` perde toda animação: sai a molécula desenhada por peças (ligações e nós sobrepostos marcavam as formas), o sinal correndo na jornada e a entrada das seções ao rolar. No lugar da molécula vai o logo C1d grande e parado, com o vetor oficial de `src/lib/marca-vetor.ts` (rede numa forma só, âmbar com respiro) e um brilho âmbar fixo atrás; a página fica sem JavaScript. A prévia (`og.jpg`) troca a molécula pelo mesmo logo e ganha `?v=2` no `og:image`. O movimento fica só no site principal.
+
 ## 16/10/2026 (CTA da raiz dos diagnósticos, pelo Dyones: "analise o texto como CTA de conversão, se é o mais forte, vamos seguir"; proposta aprovada)
 - Os botões principais da raiz (abertura e fechamento) passam de "Pedir diagnóstico gratuito" para "Quero meu diagnóstico gratuito": primeira pessoa e posse, mantendo o "gratuito" que tira a objeção de preço. O título do fechamento passa a "Veja a sua empresa como o cliente vê." para não repetir o botão. O botão do topo segue "Pedir diagnóstico", igual ao menu do site. Descartados: "Ver como minha empresa aparece" (promete resultado imediato), "Agendar diagnóstico" (não há agenda online) e prazo no botão (as 24 horas contam da conversa). Sem tráfego para teste A/B; os links levam `utm_content` por posição.
 - Encerra a pendência 22: o diagnóstico de presença é tratado como parte do diagnóstico gratuito.

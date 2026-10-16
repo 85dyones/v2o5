@@ -31,4 +31,5 @@ O teste falha quando o site muda e esta página fica para trás: preço e conte�
 - Sem GA4 e sem Pixel: todo link para o site leva `utm_source=diagnostico.v2o5.com.br`, e a origem é gravada quando a pessoa chega lá.
 - WhatsApp da vitrine com "site da V2O5" na mensagem pronta; o do 404 com "Dyones. Vi o diagnóstico da". As duas marcam o lead no fluxo da origem do n8n (`docs/n8n/`).
 - A lista das 37 verificações segue `config/coverage.yaml` da skill (identidade 4, ser encontrada 13 com a comparação com concorrentes, causar boa impressão 10 com o aplicativo opcional, ser contatada 4, medir e proteger 6). Mudou lá, muda aqui.
-- Visual do site (tokens de `src/app/globals.css`, molécula C1d de `memory/context/marca.md`), HTML estático sem dependência: o título é o LCP, o movimento é CSS e `prefers-reduced-motion` desliga tudo.
+- Visual do site (tokens de `src/app/globals.css`), HTML estático sem dependência e sem JavaScript; o título é o LCP. Sem animação (Dyones, 16/10: a molécula animada "ficou muito amador"): no lugar dela vai o logo C1d grande e parado, com o vetor de `src/lib/marca-vetor.ts`, e o movimento fica só no site principal. Mudou o logo, muda aqui e em `og.html`; o teste cobra.
+- Imagem de prévia nova: trocar o `?v=` do `og:image` no `index.html`, para as redes que guardam a imagem pelo endereço buscarem a nova.
