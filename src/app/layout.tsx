@@ -5,10 +5,11 @@ import FonteMonoTardia from "@/components/layout/FonteMonoTardia";
 import LuzDoCursor from "@/components/layout/LuzDoCursor";
 import Medicao from "@/components/layout/Medicao";
 import PrimeiroToque from "@/components/layout/PrimeiroToque";
+import { SITE_URL } from "@/lib/site";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://v2o5.com.br"),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: "V2O5 Vendas e Tecnologia | Catalisador de vendas com IA",
     template: "%s | V2O5 Vendas e Tecnologia",

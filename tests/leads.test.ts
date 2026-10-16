@@ -202,7 +202,7 @@ describe("rota /api/leads", () => {
     expect(url).toBe(`${GRAPH_API}/123456789012345/events`);
     const corpo = JSON.parse(opcoes.body as string);
     expect(corpo.data[0].event_id).toBe(event_id);
-    expect(corpo.data[0].event_source_url).toBe("https://v2o5.com.br/diagnostico");
+    expect(corpo.data[0].event_source_url).toBe("https://www.v2o5.com.br/diagnostico");
     expect(corpo.data[0].user_data.client_ip_address).toBe("203.0.113.9");
     expect(corpo.data[0].user_data.client_user_agent).toBe("Teste/1.0");
     expect(corpo.data[0].user_data.fbp).toBe("fb.1.1760000000000.42");

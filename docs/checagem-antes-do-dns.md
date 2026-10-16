@@ -98,7 +98,7 @@ Zona hoje (Hostinger, `ns1`/`ns2.dns-parking.com`), lida em 13/10 e de novo em 1
 
 Conferido depois da troca (16/10, só leitura): `@` A `76.76.21.21` (TTL 300), AAAA do apex apagado, `www` CNAME `ec0bda34881034d3.vercel-dns-016.com` (TTL 300), valor que a Vercel deu ao ligar o domínio ao projeto. O `ftp` saiu junto com o site antigo. MX, SPF, DKIM, DMARC, `autoconfig`/`autodiscover`, `diagnostico`, `motogestor` e os subdomínios da VPS ficaram como estavam; `app.chat`, `n8n`, `evolution` e `diagnostico` respondem 200. No site: certificado da Vercel, `/contrate`, `/blog` e `/jornada` com 301 para `/diagnostico`, `/guias` e `/sobre`, `/wp-json` e `/wp-admin` com 403, sitemap, robots e `llms.txt` no ar, mensagens do WhatsApp com "site da V2O5".
 
-**Falta corrigir:** na Vercel o domínio principal ficou o `www` (o apex redireciona com 308 para `www.v2o5.com.br`), mas o canônico e o sitemap do site são `https://v2o5.com.br` (`SITE_URL` em `src/lib/site.ts`). Em Settings > Domains, deixar `v2o5.com.br` sem redirecionamento e `www.v2o5.com.br` redirecionando (308) para `v2o5.com.br`.
+**Domínio principal:** na Vercel ficou o `www` (o apex redireciona com 308 para `www.v2o5.com.br`), e a inversão não deu certo pela tela nem pela conexão da sessão. Em 16/10 o site passou a declarar o `www` como endereço oficial (`SITE_URL` em `src/lib/site.ts`): canônico, sitemap, robots, JSON-LD e `llms.txt` batem com o que a Vercel serve. Se um dia o apex virar o principal na Vercel, é trocar só essa constante.
 
 ### Ordem da troca
 
