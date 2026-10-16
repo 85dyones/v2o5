@@ -94,6 +94,12 @@ Zona hoje (Hostinger, `ns1`/`ns2.dns-parking.com`), lida em 13/10 e de novo em 1
 | `app.chat`/`cwoot`, `chat`, `chatwoot`, `evolution`, `n8n` | 168.231.100.245 (VPS) | | **não mexer** |
 | NS | dns-parking (Hostinger) | | não mexer: o DNS continua na Hostinger, só o site muda de casa |
 
+### Troca feita em 16/10
+
+Conferido depois da troca (16/10, só leitura): `@` A `76.76.21.21` (TTL 300), AAAA do apex apagado, `www` CNAME `ec0bda34881034d3.vercel-dns-016.com` (TTL 300), valor que a Vercel deu ao ligar o domínio ao projeto. O `ftp` saiu junto com o site antigo. MX, SPF, DKIM, DMARC, `autoconfig`/`autodiscover`, `diagnostico`, `motogestor` e os subdomínios da VPS ficaram como estavam; `app.chat`, `n8n`, `evolution` e `diagnostico` respondem 200. No site: certificado da Vercel, `/contrate`, `/blog` e `/jornada` com 301 para `/diagnostico`, `/guias` e `/sobre`, `/wp-json` e `/wp-admin` com 403, sitemap, robots e `llms.txt` no ar, mensagens do WhatsApp com "site da V2O5".
+
+**Falta corrigir:** na Vercel o domínio principal ficou o `www` (o apex redireciona com 308 para `www.v2o5.com.br`), mas o canônico e o sitemap do site são `https://v2o5.com.br` (`SITE_URL` em `src/lib/site.ts`). Em Settings > Domains, deixar `v2o5.com.br` sem redirecionamento e `www.v2o5.com.br` redirecionando (308) para `v2o5.com.br`.
+
 ### Ordem da troca
 
 1. **Na Vercel**, projeto `v2o5`, Settings > Domains: adicionar `v2o5.com.br` e `www.v2o5.com.br`, com `www` redirecionando para o apex. A tela mostra os valores exatos a usar (hoje a documentação da Vercel indica um registro A para o apex e `cname.vercel-dns.com` para `www`; use o que a sua tela mostrar).
