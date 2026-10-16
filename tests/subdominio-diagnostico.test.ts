@@ -113,13 +113,17 @@ describe("raiz de diagnostico.v2o5.com.br", () => {
     // O 404 é de quem recebeu um diagnóstico: a mensagem é a das páginas de diagnóstico.
     expect(marcaDoDiagnostico).toBe("Dyones. Vi o diagnóstico da");
     expect(do404.filter((m) => m.texto).every((m) => m.texto.includes(marcaDoDiagnostico))).toBe(true);
-    expect(texto(raiz)).toContain(whatsappParaLer());
-    expect(texto(naoEncontrado)).toContain(whatsappParaLer());
   });
 
-  it("rodapé com os dados da empresa", () => {
+  it("rodapé com a empresa, sem cidade e sem contato pessoal", () => {
     const t = texto(raiz);
-    for (const dado of [EMPRESA.nome, EMPRESA.razaoSocial, EMPRESA.cnpj, EMPRESA.cidade, EMPRESA.email]) expect(t).toContain(dado);
+    for (const dado of [EMPRESA.nome, EMPRESA.razaoSocial, EMPRESA.cnpj]) expect(t).toContain(dado);
+    // Sem cidade e sem contato pessoal (nome, número escrito, e-mail) no subdomínio (Dyones, 16/10): o contato é pelos botões.
+    for (const d of [raiz, naoEncontrado]) {
+      const tt = texto(d);
+      for (const fora of [EMPRESA.cidade, EMPRESA.email, "Dyones", whatsappParaLer()]) expect(tt, fora).not.toContain(fora);
+      expect(d.querySelector('a[href^="mailto:"]')).toBeNull();
+    }
   });
 
   it("a contagem de verificações fecha em 37", () => {

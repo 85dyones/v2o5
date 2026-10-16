@@ -24,6 +24,7 @@ O teste falha quando o site muda e esta página fica para trás: preço e conte�
 
 ## Regras
 
+- Sem cidade e sem contato pessoal escrito (nome do Dyones, número, e-mail) nas duas páginas (Dyones, 16/10): o contato é pelos botões de WhatsApp e do site. O rodapé fica com nome, razão social e CNPJ.
 - Fora do Google (`noindex`), como os diagnósticos. Quem procura a V2O5 na busca cai no site; esta página é para quem recebeu um link.
 - Sem GA4 e sem Pixel: todo link para o site leva `utm_source=diagnostico.v2o5.com.br`, e a origem é gravada quando a pessoa chega lá.
 - WhatsApp da vitrine com "site da V2O5" na mensagem pronta; o do 404 com "Dyones. Vi o diagnóstico da". As duas marcam o lead no fluxo da origem do n8n (`docs/n8n/`).
