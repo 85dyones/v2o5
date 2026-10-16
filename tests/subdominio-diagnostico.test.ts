@@ -5,7 +5,9 @@ import { CASE, EMPRESA, HERO, LINHAS, MARCA_DO_SITE } from "@/conteudo/home";
 import { PAGINAS } from "@/conteudo/paginas";
 import { BRL, dataBR, mensalidadeDoPlano, OFERTA_DO_COMPLETO, PLANOS, REGRAS } from "@/conteudo/precos";
 import { whatsappParaLer } from "@/lib/whatsapp";
-import { ler } from "./fonte";
+import { readFileSync } from "node:fs";
+import { join } from "node:path";
+import { ler, RAIZ } from "./fonte";
 
 /**
  * As páginas da raiz de diagnostico.v2o5.com.br (`subdominios/diagnostico/`)
@@ -44,6 +46,51 @@ const mensagens = (d: Document) =>
     const url = new URL(a.href);
     return { numero: url.pathname.slice(1), texto: url.searchParams.get("text") ?? "" };
   });
+
+/** Largura e altura de um JPEG, lidas do marcador SOF. */
+function tamanhoDoJpeg(b: Buffer): { largura: number; altura: number } {
+  expect(b.readUInt16BE(0)).toBe(0xffd8);
+  for (let i = 2; i < b.length; ) {
+    const marca = b[i + 1];
+    if ([0xc0, 0xc1, 0xc2, 0xc3, 0xc5, 0xc6, 0xc7, 0xc9, 0xca, 0xcb, 0xcd, 0xce, 0xcf].includes(marca)) {
+      return { altura: b.readUInt16BE(i + 5), largura: b.readUInt16BE(i + 7) };
+    }
+    i += 2 + b.readUInt16BE(i + 2);
+  }
+  throw new Error("JPEG sem marcador SOF");
+}
+
+describe("prévia da raiz no WhatsApp e nas redes", () => {
+  // Regras da Meta para a prévia do WhatsApp: og:title, og:description e og:url
+  // preenchidos dentro do <head>, o <head> nos primeiros 300 KB, og:image com
+  // endereço absoluto, menos de 600 KB, 300 px ou mais de largura e proporção
+  // de até 4:1.
+  const fonte = ler("subdominios/diagnostico/index.html");
+  const meta = (p: string) => raiz.querySelector(`meta[property="${p}"]`)?.getAttribute("content") ?? "";
+
+  it("tem título, descrição, endereço e imagem antes do CSS", () => {
+    for (const p of ["og:title", "og:description", "og:url", "og:image"]) expect(meta(p), p).not.toBe("");
+    expect(meta("og:url")).toBe("https://diagnostico.v2o5.com.br/");
+    expect(meta("og:image")).toBe("https://diagnostico.v2o5.com.br/og.jpg");
+    expect(Buffer.byteLength(fonte.slice(0, fonte.indexOf("</head>")))).toBeLessThan(300_000);
+    expect(fonte.indexOf('property="og:image"')).toBeLessThan(fonte.indexOf("<style>"));
+    expect(raiz.querySelector('meta[name="twitter:card"]')?.getAttribute("content")).toBe("summary_large_image");
+  });
+
+  it("a imagem existe, é JPEG 1200x630 e cabe no limite", () => {
+    const imagem = readFileSync(join(RAIZ, "subdominios/diagnostico/og.jpg"));
+    expect(imagem.length).toBeLessThan(600_000);
+    expect(tamanhoDoJpeg(imagem)).toEqual({ largura: Number(meta("og:image:width")), altura: Number(meta("og:image:height")) });
+    expect(meta("og:image:width")).toBe("1200");
+    expect(meta("og:image:height")).toBe("630");
+    expect(meta("og:image:type")).toBe("image/jpeg");
+    // A imagem sai de og.html; o texto dela tem de bater com a página.
+    const molde = ler("subdominios/diagnostico/og.html");
+    expect(molde).toContain(raiz.querySelector("h1")?.textContent ?? "—");
+    expect(molde).toContain("37 verificações");
+    expect(molde).not.toMatch(/[—–]/);
+  });
+});
 
 describe("raiz de diagnostico.v2o5.com.br", () => {
   it("fica fora do Google, com um H1 e movimento que desliga", () => {

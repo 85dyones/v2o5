@@ -1,11 +1,12 @@
 # Raiz de diagnostico.v2o5.com.br
 
-As duas páginas fixas do subdomínio dos diagnósticos de presença:
+Os arquivos fixos da raiz do subdomínio dos diagnósticos de presença:
 
 | Arquivo | O que é |
 |---|---|
 | `index.html` | A vitrine: o que o diagnóstico verifica (37 verificações em quatro etapas), como mede, o que o cliente recebe, a solução da V2O5 para cada etapa, os três planos, o case Motors Store e o pedido de diagnóstico. |
 | `404.html` | Link de diagnóstico incompleto ou errado: pede o link certo no WhatsApp e leva à vitrine. |
+| `og.jpg` | A imagem de prévia da raiz (1200×630) no WhatsApp e nas redes, gerada de `og.html`. Também é a reserva dos diagnósticos: o `vercel.json` de lá serve `/og.jpg` quando a pasta de um cliente não tem a dela. |
 
 Cada diagnóstico continua na pasta própria (`<cliente>-<código>/`), criada pela skill `diagnostico-presenca` (`tools/publicar_site.py`). A skill só cria `index.html` e `404.html` na raiz quando eles não existem, então estas versões não são sobrescritas.
 
@@ -17,8 +18,9 @@ Repositório `85dyones/v2o5-diagnosticos` (privado), na raiz, ligado ao projeto 
 
 1. Editar aqui, nesta pasta.
 2. `npx vitest run tests/subdominio-diagnostico.test.ts`
-3. Copiar `index.html` e `404.html` para a raiz do repositório `v2o5-diagnosticos`, commit e push.
-4. Abrir https://diagnostico.v2o5.com.br/ e um endereço qualquer inexistente para ver o 404.
+3. Mudou a imagem de prévia: editar `og.html` e gerar `og.jpg` com `npx -y playwright@1.56.1 screenshot --viewport-size=1200,630 --wait-for-timeout=800 subdominios/diagnostico/og.html subdominios/diagnostico/og.jpg` (precisa do Chromium do Playwright).
+4. Copiar `index.html`, `404.html` e `og.jpg` para a raiz do repositório `v2o5-diagnosticos`, commit e push.
+5. Abrir https://diagnostico.v2o5.com.br/ e um endereço qualquer inexistente para ver o 404. Para a prévia: escrever o link numa conversa do WhatsApp sem enviar; a imagem aparece em até 10 segundos (o WhatsApp guarda a prévia por aparelho, então um link já enviado antes pode seguir sem imagem).
 
 O teste falha quando o site muda e esta página fica para trás: preço e conteúdo dos planos (`src/conteudo/precos.ts`), números e fonte do case (`CASE` em `src/conteudo/home.ts`), frases dos cartões de solução (`LINHAS`), WhatsApp e dados da empresa (`EMPRESA`), rotas do site (`src/conteudo/paginas.ts`) e a marca das mensagens prontas que o n8n reconhece. Mudou o cardápio, muda aqui e republica.
 

@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<!--
+  Imagem de prévia (1200x630) da raiz de diagnostico.v2o5.com.br, para
+  WhatsApp e redes. Mesmo padrão da prévia dos diagnósticos de cliente
+  (templates/og.html.j2 da skill): topo com a marca, régua das quatro cores.
+  Gera og.jpg (LEIA-ME desta pasta). Sem movimento: é uma foto.
+-->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@500&display=swap">
+<style>
+  :root { --tinta: #121418; --superficie: #1A1D22; --papel: #F2F1EC; --secundario: #A9ACB4; --ambar: #F2A516;
+          --violeta: #6B46C8; --verde: #17773F; --azul: #2457C5;
+          --violeta-claro: #9B8BE0; --verde-claro: #5CC48A; --azul-claro: #7FA3F0; --linha: rgb(242 241 236 / 0.12);
+          --fonte: "Geist", system-ui, sans-serif; --mono: "Geist Mono", ui-monospace, monospace; }
+  * { box-sizing: border-box; margin: 0; }
+  body { width: 1200px; height: 630px; background: var(--tinta); color: var(--papel); font-family: var(--fonte);
+         padding: 56px 64px 52px; display: grid; grid-template-rows: auto 1fr auto; gap: 24px; overflow: hidden; position: relative; isolation: isolate; }
+  body::before { content: ""; position: absolute; inset: 0; z-index: -1; background:
+    radial-gradient(520px 420px at 900px 330px, rgb(242 165 22 / .16), transparent 70%),
+    radial-gradient(700px 420px at 0 0, rgb(107 70 200 / .16), transparent 70%); }
+  body::after { content: ""; position: absolute; left: 64px; right: 64px; top: 128px; height: 3px;
+                background: linear-gradient(90deg, var(--violeta), var(--verde), var(--azul), var(--ambar)); opacity: .7; }
+  .topo { display: flex; justify-content: space-between; align-items: center; }
+  .marca { display: flex; gap: 14px; align-items: center; font-size: 26px; font-weight: 600; letter-spacing: -0.02em; }
+  .marca svg { height: 44px; width: auto; color: var(--papel); }
+  .rotulo { font-family: var(--mono); font-size: 18px; letter-spacing: .12em; text-transform: uppercase; color: var(--secundario); }
+  .endereco { font-family: var(--mono); font-size: 19px; color: var(--secundario); }
+  .meio { display: grid; grid-template-columns: minmax(0, 1fr) 330px; align-items: center; gap: 24px; padding-top: 34px; }
+  .texto { display: grid; gap: 18px; }
+  .texto .rotulo { color: var(--ambar); }
+  h1 { font-size: 62px; line-height: 1.03; letter-spacing: -0.042em; font-weight: 600; }
+  .molecula { width: 330px; height: 264px; overflow: visible; }
+  .jornada { display: flex; align-items: center; gap: 0; }
+  .etapa { display: flex; align-items: center; gap: 10px; font-size: 19px; font-weight: 500; color: rgb(242 241 236 / .9); white-space: nowrap; }
+  .etapa i { width: 22px; height: 22px; border-radius: 50%; box-shadow: inset 0 0 0 3px var(--cor); display: grid; place-items: center; flex: none; }
+  .etapa i::after { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--cor); }
+  .liga { flex: 1; height: 2px; margin: 0 14px; background: linear-gradient(90deg, var(--de), var(--para)); opacity: .55; min-width: 18px; }
+  .total { margin-left: 22px; padding: 8px 14px; border-radius: 999px; font-family: var(--mono); font-size: 17px; color: var(--ambar); box-shadow: inset 0 0 0 1.5px rgb(242 165 22 / .6); white-space: nowrap; }
+</style></head>
+<body>
+  <div class="topo">
+    <div class="marca"><svg viewBox="8 14 112 70" aria-hidden="true" focusable="false"><path d="M30 80 A18 18 0 0 1 28.09 44.1 A24 24 0 0 1 67.93 24.05 A20 20 0 0 1 99.58 44.07 A18 18 0 0 1 98 80 Z" fill="none" stroke="currentColor" stroke-width="6" stroke-linejoin="round"/><path d="M42 42 L53 55 L64 68 L75 55 L86 42" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="53" cy="55" r="6.5" fill="currentColor"/><circle cx="75" cy="55" r="6.5" fill="currentColor"/><circle cx="64" cy="68" r="4.5" fill="currentColor"/><circle cx="42" cy="42" r="4.5" fill="currentColor"/><circle cx="86" cy="42" r="5" fill="#F2A516"/></svg><span>V2O5 Vendas e Tecnologia</span></div>
+    <span class="endereco">diagnostico.v2o5.com.br</span>
+  </div>
+
+  <div class="meio">
+    <div class="texto">
+      <span class="rotulo">Diagnóstico de presença digital</span>
+      <h1>O que o cliente vê antes de chamar a sua empresa.</h1>
+    </div>
+    <svg class="molecula" viewBox="40 60 320 256" aria-hidden="true">
+      <defs>
+        <radialGradient id="halo" cx="50%" cy="50%" r="50%">
+          <stop offset="0" stop-color="#F2A516" stop-opacity=".45"/>
+          <stop offset="1" stop-color="#F2A516" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+      <circle cx="200" cy="160" r="118" fill="none" stroke="rgb(242 241 236 / .08)"/>
+      <circle cx="288" cy="108" r="80" fill="url(#halo)"/>
+      <g stroke="rgb(242 241 236 / .18)" stroke-width="11" stroke-linecap="round">
+        <line x1="104" y1="200" x2="156" y2="160"/><line x1="112" y1="108" x2="156" y2="160"/>
+        <line x1="156" y1="160" x2="200" y2="212"/><line x1="200" y1="212" x2="244" y2="160"/>
+        <line x1="244" y1="160" x2="296" y2="200"/><line x1="244" y1="160" x2="288" y2="108"/>
+      </g>
+      <path d="M112 108 L156 160 L200 212 L244 160 L288 108" fill="none" stroke="#F2A516" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" opacity=".8"/>
+      <g fill="#1A1D22" stroke-width="2.5">
+        <circle cx="104" cy="200" r="17" stroke="rgb(242 241 236 / .55)"/>
+        <circle cx="296" cy="200" r="17" stroke="rgb(242 241 236 / .55)"/>
+        <circle cx="112" cy="108" r="17" stroke="rgb(242 241 236 / .55)"/>
+        <circle cx="156" cy="160" r="25" stroke="#5CC48A"/>
+        <circle cx="200" cy="212" r="17" stroke="#7FA3F0"/>
+        <circle cx="244" cy="160" r="25" stroke="#5CC48A"/>
+      </g>
+      <g fill="#F2F1EC" opacity=".85">
+        <circle cx="99" cy="195" r="3"/><circle cx="291" cy="195" r="3"/><circle cx="107" cy="103" r="3"/>
+        <circle cx="149" cy="153" r="4"/><circle cx="195" cy="207" r="3"/><circle cx="237" cy="153" r="4"/>
+      </g>
+      <circle cx="288" cy="108" r="18" fill="#F2A516"/>
+      <circle cx="282" cy="102" r="4" fill="#FFF3D6" opacity=".9"/>
+    </svg>
+  </div>
+
+  <div class="jornada">
+    <span class="etapa" style="--cor: var(--violeta-claro)"><i></i>Ser encontrada</span>
+    <span class="liga" style="--de: var(--violeta); --para: var(--verde)"></span>
+    <span class="etapa" style="--cor: var(--verde-claro)"><i></i>Causar boa impressão</span>
+    <span class="liga" style="--de: var(--verde); --para: var(--azul)"></span>
+    <span class="etapa" style="--cor: var(--azul-claro)"><i></i>Ser contatada</span>
+    <span class="liga" style="--de: var(--azul); --para: var(--ambar)"></span>
+    <span class="etapa" style="--cor: var(--ambar)"><i></i>Medir e proteger</span>
+    <span class="total">37 verificações</span>
+  </div>
+</body></html>
