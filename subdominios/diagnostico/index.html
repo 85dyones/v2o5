@@ -1,0 +1,793 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Diagnóstico de presença digital · V2O5 Vendas e Tecnologia</title>
+<meta name="description" content="O que o cliente vê antes de chamar a sua empresa: 37 verificações com fonte e data, o placar de cada etapa e um plano em ordem de prioridade.">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#121418">
+<link rel="icon" href="data:image/svg+xml;base64,PHN2ZyBzdHlsZT0iYmFja2dyb3VuZDojMTIxNDE4IiB2aWV3Qm94PSI4IDE0IDExMiA3MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMzAgODAgQTE4IDE4IDAgMCAxIDI4LjA5IDQ0LjEgQTI0IDI0IDAgMCAxIDY3LjkzIDI0LjA1IEEyMCAyMCAwIDAgMSA5OS41OCA0NC4wNyBBMTggMTggMCAwIDEgOTggODAgWiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjRjJGMUVDIiBzdHJva2Utd2lkdGg9IjYiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48cGF0aCBkPSJNNDIgNDIgTDUzIDU1IEw2NCA2OCBMNzUgNTUgTDg2IDQyIiBmaWxsPSJub25lIiBzdHJva2U9IiNGMkYxRUMiIHN0cm9rZS13aWR0aD0iNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PGNpcmNsZSBjeD0iNTMiIGN5PSI1NSIgcj0iNi41IiBmaWxsPSIjRjJGMUVDIi8+PGNpcmNsZSBjeD0iNzUiIGN5PSI1NSIgcj0iNi41IiBmaWxsPSIjRjJGMUVDIi8+PGNpcmNsZSBjeD0iNjQiIGN5PSI2OCIgcj0iNC41IiBmaWxsPSIjRjJGMUVDIi8+PGNpcmNsZSBjeD0iNDIiIGN5PSI0MiIgcj0iNC41IiBmaWxsPSIjRjJGMUVDIi8+PGNpcmNsZSBjeD0iODYiIGN5PSI0MiIgcj0iNSIgZmlsbD0iI0YyQTUxNiIvPjwvc3ZnPg==">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="V2O5 Vendas e Tecnologia">
+<meta property="og:title" content="Diagnóstico de presença digital · V2O5">
+<meta property="og:description" content="O que o cliente vê antes de chamar a sua empresa: 37 verificações com fonte e data e um plano em ordem de prioridade.">
+<meta property="og:url" content="https://diagnostico.v2o5.com.br/">
+<meta property="og:locale" content="pt_BR">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap">
+<!--
+  Raiz de diagnostico.v2o5.com.br (repositório 85dyones/v2o5-diagnosticos).
+  Fonte da verdade: subdominios/diagnostico/ no repositório do site, onde
+  tests/subdominio-diagnostico.test.ts confere preços, números do case,
+  WhatsApp e links com o conteúdo do site. Mudou lá, muda aqui.
+-->
+<style>
+:root {
+  color-scheme: dark;
+  --tinta: #121418;
+  --superficie: #1A1D22;
+  --grafite: #2A2D34;
+  --papel: #F2F1EC;
+  --secundario: #A9ACB4;
+  --ambar: #F2A516;
+  --ambar-forte: #FFB937;
+  --violeta: #6B46C8;
+  --verde: #17773F;
+  --azul: #2457C5;
+  --violeta-claro: #9B8BE0;
+  --verde-claro: #5CC48A;
+  --azul-claro: #7FA3F0;
+  --falta: #C24A40;
+  --falta-claro: #E8857C;
+  --linha: rgb(242 241 236 / 0.08);
+  --linha-forte: rgb(242 241 236 / 0.15);
+  --vidro: rgb(242 241 236 / 0.04);
+  --fonte: "Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "Geist Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --saida: cubic-bezier(0.23, 1, 0.32, 1);
+  --largura: 76rem;
+  --lado: max(20px, env(safe-area-inset-left, 0px));
+}
+* { box-sizing: border-box; }
+html { background: var(--tinta); scroll-padding-top: 5rem; -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--tinta); color: var(--papel); font-family: var(--fonte); font-size: 1.0625rem; line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+h1, h2, h3 { margin: 0; font-weight: 600; text-wrap: balance; }
+p { margin: 0; text-wrap: pretty; }
+ul, ol { margin: 0; padding: 0; list-style: none; }
+a { color: inherit; }
+a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px solid var(--ambar); outline-offset: 3px; border-radius: 8px; }
+.num { font-variant-numeric: tabular-nums; }
+.rotulo { font-family: var(--mono); font-size: 12px; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; color: var(--secundario); }
+.ia { color: var(--ambar); }
+.conteiner { width: 100%; max-width: var(--largura); margin: 0 auto; padding-left: var(--lado); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
+
+/* Botões: o mesmo par do site (âmbar com brilho e vidro). */
+.botao { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 46px; padding: 0 22px; border-radius: 999px; font-weight: 600; font-size: 15px; text-decoration: none; white-space: nowrap; transition: background-color .2s var(--saida), box-shadow .2s var(--saida), transform .2s var(--saida); }
+.botao svg { width: 16px; height: 16px; flex: none; transition: transform .2s var(--saida); }
+.botao:hover svg { transform: translateX(3px); }
+.botao:active { transform: scale(.98); }
+.primario { color: var(--papel); background: linear-gradient(180deg, rgb(242 165 22 / .30), rgb(242 165 22 / .14)); box-shadow: inset 0 0 0 1px rgb(242 165 22 / .75), 0 8px 28px -10px rgb(242 165 22 / .55); }
+.primario svg { color: var(--ambar); }
+.primario:hover { background: linear-gradient(180deg, rgb(242 165 22 / .42), rgb(242 165 22 / .22)); }
+.secundario { color: var(--papel); background: var(--vidro); box-shadow: inset 0 0 0 1px var(--linha-forte); }
+.secundario:hover { background: rgb(242 241 236 / .08); }
+
+/* Topo */
+.topo { position: sticky; top: 0; z-index: 10; background: rgb(18 20 24 / .78); backdrop-filter: blur(14px) saturate(1.2); -webkit-backdrop-filter: blur(14px) saturate(1.2); border-bottom: 1px solid var(--linha); }
+.topo .conteiner { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 64px; }
+.marca { display: inline-flex; align-items: center; gap: 10px; font-weight: 600; letter-spacing: -0.02em; font-size: 17px; text-decoration: none; }
+.marca svg { height: 26px; width: auto; color: var(--papel); }
+.menu { display: flex; gap: 28px; font-size: 15px; color: var(--secundario); }
+.menu a { text-decoration: none; transition: color .2s; }
+.menu a:hover { color: var(--papel); }
+.topo .botao { min-height: 40px; padding: 0 18px; font-size: 14px; }
+
+/* Abertura */
+.abertura { position: relative; isolation: isolate; overflow: hidden; }
+.abertura::before { content: ""; position: absolute; inset: 0; z-index: -2; background:
+  radial-gradient(60rem 36rem at 12% -10%, rgb(107 70 200 / .16), transparent 60%),
+  radial-gradient(40rem 30rem at 82% 46%, rgb(242 165 22 / .10), transparent 60%); }
+.abertura::after { content: ""; position: absolute; inset: 0; z-index: -1; background-image:
+  linear-gradient(var(--linha) 1px, transparent 1px), linear-gradient(90deg, var(--linha) 1px, transparent 1px);
+  background-size: 64px 64px; mask-image: radial-gradient(ellipse 70% 70% at 70% 45%, #000 20%, transparent 75%); -webkit-mask-image: radial-gradient(ellipse 70% 70% at 70% 45%, #000 20%, transparent 75%); opacity: .7; }
+.abertura .conteiner { display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr); align-items: center; gap: 32px; padding-top: 88px; padding-bottom: 72px; }
+.abertura-texto { display: grid; gap: 26px; align-content: start; }
+.selo { justify-self: start; display: inline-flex; align-items: center; gap: 10px; padding: 6px 14px 6px 10px; border-radius: 999px; background: var(--vidro); box-shadow: inset 0 0 0 1px var(--linha-forte); font-size: 14px; font-weight: 500; }
+.selo i { width: 8px; height: 8px; border-radius: 50%; background: var(--ambar); box-shadow: 0 0 0 4px rgb(242 165 22 / .18), 0 0 12px 2px rgb(242 165 22 / .5); }
+.abertura h1 { font-size: clamp(2.5rem, 1.6rem + 3.6vw, 4.5rem); line-height: 1.02; letter-spacing: -0.045em; }
+.abertura .lead { font-size: clamp(1.0625rem, 1rem + .3vw, 1.25rem); color: var(--secundario); max-width: 36rem; }
+.acoes { display: flex; flex-wrap: wrap; gap: 12px; }
+.recebeu { display: flex; gap: 10px; align-items: flex-start; font-size: 15px; color: var(--secundario); max-width: 34rem; }
+.recebeu svg { width: 18px; height: 18px; flex: none; color: var(--ambar); margin-top: 3px; }
+.palco { position: relative; aspect-ratio: 5 / 4; width: 100%; max-width: 560px; justify-self: end; }
+.palco svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+
+/* Molécula C1d (memory/context/marca.md): sinal de Ot2 a Ot4, nós acendendo em sequência. */
+.ligacao { stroke: rgb(242 241 236 / .16); stroke-width: 11; stroke-linecap: round; }
+.trilha { stroke: var(--ambar); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; fill: none; opacity: .45; }
+.sinal { stroke: var(--ambar-forte); stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; fill: none; stroke-dasharray: 16 120; stroke-dashoffset: 16; filter: drop-shadow(0 0 6px rgb(242 165 22 / .9)); animation: sinal 4.8s cubic-bezier(.5, 0, .3, 1) infinite; }
+@keyframes sinal { 0% { stroke-dashoffset: 16; } 36%, 100% { stroke-dashoffset: -100; } }
+.no { fill: var(--superficie); stroke-width: 2.5; }
+.no.v { stroke: var(--verde-claro); }
+.no.o { stroke: rgb(242 241 236 / .55); }
+.no.b { stroke: var(--azul-claro); }
+.brilho { fill: var(--papel); opacity: .85; }
+.acende { animation: acende 4.8s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+@keyframes acende { 0%, 100% { opacity: .55; } 6%, 14% { opacity: 1; } 24% { opacity: .55; } }
+.d1 { animation-delay: .35s; } .d2 { animation-delay: .74s; } .d3 { animation-delay: 1.12s; }
+.ambar-no { fill: var(--ambar); filter: drop-shadow(0 0 14px rgb(242 165 22 / .8)); }
+.anel { fill: none; stroke: var(--ambar); stroke-width: 2; transform-box: fill-box; transform-origin: center; animation: anel 4.8s ease-out infinite; opacity: 0; }
+@keyframes anel { 0%, 30% { opacity: 0; transform: scale(1); } 34% { opacity: .9; } 52%, 100% { opacity: 0; transform: scale(2.6); } }
+.orbita { fill: none; stroke: rgb(242 241 236 / .07); }
+.orbita.tracejada { stroke-dasharray: 2 8; transform-box: fill-box; transform-origin: center; animation: gira 90s linear infinite; }
+@keyframes gira { to { transform: rotate(360deg); } }
+.particula { fill: var(--papel); opacity: 0; animation: deriva var(--t, 7s) linear infinite; animation-delay: var(--a, 0s); }
+@keyframes deriva { 0% { opacity: 0; transform: translate(0, 0); } 15% { opacity: .55; } 80% { opacity: .35; } 100% { opacity: 0; transform: translate(var(--dx), var(--dy)); } }
+.faisca { stroke: var(--ambar); stroke-width: 2; stroke-linecap: round; opacity: 0; animation: faisca 4.8s ease-out infinite; }
+@keyframes faisca { 0%, 34% { opacity: 0; } 38% { opacity: .9; } 60%, 100% { opacity: 0; } }
+
+/* Faixa de onde o diagnóstico lê */
+.faixa { border-top: 1px solid var(--linha); border-bottom: 1px solid var(--linha); }
+.faixa .conteiner { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 30px; padding-top: 22px; padding-bottom: 22px; }
+.faixa .rotulo { display: inline-flex; align-items: center; gap: 8px; text-transform: none; letter-spacing: 0; font-family: var(--fonte); font-size: 14px; }
+.faixa .rotulo i { width: 6px; height: 6px; border-radius: 50%; background: var(--verde-claro); box-shadow: 0 0 8px var(--verde-claro); }
+.faixa ul { display: flex; flex-wrap: wrap; gap: 10px 28px; font-weight: 600; color: rgb(242 241 236 / .78); }
+
+/* Seções */
+.secao { padding-top: 112px; padding-bottom: 8px; }
+.secao > .conteiner { display: grid; gap: 44px; }
+.cab { display: grid; gap: 14px; max-width: 46rem; }
+.cab h2 { font-size: clamp(1.9rem, 1.3rem + 2vw, 3rem); line-height: 1.06; letter-spacing: -0.04em; }
+.cab p { color: var(--secundario); font-size: 1.125rem; }
+.cab .rotulo { color: var(--ambar); }
+
+/* Jornada */
+.identidade { display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: baseline; padding: 16px 20px; border-radius: 14px; background: var(--superficie); box-shadow: inset 0 0 0 1px var(--linha); color: var(--secundario); font-size: 15px; }
+.identidade strong { color: var(--papel); font-weight: 600; }
+.jornada { position: relative; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.jornada::before { content: ""; position: absolute; left: 28px; right: 28px; top: 27px; height: 2px; background: linear-gradient(90deg, var(--violeta), var(--verde), var(--azul), var(--ambar)); opacity: .55; }
+.corrida { position: absolute; top: 23px; left: 28px; width: 10px; height: 10px; border-radius: 50%; background: var(--ambar); box-shadow: 0 0 14px 3px rgb(242 165 22 / .55); animation: corre 4.8s cubic-bezier(.5, 0, .3, 1) infinite; }
+@keyframes corre { 0% { left: 28px; opacity: 0; } 8% { opacity: 1; } 70% { left: calc(100% - 38px); opacity: 1; } 82%, 100% { left: calc(100% - 38px); opacity: 0; } }
+.etapa { position: relative; display: grid; gap: 12px; align-content: start; min-width: 0; padding: 0 0 4px; }
+.etapa .bola { width: 56px; height: 56px; border-radius: 50%; display: grid; place-items: center; background: var(--tinta); box-shadow: inset 0 0 0 2px var(--cor), 0 0 24px -4px var(--cor); }
+.etapa .bola span { width: 18px; height: 18px; border-radius: 50%; background: var(--cor); }
+.etapa .rotulo { color: var(--claro); }
+.etapa h3 { font-size: 1.25rem; letter-spacing: -0.02em; }
+.etapa > p { color: var(--secundario); font-size: 15px; }
+.etapa ul { display: grid; gap: 0; margin-top: 4px; border-top: 1px solid var(--linha); }
+.etapa li { display: flex; gap: 10px; align-items: baseline; padding: 8px 0; border-bottom: 1px solid var(--linha); font-size: 14.5px; line-height: 1.45; color: rgb(242 241 236 / .86); }
+.etapa li::before { content: ""; width: 6px; height: 6px; border-radius: 2px; background: var(--cor); flex: none; transform: translateY(-2px); }
+.etapa li small { color: var(--secundario); font-size: 13px; }
+.conta { font-family: var(--mono); font-size: 12px; color: var(--secundario); }
+.e1 { --cor: var(--violeta); --claro: var(--violeta-claro); }
+.e2 { --cor: var(--verde); --claro: var(--verde-claro); }
+.e3 { --cor: var(--azul); --claro: var(--azul-claro); }
+.e4 { --cor: var(--ambar); --claro: var(--ambar); }
+
+/* Como medimos */
+.principios { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.principio { display: grid; gap: 10px; align-content: start; padding: 24px; border-radius: 18px; background: linear-gradient(180deg, rgb(242 241 236 / .045), rgb(242 241 236 / .015)); box-shadow: inset 0 0 0 1px var(--linha); min-width: 0; }
+.principio .n { font-family: var(--mono); font-size: 13px; color: var(--ambar); }
+.principio h3 { font-size: 1.125rem; letter-spacing: -0.015em; }
+.principio p { color: var(--secundario); font-size: 15px; }
+
+/* O que você recebe */
+.entrega { display: grid; grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr); gap: 48px; align-items: center; }
+.itens { display: grid; border-top: 1px solid var(--linha-forte); }
+.itens li { display: grid; grid-template-columns: 2.25rem minmax(0, 1fr); gap: 4px 14px; padding: 18px 0; border-bottom: 1px solid var(--linha); }
+.itens .n { grid-row: span 2; font-family: var(--mono); font-size: 13px; color: var(--secundario); padding-top: 3px; }
+.itens h3 { font-size: 1.0625rem; letter-spacing: -0.01em; }
+.itens p { color: var(--secundario); font-size: 15px; }
+.itens li > :not(.n) { grid-column: 2; }
+.selos { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+.chip { font-family: var(--mono); font-size: 11px; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; padding: 3px 8px; border-radius: 6px; white-space: nowrap; }
+.chip.forte, .chip.bom { background: var(--verde); color: var(--papel); }
+.chip.ajustar { background: var(--ambar); color: var(--tinta); }
+.chip.falta { background: var(--falta); color: var(--papel); }
+.chip.lacuna { color: var(--secundario); box-shadow: inset 0 0 0 1px var(--linha-forte); }
+
+/* Janela: a anatomia da página do cliente, sem dado de ninguém. */
+.janela { border-radius: 18px; background: var(--superficie); box-shadow: inset 0 0 0 1px var(--linha-forte), 0 40px 80px -40px rgb(0 0 0 / .8), 0 0 0 1px rgb(0 0 0 / .4); overflow: hidden; }
+.janela-barra { display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-bottom: 1px solid var(--linha); background: rgb(242 241 236 / .02); }
+.janela-barra .pontos { display: flex; gap: 6px; }
+.janela-barra .pontos i { width: 10px; height: 10px; border-radius: 50%; background: var(--grafite); }
+.janela-barra .url { flex: 1; min-width: 0; font-family: var(--mono); font-size: 12px; color: var(--secundario); background: var(--tinta); border-radius: 8px; padding: 5px 10px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.janela-barra .url b { color: var(--papel); font-weight: 500; }
+.janela-corpo { display: grid; gap: 18px; padding: 22px; }
+.esqueleto { height: 10px; border-radius: 6px; background: rgb(242 241 236 / .09); }
+.esqueleto.titulo { height: 18px; width: 78%; background: rgb(242 241 236 / .2); }
+.esqueleto.titulo + .esqueleto.titulo { width: 52%; }
+.mini-jornada { position: relative; display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; padding-top: 4px; }
+.mini-jornada::before { content: ""; position: absolute; left: 12px; right: 12px; top: 15px; height: 2px; background: linear-gradient(90deg, var(--violeta), var(--verde), var(--azul), var(--ambar)); opacity: .5; }
+.mini-jornada span { position: relative; width: 30px; height: 30px; border-radius: 50%; background: var(--superficie); box-shadow: inset 0 0 0 2px var(--cor); display: grid; place-items: center; }
+.mini-jornada span::after { content: ""; width: 10px; height: 10px; border-radius: 50%; background: var(--cor); }
+.mini-cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.mini-card { display: grid; gap: 9px; padding: 12px; border-radius: 12px; background: var(--tinta); box-shadow: inset 0 0 0 1px var(--linha); min-width: 0; }
+.mini-card .topo-card { display: flex; justify-content: space-between; align-items: center; gap: 6px; }
+.mini-card .chip { font-size: 9.5px; padding: 2px 6px; }
+.mini-card .esqueleto { height: 8px; }
+.mini-card .grande { height: 16px; width: 60%; background: rgb(242 241 236 / .22); }
+.mini-plano { display: grid; gap: 8px; padding-top: 14px; border-top: 1px solid var(--linha); }
+.mini-plano div { display: grid; grid-template-columns: 22px minmax(0, 1fr) 54px; gap: 10px; align-items: center; }
+.mini-plano em { font-style: normal; font-family: var(--mono); font-size: 11px; color: var(--secundario); }
+.mini-plano .prazo { height: 14px; border-radius: 5px; background: var(--cor); opacity: .8; }
+
+/* Do diagnóstico à solução */
+.solucoes { display: grid; gap: 14px; }
+.faixa-solucao { display: grid; grid-template-columns: 15rem minmax(0, 1fr); gap: 20px; padding: 20px; border-radius: 18px; background: var(--superficie); box-shadow: inset 0 0 0 1px var(--linha); }
+.faixa-solucao .qual { display: grid; gap: 8px; align-content: start; padding-right: 8px; }
+.faixa-solucao .qual .rotulo { color: var(--claro); display: inline-flex; align-items: center; gap: 8px; }
+.faixa-solucao .qual .rotulo::before { content: ""; width: 10px; height: 10px; border-radius: 50%; background: var(--cor); box-shadow: 0 0 10px var(--cor); }
+.faixa-solucao .qual p { color: var(--secundario); font-size: 15px; }
+.cartoes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.cartao { position: relative; display: grid; gap: 8px; align-content: start; padding: 18px 46px 18px 18px; border-radius: 14px; background: var(--tinta); box-shadow: inset 0 0 0 1px var(--linha); text-decoration: none; transition: box-shadow .2s var(--saida), transform .2s var(--saida); min-width: 0; }
+.cartao:hover { box-shadow: inset 0 0 0 1px var(--cor); transform: translateY(-2px); }
+.cartao h3 { font-size: 1.0625rem; letter-spacing: -0.01em; }
+.cartao p { color: var(--secundario); font-size: 15px; }
+.cartao svg { position: absolute; top: 20px; right: 18px; width: 16px; height: 16px; color: var(--claro); transition: transform .2s var(--saida); }
+.cartao:hover svg { transform: translate(2px, -2px); }
+
+/* Planos */
+.planos { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; align-items: stretch; }
+.plano { position: relative; display: flex; flex-direction: column; gap: 18px; padding: 26px; border-radius: 20px; background: var(--superficie); box-shadow: inset 0 0 0 1px var(--linha); min-width: 0; }
+.plano.destaque { background: linear-gradient(180deg, rgb(242 165 22 / .08), var(--superficie) 40%); box-shadow: inset 0 0 0 1px rgb(242 165 22 / .6), 0 30px 60px -30px rgb(242 165 22 / .35); }
+.plano .marcador { position: absolute; top: -12px; left: 24px; padding: 3px 10px; border-radius: 999px; background: var(--ambar); color: var(--tinta); font-family: var(--mono); font-size: 11px; font-weight: 500; letter-spacing: .06em; text-transform: uppercase; }
+.plano-cab { display: grid; gap: 6px; }
+.plano-cab .rotulo { color: var(--ambar); }
+.plano-cab h3 { font-size: 1.625rem; letter-spacing: -0.03em; }
+.plano-cab p { color: var(--secundario); font-size: 15px; }
+.valores { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: 16px 0; border-top: 1px solid var(--linha); border-bottom: 1px solid var(--linha); }
+.valores div { display: grid; gap: 2px; align-content: start; }
+.valores dt { font-size: 13px; color: var(--secundario); }
+.valores dd { margin: 0; font-size: 1.5rem; font-weight: 600; letter-spacing: -0.03em; line-height: 1.2; }
+.valores dd small { font-size: .55em; font-weight: 500; color: var(--secundario); letter-spacing: 0; }
+.valores .oferta { color: var(--ambar); }
+.valores dd.nota { font-size: 13px; font-weight: 400; color: var(--secundario); letter-spacing: 0; }
+.plano ul { display: grid; gap: 8px; font-size: 15px; }
+.plano li { display: grid; grid-template-columns: 16px minmax(0, 1fr); gap: 10px; }
+.plano li svg { width: 16px; height: 16px; color: var(--ambar); margin-top: 4px; }
+.plano .bonus { margin-top: auto; font-size: 14px; color: var(--secundario); padding-top: 14px; border-top: 1px dashed var(--linha-forte); }
+.plano .bonus strong { color: var(--papel); font-weight: 600; }
+.letras { display: flex; flex-wrap: wrap; gap: 10px 24px; justify-content: space-between; align-items: center; color: var(--secundario); font-size: 15px; }
+.letras p { max-width: 52rem; }
+.link-seta { display: inline-flex; align-items: center; gap: 8px; color: var(--ambar); font-weight: 600; text-decoration: none; white-space: nowrap; }
+.link-seta svg { width: 16px; height: 16px; transition: transform .2s var(--saida); }
+.link-seta:hover svg { transform: translateX(3px); }
+
+/* Case */
+.case { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); gap: 48px; align-items: end; padding: 36px; border-radius: 24px; background:
+  radial-gradient(30rem 20rem at 100% 0%, rgb(36 87 197 / .16), transparent 70%), var(--superficie); box-shadow: inset 0 0 0 1px var(--linha); }
+.case .cab { gap: 16px; }
+.numeros { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--linha-forte); }
+.numeros div { display: grid; gap: 6px; align-content: start; padding: 18px 18px 0 0; min-width: 0; }
+.numeros div + div { padding-left: 18px; border-left: 1px solid var(--linha); }
+.numeros strong { font-size: clamp(2rem, 1.5rem + 1.6vw, 2.9rem); font-weight: 600; letter-spacing: -0.045em; line-height: 1; }
+.numeros strong small { font-size: .42em; color: var(--secundario); font-weight: 500; letter-spacing: 0; }
+.numeros p { color: var(--secundario); font-size: 14.5px; }
+.fonte { grid-column: 1 / -1; padding-top: 18px; font-family: var(--mono); font-size: 12px; color: var(--secundario); }
+
+/* Fechamento */
+.final { position: relative; isolation: isolate; overflow: hidden; margin-top: 112px; border-top: 1px solid var(--linha); }
+.final::before { content: ""; position: absolute; inset: 0; z-index: -1; background: radial-gradient(40rem 22rem at 50% 0%, rgb(242 165 22 / .13), transparent 70%); }
+.final .conteiner { display: grid; justify-items: center; text-align: center; gap: 22px; padding-top: 104px; padding-bottom: 104px; }
+.final h2 { font-size: clamp(2.1rem, 1.4rem + 2.8vw, 3.6rem); line-height: 1.04; letter-spacing: -0.045em; max-width: 44rem; }
+.final p { color: var(--secundario); font-size: 1.125rem; max-width: 36rem; }
+.final .acoes { justify-content: center; }
+.contato { font-size: 15px; }
+.contato a { white-space: nowrap; color: var(--papel); text-decoration-color: var(--linha-forte); text-underline-offset: 3px; }
+.contato a:hover { text-decoration-color: var(--ambar); }
+
+.rodape { border-top: 1px solid var(--linha); }
+.rodape .conteiner { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 20px 32px; padding-top: 32px; padding-bottom: max(40px, env(safe-area-inset-bottom, 0px)); color: var(--secundario); font-size: 14px; }
+.rodape strong { color: var(--papel); font-weight: 600; }
+.rodape nav { display: flex; flex-wrap: wrap; gap: 8px 22px; align-items: flex-start; }
+.rodape nav a { text-decoration: none; }
+.rodape nav a:hover { color: var(--papel); }
+
+/* Entrada das seções: só com JavaScript ligado e movimento permitido. */
+.js .surge { opacity: 0; transform: translateY(18px); transition: opacity .7s var(--saida), transform .7s var(--saida); }
+.js .surge.visivel { opacity: 1; transform: none; }
+
+@media (max-width: 64rem) {
+  .abertura .conteiner { grid-template-columns: minmax(0, 1fr); padding-top: 56px; gap: 8px; }
+  .palco { order: -1; justify-self: center; max-width: 340px; margin-bottom: -12px; }
+  .principios { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .entrega, .case { grid-template-columns: minmax(0, 1fr); }
+  .planos { grid-template-columns: minmax(0, 1fr); max-width: 34rem; }
+  .faixa-solucao { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 52rem) {
+  .menu { display: none; }
+  .jornada { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+  .jornada::before { left: 27px; right: auto; top: 28px; bottom: 28px; width: 2px; height: auto; background: linear-gradient(180deg, var(--violeta), var(--verde), var(--azul), var(--ambar)); }
+  .corrida { display: none; }
+  .etapa { grid-template-columns: 56px minmax(0, 1fr); column-gap: 16px; }
+  .etapa .bola { grid-row: span 5; }
+  .cartoes { grid-template-columns: minmax(0, 1fr); }
+  .numeros { grid-template-columns: minmax(0, 1fr); }
+  .numeros div { padding: 16px 0; }
+  .numeros div + div { padding-left: 0; border-left: 0; border-top: 1px solid var(--linha); }
+  .case { padding: 24px; gap: 28px; }
+  .secao { padding-top: 88px; }
+}
+@media (max-width: 34rem) {
+  .principios { grid-template-columns: minmax(0, 1fr); }
+  .topo .botao span.longo { display: none; }
+  .mini-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .mini-cards .mini-card:last-child { display: none; }
+  .acoes .botao { flex: 1 1 100%; }
+}
+@media print {
+  .js .surge { opacity: 1; transform: none; }
+  .topo { position: static; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .corrida, .anel, .faisca, .particula { display: none; }
+  .sinal { stroke-dasharray: none; opacity: 0; }
+  .js .surge { opacity: 1; transform: none; }
+}
+</style>
+<script>
+  // Marca o documento antes da pintura: sem JavaScript (ou com movimento reduzido), tudo aparece de saída.
+  if (!matchMedia("(prefers-reduced-motion: reduce)").matches && "IntersectionObserver" in window) document.documentElement.classList.add("js");
+</script>
+</head>
+<body>
+<header class="topo">
+  <div class="conteiner">
+    <a class="marca" href="https://www.v2o5.com.br/?utm_source=diagnostico.v2o5.com.br&amp;utm_medium=referral&amp;utm_content=topo" aria-label="V2O5 Vendas e Tecnologia, ir para o site">
+      <svg viewBox="8 14 112 70" aria-hidden="true" focusable="false"><path d="M30 80 A18 18 0 0 1 28.09 44.1 A24 24 0 0 1 67.93 24.05 A20 20 0 0 1 99.58 44.07 A18 18 0 0 1 98 80 Z" fill="none" stroke="currentColor" stroke-width="6" stroke-linejoin="round"/><path d="M42 42 L53 55 L64 68 L75 55 L86 42" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="53" cy="55" r="6.5" fill="currentColor"/><circle cx="75" cy="55" r="6.5" fill="currentColor"/><circle cx="64" cy="68" r="4.5" fill="currentColor"/><circle cx="42" cy="42" r="4.5" fill="currentColor"/><circle cx="86" cy="42" r="5" fill="#F2A516"/></svg>
+      <span>V2O5</span>
+    </a>
+    <nav class="menu" aria-label="Seções">
+      <a href="#verificacoes">O que é verificado</a>
+      <a href="#solucoes">Soluções</a>
+      <a href="#planos">Planos</a>
+      <a href="#case">Case</a>
+    </nav>
+    <a class="botao primario" href="https://www.v2o5.com.br/diagnostico?utm_source=diagnostico.v2o5.com.br&amp;utm_medium=referral&amp;utm_content=topo"><span>Pedir <span class="longo">diagnóstico</span></span><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10m-4-4 4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+  </div>
+</header>
+
+<main>
+  <section class="abertura" aria-labelledby="titulo">
+    <div class="conteiner">
+      <div class="abertura-texto">
+        <span class="selo"><i aria-hidden="true"></i>Diagnóstico de presença digital</span>
+        <h1 id="titulo">O que o cliente vê antes de chamar a sua empresa.</h1>
+        <p class="lead">A V2O5 lê o que é público sobre a empresa no Google, no Maps, nas respostas das IAs, nas avaliações, nas redes, no site e nos anúncios. Você recebe 37 verificações com fonte e data e um plano em ordem de prioridade.</p>
+        <div class="acoes">
+          <a class="botao primario" href="https://www.v2o5.com.br/diagnostico?utm_source=diagnostico.v2o5.com.br&amp;utm_medium=referral&amp;utm_content=abertura">Pedir diagnóstico gratuito<svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10m-4-4 4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a class="botao secundario" href="#verificacoes">Ver o que é verificado</a>
+        </div>
+        <p class="recebeu"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M8.5 11.5a3.5 3.5 0 0 0 5 0l2.5-2.5a3.5 3.5 0 0 0-5-5L10 5m1.5 3.5a3.5 3.5 0 0 0-5 0L4 11a3.5 3.5 0 0 0 5 5l1-1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span>Recebeu um diagnóstico da V2O5? Ele tem endereço próprio, com um código no fim. Abra o link completo que enviamos.</span></p>
+      </div>
+
+      <div class="palco" aria-hidden="true">
+        <svg viewBox="0 0 400 320">
+          <defs>
+            <radialGradient id="halo" cx="50%" cy="50%" r="50%">
+              <stop offset="0" stop-color="#F2A516" stop-opacity=".38"/>
+              <stop offset="1" stop-color="#F2A516" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+          <circle class="orbita" cx="200" cy="160" r="118"/>
+          <circle class="orbita tracejada" cx="200" cy="160" r="150"/>
+          <circle cx="288" cy="108" r="96" fill="url(#halo)"/>
+          <g>
+            <circle class="particula" cx="30" cy="96" r="1.6" style="--dx:70px;--dy:30px;--t:7s;--a:0s"/>
+            <circle class="particula" cx="44" cy="232" r="1.4" style="--dx:80px;--dy:-34px;--t:8s;--a:1.2s"/>
+            <circle class="particula" cx="70" cy="40" r="1.2" style="--dx:60px;--dy:50px;--t:9s;--a:2.6s"/>
+            <circle class="particula" cx="18" cy="168" r="1.8" style="--dx:90px;--dy:0px;--t:7.5s;--a:3.4s"/>
+            <circle class="particula" cx="96" cy="292" r="1.3" style="--dx:50px;--dy:-60px;--t:8.5s;--a:.6s"/>
+            <circle class="particula" cx="130" cy="20" r="1.4" style="--dx:30px;--dy:70px;--t:9.5s;--a:4.2s"/>
+            <circle class="particula" cx="160" cy="300" r="1.2" style="--dx:20px;--dy:-70px;--t:8s;--a:5s"/>
+            <circle class="particula" cx="60" cy="130" r="1.1" style="--dx:70px;--dy:16px;--t:6.5s;--a:2s"/>
+          </g>
+          <g>
+            <line class="ligacao" x1="104" y1="200" x2="156" y2="160"/>
+            <line class="ligacao" x1="112" y1="108" x2="156" y2="160"/>
+            <line class="ligacao" x1="156" y1="160" x2="200" y2="212"/>
+            <line class="ligacao" x1="200" y1="212" x2="244" y2="160"/>
+            <line class="ligacao" x1="244" y1="160" x2="296" y2="200"/>
+            <line class="ligacao" x1="244" y1="160" x2="288" y2="108"/>
+          </g>
+          <path class="trilha" d="M112 108 L156 160 L200 212 L244 160 L288 108"/>
+          <path class="sinal" pathLength="100" d="M112 108 L156 160 L200 212 L244 160 L288 108"/>
+          <g>
+            <circle class="no o" cx="104" cy="200" r="17"/><circle class="brilho" cx="99" cy="195" r="3"/>
+            <circle class="no o" cx="296" cy="200" r="17"/><circle class="brilho" cx="291" cy="195" r="3"/>
+            <g class="acende"><circle class="no o" cx="112" cy="108" r="17"/><circle class="brilho" cx="107" cy="103" r="3"/></g>
+            <g class="acende d1"><circle class="no v" cx="156" cy="160" r="25"/><circle class="brilho" cx="149" cy="153" r="4"/></g>
+            <g class="acende d2"><circle class="no b" cx="200" cy="212" r="17"/><circle class="brilho" cx="195" cy="207" r="3"/></g>
+            <g class="acende d3"><circle class="no v" cx="244" cy="160" r="25"/><circle class="brilho" cx="237" cy="153" r="4"/></g>
+          </g>
+          <line class="faisca" x1="304" y1="92" x2="322" y2="72"/>
+          <line class="faisca" x1="308" y1="104" x2="334" y2="100"/>
+          <line class="faisca" x1="298" y1="86" x2="306" y2="62"/>
+          <circle class="anel" cx="288" cy="108" r="18"/>
+          <circle class="ambar-no" cx="288" cy="108" r="18"/>
+          <circle cx="282" cy="102" r="4" fill="#FFF3D6" opacity=".9"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <div class="faixa">
+    <div class="conteiner">
+      <span class="rotulo"><i aria-hidden="true"></i>Onde o diagnóstico lê</span>
+      <ul>
+        <li>Google</li>
+        <li>Google Maps</li>
+        <li>Respostas das IAs</li>
+        <li>Avaliações</li>
+        <li>Redes sociais</li>
+        <li>Site</li>
+        <li>Anúncios</li>
+      </ul>
+    </div>
+  </div>
+
+  <section class="secao" id="verificacoes" aria-labelledby="t-verificacoes">
+    <div class="conteiner">
+      <div class="cab surge">
+        <span class="rotulo">O que é verificado</span>
+        <h2 id="t-verificacoes">37 verificações, na ordem em que o cliente chega.</h2>
+        <p>O diagnóstico segue o caminho de quem procura a empresa, da busca até a conversa no WhatsApp. Cada verificação termina com um selo ou com uma lacuna declarada.</p>
+      </div>
+
+      <p class="identidade surge"><strong>Antes de tudo, quem é a empresa.</strong> Cadastro da empresa, titular e validade do domínio, perfis oficiais confirmados e perfis que usam a marca sem ser da empresa. <span class="conta">4 verificações</span></p>
+
+      <div class="jornada surge">
+        <span class="corrida" aria-hidden="true"></span>
+        <article class="etapa e1">
+          <div class="bola" aria-hidden="true"><span></span></div>
+          <span class="rotulo">Etapa 1 · Ser encontrada</span>
+          <h3>A empresa aparece</h3>
+          <p>Google, Maps, IA e anúncios levam até a empresa.</p>
+          <span class="conta">13 verificações</span>
+          <ul>
+            <li>Páginas no índice do Google</li>
+            <li>Robôs de busca liberados</li>
+            <li>Sitemap</li>
+            <li>Uma versão oficial de cada página</li>
+            <li>Títulos e descrições das páginas</li>
+            <li>Dados estruturados</li>
+            <li>Perfil da Empresa no Google</li>
+            <li>Posição nas buscas locais</li>
+            <li>Nome, endereço e telefone iguais em todo lugar</li>
+            <li>Robôs de busca por IA liberados</li>
+            <li>O que as IAs respondem sobre a empresa</li>
+            <li>Anúncios no ar</li>
+            <li>Comparação com concorrentes</li>
+          </ul>
+        </article>
+        <article class="etapa e2">
+          <div class="bola" aria-hidden="true"><span></span></div>
+          <span class="rotulo">Etapa 2 · Causar boa impressão</span>
+          <h3>A empresa convence</h3>
+          <p>Avaliações, site e redes passam confiança.</p>
+          <span class="conta">10 verificações</span>
+          <ul>
+            <li>Nota e volume de avaliações no Google</li>
+            <li>Resposta às avaliações</li>
+            <li>Reclame Aqui e outras plataformas</li>
+            <li>Marca igual em todos os perfis</li>
+            <li>Redes sociais ativas</li>
+            <li>Fotos e descrição do que se vende</li>
+            <li>Velocidade para quem usa de verdade</li>
+            <li>Desempenho no teste do Google</li>
+            <li>Acessibilidade</li>
+            <li>Aplicativo nas lojas <small>(quando houver)</small></li>
+          </ul>
+        </article>
+        <article class="etapa e3">
+          <div class="bola" aria-hidden="true"><span></span></div>
+          <span class="rotulo">Etapa 3 · Ser contatada</span>
+          <h3>Alguém chama</h3>
+          <p>O cliente acha o botão e fala com a empresa.</p>
+          <span class="conta">4 verificações</span>
+          <ul>
+            <li>Contato visível no celular</li>
+            <li>WhatsApp e formulário funcionando</li>
+            <li>Links que levam ao lugar certo</li>
+            <li>Prévia ao compartilhar no WhatsApp</li>
+          </ul>
+        </article>
+        <article class="etapa e4">
+          <div class="bola" aria-hidden="true"><span></span></div>
+          <span class="rotulo">Etapa 4 · Medir e proteger</span>
+          <h3>Tudo fica medido e seguro</h3>
+          <p>Cada contato tem origem e nada sensível fica exposto.</p>
+          <span class="conta">6 verificações</span>
+          <ul>
+            <li>Rastreamento instalado</li>
+            <li>Site seguro (HTTPS e cabeçalhos)</li>
+            <li>E-mail protegido contra falsificação (SPF e DMARC)</li>
+            <li>Arquivos sensíveis expostos</li>
+            <li>Endereços esquecidos no ar</li>
+            <li>Dados pessoais à mostra</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao" id="metodo" aria-labelledby="t-metodo">
+    <div class="conteiner">
+      <div class="cab surge">
+        <span class="rotulo">Como medimos</span>
+        <h2 id="t-metodo">Cada número com a fonte e a data da leitura.</h2>
+      </div>
+      <div class="principios surge">
+        <article class="principio">
+          <span class="n">01</span>
+          <h3>Só dados públicos</h3>
+          <p>O que qualquer cliente vê no Google, nas redes e no site, lido sem login e sem acesso às contas da empresa.</p>
+        </article>
+        <article class="principio">
+          <span class="n">02</span>
+          <h3>Uma frente, um agente</h3>
+          <p>Dez frentes auditadas por agentes de IA dedicados, cada um sem ver as conclusões dos outros.</p>
+        </article>
+        <article class="principio">
+          <span class="n">03</span>
+          <h3>Fonte em cada card</h3>
+          <p>Cada card traz o link de onde o dado foi lido e a data da leitura. O que não deu para ler aparece como lacuna, com o motivo.</p>
+        </article>
+        <article class="principio">
+          <span class="n">04</span>
+          <h3>Revisão independente</h3>
+          <p>Um revisor que não participou da coleta reabre as fontes. Sem a aprovação dele, o diagnóstico não sai.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao" id="entrega" aria-labelledby="t-entrega">
+    <div class="conteiner">
+      <div class="entrega">
+        <div class="cab surge" style="gap: 22px">
+          <span class="rotulo">O que você recebe</span>
+          <h2 id="t-entrega">Uma página só da sua empresa, com o plano em ordem.</h2>
+          <ol class="itens">
+            <li><span class="n">01</span><h3>Link próprio, fora do Google</h3><p>Só abre quem tem o endereço. Dá para mandar ao sócio ou à equipe.</p></li>
+            <li><span class="n">02</span><h3>Um selo por verificação</h3><p>Cada card mostra o dado lido e de onde ele veio.</p><div class="selos" aria-label="Selos possíveis"><span class="chip forte">Forte</span><span class="chip bom">Bom</span><span class="chip ajustar">Ajustar</span><span class="chip falta">Falta</span><span class="chip lacuna">Sem leitura</span></div></li>
+            <li><span class="n">03</span><h3>Plano por prioridade</h3><p>O que mais destrava resultado com menos esforço vem primeiro, e cada ação diz como saber que deu certo.</p></li>
+            <li><span class="n">04</span><h3>Ao lado dos concorrentes</h3><p>Mesmas medições e mesmas datas para os concorrentes que você indicar.</p></li>
+          </ol>
+        </div>
+
+        <figure class="janela surge" aria-label="Como é a página de um diagnóstico" style="margin: 0">
+          <div class="janela-barra" aria-hidden="true">
+            <span class="pontos"><i></i><i></i><i></i></span>
+            <span class="url">diagnostico.v2o5.com.br/<b>sua-empresa-7f3a</b>/</span>
+          </div>
+          <div class="janela-corpo" aria-hidden="true">
+            <div style="display: grid; gap: 10px">
+              <span class="rotulo">Para a sua empresa</span>
+              <div class="esqueleto titulo"></div>
+              <div class="esqueleto titulo"></div>
+            </div>
+            <div class="mini-jornada">
+              <span style="--cor: var(--violeta)"></span><span style="--cor: var(--verde)"></span><span style="--cor: var(--azul)"></span><span style="--cor: var(--ambar)"></span>
+            </div>
+            <div class="mini-cards">
+              <div class="mini-card"><div class="topo-card"><div class="esqueleto" style="width: 55%"></div><span class="chip forte">Forte</span></div><div class="esqueleto grande"></div><div class="esqueleto"></div><div class="esqueleto" style="width: 70%"></div></div>
+              <div class="mini-card"><div class="topo-card"><div class="esqueleto" style="width: 50%"></div><span class="chip ajustar">Ajustar</span></div><div class="esqueleto grande"></div><div class="esqueleto"></div><div class="esqueleto" style="width: 60%"></div></div>
+              <div class="mini-card"><div class="topo-card"><div class="esqueleto" style="width: 45%"></div><span class="chip falta">Falta</span></div><div class="esqueleto grande"></div><div class="esqueleto"></div><div class="esqueleto" style="width: 75%"></div></div>
+            </div>
+            <div class="mini-plano">
+              <span class="rotulo">Por onde começar</span>
+              <div><em>01</em><div class="esqueleto"></div><span class="prazo" style="--cor: var(--ambar)"></span></div>
+              <div><em>02</em><div class="esqueleto" style="width: 85%"></div><span class="prazo" style="--cor: var(--azul)"></span></div>
+              <div><em>03</em><div class="esqueleto" style="width: 70%"></div><span class="prazo" style="--cor: var(--verde)"></span></div>
+            </div>
+          </div>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao" id="solucoes" aria-labelledby="t-solucoes">
+    <div class="conteiner">
+      <div class="cab surge">
+        <span class="rotulo">Depois do diagnóstico</span>
+        <h2 id="t-solucoes">Para cada etapa, uma solução da V2O5.</h2>
+        <p>O plano serve para qualquer equipe executar. Se quiser que seja a V2O5, cada etapa tem a peça certa, e todas conversam no mesmo sistema, no nome da sua empresa.</p>
+      </div>
+      <div class="solucoes">
+        <div class="faixa-solucao e1 surge">
+          <div class="qual"><span class="rotulo">Ser encontrada</span><p>Aparecer para quem procura, no Google, no Maps e nas IAs.</p></div>
+          <div class="cartoes">
+            <a class="cartao" href="https://www.v2o5.com.br/criacao-de-sites?utm_source=diagnostico.v2o5.com.br&amp;utm_medium=referral&amp;utm_content=solucoes">
+              <h3>Sites e presença</h3>
+              <p>Carrega rápido no celular, aparece no Google e grava de onde veio cada contato. Hospedagem, manutenção e SEO técnico já na mensalidade.</p>
+              <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a class="cartao" href="https://www.v2o5.com.br/gestao-de-trafego?utm_source=diagnostico.v2o5.com.br&amp;utm_medium=referral&amp;utm_content=solucoes">
+              <h3>Tráfego pago no Google e na Meta</h3>
+              <p>Anúncios que abrem conversa no WhatsApp e verba ajustada pela venda registrada no CRM.</p>
+              <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="faixa-solucao e2 surge">
+          <div class="qual"><span class="rotulo">Causar boa impressão</span><p>Chegar na conversa com a confiança já construída.</p></div>
+          <div class="cartoes">
+            <a class="cartao" href="https://www.v2o5.com.br/diagnostico?utm_source=diagnostico.v2o5.com.br&amp;utm_medium=referral&amp;utm_content=solucoes-avaliacoes">
+              <h3>Avaliações no Google</h3>
+              <p>Depois da venda, o cliente recebe no WhatsApp o pedido de avaliação com o link certo, e o painel mostra quem respondeu.</p>
+              <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a class="cartao" href="https://www.v2o5.com.br/diagnostico?utm_source=diagnostico.v2o5.com.br&amp;utm_medium=referral&amp;utm_content=solucoes-redes">
+              <h3>Conteúdo e gestão de redes sociais</h3>
+              <p>Duas redes com perfis configurados e 12 publicações por mês feitas do que a empresa já produz, cada post com link rastreado.</p>
+              <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="faixa-solucao e3 surge">
+          <div class="qual"><span class="rotulo">Ser contatada</span><p>Responder na hora e não perder o contato que chegou.</p></div>
+          <div class="cartoes">
+            <a class="cartao" href="https://www.v2o5.com.br/agente-de-ia-para-whatsapp?utm_source=diagnostico.v2o5.com.br&amp;utm_medium=referral&amp;utm_content=solucoes">
+              <h3>Agente de IA no WhatsApp</h3>
+              <p>Responde na hora, a qualquer hora, com as informações do seu negócio. Quando a conversa pede uma pessoa, chama alguém da equipe.</p>
+              <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a class="cartao" href="https://www.v2o5.com.br/crm-com-whatsapp?utm_source=diagnostico.v2o5.com.br&amp;utm_medium=referral&amp;utm_content=solucoes">
+              <h3>CRM com WhatsApp</h3>
+              <p>Nenhum contato esquecido numa conversa: cada um num funil, com a origem, a etapa e o próximo passo à vista.</p>
+              <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="faixa-solucao e4 surge">
+          <div class="qual"><span class="rotulo">Medir e proteger</span><p>Saber o que vende e deixar a operação rodar sozinha.</p></div>
+          <div class="cartoes">
+            <a class="cartao" href="https://www.v2o5.com.br/rastreamento-de-conversoes?utm_source=diagnostico.v2o5.com.br&amp;utm_medium=referral&amp;utm_content=solucoes">
+              <h3>Rastreamento até a venda</h3>
+              <p>Cada venda com a origem: qual anúncio, qual busca, qual página. Sem isso, a verba vai para onde parece funcionar.</p>
+              <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a class="cartao" href="https://www.v2o5.com.br/automacao-com-ia?utm_source=diagnostico.v2o5.com.br&amp;utm_medium=referral&amp;utm_content=solucoes">
+              <h3>Automação de processos</h3>
+              <p>A tarefa que alguém faz à mão toda semana passa a rodar sozinha entre os sistemas que você já usa.</p>
+              <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao" id="planos" aria-labelledby="t-planos">
+    <div class="conteiner">
+      <div class="cab surge">
+        <span class="rotulo">Preço publicado</span>
+        <h2 id="t-planos">Três planos, com o preço na página.</h2>
+        <p>Todo valor é a partir de, e o preço final sai do diagnóstico gratuito. Hospedagem, manutenção e suporte já estão na mensalidade.</p>
+      </div>
+      <div class="planos surge">
+        <article class="plano" data-plano="presenca">
+          <div class="plano-cab">
+            <span class="rotulo">No mapa</span>
+            <h3>Presença</h3>
+            <p>Ser encontrado no Google e saber de onde vem cada contato.</p>
+          </div>
+          <dl class="valores">
+            <div><dt>Implantação a partir de</dt><dd class="num">R$ 8.900</dd></div>
+            <div><dt>Mensalidade a partir de</dt><dd class="num">R$ 990<small>/mês</small></dd></div>
+          </dl>
+          <ul>
+            <li><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m3.5 8.5 3 3 6-7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Site institucional ou de estoque, com hospedagem e manutenção</li>
+            <li><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m3.5 8.5 3 3 6-7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Perfil da Empresa no Google e SEO técnico</li>
+            <li><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m3.5 8.5 3 3 6-7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Rastreamento até a venda, com API de Conversões</li>
+            <li><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m3.5 8.5 3 3 6-7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Pedido de avaliação no WhatsApp depois da venda</li>
+            <li><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m3.5 8.5 3 3 6-7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Relatório mensal da origem dos contatos</li>
+          </ul>
+        </article>
+        <article class="plano" data-plano="atendimento">
+          <div class="plano-cab">
+            <span class="rotulo">Operação com IA</span>
+            <h3>Atendimento</h3>
+            <p>Responder na hora, a qualquer hora, sem perder o contato que chegou.</p>
+          </div>
+          <dl class="valores">
+            <div><dt>Implantação a partir de</dt><dd class="num">R$ 7.900</dd></div>
+            <div><dt>Mensalidade a partir de</dt><dd class="num">R$ 1.590<small>/mês</small></dd></div>
+          </dl>
+          <ul>
+            <li><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m3.5 8.5 3 3 6-7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Agente de IA no WhatsApp, 500 conversas por mês</li>
+            <li><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m3.5 8.5 3 3 6-7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>CRM com funil, aviso de lead parado e 5 usuários</li>
+            <li><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m3.5 8.5 3 3 6-7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Passagem do agente para a equipe na mesma conversa</li>
+            <li><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m3.5 8.5 3 3 6-7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Treinamento da equipe</li>
+            <li><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m3.5 8.5 3 3 6-7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Banco próprio, backups e suporte</li>
+          </ul>
+        </article>
+        <article class="plano destaque" data-plano="completo">
+          <span class="marcador">O sistema da Motors Store</span>
+          <div class="plano-cab">
+            <span class="rotulo">Mapa e operação</span>
+            <h3>Completo</h3>
+            <p>Do anúncio à venda, tudo ligado e medido.</p>
+          </div>
+          <dl class="valores">
+            <div><dt>Implantação a partir de</dt><dd class="num">R$ 14.900</dd></div>
+            <div><dt>Mensalidade a partir de</dt><dd class="num oferta">R$ 1.990<small>/mês</small></dd><dd class="nota">até 31/12/2026; depois, R$ 2.290</dd></div>
+          </dl>
+          <ul>
+            <li><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m3.5 8.5 3 3 6-7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Tudo da Presença e do Atendimento</li>
+            <li><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m3.5 8.5 3 3 6-7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Integração com o sistema de gestão (Revenda Mais em produção)</li>
+            <li><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m3.5 8.5 3 3 6-7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Um fluxo de automação à escolha: pós-venda ou integração entre sistemas</li>
+            <li><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m3.5 8.5 3 3 6-7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Google Ads e Meta Ads por R$ 1.300/mês, se quiser</li>
+          </ul>
+          <p class="bonus"><strong>Bônus de fechamento:</strong> a implantação do Painel do dono fica por conta da V2O5.</p>
+        </article>
+      </div>
+      <div class="letras surge">
+        <p>Uso da IA e mensagens da API oficial do WhatsApp pelo valor real, na mesma fatura. Sem fidelidade: se sair, recebe o código, os dados e o domínio em até 15 dias.</p>
+        <a class="link-seta" href="https://www.v2o5.com.br/precos?utm_source=diagnostico.v2o5.com.br&amp;utm_medium=referral&amp;utm_content=planos">Ver a tabela completa<svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10m-4-4 4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao" id="case" aria-labelledby="t-case">
+    <div class="conteiner">
+      <div class="case surge">
+        <div class="cab">
+          <span class="rotulo">Em produção</span>
+          <h2 id="t-case">O sistema inteiro roda na Motors Store.</h2>
+          <p>A V2O5 montou para a Motors Store, em Curitiba, o site de estoque, os guias, o rastreamento até a venda, o painel e as automações.</p>
+          <a class="link-seta" href="https://www.v2o5.com.br/cases/motors-store?utm_source=diagnostico.v2o5.com.br&amp;utm_medium=referral&amp;utm_content=case">Ver o case<svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10m-4-4 4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+        <div class="numeros">
+          <div><strong class="num">42 <small>de 44</small></strong><p>leads do site chegaram com identificador para não contar a mesma conversão duas vezes</p></div>
+          <div><strong class="num">26</strong><p>guias publicados, assinados pelo fundador da V2O5</p></div>
+          <div><strong class="num">132</strong><p>veículos sincronizados com o estoque do Revenda Mais</p></div>
+          <p class="fonte">Banco de dados da Motors Store, lido em 08/10/2026. Leads contados de 05/09 a 08/10/2026.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="final" aria-labelledby="t-final">
+    <div class="conteiner surge">
+      <span class="rotulo">Catalisador de vendas com <span class="ia">IA</span></span>
+      <h2 id="t-final">Peça o diagnóstico da sua empresa.</h2>
+      <p>Diagnóstico gratuito: 45 minutos de conversa com o fundador e um mapa do que fazer, em até 24 horas.</p>
+      <div class="acoes">
+        <a class="botao primario" href="https://www.v2o5.com.br/diagnostico?utm_source=diagnostico.v2o5.com.br&amp;utm_medium=referral&amp;utm_content=final">Pedir diagnóstico gratuito<svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10m-4-4 4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a class="botao secundario" href="https://wa.me/5541998089550?text=Ol%C3%A1!%20Vi%20a%20p%C3%A1gina%20de%20diagn%C3%B3sticos%20no%20site%20da%20V2O5%20e%20quero%20o%20diagn%C3%B3stico%20da%20minha%20empresa." target="_blank" rel="noopener">Chamar no WhatsApp</a>
+      </div>
+      <p class="contato">Dyones Oliveira, fundador · WhatsApp <a href="https://wa.me/5541998089550?text=Ol%C3%A1!%20Vi%20a%20p%C3%A1gina%20de%20diagn%C3%B3sticos%20no%20site%20da%20V2O5%20e%20quero%20o%20diagn%C3%B3stico%20da%20minha%20empresa." target="_blank" rel="noopener">(41) 99808-9550</a> · <a href="mailto:diagnostico@v2o5.com.br">diagnostico@v2o5.com.br</a></p>
+    </div>
+  </section>
+</main>
+
+<footer class="rodape">
+  <div class="conteiner">
+    <div><strong>V2O5 Vendas e Tecnologia</strong><br>V2O5 Tecnologia da Informação Ltda. · CNPJ 68.490.470/0001-14 · Almirante Tamandaré/PR</div>
+    <nav aria-label="Site da V2O5">
+      <a href="https://www.v2o5.com.br/?utm_source=diagnostico.v2o5.com.br&amp;utm_medium=referral&amp;utm_content=rodape">Site</a>
+      <a href="https://www.v2o5.com.br/precos?utm_source=diagnostico.v2o5.com.br&amp;utm_medium=referral&amp;utm_content=rodape">Preços</a>
+      <a href="https://www.v2o5.com.br/sobre?utm_source=diagnostico.v2o5.com.br&amp;utm_medium=referral&amp;utm_content=rodape">Sobre</a>
+      <a href="https://www.v2o5.com.br/privacidade">Privacidade</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+  // Seções entram ao chegar perto da tela. A classe "js" só existe com movimento permitido (topo do documento).
+  if (document.documentElement.classList.contains("js")) {
+    const io = new IntersectionObserver((entradas) => {
+      for (const e of entradas) if (e.isIntersecting) { e.target.classList.add("visivel"); io.unobserve(e.target); }
+    }, { rootMargin: "0px 0px -8% 0px" });
+    document.querySelectorAll(".surge").forEach((el) => io.observe(el));
+  }
+</script>
+</body>
+</html>
