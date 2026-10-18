@@ -40,3 +40,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# capturas de referência das skills do awwwards (estudo local, não publicar)
+ref-motion/
+_qa/
