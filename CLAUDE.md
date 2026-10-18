@@ -53,7 +53,7 @@ Novo site da **V2O5 Vendas e Tecnologia** (substitui o WordPress de v2o5.com.br)
 | Case 16ª Vara Cível (triagem automatizada por WhatsApp: Typebot + n8n + Chatwoot) | `memory/projects/case-16-vara-civel.md` |
 | Projeto do site (escopo, fases) | `memory/projects/site-v2o5.md` |
 | Raiz de diagnostico.v2o5.com.br (vitrine e 404, publicadas no repo `v2o5-diagnosticos`) | `subdominios/diagnostico/LEIA-ME.md` |
-| Plugins instalados e como reinstalar | `memory/context/ferramentas.md` |
+| Plugins e MCPs instalados (Awwwards incluso) e como reinstalar | `memory/context/ferramentas.md` |
 
 ## Preferências do Dyones
 - Quer franqueza ("seja sincero"); prefere recomendação a lista de opções.

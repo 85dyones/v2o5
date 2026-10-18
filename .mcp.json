@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "awwwards": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "-p",
+        "awwwards-mcp@1.9.0",
+        "-p",
+        "playwright@1.56.1",
+        "awwwards-mcp"
+      ]
+    }
+  }
+}
