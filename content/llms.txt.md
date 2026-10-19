@@ -15,7 +15,7 @@ fonte: "produção (www.v2o5.com.br), main em 46c4103"
 
 V2O5 Tecnologia da Informação Ltda., CNPJ 68.490.470/0001-14. Atende empresas em todo o Brasil.
 
-Fundador: Dyones Oliveira. Formado em Administração pela FAE Business School, está na informática desde 1992, quando ganhou um curso num concurso da escola. Em branding, fez a mudança da Top Imóveis para Top Soluções Imobiliárias; na Motors Store, assina os 26 guias do site. É ele quem conduz o diagnóstico gratuito.
+Fundador: Dyones Oliveira. Formado em Administração pela FAE Business School, está na tecnologia desde 1992, quando ganhou um curso num concurso da escola. Em branding, fez a mudança da Top Imóveis para Top Soluções Imobiliárias e assinou o blog da Top até agosto de 2024; na Motors Store, assina os 26 guias do site. É ele quem conduz o diagnóstico gratuito.
 
 ## Planos
 Todo preço é a partir de, com hospedagem e manutenção na mensalidade. Sem fidelidade.

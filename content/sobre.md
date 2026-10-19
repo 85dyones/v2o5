@@ -53,7 +53,7 @@ O fundador
 
 ## Dyones conduz o diagnóstico e a implantação.
 
-Formado em Administração pela FAE Business School, está na informática desde 1992, quando ganhou um curso num concurso da escola. Em branding, fez a mudança da Top Imóveis para Top Soluções Imobiliárias; na Motors Store, assina os 26 guias do site. É ele quem conduz o diagnóstico gratuito.
+Formado em Administração pela FAE Business School, está na tecnologia desde 1992, quando ganhou um curso num concurso da escola. Em branding, fez a mudança da Top Imóveis para Top Soluções Imobiliárias e assinou o blog da Top até agosto de 2024; na Motors Store, assina os 26 guias do site. É ele quem conduz o diagnóstico gratuito.
 
 Até os sete anos o mundo dele era de livros. Em 1992, um concurso da escola rendeu um curso de informática, e os computadores 386 e os disquetes viraram o começo de tudo.
 
