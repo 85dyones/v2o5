@@ -85,7 +85,7 @@ V2O5 Tecnologia da Informação Ltda. · CNPJ 68.490.470/0001-14
 
 Almirante Tamandaré/PR, atendimento em todo o Brasil
 
-V2O5 <!-- decorativo, aria-hidden -->
+<!-- 19/10: a marca "V2O5" grande e apagada saiu; no lugar, a planta do símbolo (desenho decorativo, aria-hidden, sem texto) -->
 
 <!-- ===== botão fixo do WhatsApp (fora do main, só abaixo de 768 px). O texto é o mesmo em toda rota que o tem;
      a mensagem pronta muda por rota e está em design/nao-pode-quebrar.md ===== -->
