@@ -78,3 +78,7 @@ Outsource Consultants, Fox Valuations, Vuna Partners, Kohen Avocats e Dawn L. Sa
 ## Ficaram de fora na busca
 
 DAQ Consulting, The Un Known, Aelieve, Comrade e AI Common, por serem escuros de tecnologia ou de IA. Structure Consulting Engineers saiu quase em branco na captura. Extrafazant ficou com banner de cookie por cima e tom brincalhão demais para consultoria. Base Coat Marketing tem o público certo (dono de negócio pequeno) mas cara de modelo pronto.
+
+## Rodada 2 (19/10/2026)
+
+Depois da escolha da direção B, mais quatro referências do índice do Awwwards (CROX, Crosswalk, Tresmares Capital e Justus John), com folhas de busca, recortes e o porquê de cada uma em `c-rodada-2/README.md`.
