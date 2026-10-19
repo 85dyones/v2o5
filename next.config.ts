@@ -62,6 +62,13 @@ export const REDIRECIONAMENTOS_DO_WORDPRESS = [
   { source: "/:arquivo(wp-sitemap.*\\.xml)", destination: "/sitemap.xml" },
 ];
 
+/**
+ * Provisórios (307): a rota volta quando ganhar texto. `/gestao-de-trafego`
+ * leva à seção de tráfego de `/precos` (Dyones, 19/10); a vitrine de
+ * diagnostico.v2o5.com.br linka para ela.
+ */
+export const REDIRECIONAMENTOS_PROVISORIOS = [{ source: "/gestao-de-trafego", destination: "/precos#titulo-trafego" }];
+
 const nextConfig: NextConfig = {
   cacheComponents: true,
   partialPrefetching: true,
@@ -78,7 +85,10 @@ const nextConfig: NextConfig = {
     return [{ source: "/(.*)", headers: CABECALHOS_DE_SEGURANCA }];
   },
   async redirects() {
-    return REDIRECIONAMENTOS_DO_WORDPRESS.map((r) => ({ ...r, statusCode: 301 as const }));
+    return [
+      ...REDIRECIONAMENTOS_DO_WORDPRESS.map((r) => ({ ...r, statusCode: 301 as const })),
+      ...REDIRECIONAMENTOS_PROVISORIOS.map((r) => ({ ...r, statusCode: 307 as const })),
+    ];
   },
 };
 

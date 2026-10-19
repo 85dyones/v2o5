@@ -1,0 +1,150 @@
+{
+  "capturadoEm": "2026-10-19T00:19:43.269Z",
+  "base": "https://www.v2o5.com.br",
+  "telas": [
+    {
+      "arquivo": "home-iphone-se-dobra.png",
+      "rota": "/",
+      "aparelho": "iPhone SE",
+      "viewport": "375x667",
+      "dpr": 2,
+      "modo": "dobra",
+      "alturaDaPaginaCss": 21554
+    },
+    {
+      "arquivo": "precos-iphone-se-dobra.png",
+      "rota": "/precos",
+      "aparelho": "iPhone SE",
+      "viewport": "375x667",
+      "dpr": 2,
+      "modo": "dobra",
+      "alturaDaPaginaCss": 12926
+    },
+    {
+      "arquivo": "home-iphone-se-inteira.png",
+      "rota": "/",
+      "aparelho": "iPhone SE",
+      "viewport": "375x667",
+      "dpr": 1,
+      "modo": "inteira",
+      "alturaDaPaginaCss": 24865
+    },
+    {
+      "arquivo": "precos-iphone-se-inteira.png",
+      "rota": "/precos",
+      "aparelho": "iPhone SE",
+      "viewport": "375x667",
+      "dpr": 1,
+      "modo": "inteira",
+      "alturaDaPaginaCss": 13753
+    },
+    {
+      "arquivo": "home-iphone-15-pro-max-dobra.png",
+      "rota": "/",
+      "aparelho": "iPhone 15 Pro Max",
+      "viewport": "430x932",
+      "dpr": 3,
+      "modo": "dobra",
+      "alturaDaPaginaCss": 21094
+    },
+    {
+      "arquivo": "precos-iphone-15-pro-max-dobra.png",
+      "rota": "/precos",
+      "aparelho": "iPhone 15 Pro Max",
+      "viewport": "430x932",
+      "dpr": 3,
+      "modo": "dobra",
+      "alturaDaPaginaCss": 12292
+    },
+    {
+      "arquivo": "home-iphone-15-pro-max-inteira.png",
+      "rota": "/",
+      "aparelho": "iPhone 15 Pro Max",
+      "viewport": "430x932",
+      "dpr": 1,
+      "modo": "inteira",
+      "alturaDaPaginaCss": 23676
+    },
+    {
+      "arquivo": "precos-iphone-15-pro-max-inteira.png",
+      "rota": "/precos",
+      "aparelho": "iPhone 15 Pro Max",
+      "viewport": "430x932",
+      "dpr": 1,
+      "modo": "inteira",
+      "alturaDaPaginaCss": 12856
+    },
+    {
+      "arquivo": "home-ipad-mini-dobra.png",
+      "rota": "/",
+      "aparelho": "iPad Mini",
+      "viewport": "768x1024",
+      "dpr": 2,
+      "modo": "dobra",
+      "alturaDaPaginaCss": 18768
+    },
+    {
+      "arquivo": "precos-ipad-mini-dobra.png",
+      "rota": "/precos",
+      "aparelho": "iPad Mini",
+      "viewport": "768x1024",
+      "dpr": 2,
+      "modo": "dobra",
+      "alturaDaPaginaCss": 10640
+    },
+    {
+      "arquivo": "home-ipad-mini-inteira.png",
+      "rota": "/",
+      "aparelho": "iPad Mini",
+      "viewport": "768x1024",
+      "dpr": 1,
+      "modo": "inteira",
+      "alturaDaPaginaCss": 19585
+    },
+    {
+      "arquivo": "precos-ipad-mini-inteira.png",
+      "rota": "/precos",
+      "aparelho": "iPad Mini",
+      "viewport": "768x1024",
+      "dpr": 1,
+      "modo": "inteira",
+      "alturaDaPaginaCss": 10519
+    },
+    {
+      "arquivo": "home-desktop-1440-dobra.png",
+      "rota": "/",
+      "aparelho": "Desktop 1440 (MacBook Pro)",
+      "viewport": "1440x900",
+      "dpr": 2,
+      "modo": "dobra",
+      "alturaDaPaginaCss": 15948
+    },
+    {
+      "arquivo": "precos-desktop-1440-dobra.png",
+      "rota": "/precos",
+      "aparelho": "Desktop 1440 (MacBook Pro)",
+      "viewport": "1440x900",
+      "dpr": 2,
+      "modo": "dobra",
+      "alturaDaPaginaCss": 9158
+    },
+    {
+      "arquivo": "home-desktop-1440-inteira.png",
+      "rota": "/",
+      "aparelho": "Desktop 1440 (MacBook Pro)",
+      "viewport": "1440x900",
+      "dpr": 1,
+      "modo": "inteira",
+      "alturaDaPaginaCss": 14276
+    },
+    {
+      "arquivo": "precos-desktop-1440-inteira.png",
+      "rota": "/precos",
+      "aparelho": "Desktop 1440 (MacBook Pro)",
+      "viewport": "1440x900",
+      "dpr": 1,
+      "modo": "inteira",
+      "alturaDaPaginaCss": 8272
+    }
+  ]
+}

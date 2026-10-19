@@ -48,12 +48,6 @@ export function organizacao(): No {
       availableLanguage: "pt-BR",
       areaServed: "BR",
     },
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: "Almirante Tamandaré",
-      addressRegion: "PR",
-      addressCountry: "BR",
-    },
     areaServed: { "@type": "Country", name: "Brasil" },
     knowsAbout: PILARES.flatMap((p) => p.servicos.map((s) => s.titulo)),
   };

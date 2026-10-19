@@ -1,0 +1,202 @@
+- Starting extraction...
+  ✓ Page loaded
+- Waiting for body content to render...
+  ✓ Body content rendered
+- Waiting for SPA hydration...
+  ✓ Hydration settled (1.6s)
+- Waiting for main content...
+  ✓ Main content detected
+- Scrolling page to trigger lazy content...
+  ✓ Full page scrolled (lazy content triggered)
+- Dismissing cookie consent banners...
+  i No cookie banner detected
+- Dismissing region/interstitial modals...
+  i No interstitial modal detected
+- Final content stabilization...
+  ✓ Page fully loaded and stable
+- Validating page content...
+  ✓ Content validated: 28763 chars
+
+  Extracting design tokens...
+
+- Analyzing design system (17 parallel tasks)...
+  ✓ Colors: 9 found
+  ✓ Typography: 58 styles
+  ✓ Spacing: 20 values
+  ✓ Border radius: 1 values
+  ✓ Borders: 20 combinations
+  ✓ Shadows: 3 found
+  ✓ Buttons: 6 variants
+  ! Inputs: 0 styles
+  ✓ Links: 7 styles
+  ✓ Breakpoints: 4 detected
+  ! Icon systems: 0 detected
+  ✓ Frameworks: 2 detected
+  ✓ Gradients: 8 found
+  ✓ Motion: 3 durations, 2 easings
+
+- Extracting hover/focus state colors...
+  ✓ Hover/focus: 24 state colors found
+- Revealing hidden content (menus, carousels)...
+  i Reveal: no click-toggle menus or carousels found
+
+✓ Brand extraction complete!
+
+
+
+🎨 Brand Extraction
+│
+├─ ]8;;https://itsua.com/\https://itsua.com/]8;;\
+├─ 03:38
+│
+├─ Logo
+│  ├─ ]8;;https://itsua.com/img/logo-itsua.png\https://itsua.com/img/logo-itsua.png]8;;\
+│  ├─ 333×90px
+│  └─ Safe zone: 18px 24px 18px 24px
+│
+├─ Favicons
+│  ├─ icon               ]8;;https://itsua.com/favicon.png\https://itsua.com/favicon.png]8;;\ · 64x64
+│  ├─ og:image           ]8;;https://itsua.com/og/home.png\https://itsua.com/og/home.png]8;;\
+│  └─ twitter:image      ]8;;https://itsua.com/og/home.png\https://itsua.com/og/home.png]8;;\
+│
+├─ Colors
+│  ├─ ●    #ffffff  background, --color-bg  rgb(255, 255, 255)  
+│  ├─ ●    #0e1012  text, --color-ink  rgb(14, 16, 18)     
+│  ├─ ●    #047857  primary, --color-green  rgb(4, 120, 87)     
+│  ├─ ●    #2f4cff  accent, --color-accent, --accent  rgb(47, 76, 255)    
+│  ├─ ●    #fcfdec  --color-yellow-soft  rgb(252, 253, 236)  
+│  ├─ ●    #60636a  --color-sub     rgb(96, 99, 106)    
+│  ├─ ●    #fdecec  --color-red-soft  rgb(253, 236, 236)  
+│  ├─ ●    #eeeef0  --color-ink-soft  rgb(238, 238, 240)  
+│  ├─ ●    #d9dadd  --color-line    rgb(217, 218, 221)  
+│  ├─ ●    #e6f7f1  --color-green-soft  rgb(230, 247, 241)  
+│  ├─ ●    #34d399  --color-green-bright  rgb(52, 211, 153)   
+│  ├─ ●    #eef1ff  --color-blue-soft  rgb(238, 241, 255)  
+│  ├─ ●    #fbeefc  --color-magenta-soft  rgb(251, 238, 252)  
+│  ├─ ●    #f5f5f3  --color-paper   rgb(245, 245, 243)  
+│  ├─ ●    #b45309  accent          rgb(180, 83, 9)      on: Aa  hover:#d8640b
+│  ├─ ●    #a21caf  accent          rgb(162, 28, 175)    on: Aa  hover:#c222d2
+│  └─ ●    #101010                  rgb(16, 16, 16)     
+│  primary elected, most used chromatic colour, declared as a custom property (--color-green)
+│  └─ +3 more in JSON
+│
+├─ Typography
+│  ├─ ]8;;https://itsua.com/fonts/jetbrains-mono-cyrillic-ext.woff2\https://itsua.com/fonts/jetbrains-mono-cyrillic-ext.woff2]8;;\
+│  ├─ ]8;;https://itsua.com/fonts/jetbrains-mono-cyrillic.woff2\https://itsua.com/fonts/jetbrains-mono-cyrillic.woff2]8;;\
+│  ├─ ]8;;https://itsua.com/fonts/jetbrains-mono-greek.woff2\https://itsua.com/fonts/jetbrains-mono-greek.woff2]8;;\
+│  ├─ +6 more
+│  ├─ Space Grotesk [ 150px (display), 120px (display), 96px (heading-2), 88px (display), 80px (display), 72px (heading-2), 60px (display), 40px (text), 38px (text), 34px (text), 32px (text), 30px (text), 26px (heading-3), 24px (heading-3), 20px (body), 18px (body), 16px (body), 15px (body), 14px (body), 13px (body), 10px (caption) ]
+│  │  └─ Weights: 500, 600, 700
+│  └─ Berkeley Mono [ 18px (ui), 13px (link), 12px (caption), 11px (caption), 9px (caption), 8px (caption) ]
+│     └─ Weights: 500, 600, 700
+│
+├─ Spacing
+│  ├─ System: custom
+│  ├─ 2.14398px 0.13rem
+│  ├─ 2.59195px 0.16rem
+│  ├─ 3.85917px 0.24rem
+│  ├─ 6px      0.38rem
+│  ├─ 6.00316px 0.38rem
+│  ├─ 6.43195px 0.40rem
+│  ├─ 7.77586px 0.49rem
+│  ├─ 9.43353px 0.59rem
+│  ├─ 9.75px   0.61rem
+│  ├─ 10px     0.63rem
+│  ├─ 12px     0.75rem
+│  ├─ 16px     1.00rem
+│  ├─ 17.1519px 1.07rem
+│  ├─ 18px     1.13rem
+│  └─ 20px     1.25rem
+│
+├─ Border Radius
+│  └─ 9999px (img)
+│
+├─ Borders
+│  ├─ ● 1px solid    #d9dadd   rgb(217, 218, 221) (div, span, button, a)
+│  ├─ ● 1px 0px 0px solid    #d9dadd   rgb(217, 218, 221) (div, footer)
+│  ├─ ● 0px 0px 1px solid    #d9dadd   rgb(217, 218, 221) (header, div, a, card)
+│  ├─ ● 0px 1px 0px 0px solid    #d9dadd   rgb(217, 218, 221) (a, div, card)
+│  ├─ ● 0px 1px 1px 0px solid    #d9dadd   rgb(217, 218, 221) (div, a, card)
+│  ├─ ● 0px 0px 0px 1px dashed    #d9dadd   rgb(217, 218, 221) (div)
+│  ├─ ● 1px 0px 0px 2px solid    #d9dadd   rgb(217, 218, 221) (div, a)
+│  ├─ ● 0px 0px 0px 1px solid    #d9dadd   rgb(217, 218, 221) (div, a, button)
+│  ├─ ● 2px solid    #0e1012   rgb(14, 16, 18) (a)
+│  └─ ● 2px solid    #b45309   rgb(180, 83, 9) (a)
+│  └─ +2 more
+│
+├─ Shadows
+│  ├─ ● rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.1) 0px 4px 6px -4px
+│  ├─ ● rgba(0, 0, 0, 0.25) 0px 25px 50px -12px
+│  └─ ● rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.25) 0px 25px 50px -12px
+│
+├─ Gradients
+│  ├─ linear ·       ×6
+│  ├─ linear ·       ×6
+│  ├─ linear ·       ×4
+│  ├─ linear ·       ×4
+│  └─ linear ·      
+│
+├─ Buttons
+│  └─ Variant: transparent
+│     └─ Default
+│        ├─ text:    #0e1012   rgb(14, 16, 18)
+│        ├─ padding: 12px 18px
+│        └─ border: 1px solid rgb(217, 218, 221)
+│
+├─ Badges / Tags / Pills
+│  ├─ Neutral
+│  │  └─ Outline
+│  │     ├─ text:    #60636a   rgb(96, 99, 106)
+│  │     ├─ padding: 2.59195px 4.66552px
+│  │     ├─ font-size: 8px
+│  │     └─ border: 1px solid rgb(217, 218, 221)
+│
+├─ Links
+│  ├─    #0e1012   rgb(14, 16, 18)
+│  │  ├─ Default
+│  │  │  └─ decoration: underline
+│  ├─    #60636a   rgb(96, 99, 106)
+│  │  ├─ Default
+│  │  │  └─ decoration: underline
+│  ├─    #047857   rgb(4, 120, 87)
+│  │  ├─ Default
+│  │  │  └─ decoration: underline
+│  ├─    #a21caf   rgb(162, 28, 175)
+│  ├─    #2f4cff   rgb(47, 76, 255)
+│  │  ├─ Default
+│  │  │  └─ decoration: underline
+│  └─    #b45309   rgb(180, 83, 9)
+│     ├─ Default
+│     │  └─ decoration: underline
+│  └─ +1 more
+│
+├─ Breakpoints
+│  └─ 768px → 767px → 640px → 639px
+│
+├─ Frameworks
+│  ├─ ● Astro attribute data-astro-cid-j7pv25f6 x1849, resource _astro/Base.BNWdyHj2.css
+│  └─ ● Tailwind CSS 4 CSS variables --tw-*, class text-[12px] x422
+│
+├─ Motion
+│  ├─ Scale  0.15s  0.28s  0.3s
+│  ├─ Easing ease (ease)
+│  ├─ By context
+│  │  ├─ card  0.15s / 0.3s · ease [transform, height]
+│  │  ├─ link  0.15s · ease [background-color, border-color, color]
+│  │  ├─ button  0.28s [transform]
+│  ├─ Hover patterns
+│  │  ├─ color-shift a "[ 01 ] WORK"
+│  └─ Keyframes
+│     ├─ stackBlink 0.48s [other]
+│     ├─ door-wash 0.9s [link]
+│     ├─ heroLineDrop 3s [hero]
+│     └─ model-fill 0.9s [card]
+│
+│
+└─ ✓ Complete
+
+
+✨ Analysis summary: 10 colors, 58 text styles, 4 breakpoints.
+   Flags: --save-output --design-md
+💾 JSON saved (--save-output): output/itsua.com/2026-10-19T01-03-38-200Z_v0.39.2.json
+💾 DESIGN.md saved (--design-md): output/itsua.com/DESIGN.md

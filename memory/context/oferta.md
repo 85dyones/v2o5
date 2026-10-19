@@ -59,7 +59,7 @@ O preço de cada cartão sai de `precoDa` (`CAPACIDADES` em `precos.ts`): o plan
 |---|---|---|
 | Sites e presença, Avaliações no Google | plano Presença | `/criacao-de-sites`, `/diagnostico` |
 | Rastreamento até a venda | linha própria (sozinho) ou plano Presença | `/rastreamento-de-conversoes` |
-| Tráfego no Google e na Meta, Anúncios de catálogo | tráfego | `/gestao-de-trafego` |
+| Tráfego no Google e na Meta, Anúncios de catálogo | tráfego | `/precos#titulo-trafego` (19/10; `/gestao-de-trafego` responde 307 para lá até ganhar texto) |
 | Agente de IA no WhatsApp, CRM | plano Atendimento | `/agente-de-ia-para-whatsapp`, `/crm-com-whatsapp` |
 | Painel do dono, Reativação de base | módulos | `/diagnostico` |
 | Automação de processos, Pós-venda, Integrações | fluxo de automação | `/automacao-com-ia`, `/diagnostico` |

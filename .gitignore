@@ -40,3 +40,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# bunshin (redesign 2026): material de trabalho, fora do site
+.bunshin/
+.impeccable/

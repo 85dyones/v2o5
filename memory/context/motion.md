@@ -1,5 +1,7 @@
 # Direção visual e motion
 
+> **19/10/2026:** o redesign 2026 troca a direção abaixo por uma base clara, com o papel como fundo. Paleta, escala, espaçamento e curvas de movimento estão em `design/DESIGN.md` (branch `redesign-2026`). O resto deste arquivo descreve o site no ar até o redesign entrar.
+
 ## Direção (09/10)
 Escura e tecnológica, acabamento de produto de IA de ponta, raiz da marca mantida: fundo tinta com ruído fino; seções claras só para leitura longa; âmbar como energia; violeta/verde/azul nas etapas dos diagramas; Geist + Geist Mono; o símbolo C1 é o mesmo desenho das partículas do hero. Da Motors fica a engenharia (tokens, contraste testado, fontes locais), não a estética.
 

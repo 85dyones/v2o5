@@ -108,7 +108,7 @@ export const LINHAS: Linha[] = [
     frase:
       "Google Ads e Meta Ads por plataforma ou juntos, com anúncios que abrem conversa no WhatsApp e a verba ajustada pela venda registrada no CRM. Quem contrata os dois leva o feed de catálogo. Começa com o rastreamento ligado.",
     preco: precoDa("googleAds"),
-    href: "/gestao-de-trafego",
+    href: "/precos#titulo-trafego",
     etapa: "violeta",
     vinheta: "campanhas",
   },
@@ -118,7 +118,7 @@ export const LINHAS: Linha[] = [
     frase:
       "O estoque ou os produtos viram anúncio no Google (anúncios de veículos e Shopping) e na Meta, e saem do ar quando o item é vendido.",
     preco: precoDa("catalogo"),
-    href: "/gestao-de-trafego",
+    href: "/precos#titulo-trafego",
     etapa: "violeta",
     vinheta: "catalogo",
   },
@@ -165,7 +165,7 @@ export const LINHAS: Linha[] = [
     linha: "painel",
     titulo: "Painel do dono",
     frase:
-      "Funil, verba, custo por lead e vendas por origem numa tela só, atualizada todo dia a partir do CRM e do rastreamento. Sem licença por usuário.",
+      "Funil, verba, custo por lead e vendas por origem numa tela, atualizada todo dia a partir do CRM, do rastreamento e das contas de anúncio. Sem licença por usuário.",
     preco: precoDa("painel"),
     href: "/diagnostico",
     etapa: "azul",
@@ -365,7 +365,7 @@ export const VISAO_360 = {
     nome: "Dyones Oliveira",
     papel: "Fundador da V2O5",
     texto:
-      "Formado em Administração pela FAE Business School, está na informática desde 1992, quando ganhou um curso num concurso da escola. Em branding, fez a mudança da Top Imóveis para Top Soluções Imobiliárias; na Motors Store, assina os 26 guias do site. É ele quem conduz o diagnóstico gratuito.",
+      "Formado em Administração pela FAE Business School, está na tecnologia desde 1992, quando ganhou um curso num concurso da escola. Em branding, fez a mudança da Top Imóveis para Top Soluções Imobiliárias e assinou o blog da Top até agosto de 2024; na Motors Store, assina os 26 guias do site. É ele quem conduz o diagnóstico gratuito.",
     escola: "FAE Business School",
   },
 };
@@ -720,19 +720,6 @@ export const PECAS: Peca[] = [
   },
 ];
 
-/** Ligações do diagrama (sem direção; o caminho decide o sentido do pulso). */
-export const LIGACOES_DO_DIAGRAMA: [IdDaPeca, IdDaPeca][] = [
-  ["site", "whatsapp"],
-  ["whatsapp", "agente"],
-  ["agente", "crm"],
-  ["agente", "n8n"],
-  ["n8n", "crm"],
-  ["crm", "venda"],
-  ["site", "rastreamento"],
-  ["rastreamento", "crm"],
-  ["venda", "rastreamento"],
-];
-
 // ---------------------------------------------------------------------------
 // Case Motors Store
 // ---------------------------------------------------------------------------
@@ -787,7 +774,6 @@ export const EMPRESA = {
   nome: "V2O5 Vendas e Tecnologia",
   razaoSocial: "V2O5 Tecnologia da Informação Ltda.",
   cnpj: "68.490.470/0001-14",
-  cidade: "Almirante Tamandaré/PR",
   /** Só dígitos, com o 55 (Dyones, 10/10). Link e rótulo saem daqui (`lib/whatsapp.ts`). */
   whatsapp: "5541998089550",
   /**
@@ -929,6 +915,6 @@ export const PERGUNTAS = [
   {
     pergunta: "A V2O5 atende fora de Curitiba?",
     resposta:
-      "Sim. A sede fica em Almirante Tamandaré, na região de Curitiba, e o atendimento é remoto para empresas de todo o Brasil.",
+      "Sim. O atendimento é remoto, para empresas de todo o Brasil.",
   },
 ];

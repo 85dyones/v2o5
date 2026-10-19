@@ -2,6 +2,43 @@
 
 Log datado. Decisão nova entra no topo do dia; decisão revogada fica riscada com a data da troca.
 
+## 19/10/2026 (subdomínio dos diagnósticos no redesign, pelo Dyones: "temos ainda o subdominio e o layout dos diagnósticos", "faça o merge dos diagnósticos")
+- Vitrine, 404 e prévia de diagnostico.v2o5.com.br e os 8 diagnósticos publicados na direção B; nos diagnósticos, só o CSS mudou (texto idêntico). No ar desde 19/10 (PR #1 de `v2o5-diagnosticos`). Molde novo em `subdominios/diagnostico/molde/`; a skill `diagnostico-presenca` precisa ser trocada pelo zip com o molde novo (o Dyones atualiza no claude.ai e no repositório presenca-digital).
+
+## 19/10/2026 (sem âncora física, pelo Dyones: "tire a menção à almirante tamandaré, é digital, não precisa ter uma ancora fisica")
+- Almirante Tamandaré sai do site: rodapé ("Atendimento em todo o Brasil"), resumo e ficha da empresa em /sobre (sem a célula "Sede" e sem a reunião presencial na região de Curitiba), resposta "atende fora de Curitiba?", privacidade, `llms.txt` e o `address` do JSON-LD da organização (fica só `areaServed: Brasil`). Substitui a decisão de 09/10 de mostrar cidade e estado no site e no schema.
+- Ainda em 19/10: no /sobre, a célula "Na informática" vira "Na tecnologia", a de conteúdo ganha o blog da Top Soluções Imobiliárias (assinado até agosto de 2024) e a ficha do fundador abre com o retrato em preto e branco (foto em Londres, mandada pelo Dyones).
+
+## 19/10/2026 (marca em construção, pelo Dyones: referência brand.dropbox.com/logo, "siga sua recomendação"; proposta em https://claude.ai/artifact/EGFgbECz4XDG5c1dJut2Po)
+- O símbolo aparece como construção (grade pelos átomos, os quatro círculos da nuvem, cotas em mono) no fecho das 12 páginas, no lugar do logo solto, e no fim do rodapé, no lugar da marca grande apagada (`components/marca/Construcao.tsx`, geometria em `lib/construcao.ts`).
+- Em /sobre, a anatomia do símbolo no lugar do logo grande, com a ficha "Nuvem · 4 arcos, raios 18, 24, 20 e 18", "Rede · 2 V e 5 O, a fórmula do V2O5", "Átomo âmbar · a cor da ação".
+- O bloco (símbolo em tinta num quadrado âmbar, átomo em papel) vira o ícone do site e o avatar de WhatsApp e Instagram (`design/marca/bloco.svg` e `bloco-1080.png`). A página /marca fica para depois do retrato.
+
+## 19/10/2026 (pontos abertos do redesign, pelo Dyones: "1 faça isso", "2 faça isso", "faça isso", "sobre o botão, siga sua recomendação", "a redação do texto promocional riscado fica até dezembro", "unifique a descrição do painel do dono")
+- Telas reais do site da Motors (vitrine, estoque e ficha de veículo, capturadas no celular em 19/10/2026) no case, no hub e no mosaico de `/criacao-de-sites`, chapadas, com endereço e data na legenda (`components/case/CapturasDaMotors.tsx`). O retrato do fundador também foi aprovado, mas depende da foto.
+- `/gestao-de-trafego` sai do ar: responde 307 para `/precos#titulo-trafego` até ganhar texto; os links de tráfego da home, do rodapé e das soluções apontam para lá.
+- `/precos` ganha na primeira tela a faixa com os três planos (implantação + mensalidade; no Completo, "oferta até 31/12/2026").
+- Botão fixo de WhatsApp no celular: some enquanto o botão principal da abertura está na tela, em todas as páginas (sem JavaScript, fica sempre). O case continua sem botão fixo.
+- O preço riscado do Completo fica com a redação de hoje até dezembro.
+- Painel do dono com uma descrição só: "Funil, verba, custo por lead e vendas por origem numa tela, atualizada todo dia a partir do CRM, do rastreamento e das contas de anúncio. Sem licença por usuário." (home, `/precos`, `/crm-com-whatsapp`, hub e `llms.txt`).
+
+## 19/10/2026 (perguntas dos clones do redesign, pelo Dyones: "faça isso", "crie os eventos", "siga sua recomendação")
+- `/sobre`: a ficha do fundador ganha a célula "Na informática · Desde 1992", com o dado do texto corrido (entrou em `content/sobre.md`).
+- `/precos`: as linhas do cardápio clicáveis medem `cta_click` com `data-local` `trafego`, `modulos` e `servicos` (novos na tabela de `design/nao-pode-quebrar.md`).
+- Ficam como os clones fizeram: título de `/diagnostico` um tamanho abaixo para o formulário começar na primeira tela; uma única maquete nas páginas de solução, no `/crm-com-whatsapp`; "Ver o preço" e "Conhecer o fundador" como link sublinhado.
+
+## 19/10/2026 (direção do redesign, pelo Dyones: "gosto da B", "ainda me parece muito cru" com a ITSUA como exemplo, mais referências do Awwwards, "aprovado, pode começar a fundação da home")
+- Direção B, o mapa de linhas: as peças do sistema (Site, WhatsApp, Agente de IA, n8n, CRM, Rastreamento, Venda) são estações; a linha das etapas sai do mapa da abertura e desce pela margem esquerda da página até o botão do fecho, em âmbar. Acabamento de ficha técnica (ITSUA, CROX, Crosswalk): células em fio, fio de 2 px em tinta, grade de 12 colunas em fio claro, marca-texto nas tintas das etapas, números em mosaico, raio zero e nenhuma sombra. Contrato em `.bunshin/direction.md`; página aprovada em https://claude.ai/artifact/Fyk4Vo4KBL6NrdCeUUTnJ7 (versão 3).
+- Botão principal em dois blocos: a seta no bloco âmbar e o texto no bloco de tinta. Quatro tintas claras das cores da marca para o marca-texto (`design/DESIGN.md`).
+- Rótulos e números de seção ("Soluções", "01", "Visão 360", "Demonstração" e os outros) saem da tela e viram o nome acessível da seção; o resto do texto fica palavra por palavra.
+- `themeColor` #F2F1EC e `colorScheme` light (encerra a pendência 23).
+- Saem da home a molécula animada do hero (canvas e 3D), o contador que partia de zero, o ímã do cursor nos botões, o vidro fosco do topo, as manchas de luz e a janela de terminal (vira tabela de eventos). Redesign com o método bunshin do Genjutsu, nível standard, até 2 rodadas de correção.
+
+## 19/10/2026 (redesign 2026, pelo Dyones: referências "que passem confiança de consultoria, não de SaaS", sem "landing pages escuras de startup de IA"; base escolhida: "Clara, papel como fundo")
+- O redesign sai na branch `redesign-2026`, com a linha de base do site no ar em `design/baseline/`, o texto de cada rota em `content/` (fonte da verdade: o redesign não muda palavra sem decisão) e os contratos em `design/nao-pode-quebrar.md`.
+- Direção visual: base clara, com o papel (#F2F1EC) como fundo e a tinta como texto. Troca a direção escura de 09/10; a tinta fica para o rodapé e no máximo uma seção por página. Sistema em `design/DESIGN.md`: escala tipográfica de razão 1,25 a partir de 17 px (medida na ITSUA, conferida na Checkpoint), espaçamento em 4 px com seção de 64 a 96 px, curvas de movimento do Joshgrafik e quatro durações (200, 350, 500 e 900 ms). Fontes e paleta continuam as da marca; das referências vieram só proporções, ritmos e curvas.
+- Referências: sete sites em `design/referencias/`, depois de o Dyones descartar Outsource Consultants, Fox Valuations, Vuna Partners, Kohen Avocats e Dawn L. Saunders.
+
 ## 16/10/2026 (animação da raiz dos diagnósticos, pelo Dyones: "essa animação da página está marcando as formas, ficou muito amador, podemos deixar a logo da v2o5 grande no lugar dela se for melhor, aí a animação fica só no site principal")
 - A raiz de `diagnostico.v2o5.com.br` perde toda animação: sai a molécula desenhada por peças (ligações e nós sobrepostos marcavam as formas), o sinal correndo na jornada e a entrada das seções ao rolar. No lugar da molécula vai o logo C1d grande e parado, com o vetor oficial de `src/lib/marca-vetor.ts` (rede numa forma só, âmbar com respiro) e um brilho âmbar fixo atrás; a página fica sem JavaScript. A prévia (`og.jpg`) troca a molécula pelo mesmo logo e ganha `?v=2` no `og:image`. O movimento fica só no site principal.
 
@@ -257,7 +294,7 @@ Log datado. Decisão nova entra no topo do dia; decisão revogada fica riscada c
 
 ## 09/10/2026
 - Identidade raiz geral: "digitalização e aceleração de negócios com IA" (colocar no mapa, multiplicar a operação). Automotivo vira o primeiro segmento, com hub `/segmentos/revendas-de-veiculos`. Substitui "revendas desde a home" de 08/10.
-- Direção visual escura e tecnológica, com motion (seção 5 do plano e `memory/context/motion.md`). Formato editorial claro descartado.
+- ~~Direção visual escura e tecnológica, com motion (seção 5 do plano e `memory/context/motion.md`). Formato editorial claro descartado.~~ Trocada em 19/10: base clara (`design/DESIGN.md`).
 - ~~Logo: família C1. Variação final em aberto (C1, C1a, C1b, C1c ou C1b+C1c).~~ Fechado em 09/10: C1d.
 - Plugins instalados no ambiente: frontend-design, audit-suite, perf-profiler, parallax-threejs, axe-accessibility.
 - Memória do projeto em `CLAUDE.md` + `memory/`; handoff da próxima etapa em `docs/HANDOFF.md`.

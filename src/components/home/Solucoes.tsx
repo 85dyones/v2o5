@@ -1,129 +1,79 @@
-import Link from "next/link";
-import Icone from "@/components/Icone";
-import VinhetaDaLinha, { PONTO_DA_ETAPA } from "@/components/home/Vinhetas";
+import type { CSSProperties } from "react";
+import LinkOuAncora from "@/components/LinkOuAncora";
+import { COR_DA_ROTA, ComMarcas, Parada, TEXTO_DA_ETAPA, Trecho } from "@/components/rota/Rota";
 import { NOME_DA_ETAPA, PILARES, SOLUCOES, type Servico } from "@/conteudo/home";
 import type { Etapa } from "@/lib/tokens";
 
+/** A etiqueta da etapa de um serviço, na cor dela (páginas de solução também usam). */
 export function MarcaDeEtapa({ etapa }: { etapa: Etapa }) {
   return (
-    <span className="inline-flex items-center gap-2 text-[0.8125rem] font-medium text-secundario">
-      <span aria-hidden="true" className={`size-1.5 rounded-full ${PONTO_DA_ETAPA[etapa]}`} />
+    <span className="rotulo" style={{ color: TEXTO_DA_ETAPA[etapa] }}>
       {NOME_DA_ETAPA[etapa]}
     </span>
   );
 }
 
-function Rodape({ servico }: { servico: Servico }) {
-  return (
-    <div className="mt-auto flex items-center justify-between gap-4 pt-6">
-      <p className="text-sm font-medium tabular-nums text-papel/90">{servico.preco}</p>
-      <span
-        aria-hidden="true"
-        className="seta-do-cartao flex size-8 shrink-0 items-center justify-center rounded-full bg-vidro-forte text-papel contorno"
-      >
-        <Icone nome="seta" className="size-3.5" />
-      </span>
-    </div>
-  );
-}
+/** A cor do trecho no cabeçalho de cada metade: o mapa é atração, a operação começa no atendimento. */
+const ETAPA_DO_PILAR: Etapa[] = ["violeta", "verde"];
 
-type Formato = "normal" | "destaque" | "largo";
+/** Os valores em real do texto de preço, para o marca-texto. */
+const VALORES = /R\$ [\d.,]+(?: \+ R\$ [\d.,]+\/mês)?(?:\/mês)?/g;
 
 /**
- * Onde cada cartão cai na grade de 6 colunas (desktop) e 2 (tablet). No
- * mapa: três fileiras de três. Na operação: o agente de IA no bloco grande
- * com CRM e painel ao lado, depois automação, reativação e pós-venda, e as
- * integrações numa faixa inteira no fim.
+ * Uma linha do cardápio: a célula inteira é o link. A linha pinta o trecho
+ * da rota na cor da etapa do serviço e leva a parada dele.
  */
-function arranjo(pilar: string, i: number, total: number): { formato: Formato; classe: string } {
-  if (pilar === "operacao") {
-    if (i === 0) return { formato: "destaque", classe: "md:col-span-2 lg:col-span-4 lg:row-span-2" };
-    if (i === total - 1) return { formato: "largo", classe: "md:col-span-2 lg:col-span-6" };
-    return { formato: "normal", classe: "lg:col-span-2" };
-  }
-  return { formato: "normal", classe: "lg:col-span-2" };
-}
-
-function Cartao({ servico, formato, classe }: { servico: Servico; formato: Formato; classe: string }) {
-  if (formato === "destaque") {
-    return (
-      <Link href={servico.href} className={`superficie cartao-luz flex min-w-0 flex-col gap-7 p-3 ${classe}`}>
-        <div className="grid gap-x-10 gap-y-4 px-3 pt-4 md:grid-cols-2 md:px-5 md:pt-6">
-          <div>
-            <MarcaDeEtapa etapa={servico.etapa} />
-            <h4 className="mt-4 max-w-[20rem] text-[clamp(1.75rem,1.3rem+1.4vw,2.375rem)] font-semibold leading-[1.05] tracking-[-0.04em]">
-              {servico.titulo}
-            </h4>
-          </div>
-          <div className="flex flex-col md:pt-9">
-            <p className="text-[1.0625rem] leading-relaxed text-secundario">{servico.frase}</p>
-            <Rodape servico={servico} />
-          </div>
-        </div>
-        <div className="flex-1">
-          <VinhetaDaLinha vinheta={servico.vinheta} />
-        </div>
-      </Link>
-    );
-  }
-  const largo = formato === "largo";
+function LinhaDoServico({ servico }: { servico: Servico }) {
+  const estilo = { "--cor-da-rota": COR_DA_ROTA[servico.etapa] } as CSSProperties;
   return (
-    <Link
-      href={servico.href}
-      className={`superficie cartao-luz flex min-w-0 flex-col p-3 ${largo ? "lg:grid lg:grid-cols-2 lg:gap-3" : ""} ${classe}`}
-    >
-      <div className="h-52">
-        <VinhetaDaLinha vinheta={servico.vinheta} />
-      </div>
-      <div className={`flex flex-1 flex-col px-3 pb-3 pt-5 ${largo ? "lg:px-6 lg:pt-6" : ""}`}>
-        <MarcaDeEtapa etapa={servico.etapa} />
-        <h4 className="titulo-cartao mt-2.5">{servico.titulo}</h4>
-        <p className="mt-2 text-[0.9375rem] leading-relaxed text-secundario">{servico.frase}</p>
-        <Rodape servico={servico} />
-      </div>
-    </Link>
+    <li className="servico" style={estilo}>
+      <LinkOuAncora href={servico.href} className="servico-celula grid grid-cols-12 gap-x-6 gap-y-3 border-b border-linha py-6 md:py-7">
+        <Parada />
+        <span className="col-span-12 md:col-span-7">
+          <MarcaDeEtapa etapa={servico.etapa} />
+          <span className="titulo-cartao mt-2 block">{servico.titulo}</span>
+          <span className="mt-2 block max-w-[38rem] text-[0.9375rem] leading-relaxed text-texto-secundario">{servico.frase}</span>
+        </span>
+        <span className="col-span-10 self-center text-[0.9375rem] leading-relaxed tabular-nums md:col-span-4">
+          <ComMarcas texto={servico.preco} marcas={servico.preco.match(VALORES) ?? []} etapa={servico.etapa} />
+        </span>
+        <span aria-hidden="true" className="servico-seta col-span-2 self-center justify-self-end text-lg md:col-span-1">
+          →
+        </span>
+      </LinkOuAncora>
+    </li>
   );
 }
 
 /**
  * O cardápio, nas duas metades do H1: o que coloca a empresa no mapa e o que
- * multiplica a operação com IA. Cada cartão traz a cena de produto dele e o
- * preço "a partir de" da tabela (ou a linha em que vem incluso).
+ * multiplica a operação com IA. Cada serviço é uma linha, com a etapa, o
+ * preço "a partir de" da tabela (ou a linha em que vem incluso) e a seta.
  */
 export default function Solucoes() {
   return (
-    <section id="solucoes" aria-labelledby="titulo-solucoes" className="adiada py-24 md:py-36">
-      <div className="conteiner">
-        <div className="max-w-[52rem]">
-          <p className="sobretitulo">Soluções</p>
-          <h2 id="titulo-solucoes" className="titulo-secao mt-5">
-            {SOLUCOES.titulo} <span className="apagado">{SOLUCOES.apagado}</span>
-          </h2>
-          <p className="texto-guia mt-6 max-w-[38rem]">{SOLUCOES.texto}</p>
-        </div>
-
-        {PILARES.map((pilar, p) => (
-          <div key={pilar.id} className={p ? "mt-20 md:mt-28" : "mt-14 md:mt-20"}>
-            <div className="grid gap-x-10 gap-y-4 border-t border-linha pt-8 md:grid-cols-2 md:items-end">
-              <div>
-                <p className="flex items-center gap-3 text-[0.8125rem] font-medium text-secundario">
-                  <span className="numero text-ambar">{String(p + 1).padStart(2, "0")}</span>
-                  {pilar.sobretitulo}
-                </p>
-                <h3 className="mt-4 text-[clamp(1.75rem,1.3rem+1.6vw,2.625rem)] font-semibold leading-[1.05] tracking-[-0.04em]">
-                  {pilar.titulo}
-                </h3>
-              </div>
-              <p className="texto-guia max-w-[34rem] md:pb-1">{pilar.frase}</p>
-            </div>
-            <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-6">
-              {pilar.servicos.map((servico, i) => (
-                <Cartao key={servico.titulo} servico={servico} {...arranjo(pilar.id, i, pilar.servicos.length)} />
-              ))}
-            </div>
-          </div>
-        ))}
+    <Trecho id="solucoes" aria-labelledby="titulo-solucoes" etapa="violeta" etapaFim="azul">
+      <div className="relative grid grid-cols-12 gap-x-6">
+        <Parada />
+        <h2 id="titulo-solucoes" className="titulo-secao col-span-12 lg:col-span-9">
+          {SOLUCOES.titulo} <span className="apagado">{SOLUCOES.apagado}</span>
+        </h2>
+        <p className="texto-guia col-span-12 mt-6 max-w-[40rem] lg:col-span-7">{SOLUCOES.texto}</p>
       </div>
-    </section>
+
+      {PILARES.map((pilar, p) => (
+        <section key={pilar.id} aria-label={pilar.sobretitulo} className="servico pt-16 md:pt-20" style={{ "--cor-da-rota": COR_DA_ROTA[ETAPA_DO_PILAR[p]] } as CSSProperties}>
+          <div className="grid grid-cols-12 gap-x-6 gap-y-4 border-b-2 border-texto pb-6">
+            <h3 className="col-span-12 text-titulo-3 md:col-span-5">{pilar.titulo}</h3>
+            <p className="texto-guia col-span-12 md:col-span-7">{pilar.frase}</p>
+          </div>
+          <ul>
+            {pilar.servicos.map((servico) => (
+              <LinhaDoServico key={servico.titulo} servico={servico} />
+            ))}
+          </ul>
+        </section>
+      ))}
+    </Trecho>
   );
 }

@@ -1,0 +1,833 @@
+{
+  "root": "D:\\V2O5-SITE",
+  "roots_note": "detected: src",
+  "files_examined": 98,
+  "results": [
+    {
+      "check": "tell-invented-status",
+      "title": "Invented build or release status",
+      "severity": "nice-to-have",
+      "status": "clean",
+      "scanned": 61,
+      "meaning": "No version stamp, sync time or build number in the displayed text.",
+      "findings": [],
+      "group": "tells"
+    },
+    {
+      "check": "tell-locale-strip",
+      "title": "Weather, clock or timezone strip",
+      "severity": "nice-to-have",
+      "status": "clean",
+      "scanned": 61,
+      "meaning": "No clock, temperature or timezone strip in the displayed text.",
+      "findings": [],
+      "group": "tells"
+    },
+    {
+      "check": "tell-numbered-eyebrow",
+      "title": "Numbered eyebrow or tile pagination",
+      "severity": "nice-to-have",
+      "status": "clean",
+      "scanned": 61,
+      "meaning": "No zero-padded section number and no `01 / 4` counter in the displayed text.",
+      "findings": [],
+      "group": "tells"
+    },
+    {
+      "check": "tell-fake-code",
+      "title": "Part number or section code that points to nothing",
+      "severity": "nice-to-have",
+      "status": "clean",
+      "scanned": 61,
+      "meaning": "No code like SEC-01, REF-204 or MK.I in the displayed text.",
+      "findings": [],
+      "group": "tells"
+    },
+    {
+      "check": "tell-generic-step",
+      "title": "Generic step label",
+      "severity": "nice-to-have",
+      "status": "clean",
+      "scanned": 61,
+      "meaning": "No text starts with Stage, Step, Phase or Pass followed by a number.",
+      "findings": [],
+      "group": "tells"
+    },
+    {
+      "check": "tell-scroll-cue",
+      "title": "Scroll cue",
+      "severity": "nice-to-have",
+      "status": "clean",
+      "scanned": 61,
+      "meaning": "No short text telling the visitor to scroll.",
+      "findings": [],
+      "group": "tells"
+    },
+    {
+      "check": "tell-placeholder-identity",
+      "title": "Placeholder name or brand",
+      "severity": "nice-to-have",
+      "status": "clean",
+      "scanned": 61,
+      "meaning": "No John Doe, Jane Doe, Acme or lorem ipsum in the displayed text.",
+      "findings": [],
+      "group": "tells"
+    },
+    {
+      "check": "tell-round-number",
+      "title": "Round or unsourced figure",
+      "severity": "nice-to-have",
+      "status": "clean",
+      "scanned": 61,
+      "meaning": "No 99.9%, 100%, 10,000+ or 10x style figure in the displayed text.",
+      "findings": [],
+      "group": "tells"
+    },
+    {
+      "check": "tell-filler-verb",
+      "title": "Filler verb",
+      "severity": "nice-to-have",
+      "status": "clean",
+      "scanned": 61,
+      "meaning": "None of the listed filler verbs appears in the displayed text.",
+      "findings": [],
+      "group": "tells"
+    },
+    {
+      "check": "tell-em-dash",
+      "title": "U+2014 (em dash) in displayed text",
+      "severity": "nice-to-have",
+      "status": "clean",
+      "scanned": 61,
+      "meaning": "No U+2014 (em dash) in the displayed text, as a character or as an entity.",
+      "findings": [],
+      "group": "tells"
+    },
+    {
+      "check": "tell-dot-run",
+      "title": "Middle-dot run",
+      "severity": "nice-to-have",
+      "status": "clean",
+      "scanned": 61,
+      "meaning": "No displayed line strings two or more middle dots together.",
+      "findings": [],
+      "group": "tells"
+    },
+    {
+      "check": "tell-gradient-text",
+      "title": "Gradient-filled text",
+      "severity": "nice-to-have",
+      "status": "findings",
+      "scanned": 62,
+      "meaning": "3 occurrence(s) across 62 file(s) scanned.",
+      "findings": [
+        {
+          "check": "tell-gradient-text",
+          "severity": "nice-to-have",
+          "file": "src\\app\\globals.css",
+          "line": 207,
+          "text": "-webkit-background-clip: text;"
+        },
+        {
+          "check": "tell-gradient-text",
+          "severity": "nice-to-have",
+          "file": "src\\app\\globals.css",
+          "line": 208,
+          "text": "background-clip: text;"
+        },
+        {
+          "check": "tell-gradient-text",
+          "severity": "nice-to-have",
+          "file": "src\\components\\layout\\Rodape.tsx",
+          "line": 99,
+          "text": "className=\"pointer-events-none -mb-[0.2em] select-none text-center text-[clamp(7rem,27vw,24rem)] font-semibold leading-[0.8] tracking-[-0.07em] text-transparent [background-clip:text] [-webkit-backgro"
+        }
+      ],
+      "group": "tells"
+    },
+    {
+      "check": "tell-glass",
+      "title": "Glassmorphism panel",
+      "severity": "nice-to-have",
+      "status": "findings",
+      "scanned": 62,
+      "meaning": "4 occurrence(s) across 62 file(s) scanned.",
+      "findings": [
+        {
+          "check": "tell-glass",
+          "severity": "nice-to-have",
+          "file": "src\\app\\globals.css",
+          "line": 523,
+          "text": "-webkit-backdrop-filter: blur(16px) saturate(150%);"
+        },
+        {
+          "check": "tell-glass",
+          "severity": "nice-to-have",
+          "file": "src\\app\\globals.css",
+          "line": 524,
+          "text": "backdrop-filter: blur(16px) saturate(150%);"
+        },
+        {
+          "check": "tell-glass",
+          "severity": "nice-to-have",
+          "file": "src\\app\\globals.css",
+          "line": 1012,
+          "text": "-webkit-backdrop-filter: blur(0) saturate(100%);"
+        },
+        {
+          "check": "tell-glass",
+          "severity": "nice-to-have",
+          "file": "src\\app\\globals.css",
+          "line": 1013,
+          "text": "backdrop-filter: blur(0) saturate(100%);"
+        }
+      ],
+      "group": "tells"
+    },
+    {
+      "check": "tell-glow",
+      "title": "Glow or neon shadow",
+      "severity": "nice-to-have",
+      "status": "clean",
+      "scanned": 62,
+      "meaning": "No shadow with zero offset and a blur of 20px or more.",
+      "findings": [],
+      "group": "tells"
+    },
+    {
+      "check": "tell-blob",
+      "title": "Blurred background blob",
+      "severity": "nice-to-have",
+      "status": "findings",
+      "scanned": 62,
+      "meaning": "7 occurrence(s) across 62 file(s) scanned.",
+      "findings": [
+        {
+          "check": "tell-blob",
+          "severity": "nice-to-have",
+          "file": "src\\app\\globals.css",
+          "line": 434,
+          "text": ".cartao-luz::before { background: radial-gradient( 20rem circle at var(--luz-x, 30%) var(--luz-y, 0%), var(--color-ambar), rgb(242 165 22 / 0.18) 40%, transparent 70% ) }"
+        },
+        {
+          "check": "tell-blob",
+          "severity": "nice-to-have",
+          "file": "src\\app\\globals.css",
+          "line": 455,
+          "text": ".cartao-luz::after { background: radial-gradient( 28rem circle at var(--luz-x, 30%) var(--luz-y, 0%), rgb(242 165 22 / 0.06), transparent 60% ) }"
+        },
+        {
+          "check": "tell-blob",
+          "severity": "nice-to-have",
+          "file": "src\\app\\globals.css",
+          "line": 557,
+          "text": ".hero-fundo::after { background: radial-gradient(42rem 30rem at 74% 40%, rgb(242 165 22 / 0.09), transparent 70%), radial-gradient(40rem 28rem at 100% -10%, rgb(107 70 200 / 0.16), transparent 70%), r"
+        },
+        {
+          "check": "tell-blob",
+          "severity": "nice-to-have",
+          "file": "src\\components\\home\\Automotivo.tsx",
+          "line": 12,
+          "text": "pointer-events-none absolute -left-24 -top-24 size-80 rounded-full bg-[radial-gradient(closest-side,rgb(242_165_22/0.12),transparent)]"
+        },
+        {
+          "check": "tell-blob",
+          "severity": "nice-to-have",
+          "file": "src\\components\\home\\Fechamento.tsx",
+          "line": 9,
+          "text": "absolute inset-x-0 bottom-0 h-[38rem] bg-[radial-gradient(60%_70%_at_50%_100%,rgb(242_165_22/0.16),transparent)]"
+        },
+        {
+          "check": "tell-blob",
+          "severity": "nice-to-have",
+          "file": "src\\components\\home\\Fechamento.tsx",
+          "line": 14,
+          "text": "absolute inset-0 -m-8 rounded-full bg-[radial-gradient(closest-side,rgb(242_165_22/0.22),transparent)]"
+        },
+        {
+          "check": "tell-blob",
+          "severity": "nice-to-have",
+          "file": "src\\components\\home\\orquestrador\\Orquestrador.tsx",
+          "line": 7,
+          "text": "pointer-events-none absolute inset-x-0 top-1/3 -z-10 h-[40rem] bg-[radial-gradient(50%_50%_at_50%_50%,rgb(23_119_63/0.12),transparent)]"
+        }
+      ],
+      "group": "tells"
+    },
+    {
+      "check": "tell-perpetual-motion",
+      "title": "Animation that never stops",
+      "severity": "nice-to-have",
+      "status": "findings",
+      "scanned": 62,
+      "meaning": "2 occurrence(s) across 62 file(s) scanned.",
+      "findings": [
+        {
+          "check": "tell-perpetual-motion",
+          "severity": "nice-to-have",
+          "file": "src\\app\\globals.css",
+          "line": 960,
+          "text": "animation: digita 1.3s var(--ease-movimento) infinite;"
+        },
+        {
+          "check": "tell-perpetual-motion",
+          "severity": "nice-to-have",
+          "file": "src\\app\\globals.css",
+          "line": 973,
+          "text": "animation: fluxo-corre 900ms linear infinite;"
+        }
+      ],
+      "group": "tells"
+    },
+    {
+      "check": "tell-equal-cards",
+      "title": "Three equal cards",
+      "severity": "nice-to-have",
+      "status": "clean",
+      "scanned": 61,
+      "meaning": "No three-column container holds three children with the same class list.",
+      "findings": [],
+      "group": "tells"
+    },
+    {
+      "check": "tell-duplicate-cta",
+      "title": "One intent under several button labels",
+      "severity": "nice-to-have",
+      "status": "clean",
+      "scanned": 61,
+      "meaning": "Every call to action intent found uses a single label.",
+      "findings": [],
+      "group": "tells"
+    }
+  ],
+  "inventory": {
+    "durations": {
+      "note": "Durations in use. A designed system has three to five. Fifteen is an accident.",
+      "scanned": 98,
+      "distinct": 13,
+      "values": [
+        [
+          "220ms",
+          8
+        ],
+        [
+          "900ms",
+          4
+        ],
+        [
+          "160ms",
+          2
+        ],
+        [
+          "400ms",
+          1
+        ],
+        [
+          "150ms",
+          1
+        ],
+        [
+          "240ms",
+          1
+        ],
+        [
+          "700ms",
+          1
+        ],
+        [
+          "260ms",
+          1
+        ],
+        [
+          "1300ms",
+          1
+        ],
+        [
+          "320ms",
+          1
+        ],
+        [
+          "200ms",
+          1
+        ],
+        [
+          "620ms",
+          1
+        ],
+        [
+          "420ms",
+          1
+        ]
+      ],
+      "where": {
+        "220ms": [
+          "src\\app\\globals.css:240",
+          "src\\app\\globals.css:246",
+          "src\\app\\globals.css:444",
+          "src\\app\\globals.css:461"
+        ],
+        "900ms": [
+          "src\\app\\globals.css:572",
+          "src\\app\\globals.css:580",
+          "src\\app\\globals.css:973",
+          "src\\app\\globals.css:1121"
+        ],
+        "160ms": [
+          "src\\app\\globals.css:663",
+          "src\\app\\globals.css:964"
+        ],
+        "400ms": [
+          "src\\app\\globals.css:256"
+        ],
+        "150ms": [
+          "src\\app\\globals.css:313"
+        ],
+        "240ms": [
+          "src\\app\\globals.css:424"
+        ],
+        "700ms": [
+          "src\\app\\globals.css:566"
+        ],
+        "260ms": [
+          "src\\app\\globals.css:624"
+        ],
+        "1300ms": [
+          "src\\app\\globals.css:960"
+        ],
+        "320ms": [
+          "src\\app\\globals.css:968"
+        ],
+        "200ms": [
+          "src\\app\\globals.css:1103"
+        ],
+        "620ms": [
+          "src\\components\\home\\diagrama\\DiagramaInterativo.tsx:40"
+        ],
+        "420ms": [
+          "src\\components\\home\\diagrama\\DiagramaInterativo.tsx:42"
+        ]
+      }
+    },
+    "easings": {
+      "note": "Easings in use. Same rule: a handful, named, or it is not a system.",
+      "scanned": 98,
+      "distinct": 3,
+      "values": [
+        [
+          "linear",
+          29
+        ],
+        [
+          "cubic-bezier(0.23, 1, 0.32, 1)",
+          1
+        ],
+        [
+          "cubic-bezier(0.645, 0.045, 0.355, 1)",
+          1
+        ]
+      ],
+      "where": {
+        "linear": [
+          "src\\app\\cases\\motors-store\\page.tsx:88",
+          "src\\app\\globals.css:35",
+          "src\\app\\globals.css:36",
+          "src\\app\\globals.css:181",
+          "src\\app\\globals.css:206"
+        ],
+        "cubic-bezier(0.23, 1, 0.32, 1)": [
+          "src\\app\\globals.css:33"
+        ],
+        "cubic-bezier(0.645, 0.045, 0.355, 1)": [
+          "src\\app\\globals.css:34"
+        ]
+      }
+    },
+    "colors": {
+      "note": "Colours written as literal values or palette utilities. No verdict: each one should trace back to a token the design system or the thesis names.",
+      "scanned": 98,
+      "distinct": 115,
+      "values": [
+        [
+          "#000",
+          6
+        ],
+        [
+          "rgb(26_29_34/0.7)",
+          5
+        ],
+        [
+          "rgb(18_20_24/0.4)",
+          5
+        ],
+        [
+          "#121418",
+          3
+        ],
+        [
+          "rgb(242 165 22 / 0.6)",
+          3
+        ],
+        [
+          "rgb(24 27 32)",
+          3
+        ],
+        [
+          "rgb(12_13_16/0.35)",
+          3
+        ],
+        [
+          "#f2f1ec",
+          2
+        ],
+        [
+          "#2a2d34",
+          2
+        ],
+        [
+          "#1a1d22",
+          2
+        ],
+        [
+          "#a9acb4",
+          2
+        ],
+        [
+          "#5a5d66",
+          2
+        ],
+        [
+          "#f2a516",
+          2
+        ],
+        [
+          "#ffb937",
+          2
+        ],
+        [
+          "#8a5600",
+          2
+        ],
+        [
+          "#6b46c8",
+          2
+        ],
+        [
+          "#17773f",
+          2
+        ],
+        [
+          "#2457c5",
+          2
+        ],
+        [
+          "#9b8be0",
+          2
+        ],
+        [
+          "#5cc48a",
+          2
+        ]
+      ],
+      "where": {
+        "#000": [
+          "src\\app\\globals.css:441",
+          "src\\app\\globals.css:442",
+          "src\\app\\globals.css:549",
+          "src\\app\\globals.css:875",
+          "src\\components\\home\\Fechamento.tsx:10"
+        ],
+        "rgb(26_29_34/0.7)": [
+          "src\\app\\cases\\motors-store\\page.tsx:88",
+          "src\\app\\segmentos\\revendas-de-veiculos\\page.tsx:100",
+          "src\\app\\sobre\\page.tsx:109",
+          "src\\components\\home\\CaseMotors.tsx:12",
+          "src\\components\\solucoes\\PaginaDeSolucao.tsx:106"
+        ],
+        "rgb(18_20_24/0.4)": [
+          "src\\app\\cases\\motors-store\\page.tsx:88",
+          "src\\app\\segmentos\\revendas-de-veiculos\\page.tsx:100",
+          "src\\app\\sobre\\page.tsx:109",
+          "src\\components\\home\\CaseMotors.tsx:12",
+          "src\\components\\solucoes\\PaginaDeSolucao.tsx:106"
+        ],
+        "#121418": [
+          "src\\app\\globals.css:9",
+          "src\\app\\layout.tsx:23",
+          "src\\lib\\tokens.ts:15"
+        ],
+        "rgb(242 165 22 / 0.6)": [
+          "src\\app\\globals.css:270",
+          "src\\app\\globals.css:836",
+          "src\\app\\globals.css:855"
+        ],
+        "rgb(24 27 32)": [
+          "src\\app\\globals.css:833",
+          "src\\app\\globals.css:1084",
+          "src\\components\\home\\diagrama\\DiagramaVisao.tsx:228"
+        ],
+        "rgb(12_13_16/0.35)": [
+          "src\\components\\home\\Garantias.tsx:35",
+          "src\\components\\precos\\TabelaDePrecos.tsx:322",
+          "src\\components\\solucoes\\PaginaDeSolucao.tsx:228"
+        ],
+        "#f2f1ec": [
+          "src\\app\\globals.css:10",
+          "src\\lib\\tokens.ts:16"
+        ],
+        "#2a2d34": [
+          "src\\app\\globals.css:11",
+          "src\\lib\\tokens.ts:17"
+        ],
+        "#1a1d22": [
+          "src\\app\\globals.css:12",
+          "src\\lib\\tokens.ts:18"
+        ],
+        "#a9acb4": [
+          "src\\app\\globals.css:13",
+          "src\\lib\\tokens.ts:19"
+        ],
+        "#5a5d66": [
+          "src\\app\\globals.css:14",
+          "src\\lib\\tokens.ts:20"
+        ],
+        "#f2a516": [
+          "src\\app\\globals.css:15",
+          "src\\lib\\tokens.ts:21"
+        ],
+        "#ffb937": [
+          "src\\app\\globals.css:16",
+          "src\\lib\\tokens.ts:22"
+        ],
+        "#8a5600": [
+          "src\\app\\globals.css:17",
+          "src\\lib\\tokens.ts:23"
+        ],
+        "#6b46c8": [
+          "src\\app\\globals.css:18",
+          "src\\lib\\tokens.ts:24"
+        ],
+        "#17773f": [
+          "src\\app\\globals.css:19",
+          "src\\lib\\tokens.ts:25"
+        ],
+        "#2457c5": [
+          "src\\app\\globals.css:20",
+          "src\\lib\\tokens.ts:26"
+        ],
+        "#9b8be0": [
+          "src\\app\\globals.css:21",
+          "src\\lib\\tokens.ts:27"
+        ],
+        "#5cc48a": [
+          "src\\app\\globals.css:22",
+          "src\\lib\\tokens.ts:28"
+        ]
+      }
+    },
+    "radii": {
+      "note": "Corner radii in use. No verdict: compare the spread with the radius scale the design system declares.",
+      "scanned": 98,
+      "distinct": 15,
+      "values": [
+        [
+          "rounded-full",
+          57
+        ],
+        [
+          "rounded-2xl",
+          14
+        ],
+        [
+          "rounded-xl",
+          14
+        ],
+        [
+          "rounded-lg",
+          10
+        ],
+        [
+          "999px",
+          8
+        ],
+        [
+          "rounded-br-md",
+          4
+        ],
+        [
+          "rounded-md",
+          4
+        ],
+        [
+          "inherit",
+          2
+        ],
+        [
+          "rounded-bl-md",
+          2
+        ],
+        [
+          "1.25rem",
+          1
+        ],
+        [
+          "0.875rem",
+          1
+        ],
+        [
+          "1.125rem",
+          1
+        ],
+        [
+          "1px",
+          1
+        ],
+        [
+          "0.75rem",
+          1
+        ],
+        [
+          "rounded-[0.625rem]",
+          1
+        ]
+      ],
+      "where": {
+        "rounded-full": [
+          "src\\app\\diagnostico\\page.tsx:39",
+          "src\\app\\sobre\\page.tsx:61",
+          "src\\app\\sobre\\page.tsx:122",
+          "src\\components\\home\\Automotivo.tsx:14",
+          "src\\components\\home\\Automotivo.tsx:39"
+        ],
+        "rounded-2xl": [
+          "src\\app\\sobre\\page.tsx:89",
+          "src\\app\\sobre\\page.tsx:95",
+          "src\\components\\diagnostico\\Formulario.tsx:203",
+          "src\\components\\home\\diagrama\\DiagramaVisao.tsx:73",
+          "src\\components\\home\\orquestrador\\OrquestradorVisao.tsx:147"
+        ],
+        "rounded-xl": [
+          "src\\components\\diagnostico\\Formulario.tsx:260",
+          "src\\components\\home\\Automotivo.tsx:49",
+          "src\\components\\home\\HeroMolecula.tsx:189",
+          "src\\components\\home\\orquestrador\\OrquestradorVisao.tsx:124",
+          "src\\components\\home\\Vinhetas.tsx:111"
+        ],
+        "rounded-lg": [
+          "src\\components\\home\\orquestrador\\OrquestradorVisao.tsx:125",
+          "src\\components\\home\\Vinhetas.tsx:164",
+          "src\\components\\home\\Vinhetas.tsx:207",
+          "src\\components\\home\\Vinhetas.tsx:213",
+          "src\\components\\home\\Vinhetas.tsx:268"
+        ],
+        "999px": [
+          "src\\app\\globals.css:229",
+          "src\\app\\globals.css:326",
+          "src\\app\\globals.css:350",
+          "src\\app\\globals.css:703",
+          "src\\app\\globals.css:750"
+        ],
+        "rounded-br-md": [
+          "src\\components\\home\\orquestrador\\OrquestradorVisao.tsx:148",
+          "src\\components\\home\\Vinhetas.tsx:72",
+          "src\\components\\home\\Vinhetas.tsx:80",
+          "src\\components\\home\\Vinhetas.tsx:519"
+        ],
+        "rounded-md": [
+          "src\\components\\home\\Vinhetas.tsx:172",
+          "src\\components\\home\\Vinhetas.tsx:407",
+          "src\\components\\home\\Vinhetas.tsx:501",
+          "src\\components\\layout\\Topo.tsx:12"
+        ],
+        "inherit": [
+          "src\\app\\globals.css:432",
+          "src\\app\\globals.css:454"
+        ],
+        "rounded-bl-md": [
+          "src\\components\\home\\orquestrador\\OrquestradorVisao.tsx:148",
+          "src\\components\\home\\Vinhetas.tsx:73"
+        ],
+        "1.25rem": [
+          "src\\app\\globals.css:378"
+        ],
+        "0.875rem": [
+          "src\\app\\globals.css:391"
+        ],
+        "1.125rem": [
+          "src\\app\\globals.css:401"
+        ],
+        "1px": [
+          "src\\app\\globals.css:622"
+        ],
+        "0.75rem": [
+          "src\\app\\globals.css:656"
+        ],
+        "rounded-[0.625rem]": [
+          "src\\components\\home\\Vinhetas.tsx:401"
+        ]
+      }
+    },
+    "fonts": {
+      "note": "Font families named in the code. No verdict: each one should be a family the thesis names, for the reason it gives.",
+      "scanned": 98,
+      "distinct": 7,
+      "values": [
+        [
+          "font-mono",
+          5
+        ],
+        [
+          "var(--font-mono)",
+          2
+        ],
+        [
+          "var(--font-geist-sans)",
+          1
+        ],
+        [
+          "geist mono",
+          1
+        ],
+        [
+          "geist mono reserva",
+          1
+        ],
+        [
+          "geist mono reserva consolas",
+          1
+        ],
+        [
+          "var(--font-sans)",
+          1
+        ]
+      ],
+      "where": {
+        "font-mono": [
+          "src\\components\\home\\HeroMolecula.tsx:189",
+          "src\\components\\home\\TerminalDeEventos.tsx:49",
+          "src\\components\\home\\TerminalDeEventos.tsx:53",
+          "src\\components\\home\\Vinhetas.tsx:241",
+          "src\\components\\solucoes\\OQueRegistramos.tsx:50"
+        ],
+        "var(--font-mono)": [
+          "src\\app\\globals.css:186",
+          "src\\app\\globals.css:195"
+        ],
+        "var(--font-geist-sans)": [
+          "src\\app\\globals.css:30"
+        ],
+        "geist mono": [
+          "src\\app\\globals.css:31"
+        ],
+        "geist mono reserva": [
+          "src\\app\\globals.css:47"
+        ],
+        "geist mono reserva consolas": [
+          "src\\app\\globals.css:56"
+        ],
+        "var(--font-sans)": [
+          "src\\app\\globals.css:78"
+        ]
+      }
+    }
+  }
+}

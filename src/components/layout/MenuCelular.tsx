@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Icone from "@/components/Icone";
 import LinkOuAncora from "@/components/LinkOuAncora";
 import { useEffect, useId, useRef, useState } from "react";
 
@@ -29,7 +30,7 @@ export default function MenuCelular({ itens }: { itens: { rotulo: string; href: 
         aria-expanded={aberto}
         aria-controls={id}
         onClick={() => setAberto((v) => !v)}
-        className="flex min-h-11 min-w-11 items-center justify-center gap-2 rounded-full px-3 text-sm font-medium contorno-forte"
+        className="flex min-h-11 min-w-11 items-center justify-center gap-2 px-3 text-sm font-medium contorno-forte"
       >
         <svg viewBox="0 0 20 20" className="size-[1.125rem]" aria-hidden="true">
           {aberto ? (
@@ -43,7 +44,7 @@ export default function MenuCelular({ itens }: { itens: { rotulo: string; href: 
       <div
         id={id}
         hidden={!aberto}
-        className="absolute inset-x-0 top-16 h-[calc(100dvh-4rem)] overflow-y-auto border-t border-linha bg-tinta px-5 pb-8 pt-3"
+        className="absolute inset-x-0 top-[calc(4rem+2px)] h-[calc(100dvh-4rem-2px)] overflow-y-auto bg-fundo px-5 pb-8 pt-3"
       >
         <nav aria-label="Principal no celular">
           <ul>
@@ -62,6 +63,7 @@ export default function MenuCelular({ itens }: { itens: { rotulo: string; href: 
         </nav>
         <Link href="/diagnostico" onClick={() => setAberto(false)} className="botao botao-primario mt-7 w-full" data-evento="cta_click" data-local="menu">
           Pedir diagnóstico
+          <Icone nome="seta" className="seta size-4" />
         </Link>
       </div>
     </div>

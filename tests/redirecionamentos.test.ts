@@ -1,7 +1,7 @@
 import { existsSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
-import config, { REDIRECIONAMENTOS_DO_WORDPRESS } from "../next.config";
+import config, { REDIRECIONAMENTOS_DO_WORDPRESS, REDIRECIONAMENTOS_PROVISORIOS } from "../next.config";
 import { ler, RAIZ } from "./fonte";
 
 /**
@@ -14,6 +14,16 @@ const linha = seo.split("\n").find((l) => l.includes("`/jornada/`→`/sobre`"))!
 const pares = [...linha.matchAll(/`([^`]+)`→`([^`]+)`/g)].map((m) => [m[1], m[2]]);
 const tira = (r: string) => (r.length > 1 ? r.replace(/\/$/, "") : r);
 
+describe("redirecionamentos provisórios", () => {
+  it("/gestao-de-trafego vai, por 307, à seção de tráfego de /precos até ganhar texto", async () => {
+    const regras = await config.redirects!();
+    const trafego = regras.find((r) => r.source === "/gestao-de-trafego");
+    expect(trafego?.destination).toBe("/precos#titulo-trafego");
+    expect(trafego?.statusCode).toBe(307);
+    expect(REDIRECIONAMENTOS_PROVISORIOS.map((r) => r.source)).toContain("/gestao-de-trafego");
+  });
+});
+
 describe("redirecionamentos do WordPress", () => {
   it("leu a lista de seo.md", () => {
     expect(pares.length).toBeGreaterThanOrEqual(6);
@@ -21,7 +31,8 @@ describe("redirecionamentos do WordPress", () => {
 
   it("cada par de seo.md tem um 301 igual", async () => {
     const regras = await config.redirects!();
-    for (const regra of regras) expect(regra.statusCode, regra.source).toBe(301);
+    const doWordPress = new Set(REDIRECIONAMENTOS_DO_WORDPRESS.map((r) => r.source));
+    for (const regra of regras.filter((r) => doWordPress.has(r.source))) expect(regra.statusCode, regra.source).toBe(301);
     const mapa = new Map(REDIRECIONAMENTOS_DO_WORDPRESS.map((r) => [r.source, r.destination]));
     // O curinga `/wp-sitemap*.xml` tem teste próprio, logo abaixo.
     for (const [de, para] of pares.filter(([de]) => !de.includes("*"))) {

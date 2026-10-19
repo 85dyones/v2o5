@@ -5,8 +5,8 @@ import { useCarregarPerto } from "@/lib/useCarregarPerto";
 
 const importar = () => import("./DiagramaInterativo");
 
-/** Mostra o SVG do servidor até a versão interativa chegar, perto da tela. */
+/** Mostra o mapa do servidor até a versão interativa chegar, perto da tela. */
 export default function DiagramaPreguicoso({ children }: { children: ReactNode }) {
-  const { ref, Componente, chegouForaDaTela } = useCarregarPerto(importar);
-  return <div ref={ref}>{Componente ? <Componente comecarZerado={chegouForaDaTela} /> : children}</div>;
+  const { ref, Componente } = useCarregarPerto(importar);
+  return <div ref={ref}>{Componente ? <Componente /> : children}</div>;
 }

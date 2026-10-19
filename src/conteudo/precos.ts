@@ -224,7 +224,7 @@ export const LINHAS_DE_PRECO: LinhaDePreco[] = [
   {
     id: "googleAds",
     nome: "Google Ads",
-    href: "/gestao-de-trafego",
+    href: "/precos#titulo-trafego",
     grupo: "trafego",
     mensalidade: 1200,
     maisVerba: true,
@@ -235,7 +235,7 @@ export const LINHAS_DE_PRECO: LinhaDePreco[] = [
   {
     id: "metaAds",
     nome: "Meta Ads",
-    href: "/gestao-de-trafego",
+    href: "/precos#titulo-trafego",
     grupo: "trafego",
     mensalidade: 1200,
     maisVerba: true,
@@ -246,7 +246,7 @@ export const LINHAS_DE_PRECO: LinhaDePreco[] = [
   {
     id: "trafego",
     nome: "Google Ads e Meta Ads juntos",
-    href: "/gestao-de-trafego",
+    href: "/precos#titulo-trafego",
     grupo: "trafego",
     mensalidade: 1990,
     maisVerba: true,
@@ -257,7 +257,7 @@ export const LINHAS_DE_PRECO: LinhaDePreco[] = [
   {
     id: "trafegoNoCompleto",
     nome: "Google Ads e Meta Ads no Completo",
-    href: "/gestao-de-trafego",
+    href: "/precos#titulo-trafego",
     grupo: "trafego",
     mensalidade: TRAFEGO_NO_COMPLETO,
     maisVerba: true,

@@ -37,7 +37,7 @@ export function textoDoLlms(): string {
     "",
     `> Catalisador de vendas com IA. ${HERO.subtitulo}`,
     "",
-    `${EMPRESA.razaoSocial}, CNPJ ${EMPRESA.cnpj}, ${EMPRESA.cidade}. Atende empresas em todo o Brasil.`,
+    `${EMPRESA.razaoSocial}, CNPJ ${EMPRESA.cnpj}. Atende empresas em todo o Brasil.`,
     "",
     `Fundador: ${VISAO_360.fundador.nome}. ${VISAO_360.fundador.texto}`,
     "",

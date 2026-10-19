@@ -1,0 +1,410 @@
+- Starting extraction...
+  i Page redirected within same domain:
+    From: https://www.v2o5.com.br
+    To:   https://www.v2o5.com.br/
+- Navigating to https://www.v2o5.com.br (attempt 1/2)...
+  ✓ Page loaded
+- Waiting for body content to render...
+  ✓ Body content rendered
+- Waiting for SPA hydration...
+  ✓ Hydration settled (1.2s)
+- Waiting for main content...
+  ✓ Main content detected
+- Scrolling page to trigger lazy content...
+  ✓ Full page scrolled (lazy content triggered)
+- Dismissing cookie consent banners...
+  i No cookie banner detected
+- Dismissing region/interstitial modals...
+  i No interstitial modal detected
+- Final content stabilization...
+  ✓ Page fully loaded and stable
+- Validating page content...
+  ✓ Content validated: 244627 chars
+
+  Extracting design tokens...
+
+- Analyzing design system (17 parallel tasks)...
+  ✓ Manifest: theme: #121418
+  ✓ Colors: 13 found
+  ✓ Typography: 57 styles
+  ✓ Spacing: 20 values
+  ✓ Border radius: 12 values
+  ✓ Borders: 8 combinations
+  ✓ Shadows: 18 found
+  ✓ Buttons: 2 variants
+  ! Inputs: 0 styles
+  ✓ Links: 2 styles
+  ! Breakpoints: 0 detected
+  ! Icon systems: 0 detected
+  ✓ Frameworks: 3 detected
+  ✓ Gradients: 20 found
+  ✓ Motion: 9 durations, 4 easings
+
+- Extracting hover/focus state colors...
+  ✓ Hover/focus: 31 state colors found
+- Revealing hidden content (menus, carousels)...
+  i Reveal: no click-toggle menus or carousels found
+
+✓ Brand extraction complete!
+  Found 4 page(s) to analyze
+- Extracting page 2/5: /precos
+  ✓ Page loaded
+- Waiting for body content to render...
+  ✓ Body content rendered
+- Waiting for SPA hydration...
+  ✓ Hydration settled (1.3s)
+- Waiting for main content...
+  ✓ Main content detected
+- Scrolling page to trigger lazy content...
+  ✓ Full page scrolled (lazy content triggered)
+- Dismissing cookie consent banners...
+  i No cookie banner detected
+- Dismissing region/interstitial modals...
+  i No interstitial modal detected
+- Final content stabilization...
+  ✓ Page fully loaded and stable
+- Validating page content...
+  ✓ Content validated: 157167 chars
+
+  Extracting design tokens...
+
+- Analyzing design system (17 parallel tasks)...
+  ✓ Manifest: theme: #121418
+  ✓ Colors: 6 found
+  ✓ Typography: 34 styles
+  ✓ Spacing: 18 values
+  ✓ Border radius: 5 values
+  ✓ Borders: 5 combinations
+  ✓ Shadows: 8 found
+  ✓ Buttons: 2 variants
+  ! Inputs: 0 styles
+  ✓ Links: 2 styles
+  ! Breakpoints: 0 detected
+  ! Icon systems: 0 detected
+  ✓ Frameworks: 3 detected
+  ✓ Gradients: 10 found
+  ✓ Motion: 4 durations, 3 easings
+
+- Extracting hover/focus state colors...
+  ✓ Hover/focus: 34 state colors found
+- Revealing hidden content (menus, carousels)...
+  i Reveal: no click-toggle menus or carousels found
+
+✓ Brand extraction complete!
+- Extracting page 3/5: /sobre
+  ✓ Page loaded
+- Waiting for body content to render...
+  ✓ Body content rendered
+- Waiting for SPA hydration...
+  ✓ Hydration settled (1.2s)
+- Waiting for main content...
+  ✓ Main content detected
+- Scrolling page to trigger lazy content...
+  ✓ Full page scrolled (lazy content triggered)
+- Dismissing cookie consent banners...
+  i No cookie banner detected
+- Dismissing region/interstitial modals...
+  i No interstitial modal detected
+- Final content stabilization...
+  ✓ Page fully loaded and stable
+- Validating page content...
+  ✓ Content validated: 70196 chars
+
+  Extracting design tokens...
+
+- Analyzing design system (17 parallel tasks)...
+  ✓ Manifest: theme: #121418
+  ✓ Colors: 8 found
+  ✓ Typography: 29 styles
+  ✓ Spacing: 17 values
+  ✓ Border radius: 5 values
+  ✓ Borders: 4 combinations
+  ✓ Shadows: 6 found
+  ✓ Buttons: 2 variants
+  ! Inputs: 0 styles
+  ✓ Links: 2 styles
+  ! Breakpoints: 0 detected
+  ! Icon systems: 0 detected
+  ✓ Frameworks: 3 detected
+  ✓ Gradients: 8 found
+  ✓ Motion: 4 durations, 3 easings
+
+- Extracting hover/focus state colors...
+  ✓ Hover/focus: 33 state colors found
+- Revealing hidden content (menus, carousels)...
+  i Reveal: no click-toggle menus or carousels found
+
+✓ Brand extraction complete!
+- Extracting page 4/5: /diagnostico
+  ✓ Page loaded
+- Waiting for body content to render...
+  ✓ Body content rendered
+- Waiting for SPA hydration...
+  ✓ Hydration settled (1.2s)
+- Waiting for main content...
+  ✓ Main content detected
+- Scrolling page to trigger lazy content...
+  ✓ Full page scrolled (lazy content triggered)
+- Dismissing cookie consent banners...
+  i No cookie banner detected
+- Dismissing region/interstitial modals...
+  i No interstitial modal detected
+- Final content stabilization...
+  ✓ Page fully loaded and stable
+- Validating page content...
+  ✓ Content validated: 49018 chars
+
+  Extracting design tokens...
+
+- Analyzing design system (17 parallel tasks)...
+  ✓ Manifest: theme: #121418
+  ✓ Colors: 5 found
+  ✓ Typography: 23 styles
+  ✓ Spacing: 15 values
+  ✓ Border radius: 5 values
+  ✓ Borders: 4 combinations
+  ✓ Shadows: 4 found
+  ✓ Buttons: 1 variants
+  ✓ Inputs: found
+  ✓ Links: 2 styles
+  ! Breakpoints: 0 detected
+  ! Icon systems: 0 detected
+  ✓ Frameworks: 3 detected
+  ✓ Gradients: 5 found
+  ✓ Motion: 5 durations, 3 easings
+
+- Extracting hover/focus state colors...
+  ✓ Hover/focus: 24 state colors found
+- Revealing hidden content (menus, carousels)...
+  i Reveal: no click-toggle menus or carousels found
+
+✓ Brand extraction complete!
+- Extracting page 5/5: /criacao-de-sites
+  ✓ Page loaded
+- Waiting for body content to render...
+  ✓ Body content rendered
+- Waiting for SPA hydration...
+  ✓ Hydration settled (1.2s)
+- Waiting for main content...
+  ✓ Main content detected
+- Scrolling page to trigger lazy content...
+  ✓ Full page scrolled (lazy content triggered)
+- Dismissing cookie consent banners...
+  i No cookie banner detected
+- Dismissing region/interstitial modals...
+  i No interstitial modal detected
+- Final content stabilization...
+  ✓ Page fully loaded and stable
+- Validating page content...
+  ✓ Content validated: 95015 chars
+
+  Extracting design tokens...
+
+- Analyzing design system (17 parallel tasks)...
+  ✓ Manifest: theme: #121418
+  ✓ Colors: 8 found
+  ✓ Typography: 32 styles
+  ✓ Spacing: 20 values
+  ✓ Border radius: 6 values
+  ✓ Borders: 6 combinations
+  ✓ Shadows: 7 found
+  ✓ Buttons: 2 variants
+  ! Inputs: 0 styles
+  ✓ Links: 2 styles
+  ! Breakpoints: 0 detected
+  ! Icon systems: 0 detected
+  ✓ Frameworks: 3 detected
+  ✓ Gradients: 12 found
+  ✓ Motion: 5 durations, 4 easings
+
+- Extracting hover/focus state colors...
+  ✓ Hover/focus: 34 state colors found
+- Revealing hidden content (menus, carousels)...
+  i Reveal: no click-toggle menus or carousels found
+
+✓ Brand extraction complete!
+
+
+
+🎨 Brand Extraction
+│
+├─ ]8;;https://www.v2o5.com.br/\https://www.v2o5.com.br/]8;;\
+├─ 10:02
+├─ 5 pages: /, /precos, /sobre, /diagnostico, /criacao-de-sites
+├─ 59/100 consistent across 5 pages
+├─ page-local: color #2457c5, color #6b46c8, typography Geist 10px (0.63rem)/400, typography Geist 10px (0.63rem)/600, +19 more
+│
+├─ Logo
+│  ├─ inline svg · #f2f1ec
+│  ├─ ]8;;https://www.v2o5.com.br/\https://www.v2o5.com.br/]8;;\
+│  ├─ 41.59375×26px
+│  └─ Safe zone: 0px 4px 0px 4px
+│
+├─ Favicons
+│  └─ icon               ]8;;https://www.v2o5.com.br/icon.svg?icon.0elm14j1mf9e4.svg\https://www.v2o5.com.br/icon.svg?icon.0elm14j1mf9e4.svg]8;;\ · any
+│
+├─ Colors
+│  ├─ ●    #121418  background, --color-tinta  rgb(18, 20, 24)     
+│  ├─ ●    #f2f1ec  text, --color-papel, --color-linha, --color-vidro-forte, --color-vidro  rgb(242, 241, 236)  
+│  ├─ ●    #f2a516  primary, --color-ambar  rgb(242, 165, 22)   
+│  ├─ ●    #7fa3f0  accent          rgb(127, 163, 240)  
+│  ├─ ●    #2457c5  --color-azul    rgb(36, 87, 197)    
+│  ├─ ●    #ffb937  --color-ambar-forte  rgb(255, 185, 55)   
+│  ├─ ●    #17773f  --color-verde   rgb(23, 119, 63)    
+│  ├─ ●    #6b46c8  --color-violeta rgb(107, 70, 200)   
+│  ├─ ●    #5cc48a  --color-verde-claro  rgb(92, 196, 138)   
+│  ├─ ●    #2a2d34  --color-grafite rgb(42, 45, 52)     
+│  ├─ ●    #1a1d22  --color-superficie  rgb(26, 29, 34)     
+│  ├─ ●    #9b8be0  --color-violeta-claro  rgb(155, 139, 224)  
+│  ├─ ●    #a9acb4  --color-secundario  rgb(169, 172, 180)  
+│  └─ ●    #2e220e  accent          rgba(46, 34, 14, 0.55) on: Aa  hover:#372911
+│  primary elected, most used chromatic colour, declared as a custom property (--color-ambar)
+│  └─ +2 more in JSON
+│
+├─ Typography
+│  ├─ ]8;;https://www.v2o5.com.br/_next/static/immutable/media/geist_latin-s.p.4451ihsswu4yt.woff2\https://www.v2o5.com.br/_next/static/immutable/media/geist_latin-s.p.4451ihsswu4yt.woff2]8;;\
+│  ├─ ]8;;https://www.v2o5.com.br/media/geist_latin-s.p.4451ihsswu4yt.woff2\https://www.v2o5.com.br/media/geist_latin-s.p.4451ihsswu4yt.woff2]8;;\
+│  ├─ Geist [ 384px (display), 80px (display), 70px (display), 56px (heading-2), 42px (heading-3), 38px (heading-4), 34px (text), 32px (heading-2), 28px (heading-3), 24px (body), 22px (heading-2), 20px (link), 19px (body), 18px (body), 17px (link), 16px (body), 15px (link), 14px (link), 13px (body), 12px (caption), 11px (caption), 10px (caption) ]
+│  │  └─ Weights: 500, 600
+│  └─ Geist Mono [ 17px (text), 14px (text), 13px (text), 12px (caption), 11px (caption) ]
+│     └─ Weights: 500
+│
+├─ Spacing
+│  ├─ System: 4px
+│  ├─ 2px      0.13rem
+│  ├─ 16px     1.00rem
+│  ├─ 12px     0.75rem
+│  ├─ 6px      0.38rem
+│  ├─ 20px     1.25rem
+│  ├─ 28px     1.75rem
+│  ├─ 24px     1.50rem
+│  ├─ 8px      0.50rem
+│  ├─ 4px      0.25rem
+│  ├─ 32px     2.00rem
+│  ├─ 10px     0.63rem
+│  ├─ 112px    7.00rem
+│  ├─ 64px     4.00rem
+│  ├─ 14px     0.88rem
+│  └─ 36px     2.25rem
+│
+├─ Border Radius
+│  ├─ 9999px (a, button, span, p, tablist)
+│  ├─ 999px (a, p, badge, span)
+│  ├─ 20px (a, div, figure, dl)
+│  ├─ 8px (li, div, span)
+│  ├─ 12px (div, p, span, li)
+│  ├─ 14px (div)
+│  ├─ 6px (V2O5 Vendas e Tecnologia, página inicial, span, div)
+│  ├─ 16px (div)
+│  ├─ 16px 16px 6px (p)
+│  └─ 16px 16px 16px 6px (p)
+│
+├─ Borders
+│  ├─ ● 0px 0px 1px solid    #f2f1ec   rgba(242, 241, 236, 0.08) (li, div, details)
+│  ├─ ● 1px 0px 0px solid    #f2f1ec   rgba(242, 241, 236, 0.08) (div, li, figure, p, figcaption)
+│  ├─ ● 0px 0px 0px 1px solid    #f2f1ec   rgba(242, 241, 236, 0.08) (div, li)
+│  └─ ● 0px 0px 1px solid    #f2f1ec   rgb(242, 241, 236) (header, div, figcaption)
+│
+├─ Shadows
+│  ├─ ● rgba(242, 241, 236, 0.08) 0px 0px 0px 1px inset
+│  ├─ ● rgba(0, 0, 0, 0.3) 0px 1px 2px 0px, rgba(0, 0, 0, 0.8) 0px 28px 56px -32px
+│  ├─ ● rgba(255, 218, 150, 0.45) 0px 1px 0px 0px inset, rgba(242, 165, 22, 0.5) 0px 0px 0px 1px inset, rgba(242, 165, 22, 0.55) 0px -10px 20px -12px inset, rgba(242, 165, 22, 0.6) 0px 14px 34px -16px
+│  ├─ ● rgba(242, 241, 236, 0.15) 0px 0px 0px 1px inset
+│  ├─ ● rgba(242, 241, 236, 0.08) 0px 0px 0px 1px inset, rgba(0, 0, 0, 0.6) 0px 12px 24px -16px inset
+│  ├─ ● rgba(242, 241, 236, 0.14) 0px 0px 0px 1px inset, rgba(255, 255, 255, 0.06) 0px 1px 0px 0px inset
+│  ├─ ● rgba(170, 240, 200, 0.4) 0px 1px 0px 0px inset, rgba(92, 196, 138, 0.55) 0px 0px 0px 1px inset, rgba(0, 0, 0, 0.9) 0px 14px 34px -14px
+│  ├─ ● rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgb(14, 15, 19) 0px 0px 0px 4px, rgba(0, 0, 0, 0) 0px 0px 0px 0px
+│  └─ +1 more
+│
+├─ Gradients
+│  ├─ linear ·       ×64
+│  ├─ linear ·    ×64
+│  ├─ radial ·       ×30
+│  ├─ linear ·    ×30
+│  └─ radial ·       ×16
+│
+├─ Buttons
+│  └─ Variant:    #2e220e   rgba(46, 34, 14, 0.55)
+│     └─ Default
+│        ├─ bg:    #2e220e   rgba(46, 34, 14, 0.55)
+│        ├─ text:    #f2f1ec   rgb(242, 241, 236)
+│        ├─ padding: 0px 22px
+│        ├─ radius: 999px
+│        └─ shadow: rgba(255, 218, 150, 0.45) 0px 1px 0px...
+│
+├─ Badges / Tags / Pills
+│  ├─ Neutral
+│  │  ├─ Pill
+│  │  │  ├─ bg:    #f2f1ec   rgba(242, 241, 236, 0.08)
+│  │  │  ├─ text:    #f2f1ec   rgb(242, 241, 236)
+│  │  │  ├─ padding: 0px 8px
+│  │  │  ├─ radius: 999px
+│  │  │  ├─ font-size: 12px
+│  │  │  └─ font-weight: 500
+│  │  └─ Pill
+│  │     ├─ bg:    #f2f1ec   rgba(242, 241, 236, 0.08)
+│  │     ├─ text:    #a9acb4   rgb(169, 172, 180)
+│  │     ├─ padding: 0px 8px
+│  │     ├─ radius: 999px
+│  │     ├─ font-size: 12px
+│  │     └─ font-weight: 500
+│
+├─ Inputs
+│  ├─ Text Inputs
+│  │  ├─ text
+│  │  │  ├─ Default
+│  │  │  │  ├─ bg:    #0c0d10   rgba(12, 13, 16, 0.55)
+│  │  │  │  ├─ text:    #f2f1ec   rgb(242, 241, 236)
+│  │  │  │  ├─ padding: 10px 14px
+│  │  │  │  └─ radius: 12px
+│  │  └─ text
+│  │     ├─ Default
+│  │     │  └─ text:    #f2f1ec   rgb(242, 241, 236)
+│  ├─ Checkboxes
+│  │  └─ checkbox
+│  │     ├─ Default
+│  │     │  └─ text:    #f2f1ec   rgb(242, 241, 236)
+│  └─ Select Dropdowns
+│     └─ select-one
+│        ├─ Default
+│        │  ├─ bg:    #0c0d10   rgba(12, 13, 16, 0.55)
+│        │  ├─ text:    #f2f1ec   rgb(242, 241, 236)
+│        │  ├─ padding: 10px 40px 10px 14px
+│        │  └─ radius: 12px
+│
+├─ Links
+│  ├─    #f2f1ec   rgb(242, 241, 236)
+│  └─    #a9acb4   rgb(169, 172, 180)
+│     ├─ Default
+│     │  └─ decoration: underline 1px rgba(242, 241, 236, 0.15)
+│
+├─ Frameworks
+│  ├─ ● React 19.3.0-canary · 100% of page DOM property __reactFiber$, window.renderer:react-dom
+│  ├─ ● Next.js 16.4.0 window.next 16.4.0, window.__next_f
+│  └─ ● Tailwind CSS 4 CSS variables --tw-*, class h-[1.625rem] x284
+│
+├─ Motion
+│  ├─ Scale  0.15s  0.16s  0.2s  0.22s  0.24s  0.36s  0.4s  0.65s  0.7s  0.9s
+│  ├─ Easing ease (ease)
+│  ├─ By context
+│  │  ├─ link  0.22s / 0.15s / 0.24s · ease [background-color, color, text-decoration-color]
+│  │  ├─ card  0.22s · ease [transform, background-color, color]
+│  │  ├─ button  0.2s / 0.15s · ease [opacity, color, background-color]
+│  ├─ Hover patterns
+│  │  ├─ color-shift a "Soluções"
+│  └─ Keyframes
+│     ├─ linha-aparece auto [other]
+│     ├─ topo-aparece auto [other]
+│     ├─ digita 1.3s [other]
+│     ├─ ponto-costura auto [other]
+│     └─ crm-atualiza 0.9s [other]
+│
+│
+└─ ✓ Complete
+
+
+✨ Analysis summary: 11 colors, 43 text styles, 0 breakpoints.
+   Paths: (5 pages merged: /, /precos, /sobre, /diagnostico, /criacao-de-sites)
+   Flags: --crawl 5 --save-output --design-md
+💾 JSON saved (--save-output): output/v2o5.com.br/2026-10-19T00-10-52-231Z_v0.39.2.json
+💾 DESIGN.md saved (--design-md): output/v2o5.com.br/DESIGN.md

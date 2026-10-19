@@ -71,13 +71,6 @@ export const PAGINAS: Pagina[] = [
     pronta: true,
   },
   {
-    rota: "/gestao-de-trafego",
-    titulo: "Tráfego pago no Google e na Meta",
-    descricao: "Campanhas no Google Ads e na Meta (Instagram e Facebook), ajustadas pelo que virou venda.",
-    atualizadaEm: "2026-10-09",
-    pronta: false,
-  },
-  {
     rota: "/segmentos/revendas-de-veiculos",
     titulo: "Sistema de vendas para revendas de veículos",
     descricao:
