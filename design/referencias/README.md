@@ -55,6 +55,18 @@ Achadas no índice do Awwwards (2.904 sites) com busca por `business-corporate`,
 - **Formulário na primeira dobra** (vinha da Kohen). Hoje `/diagnostico` já põe o formulário ao lado do texto; nenhum dos sete faz isso na home.
 - **Retrato cortando o nome gigante** (vinha da Dawn). Só existe como combinação dos três sites da tabela.
 
+## Dembrandt (19/10/2026)
+
+Três das sete passaram pelo Dembrandt 0.39.2 com `--design-md --save-output`, só a home de cada uma, para o `design/DESIGN.md` da V2O5:
+
+| Pasta | Site | Papel no DESIGN.md |
+|---|---|---|
+| `dembrandt/itsua/` | itsua.com | A: escala tipográfica (razão 1,25) e ritmo de espaçamento |
+| `dembrandt/joshgrafik/` | joshgrafik.com | B: curvas e durações de movimento |
+| `dembrandt/checkpoint/` | checkpointresearch.ca | conferência da escala num site de consultoria |
+
+Cada pasta tem o `DESIGN.md` gerado, a extração completa (`dembrandt-2026-10-19.json`) e a saída do terminal (`saida.txt`). Paleta, fonte e layout delas não foram usados.
+
 ## Recortes
 
 `recortes/` guarda os trechos das capturas que provam cada linha da tabela de lacunas, em 1000 px de largura. Saíram das capturas da página inteira com o `ffmpeg`. Os da Checkpoint mostram o banner de cookies do site por cima do canto direito da abertura.

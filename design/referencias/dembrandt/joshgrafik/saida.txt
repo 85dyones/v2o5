@@ -1,0 +1,163 @@
+- Starting extraction...
+  ✓ Page loaded
+- Waiting for body content to render...
+  ✓ Body content rendered
+- Waiting for SPA hydration...
+  ✓ Hydration settled (8.0s)
+- Waiting for main content...
+  ✓ Main content detected
+- Scrolling page to trigger lazy content...
+  ✓ Full page scrolled (lazy content triggered)
+- Dismissing cookie consent banners...
+  i No cookie banner detected
+- Dismissing region/interstitial modals...
+  i No interstitial modal detected
+- Final content stabilization...
+  ✓ Page fully loaded and stable
+- Validating page content...
+  ✓ Content validated: 22017 chars
+
+  Extracting design tokens...
+
+- Analyzing design system (17 parallel tasks)...
+  ✓ Colors: 5 found
+  ✓ Typography: 28 styles
+  ✓ Spacing: 20 values
+  ✓ Border radius: 2 values
+  ✓ Borders: 9 combinations
+  ! Shadows: 0 found
+  ✓ Buttons: 4 variants
+  ! Inputs: 0 styles
+  ✓ Links: 2 styles
+  ✓ Breakpoints: 5 detected
+  ✓ Icon systems: 1 detected
+  ✓ Frameworks: 1 detected
+  ✓ Gradients: 1 found
+  ✓ Motion: 10 durations, 5 easings
+
+- Extracting hover/focus state colors...
+  ✓ Hover/focus: 14 state colors found
+- Revealing hidden content (menus, carousels)...
+  i Reveal: no click-toggle menus or carousels found
+
+✓ Brand extraction complete!
+
+
+
+🎨 Brand Extraction
+│
+├─ ]8;;https://www.joshgrafik.com/\https://www.joshgrafik.com/]8;;\
+├─ 03:48
+│
+├─ Logo
+│  ├─ inline svg · #0d0d0f
+│  ├─ ]8;;https://www.joshgrafik.com/\https://www.joshgrafik.com/]8;;\
+│  ├─ 240×26px
+│
+├─ Favicons
+│  ├─ icon               ]8;;https://www.joshgrafik.com/favicon.svg\https://www.joshgrafik.com/favicon.svg]8;;\
+│  ├─ og:image           ]8;;https://www.joshgrafik.com/og-image.png\https://www.joshgrafik.com/og-image.png]8;;\
+│  └─ twitter:image      ]8;;https://www.joshgrafik.com/og-image.png\https://www.joshgrafik.com/og-image.png]8;;\
+│
+├─ Colors
+│  ├─ ●    #f1f1f1  background, --bg  rgb(241, 241, 241)  
+│  ├─ ●    #0d0d0f  text, primary, --ink  rgb(13, 13, 15)     
+│  ├─ ●    #8a8a8a  --muted-soft    rgb(138, 138, 138)  
+│  ├─ ●    #7a7a7a  --muted         rgb(122, 122, 122)  
+│  ├─ ●    #e2e2e2  --line-soft     rgb(226, 226, 226)  
+│  ├─ ●    #b8b8b8  --faint         rgb(184, 184, 184)  
+│  ├─ ●    #2e2e2e  --line-dark     rgb(46, 46, 46)     
+│  ├─ ●    #1c1c1e  --reel          rgb(28, 28, 30)     
+│  ├─ ●    #dadada  --line-nav      rgb(218, 218, 218)  
+│  ├─ ●    #ffffff  --white         rgb(255, 255, 255)  
+│  ├─ ●    #d4d4d4  --line          rgb(212, 212, 212)  
+│  └─ ●    #101010                  rgb(16, 16, 16)     
+│  primary elected, recurring call-to-action background (--ink)
+│
+├─ Typography
+│  ├─ Fonts: DM Mono, Inter Tight
+│  ├─ ]8;;https://fonts.googleapis.com/css2?family=DM+Mono:wght@400&family=Inter+Tight:wght@400;450;500&display=swap\https://fonts.googleapis.com/css2?family=DM+Mono:wght@400&family=Inter+Tight:wght@400;450;500&display=swap]8;;\
+│  └─ Suisse Intl [ 134px (ui), 112px (display), 76px (display), 44px (link), 40px (link), 32px (text), 20px (body), 17px (link), 15px (body), 13px (body), 12px (caption) ]
+│     └─ Weights: 450, 500
+│
+├─ Spacing
+│  ├─ System: custom
+│  ├─ 3px      0.19rem
+│  ├─ 4px      0.25rem
+│  ├─ 4.48px   0.28rem
+│  ├─ 6px      0.38rem
+│  ├─ 6.08px   0.38rem
+│  ├─ 8px      0.50rem
+│  ├─ 9.12px   0.57rem
+│  ├─ 10px     0.63rem
+│  ├─ 12px     0.75rem
+│  ├─ 22px     1.38rem
+│  ├─ 22.8px   1.43rem
+│  ├─ 28px     1.75rem
+│  ├─ 33.6px   2.10rem
+│  ├─ 36px     2.25rem
+│  └─ 40px     2.50rem
+│
+├─ Border Radius
+│  └─ 50% (span)
+│
+├─ Borders
+│  ├─ ● 0px 0px 1px none none solid    #0d0d0f   rgb(13, 13, 15) (header, button, a, section, div)
+│  ├─ ● 0px 1px 1px 0px none solid solid none    #0d0d0f   rgb(13, 13, 15) (div)
+│  ├─ ● 1px 0px 0px solid none none    #d4d4d4   rgb(212, 212, 212) (a, div, dl)
+│  └─ ● 0px 0px 1px none none solid    #ffffff   rgb(255, 255, 255) (div, li)
+│
+├─ Gradients
+│  └─ linear ·    ×9
+│
+├─ Buttons
+│  ├─ Variant:    #ffffff   rgb(255, 255, 255)
+│  │  └─ Default
+│  │     ├─ bg:    #ffffff   rgb(255, 255, 255)
+│  │     ├─ text:    #0d0d0f   rgb(13, 13, 15)
+│  │     └─ padding: 6px 10px
+│  └─ Variant:    #0d0d0f   rgb(13, 13, 15)
+│     └─ Default
+│        ├─ bg:    #0d0d0f   rgb(13, 13, 15)
+│        ├─ text:    #ffffff   rgb(255, 255, 255)
+│        └─ padding: 6px 10px
+│
+├─ Links
+│  ├─    #0d0d0f   rgb(13, 13, 15)
+│  │  ├─ Default
+│  │  └─ Hover
+│  └─    #ffffff   rgb(255, 255, 255)
+│     ├─ Default
+│     └─ Hover
+│        └─ color:    var(--ink) var(--ink)
+│
+├─ Breakpoints
+│  └─ 1300px → 1100px → 991px → 860px → 478px
+│
+├─ Icon System
+│  └─ SVG Icons svg
+│
+├─ Frameworks
+│  └─ ● Astro 5.18.2 generator Astro v5.18.2, resource _astro/index.DE_QAvs9.css
+│
+├─ Motion
+│  ├─ Scale  0.2s  0.25s  0.3s  0.35s  0.4s  0.45s  0.6s  0.9s  1.1s  1.2s
+│  ├─ Easing cubic-bezier(0.22, 1, 0.36, 1)
+│  ├─ By context
+│  │  ├─ hero  0.45s [transform]
+│  │  ├─ link  0.25s / 0.35s / 0.4s [padding, background-color, color]
+│  │  ├─ button  0.25s / 0.3s / 0.35s · ease [color, gap, transform]
+│  │  ├─ media  1.1s / 0.9s [transform, opacity]
+│  │  ├─ card  0.6s · ease-in [transform, grid-template-rows]
+│  └─ Keyframes
+│     ├─ mask-up 1.1s [hero]
+│     └─ reel-spin 0.8s [other]
+│
+│
+└─ ✓ Complete
+
+
+✨ Analysis summary: 6 colors, 28 text styles, 5 breakpoints.
+   Flags: --save-output --design-md
+💾 JSON saved (--save-output): output/joshgrafik.com/2026-10-19T01-03-48-194Z_v0.39.2.json
+💾 DESIGN.md saved (--design-md): output/joshgrafik.com/DESIGN.md

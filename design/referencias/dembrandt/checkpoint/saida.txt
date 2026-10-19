@@ -1,0 +1,203 @@
+- Starting extraction...
+  ✓ Page loaded
+- Waiting for body content to render...
+  ✓ Body content rendered
+- Waiting for SPA hydration...
+  ✓ Hydration settled (8.0s)
+- Waiting for main content...
+  ✓ Main content detected
+- Scrolling page to trigger lazy content...
+  ✓ Full page scrolled (lazy content triggered)
+- Dismissing cookie consent banners...
+  ✓ Cookie banner dismissed (text:Accept)
+- Dismissing region/interstitial modals...
+  i No interstitial modal detected
+- Final content stabilization...
+  ✓ Page fully loaded and stable
+- Validating page content...
+  ✓ Content validated: 44629 chars
+
+  Extracting design tokens...
+
+- Analyzing design system (17 parallel tasks)...
+  ✓ SVG logo colors: 6 injected
+  ✓ Colors: 10 found
+  ✓ Typography: 43 styles
+  ✓ Spacing: 20 values
+  ✓ Border radius: 3 values
+  ✓ Borders: 17 combinations
+  ✓ Shadows: 2 found
+  ✓ Buttons: 3 variants
+  ✓ Inputs: found
+  ✓ Links: 3 styles
+  ✓ Breakpoints: 8 detected
+  ✓ Icon systems: 1 detected
+  ✓ Frameworks: 4 detected
+  ✓ Gradients: 1 found
+  ✓ Motion: 3 durations, 1 easings
+
+- Extracting hover/focus state colors...
+  ! Hover/focus: 0 state colors found
+- Revealing hidden content (menus, carousels)...
+  ✓ Reveal: 1 menus opened, 0 carousel advances, +0 colors
+
+✓ Brand extraction complete!
+
+
+
+🎨 Brand Extraction
+│
+├─ ]8;;https://www.checkpointresearch.ca/\https://www.checkpointresearch.ca/]8;;\
+├─ 03:50
+│
+├─ Logo
+│  ├─ inline svg · #2552fc
+│  ├─ ]8;;https://www.checkpointresearch.ca/\https://www.checkpointresearch.ca/]8;;\
+│  ├─ 199.1875×39.828125px
+│
+├─ Favicons
+│  ├─ shortcut icon      ]8;;https://cdn.prod.website-files.com/6a1492d42d06d912c05fa749/6a1492d42d06d912c05fa7de_Frame%201410137750.png\https://cdn.prod.website-files.com/6a1492d42d06d912c05fa749/6a1492d42d06d912c05fa7de_Frame%201410137750.png]8;;\
+│  ├─ apple-touch-icon   ]8;;https://cdn.prod.website-files.com/6a1492d42d06d912c05fa749/6a1492d42d06d912c05fa7df_Frame%201410137751.png\https://cdn.prod.website-files.com/6a1492d42d06d912c05fa749/6a1492d42d06d912c05fa7df_Frame%201410137751.png]8;;\
+│  └─ og:image           ]8;;https://cdn.prod.website-files.com/6a1492d42d06d912c05fa749/6a63b71e455a04c9ea7b2511_opengraph.png\https://cdn.prod.website-files.com/6a1492d42d06d912c05fa749/6a63b71e455a04c9ea7b2511_opengraph.png]8;;\
+│
+├─ Colors
+│  ├─ ●    #fffdfd  background, --white  rgb(255, 253, 253)  
+│  ├─ ●    #17171a  text, --black   rgb(23, 23, 26)     
+│  ├─ ●    #2552fc  primary         rgb(37, 82, 252)    
+│  ├─ ●    #aaaaaa  --_primitives---colors--neutral-light  rgb(170, 170, 170)  
+│  ├─ ●    #ffffff  --_primitives---opacity--white-5, --_primitives---opacity--white-60, --_primitives---opacity--white-50, --_primitives---opacity--white-40  rgba(255, 255, 255, 0.050980392156862744)
+│  ├─ ●    #000000  --_primitives---opacity--neutral-darkest-40, --_primitives---opacity--neutral-darkest-10, --_primitives---opacity--neutral-darkest-20, --_primitives---opacity--neutral-darkest-50, --_primitives---opacity--neutral-darkest-30  rgba(0, 0, 0, 0.4)  
+│  ├─ ●    #616162  --grey          rgb(97, 97, 98)     
+│  ├─ ●    #eeeeee  --_primitives---colors--neutral-lightest  rgb(238, 238, 238)  
+│  ├─ ●    #cccccc  --_primitives---colors--neutral-lighter  rgb(204, 204, 204)  
+│  ├─ ●    #b1b1b1  neutral         rgb(177, 177, 177)  
+│  ├─ ●    #f7faf2                  rgb(247, 250, 242)  
+│  ├─ ●    #1041ff                  rgb(16, 65, 255)    
+│  ├─ ●    #fbad36                  rgb(251, 173, 54)   
+│  └─ ●    #f9fcf3                  rgb(249, 252, 243)  
+│  primary elected, near-neutral pick replaced by a declared chromatic token (--blue)
+│  └─ +14 more in JSON
+│
+├─ Typography
+│  ├─ ]8;;https://cdn.prod.website-files.com/6a1492d42d06d912c05fa749/6a1492d42d06d912c05fa7bf_JetBrainsMono-Medium.ttf\https://cdn.prod.website-files.com/6a1492d42d06d912c05fa749/6a1492d42d06d912c05fa7bf_JetBrainsMono-Medium.ttf]8;;\
+│  ├─ ]8;;https://cdn.prod.website-files.com/6a1492d42d06d912c05fa749/6a1492d42d06d912c05fa7c0_JetBrainsMono-Light.ttf\https://cdn.prod.website-files.com/6a1492d42d06d912c05fa749/6a1492d42d06d912c05fa7c0_JetBrainsMono-Light.ttf]8;;\
+│  ├─ ]8;;https://cdn.prod.website-files.com/6a1492d42d06d912c05fa749/6a1492d42d06d912c05fa7c1_JetBrainsMono-ExtraLight.ttf\https://cdn.prod.website-files.com/6a1492d42d06d912c05fa749/6a1492d42d06d912c05fa7c1_JetBrainsMono-ExtraLight.ttf]8;;\
+│  ├─ +11 more
+│  ├─ Doto [ 110px (heading-2), 20px (text) ]
+│  │  └─ Weights: 700
+│  ├─ Unbounded [ 100px (display), 80px (heading-2), 44px (heading-2), 40px (heading-3), 36px (text), 28px (text), 24px (heading-3), 16px (text) ]
+│  │  └─ Weights: 300, 500
+│  └─ Jet Brains Mono [ 80px (heading-2), 48px (text), 36px (text), 32px (heading-3), 26px (text), 24px (body), 20px (heading-2), 19px (body), 18px (ui), 16px (link), 15px (ui) ]
+│     └─ Weights: 200, 300, 500, 600
+│
+├─ Spacing
+│  ├─ System: custom
+│  ├─ 1.992px  0.12rem
+│  ├─ 2.84375px 0.18rem
+│  ├─ 4px      0.25rem
+│  ├─ 9px      0.56rem
+│  ├─ 9.96px   0.62rem
+│  ├─ 10px     0.63rem
+│  ├─ 15.3125px 0.96rem
+│  ├─ 15.936px 1.00rem
+│  ├─ 15.9375px 1.00rem
+│  ├─ 17.8906px 1.12rem
+│  ├─ 19.92px  1.25rem
+│  ├─ 20px     1.25rem
+│  ├─ 26.625px 1.66rem
+│  ├─ 29.88px  1.87rem
+│  └─ 32px     2.00rem
+│
+├─ Border Radius
+│  ├─ 2px (button)
+│  └─ 20px (div)
+│
+├─ Borders
+│  ├─ ● 2px dotted    #b1b1b1   rgb(177, 177, 177) (div, svg)
+│  ├─ ● 1px solid    #2552fc   rgb(37, 82, 252) (button, div)
+│  ├─ ● 1px dashed    #2552fc   rgb(37, 82, 252) (div, modal)
+│  ├─ ● 0px 0px 1px none none dashed    #17171a   rgb(23, 23, 26) (div)
+│  ├─ ● 1px 1px 1px 0px dashed dashed dashed dotted    #2552fc   rgb(37, 82, 252) (div)
+│  ├─ ● 1px solid    #616162   rgb(97, 97, 98) (input)
+│  ├─ ● 1px 0px 0px dashed none none    #fffdfd   rgb(255, 253, 253) (div)
+│  ├─ ● 0px 0px 0px 3px none none none solid    #17171a   rgb(23, 23, 26) (div)
+│  ├─ ● 1px solid    #17171a   rgb(23, 23, 26) (input)
+│  └─ ● 1px solid    #146ef5   rgb(20, 110, 245) (button)
+│
+├─ Gradients
+│  └─ linear ·      
+│
+├─ Inputs
+│  ├─ Text Inputs
+│  │  ├─ text
+│  │  │  ├─ Default
+│  │  │  │  ├─ text:    #17171a   rgb(23, 23, 26)
+│  │  │  │  ├─ border: 1px solid rgb(97, 97, 98)
+│  │  │  │  ├─ padding: 0px 11.952px
+│  │  │  └─ Focus
+│  │  │     ├─ bg:    #000000   rgba(0, 0, 0, 0)
+│  │  │     ├─ border-color:    var(--white) var(--white)
+│  │  │     └─ outline: 0px
+│  │  └─ email
+│  │     ├─ Default
+│  │     │  ├─ text:    #fffdfd   rgb(255, 253, 253)
+│  │     │  ├─ padding: 0px 11.952px 0px 0px
+│  │     └─ Focus
+│  │        ├─ bg:    #000000   rgba(0, 0, 0, 0)
+│  │        ├─ border-color:    var(--white) var(--white)
+│  │        └─ outline: 0px
+│  └─ Checkboxes
+│     └─ checkbox
+│        ├─ Default
+│        │  ├─ text:    #17171a   rgb(23, 23, 26)
+│        │  ├─ border: 1px solid rgb(23, 23, 26)
+│        │  ├─ padding: 1.992px
+│        └─ Focus
+│           ├─ border-color:    var(--_primitives---colors--neutral-darkest) var(--_primitives---colors--neutral-darkest)
+│           └─ outline: 0px
+│
+├─ Links
+│  ├─    #2552fc   rgb(37, 82, 252)
+│  │  ├─ Default
+│  │  │  ├─ decoration: underline
+│  │  └─ Hover
+│  ├─    #17171a   rgb(23, 23, 26)
+│  │  ├─ Default
+│  │  └─ Hover
+│  └─    #fffdfd   rgb(255, 253, 253)
+│     ├─ Default
+│     │  ├─ decoration: underline
+│     └─ Hover
+│        └─ color:    #2a4d60   rgb(42, 77, 96)
+│
+├─ Breakpoints
+│  └─ 1440px → 991px → 768px → 767px → 480px → 479px → 478px → 0px
+│
+├─ Icon System
+│  └─ SVG Icons svg
+│
+├─ Frameworks
+│  ├─ ● jQuery 3.5.1 banner jQuery v3.5.1, window.jQuery 3.5.1
+│  ├─ ● Webflow attribute data-wf-site, attribute data-wf-page
+│  ├─ ● Bulma class is-light, class is-medium x2
+│  └─ ● Swiper 11.2.10 class swiper-wrapper x12, CSS variables --swiper-*
+│
+├─ Motion
+│  ├─ Scale  0.2s  0.3s  0.4s
+│  ├─ Easing ease (ease)
+│  ├─ By context
+│  │  ├─ nav  0.3s · ease [width]
+│  │  ├─ button  0.2s · ease [border-color, background-color, color]
+│  │  ├─ link  0.3s · ease [box-shadow]
+│  │  ├─ card  0.3s · ease [opacity, color]
+│  └─ Keyframes
+│     └─ bulb-float 30s [other]
+│
+│
+└─ ✓ Complete
+
+
+✨ Analysis summary: 10 colors, 43 text styles, 8 breakpoints.
+   Flags: --save-output --design-md
+💾 JSON saved (--save-output): output/checkpointresearch.ca/2026-10-19T01-03-50-809Z_v0.39.2.json
+💾 DESIGN.md saved (--design-md): output/checkpointresearch.ca/DESIGN.md

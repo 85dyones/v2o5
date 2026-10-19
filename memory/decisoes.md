@@ -2,6 +2,11 @@
 
 Log datado. Decisão nova entra no topo do dia; decisão revogada fica riscada com a data da troca.
 
+## 19/10/2026 (redesign 2026, pelo Dyones: referências "que passem confiança de consultoria, não de SaaS", sem "landing pages escuras de startup de IA"; base escolhida: "Clara, papel como fundo")
+- O redesign sai na branch `redesign-2026`, com a linha de base do site no ar em `design/baseline/`, o texto de cada rota em `content/` (fonte da verdade: o redesign não muda palavra sem decisão) e os contratos em `design/nao-pode-quebrar.md`.
+- Direção visual: base clara, com o papel (#F2F1EC) como fundo e a tinta como texto. Troca a direção escura de 09/10; a tinta fica para o rodapé e no máximo uma seção por página. Sistema em `design/DESIGN.md`: escala tipográfica de razão 1,25 a partir de 17 px (medida na ITSUA, conferida na Checkpoint), espaçamento em 4 px com seção de 64 a 96 px, curvas de movimento do Joshgrafik e quatro durações (200, 350, 500 e 900 ms). Fontes e paleta continuam as da marca; das referências vieram só proporções, ritmos e curvas.
+- Referências: sete sites em `design/referencias/`, depois de o Dyones descartar Outsource Consultants, Fox Valuations, Vuna Partners, Kohen Avocats e Dawn L. Saunders.
+
 ## 16/10/2026 (animação da raiz dos diagnósticos, pelo Dyones: "essa animação da página está marcando as formas, ficou muito amador, podemos deixar a logo da v2o5 grande no lugar dela se for melhor, aí a animação fica só no site principal")
 - A raiz de `diagnostico.v2o5.com.br` perde toda animação: sai a molécula desenhada por peças (ligações e nós sobrepostos marcavam as formas), o sinal correndo na jornada e a entrada das seções ao rolar. No lugar da molécula vai o logo C1d grande e parado, com o vetor oficial de `src/lib/marca-vetor.ts` (rede numa forma só, âmbar com respiro) e um brilho âmbar fixo atrás; a página fica sem JavaScript. A prévia (`og.jpg`) troca a molécula pelo mesmo logo e ganha `?v=2` no `og:image`. O movimento fica só no site principal.
 
@@ -257,7 +262,7 @@ Log datado. Decisão nova entra no topo do dia; decisão revogada fica riscada c
 
 ## 09/10/2026
 - Identidade raiz geral: "digitalização e aceleração de negócios com IA" (colocar no mapa, multiplicar a operação). Automotivo vira o primeiro segmento, com hub `/segmentos/revendas-de-veiculos`. Substitui "revendas desde a home" de 08/10.
-- Direção visual escura e tecnológica, com motion (seção 5 do plano e `memory/context/motion.md`). Formato editorial claro descartado.
+- ~~Direção visual escura e tecnológica, com motion (seção 5 do plano e `memory/context/motion.md`). Formato editorial claro descartado.~~ Trocada em 19/10: base clara (`design/DESIGN.md`).
 - ~~Logo: família C1. Variação final em aberto (C1, C1a, C1b, C1c ou C1b+C1c).~~ Fechado em 09/10: C1d.
 - Plugins instalados no ambiente: frontend-design, audit-suite, perf-profiler, parallax-threejs, axe-accessibility.
 - Memória do projeto em `CLAUDE.md` + `memory/`; handoff da próxima etapa em `docs/HANDOFF.md`.
