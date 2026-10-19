@@ -2,6 +2,9 @@
 
 Log datado. Decisão nova entra no topo do dia; decisão revogada fica riscada com a data da troca.
 
+## 19/10/2026 (subdomínio dos diagnósticos no redesign, pelo Dyones: "temos ainda o subdominio e o layout dos diagnósticos", "faça o merge dos diagnósticos")
+- Vitrine, 404 e prévia de diagnostico.v2o5.com.br e os 8 diagnósticos publicados na direção B; nos diagnósticos, só o CSS mudou (texto idêntico). No ar desde 19/10 (PR #1 de `v2o5-diagnosticos`). Molde novo em `subdominios/diagnostico/molde/`; a skill `diagnostico-presenca` precisa ser trocada pelo zip com o molde novo (o Dyones atualiza no claude.ai e no repositório presenca-digital).
+
 ## 19/10/2026 (sem âncora física, pelo Dyones: "tire a menção à almirante tamandaré, é digital, não precisa ter uma ancora fisica")
 - Almirante Tamandaré sai do site: rodapé ("Atendimento em todo o Brasil"), resumo e ficha da empresa em /sobre (sem a célula "Sede" e sem a reunião presencial na região de Curitiba), resposta "atende fora de Curitiba?", privacidade, `llms.txt` e o `address` do JSON-LD da organização (fica só `areaServed: Brasil`). Substitui a decisão de 09/10 de mostrar cidade e estado no site e no schema.
 - Ainda em 19/10: no /sobre, a célula "Na informática" vira "Na tecnologia", a de conteúdo ganha o blog da Top Soluções Imobiliárias (assinado até agosto de 2024) e a ficha do fundador abre com o retrato em preto e branco (foto em Londres, mandada pelo Dyones).
