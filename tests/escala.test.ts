@@ -80,8 +80,10 @@ describe("tipografia", () => {
   });
 
   it("os números do case ficam em cor sólida, sem texto em degradê", () => {
+    // A cor vem da célula (tinta no papel, papel na célula de tinta do
+    // mosaico); o que não pode é degradê nem cor transparente.
     const numero = /\.numero-grande\s*\{([^}]*)\}/.exec(css)![1];
-    expect(numero).toContain("color: var(--color-texto);");
+    expect(numero).not.toMatch(/color:\s*transparent/);
     expect(numero).not.toMatch(/background-clip|background-image|transparent/);
     expect(css).not.toMatch(/background-clip:\s*text/);
   });

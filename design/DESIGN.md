@@ -18,6 +18,11 @@ colors:
   faixa-escura: "#121418"
   faixa-escura-texto: "#F2F1EC"
   faixa-escura-secundario: "#A9ACB4"
+  faixa-escura-linha: "#2E3138"
+  tinta-violeta: "#E0D9F0"
+  tinta-verde: "#D3E6D9"
+  tinta-azul: "#D5E0F3"
+  tinta-ambar: "#F7E2B5"
   erro: "#B3261E"
 typography:
   marca:
@@ -139,16 +144,18 @@ Nenhuma referência. Tudo parte da tabela da marca; o que muda é o papel de cad
 | `texto-secundario` | #5A5D66 | texto de apoio, legendas, a parte "apagada" dos títulos | 5,82:1 sobre o fundo | `secundário (claro)` da marca, sem mudança. |
 | `linha` | #D6D4CC | separadores e fios da grade | 1,31:1 (decorativa) | `régua` da marca. Só decoração: nunca é a única borda de um controle. |
 | `linha-campo` | #7A7972 | borda de campo de formulário, caixa de seleção, controle | 3,86:1 sobre o fundo; 4,15:1 sobre o cartão | Novo. O WCAG pede 3:1 para a borda de controles, e a régua não chega lá. |
-| `acao` | #F2A516 | preenchimento do botão principal, ponto âmbar do logo | texto sobre ele 8,93:1; contra o fundo 1,83:1 | `âmbar V⁵⁺` da marca, que continua sendo a cor da ação. Sobre a tinta ele brilhava sozinho; sobre o papel some (1,83:1), por isso o botão ganha a `acao-borda`. Nunca é texto sobre o claro. |
-| `acao-borda` | #8A5600 | borda de 1 px do botão âmbar | 5,44:1 contra o fundo | `âmbar texto` da marca, num papel novo: desenhar a borda do botão. |
+| `acao` | #F2A516 | bloco da seta do botão principal (direção B, 19/10: antes, o botão inteiro), parada final da rota, ponto âmbar do logo | texto sobre ele 8,93:1; contra o fundo 1,83:1 | `âmbar V⁵⁺` da marca, que continua sendo a cor da ação. Sobre a tinta ele brilhava sozinho; sobre o papel some (1,83:1), por isso o botão ganha a `acao-borda`. Nunca é texto sobre o claro. |
+| `acao-borda` | #8A5600 | contorno da parada final da rota e da opção marcada do formulário (até 19/10, borda do botão âmbar, que agora é fechado por tinta) | 5,44:1 contra o fundo | `âmbar texto` da marca, num papel novo: desenhar a borda do botão. |
 | `acao-texto` | #8A5600 | link, o "IA" da assinatura, contorno de foco (2 px) | 5,44:1 sobre o fundo; 5,84:1 sobre o cartão | `âmbar texto` da marca, sem mudança de valor. |
 | `etapa-atracao` | #6B46C8 | etapa site e atração em diagramas e etiquetas | 5,57:1 como texto sobre o fundo e com o papel por cima | `violeta V²⁺` da marca. Na base escura precisava da versão `-claro` para texto; sobre o papel o valor original serve para texto e traço. |
 | `etapa-atendimento` | #17773F | etapa atendimento com IA | 4,96:1 | `verde V³⁺` da marca. Passa no AA com folga pequena: em texto, só a partir do tamanho da `legenda`. |
 | `etapa-crm` | #2457C5 | etapa CRM | 5,72:1 | `azul V⁴⁺` da marca, como o violeta. |
 | `faixa-escura` | #121418 | rodapé e no máximo uma seção por página | papel 16,30:1; âmbar 8,93:1; secundário 8,12:1 | `tinta` com `papel`, `âmbar` e `secundário (escuro)`. A direção escura de 09/10 sobrevive como faixa de contraste, não como fundo do site. As cores `-claro` das etapas ficam só aqui. |
 | `erro` | #B3261E | mensagem de erro de formulário | 5,78:1 sobre o fundo; 6,20:1 sobre o cartão | Novo e fora da marca, funcional. Substitui o `rgb(255 150 130)` do formulário atual, que só funcionava sobre o escuro. |
+| `faixa-escura-linha` | #2E3138 | fio entre células dentro da faixa escura | 1,42:1 sobre a tinta (decorativa) | Novo em 19/10, com a direção B: a faixa escura também é desenhada em células. |
+| `tinta-violeta`, `tinta-verde`, `tinta-azul`, `tinta-ambar` | #E0D9F0, #D3E6D9, #D5E0F3, #F7E2B5 | marca-texto: fundo do trecho que decide (preço, prazo, origem) | texto por cima de 13,48:1 a 14,49:1 | Novos em 19/10, com a direção B (veio da ITSUA). As três cores das etapas e o âmbar misturados ao papel. Nunca são texto nem fundo de seção; a tinta vai sempre por cima. |
 
-Regras que continuam: violeta, verde e azul aparecem só em diagramas e etiquetas, na ordem das etapas (atração, atendimento, CRM, venda em âmbar). Âmbar é ação e sinal, não decoração. Sem degradê no texto e sem mancha de luz borrada no fundo (vícios marcados pelo Genjutsu na linha de base).
+Regras que continuam: violeta, verde e azul aparecem só em diagramas, etiquetas, na rota da margem e, como tinta clara, no marca-texto, na ordem das etapas (atração, atendimento, CRM, venda em âmbar). Âmbar é ação e sinal, não decoração. Sem degradê no texto e sem mancha de luz borrada no fundo (vícios marcados pelo Genjutsu na linha de base).
 
 Para aplicar: `src/lib/tokens.ts`, o `@theme` de `src/app/globals.css` e os pares de `tests/contraste.test.ts` mudam juntos, como hoje.
 

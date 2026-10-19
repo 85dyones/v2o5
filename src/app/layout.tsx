@@ -2,7 +2,6 @@ import type { Metadata, Viewport } from "next";
 import { Geist } from "./fontes";
 import Ancora from "@/components/layout/Ancora";
 import FonteMonoTardia from "@/components/layout/FonteMonoTardia";
-import LuzDoCursor from "@/components/layout/LuzDoCursor";
 import Medicao from "@/components/layout/Medicao";
 import PrimeiroToque from "@/components/layout/PrimeiroToque";
 import { SITE_URL } from "@/lib/site";
@@ -20,8 +19,8 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#121418",
-  colorScheme: "dark",
+  themeColor: "#F2F1EC",
+  colorScheme: "light",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -36,7 +35,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         </a>
         {children}
         <FonteMonoTardia />
-        <LuzDoCursor />
         <PrimeiroToque />
         <Medicao />
         <Ancora />

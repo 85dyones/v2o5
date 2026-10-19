@@ -30,6 +30,11 @@ export const CORES = {
   faixaEscura: "#121418",
   faixaEscuraTexto: "#F2F1EC",
   faixaEscuraSecundario: "#A9ACB4",
+  faixaEscuraLinha: "#2E3138",
+  tintaVioleta: "#E0D9F0",
+  tintaVerde: "#D3E6D9",
+  tintaAzul: "#D5E0F3",
+  tintaAmbar: "#F7E2B5",
   erro: "#B3261E",
 } as const;
 

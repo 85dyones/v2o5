@@ -1,37 +1,43 @@
+import type { CSSProperties } from "react";
 import Link from "next/link";
 import Icone from "@/components/Icone";
 import Simbolo from "@/components/marca/Simbolo";
+import { COR_DA_ROTA, Parada } from "@/components/rota/Rota";
 
+/**
+ * O fecho, na única faixa escura da página: a rota chega em âmbar e termina
+ * no botão principal, que é a Venda. À direita, o símbolo em papel.
+ */
 export default function Fechamento() {
   return (
-    <section aria-labelledby="titulo-fechamento" className="adiada relative isolate overflow-hidden py-28 md:py-40">
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute inset-x-0 bottom-0 h-[38rem] bg-[radial-gradient(60%_70%_at_50%_100%,rgb(242_165_22/0.16),transparent)]" />
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgb(18_20_24/0.04)_1px,transparent_1px),linear-gradient(to_bottom,rgb(18_20_24/0.04)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_55%_60%_at_50%_60%,#000,transparent_75%)]" />
-      </div>
-      <div className="conteiner flex flex-col items-center text-center">
-        <div className="relative">
-          <div
-            aria-hidden="true"
-            className="absolute inset-0 -m-8 rounded-full bg-[radial-gradient(closest-side,rgb(242_165_22/0.22),transparent)]"
-          />
-          <Simbolo className="relative h-20 w-auto text-texto md:h-24" />
+    <section
+      aria-labelledby="titulo-fechamento"
+      className="trecho adiada overflow-hidden bg-faixa-escura text-faixa-escura-texto"
+      style={{ "--cor-da-rota": COR_DA_ROTA.ambar } as CSSProperties}
+      data-entra=""
+    >
+      <div className="conteiner conteiner-rota fecho-miolo grid grid-cols-12 gap-x-6 gap-y-12 py-24 md:py-32">
+        <div className="relative col-span-12 lg:col-span-7">
+          <h2 id="titulo-fechamento" className="titulo-secao max-w-[40rem]">
+            Comece pelo diagnóstico, que é gratuito.
+          </h2>
+          <p className="mt-6 max-w-[36rem] text-guia text-faixa-escura-secundario">
+            Em 45 minutos de conversa com o fundador, a gente entende como a sua empresa vende hoje. Em até 24 horas você
+            recebe um mapa do que fazer primeiro, com custo e prazo, para usar com ou sem a V2O5.
+          </p>
+          <div className="fecho-acoes relative mt-10 flex flex-wrap gap-3">
+            <Parada final />
+            <Link href="/diagnostico" className="botao botao-primario botao-claro" data-evento="cta_click" data-local="fechamento">
+              Pedir diagnóstico
+              <Icone nome="seta" className="seta size-4" />
+            </Link>
+            <Link href="/precos" className="botao botao-secundario botao-claro" data-evento="cta_click" data-local="fechamento">
+              Ver preços
+            </Link>
+          </div>
         </div>
-        <h2 id="titulo-fechamento" className="titulo-secao mt-10 max-w-[40rem]">
-          Comece pelo diagnóstico, que é gratuito.
-        </h2>
-        <p className="texto-guia mt-6 max-w-[36rem]">
-          Em 45 minutos de conversa com o fundador, a gente entende como a sua empresa vende hoje. Em até 24 horas
-          você recebe um mapa do que fazer primeiro, com custo e prazo, para usar com ou sem a V2O5.
-        </p>
-        <div className="mt-10 flex flex-wrap justify-center gap-3">
-          <Link href="/diagnostico" className="botao botao-primario" data-evento="cta_click" data-local="fechamento">
-            Pedir diagnóstico
-            <Icone nome="seta" className="seta size-4" />
-          </Link>
-          <Link href="/precos" className="botao botao-secundario" data-evento="cta_click" data-local="fechamento">
-            Ver preços
-          </Link>
+        <div aria-hidden="true" className="col-span-12 flex items-end lg:col-span-5 lg:justify-end lg:border-l lg:border-faixa-escura-linha">
+          <Simbolo className="h-28 w-auto text-faixa-escura-texto md:h-36" />
         </div>
       </div>
     </section>

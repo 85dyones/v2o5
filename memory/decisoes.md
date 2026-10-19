@@ -2,6 +2,13 @@
 
 Log datado. Decisão nova entra no topo do dia; decisão revogada fica riscada com a data da troca.
 
+## 19/10/2026 (direção do redesign, pelo Dyones: "gosto da B", "ainda me parece muito cru" com a ITSUA como exemplo, mais referências do Awwwards, "aprovado, pode começar a fundação da home")
+- Direção B, o mapa de linhas: as peças do sistema (Site, WhatsApp, Agente de IA, n8n, CRM, Rastreamento, Venda) são estações; a linha das etapas sai do mapa da abertura e desce pela margem esquerda da página até o botão do fecho, em âmbar. Acabamento de ficha técnica (ITSUA, CROX, Crosswalk): células em fio, fio de 2 px em tinta, grade de 12 colunas em fio claro, marca-texto nas tintas das etapas, números em mosaico, raio zero e nenhuma sombra. Contrato em `.bunshin/direction.md`; página aprovada em https://claude.ai/artifact/Fyk4Vo4KBL6NrdCeUUTnJ7 (versão 3).
+- Botão principal em dois blocos: a seta no bloco âmbar e o texto no bloco de tinta. Quatro tintas claras das cores da marca para o marca-texto (`design/DESIGN.md`).
+- Rótulos e números de seção ("Soluções", "01", "Visão 360", "Demonstração" e os outros) saem da tela e viram o nome acessível da seção; o resto do texto fica palavra por palavra.
+- `themeColor` #F2F1EC e `colorScheme` light (encerra a pendência 23).
+- Saem da home a molécula animada do hero (canvas e 3D), o contador que partia de zero, o ímã do cursor nos botões, o vidro fosco do topo, as manchas de luz e a janela de terminal (vira tabela de eventos). Redesign com o método bunshin do Genjutsu, nível standard, até 2 rodadas de correção.
+
 ## 19/10/2026 (redesign 2026, pelo Dyones: referências "que passem confiança de consultoria, não de SaaS", sem "landing pages escuras de startup de IA"; base escolhida: "Clara, papel como fundo")
 - O redesign sai na branch `redesign-2026`, com a linha de base do site no ar em `design/baseline/`, o texto de cada rota em `content/` (fonte da verdade: o redesign não muda palavra sem decisão) e os contratos em `design/nao-pode-quebrar.md`.
 - Direção visual: base clara, com o papel (#F2F1EC) como fundo e a tinta como texto. Troca a direção escura de 09/10; a tinta fica para o rodapé e no máximo uma seção por página. Sistema em `design/DESIGN.md`: escala tipográfica de razão 1,25 a partir de 17 px (medida na ITSUA, conferida na Checkpoint), espaçamento em 4 px com seção de 64 a 96 px, curvas de movimento do Joshgrafik e quatro durações (200, 350, 500 e 900 ms). Fontes e paleta continuam as da marca; das referências vieram só proporções, ritmos e curvas.

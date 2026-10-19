@@ -1,8 +1,7 @@
 /**
  * Geometria do símbolo da V2O5 (família C1), copiada de
  * `memory/context/marca.md`. O desenho do site sai daqui vetorizado
- * (`scripts/vetorizar-logo.mjs` → `marca-vetor.ts`), e o palco do hero
- * (`palco.ts`) usa o mesmo vetor.
+ * (`scripts/vetorizar-logo.mjs` → `marca-vetor.ts`).
  *
  * Logo escolhido em 09/10: C1d, a proposta do Dyones (a molécula do C1
  * virada em V). As outras variações ficam para comparação. Para trocar o

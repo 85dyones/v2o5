@@ -17,9 +17,9 @@ const LINK = "inline-flex min-h-9 items-center transition-colors hover:text-text
 
 export default function Rodape() {
   return (
-    <footer className="adiada relative overflow-hidden border-t border-linha">
-      <div className="conteiner grid gap-12 pb-14 pt-16 md:grid-cols-[1.5fr_1fr_1fr_1fr]">
-        <div>
+    <footer className="adiada relative overflow-hidden border-t-2 border-texto">
+      <div className="conteiner grid md:grid-cols-[1.5fr_1fr_1fr_1fr]">
+        <div className="border-b border-linha py-12 md:border-b-0 md:border-r md:py-14 md:pr-8">
           <div className="flex items-center gap-3">
             <Simbolo tamanho="pequeno" className="h-8 w-auto text-texto" />
             <p className="font-semibold leading-tight tracking-[-0.02em]">{EMPRESA.nome}</p>
@@ -33,8 +33,8 @@ export default function Rodape() {
           </Link>
         </div>
 
-        <nav aria-labelledby="rodape-solucoes">
-          <h2 id="rodape-solucoes" className="text-sm font-medium text-texto">
+        <nav aria-labelledby="rodape-solucoes" className="border-b border-linha py-10 md:border-b-0 md:border-r md:px-8 md:py-14">
+          <h2 id="rodape-solucoes" className="rotulo text-texto">
             Soluções
           </h2>
           <ul className="mt-4 space-y-0.5 text-[0.9375rem] text-texto-secundario">
@@ -48,8 +48,8 @@ export default function Rodape() {
           </ul>
         </nav>
 
-        <nav aria-labelledby="rodape-empresa">
-          <h2 id="rodape-empresa" className="text-sm font-medium text-texto">
+        <nav aria-labelledby="rodape-empresa" className="border-b border-linha py-10 md:border-b-0 md:border-r md:px-8 md:py-14">
+          <h2 id="rodape-empresa" className="rotulo text-texto">
             Empresa
           </h2>
           <ul className="mt-4 space-y-0.5 text-[0.9375rem] text-texto-secundario">
@@ -63,8 +63,8 @@ export default function Rodape() {
           </ul>
         </nav>
 
-        <div>
-          <h2 className="text-sm font-medium text-texto">Canais</h2>
+        <div className="py-10 md:px-8 md:py-14">
+          <h2 className="rotulo text-texto">Canais</h2>
           <ul className="mt-4 space-y-0.5 text-[0.9375rem] text-texto-secundario">
             <li>
               <Link href="/diagnostico" className={LINK} data-evento="cta_click" data-local="rodape">
@@ -86,7 +86,7 @@ export default function Rodape() {
       </div>
 
       <div className="conteiner">
-        <div className="flex flex-col gap-1 border-t border-linha py-6 text-sm text-texto-secundario md:flex-row md:justify-between">
+        <div className="flex flex-col gap-1 border-t border-linha py-5 text-sm text-texto-secundario md:flex-row md:justify-between">
           <p>
             {EMPRESA.razaoSocial} · CNPJ <span className="tabular-nums">{EMPRESA.cnpj}</span>
           </p>
@@ -96,7 +96,7 @@ export default function Rodape() {
 
       <p
         aria-hidden="true"
-        className="pointer-events-none -mb-[0.2em] select-none text-center text-[clamp(7rem,27vw,24rem)] font-semibold leading-[0.8] tracking-[-0.07em] text-fundo-alternado"
+        className="pointer-events-none -mb-[0.16em] select-none border-t border-linha pt-[0.08em] text-center text-[clamp(7rem,27vw,24rem)] font-semibold leading-[0.8] tracking-[-0.07em] text-fundo-alternado"
       >
         V2O5
       </p>

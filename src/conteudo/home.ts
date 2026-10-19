@@ -720,19 +720,6 @@ export const PECAS: Peca[] = [
   },
 ];
 
-/** Ligações do diagrama (sem direção; o caminho decide o sentido do pulso). */
-export const LIGACOES_DO_DIAGRAMA: [IdDaPeca, IdDaPeca][] = [
-  ["site", "whatsapp"],
-  ["whatsapp", "agente"],
-  ["agente", "crm"],
-  ["agente", "n8n"],
-  ["n8n", "crm"],
-  ["crm", "venda"],
-  ["site", "rastreamento"],
-  ["rastreamento", "crm"],
-  ["venda", "rastreamento"],
-];
-
 // ---------------------------------------------------------------------------
 // Case Motors Store
 // ---------------------------------------------------------------------------
