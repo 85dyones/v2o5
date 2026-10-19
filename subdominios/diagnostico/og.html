@@ -2,63 +2,82 @@
 <html lang="pt-BR"><head><meta charset="utf-8">
 <!--
   Imagem de prévia (1200x630) da raiz de diagnostico.v2o5.com.br, para
-  WhatsApp e redes. Mesmo padrão da prévia dos diagnósticos de cliente
-  (templates/og.html.j2 da skill): topo com a marca, régua das quatro cores.
-  Gera og.jpg (LEIA-ME desta pasta). O logo é o vetor de src/lib/marca-vetor.ts.
+  WhatsApp e redes, na direção B do redesign 2026: papel, grade de 12
+  colunas em fio claro, faixas fechadas por fio de 2 px em tinta, a rota na
+  margem com a parada à altura do título, a construção do símbolo à direita
+  e as quatro etapas embaixo, como estações. Gera og.jpg (LEIA-ME desta
+  pasta). O símbolo é o vetor de src/lib/marca-vetor.ts, com a construção de
+  src/components/marca/Construcao.tsx.
 -->
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@500&display=swap">
 <style>
-  :root { --tinta: #121418; --superficie: #1A1D22; --papel: #F2F1EC; --secundario: #A9ACB4; --ambar: #F2A516;
-          --violeta: #6B46C8; --verde: #17773F; --azul: #2457C5;
-          --violeta-claro: #9B8BE0; --verde-claro: #5CC48A; --azul-claro: #7FA3F0; --linha: rgb(242 241 236 / 0.12);
+  :root { --fundo: #F2F1EC; --cartao: #FAF9F5; --alternado: #E8E6DF; --texto: #121418; --secundario: #5A5D66; --linha: #D6D4CC; --linha-campo: #7A7972;
+          --acao: #F2A516; --acao-borda: #8A5600; --violeta: #6B46C8; --verde: #17773F; --azul: #2457C5;
           --fonte: "Geist", system-ui, sans-serif; --mono: "Geist Mono", ui-monospace, monospace; }
   * { box-sizing: border-box; margin: 0; }
-  body { width: 1200px; height: 630px; background: var(--tinta); color: var(--papel); font-family: var(--fonte);
-         padding: 56px 64px 52px; display: grid; grid-template-rows: auto 1fr auto; gap: 24px; overflow: hidden; position: relative; isolation: isolate; }
-  body::before { content: ""; position: absolute; inset: 0; z-index: -1; background:
-    radial-gradient(360px 300px at 1010px 300px, rgb(242 165 22 / .18), transparent 70%),
-    radial-gradient(700px 420px at 0 0, rgb(107 70 200 / .16), transparent 70%); }
-  body::after { content: ""; position: absolute; left: 64px; right: 64px; top: 128px; height: 3px;
-                background: linear-gradient(90deg, var(--violeta), var(--verde), var(--azul), var(--ambar)); opacity: .7; }
-  .topo { display: flex; justify-content: space-between; align-items: center; }
-  .marca { display: flex; gap: 14px; align-items: center; font-size: 26px; font-weight: 600; letter-spacing: -0.02em; }
-  .marca svg { height: 44px; width: auto; color: var(--papel); }
-  .rotulo { font-family: var(--mono); font-size: 18px; letter-spacing: .12em; text-transform: uppercase; color: var(--secundario); }
-  .endereco { font-family: var(--mono); font-size: 19px; color: var(--secundario); }
-  .meio { display: grid; grid-template-columns: minmax(0, 1fr) 330px; align-items: center; gap: 24px; padding-top: 34px; }
-  .texto { display: grid; gap: 18px; }
-  .texto .rotulo { color: var(--ambar); }
-  h1 { font-size: 62px; line-height: 1.03; letter-spacing: -0.042em; font-weight: 600; }
-  .logo { width: 330px; height: auto; }
-  .jornada { display: flex; align-items: center; gap: 0; }
-  .etapa { display: flex; align-items: center; gap: 10px; font-size: 19px; font-weight: 500; color: rgb(242 241 236 / .9); white-space: nowrap; }
-  .etapa i { width: 22px; height: 22px; border-radius: 50%; box-shadow: inset 0 0 0 3px var(--cor); display: grid; place-items: center; flex: none; }
-  .etapa i::after { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--cor); }
-  .liga { flex: 1; height: 2px; margin: 0 14px; background: linear-gradient(90deg, var(--de), var(--para)); opacity: .55; min-width: 18px; }
-  .total { margin-left: 22px; padding: 8px 14px; border-radius: 999px; font-family: var(--mono); font-size: 17px; color: var(--ambar); box-shadow: inset 0 0 0 1.5px rgb(242 165 22 / .6); white-space: nowrap; }
+  body { width: 1200px; height: 630px; overflow: hidden; background: var(--fundo); color: var(--texto); font-family: var(--fonte);
+         display: grid; grid-template-rows: 84px 1fr 104px; }
+  .faixa { position: relative; padding-left: 112px; padding-right: 56px; }
+  /* A grade de 12 colunas atrás do conteúdo. */
+  .grade { position: absolute; inset: 0 56px 0 112px; background-image: repeating-linear-gradient(to right, rgb(18 20 24 / .06) 0 1px, transparent 1px calc(100% / 12)); z-index: 0; }
+  .faixa > :not(.grade):not(.rota) { position: relative; z-index: 1; }
+  .rota { position: absolute; left: 55px; width: 2px; top: 0; bottom: 0; background: var(--linha-campo); }
+  .topo { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--texto); }
+  .marca { display: flex; gap: 14px; align-items: center; font-size: 25px; font-weight: 600; letter-spacing: -0.02em; }
+  .marca svg { height: 38px; width: auto; color: var(--texto); }
+  .endereco { font-family: var(--mono); font-size: 18px; font-weight: 500; letter-spacing: .04em; color: var(--secundario); }
+  .meio { display: grid; grid-template-columns: 640px 1fr; border-bottom: 2px solid var(--texto); }
+  .texto { position: relative; display: grid; align-content: center; gap: 22px; padding-right: 32px; }
+  .pre { font-size: 22px; font-weight: 500; }
+  h1 { font-size: 64px; line-height: 1; letter-spacing: -0.045em; font-weight: 600; }
+  .parada { position: absolute; left: -68px; width: 26px; height: 26px; border-radius: 999px; border: 5px solid var(--texto); background: var(--fundo); }
+  .simbolo { display: grid; place-items: center; border-left: 1px solid var(--linha); padding: 18px 0 18px 24px; }
+  .construcao { width: 100%; height: auto; display: block; }
+  .construcao .k-grade { stroke: var(--alternado); }
+  .construcao .k-construcao { stroke: var(--linha-campo); }
+  .construcao .k-no { fill: var(--texto); }
+  .construcao .k-anel { stroke: var(--texto); }
+  .construcao .k-anel-ambar { stroke: var(--acao); }
+  .construcao .k-cota { fill: var(--secundario); font-family: var(--mono); }
+  .construcao .k-cota line { stroke: var(--secundario); }
+  .construcao .k-nuvem { stroke: var(--texto); }
+  .construcao .k-rede { fill: var(--texto); }
+  .construcao .k-ambar { fill: var(--acao); }
+  .estacoes { display: grid; grid-template-columns: 1fr 1.4fr 1fr 1fr auto; }
+  .estacao { position: relative; display: grid; grid-template-rows: 44px auto; align-content: start; padding-top: 16px; padding-left: 18px; border-right: 1px solid var(--linha); }
+  .estacao::before { content: ""; position: absolute; left: 0; right: -1px; top: 34px; height: 8px; background: var(--cor); }
+  .estacao:first-of-type::before { left: -57px; }
+  .estacao i { position: relative; z-index: 1; width: 26px; height: 26px; margin-top: 9px; border-radius: 999px; border: 5px solid var(--texto); background: var(--fundo); }
+  .estacao.venda i { width: 30px; height: 30px; margin-top: 7px; border-color: var(--acao-borda); background: var(--acao); }
+  .estacao.venda::before { right: auto; width: 34px; }
+  .estacao span { font-size: 20px; font-weight: 600; letter-spacing: -0.015em; white-space: nowrap; }
+  .total { display: flex; align-items: center; padding-left: 22px; font-family: var(--mono); font-size: 18px; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; white-space: nowrap; }
 </style></head>
 <body>
-  <div class="topo">
+  <div class="faixa topo">
+    <span class="rota" aria-hidden="true"></span>
     <div class="marca"><svg viewBox="8 14 112 70" aria-hidden="true" focusable="false"><path d="M30 80 A18 18 0 0 1 28.09 44.1 A24 24 0 0 1 67.93 24.05 A20 20 0 0 1 99.58 44.07 A18 18 0 0 1 98 80 Z" fill="none" stroke="currentColor" stroke-width="6" stroke-linejoin="round"/><path d="M42 42 L53 55 L64 68 L75 55 L86 42" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="53" cy="55" r="6.5" fill="currentColor"/><circle cx="75" cy="55" r="6.5" fill="currentColor"/><circle cx="64" cy="68" r="4.5" fill="currentColor"/><circle cx="42" cy="42" r="4.5" fill="currentColor"/><circle cx="86" cy="42" r="5" fill="#F2A516"/></svg><span>V2O5 Vendas e Tecnologia</span></div>
     <span class="endereco">diagnostico.v2o5.com.br</span>
   </div>
 
-  <div class="meio">
+  <div class="faixa meio">
+    <span class="grade" aria-hidden="true"></span>
+    <span class="rota" aria-hidden="true"></span>
     <div class="texto">
-      <span class="rotulo">Diagnóstico de presença digital</span>
-      <h1>O que o cliente vê antes de chamar a sua empresa.</h1>
+      <p class="pre">Diagnóstico de presença digital</p>
+      <h1><span class="parada" aria-hidden="true" style="margin-top: 0.3em"></span>O que o cliente vê antes de chamar a sua empresa.</h1>
     </div>
-    <svg class="logo" viewBox="8 14 112 70" aria-hidden="true"><path d="M30 80 A18 18 0 0 1 28.09 44.1 A24 24 0 0 1 67.93 24.05 A20 20 0 0 1 99.58 44.07 A18 18 0 0 1 98 80 Z" fill="none" stroke="#F2F1EC" stroke-width="5" stroke-linejoin="round"/><path d="M40.76,45.03c-0.44,0.13 -0.91,0.21 -1.4,0.21c-2.65,0 -4.8,-2.15 -4.8,-4.8c0,-2.65 2.15,-4.8 4.8,-4.8c2.65,0 4.8,2.15 4.8,4.8c0,0.77 -0.18,1.49 -0.5,2.14l5.25,6.21c0.85,-0.38 1.78,-0.59 2.77,-0.59c3.76,0 6.8,3.04 6.8,6.8c0,1.39 -0.42,2.68 -1.13,3.76l5.25,6.21c0.44,-0.13 0.91,-0.21 1.4,-0.21c0.49,0 0.96,0.07 1.4,0.21l5.25,-6.21c-0.72,-1.08 -1.13,-2.37 -1.13,-3.76c0,-3.76 3.04,-6.8 6.8,-6.8c0.99,0 1.92,0.21 2.77,0.59l4.02,-4.75c0.7,1.08 1.71,1.94 2.9,2.46l-4.02,4.75c0.72,1.08 1.13,2.37 1.13,3.76c0,0.87 -0.16,1.71 -0.46,2.48l5.89,4.53c0.69,-0.39 1.49,-0.61 2.34,-0.61c2.65,0 4.8,2.15 4.8,4.8c0,2.65 -2.15,4.8 -4.8,4.8c-2.65,0 -4.8,-2.15 -4.8,-4.8c0,-0.41 0.05,-0.8 0.15,-1.18l-5.89,-4.53c-1.13,0.83 -2.51,1.31 -4.02,1.31c-0.99,0 -1.92,-0.21 -2.77,-0.59l-5.25,6.21c0.32,0.64 0.5,1.37 0.5,2.14c0,2.65 -2.15,4.8 -4.8,4.8c-2.65,0 -4.8,-2.15 -4.8,-4.8c0,-0.77 0.18,-1.49 0.5,-2.14l-5.25,-6.21c-0.85,0.38 -1.78,0.59 -2.77,0.59c-1.5,0 -2.89,-0.49 -4.02,-1.31l-5.89,4.53c0.1,0.38 0.15,0.77 0.15,1.18c0,2.65 -2.15,4.8 -4.8,4.8c-2.65,0 -4.8,-2.15 -4.8,-4.8c0,-2.65 2.15,-4.8 4.8,-4.8c0.85,0 1.64,0.22 2.34,0.61l5.89,-4.53c-0.3,-0.77 -0.46,-1.6 -0.46,-2.48c0,-1.39 0.42,-2.68 1.13,-3.76z" fill="#F2F1EC"/><circle cx="88.64" cy="40.44" r="4.8" fill="#F2A516"/></svg>
+    <div class="simbolo">
+      <svg class="construcao claro" viewBox="2 10 124 78" aria-hidden="true" focusable="false"><g class="k-grade" stroke-width="0.25"><line x1="37.12" y1="0" x2="37.12" y2="100"/><line x1="39.36" y1="0" x2="39.36" y2="100"/><line x1="51.68" y1="0" x2="51.68" y2="100"/><line x1="64" y1="0" x2="64" y2="100"/><line x1="76.32" y1="0" x2="76.32" y2="100"/><line x1="90.88" y1="0" x2="90.88" y2="100"/><line x1="88.64" y1="0" x2="88.64" y2="100"/><line x1="30" y1="0" x2="30" y2="100"/><line x1="52" y1="0" x2="52" y2="100"/><line x1="80" y1="0" x2="80" y2="100"/><line x1="98" y1="0" x2="98" y2="100"/><line x1="-10" y1="66.2" x2="140" y2="66.2"/><line x1="-10" y1="40.44" x2="140" y2="40.44"/><line x1="-10" y1="55" x2="140" y2="55"/><line x1="-10" y1="69.56" x2="140" y2="69.56"/><line x1="-10" y1="62" x2="140" y2="62"/><line x1="-10" y1="42" x2="140" y2="42"/><line x1="-10" y1="40" x2="140" y2="40"/></g><g class="k-construcao" fill="none" stroke-width="0.35"><g><circle cx="30" cy="62" r="18" stroke-dasharray="1.2 1.2"/><rect x="29.1" y="61.1" width="1.8" height="1.8" class="k-no"/></g><g><circle cx="52" cy="42" r="24" stroke-dasharray="1.2 1.2"/><rect x="51.1" y="41.1" width="1.8" height="1.8" class="k-no"/></g><g><circle cx="80" cy="40" r="20" stroke-dasharray="1.2 1.2"/><rect x="79.1" y="39.1" width="1.8" height="1.8" class="k-no"/></g><g><circle cx="98" cy="62" r="18" stroke-dasharray="1.2 1.2"/><rect x="97.1" y="61.1" width="1.8" height="1.8" class="k-no"/></g><line x1="37.12" y1="66.2" x2="51.68" y2="55"/><line x1="39.36" y1="40.44" x2="51.68" y2="55"/><line x1="51.68" y1="55" x2="64" y2="69.56"/><line x1="64" y1="69.56" x2="76.32" y2="55"/><line x1="76.32" y1="55" x2="90.88" y2="66.2"/><line x1="76.32" y1="55" x2="88.64" y2="40.44"/><circle cx="37.12" cy="66.2" r="6.4" class="k-anel" stroke-width="0.4"/><circle cx="39.36" cy="40.44" r="6.4" class="k-anel" stroke-width="0.4"/><circle cx="51.68" cy="55" r="8.4" class="k-anel" stroke-width="0.4"/><circle cx="64" cy="69.56" r="6.4" class="k-anel" stroke-width="0.4"/><circle cx="76.32" cy="55" r="8.4" class="k-anel" stroke-width="0.4"/><circle cx="90.88" cy="66.2" r="6.4" class="k-anel" stroke-width="0.4"/><circle cx="88.64" cy="40.44" r="6.4" class="k-anel-ambar" stroke-width="0.4"/></g><g class="k-cota" font-size="2.4"><g><line x1="30" y1="62" x2="42.726" y2="49.274" stroke-width="0.25"/><text x="37.48" y="54.52">r 18</text></g><g><line x1="52" y1="42" x2="68.968" y2="25.032" stroke-width="0.25"/><text x="61.64" y="32.36">r 24</text></g><g><line x1="80" y1="40" x2="94.14" y2="25.86" stroke-width="0.25"/><text x="88.2" y="31.799">r 20</text></g><g><line x1="98" y1="62" x2="110.726" y2="49.274" stroke-width="0.25"/><text x="105.48" y="54.52">r 18</text></g><text x="47.68" y="66.5">V · 6,8</text><text x="70.5" y="70.56">O · 4,8</text></g><path d="M30 80 A18 18 0 0 1 28.09 44.1 A24 24 0 0 1 67.93 24.05 A20 20 0 0 1 99.58 44.07 A18 18 0 0 1 98 80 Z" class="k-nuvem" fill="none" stroke-width="5" stroke-linejoin="round"/><path d="M40.76,45.03c-0.44,0.13 -0.91,0.21 -1.4,0.21c-2.65,0 -4.8,-2.15 -4.8,-4.8c0,-2.65 2.15,-4.8 4.8,-4.8c2.65,0 4.8,2.15 4.8,4.8c0,0.77 -0.18,1.49 -0.5,2.14l5.25,6.21c0.85,-0.38 1.78,-0.59 2.77,-0.59c3.76,0 6.8,3.04 6.8,6.8c0,1.39 -0.42,2.68 -1.13,3.76l5.25,6.21c0.44,-0.13 0.91,-0.21 1.4,-0.21c0.49,0 0.96,0.07 1.4,0.21l5.25,-6.21c-0.72,-1.08 -1.13,-2.37 -1.13,-3.76c0,-3.76 3.04,-6.8 6.8,-6.8c0.99,0 1.92,0.21 2.77,0.59l4.02,-4.75c0.7,1.08 1.71,1.94 2.9,2.46l-4.02,4.75c0.72,1.08 1.13,2.37 1.13,3.76c0,0.87 -0.16,1.71 -0.46,2.48l5.89,4.53c0.69,-0.39 1.49,-0.61 2.34,-0.61c2.65,0 4.8,2.15 4.8,4.8c0,2.65 -2.15,4.8 -4.8,4.8c-2.65,0 -4.8,-2.15 -4.8,-4.8c0,-0.41 0.05,-0.8 0.15,-1.18l-5.89,-4.53c-1.13,0.83 -2.51,1.31 -4.02,1.31c-0.99,0 -1.92,-0.21 -2.77,-0.59l-5.25,6.21c0.32,0.64 0.5,1.37 0.5,2.14c0,2.65 -2.15,4.8 -4.8,4.8c-2.65,0 -4.8,-2.15 -4.8,-4.8c0,-0.77 0.18,-1.49 0.5,-2.14l-5.25,-6.21c-0.85,0.38 -1.78,0.59 -2.77,0.59c-1.5,0 -2.89,-0.49 -4.02,-1.31l-5.89,4.53c0.1,0.38 0.15,0.77 0.15,1.18c0,2.65 -2.15,4.8 -4.8,4.8c-2.65,0 -4.8,-2.15 -4.8,-4.8c0,-2.65 2.15,-4.8 4.8,-4.8c0.85,0 1.64,0.22 2.34,0.61l5.89,-4.53c-0.3,-0.77 -0.46,-1.6 -0.46,-2.48c0,-1.39 0.42,-2.68 1.13,-3.76z" class="k-rede"/><circle cx="88.64" cy="40.44" r="4.8" class="k-ambar"/></svg>
+    </div>
   </div>
 
-  <div class="jornada">
-    <span class="etapa" style="--cor: var(--violeta-claro)"><i></i>Ser encontrada</span>
-    <span class="liga" style="--de: var(--violeta); --para: var(--verde)"></span>
-    <span class="etapa" style="--cor: var(--verde-claro)"><i></i>Causar boa impressão</span>
-    <span class="liga" style="--de: var(--verde); --para: var(--azul)"></span>
-    <span class="etapa" style="--cor: var(--azul-claro)"><i></i>Ser contatada</span>
-    <span class="liga" style="--de: var(--azul); --para: var(--ambar)"></span>
-    <span class="etapa" style="--cor: var(--ambar)"><i></i>Medir e proteger</span>
-    <span class="total">37 verificações</span>
+  <div class="faixa estacoes">
+    <span class="rota" aria-hidden="true" style="bottom: auto; height: 38px"></span>
+    <div class="estacao" style="--cor: var(--violeta)"><i></i><span>Ser encontrada</span></div>
+    <div class="estacao" style="--cor: var(--verde)"><i></i><span>Causar boa impressão</span></div>
+    <div class="estacao" style="--cor: var(--azul)"><i></i><span>Ser contatada</span></div>
+    <div class="estacao venda" style="--cor: var(--acao)"><i></i><span>Medir e proteger</span></div>
+    <div class="total">37 verificações</div>
   </div>
 </body></html>
