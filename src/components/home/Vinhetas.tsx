@@ -34,16 +34,16 @@ function Funil() {
           style={{ "--cor": COR_DA_ROTA[c.etapa as Etapa] } as CSSProperties}
         >
           {/* Em 390 a coluna fica estreita: o trilho do grid trava em minmax(0,1fr)
-              para o truncate agir em vez de o cartão passar por cima do fio. */}
-          <p className="flex min-w-0 items-center gap-2 border-b border-linha px-2 py-2.5 text-[0.75rem] font-medium sm:px-3 sm:text-[0.8125rem]">
+              e o cabeçalho desce a 11 px para "Atendimento" caber inteiro e o resto quebra dentro da célula; a partir de sm, truncate. */}
+          <p className="flex min-w-0 items-center gap-1.5 border-b border-linha px-2 py-2.5 text-[0.6875rem] sm:gap-2 font-medium sm:px-3 sm:text-[0.8125rem]">
             <span className="size-2 shrink-0 bg-(--cor)" />
-            <span className="truncate">{c.coluna}</span>
+            <span className="min-w-0 break-words leading-tight sm:truncate">{c.coluna}</span>
           </p>
           <ul className="grid grid-cols-[minmax(0,1fr)] content-start gap-2 p-2 sm:p-3">
             {c.cartoes.map(([carro, origem]) => (
               <li key={carro} className="min-w-0 border border-linha bg-fundo-cartao px-2.5 py-2">
-                <p className="truncate font-semibold leading-tight">{carro}</p>
-                <p className="rotulo mt-1 truncate text-texto-secundario">{origem}</p>
+                <p className="break-words font-semibold leading-tight sm:truncate">{carro}</p>
+                <p className="rotulo mt-1 break-words text-texto-secundario sm:truncate">{origem}</p>
               </li>
             ))}
           </ul>

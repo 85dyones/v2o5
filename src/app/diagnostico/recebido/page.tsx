@@ -67,15 +67,18 @@ export default function Pagina() {
 
           <div className="col-span-12 mt-12 border-y-2 border-texto bg-fundo">
             <p className="rotulo border-b border-linha px-6 py-4 text-texto-secundario">{r.enquantoIsso}</p>
-            <ul className="grid gap-px bg-linha sm:grid-cols-2 lg:grid-cols-4">
-              {/* A parada final desce até o meio do botão: 1,5rem de respiro mais 0,6875rem. */}
+            <ul className="grid gap-px bg-linha md:grid-cols-2 xl:grid-cols-[1.25fr_1fr_1fr_1fr]">
+              {/* A parada final desce até o meio do botão: 1,5rem de respiro mais 0,6875rem.
+                  O botão não quebra a linha (259 px): a primeira célula é mais larga e o botão
+                  ocupa o miolo inteiro, com o mesmo respiro dos dois lados. Em quatro colunas só
+                  a partir de xl e em duas a partir de md, onde a célula cabe o botão. */}
               <li className="relative bg-fundo p-6 [&>.parada]:top-[2.1875rem]">
                 <Parada final />
                 <a
                   href={linkWhatsApp(WHATSAPP.mensagens.recebido)}
                   target="_blank"
                   rel="noopener"
-                  className="botao botao-primario"
+                  className="botao botao-primario w-full justify-between"
                   data-evento="click_whatsapp"
                   data-local="recebido"
                 >

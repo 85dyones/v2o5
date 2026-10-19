@@ -37,7 +37,7 @@ export default function Pagina() {
       <Topo />
       <main id="conteudo">
         <Trecho etapa="verde" aria-label={d.sobretitulo} adiada={false} miolo="grid grid-cols-12 !py-0">
-          <div className="col-span-12 pb-8 pt-12 md:pb-12 md:pt-16 lg:col-span-8 lg:pr-12">
+          <div className="col-span-12 pb-6 pt-8 md:pb-12 md:pt-16 lg:col-span-8 lg:pr-12">
             <div className="relative">
               <Parada />
               <h1 className="titulo-secao max-w-[24ch]">
@@ -45,13 +45,14 @@ export default function Pagina() {
               </h1>
             </div>
           </div>
-          <div className="col-span-12 border-t border-linha pb-10 pt-8 lg:col-span-4 lg:border-l lg:border-t-0 lg:pb-12 lg:pl-8 lg:pt-16">
+          <div className="col-span-12 border-t border-linha pb-6 pt-6 md:pb-10 md:pt-8 lg:col-span-4 lg:border-l lg:border-t-0 lg:pb-12 lg:pl-8 lg:pt-16">
             <p className="text-[1.0625rem] leading-relaxed">{d.texto}</p>
           </div>
         </Trecho>
 
-        {/* A ficha começa perto do título: numa página de pedido, o formulário tem de aparecer cedo. */}
-        <Trecho etapa="verde" aria-labelledby="titulo-pedido" adiada={false} miolo="rota-ate-a-parada !pt-10 md:!pt-12">
+        {/* A ficha começa perto do título: numa página de pedido, o formulário tem de aparecer cedo.
+            No celular o respiro aperta mais (decisão 2 da rodada 2): título e primeiro campo sobem. */}
+        <Trecho etapa="verde" aria-labelledby="titulo-pedido" adiada={false} miolo="rota-ate-a-parada !pt-6 md:!pt-12">
           <div className="grid grid-cols-12 border-y-2 border-texto bg-fundo">
             <div className="col-span-12 lg:order-1 lg:col-span-7">
               <Formulario />

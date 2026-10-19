@@ -1,7 +1,7 @@
 import type { CSSProperties, ReactNode } from "react";
 import Link from "next/link";
 import Icone from "@/components/Icone";
-import { COR_DA_ROTA, ComMarcas, Parada, TEXTO_DA_ETAPA, TINTA_DA_ETAPA } from "@/components/rota/Rota";
+import { COR_DA_ROTA, Parada, TEXTO_DA_ETAPA, TINTA_DA_ETAPA } from "@/components/rota/Rota";
 import type { Etapa } from "@/lib/tokens";
 import {
   BRL,
@@ -89,9 +89,6 @@ export function Detalhes({ l }: { l: LinhaDePreco }) {
 
 /** A etapa de cada plano: o mapa é atração, a operação começa no atendimento, o Completo liga a gestão. */
 const ETAPA_DO_PLANO: Record<Plano["id"], Etapa> = { presenca: "violeta", atendimento: "verde", completo: "azul" };
-
-/** Os valores em real de um texto de preço, para o marca-texto (o mesmo recorte da home). */
-const VALORES = /R\$ [\d.,]+(?: \+ R\$ [\d.,]+\/mês)?(?:\/mês)?/g;
 
 /** Célula da tabela dos planos: fio fino em cima, menos na primeira linha, que o fio de 2 px já fecha. */
 const CELULA = "border-t border-linha px-5 py-5 first:border-t-0 md:px-6";
@@ -248,7 +245,8 @@ type LocalDaLinha = keyof typeof MEDICAO_DA_LINHA;
 /**
  * Uma linha do cardápio, no padrão `.servico` da home: a célula inteira é o
  * link, a linha pinta o trecho da rota na cor da etapa e leva a parada; à
- * direita, o preço com o marca-texto nos valores, e a seta.
+ * direita, o preço em tinta comum (o marca-texto fica só nos planos, que
+ * decidem; decisão de 19/10) e a seta.
  */
 function LinhaDoCardapio({
   etapa,
@@ -291,8 +289,8 @@ function LinhaDoCardapio({
           <p className="mt-2 max-w-[38rem] text-[0.9375rem] leading-relaxed text-texto-secundario">{semQuebra(frase)}</p>
           {children}
         </div>
-        <p className="col-span-10 text-[1.0625rem] font-medium leading-relaxed tabular-nums md:col-span-4 md:pt-0.5">
-          <ComMarcas texto={preco} marcas={preco.match(VALORES) ?? []} etapa={etapa} />
+        <p className="col-span-10 text-[1.0625rem] font-semibold leading-relaxed tabular-nums md:col-span-4 md:pt-0.5">
+          {semQuebra(preco)}
         </p>
         <span aria-hidden="true" className="servico-seta col-span-2 justify-self-end text-lg md:col-span-1">
           →
@@ -356,11 +354,8 @@ export function Trafego() {
       </ul>
       <p className="mt-6 max-w-[44rem] text-[0.9375rem] leading-relaxed text-texto-secundario">
         <span className="font-semibold text-texto">Sem implantação, com o rastreamento ligado.</span>{" "}
-        <ComMarcas
-          texto={nota}
-          marcas={[BRL(rastreamento.implantacao ?? 0), BRL(rastreamento.mensalidade ?? 0)]}
-          etapa="violeta"
-        />
+        {/* Sem marca-texto: a nota informa, não decide (19/10). */}
+        <span className="tabular-nums">{semQuebra(nota)}</span>
       </p>
     </>
   );

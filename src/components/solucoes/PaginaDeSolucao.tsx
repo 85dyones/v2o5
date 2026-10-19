@@ -363,9 +363,16 @@ function DetalhesDoPreco({ l }: { l: LinhaDePreco }) {
  */
 function Preco({ s }: { s: Solucao }) {
   const l = ofertaDaCapacidade(s.linha);
+  // Com unidade ("por fluxo"), a unidade sai do marca-texto e fica em corpo
+  // menor ao lado, como o "/mês" dos planos em /precos: o valor não quebra no meio.
+  const porUnidade = !l.sobConsulta && l.implantacao && l.unidade;
   const valores = [
-    { rotulo: "Implantação a partir de", valor: valorDaImplantacao(l) || "sem" },
-    { rotulo: "Mensalidade a partir de", valor: valorDaMensalidade(l) || "sem" },
+    {
+      rotulo: "Implantação a partir de",
+      valor: porUnidade ? BRL(l.implantacao!) : valorDaImplantacao(l) || "sem",
+      unidade: porUnidade ? l.unidade : undefined,
+    },
+    { rotulo: "Mensalidade a partir de", valor: valorDaMensalidade(l) || "sem", unidade: undefined },
   ];
   return (
     <Trecho aria-label="Preço" etapa={s.etapa}>
@@ -382,7 +389,15 @@ function Preco({ s }: { s: Solucao }) {
               <div key={v.rotulo} className={`grid content-start gap-3 border-linha p-6 md:p-7 ${i > 0 ? "border-t sm:border-l sm:border-t-0" : ""}`}>
                 <dt className="rotulo text-texto-secundario">{v.rotulo}</dt>
                 <dd className="text-titulo-3 tabular-nums">
-                  <Valores texto={v.valor} etapa={s.etapa} />
+                  <span className="whitespace-nowrap">
+                    <Valores texto={v.valor} etapa={s.etapa} />
+                  </span>
+                  {v.unidade ? (
+                    <>
+                      {" "}
+                      <span className="text-base font-normal text-texto-secundario">{v.unidade}</span>
+                    </>
+                  ) : null}
                 </dd>
               </div>
             ))}

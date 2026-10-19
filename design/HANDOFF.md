@@ -1,5 +1,17 @@
 # Handoff do redesign 2026
 
+## Estado em 19/10/2026, fim da sessão na nuvem (bunshin do Genjutsu)
+
+Branch **`redesign-2026-km7atp`** (PR #24, rascunho, contra `redesign-2026`). A direção B foi aprovada pelo Dyones (mapa de linhas: a rota das etapas desce pela margem da página até o botão do fecho; acabamento de ficha técnica). Home aprovada; as 11 rotas (`/precos`, `/sobre`, `/cases/motors-store`, o hub, as cinco soluções, `/gestao-de-trafego`, `/diagnostico` e `/diagnostico/recebido`) redesenhadas por clones e revisadas em duas rodadas. O revisor de acabamento deu "ship" na rodada 1; a rodada 2 fechou os três P2 dele e duas regras do diretor de arte (marca-texto só no que decide, formulário mais alto no celular).
+
+- Conferido no fim: `next build`, `tsc`, `vitest` (314), `eslint` limpos; nenhum travessão em `src`; as 13 telas em 390x664, 390x844, 1280x720 e 1440x900 com 200, sem transbordo e sem erro de console.
+- Não conferido: foco com Tab na faixa escura e no erro dos objetivos (código no lugar, sem teste de navegador); leitor de tela; preview da Vercel e a comparação de `design/baseline/ferramentas/extrair.cjs` contra a produção (passo 2 da seção final de `nao-pode-quebrar.md`). Faça os dois antes do merge.
+- Mudanças de contrato decididas pelo Dyones: célula "Na informática · Desde 1992" em `/sobre` (em `content/sobre.md`); `cta_click` com `data-local` `trafego`, `modulos`, `servicos` nas linhas do cardápio de `/precos`.
+- Em aberto com o Dyones: pendência 24 de `memory/pendencias.md`.
+- Material de trabalho (fora do git): `.bunshin/` (contrato da direção, revisões, capturas por rodada, relatório em `.bunshin/report.md`).
+
+---
+
 Atualizado em 19/10/2026, ao fim da primeira sessão do redesign (Claude Code no Windows, `D:\V2O5-SITE`). Leia isto antes de continuar em outra máquina ou numa sessão na nuvem.
 
 ## Onde está

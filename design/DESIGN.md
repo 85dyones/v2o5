@@ -155,6 +155,8 @@ Nenhuma referência. Tudo parte da tabela da marca; o que muda é o papel de cad
 | `faixa-escura-linha` | #2E3138 | fio entre células dentro da faixa escura | 1,42:1 sobre a tinta (decorativa) | Novo em 19/10, com a direção B: a faixa escura também é desenhada em células. |
 | `tinta-violeta`, `tinta-verde`, `tinta-azul`, `tinta-ambar` | #E0D9F0, #D3E6D9, #D5E0F3, #F7E2B5 | marca-texto: fundo do trecho que decide (preço, prazo, origem) | texto por cima de 13,48:1 a 14,49:1 | Novos em 19/10, com a direção B (veio da ITSUA). As três cores das etapas e o âmbar misturados ao papel. Nunca são texto nem fundo de seção; a tinta vai sempre por cima. |
 
+Marca-texto só no que decide (19/10, rodada 2 do redesign): os valores dos três planos, o promocional do Completo, o bônus do hub, os prazos ("45 minutos", "24 horas") e o preço na ficha de cada solução. Nas linhas de cardápio (tráfego, módulos, serviços) o preço vai em tinta comum, `font-semibold tabular-nums`, e a cor da etapa fica só na rota da margem e na parada.
+
 Regras que continuam: violeta, verde e azul aparecem só em diagramas, etiquetas, na rota da margem e, como tinta clara, no marca-texto, na ordem das etapas (atração, atendimento, CRM, venda em âmbar). Âmbar é ação e sinal, não decoração. Sem degradê no texto e sem mancha de luz borrada no fundo (vícios marcados pelo Genjutsu na linha de base).
 
 Para aplicar: `src/lib/tokens.ts`, o `@theme` de `src/app/globals.css` e os pares de `tests/contraste.test.ts` mudam juntos, como hoje.
