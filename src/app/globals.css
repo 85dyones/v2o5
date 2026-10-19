@@ -582,32 +582,6 @@
     background-color: var(--color-fundo);
   }
 
-  /* Célula clicável das páginas de solução: só o fundo muda. */
-  .cartao-luz {
-    transition: background-color var(--duracao-curta) var(--curva-padrao);
-  }
-
-  .cartao-luz:focus-visible {
-    outline-offset: 4px;
-  }
-
-  .cartao-luz .seta-do-cartao {
-    transition:
-      transform var(--duracao-media) var(--curva-saida),
-      background-color var(--duracao-curta) var(--curva-padrao);
-  }
-
-  @media (hover: hover) and (pointer: fine) {
-    .cartao-luz:hover {
-      background-color: var(--color-fundo);
-    }
-
-    .cartao-luz:hover .seta-do-cartao {
-      transform: translateX(4px);
-      background-color: var(--color-acao);
-    }
-  }
-
   /* Seções abaixo da dobra: o navegador pula layout e pintura até elas
      chegarem perto da tela. `auto` guarda a altura real depois da primeira
      vez. */
@@ -632,12 +606,6 @@
   .topo {
     background-color: var(--color-fundo);
     border-bottom: 2px solid var(--color-texto);
-  }
-
-  /* As páginas ainda não redesenhadas usam esta caixa atrás do hero. As
-     manchas de luz da base escura saíram; fica vazia. */
-  .hero-fundo {
-    display: none;
   }
 
   /* ---------------------------------------------------------------------
@@ -1018,23 +986,6 @@
     box-shadow: inset 0 0 0 1px var(--color-texto);
   }
 
-  /* Três pontos de "digitando" (vinheta das páginas de solução). Parados. */
-  .digitando > span {
-    display: block;
-    width: 0.3125rem;
-    height: 0.3125rem;
-    border-radius: 999px;
-    background-color: currentColor;
-    opacity: 0.4;
-  }
-
-  .digitando > span:nth-child(2) {
-    opacity: 0.6;
-  }
-
-  .digitando > span:nth-child(3) {
-    opacity: 0.8;
-  }
 }
 
 /* ---------------------------------------------------------------------------

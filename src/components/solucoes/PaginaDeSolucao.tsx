@@ -1,32 +1,33 @@
+import type { CSSProperties, ReactNode } from "react";
 import Link from "next/link";
-import type { ReactNode } from "react";
 import Icone from "@/components/Icone";
 import JsonLd from "@/components/JsonLd";
 import Garantias from "@/components/home/Garantias";
 import Fechamento from "@/components/home/Fechamento";
-import NumeroQueConta from "@/components/home/NumeroQueConta";
 import Perguntas from "@/components/home/Perguntas";
 import { MarcaDeEtapa } from "@/components/home/Solucoes";
-import VinhetaDaLinha from "@/components/home/Vinhetas";
+import VinhetaDaLinha, { temVinheta } from "@/components/home/Vinhetas";
 import Topo from "@/components/layout/Topo";
 import Rodape from "@/components/layout/Rodape";
 import BotaoWhatsAppFixo from "@/components/layout/BotaoWhatsAppFixo";
-import { Detalhes, implantacao, mensalidade } from "@/components/precos/TabelaDePrecos";
-import { CASE, LINHAS } from "@/conteudo/home";
-import { capacidade, ofertaDaCapacidade } from "@/conteudo/precos";
-import { mensagemDaSolucao, solucaoDa } from "@/conteudo/solucoes";
+import Entradas from "@/components/layout/Entradas";
+import { COR_DA_ROTA, ComMarcas, Parada, TEXTO_DA_ETAPA, Trecho } from "@/components/rota/Rota";
+import { CASE, LINHAS, type Linha } from "@/conteudo/home";
+import { BRL, capacidade, ofertaDaCapacidade, type LinhaDePreco } from "@/conteudo/precos";
+import { mensagemDaSolucao, solucaoDa, type Solucao } from "@/conteudo/solucoes";
 import { grafoDaSolucao } from "@/lib/schema";
+import type { Etapa } from "@/lib/tokens";
 
 /**
- * O molde das páginas de solução: hero com a busca-alvo no H1, o problema
- * com a cena da linha, o que entra, como funciona, a demonstração (quando a
- * página tem uma), o que roda na Motors Store com número do case, o preço
- * da tabela, garantias, perguntas, as linhas que combinam e o fechamento.
- * Conteúdo em `conteudo/solucoes.ts`.
+ * O molde das páginas de solução, na direção B (19/10). A rota da margem
+ * toma a cor da etapa da solução (`etapa` em `conteudo/solucoes.ts`) da
+ * abertura ao preço; garantias, perguntas e as linhas que combinam ligam as
+ * paradas com o fio fino, e o fecho leva a rota em âmbar até o botão.
+ * Os sobretítulos saíram da tela e viraram o nome acessível de cada seção.
+ * Texto todo de `conteudo/solucoes.ts` e `conteudo/precos.ts`.
  */
 export default function PaginaDeSolucao({ rota, demonstracao }: { rota: string; demonstracao?: ReactNode }) {
   const s = solucaoDa(rota);
-  const linha = ofertaDaCapacidade(s.linha);
   const nomeDaLinha = capacidade(s.linha).nome;
   const relacionadas = s.relacionadas.map((id) => {
     const l = LINHAS.find((x) => x.linha === id);
@@ -37,207 +38,13 @@ export default function PaginaDeSolucao({ rota, demonstracao }: { rota: string; 
     <>
       <Topo />
       <main id="conteudo">
-        <section aria-labelledby="titulo-solucao" className="relative isolate">
-          <div aria-hidden="true" className="hero-fundo" />
-          <div className="conteiner pb-14 pt-14 md:pt-20 lg:pb-16 lg:pt-24">
-            <div className="max-w-[46rem]">
-              <p className="sobretitulo">{s.sobretitulo}</p>
-              <h1 id="titulo-solucao" className="titulo-hero mt-5">
-                {s.titulo}
-              </h1>
-              <p className="texto-guia mt-7 max-w-[38rem]">{s.resumo}</p>
-              <div className="mt-9 flex flex-wrap gap-3">
-                <Link href="/diagnostico" className="botao botao-primario" data-evento="cta_click" data-local="hero">
-                  Pedir diagnóstico gratuito
-                  <Icone nome="seta" className="seta size-4" />
-                </Link>
-                <a href="#titulo-preco" className="botao botao-secundario" data-evento="cta_click" data-local="hero">
-                  Ver o preço
-                </a>
-              </div>
-            </div>
-            <dl className="mt-12 grid gap-4 border-t border-linha pt-8 md:grid-cols-3">
-              {s.fatos.map((f) => (
-                <div key={f.rotulo}>
-                  <dt className="text-[0.8125rem] font-medium text-texto-secundario">{f.rotulo}</dt>
-                  <dd className="mt-1 text-[0.9375rem] leading-snug text-texto">{f.valor}</dd>
-                </div>
-              ))}
-            </dl>
-          </div>
-        </section>
-
-        <section aria-labelledby="titulo-problema" className="conteiner py-20 md:py-28">
-          <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:items-center lg:gap-16">
-            <div>
-              <p className="sobretitulo">O problema</p>
-              <h2 id="titulo-problema" className="titulo-secao mt-5">
-                {s.problema.titulo}
-              </h2>
-              <p className="texto-guia mt-6">{s.problema.texto}</p>
-              {s.problema.fonte ? (
-                <p className="mt-4 text-sm text-texto-secundario">
-                  Fonte:{" "}
-                  {s.problema.href ? (
-                    <a href={s.problema.href} target="_blank" rel="noopener" className="link-sublinhado">
-                      {s.problema.fonte}
-                    </a>
-                  ) : (
-                    s.problema.fonte
-                  )}
-                  .
-                </p>
-              ) : null}
-            </div>
-            <div className="superficie p-3">
-              <div className="mb-3 flex items-center justify-between px-2 pt-1">
-                <MarcaDeEtapa etapa={s.etapa} />
-                <span className="rotulo text-texto-secundario">exemplo</span>
-              </div>
-              <div className="min-h-[16rem]">
-                <VinhetaDaLinha vinheta={s.vinheta} />
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section
-          aria-labelledby="titulo-entregas"
-          className="border-y border-linha bg-fundo-alternado py-20 md:py-28"
-        >
-          <div className="conteiner">
-            <div className="max-w-[44rem]">
-              <p className="sobretitulo">O que entra</p>
-              <h2 id="titulo-entregas" className="titulo-secao mt-5">
-                O que a V2O5 entrega <span className="apagado">nesta linha.</span>
-              </h2>
-            </div>
-            <ul className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-              {s.entregas.map((e) => (
-                <li key={e.titulo} className="superficie flex gap-4 p-6 md:p-7">
-                  <span
-                    aria-hidden="true"
-                    className="mt-0.5 flex size-6 shrink-0 items-center justify-center rounded-full bg-etapa-atendimento/25 text-etapa-atendimento"
-                  >
-                    <Icone nome="check" className="size-3.5" />
-                  </span>
-                  <span>
-                    <h3 className="font-semibold tracking-[-0.01em]">{e.titulo}</h3>
-                    <p className="mt-1.5 text-[0.9375rem] leading-relaxed text-texto-secundario">{e.texto}</p>
-                  </span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </section>
-
-        <section aria-labelledby="titulo-como" className="conteiner py-20 md:py-28">
-          <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.5fr)] lg:gap-16">
-            <div>
-              <p className="sobretitulo">Como funciona</p>
-              <h2 id="titulo-como" className="titulo-secao mt-5">
-                Do diagnóstico <span className="apagado">ao ar.</span>
-              </h2>
-              <p className="texto-guia mt-6 max-w-[30rem]">
-                Começa pelo diagnóstico gratuito, com o escopo fechado antes da implantação. Sem fidelidade.
-              </p>
-            </div>
-            <ol className="superficie divide-y divide-linha">
-              {s.comoFunciona.map((p, i) => (
-                <li key={p.titulo} className="grid grid-cols-[2.5rem_1fr] gap-4 p-6 md:p-7">
-                  <span className="numero text-acao-texto">{String(i + 1).padStart(2, "0")}</span>
-                  <span>
-                    <span className="block font-semibold tracking-[-0.01em]">{p.titulo}</span>
-                    <span className="mt-1 block text-[0.9375rem] leading-relaxed text-texto-secundario">{p.texto}</span>
-                  </span>
-                </li>
-              ))}
-            </ol>
-          </div>
-        </section>
-
+        <Abertura s={s} />
+        <Problema s={s} />
+        <Entregas s={s} />
+        <ComoFunciona s={s} />
         {demonstracao}
-
-        {s.naMotors ? (
-          <section aria-labelledby="titulo-motors" className="border-t border-linha py-20 md:py-28">
-            <div className="conteiner">
-              <div className="grid gap-8 lg:grid-cols-[1.1fr_1fr] lg:items-end">
-                <div>
-                  <p className="sobretitulo">Case</p>
-                  <h2 id="titulo-motors" className="titulo-secao mt-5">
-                    {s.naMotors.titulo}
-                  </h2>
-                </div>
-                <p className="texto-guia lg:pb-2">{s.naMotors.texto}</p>
-              </div>
-              <dl className={`superficie mt-12 grid ${s.naMotors.numeros.length > 1 ? "md:grid-cols-2" : ""}`}>
-                {s.naMotors.numeros.map((n, i) => (
-                  <div
-                    key={n.texto}
-                    className={`flex flex-col p-7 md:p-9 ${i > 0 ? "border-t border-linha md:border-l md:border-t-0" : ""}`}
-                  >
-                    <dt className="order-2 mt-4 max-w-[22rem] text-[0.9375rem] leading-relaxed text-texto-secundario">{n.texto}</dt>
-                    <dd className="order-1 flex items-baseline gap-3">
-                      <span className="numero-grande">
-                        <NumeroQueConta valor={n.valor} />
-                      </span>
-                      {n.complemento ? (
-                        <span className="text-xl font-medium tracking-[-0.02em] text-texto-secundario">{n.complemento}</span>
-                      ) : null}
-                    </dd>
-                  </div>
-                ))}
-              </dl>
-              <p className="mt-4 flex items-start gap-2 text-sm text-texto-secundario">
-                <Icone nome="check" className="mt-0.5 size-4 shrink-0 text-etapa-atendimento" />
-                {CASE.fonte}
-              </p>
-              <Link href="/cases/motors-store" className="botao botao-secundario mt-8" data-evento="cta_click" data-local="na-motors">
-                Ler o case completo
-                <Icone nome="seta" className="seta size-4" />
-              </Link>
-            </div>
-          </section>
-        ) : null}
-
-        <section aria-labelledby="titulo-preco" className="border-t border-linha py-20 md:py-28">
-          <div className="conteiner">
-            <div className="superficie grid overflow-hidden lg:grid-cols-[1.2fr_1fr]">
-              <div className="p-7 md:p-9">
-                <p className="sobretitulo">Preço</p>
-                <h2 id="titulo-preco" className="mt-4 text-[clamp(1.5rem,1.2rem+1.2vw,2rem)] font-semibold leading-tight tracking-[-0.035em]">
-                  {linha.nome}: a partir de.
-                </h2>
-                <dl className="mt-6 grid gap-4 sm:grid-cols-2">
-                  <div className="rounded-xl bg-fundo-cartao p-4 contorno">
-                    <dt className="text-sm text-texto-secundario">Implantação a partir de</dt>
-                    <dd className="mt-1 text-2xl font-semibold tabular-nums tracking-[-0.03em]">{implantacao(linha) || "sem"}</dd>
-                  </div>
-                  <div className="rounded-xl bg-fundo-cartao p-4 contorno">
-                    <dt className="text-sm text-texto-secundario">Mensalidade a partir de</dt>
-                    <dd className="mt-1 text-2xl font-semibold tabular-nums tracking-[-0.03em]">{mensalidade(linha) || "sem"}</dd>
-                  </div>
-                </dl>
-                <p className="mt-5 text-[0.9375rem] leading-relaxed text-texto-secundario">{linha.cobre}</p>
-                <Detalhes l={linha} />
-                <Link href="/precos" className="botao botao-secundario mt-7" data-evento="cta_click" data-local="preco">
-                  Ver a tabela completa
-                  <Icone nome="seta" className="seta size-4" />
-                </Link>
-              </div>
-              <div className="flex flex-col justify-center border-t border-linha bg-fundo-alternado p-7 md:p-9 lg:border-l lg:border-t-0">
-                <p className="text-sm font-medium text-texto-secundario">O preço final</p>
-                <p className="mt-3 text-[1.125rem] leading-snug">
-                  Sai do diagnóstico, com o escopo fechado antes de começar. Todo valor publicado é a partir de.
-                </p>
-                <p className="mt-4 text-sm leading-relaxed text-texto-secundario">
-                  Implantação em até 6 vezes, ou metade na assinatura e metade na entrega. Mensalidade mês a mês.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
+        {s.naMotors ? <NaMotors m={s.naMotors} etapa={s.etapa} /> : null}
+        <Preco s={s} />
         <Garantias />
         <Perguntas
           lista={s.perguntas}
@@ -245,33 +52,369 @@ export default function PaginaDeSolucao({ rota, demonstracao }: { rota: string; 
           titulo={`O que perguntam sobre ${nomeDaLinha.toLowerCase()}`}
           texto="Preço, o que entra, o que fica de fora e o que acontece se você sair. O resto cabe no diagnóstico."
         />
-
-        <section aria-labelledby="titulo-relacionadas" className="conteiner pb-20 md:pb-28">
-          <h2 id="titulo-relacionadas" className="text-[1.375rem] font-semibold leading-tight tracking-[-0.03em]">
-            Linhas que combinam com esta.
-          </h2>
-          <ul className="mt-6 grid gap-4 md:grid-cols-3">
-            {relacionadas.map((l) => (
-              <li key={l.titulo}>
-                <Link href={l.href} className="superficie cartao-luz flex h-full flex-col p-6">
-                  <MarcaDeEtapa etapa={l.etapa} />
-                  <span className="titulo-cartao mt-2.5 block">{l.titulo}</span>
-                  <span className="mt-2 block text-[0.9375rem] leading-relaxed text-texto-secundario">{l.frase}</span>
-                  <span className="mt-auto flex items-center justify-between gap-4 pt-6 text-sm font-medium tabular-nums text-texto/90">
-                    {l.preco}
-                    <Icone nome="seta" className="size-3.5 shrink-0" />
-                  </span>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </section>
-
+        <Relacionadas linhas={relacionadas} />
         <Fechamento />
       </main>
       <Rodape />
       <BotaoWhatsAppFixo pagina="home" mensagem={mensagemDaSolucao(s)} />
+      <Entradas />
       <JsonLd grafo={grafoDaSolucao(rota)} />
     </>
+  );
+}
+
+/** Os valores em real de um texto de preço, para o marca-texto (o mesmo padrão do cardápio da home). */
+const VALORES = /R\$ [\d.,]+(?: \+ R\$ [\d.,]+\/mês)?(?:\/mês)?(?: por \w+)?/g;
+
+function Valores({ texto, etapa }: { texto: string; etapa: Etapa }) {
+  return <ComMarcas texto={texto} marcas={texto.match(VALORES) ?? []} etapa={etapa} />;
+}
+
+/**
+ * A abertura: o H1 é o LCP (texto do servidor, parado), com a parada da
+ * rota à altura dele. À direita, separada por fio, o resumo e os dois
+ * botões; embaixo, a ficha da linha em três células. Não é adiada nem
+ * entra ao rolar: a rota já está desenhada quando a página abre.
+ */
+function Abertura({ s }: { s: Solucao }) {
+  return (
+    <section
+      aria-label={s.sobretitulo}
+      className="trecho border-b-2 border-texto"
+      style={{ "--cor-da-rota": COR_DA_ROTA[s.etapa] } as CSSProperties}
+    >
+      <div className="conteiner conteiner-rota grid grid-cols-12 border-b border-linha">
+        <div className="col-span-12 pb-10 pt-12 md:pb-16 md:pt-20 lg:col-span-8 lg:pr-12">
+          <div className="relative">
+            <Parada />
+            <h1 id="titulo-solucao" className="titulo-hero max-w-[16ch]">
+              {s.titulo}
+            </h1>
+          </div>
+        </div>
+        <div className="col-span-12 border-t border-linha pb-12 pt-8 md:pb-16 lg:col-span-4 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-20">
+          <p className="text-[1.0625rem] leading-relaxed">{s.resumo}</p>
+          <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-4">
+            <Link href="/diagnostico" className="botao botao-primario" data-evento="cta_click" data-local="hero">
+              Pedir diagnóstico gratuito
+              <Icone nome="seta" className="seta size-4" />
+            </Link>
+            <a href="#titulo-preco" className="link-sublinhado text-[0.9375rem] font-medium" data-evento="cta_click" data-local="hero">
+              Ver o preço
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div className="conteiner conteiner-rota">
+        <dl className="grid grid-cols-12">
+          {s.fatos.map((f, i) => (
+            <div
+              key={f.rotulo}
+              className={`col-span-12 grid content-start gap-2 border-linha py-5 md:col-span-4 md:py-6 ${
+                i > 0 ? "border-t md:border-l md:border-t-0 md:pl-6" : "md:pr-6"
+              } ${i === 1 ? "md:pr-6" : ""}`}
+            >
+              <dt className="rotulo text-texto-secundario">{f.rotulo}</dt>
+              <dd className="text-[0.9375rem] leading-snug">{i === 0 ? <Valores texto={f.valor} etapa={s.etapa} /> : f.valor}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+    </section>
+  );
+}
+
+/**
+ * O problema que a linha resolve. A etapa fica numa linha de ficha embaixo
+ * do texto; na linha que tem cena de interface (o funil do CRM), a etapa
+ * vai na barra da cena, que mostra a origem em cada contato.
+ */
+function Problema({ s }: { s: Solucao }) {
+  const p = s.problema;
+  const comCena = temVinheta(s.vinheta);
+  return (
+    <Trecho aria-label="O problema" etapa={s.etapa}>
+      <div className="relative grid grid-cols-12 gap-x-6 gap-y-6">
+        <Parada />
+        <h2 id="titulo-problema" className="titulo-secao col-span-12 lg:col-span-7">
+          {p.titulo}
+        </h2>
+        <div className="col-span-12 lg:col-span-5 lg:pt-2">
+          <p className="texto-guia">{p.texto}</p>
+          {p.fonte ? (
+            <p className="mt-4 text-[0.8125rem] leading-relaxed text-texto-secundario">
+              Fonte:{" "}
+              {p.href ? (
+                <a href={p.href} target="_blank" rel="noopener" className="link-sublinhado">
+                  {p.fonte}
+                </a>
+              ) : (
+                p.fonte
+              )}
+              .
+            </p>
+          ) : null}
+          {comCena ? null : (
+            <p className="mt-6 border-t border-linha pt-4">
+              <MarcaDeEtapa etapa={s.etapa} />
+            </p>
+          )}
+        </div>
+      </div>
+      {comCena ? (
+        <div className="mt-12 grid grid-cols-12 md:mt-14">
+          <figure className="col-span-12 border-2 border-texto bg-fundo lg:col-span-7 lg:col-start-6">
+            <figcaption className="flex items-center justify-between gap-4 border-b border-linha px-4 py-3">
+              <MarcaDeEtapa etapa={s.etapa} />
+              <span className="rotulo text-texto-secundario">exemplo</span>
+            </figcaption>
+            <VinhetaDaLinha vinheta={s.vinheta} />
+          </figure>
+        </div>
+      ) : null}
+    </Trecho>
+  );
+}
+
+/** O que entra, como linhas de registro: o nome à esquerda, o que é à direita. */
+function Entregas({ s }: { s: Solucao }) {
+  return (
+    <Trecho aria-label="O que entra" etapa={s.etapa}>
+      <div className="relative grid grid-cols-12 gap-x-6">
+        <Parada />
+        <h2 id="titulo-entregas" className="titulo-secao col-span-12 lg:col-span-8">
+          O que a V2O5 entrega <span className="apagado">nesta linha.</span>
+        </h2>
+      </div>
+      <ul className="mt-12 border-t-2 border-texto md:mt-14">
+        {s.entregas.map((e) => (
+          <li key={e.titulo} className="grid grid-cols-12 gap-x-6 gap-y-2 border-b border-linha py-6 md:py-7">
+            <h3 className="titulo-cartao col-span-12 md:col-span-5">{e.titulo}</h3>
+            <p className="col-span-12 max-w-[40rem] text-[0.9375rem] leading-relaxed text-texto-secundario md:col-span-7">{e.texto}</p>
+          </li>
+        ))}
+      </ul>
+    </Trecho>
+  );
+}
+
+/** Os passos do diagnóstico ao ar, numerados na cor da etapa. */
+function ComoFunciona({ s }: { s: Solucao }) {
+  return (
+    <Trecho aria-label="Como funciona" etapa={s.etapa}>
+      <div className="grid grid-cols-12 gap-x-6 gap-y-10">
+        <div className="relative col-span-12 lg:col-span-5">
+          <Parada />
+          <h2 id="titulo-como" className="titulo-secao">
+            Do diagnóstico <span className="apagado">ao ar.</span>
+          </h2>
+          <p className="texto-guia mt-6 max-w-[30rem]">
+            Começa pelo diagnóstico gratuito, com o escopo fechado antes da implantação. Sem fidelidade.
+          </p>
+        </div>
+        <ol className="col-span-12 border-t-2 border-texto lg:col-span-7">
+          {s.comoFunciona.map((p, i) => (
+            <li key={p.titulo} className="grid grid-cols-[3rem_1fr] gap-x-4 border-b border-linha py-5 md:grid-cols-[4rem_1fr] md:py-6">
+              <span className="numero pt-0.5" style={{ color: TEXTO_DA_ETAPA[s.etapa] }}>
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <span>
+                <span className="block font-semibold tracking-[-0.01em]">{p.titulo}</span>
+                <span className="mt-1 block text-[0.9375rem] leading-relaxed text-texto-secundario">{p.texto}</span>
+              </span>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </Trecho>
+  );
+}
+
+/**
+ * O que roda na Motors Store, com os números do case num mosaico parado
+ * (da CROX, como na home): o primeiro na célula de tinta, o segundo no
+ * papel, a sobra em hachura. Fonte e período logo embaixo.
+ */
+function NaMotors({ m, etapa }: { m: NonNullable<Solucao["naMotors"]>; etapa: Etapa }) {
+  const colunas = m.numeros.length > 1 ? "md:grid-cols-[1.3fr_1fr_0.55fr]" : "md:grid-cols-[1.3fr_1fr]";
+  return (
+    <Trecho aria-label="Case" etapa={etapa}>
+      <div className="relative grid grid-cols-12 gap-x-6 gap-y-6">
+        <Parada />
+        <h2 id="titulo-motors" className="titulo-secao col-span-12 lg:col-span-7">
+          {m.titulo}
+        </h2>
+        <p className="texto-guia col-span-12 lg:col-span-5 lg:pt-2">{m.texto}</p>
+      </div>
+
+      <dl className={`mt-12 grid grid-cols-1 border-2 border-texto md:mt-14 ${colunas}`}>
+        {m.numeros.map((n, i) => (
+          <div
+            key={n.texto}
+            className={`flex min-h-44 flex-col justify-between gap-6 p-6 md:min-h-56 md:p-7 ${
+              i === 0 ? "bg-texto text-fundo" : "border-t border-linha md:border-l md:border-t-0"
+            }`}
+          >
+            <dt className={`order-2 max-w-[20rem] text-[0.9375rem] leading-relaxed ${i === 0 ? "text-faixa-escura-secundario" : "text-texto-secundario"}`}>
+              {n.texto}
+            </dt>
+            <dd className="order-1 flex items-baseline gap-3">
+              <span className="numero-grande">{n.valor}</span>
+              {n.complemento ? <span className="text-xl font-medium tracking-[-0.02em] opacity-75">{n.complemento}</span> : null}
+            </dd>
+          </div>
+        ))}
+        <div aria-hidden="true" className="hachura hidden border-l border-linha md:block" />
+      </dl>
+      <p className="mt-4 text-sm text-texto-secundario">{CASE.fonte}</p>
+      <Link href="/cases/motors-store" className="botao botao-secundario mt-8" data-evento="cta_click" data-local="na-motors">
+        Ler o case completo
+        <Icone nome="seta" className="seta size-4" />
+      </Link>
+    </Trecho>
+  );
+}
+
+// O texto de cada valor, como na tabela de /precos ("R$ 1.900 por fluxo",
+// "sem mensalidade"). Mora aqui para o molde não depender do miolo da tabela.
+function valorDaImplantacao(l: LinhaDePreco) {
+  if (l.sobConsulta) return "sob consulta";
+  if (l.implantacao) return `${BRL(l.implantacao)}${l.unidade ? ` ${l.unidade}` : ""}`;
+  return l.semImplantacao ?? "";
+}
+
+function valorDaMensalidade(l: LinhaDePreco) {
+  if (l.sobConsulta) return "sob consulta";
+  if (!l.mensalidade) return l.unidade ? "sem mensalidade" : "";
+  return `${BRL(l.mensalidade)}/mês${l.maisVerba ? " + verba" : ""}`;
+}
+
+const minuscula = (t: string) => (/^[A-Z][a-z]/.test(t) ? t.charAt(0).toLowerCase() + t.slice(1) : t);
+
+/** O que vem dentro, o que cresce e o que é repassado, embaixo de "o que cobre". */
+function DetalhesDoPreco({ l }: { l: LinhaDePreco }) {
+  if (!l.inclui && !l.degraus && !l.repasses && !l.bonus) return null;
+  return (
+    <div className="mt-4 grid gap-2.5 text-sm leading-snug">
+      {l.inclui ? (
+        <ul className="flex flex-wrap gap-2">
+          {l.inclui.map((i) => (
+            <li key={i} className="rotulo border border-linha px-2 py-1 text-texto-secundario">
+              {i}
+            </li>
+          ))}
+        </ul>
+      ) : null}
+      {l.bonus ? <p className="font-medium">{l.bonus}</p> : null}
+      {l.degraus ? (
+        <ul className="grid gap-1 tabular-nums text-texto-secundario">
+          {l.degraus.map((d) => (
+            <li key={d.rotulo}>
+              {d.rotulo}: {BRL(d.valor)}
+              {d.unidade.startsWith("/") ? "" : " "}
+              {d.unidade}
+            </li>
+          ))}
+        </ul>
+      ) : null}
+      {l.repasses ? (
+        <p className="text-texto-secundario">
+          <span className="text-texto">Pelo valor real, na mesma fatura:</span> {l.repasses.map(minuscula).join("; ")}.
+        </p>
+      ) : null}
+    </div>
+  );
+}
+
+/**
+ * O preço da tabela, numa ficha fechada por fio de 2 px: os dois valores
+ * "a partir de" no marca-texto da etapa, o que cobre, e ao lado como sai o
+ * preço final. O `id="titulo-preco"` é a âncora do botão "Ver o preço".
+ */
+function Preco({ s }: { s: Solucao }) {
+  const l = ofertaDaCapacidade(s.linha);
+  const valores = [
+    { rotulo: "Implantação a partir de", valor: valorDaImplantacao(l) || "sem" },
+    { rotulo: "Mensalidade a partir de", valor: valorDaMensalidade(l) || "sem" },
+  ];
+  return (
+    <Trecho aria-label="Preço" etapa={s.etapa}>
+      <div className="relative grid grid-cols-12 gap-x-6">
+        <Parada />
+        <h2 id="titulo-preco" className="titulo-secao col-span-12 lg:col-span-8">
+          {l.nome}: a partir de.
+        </h2>
+      </div>
+      <div className="mt-12 grid grid-cols-12 border-2 border-texto md:mt-14">
+        <div className="col-span-12 lg:col-span-7">
+          <dl className="grid border-b border-linha sm:grid-cols-2">
+            {valores.map((v, i) => (
+              <div key={v.rotulo} className={`grid content-start gap-3 border-linha p-6 md:p-7 ${i > 0 ? "border-t sm:border-l sm:border-t-0" : ""}`}>
+                <dt className="rotulo text-texto-secundario">{v.rotulo}</dt>
+                <dd className="text-titulo-3 tabular-nums">
+                  <Valores texto={v.valor} etapa={s.etapa} />
+                </dd>
+              </div>
+            ))}
+          </dl>
+          <div className="p-6 md:p-7">
+            <p className="max-w-[40rem] text-[0.9375rem] leading-relaxed text-texto-secundario">{l.cobre}</p>
+            <DetalhesDoPreco l={l} />
+            <Link href="/precos" className="botao botao-secundario mt-7" data-evento="cta_click" data-local="preco">
+              Ver a tabela completa
+              <Icone nome="seta" className="seta size-4" />
+            </Link>
+          </div>
+        </div>
+        <div className="col-span-12 flex flex-col justify-center border-t border-linha bg-fundo-cartao p-6 md:p-8 lg:col-span-5 lg:border-l lg:border-t-0">
+          <p className="rotulo text-texto-secundario">O preço final</p>
+          <p className="mt-3 text-[1.125rem] leading-snug">
+            Sai do diagnóstico, com o escopo fechado antes de começar. Todo valor publicado é a partir de.
+          </p>
+          <p className="mt-4 text-sm leading-relaxed text-texto-secundario">
+            Implantação em até 6 vezes, ou metade na assinatura e metade na entrega. Mensalidade mês a mês.
+          </p>
+        </div>
+      </div>
+    </Trecho>
+  );
+}
+
+/**
+ * As linhas que combinam, no padrão do cardápio da home: a célula inteira é
+ * o link, a linha pinta a rota na cor da etapa dela e leva a parada, que se
+ * acende no hover.
+ */
+function Relacionadas({ linhas }: { linhas: Linha[] }) {
+  return (
+    <Trecho aria-labelledby="titulo-relacionadas">
+      <div className="relative grid grid-cols-12 gap-x-6">
+        <Parada />
+        <h2 id="titulo-relacionadas" className="col-span-12 text-titulo-3 lg:col-span-8">
+          Linhas que combinam com esta.
+        </h2>
+      </div>
+      <ul className="mt-10 border-t-2 border-texto">
+        {linhas.map((l) => (
+          <li key={l.titulo} className="servico" style={{ "--cor-da-rota": COR_DA_ROTA[l.etapa] } as CSSProperties}>
+            <Link href={l.href} className="servico-celula grid grid-cols-12 gap-x-6 gap-y-3 border-b border-linha py-6 md:py-7">
+              <Parada />
+              <span className="col-span-12 md:col-span-7">
+                <MarcaDeEtapa etapa={l.etapa} />
+                <span className="titulo-cartao mt-2 block">{l.titulo}</span>
+                <span className="mt-2 block max-w-[38rem] text-[0.9375rem] leading-relaxed text-texto-secundario">{l.frase}</span>
+              </span>
+              <span className="col-span-10 self-center text-[0.9375rem] leading-relaxed tabular-nums md:col-span-4">
+                <Valores texto={l.preco} etapa={l.etapa} />
+              </span>
+              <span aria-hidden="true" className="servico-seta col-span-2 self-center justify-self-end md:col-span-1">
+                <Icone nome="seta" className="size-4" />
+              </span>
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </Trecho>
   );
 }

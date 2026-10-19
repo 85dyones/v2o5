@@ -112,15 +112,10 @@ describe("entradas ao rolar: a rota e os blocos", () => {
 });
 
 describe("case: o número parado", () => {
-  it("o servidor desenha o valor e nada conta, com ou sem a preferência", async () => {
-    for (const menos of [true, false]) {
-      prepararJanela(menos);
-      const { default: NumeroQueConta } = await import("@/components/home/NumeroQueConta");
-      render(<NumeroQueConta valor={132} />);
-      expect(screen.getByText("132")).toBeTruthy();
-      expect(observadores).toHaveLength(0);
-      expect(window.requestAnimationFrame).not.toHaveBeenCalled();
-      cleanup();
+  it("o número do case é texto do servidor: nenhum contador sobrou no site", () => {
+    expect(ler("src/components/home/CaseMotors.tsx")).toMatch(/\{n\.valor\}/);
+    for (const arquivo of arquivos("src", /\.tsx$/)) {
+      expect(semComentarios(ler(arquivo)), arquivo).not.toMatch(/NumeroQueConta/);
     }
   });
 });
