@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@500&display=swap">
+<style>
+  /* Imagem de prévia (1200x630) para WhatsApp e redes, na direção B da página: papel, fio de 2 px em tinta, a rota das etapas e o placar em células. */
+  :root { color-scheme: light; --papel: #F2F1EC; --cartao: #FAF9F5; --tinta: #121418; --secundario: #5A5D66; --fio: #D6D4CC;
+          --violeta: #6B46C8; --verde: #17773F; --azul: #2457C5; --ambar: #F2A516; --ambar-texto: #8A5600; --falta: #B3261E;
+          --tinta-verde: #D3E6D9; --tinta-azul: #D5E0F3; --tinta-ambar: #F7E2B5;
+          --fonte: "Geist", system-ui, sans-serif; --mono: "Geist Mono", ui-monospace, monospace; }
+  * { box-sizing: border-box; margin: 0; }
+  body { width: 1200px; height: 630px; background: var(--papel); color: var(--tinta); font-family: var(--fonte);
+         padding: 48px 64px 56px 112px; display: grid; grid-template-rows: auto 1fr auto; gap: 28px; overflow: hidden; position: relative;
+         background-image: repeating-linear-gradient(to right, rgb(18 20 24 / 0.045) 0 1px, transparent 1px calc((1200px - 176px) / 12));
+         background-origin: content-box; background-clip: content-box; }
+  /* a rota na margem: as quatro etapas em sequência, de cima para baixo */
+  body::before { content: ""; position: absolute; left: 62px; top: 0; bottom: 0; width: 6px;
+                 background: linear-gradient(var(--violeta) 0 25%, var(--verde) 25% 50%, var(--azul) 50% 75%, var(--ambar) 75% 100%); }
+  .topo { display: flex; justify-content: space-between; align-items: center; padding-bottom: 20px; border-bottom: 2px solid var(--tinta); }
+  .marca { display: flex; gap: 14px; align-items: center; font-size: 26px; font-weight: 600; letter-spacing: -0.02em; }
+  .marca svg { height: 44px; width: auto; color: var(--tinta); }
+  .rotulo { font-family: var(--mono); font-size: 18px; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; color: var(--secundario); }
+  .meio { position: relative; display: grid; align-content: center; gap: 14px; }
+  /* a parada, à altura do nome */
+  .meio::before { content: ""; position: absolute; left: -61px; top: calc(50% + 4px); width: 30px; height: 30px; border-radius: 50%;
+                  border: 5px solid var(--tinta); background: var(--papel); }
+  h1 { font-size: 72px; line-height: 1.08; padding-bottom: 0.06em; letter-spacing: -0.045em; font-weight: 600; max-width: 1000px;
+       display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .placar { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border: 2px solid var(--tinta); background: var(--cartao); }
+  .placar div { min-width: 0; padding: 18px 22px 20px; }
+  .placar div + div { border-left: 1px solid var(--fio); }
+  .placar b { font-size: 50px; font-weight: 600; letter-spacing: -0.045em; line-height: 1.02; padding: 0 6px; background: var(--tinta-azul);
+              -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+  .placar b small { font-size: 21px; font-weight: 500; letter-spacing: 0; }
+  .placar span { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; margin-top: 10px; font-size: 18px; line-height: 1.35; color: var(--secundario); }
+  .ruim { box-shadow: inset 0 4px 0 var(--falta); } .ruim b { background: var(--tinta-ambar); }
+  .bom { box-shadow: inset 0 4px 0 var(--verde); } .bom b { background: var(--tinta-verde); }
+</style></head>
+<body>
+  <div class="topo"><div class="marca">{{ agency.logo_svg | safe }}<span>{{ agency.nome }}</span></div><span class="rotulo">{{ data_br }}</span></div>
+  <div class="meio">
+    <span class="rotulo">Diagnóstico de presença digital</span>
+    <h1>{{ client.fantasia }}</h1>
+  </div>
+  <div class="placar">
+    {% for p in placar %}<div class="{{ p.tom }}"><b>{{ p.valor }}{% if p.sufixo %} <small>{{ p.sufixo }}</small>{% endif %}</b><span>{{ p.texto }}</span></div>{% endfor %}
+  </div>
+</body></html>

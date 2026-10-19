@@ -1,0 +1,555 @@
+<title>Diagnóstico {{ client.fantasia }}</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap">
+<style>
+/* Direção B do redesign 2026: papel claro como ficha técnica. Células em fio fechadas por fio de 2 px em tinta, a rota das etapas na margem esquerda com uma parada em cada título, raio zero e nenhuma sombra. */
+:root {
+  color-scheme: light;
+  --papel: #F2F1EC;
+  --cartao: #FAF9F5;
+  --alternado: #E8E6DF;
+  --tinta: #121418;
+  --secundario: #5A5D66;
+  --fio: #D6D4CC;
+  --fio-campo: #7A7972;
+  --ambar: #F2A516;
+  --ambar-texto: #8A5600;
+  --violeta: #6B46C8;
+  --verde: #17773F;
+  --azul: #2457C5;
+  --grafite: #7A7972;
+  --falta: #B3261E;
+  --tinta-violeta: #E0D9F0;
+  --tinta-verde: #D3E6D9;
+  --tinta-azul: #D5E0F3;
+  --tinta-ambar: #F7E2B5;
+  --escuro-secundario: #A9ACB4;
+  --escuro-fio: #2E3138;
+  --fonte: "Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "Geist Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  /* escala e ritmo do DESIGN.md */
+  --t1: clamp(2.5rem, 1.7rem + 3.4vw, 4.5rem);
+  --t2: clamp(2rem, 1.6rem + 1.6vw, 2.875rem);
+  --vao: clamp(4rem, 3.296rem + 3.005vw, 6rem);
+  --curva-percurso: cubic-bezier(0.65, 0, 0.35, 1);
+  --curva-saida: cubic-bezier(0.22, 1, 0.36, 1);
+  --curta: 200ms;
+  --revela: 900ms;
+  /* a rota: --recuo é a margem aberta à esquerda, --rx o centro da linha */
+  --recuo: 2.75rem;
+  --rx: 1rem;
+  --rotulo-linha: 17px;
+}
+@media (min-width: 48rem) { :root { --recuo: 5rem; --rx: 2rem; } }
+@media (min-width: 80rem) { :root { --recuo: 6rem; --rx: 2.5rem; } }
+
+* { box-sizing: border-box; }
+html { background: var(--papel); }
+body { background: var(--papel); color: var(--tinta); font-family: var(--fonte); font-size: 17px; line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: clip; }
+h1, h2, h3 { margin: 0; text-wrap: balance; font-weight: 600; }
+p { margin: 0; text-wrap: pretty; }
+a { color: var(--ambar-texto); text-decoration-thickness: 1px; text-underline-offset: 0.2em; transition: color var(--curta) ease; }
+a:focus-visible, summary:focus-visible { outline: 2px solid var(--ambar-texto); outline-offset: 3px; border-radius: 0; }
+::selection { background: var(--ambar); color: var(--tinta); }
+.num { font-variant-numeric: tabular-nums; }
+
+/* Página: a coluna de leitura abre a margem da rota e leva a grade de 12 colunas em fio claro */
+.pagina { position: relative; max-width: calc(76rem + var(--recuo)); margin: 0 auto; padding-left: calc(max(16px, env(safe-area-inset-left, 0px)) + var(--recuo)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 24px 0; display: grid; gap: var(--vao); }
+.pagina > * { min-width: 0; }
+/* coluna única que não cresce com endereço longo */
+section, .grupo-diag, .sec-cab, .abertura, .abertura-texto { grid-template-columns: minmax(0, 1fr); }
+.rotulo { display: inline-block; font-family: var(--mono); font-size: 12px; font-weight: 500; line-height: var(--rotulo-linha); letter-spacing: .08em; text-transform: uppercase; color: var(--secundario); }
+
+.rascunho { background: var(--falta); color: var(--papel); padding: 10px 16px; font-family: var(--mono); font-size: 13px; letter-spacing: .04em; }
+
+/* Topo: fecha com fio de 2 px em tinta */
+.topo { display: flex; align-items: center; justify-content: space-between; gap: 12px 16px; flex-wrap: wrap; padding-bottom: 16px; border-bottom: 2px solid var(--tinta); margin-left: calc(-1 * var(--recuo)); }
+.marca { display: flex; align-items: center; gap: 10px; font-weight: 600; letter-spacing: -0.02em; font-size: 17px; color: var(--tinta); }
+.marca svg { height: 30px; width: auto; color: var(--tinta); }
+.topo .rotulo { text-align: right; }
+
+/* A rota: fio neutro de 2 px que liga as paradas; parada é o círculo vazado no título */
+.abertura, section { position: relative; }
+.abertura::before, section::before { content: ""; position: absolute; left: calc(var(--rx) - var(--recuo) - 1px); width: 2px; top: 0; bottom: calc(-1 * var(--vao)); background: var(--fio-campo); }
+/* a rota sai do fio do topo */
+.abertura::before { top: calc(var(--vao) * -0.6); }
+#passos::before { bottom: auto; height: calc(var(--rotulo-linha) + 18px + var(--t2) * 0.54); }
+.abertura h1, .sec-cab h2, .subtitulo { position: relative; }
+.abertura h1::before, .sec-cab h2::before, .subtitulo::before { content: ""; position: absolute; left: calc(var(--rx) - var(--recuo) - 9px); top: calc(0.52em - 9px); width: 18px; height: 18px; border-radius: 50%; border: 3px solid var(--tinta); background: var(--papel); z-index: 2; }
+.sec-cab h2::before { top: calc(0.54em - 9px); }
+/* na segunda coluna o título não leva parada: a rota corre só pela margem */
+.duas > .sec-cab + .sec-cab h2::before { display: none; }
+/* fim da rota: a parada âmbar no fecho */
+#passos .sec-cab h2::before { left: calc(var(--rx) - var(--recuo) - 11px); top: calc(0.54em - 11px); width: 22px; height: 22px; border-color: var(--ambar-texto); background: var(--ambar); }
+/* trecho pintado na cor da etapa, ao lado do grupo */
+.grupo-diag { position: relative; }
+.grupo-diag::before { content: ""; position: absolute; top: 0; bottom: 0; left: calc(var(--rx) - var(--recuo) - 2px); width: 4px; background: var(--cor, var(--fio-campo)); z-index: 1; transform-origin: center top; }
+.grupo-diag[style*="--grafite"]::before, .grupo-diag:not([style])::before { left: calc(var(--rx) - var(--recuo) - 1px); width: 2px; background: var(--fio-campo); }
+.subtitulo::before { border-color: var(--cor, var(--tinta)); }
+.grupo-diag[style*="--grafite"] .subtitulo::before, .grupo-diag:not([style]) .subtitulo::before { border-color: var(--tinta); }
+.grupo-diag[style*="--ambar"] .subtitulo::before { border-color: var(--ambar-texto); }
+
+/* Abertura: título à esquerda, o texto de apoio à direita separado por fio */
+.abertura { display: grid; gap: 40px; margin-top: calc(var(--vao) * -0.4); }
+.abertura-texto { display: grid; gap: 18px; }
+.abertura h1 { font-size: var(--t1); letter-spacing: -0.045em; line-height: 1.04; max-width: 15em; }
+.abertura .lead { font-size: clamp(1.0625rem, 0.9745rem + 0.3756vw, 1.25rem); line-height: 1.5; color: var(--secundario); max-width: 44rem; }
+@media (min-width: 64rem) {
+  .abertura-texto { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); column-gap: 0; }
+  .abertura-texto .rotulo { grid-column: 1 / -1; }
+  .abertura h1 { padding-right: 40px; }
+  .abertura .lead { padding-left: 32px; border-left: 1px solid var(--fio); font-size: 1.0625rem; }
+}
+
+/* Jornada: o mapa das quatro etapas em células, a linha se desenha uma vez */
+.caminho { position: relative; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; border: 2px solid var(--tinta); overflow: hidden; }
+.sinal { display: none; }
+.etapa { position: relative; display: grid; gap: 8px; align-content: start; min-width: 0; padding: 20px 20px 22px; text-decoration: none; color: inherit; box-shadow: 1px 0 0 var(--fio); transition: background-color var(--curta) ease; }
+.etapa::before { content: ""; position: absolute; left: 0; right: 0; top: 30px; height: 4px; background: var(--cor); transform-origin: left center; animation: desenha var(--revela) var(--curva-percurso) both; }
+.e2::before { animation-delay: 150ms; } .e3::before { animation-delay: 300ms; } .e4::before { animation-delay: 450ms; }
+@keyframes desenha { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+.etapa:hover { background: var(--cartao); }
+.etapa:focus-visible { outline-offset: -4px; }
+.no { position: relative; z-index: 1; width: 24px; height: 24px; border-radius: 50%; border: 4px solid var(--cor-no, var(--cor)); background: var(--papel); margin-bottom: 8px; }
+.no span { display: none; }
+.etapa h3 { font-size: 1.1875rem; line-height: 1.2; letter-spacing: -0.02em; }
+.etapa p { color: var(--secundario); font-size: 15px; line-height: 1.5; }
+.etapa .rotulo { color: var(--cor-texto); }
+.contagem { display: flex; flex-wrap: wrap; gap: 4px 12px; margin-top: 4px; font-family: var(--mono); font-size: 12px; line-height: 1.5; color: var(--secundario); }
+.contagem span { display: inline-flex; align-items: center; gap: 6px; }
+.contagem i { width: 8px; height: 8px; display: inline-block; }
+.i-falta { background: var(--falta); } .i-ajustar { background: var(--ambar); box-shadow: inset 0 0 0 1px var(--ambar-texto); } .i-bom { background: var(--verde); }
+.e1 { --cor: var(--violeta); --cor-texto: var(--violeta); }
+.e2 { --cor: var(--verde); --cor-texto: var(--verde); }
+.e3 { --cor: var(--azul); --cor-texto: var(--azul); }
+.e4 { --cor: var(--ambar); --cor-texto: var(--ambar-texto); --cor-no: var(--ambar-texto); }
+.painel-faixa { grid-column: 1 / -1; display: flex; gap: 6px 12px; align-items: baseline; flex-wrap: wrap; padding: 14px 20px; background: var(--alternado); border-top: 1px solid var(--fio); font-size: 15px; line-height: 1.5; }
+.painel-faixa strong { font-weight: 600; }
+.painel-faixa span { color: var(--secundario); }
+
+/* Números do diagnóstico: mosaico de células, números grandes em tinta */
+.resumo { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 2px solid var(--tinta); border-bottom: 2px solid var(--tinta); }
+.resumo > div { padding: 18px 20px 20px 0; display: grid; gap: 4px; align-content: start; min-width: 0; }
+.resumo > div + div { padding-left: 20px; border-left: 1px solid var(--fio); }
+.resumo .valor { font-size: clamp(2.25rem, 1.8rem + 1.9vw, 3.5rem); font-weight: 600; letter-spacing: -0.045em; line-height: 1.05; }
+.resumo .valor small { font-size: 1rem; font-weight: 500; color: var(--secundario); letter-spacing: 0; }
+.resumo p { color: var(--secundario); font-size: 14px; line-height: 1.5; }
+.resumo a { font-size: 14px; }
+
+/* Seções */
+section { display: grid; gap: 32px; scroll-margin-top: 24px; }
+.sec-cab { display: grid; gap: 12px; max-width: 50rem; }
+.sec-cab h2 { font-size: var(--t2); letter-spacing: -0.04em; line-height: 1.08; }
+.sec-cab p { color: var(--secundario); }
+.subtitulo { font-size: 1.375rem; line-height: 1.2; letter-spacing: -0.02em; display: flex; align-items: center; gap: 10px; }
+
+/* Placar: o que decide leva o marca-texto da etapa */
+.placar { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border: 2px solid var(--tinta); overflow: hidden; }
+.placar > div { padding: 22px 22px 24px; display: block; min-width: 0; background: var(--cartao); box-shadow: 1px 0 0 var(--fio), 0 1px 0 var(--fio); }
+/* inline de propósito: o marca-texto acompanha cada linha quando o número quebra */
+.placar .grande { font-size: clamp(2.5rem, 2rem + 2.2vw, 3.75rem); font-weight: 600; letter-spacing: -0.045em; line-height: 1.02; padding: 0 0.12em; background: var(--tinta-azul); color: var(--tinta); -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+.placar .grande small { font-size: .38em; color: var(--tinta); font-weight: 500; letter-spacing: 0; }
+.placar p { margin-top: 10px; color: var(--secundario); font-size: 15px; line-height: 1.5; }
+.placar .ruim { background-image: linear-gradient(var(--falta), var(--falta)); background-size: 100% 4px; background-repeat: no-repeat; }
+.placar .ruim .grande { background: var(--tinta-ambar); }
+.placar .bom { background-image: linear-gradient(var(--verde), var(--verde)); background-size: 100% 4px; background-repeat: no-repeat; }
+.placar .bom .grande { background: var(--tinta-verde); }
+
+/* Achados: células de uma grade fechada; o vazio da última linha fica hachurado */
+.grupo-diag { display: grid; gap: 16px; }
+.achados { display: grid; gap: 0; grid-template-columns: repeat(auto-fill, minmax(min(100%, 20rem), 1fr)); border: 2px solid var(--tinta); overflow: hidden; background-color: var(--papel); background-image: repeating-linear-gradient(135deg, transparent 0 7px, var(--fio) 7px 8px); }
+.achado { background: var(--cartao); padding: 22px; display: grid; gap: 10px; grid-template-columns: minmax(0, 1fr); grid-template-rows: auto auto 1fr auto; min-width: 0; box-shadow: 1px 0 0 var(--fio), 0 1px 0 var(--fio); }
+.achado-cab { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+.achado h3 { font-size: 1rem; line-height: 1.35; letter-spacing: -0.005em; }
+.achado p { color: var(--secundario); font-size: 15px; line-height: 1.55; overflow-wrap: anywhere; }
+.achado .dado { font-size: 1.5rem; font-weight: 600; letter-spacing: -0.03em; color: var(--tinta); line-height: 1.15; overflow-wrap: anywhere; }
+.achado .origem { font-family: var(--mono); font-size: 12px; line-height: 1.5; color: var(--secundario); border-top: 1px solid var(--fio); padding-top: 10px; overflow-wrap: anywhere; }
+.achado .origem a { color: var(--secundario); }
+.achado .origem a:hover { color: var(--ambar-texto); }
+
+/* Selos de veredito: chips quadrados em mono */
+.chip { flex: none; font-family: var(--mono); font-size: 11px; font-weight: 500; line-height: 1.4; letter-spacing: .08em; text-transform: uppercase; padding: 3px 7px; border-radius: 0; white-space: nowrap; }
+.chip.forte { background: var(--verde); color: var(--papel); box-shadow: inset 0 0 0 1px var(--verde); }
+.chip.bom { background: var(--tinta-verde); color: var(--tinta); box-shadow: inset 0 0 0 1px var(--verde); }
+.chip.ajustar { background: var(--ambar); color: var(--tinta); box-shadow: inset 0 0 0 1px var(--ambar-texto); }
+.chip.falta { background: var(--falta); color: var(--papel); box-shadow: inset 0 0 0 1px var(--falta); }
+.chip.lacuna { background: transparent; color: var(--secundario); box-shadow: inset 0 0 0 1px var(--fio-campo); }
+.nota-plataforma { background: var(--alternado); border-left: 4px solid var(--tinta); padding: 18px 22px; display: grid; gap: 6px; max-width: 56rem; }
+.nota-plataforma p { color: var(--tinta); }
+.fonte { font-family: var(--mono); font-size: 12px; line-height: 1.6; color: var(--secundario); overflow-wrap: anywhere; }
+.fonte a { color: var(--ambar-texto); }
+
+/* Concorrentes */
+.tabela-wrap { overflow-x: auto; border-top: 2px solid var(--tinta); border-bottom: 2px solid var(--tinta); }
+.comparar { width: 100%; min-width: 560px; border-collapse: collapse; font-size: 15px; }
+.comparar th { text-align: left; font-family: var(--mono); font-size: 12px; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; color: var(--secundario); padding: 14px 16px 12px 0; vertical-align: bottom; }
+.comparar td { padding: 12px 16px 12px 0; border-top: 1px solid var(--fio); vertical-align: top; font-variant-numeric: tabular-nums; }
+.comparar td:first-child { color: var(--secundario); }
+.comparar .voce { color: var(--tinta); font-weight: 600; }
+.comparar .sem-dado { color: var(--secundario); font-family: var(--mono); font-size: 13px; }
+
+/* Plano: frentes em linhas de fio */
+.frentes { display: grid; border-top: 2px solid var(--tinta); border-bottom: 2px solid var(--tinta); }
+.frente { display: grid; grid-template-columns: 3rem minmax(0, 1fr) minmax(0, 13rem); gap: 20px; padding: 22px 0; align-items: start; }
+.frente + .frente { border-top: 1px solid var(--fio); }
+.frente .n { font-family: var(--mono); font-size: 14px; font-weight: 500; color: var(--tinta); padding-top: 3px; }
+.frente-corpo { display: grid; gap: 8px; min-width: 0; }
+.frente h3 { font-size: 1.1875rem; line-height: 1.3; letter-spacing: -0.015em; }
+.frente p { color: var(--secundario); }
+.frente .kpi { color: var(--tinta); font-size: 15px; line-height: 1.5; }
+.frente .kpi span { font-family: var(--mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--secundario); margin-right: 6px; }
+.frente .preco { text-align: right; display: grid; gap: 2px; }
+.frente .preco strong { font-weight: 600; font-size: 1.0625rem; }
+.frente .preco span { font-size: 13px; color: var(--secundario); }
+.crono-wrap { overflow-x: auto; }
+.crono { min-width: 640px; display: grid; grid-template-columns: 12rem repeat(12, minmax(0, 1fr)); row-gap: 10px; align-items: center; }
+.crono .sem { font-family: var(--mono); font-size: 12px; color: var(--secundario); text-align: center; padding-bottom: 6px; border-bottom: 2px solid var(--tinta); }
+.crono .fase-nome { grid-column: 1; font-weight: 600; font-size: 15px; line-height: 1.3; padding-right: 12px; }
+.barra { height: 34px; border-radius: 0; background: var(--cor); display: flex; align-items: center; padding-inline: 10px; font-size: 13px; font-weight: 500; color: var(--papel); white-space: nowrap; overflow: hidden; }
+.barra.ambar { color: var(--tinta); box-shadow: inset 0 0 0 1px var(--ambar-texto); }
+
+/* Como medimos */
+.duas { display: grid; gap: 48px; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: start; }
+.condicoes { margin: 0; padding: 0; list-style: none; display: grid; border-bottom: 1px solid var(--fio); }
+.condicoes li { padding: 12px 0; border-top: 1px solid var(--fio); color: var(--secundario); }
+.condicoes li strong { color: var(--tinta); font-weight: 600; }
+details.fontes { background: var(--cartao); border: 2px solid var(--tinta); padding: 16px 20px; }
+details.fontes summary { cursor: pointer; font-weight: 600; }
+details.fontes ul { margin: 14px 0 0; padding: 0; list-style: none; display: grid; gap: 8px; }
+details.fontes li { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 16px; font-size: 14px; color: var(--secundario); border-bottom: 1px solid var(--fio); padding-bottom: 8px; }
+details.fontes li a { overflow-wrap: anywhere; }
+details.fontes li span { font-family: var(--mono); font-size: 12px; white-space: nowrap; }
+
+/* Próximos passos */
+.passos { margin: 0; padding: 0; list-style: none; display: grid; gap: 20px; counter-reset: passo; }
+.passos li { display: grid; grid-template-columns: 2.5rem minmax(0, 1fr); gap: 14px; counter-increment: passo; }
+.passos li::before { content: counter(passo); width: 2.5rem; height: 2.5rem; display: grid; place-items: center; font-family: var(--mono); font-weight: 500; background: var(--tinta); color: var(--papel); }
+.passos h3 { font-size: 1.125rem; line-height: 1.3; }
+.passos p { color: var(--secundario); font-size: 15px; line-height: 1.55; }
+/* Botão: bloco de tinta com o texto em papel (sem seta no HTML) */
+.botao { display: flex; justify-content: center; align-items: center; gap: 8px; min-height: 48px; text-decoration: none; background: var(--tinta); color: var(--papel); font-size: 15px; font-weight: 600; line-height: 1.25; letter-spacing: -0.01em; text-align: center; padding: 12px 20px; border-radius: 0; max-width: 26rem; transition: background-color var(--curta) ease; }
+.botao:hover { background: color-mix(in srgb, var(--tinta) 86%, var(--papel)); color: var(--papel); }
+.contato-texto { font-size: 14px; color: var(--secundario); }
+.contato-texto span { color: var(--tinta); font-variant-numeric: tabular-nums; user-select: all; }
+
+/* Rodapé: a faixa escura que fecha a página */
+.rodape { margin-left: calc(-1 * var(--recuo)); padding-block: 32px 40px; display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; background: var(--tinta); color: var(--escuro-secundario); font-size: 14px; box-shadow: 0 0 0 100vmax var(--tinta); clip-path: inset(0 -100vmax -100vmax); }
+.rodape strong { color: var(--papel); font-weight: 600; }
+
+/* Proposta: os caminhos em células; o preço leva o marca-texto */
+.caminhos { display: grid; gap: 0; grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr)); align-items: stretch; border: 2px solid var(--tinta); overflow: hidden; }
+.caminho-card { background: var(--cartao); padding: 24px; display: flex; flex-direction: column; gap: 18px; min-width: 0; box-shadow: 1px 0 0 var(--fio), 0 1px 0 var(--fio); }
+.caminho-card.destaque { background-image: linear-gradient(var(--ambar), var(--ambar)); background-size: 100% 6px; background-repeat: no-repeat; }
+.caminho-cab { display: grid; gap: 6px; }
+.caminho-cab h3 { font-size: 1.5rem; line-height: 1.15; letter-spacing: -0.025em; }
+.caminho-cab p { color: var(--secundario); font-size: 15px; line-height: 1.55; }
+.precos { display: grid; gap: 14px; padding-block: 16px; border-top: 1px solid var(--fio); border-bottom: 1px solid var(--fio); }
+.preco-linha { display: grid; gap: 4px; justify-items: start; }
+.preco-linha .valor { font-size: 1.5rem; font-weight: 600; letter-spacing: -0.025em; line-height: 1.2; padding-inline: 0.15em; margin-left: -0.15em; background-image: linear-gradient(var(--tinta-ambar), var(--tinta-ambar)); background-size: 100% 1.2em; background-position: left bottom; background-repeat: no-repeat; }
+.preco-linha .valor small { font-size: .6em; color: var(--tinta); font-weight: 500; letter-spacing: 0; }
+.preco-linha .valor small.apartir { display: block; font-size: 13px; line-height: 1.4; margin-bottom: 2px; color: var(--secundario); letter-spacing: 0; background: var(--cartao); }
+.preco-linha .nota { font-size: 13px; color: var(--secundario); }
+.preco-linha.principal .valor { font-size: 2.25rem; letter-spacing: -0.04em; color: var(--tinta); }
+.inclui { margin: 0; padding-left: 1.1rem; display: grid; gap: 6px; font-size: 15px; line-height: 1.5; align-content: start; }
+.inclui li::marker { color: var(--secundario); }
+.caminho-card .obs { font-size: 14px; color: var(--secundario); }
+.caminho-card .botao { margin-top: auto; max-width: none; }
+.vencida-aviso { display: grid; gap: 14px; padding: 18px 22px; background: var(--tinta-ambar); border: 2px solid var(--ambar-texto); }
+.vencida-aviso[hidden] { display: none; }
+.vencida-aviso p { margin: 0; }
+.vencida-aviso .botao { justify-self: start; }
+#proposta.vencida .caminhos { opacity: 0.5; }
+#proposta.vencida .caminho-card .botao { display: none; }
+
+@media (max-width: 60rem) { .duas { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 52rem) {
+  .caminho { grid-template-columns: minmax(0, 1fr); }
+  .etapa { grid-template-columns: 24px minmax(0, 1fr); column-gap: 16px; row-gap: 6px; padding: 18px 16px 20px; box-shadow: 0 1px 0 var(--fio); }
+  .etapa::before { left: 26px; right: auto; top: 0; bottom: 0; width: 4px; height: auto; transform-origin: center top; animation-name: desce; }
+  @keyframes desce { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+  .etapa .no { grid-row: 1 / span 4; margin-bottom: 0; }
+  .etapa > :not(.no) { grid-column: 2; }
+  .painel-faixa { border-top: 0; }
+}
+@media (max-width: 46rem) {
+  .resumo, .placar { grid-template-columns: minmax(0, 1fr); }
+  .resumo > div { padding: 14px 0 16px; }
+  .resumo > div + div { padding-left: 0; border-left: 0; border-top: 1px solid var(--fio); }
+  .frente { grid-template-columns: 2rem minmax(0, 1fr); gap: 8px 14px; }
+  .frente .preco { grid-column: 2; text-align: left; }
+  .topo .rotulo { text-align: left; }
+  details.fontes li { grid-template-columns: minmax(0, 1fr); }
+  .crono { min-width: 0; grid-template-columns: 6.5rem repeat(12, minmax(0, 1fr)); }
+  .crono .sem { font-size: 11px; }
+  .barra { padding-inline: 6px; }
+  .achado { padding: 20px 18px; }
+  .caminho-card { padding: 22px 18px; }
+  .botao { max-width: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+@media print {
+  .sinal, .botao { display: none; }
+  .etapa::before { animation: none; }
+  .rodape { box-shadow: none; clip-path: none; background: none; color: var(--secundario); border-top: 2px solid var(--tinta); }
+  .rodape strong { color: var(--tinta); }
+  details.fontes ul { display: grid; }
+  section, .achado, .frente, .placar > div, .caminho-card { break-inside: avoid; }
+}
+</style>
+
+<main class="pagina">
+  {% if draft %}<div class="rascunho" role="status">Rascunho · ainda não aprovado pela revisão geral · não enviar ao cliente</div>{% endif %}
+  <header class="topo">
+    <div class="marca">{{ agency.logo_svg | safe }}<span>{{ agency.nome }}</span></div>
+    <span class="rotulo">Diagnóstico de presença digital · {{ data_br }}</span>
+  </header>
+
+  <div class="abertura">
+    <div class="abertura-texto">
+      <span class="rotulo">Para {{ client.fantasia }}{% if client.bairro %} · {{ client.bairro }}, {{ client.cidade }}{% elif client.cidade %} · {{ client.cidade }}{% endif %}</span>
+      <h1>{{ content.titulo }}</h1>
+      {% if content.lead %}<p class="lead">{{ content.lead }}</p>{% endif %}
+    </div>
+
+    <div class="caminho" aria-label="Jornada do cliente da {{ client.fantasia }}">
+      <span class="sinal" aria-hidden="true"></span>
+      {% for s in stages %}
+      <a class="etapa e{{ loop.index }}" href="#etapa-{{ s.key }}">
+        <div class="no"><span></span></div>
+        <span class="rotulo">{{ s.rotulo }}</span>
+        <h3>{{ s.label }}</h3>
+        <p>{{ s.frase }}</p>
+        <div class="contagem num">
+          {% if s.falta %}<span><i class="i-falta"></i>{{ s.falta }} falta{{ "m" if s.falta > 1 }}</span>{% endif %}
+          {% if s.ajustar %}<span><i class="i-ajustar"></i>{{ s.ajustar }} a ajustar</span>{% endif %}
+          {% if s.ok %}<span><i class="i-bom"></i>{{ s.ok }} em ordem</span>{% endif %}
+        </div>
+      </a>
+      {% endfor %}
+      <div class="painel-faixa"><strong>Revisão independente</strong><span>{{ revisao_texto }}</span></div>
+    </div>
+
+    <div class="resumo">
+      <div><span class="rotulo">Verificações</span><span class="valor num">{{ n_checks }}</span><p>em {{ n_frentes }} frentes, cada uma com um responsável</p></div>
+      <div><span class="rotulo">Evidências</span><span class="valor num">{{ n_evidencias }}</span><p>cada número com a fonte e a data da leitura</p></div>
+      <div><span class="rotulo">Pedem atenção</span><span class="valor num">{{ n_falta + n_ajustar }}<small> de {{ n_cards }} cards</small></span><p><a href="#plano">Ver o plano</a></p></div>
+    </div>
+  </div>
+
+  <section id="diagnostico" aria-labelledby="t-diag">
+    <div class="sec-cab">
+      <span class="rotulo">O ponto de partida</span>
+      <h2 id="t-diag">O que vimos</h2>
+      <p>{{ metodo_texto }}</p>
+    </div>
+
+    {% if content.placar %}
+    <div class="placar">
+      {% for p in content.placar %}
+      <div class="{{ p.tom }}"><span class="grande num">{{ p.valor }}{% if p.sufixo %} <small>{{ p.sufixo }}</small>{% endif %}</span><p>{{ p.texto }}</p></div>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+    {% for g in groups %}
+    <div class="grupo-diag" id="etapa-{{ g.key }}" style="--cor: var(--{{ g.cor }})">
+      <h3 class="subtitulo">{{ g.label }}</h3>
+      <div class="achados">
+        {% for c in g.cards %}
+        <article class="achado">
+          <div class="achado-cab"><h3>{{ c.title }}</h3><span class="chip {{ c.verdict }}">{{ c.verdict_label }}</span></div>
+          <span class="dado num">{{ c.headline }}</span>
+          <p>{{ c.body }}</p>
+          <span class="origem">{% if c.fonte_url %}<a href="{{ c.fonte_url }}" target="_blank" rel="noopener">{{ c.fonte_nome }}</a>{% else %}{{ c.fonte_nome }}{% endif %} · {{ c.fonte_data }}</span>
+        </article>
+        {% endfor %}
+        {% for l in g.lacunas %}
+        <article class="achado">
+          <div class="achado-cab"><h3>{{ l.label }}</h3><span class="chip lacuna">Sem leitura</span></div>
+          <span class="dado">Não medido</span>
+          <p>{{ l.reason }}{% if l.needs %} Para medir: {{ l.needs }}.{% endif %}</p>
+          <span class="origem">lacuna declarada</span>
+        </article>
+        {% endfor %}
+      </div>
+    </div>
+    {% endfor %}
+
+    {% if proxima_etapa %}
+    <div class="grupo-diag" id="proxima-etapa">
+      <h3 class="subtitulo">Na próxima etapa</h3>
+      <p class="fonte">Este é o panorama: o site pelo lado técnico e a posição da empresa no Google. A segunda etapa
+        olha {{ proxima_etapa | length }} pontos que ainda não entraram: {% for l in proxima_etapa %}{{ l[:1] | lower }}{{ l[1:] }}{{ ", " if not loop.last else "" }}{% endfor %}.</p>
+    </div>
+    {% endif %}
+
+    {% if content.destaque %}
+    <div class="nota-plataforma">
+      <span class="rotulo">{{ content.destaque.rotulo }}</span>
+      <p>{{ content.destaque.texto }}</p>
+    </div>
+    {% endif %}
+    <p class="fonte">Fontes: {{ fontes_resumo }}, lidas {{ periodo }}.</p>
+  </section>
+
+  {% if comparativo %}
+  <section id="concorrentes" aria-labelledby="t-conc">
+    <div class="sec-cab">
+      <span class="rotulo">Na vizinhança</span>
+      <h2 id="t-conc">Ao lado dos concorrentes</h2>
+      <p>{{ content.concorrentes_texto or "Mesmas medições, mesmas datas, só dados públicos." }}</p>
+    </div>
+    <div class="tabela-wrap">
+      <table class="comparar">
+        <thead><tr><th scope="col">Medição</th>{% for n in comparativo.nomes %}<th scope="col">{{ n }}</th>{% endfor %}</tr></thead>
+        <tbody>
+          {% for row in comparativo.linhas %}
+          <tr><td>{{ row.label }}</td>{% for v in row.valores %}<td class="{{ 'voce' if loop.first }}{{ ' sem-dado' if v == '—' }}">{{ v }}</td>{% endfor %}</tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <p class="fonte">{% if comparativo.tem_posicao %}Posição nas buscas varia com o local e o aparelho de quem pesquisa. {% endif %}Valores lidos em {{ periodo_fim }}.</p>
+  </section>
+  {% endif %}
+
+  {% if recs %}
+  <section id="plano" aria-labelledby="t-plano">
+    <div class="sec-cab">
+      <span class="rotulo">O que fazer</span>
+      <h2 id="t-plano">Por onde começar</h2>
+      <p>Em ordem de prioridade: o que mais destrava resultado com menos esforço vem primeiro. Cada ação diz como saber que deu certo, e a próxima leitura confere.</p>
+    </div>
+    <div class="frentes">
+      {% for r in recs %}
+      <article class="frente">
+        <span class="n">{{ "%02d" % loop.index }}</span>
+        <div class="frente-corpo">
+          <h3>{{ r.action }}</h3>
+          <p>{{ r.impact_mechanism }}{% if r.resolve %} Resolve: {{ r.resolve }}.{% endif %}</p>
+          <p class="kpi"><span>Deu certo quando</span>{{ r.kpi }}</p>
+        </div>
+        <div class="preco"><strong>Até {{ r.horizon }} dias</strong><span>{{ r.esforco }}</span></div>
+      </article>
+      {% endfor %}
+    </div>
+    {% if horizontes %}
+    <div class="crono-wrap">
+      <div class="crono" role="img" aria-label="Plano em 12 semanas: {{ horizontes | map(attribute='aria') | join('; ') }}">
+        <span></span>
+        {% for w in range(1, 13) %}<span class="sem">{{ w }}</span>{% endfor %}
+        {% for h in horizontes %}
+        <span class="fase-nome">Até {{ h.dias }} dias</span>
+        <div class="barra {{ 'ambar' if h.cor == 'ambar' }}" style="--cor: var(--{{ h.cor }}); grid-column: {{ h.col }} / span 4">{{ h.n }} aç{{ "ões" if h.n > 1 else "ão" }}</div>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+  </section>
+  {% endif %}
+
+  {% if proposta %}
+  <section id="proposta" aria-labelledby="t-proposta"{% if proposta.validade_iso %} data-validade="{{ proposta.validade_iso }}"{% endif %}>
+    <div class="sec-cab">
+      <span class="rotulo">{{ proposta.rotulo or "Investimento" }}</span>
+      <h2 id="t-proposta">{{ proposta.titulo or "Como podemos resolver" }}</h2>
+      {% if proposta.texto %}<p>{{ proposta.texto }}</p>{% endif %}
+    </div>
+    {% if proposta.validade_iso %}
+    <div class="vencida-aviso" id="proposta-vencida" hidden>
+      <p><strong>Esta proposta venceu em {{ proposta.validade }}.</strong> Os valores podem ter mudado desde então.</p>
+      <a class="botao" href="https://wa.me/{{ agency.whatsapp_link }}?text={{ ('Olá, ' ~ agency.responsavel.split(' ')[0] ~ '. Vi o diagnóstico da ' ~ client.fantasia ~ ' (código ' ~ codigo ~ ') e quero a proposta atualizada.') | urlencode }}" target="_blank" rel="noopener">Pedir a proposta atualizada</a>
+    </div>
+    {% endif %}
+    <div class="caminhos">
+      {% for c in proposta.caminhos %}
+      <article class="caminho-card{{ ' destaque' if c.destaque }}">
+        <div class="caminho-cab">
+          <span class="rotulo">{{ c.rotulo or ("Caminho " ~ loop.index) }}</span>
+          <h3>{{ c.nome }}</h3>
+          {% if c.resumo %}<p>{{ c.resumo }}</p>{% endif %}
+        </div>
+        {% if c.precos %}
+        <div class="precos">
+          {% for v in c.precos %}
+          <div class="preco-linha{{ ' principal' if loop.first }}"><span class="rotulo">{{ v.rotulo }}</span><span class="valor num">{% if v.valor != "sob consulta" %}<small class="apartir">a partir de</small>{% endif %}{{ v.valor }}{% if v.sufixo %}<small>{{ v.sufixo }}</small>{% endif %}</span>{% if v.nota %}<span class="nota">{{ v.nota }}</span>{% endif %}</div>
+          {% endfor %}
+        </div>
+        {% endif %}
+        {% if c.inclui %}<ul class="inclui">{% for i in c.inclui %}<li>{{ i }}</li>{% endfor %}</ul>{% endif %}
+        {% if c.observacao %}<p class="obs">{{ c.observacao }}</p>{% endif %}
+        <a class="botao" href="https://wa.me/{{ agency.whatsapp_link }}?text={{ ('Olá, ' ~ agency.responsavel.split(' ')[0] ~ '. Vi o diagnóstico da ' ~ client.fantasia ~ ' (código ' ~ codigo ~ ') e quero seguir pelo caminho ' ~ c.nome ~ '.') | urlencode }}" target="_blank" rel="noopener">Seguir pelo {{ c.nome }}</a>
+      </article>
+      {% endfor %}
+    </div>
+    {% if proposta.condicoes %}
+    <ul class="condicoes">{% for c in proposta.condicoes %}<li>{{ c }}</li>{% endfor %}</ul>
+    {% endif %}
+    {% if proposta.validade_iso %}
+    <script>
+      (function () {
+        var s = document.getElementById("proposta");
+        var fim = new Date(s.getAttribute("data-validade") + "T23:59:59-03:00");
+        if (Date.now() > fim.getTime()) {
+          s.classList.add("vencida");
+          document.getElementById("proposta-vencida").hidden = false;
+        }
+      })();
+    </script>
+    {% endif %}
+    <p class="fonte">{% if proposta.fonte %}Todo valor é a partir de, como na tabela vigente em <a href="{{ proposta.fonte.url }}" target="_blank" rel="noopener">{{ proposta.fonte.url_curta }}</a> (consultada em {{ proposta.fonte.data }}), e o preço final sai do diagnóstico. {% endif %}{% if proposta.validade %}Proposta válida até {{ proposta.validade }}.{% endif %}</p>
+  </section>
+  {% endif %}
+
+  <section id="metodo" aria-labelledby="t-metodo">
+    <div class="duas">
+      <div class="sec-cab" style="gap: 18px">
+        <span class="rotulo">Como medimos</span>
+        <h2 id="t-metodo">De onde vem cada número</h2>
+        <ul class="condicoes">
+          <li><strong>Só dados públicos.</strong> O que qualquer cliente vê no Google, nas redes e no site, sem login e sem acesso às contas da empresa.</li>
+          <li><strong>Uma frente, um responsável.</strong> {{ n_frentes }} frentes auditadas de forma independente, cada uma por um analista dedicado, sem ver as conclusões dos outros.</li>
+          <li><strong>Fonte e data em tudo.</strong> Cada card leva o link de onde o dado foi lido e quando.</li>
+          <li><strong>Revisão geral.</strong> {{ revisao_texto }}</li>
+          {% if lacunas_cliente %}<li><strong>Com acesso de vocês, dá para ir além.</strong> {{ lacunas_cliente }}</li>{% endif %}
+        </ul>
+      </div>
+      <div class="sec-cab" style="gap: 18px">
+        <span class="rotulo">Fontes</span>
+        <h2>Tudo o que foi lido</h2>
+        <details class="fontes">
+          <summary>{{ fontes | length }} endereços consultados</summary>
+          <ul>
+            {% for f in fontes %}<li><a href="{{ f.url }}" target="_blank" rel="noopener">{{ f.nome }}</a><span>{{ f.data }}</span></li>{% endfor %}
+          </ul>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section id="passos" aria-labelledby="t-passos">
+    <div class="duas">
+      <div class="sec-cab" style="gap: 18px">
+        <span class="rotulo">Próximos passos</span>
+        <h2 id="t-passos">Para seguir</h2>
+        <ol class="passos">
+          {% for p in content.proximos_passos %}<li><div><h3>{{ p.titulo }}</h3><p>{{ p.texto }}</p></div></li>{% endfor %}
+        </ol>
+      </div>
+      <div class="sec-cab" style="gap: 18px; align-content: end">
+        <a class="botao" href="https://wa.me/{{ agency.whatsapp_link }}?text={{ cta_texto | urlencode }}" target="_blank" rel="noopener">Conversar sobre o diagnóstico</a>
+        <p class="contato-texto">{{ agency.responsavel }}, WhatsApp <span>{{ agency.whatsapp }}</span> · <span>{{ agency.email }}</span></p>
+        <p class="fonte">Diagnóstico válido como retrato de {{ periodo_fim }}. Avaliações, anúncios e posições mudam com o tempo.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="rodape">
+    <div><strong>{{ agency.nome }}</strong><br>{{ agency.razao_social }} · CNPJ {{ agency.cnpj }} · {{ agency.cidade }}</div>
+    <div>{{ agency.responsavel }}, {{ agency.cargo }}<br>WhatsApp {{ agency.whatsapp }} · {{ agency.email }}</div>
+  </footer>
+</main>
