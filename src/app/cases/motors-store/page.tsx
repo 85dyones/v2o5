@@ -8,7 +8,7 @@ import Topo from "@/components/layout/Topo";
 import Rodape from "@/components/layout/Rodape";
 import MarcaMotors from "@/components/marca/MarcaMotors";
 import CapturasDaMotors from "@/components/case/CapturasDaMotors";
-import Simbolo from "@/components/marca/Simbolo";
+import Construcao from "@/components/marca/Construcao";
 import { COR_DA_ROTA, ComMarcas, Parada, Trecho } from "@/components/rota/Rota";
 import { CASE_MOTORS } from "@/conteudo/case";
 import { CASE } from "@/conteudo/home";
@@ -167,7 +167,7 @@ export default function Pagina() {
               </div>
             </div>
             <div aria-hidden="true" className="col-span-12 flex items-end lg:col-span-5 lg:justify-end lg:border-l lg:border-faixa-escura-linha">
-              <Simbolo className="h-28 w-auto text-faixa-escura-texto md:h-36" />
+              <Construcao className="h-40 w-auto max-w-full md:h-52" />
             </div>
           </div>
         </section>

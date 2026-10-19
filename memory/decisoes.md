@@ -2,6 +2,11 @@
 
 Log datado. Decisão nova entra no topo do dia; decisão revogada fica riscada com a data da troca.
 
+## 19/10/2026 (marca em construção, pelo Dyones: referência brand.dropbox.com/logo, "siga sua recomendação"; proposta em https://claude.ai/artifact/EGFgbECz4XDG5c1dJut2Po)
+- O símbolo aparece como construção (grade pelos átomos, os quatro círculos da nuvem, cotas em mono) no fecho das 12 páginas, no lugar do logo solto, e no fim do rodapé, no lugar da marca grande apagada (`components/marca/Construcao.tsx`, geometria em `lib/construcao.ts`).
+- Em /sobre, a anatomia do símbolo no lugar do logo grande, com a ficha "Nuvem · 4 arcos, raios 18, 24, 20 e 18", "Rede · 2 V e 5 O, a fórmula do V2O5", "Átomo âmbar · a cor da ação".
+- O bloco (símbolo em tinta num quadrado âmbar, átomo em papel) vira o ícone do site e o avatar de WhatsApp e Instagram (`design/marca/bloco.svg` e `bloco-1080.png`). A página /marca fica para depois do retrato.
+
 ## 19/10/2026 (pontos abertos do redesign, pelo Dyones: "1 faça isso", "2 faça isso", "faça isso", "sobre o botão, siga sua recomendação", "a redação do texto promocional riscado fica até dezembro", "unifique a descrição do painel do dono")
 - Telas reais do site da Motors (vitrine, estoque e ficha de veículo, capturadas no celular em 19/10/2026) no case, no hub e no mosaico de `/criacao-de-sites`, chapadas, com endereço e data na legenda (`components/case/CapturasDaMotors.tsx`). O retrato do fundador também foi aprovado, mas depende da foto.
 - `/gestao-de-trafego` sai do ar: responde 307 para `/precos#titulo-trafego` até ganhar texto; os links de tráfego da home, do rodapé e das soluções apontam para lá.
