@@ -8,10 +8,10 @@ const IMA_X = 6; // px, quanto o botão anda na direção do cursor
 const IMA_Y = 4;
 
 /**
- * A interface percebe o cursor: em cartões e botões, a luz interna vai para
- * onde ele está (`--luz-x`/`--luz-y`); nos botões, o próprio botão é puxado
- * alguns pixels na direção dele (`--ima-x`/`--ima-y`) e volta numa mola de
- * CSS ao sair. Um ouvinte só, no documento, no máximo uma escrita por
+ * A interface percebe o cursor: nos cartões, a borda de luz vai para onde
+ * ele está (`--luz-x`/`--luz-y`); nos botões, o próprio botão é puxado
+ * alguns pixels na direção dele (`--ima-x`/`--ima-y`) e volta pela curva de
+ * saída do CSS ao sair. Um ouvinte só, no documento, no máximo uma escrita por
  * quadro. Só com mouse; com menos movimento, a luz ainda segue, o ímã não.
  */
 export default function LuzDoCursor() {

@@ -29,7 +29,7 @@ function Campo({
       </label>
       {children}
       {erro ? (
-        <p id={`${id}-erro`} className="mt-1.5 text-sm text-[rgb(255_150_130)]">
+        <p id={`${id}-erro`} className="mt-1.5 text-sm text-erro">
           {erro}
         </p>
       ) : null}
@@ -200,7 +200,7 @@ export default function Formulario() {
       </div>
 
       {segmento === "automotivo" ? (
-        <div className="grid gap-5 rounded-2xl bg-vidro p-4 contorno sm:grid-cols-2">
+        <div className="grid gap-5 rounded-2xl bg-fundo-cartao p-4 contorno sm:grid-cols-2">
           <Campo id={campo("estoque")} rotulo="Tamanho do estoque">
             <select id={campo("estoque")} name="estoque" className="campo" defaultValue="">
               <option value="">Escolha</option>
@@ -236,12 +236,12 @@ export default function Formulario() {
                 checked={objetivos.includes(o.valor)}
                 onChange={() => alternarObjetivo(o.valor)}
               />
-              {objetivos.includes(o.valor) ? <Icone nome="check" className="size-3.5 text-ambar" /> : null}
+              {objetivos.includes(o.valor) ? <Icone nome="check" className="size-3.5 text-acao-texto" /> : null}
               {o.rotulo}
             </label>
           ))}
         </div>
-        {erros.objetivos ? <p className="mt-1.5 text-sm text-[rgb(255_150_130)]">{erros.objetivos}</p> : null}
+        {erros.objetivos ? <p className="mt-1.5 text-sm text-erro">{erros.objetivos}</p> : null}
       </fieldset>
 
       <Campo id={campo("mensagem")} rotulo="Algo mais que a gente deva saber (opcional)">
@@ -257,7 +257,7 @@ export default function Formulario() {
       </div>
 
       {estado === "erro" || estado === "canal" ? (
-        <p role="alert" className="rounded-xl bg-[rgb(255_120_100/0.1)] px-4 py-3 text-sm contorno">
+        <p role="alert" className="rounded-xl bg-erro/10 px-4 py-3 text-sm contorno">
           {estado === "canal" ? f.erroCanal : f.erroGeral}
         </p>
       ) : null}
@@ -267,7 +267,7 @@ export default function Formulario() {
           {estado === "enviando" ? f.enviando : f.enviar}
           <Icone nome="seta" className="seta size-4" />
         </button>
-        <p className="text-sm leading-snug text-secundario">
+        <p className="text-sm leading-snug text-texto-secundario">
           {f.consentimento}{" "}
           <Link href="/privacidade" className="link-sublinhado">
             Como tratamos os dados

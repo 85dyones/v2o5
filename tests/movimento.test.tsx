@@ -2,6 +2,8 @@
 import { act, cleanup, fireEvent, render, screen } from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { prefereMenosMovimento } from "@/lib/movimento";
+import { MOVIMENTO } from "@/lib/tokens";
+import { frenteDoDesign, kebab } from "./design";
 import { arquivos, ler, semComentarios } from "./fonte";
 
 /**
@@ -250,6 +252,50 @@ describe("CSS e fonte", () => {
     expect(bloco![1]).toMatch(/animation:\s*none !important/);
     expect(bloco![1]).toMatch(/transition:\s*none !important/);
     expect(bloco![1]).toMatch(/scroll-behavior:\s*auto !important/);
+  });
+
+  it("com menos movimento as quatro durações do sistema vão a zero", () => {
+    const css = ler("src/app/globals.css");
+    const bloco = /@media \(prefers-reduced-motion: reduce\)\s*\{([\s\S]*?)\n\}/.exec(css)![1];
+    const raiz = /:root\s*\{([^}]*)\}/.exec(bloco);
+    expect(raiz, ":root dentro do bloco de menos movimento").not.toBeNull();
+    const duracoes = Object.keys(MOVIMENTO).filter((n) => n.startsWith("duracao"));
+    expect(duracoes).toHaveLength(4);
+    for (const nome of duracoes) {
+      expect(raiz![1], nome).toMatch(new RegExp(`--${kebab(nome)}:\\s*0ms;`));
+    }
+  });
+
+  it("curvas e durações são as do DESIGN.md, em tokens.ts e no :root do globals.css", () => {
+    const css = ler("src/app/globals.css");
+    const doDesign = frenteDoDesign().motion as Record<string, string>;
+    expect(Object.fromEntries(Object.entries(MOVIMENTO).map(([n, v]) => [kebab(n), v]))).toEqual(doDesign);
+    const raiz = /^:root\s*\{([^}]*)\}/m.exec(css)![1];
+    for (const [nome, valor] of Object.entries(MOVIMENTO)) {
+      expect(raiz, nome).toContain(`--${kebab(nome)}: ${valor};`);
+    }
+  });
+
+  it("as curvas da base escura saíram e nenhuma animação repete sem fim", () => {
+    const css = semComentarios(ler("src/app/globals.css"));
+    expect(css).not.toMatch(/--ease-(saida|movimento|mola)/);
+    expect(css).not.toMatch(/linear\(/);
+    expect(css).not.toMatch(/\binfinite\b/);
+  });
+
+  it("transição e animação no CSS usam só as quatro durações", () => {
+    // Fora a definição dos tokens e o zero do bloco de menos movimento, nenhum
+    // número com ms ou s aparece no globals.css.
+    const css = semComentarios(ler("src/app/globals.css")).replace(/:root\s*\{[^}]*\}/g, "");
+    expect(css).not.toMatch(/[\s,(:]\d*\.?\d+m?s\b/);
+    for (const arquivo of arquivos("src", /\.tsx$/)) {
+      expect(semComentarios(ler(arquivo)), arquivo).not.toMatch(/(?<![\w-])duration-\d/);
+    }
+  });
+
+  it("o pulso do diagrama corre na curva de percurso", () => {
+    const numeros = MOVIMENTO.curvaPercurso.match(/[\d.]+/g)!.join(", ");
+    expect(ler("src/components/home/diagrama/DiagramaInterativo.tsx")).toContain(`ease: [${numeros}]`);
   });
 
   it("todo código que agenda quadro ou anima pergunta a lib/movimento", () => {

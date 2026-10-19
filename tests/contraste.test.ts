@@ -1,16 +1,19 @@
 import { describe, expect, it } from "vitest";
 import { lerHex, razaoDeContraste, sobrepor } from "@/lib/contraste";
 import { CORES, type NomeDaCor } from "@/lib/tokens";
-import { ler } from "./fonte";
+import { frenteDoDesign, kebab, variavelNoCss } from "./design";
+import { arquivos, ler, semComentarios } from "./fonte";
 
 /**
- * As cores da marca valem em dois lugares (lib/tokens.ts e o @theme do
- * globals.css) e cada par de texto usado na home passa no AA (4,5:1).
- * Peça gráfica (ponto de etapa, traço do diagrama) passa em 3:1.
+ * As cores do sistema valem em três lugares (o front matter de
+ * design/DESIGN.md, lib/tokens.ts e o @theme do globals.css) e cada par da
+ * tabela de cores do DESIGN.md passa no que promete: texto no AA (4,5:1),
+ * borda de controle e peça gráfica em 3:1. Os números esperados são os que o
+ * DESIGN.md registra como medidos.
  */
 
-const kebab = (nome: string) => nome.replace(/[A-Z]/g, (l) => `-${l.toLowerCase()}`);
 const css = ler("src/app/globals.css");
+const contraste = (a: NomeDaCor, b: NomeDaCor) => razaoDeContraste(CORES[a], CORES[b])!;
 
 describe("a conta da WCAG", () => {
   it("bate nos extremos e não depende da ordem", () => {
@@ -23,79 +26,143 @@ describe("a conta da WCAG", () => {
     expect(lerHex("vermelho")).toBeNull();
     expect(razaoDeContraste("#12345", "#000")).toBeNull();
   });
-
-  it("confere os números da tabela de marca.md", () => {
-    expect(razaoDeContraste(CORES.papel, CORES.tinta)).toBeCloseTo(16.3, 1);
-    expect(razaoDeContraste(CORES.ambar, CORES.tinta)).toBeCloseTo(8.9, 1);
-    expect(razaoDeContraste(CORES.secundarioEscuro, CORES.tinta)).toBeCloseTo(8.1, 1);
-  });
 });
 
-describe("tokens.ts e globals.css dizem a mesma coisa", () => {
-  const nomeNoCss: Partial<Record<NomeDaCor, string>> = { secundarioEscuro: "secundario" };
+describe("DESIGN.md, tokens.ts e globals.css dizem a mesma coisa", () => {
+  const doDesign = frenteDoDesign().colors as Record<string, string>;
+
+  it("cada cor do DESIGN.md está em tokens.ts com o mesmo valor, e só elas", () => {
+    const deTokens = Object.fromEntries(Object.entries(CORES).map(([n, hex]) => [kebab(n), hex.toUpperCase()]));
+    const doArquivo = Object.fromEntries(Object.entries(doDesign).map(([n, hex]) => [n, hex.toUpperCase()]));
+    expect(deTokens).toEqual(doArquivo);
+  });
 
   it("cada cor de tokens.ts está no @theme com o mesmo valor", () => {
-    for (const [nome, hex] of Object.entries(CORES) as [NomeDaCor, string][]) {
-      const variavel = `--color-${nomeNoCss[nome] ?? kebab(nome)}`;
-      const m = new RegExp(`${variavel}:\\s*(#[0-9a-fA-F]{6});`).exec(css);
-      expect(m, `${variavel} ausente do globals.css`).not.toBeNull();
-      expect(m![1].toUpperCase(), variavel).toBe(hex.toUpperCase());
+    for (const [nome, hex] of Object.entries(CORES)) {
+      const variavel = `--color-${kebab(nome)}`;
+      const noCss = variavelNoCss(css, variavel);
+      expect(noCss, `${variavel} ausente do globals.css`).not.toBeNull();
+      expect(noCss!.toUpperCase(), variavel).toBe(hex.toUpperCase());
     }
   });
 
-  it("o @theme não tem cor hexadecimal fora de tokens.ts", () => {
-    const noCss = [...css.matchAll(/--color-([a-z-]+):\s*#[0-9a-fA-F]{6};/g)].map((m) => m[1]);
-    const conhecidas = new Set(
-      (Object.keys(CORES) as NomeDaCor[]).map((n) => nomeNoCss[n] ?? kebab(n)),
-    );
-    for (const nome of noCss) expect(conhecidas.has(nome), `--color-${nome} sem par em tokens.ts`).toBe(true);
+  it("o @theme não tem cor fora de tokens.ts", () => {
+    const tema = /@theme\s*\{([\s\S]*?)\n\}/.exec(css)![1];
+    const noCss = [...tema.matchAll(/--color-([a-z-]+):\s*([^;]+);/g)];
+    const conhecidas = new Set(Object.keys(CORES).map(kebab));
+    for (const [, nome, valor] of noCss) {
+      if (nome === "*") continue;
+      expect(conhecidas.has(nome), `--color-${nome} sem par em tokens.ts`).toBe(true);
+      expect(valor, `--color-${nome}`).toMatch(/^#[0-9a-fA-F]{6}$/);
+    }
   });
 });
 
-describe("pares de uso passam no AA", () => {
-  const texto: [string, NomeDaCor, NomeDaCor][] = [
-    ["texto principal na tinta", "papel", "tinta"],
-    ["texto principal no cartão", "papel", "superficie"],
-    ["texto principal no grafite (balão, chip)", "papel", "grafite"],
-    ["texto secundário na tinta", "secundarioEscuro", "tinta"],
-    ["texto secundário no cartão", "secundarioEscuro", "superficie"],
-    ["texto secundário no grafite", "secundarioEscuro", "grafite"],
-    ["âmbar como texto na tinta (o IA da assinatura)", "ambar", "tinta"],
-    ["botão primário", "tinta", "ambar"],
-    ["botão primário sob o cursor", "tinta", "ambarForte"],
-    ["etiqueta verde e balão do agente", "papel", "verde"],
-    ["etiqueta violeta", "papel", "violeta"],
-    ["etiqueta azul", "papel", "azul"],
+describe("os pares da tabela de cores do DESIGN.md", () => {
+  // [uso, frente, fundo, contraste medido no DESIGN.md, mínimo]
+  const AA = 4.5;
+  const PECA = 3;
+  const pares: [string, NomeDaCor, NomeDaCor, number, number][] = [
+    ["texto no fundo", "texto", "fundo", 16.3, AA],
+    ["texto no cartão", "texto", "fundoCartao", 17.5, AA],
+    ["texto na seção alternada", "texto", "fundoAlternado", 14.76, AA],
+    ["texto secundário no fundo", "textoSecundario", "fundo", 5.82, AA],
+    ["texto secundário no cartão", "textoSecundario", "fundoCartao", 6.24, AA],
+    ["texto secundário na seção alternada", "textoSecundario", "fundoAlternado", 5.27, AA],
+    ["âmbar de texto no fundo (link, o IA da assinatura)", "acaoTexto", "fundo", 5.44, AA],
+    ["âmbar de texto no cartão", "acaoTexto", "fundoCartao", 5.84, AA],
+    ["âmbar de texto na seção alternada", "acaoTexto", "fundoAlternado", 4.93, AA],
+    ["tinta sobre o botão âmbar", "texto", "acao", 8.93, AA],
+    ["etapa atração como texto, e o papel sobre ela", "etapaAtracao", "fundo", 5.57, AA],
+    ["etapa atendimento (botão de WhatsApp, balão)", "etapaAtendimento", "fundo", 4.96, AA],
+    ["etapa CRM", "etapaCrm", "fundo", 5.72, AA],
+    ["erro de formulário no fundo", "erro", "fundo", 5.78, AA],
+    ["erro de formulário no cartão", "erro", "fundoCartao", 6.2, AA],
+    ["faixa escura: papel", "faixaEscuraTexto", "faixaEscura", 16.3, AA],
+    ["faixa escura: âmbar", "acao", "faixaEscura", 8.93, AA],
+    ["faixa escura: secundário", "faixaEscuraSecundario", "faixaEscura", 8.12, AA],
+    ["borda de campo no fundo", "linhaCampo", "fundo", 3.86, PECA],
+    ["borda de campo no cartão", "linhaCampo", "fundoCartao", 4.15, PECA],
+    ["borda do botão âmbar contra o fundo", "acaoBorda", "fundo", 5.44, PECA],
   ];
 
-  it.each(texto)("%s", (_, frente, fundo) => {
-    expect(razaoDeContraste(CORES[frente], CORES[fundo])!).toBeGreaterThanOrEqual(4.5);
+  it.each(pares)("%s", (_, frente, fundo, medido, minimo) => {
+    expect(contraste(frente, fundo)).toBeCloseTo(medido, 1);
+    expect(contraste(frente, fundo)).toBeGreaterThanOrEqual(minimo);
   });
 
-  it("as versões claras das etapas servem de traço e ponto sobre a tinta (3:1)", () => {
-    for (const cor of ["violetaClaro", "verdeClaro", "azulClaro", "ambar"] as const) {
-      expect(razaoDeContraste(CORES[cor], CORES.tinta)!, cor).toBeGreaterThanOrEqual(3);
-      expect(razaoDeContraste(CORES[cor], CORES.superficie)!, cor).toBeGreaterThanOrEqual(3);
+  it("a linha é só decoração: não chega a 3:1 e nunca é a única borda de um controle", () => {
+    expect(contraste("linha", "fundo")).toBeCloseTo(1.31, 1);
+    expect(contraste("linha", "fundo")).toBeLessThan(PECA);
+    for (const classe of ["campo", "opcao", "botao-secundario"]) {
+      const regra = new RegExp(`\\.${classe}\\s*\\{([^}]*)\\}`).exec(css)![1];
+      expect(regra, classe).toMatch(/inset 0 0 0 1px var\(--color-linha-campo\)/);
     }
   });
 
-  it("botão primário em vidro âmbar: papel passa no AA até no ponto mais claro da luz", () => {
-    // As camadas de .botao-primario (globals.css), da de baixo para a de cima,
-    // sobre a tinta: vidro rgb(46 34 14 / .55), degradê âmbar de .24 (o topo,
-    // a parte mais clara) e a luz do cursor rgb(255 196 92 / .25) no centro.
-    const css = ler("src/app/globals.css");
-    expect(css).toMatch(/background-color: rgb\(46 34 14 \/ 0\.55\)/);
-    expect(css).toMatch(/rgb\(255 196 92 \/ 0\.25\)/);
-    expect(css).toMatch(/rgb\(242 165 22 \/ 0\.24\)/);
-    const vidro = sobrepor("#2E220E", 0.55, CORES.tinta);
-    const degrade = sobrepor(CORES.ambar, 0.24, vidro);
-    const luz = sobrepor("#FFC45C", 0.25, degrade);
-    expect(razaoDeContraste(CORES.papel, luz)!).toBeGreaterThanOrEqual(4.5);
+  it("o âmbar some no papel (1,83:1): nunca é texto no claro e o botão leva a borda", () => {
+    expect(contraste("acao", "fundo")).toBeCloseTo(1.83, 1);
+    expect(contraste("acao", "fundo")).toBeLessThan(PECA);
+    const primario = /\.botao-primario\s*\{([^}]*)\}/.exec(css)![1];
+    expect(primario).toMatch(/background-color:\s*var\(--color-acao\);/);
+    expect(primario).toMatch(/box-shadow:\s*inset 0 0 0 1px var\(--color-acao-borda\);/);
+    for (const arquivo of arquivos("src", /\.tsx$/)) {
+      expect(semComentarios(ler(arquivo)), arquivo).not.toMatch(/(?<![\w-])text-acao(?![\w-])/);
+    }
   });
 
-  it("as cores de etapa puras não servem de texto sobre a tinta (por isso existem as claras)", () => {
-    for (const cor of ["violeta", "verde", "azul"] as const) {
-      expect(razaoDeContraste(CORES[cor], CORES.tinta)!, cor).toBeLessThan(4.5);
+  it("o botão âmbar sob o cursor escurece e a tinta continua passando", () => {
+    expect(css).toMatch(/background-color:\s*color-mix\(in srgb, var\(--color-acao\) 88%, var\(--color-acao-borda\)\);/);
+    const sobOCursor = sobrepor(CORES.acaoBorda, 0.12, CORES.acao);
+    expect(razaoDeContraste(CORES.texto, sobOCursor)!).toBeGreaterThanOrEqual(AA);
+  });
+
+  it("o contorno de foco usa o âmbar de texto, que passa em 3:1 em todos os fundos", () => {
+    expect(css).toMatch(/:focus-visible\s*\{\s*outline:\s*2px solid var\(--color-acao-texto\);/);
+    for (const fundo of ["fundo", "fundoCartao", "fundoAlternado"] as const) {
+      expect(contraste("acaoTexto", fundo), fundo).toBeGreaterThanOrEqual(PECA);
     }
+  });
+
+  it("o papel por cima das etapas passa no AA (balão, etiqueta, botão de WhatsApp)", () => {
+    for (const cor of ["etapaAtracao", "etapaAtendimento", "etapaCrm"] as const) {
+      expect(contraste("fundo", cor), cor).toBeGreaterThanOrEqual(AA);
+    }
+  });
+});
+
+describe("os componentes só usam as cores do sistema", () => {
+  // Com `--color-*: initial`, uma classe com nome de cor que não existe não
+  // gera CSS nenhum: o texto herda a cor de cima e ninguém percebe. Os
+  // nomes da base escura não podem voltar.
+  const daBaseEscura = [
+    "tinta", "papel", "grafite", "superficie", "secundario", "secundario-claro", "ambar", "ambar-forte",
+    "ambar-texto", "violeta", "verde", "azul", "violeta-claro", "verde-claro", "azul-claro", "regua",
+    "linha-forte", "vidro", "vidro-forte",
+  ];
+  const utilidade =
+    /(?<![\w-])(?:[\w-]+:)*(?:bg|text|border|from|to|via|fill|stroke|divide|decoration|ring|outline|placeholder)-([a-z][a-z-]*)/g;
+  const conhecidas = new Set(Object.keys(CORES).map(kebab));
+  const fontes = [...arquivos("src", /\.tsx?$/), "src/app/globals.css"];
+
+  it("nenhuma classe usa um nome de cor da base escura", () => {
+    for (const arquivo of fontes) {
+      const usados = [...semComentarios(ler(arquivo)).matchAll(utilidade)].map((m) => m[1]);
+      for (const nome of usados) expect(daBaseEscura, `${arquivo}: ${nome}`).not.toContain(nome);
+    }
+  });
+
+  it("toda var(--color-...) aponta para uma cor que existe", () => {
+    for (const arquivo of fontes) {
+      for (const [, nome] of semComentarios(ler(arquivo)).matchAll(/var\(--color-([a-z-]+)\)/g)) {
+        expect(conhecidas.has(nome), `${arquivo}: --color-${nome}`).toBe(true);
+      }
+    }
+  });
+
+  it("a mensagem de erro do formulário usa o vermelho do sistema", () => {
+    const formulario = ler("src/components/diagnostico/Formulario.tsx");
+    expect(formulario).toContain("text-erro");
+    expect(formulario).not.toMatch(/rgb\(255_150_130\)/);
   });
 });

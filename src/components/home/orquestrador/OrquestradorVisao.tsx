@@ -22,24 +22,24 @@ export function estadoFinal(ativa = 0): EstadoDoOrquestrador {
 }
 
 const FUNDO_DA_ETAPA: Record<Etapa, string> = {
-  violeta: "bg-violeta text-papel",
-  verde: "bg-verde text-papel",
-  azul: "bg-azul text-papel",
-  ambar: "bg-ambar text-tinta",
+  violeta: "bg-etapa-atracao text-fundo",
+  verde: "bg-etapa-atendimento text-fundo",
+  azul: "bg-etapa-crm text-fundo",
+  ambar: "bg-acao text-texto",
 };
 
 const ICONE_DA_ETAPA: Record<Etapa, { icone: NomeDoIcone; classe: string }> = {
-  violeta: { icone: "alvo", classe: "bg-violeta/25 text-violeta-claro" },
-  verde: { icone: "brilho", classe: "bg-verde/30 text-verde-claro" },
-  azul: { icone: "fluxo", classe: "bg-azul/30 text-azul-claro" },
-  ambar: { icone: "sinal", classe: "bg-ambar/20 text-ambar" },
+  violeta: { icone: "alvo", classe: "bg-etapa-atracao/25 text-etapa-atracao" },
+  verde: { icone: "brilho", classe: "bg-etapa-atendimento/30 text-etapa-atendimento" },
+  azul: { icone: "fluxo", classe: "bg-etapa-crm/30 text-etapa-crm" },
+  ambar: { icone: "sinal", classe: "bg-acao/20 text-acao-texto" },
 };
 
 const COR_DO_PONTO: Record<Etapa, string> = {
-  violeta: "bg-violeta-claro",
-  verde: "bg-verde-claro",
-  azul: "bg-azul-claro",
-  ambar: "bg-ambar",
+  violeta: "bg-etapa-atracao",
+  verde: "bg-etapa-atendimento",
+  azul: "bg-etapa-crm",
+  ambar: "bg-acao",
 };
 
 export default function OrquestradorVisao({
@@ -60,7 +60,7 @@ export default function OrquestradorVisao({
         <div
           role="tablist"
           aria-label="Frentes da demonstração"
-          className="grid w-full grid-cols-3 gap-1 rounded-full bg-vidro p-1 contorno sm:flex sm:w-fit"
+          className="grid w-full grid-cols-3 gap-1 rounded-full bg-fundo-cartao p-1 contorno sm:flex sm:w-fit"
         >
           {FRENTES.map((f, i) => (
             <button
@@ -73,7 +73,7 @@ export default function OrquestradorVisao({
               tabIndex={i === estado.ativa ? 0 : -1}
               onClick={aoEscolher ? () => aoEscolher(i) : undefined}
               onKeyDown={aoTeclarAba}
-              className="min-h-10 rounded-full px-3 text-[0.8125rem] font-medium leading-tight text-secundario transition-colors duration-150 hover:text-papel aria-selected:bg-grafite aria-selected:text-papel aria-selected:shadow-[inset_0_1px_0_rgb(255_255_255/0.06),0_1px_2px_rgb(0_0_0/0.4)] sm:px-4 sm:text-sm"
+              className="min-h-10 rounded-full px-3 text-[0.8125rem] font-medium leading-tight text-texto-secundario transition-colors hover:text-texto aria-selected:bg-fundo-cartao aria-selected:text-texto aria-selected:shadow-[inset_0_0_0_1px_var(--color-linha),0_1px_2px_rgb(18_20_24/0.08)] sm:px-4 sm:text-sm"
             >
               {f.aba}
             </button>
@@ -86,7 +86,7 @@ export default function OrquestradorVisao({
           type="button"
           onClick={aoRepetir}
           disabled={!aoRepetir}
-          className="inline-flex min-h-10 items-center gap-2 rounded-full px-3 text-sm text-secundario transition-colors duration-150 hover:bg-vidro hover:text-papel disabled:opacity-60 disabled:hover:bg-transparent"
+          className="inline-flex min-h-10 items-center gap-2 rounded-full px-3 text-sm text-texto-secundario transition-colors hover:bg-fundo-alternado hover:text-texto disabled:opacity-60 disabled:hover:bg-transparent"
         >
           <svg viewBox="0 0 20 20" className="size-4" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             <path d="M4 10a6 6 0 1 0 1.76-4.24L4 7.5M4 4v3.5h3.5" />
@@ -102,7 +102,7 @@ export default function OrquestradorVisao({
         className="grid lg:grid-cols-[1.5fr_1fr]"
       >
         <div className="p-5 md:p-7">
-          <p className="max-w-[34rem] text-[0.9375rem] text-secundario">{frente.resumo}</p>
+          <p className="max-w-[34rem] text-[0.9375rem] text-texto-secundario">{frente.resumo}</p>
           <ol className="mt-6 grid gap-3.5">
             {frente.passos.map((passo, i) => (
               <li key={`${frente.id}-${i}`} className="passo" data-oculto={i >= estado.visiveis ? "" : undefined}>
@@ -121,13 +121,13 @@ function PassoVisao({ passo }: { passo: Passo }) {
   if (passo.tipo === "sistema") {
     const { icone, classe } = ICONE_DA_ETAPA[passo.etapa];
     return (
-      <div className="flex gap-3 rounded-xl bg-vidro px-3.5 py-3 contorno">
+      <div className="flex gap-3 rounded-xl bg-fundo-cartao px-3.5 py-3 contorno">
         <span aria-hidden="true" className={`flex size-7 shrink-0 items-center justify-center rounded-lg ${classe}`}>
           <Icone nome={icone} className="size-3.5" />
         </span>
         <div className="min-w-0">
           <p className="text-[0.9375rem] font-medium leading-snug">{passo.titulo}</p>
-          <ul className="mt-1 grid gap-0.5 text-sm text-secundario">
+          <ul className="mt-1 grid gap-0.5 text-sm text-texto-secundario">
             {passo.detalhes.map((d) => (
               <li key={d}>{d}</li>
             ))}
@@ -139,13 +139,13 @@ function PassoVisao({ passo }: { passo: Passo }) {
   const saida = passo.tipo === "saida";
   return (
     <div className={saida ? "ml-auto max-w-[86%] text-right" : "max-w-[86%]"}>
-      <p className="text-xs text-secundario">
-        <span className="font-medium text-papel">{passo.autor}</span>{" "}
+      <p className="text-xs text-texto-secundario">
+        <span className="font-medium text-texto">{passo.autor}</span>{" "}
         <span className="tabular-nums">{passo.hora}</span>
       </p>
       <p
         className={`mt-1.5 rounded-2xl px-4 py-2.5 text-left text-[0.9375rem] leading-snug ${
-          saida ? "rounded-br-md bg-verde text-papel" : "rounded-bl-md bg-grafite"
+          saida ? "rounded-br-md bg-etapa-atendimento text-fundo" : "rounded-bl-md bg-fundo-alternado"
         }`}
       >
         {passo.texto}
@@ -159,15 +159,15 @@ function CartaoCrmVisao({ cartao, pronto }: { cartao: CartaoDoCrm; pronto: boole
   return (
     <div
       data-pronto={pronto ? "" : undefined}
-      className="cartao-crm border-t border-linha bg-[rgb(242_241_236/0.015)] p-5 md:p-7 lg:border-l lg:border-t-0"
+      className="cartao-crm border-t border-linha bg-fundo-alternado/50 p-5 md:p-7 lg:border-l lg:border-t-0"
     >
       <div className="flex items-center justify-between gap-3">
-        <p className="flex items-center gap-2 text-sm font-medium text-secundario">
+        <p className="flex items-center gap-2 text-sm font-medium text-texto-secundario">
           <Icone nome="colunas" className="size-4" />
           Card no CRM
         </p>
         <span
-          className={`rounded-full px-2.5 py-1 text-xs font-semibold ${pronto ? FUNDO_DA_ETAPA[cartao.etapa] : "bg-grafite text-secundario"}`}
+          className={`rounded-full px-2.5 py-1 text-xs font-semibold ${pronto ? FUNDO_DA_ETAPA[cartao.etapa] : "bg-fundo-alternado text-texto-secundario"}`}
         >
           {pronto ? cartao.etiqueta : "Aguardando"}
         </span>
@@ -179,8 +179,8 @@ function CartaoCrmVisao({ cartao, pronto }: { cartao: CartaoDoCrm; pronto: boole
           const feita = pronto && i <= ate;
           return (
             <li key={e} className="grid gap-1.5">
-              <span className={`h-1 rounded-full ${feita ? COR_DO_PONTO[e] : "bg-grafite"}`} />
-              <span className={`text-[0.6875rem] ${feita ? "text-papel" : "text-secundario"}`}>{NOME_DA_ETAPA[e]}</span>
+              <span className={`h-1 rounded-full ${feita ? COR_DO_PONTO[e] : "bg-fundo-alternado"}`} />
+              <span className={`text-[0.6875rem] ${feita ? "text-texto" : "text-texto-secundario"}`}>{NOME_DA_ETAPA[e]}</span>
             </li>
           );
         })}
@@ -189,8 +189,8 @@ function CartaoCrmVisao({ cartao, pronto }: { cartao: CartaoDoCrm; pronto: boole
       <dl className="mt-6 grid gap-0">
         {cartao.campos.map((c) => (
           <div key={c.rotulo} className="flex justify-between gap-4 border-t border-linha py-3 text-sm">
-            <dt className="text-secundario">{c.rotulo}</dt>
-            <dd className={`text-right font-medium ${pronto ? "" : "text-secundario"}`}>{pronto ? c.valor : "…"}</dd>
+            <dt className="text-texto-secundario">{c.rotulo}</dt>
+            <dd className={`text-right font-medium ${pronto ? "" : "text-texto-secundario"}`}>{pronto ? c.valor : "…"}</dd>
           </div>
         ))}
       </dl>

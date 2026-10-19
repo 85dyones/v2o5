@@ -48,20 +48,20 @@ export function Detalhes({ l }: { l: LinhaDePreco }) {
       {l.inclui ? (
         <p className="flex flex-wrap gap-1.5">
           {l.inclui.map((i) => (
-            <span key={i} className="chip chip-ok text-secundario">
+            <span key={i} className="chip chip-ok text-texto-secundario">
               {i}
             </span>
           ))}
         </p>
       ) : null}
       {l.bonus ? (
-        <p className="flex items-start gap-1.5 text-verde-claro">
+        <p className="flex items-start gap-1.5 text-etapa-atendimento">
           <Icone nome="brilho" className="mt-0.5 size-3.5 shrink-0" />
           {l.bonus}
         </p>
       ) : null}
       {l.degraus ? (
-        <ul className="grid gap-1 text-secundario">
+        <ul className="grid gap-1 text-texto-secundario">
           {l.degraus.map((d) => (
             <li key={d.rotulo} className="flex items-start gap-1.5">
               <Icone nome="seta" className="mt-1 size-3 shrink-0 opacity-60" />
@@ -71,8 +71,8 @@ export function Detalhes({ l }: { l: LinhaDePreco }) {
         </ul>
       ) : null}
       {l.repasses ? (
-        <p className="text-secundario">
-          <span className="text-papel/80">Pelo valor real, na mesma fatura:</span> {l.repasses.map(minuscula).join("; ")}.
+        <p className="text-texto-secundario">
+          <span className="text-texto/80">Pelo valor real, na mesma fatura:</span> {l.repasses.map(minuscula).join("; ")}.
         </p>
       ) : null}
     </div>
@@ -84,15 +84,15 @@ function PrecoDoPlano({ p }: { p: Plano }) {
   const emOferta = p.id === "completo";
   return (
     <dl className="grid grid-cols-2 gap-x-4 gap-y-1 border-t border-linha pt-5">
-      <dt className="text-[0.75rem] font-medium uppercase tracking-[0.06em] text-secundario">Implantação</dt>
-      <dt className="text-[0.75rem] font-medium uppercase tracking-[0.06em] text-secundario">Mensalidade</dt>
+      <dt className="text-[0.75rem] font-medium uppercase tracking-[0.06em] text-texto-secundario">Implantação</dt>
+      <dt className="text-[0.75rem] font-medium uppercase tracking-[0.06em] text-texto-secundario">Mensalidade</dt>
       <dd className="text-[1.375rem] font-semibold tabular-nums tracking-[-0.02em]">{BRL(p.implantacao)}</dd>
       <dd className="text-[1.375rem] font-semibold tabular-nums tracking-[-0.02em]">
         {BRL(emOferta ? OFERTA_DO_COMPLETO.mensalidade : p.mensalidade)}
-        <span className="text-sm font-medium text-secundario">/mês</span>
+        <span className="text-sm font-medium text-texto-secundario">/mês</span>
       </dd>
       {emOferta ? (
-        <dd className="col-start-2 text-sm text-secundario">
+        <dd className="col-start-2 text-sm text-texto-secundario">
           <s className="tabular-nums">{BRL(p.mensalidade)}</s> até {dataBR(OFERTA_DO_COMPLETO.ate)}
         </dd>
       ) : null}
@@ -116,28 +116,28 @@ export function Planos() {
             id={`plano-${p.id}`}
             className={`superficie flex flex-col gap-4 p-6 md:p-7 ${completo ? "shadow-[inset_0_0_0_1px_rgb(242_165_22/0.55)]" : ""}`}
           >
-            <p className="flex flex-wrap items-center justify-between gap-2 text-[0.75rem] font-medium uppercase tracking-[0.08em] text-secundario">
+            <p className="flex flex-wrap items-center justify-between gap-2 text-[0.75rem] font-medium uppercase tracking-[0.08em] text-texto-secundario">
               <span>{p.pilar}</span>
-              {p.destaque ? <span className="text-ambar">{p.destaque}</span> : null}
+              {p.destaque ? <span className="text-acao-texto">{p.destaque}</span> : null}
             </p>
             <h3 className="text-[1.5rem] font-semibold leading-tight tracking-[-0.03em]">{p.nome}</h3>
-            <p className="text-[0.9375rem] leading-relaxed text-secundario">{p.para}</p>
+            <p className="text-[0.9375rem] leading-relaxed text-texto-secundario">{p.para}</p>
             <ul className="grid flex-1 content-start gap-2 text-[0.9375rem] leading-snug">
               {p.inclui.map((i) => (
                 <li key={i} className="flex items-start gap-2">
-                  <Icone nome="check" className="mt-0.5 size-4 shrink-0 text-verde-claro" />
+                  <Icone nome="check" className="mt-0.5 size-4 shrink-0 text-etapa-atendimento" />
                   {i}
                 </li>
               ))}
             </ul>
             <PrecoDoPlano p={p} />
             {p.bonus ? (
-              <p className="flex items-start gap-1.5 text-sm text-verde-claro">
+              <p className="flex items-start gap-1.5 text-sm text-etapa-atendimento">
                 <Icone nome="brilho" className="mt-0.5 size-3.5 shrink-0" />
                 {p.bonus}
               </p>
             ) : null}
-            <p className={`text-sm leading-relaxed ${completo ? "text-papel" : "text-secundario"}`}>{p.rodape}</p>
+            <p className={`text-sm leading-relaxed ${completo ? "text-texto" : "text-texto-secundario"}`}>{p.rodape}</p>
             <Link
               href="/diagnostico"
               className={`botao ${completo ? "botao-primario" : "botao-secundario"} justify-center`}
@@ -161,7 +161,7 @@ function LinhaDaLista({ l }: { l: LinhaDePreco }) {
       <p className="font-semibold tracking-[-0.01em]">{l.nome}</p>
       <p className="tabular-nums md:text-right">{precoDaLinha(l).replace(/^a partir de /, "")}</p>
       <div className="md:col-span-2">
-        <p className="text-[0.9375rem] leading-relaxed text-secundario">{l.cobre}</p>
+        <p className="text-[0.9375rem] leading-relaxed text-texto-secundario">{l.cobre}</p>
         <Detalhes l={l} />
       </div>
     </li>
@@ -186,18 +186,18 @@ export function Trafego() {
           <div key={c.nome} className={`superficie flex flex-col p-6 md:p-7 ${c.destaque ? "shadow-[inset_0_0_0_1px_rgb(242_165_22/0.45)]" : ""}`}>
             <p className="flex items-center justify-between gap-3">
               <span className="titulo-cartao">{c.nome}</span>
-              {c.destaque ? <span className="chip text-ambar">com bônus</span> : null}
+              {c.destaque ? <span className="chip text-acao-texto">com bônus</span> : null}
             </p>
             <p className="mt-4 text-[1.5rem] font-semibold tabular-nums leading-none tracking-[-0.03em]">
               {BRL(c.valor)}
-              <span className="text-base font-medium text-secundario">/mês + verba</span>
+              <span className="text-base font-medium text-texto-secundario">/mês + verba</span>
             </p>
-            <p className="mt-4 text-[0.9375rem] leading-relaxed text-secundario">{c.nota}</p>
+            <p className="mt-4 text-[0.9375rem] leading-relaxed text-texto-secundario">{c.nota}</p>
           </div>
         ))}
       </div>
-      <p className="rounded-2xl bg-vidro p-5 text-[0.9375rem] leading-relaxed text-secundario contorno">
-        <span className="font-semibold text-papel">Sem implantação, com o rastreamento ligado.</span> Ele vem na Presença e no
+      <p className="rounded-2xl bg-fundo-cartao p-5 text-[0.9375rem] leading-relaxed text-texto-secundario contorno">
+        <span className="font-semibold text-texto">Sem implantação, com o rastreamento ligado.</span> Ele vem na Presença e no
         Completo. Já tem site? O rastreamento entra sozinho por {BRL(rastreamento.implantacao ?? 0)} de implantação e{" "}
         {BRL(rastreamento.mensalidade ?? 0)} por mês.
       </p>
@@ -262,9 +262,9 @@ export function OQueCresce() {
     <ul className="grid gap-4 md:grid-cols-2">
       {itens.map((i) => (
         <li key={i.titulo} className="superficie flex flex-col p-6">
-          <p className="text-sm text-secundario">{i.titulo}</p>
+          <p className="text-sm text-texto-secundario">{i.titulo}</p>
           <p className="mt-1.5 text-[1.375rem] font-semibold tabular-nums leading-tight tracking-[-0.03em]">{i.valor}</p>
-          <p className="mt-3 text-[0.9375rem] leading-relaxed text-secundario">{i.texto}</p>
+          <p className="mt-3 text-[0.9375rem] leading-relaxed text-texto-secundario">{i.texto}</p>
         </li>
       ))}
     </ul>
@@ -286,31 +286,31 @@ export function CompletoParaRevendas() {
         <h3 className="mt-4 text-[clamp(1.5rem,1.2rem+1.2vw,2rem)] font-semibold leading-tight tracking-[-0.035em]">
           O sistema da Motors Store na sua loja.
         </h3>
-        <p className="mt-4 max-w-[32rem] text-[0.9375rem] leading-relaxed text-secundario">
+        <p className="mt-4 max-w-[32rem] text-[0.9375rem] leading-relaxed text-texto-secundario">
           Site de estoque integrado ao sistema da loja, agente de IA no WhatsApp, CRM com {USUARIOS_NO_CRM} usuários,
           rastreamento até a venda e um fluxo de automação. Presença e Atendimento separados somam {BRL(separados.implantacao)}{" "}
           de implantação e {BRL(separados.mensalidade)} por mês.
         </p>
         <dl className="mt-6 grid gap-4 sm:grid-cols-2">
-          <div className="rounded-xl bg-vidro p-4 contorno">
-            <dt className="text-sm text-secundario">Implantação a partir de</dt>
+          <div className="rounded-xl bg-fundo-cartao p-4 contorno">
+            <dt className="text-sm text-texto-secundario">Implantação a partir de</dt>
             <dd className="mt-1 text-2xl font-semibold tabular-nums tracking-[-0.03em]">{BRL(p.implantacao)}</dd>
           </div>
-          <div className="rounded-xl bg-vidro p-4 contorno">
-            <dt className="text-sm text-secundario">Mensalidade a partir de</dt>
+          <div className="rounded-xl bg-fundo-cartao p-4 contorno">
+            <dt className="text-sm text-texto-secundario">Mensalidade a partir de</dt>
             <dd className="mt-1 text-2xl font-semibold tabular-nums tracking-[-0.03em]">{BRL(OFERTA_DO_COMPLETO.mensalidade)}</dd>
-            <dd className="mt-1 text-sm text-secundario">
+            <dd className="mt-1 text-sm text-texto-secundario">
               <s className="tabular-nums">{BRL(p.mensalidade)}</s> até {dataBR(OFERTA_DO_COMPLETO.ate)}
             </dd>
           </div>
         </dl>
         {p.bonus ? (
-          <p className="mt-5 flex items-start gap-1.5 text-sm text-verde-claro">
+          <p className="mt-5 flex items-start gap-1.5 text-sm text-etapa-atendimento">
             <Icone nome="brilho" className="mt-0.5 size-3.5 shrink-0" />
             {p.bonus}
           </p>
         ) : null}
-        <p className="mt-4 text-[0.9375rem] leading-relaxed text-secundario">
+        <p className="mt-4 text-[0.9375rem] leading-relaxed text-texto-secundario">
           Com Google Ads e Meta Ads: {BRL(mensalidadeDoCompletoComTrafego())} por mês mais a verba, com o feed de catálogo
           incluso. Usuário extra {BRL(DEGRAUS.usuarioExtra)} por mês.
         </p>
@@ -319,13 +319,13 @@ export function CompletoParaRevendas() {
           <Icone nome="seta" className="seta size-4" />
         </Link>
       </div>
-      <div className="flex flex-col justify-center border-t border-linha bg-[rgb(12_13_16/0.35)] p-7 md:p-9 lg:border-l lg:border-t-0">
-        <p className="text-sm font-medium text-secundario">A conta que importa</p>
+      <div className="flex flex-col justify-center border-t border-linha bg-fundo-alternado p-7 md:p-9 lg:border-l lg:border-t-0">
+        <p className="text-sm font-medium text-texto-secundario">A conta que importa</p>
         <p className="mt-3 text-[1.125rem] leading-snug">
           Com uma margem de {BRL(REGRAS.margemPorCarro)} por carro, uma venda a mais a cada {meses} meses paga a
           mensalidade do Completo.
         </p>
-        <p className="mt-4 text-sm leading-relaxed text-secundario">
+        <p className="mt-4 text-sm leading-relaxed text-texto-secundario">
           A margem é a referência do plano de mídia da Motors Store. Na sua loja, a conta sai no diagnóstico, com o
           seu número.
         </p>
@@ -347,9 +347,9 @@ export function ForaDaMensalidade() {
           `A produção de imagem fica com a sua equipe ou com um fotógrafo parceiro que a V2O5 indica, a partir de ${BRL(FOTOGRAFIA_PARCEIRA.aPartirDe)} por mês.`,
         ],
       ].map(([titulo, texto]) => (
-        <li key={titulo} className="rounded-2xl bg-vidro p-5 contorno">
+        <li key={titulo} className="rounded-2xl bg-fundo-cartao p-5 contorno">
           <p className="font-semibold tracking-[-0.01em]">{titulo}</p>
-          <p className="mt-1.5 text-[0.9375rem] leading-relaxed text-secundario">{texto}</p>
+          <p className="mt-1.5 text-[0.9375rem] leading-relaxed text-texto-secundario">{texto}</p>
         </li>
       ))}
     </ul>

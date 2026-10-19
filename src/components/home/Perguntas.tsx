@@ -35,10 +35,10 @@ export default function Perguntas({
                 {p.pergunta}
                 <span
                   aria-hidden="true"
-                  className="pergunta-sinal relative flex size-7 shrink-0 items-center justify-center rounded-full bg-vidro-forte contorno"
+                  className="pergunta-sinal relative flex size-7 shrink-0 items-center justify-center rounded-full bg-fundo-alternado contorno"
                 />
               </summary>
-              <p className="px-4 pb-5 text-[0.9375rem] leading-relaxed text-secundario md:px-5 md:pr-16">{p.resposta}</p>
+              <p className="px-4 pb-5 text-[0.9375rem] leading-relaxed text-texto-secundario md:px-5 md:pr-16">{p.resposta}</p>
             </details>
           ))}
         </div>

@@ -78,7 +78,7 @@ export default function ControleDeMedicao() {
   ].filter(Boolean);
 
   return (
-    <div className="rounded-2xl bg-vidro p-5 contorno">
+    <div className="rounded-2xl bg-fundo-cartao p-5 contorno">
       <p className="font-semibold tracking-[-0.01em]">
         {estado.desligada
           ? "A medição está desligada neste navegador"
@@ -86,7 +86,7 @@ export default function ControleDeMedicao() {
             ? "Nenhuma ferramenta de medição está ligada nesta versão do site"
             : "A medição está ligada neste navegador"}
       </p>
-      <p className="mt-1.5 text-[0.9375rem] leading-relaxed text-secundario">
+      <p className="mt-1.5 text-[0.9375rem] leading-relaxed text-texto-secundario">
         Ferramentas desta versão: Google Analytics 4 {CONFIGURADAS.ga4 ? "ligado" : "desligado"}; Pixel da Meta{" "}
         {CONFIGURADAS.pixel ? "ligado" : "desligado"}.{" "}
         {guardado.length
@@ -104,7 +104,7 @@ export default function ControleDeMedicao() {
           </button>
         )}
       </div>
-      <p className="mt-3 text-sm leading-relaxed text-secundario">
+      <p className="mt-3 text-sm leading-relaxed text-texto-secundario">
         Desligar grava a escolha neste navegador, apaga os cookies das ferramentas e a origem da visita, e impede o
         envio do seu pedido à Meta pelo servidor. Religar vale a partir da próxima página aberta.
       </p>

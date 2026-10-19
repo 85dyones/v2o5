@@ -29,34 +29,34 @@ export default function Pagina() {
           <div>
             <p className="sobretitulo">{d.sobretitulo}</p>
             <h1 className="titulo-hero mt-5">
-              {d.titulo} <span className="text-secundario">{d.apagado}</span>
+              {d.titulo} <span className="text-texto-secundario">{d.apagado}</span>
             </h1>
             <p className="texto-guia mt-7 max-w-[34rem]">{d.texto}</p>
 
             <ol className="mt-10 grid gap-5">
               {d.passos.map((p, i) => (
                 <li key={p.titulo} className="flex gap-4">
-                  <span className="numero flex size-8 shrink-0 items-center justify-center rounded-full bg-vidro-forte text-sm text-ambar contorno">
+                  <span className="numero flex size-8 shrink-0 items-center justify-center rounded-full bg-fundo-alternado text-sm text-acao-texto contorno">
                     {i + 1}
                   </span>
                   <span>
                     <span className="block font-semibold tracking-[-0.01em]">{p.titulo}</span>
-                    <span className="mt-1 block text-[0.9375rem] leading-relaxed text-secundario">{p.texto}</span>
+                    <span className="mt-1 block text-[0.9375rem] leading-relaxed text-texto-secundario">{p.texto}</span>
                   </span>
                 </li>
               ))}
             </ol>
 
-            <p className="mt-10 max-w-[34rem] border-l-2 border-ambar pl-4 text-[0.9375rem] leading-relaxed text-secundario">
+            <p className="mt-10 max-w-[34rem] border-l-2 border-acao pl-4 text-[0.9375rem] leading-relaxed text-texto-secundario">
               {d.paraQuem}
             </p>
 
-            <ul className="mt-10 grid gap-2.5 text-[0.9375rem] text-secundario">
+            <ul className="mt-10 grid gap-2.5 text-[0.9375rem] text-texto-secundario">
               {GARANTIAS.map((g) => (
                 <li key={g.titulo} className="flex items-center gap-2.5">
-                  <Icone nome="check" className="size-4 shrink-0 text-verde-claro" />
+                  <Icone nome="check" className="size-4 shrink-0 text-etapa-atendimento" />
                   <span>
-                    <span className="font-medium text-papel">{g.titulo}.</span> {g.texto}
+                    <span className="font-medium text-texto">{g.titulo}.</span> {g.texto}
                   </span>
                 </li>
               ))}
@@ -67,22 +67,22 @@ export default function Pagina() {
             <div className="superficie relative p-6 md:p-8">
               <Formulario />
             </div>
-            <p className="mt-4 flex items-start gap-2 text-[0.9375rem] leading-relaxed text-secundario">
-              <Icone nome="conversa" className="mt-1 size-4 shrink-0 text-verde-claro" />
+            <p className="mt-4 flex items-start gap-2 text-[0.9375rem] leading-relaxed text-texto-secundario">
+              <Icone nome="conversa" className="mt-1 size-4 shrink-0 text-etapa-atendimento" />
               <span>
                 Prefere conversar?{" "}
                 <a
                   href={linkWhatsApp(WHATSAPP.mensagens.diagnostico)}
                   target="_blank"
                   rel="noopener"
-                  className="link-sublinhado text-papel"
+                  className="link-sublinhado text-texto"
                   data-evento="click_whatsapp"
                   data-local="diagnostico"
                 >
                   Chame no WhatsApp
                 </a>{" "}
                 ou escreva para{" "}
-                <a href={linkEmail(EMAIL.assuntos.diagnostico)} className="link-sublinhado text-papel" data-evento="click_email" data-local="diagnostico">
+                <a href={linkEmail(EMAIL.assuntos.diagnostico)} className="link-sublinhado text-texto" data-evento="click_email" data-local="diagnostico">
                   {EMPRESA.email}
                 </a>
                 .

@@ -21,28 +21,28 @@ export default function Garantias() {
               >
                 <span
                   aria-hidden="true"
-                  className="mt-0.5 flex size-6 shrink-0 items-center justify-center rounded-full bg-verde/25 text-verde-claro"
+                  className="mt-0.5 flex size-6 shrink-0 items-center justify-center rounded-full bg-etapa-atendimento/25 text-etapa-atendimento"
                 >
                   <Icone nome="check" className="size-3.5" />
                 </span>
                 <span>
                   <span className="block font-semibold tracking-[-0.01em]">{g.titulo}</span>
-                  <span className="mt-1 block text-[0.9375rem] leading-relaxed text-secundario">{g.texto}</span>
+                  <span className="mt-1 block text-[0.9375rem] leading-relaxed text-texto-secundario">{g.texto}</span>
                 </span>
               </li>
             ))}
           </ul>
-          <div className="flex flex-col justify-center border-t border-linha bg-[rgb(12_13_16/0.35)] p-7 lg:border-l lg:border-t-0 md:p-8">
+          <div className="flex flex-col justify-center border-t border-linha bg-fundo-alternado p-7 lg:border-l lg:border-t-0 md:p-8">
             <h2 id="titulo-garantias" className="text-[1.375rem] font-semibold leading-tight tracking-[-0.03em]">
               {c.titulo}
             </h2>
-            <p className="mt-3 text-[0.9375rem] leading-relaxed text-secundario">{c.texto}</p>
+            <p className="mt-3 text-[0.9375rem] leading-relaxed text-texto-secundario">{c.texto}</p>
             <Link href="/diagnostico" className="botao botao-primario mt-6 self-start" data-evento="cta_click" data-local="garantias">
               {CHAMADA.botao}
               <Icone nome="seta" className="seta size-4" />
             </Link>
-            <p className="mt-4 flex items-start gap-2 text-sm leading-snug text-secundario">
-              <Icone nome="relogio" className="mt-px size-4 shrink-0 text-ambar" />
+            <p className="mt-4 flex items-start gap-2 text-sm leading-snug text-texto-secundario">
+              <Icone nome="relogio" className="mt-px size-4 shrink-0 text-acao-texto" />
               {HERO.nota}
             </p>
           </div>

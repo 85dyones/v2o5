@@ -186,7 +186,7 @@ export default function HeroMolecula() {
       {diagnostico ? (
         <p
           role="status"
-          className="fixed bottom-3 left-3 z-50 max-w-[24rem] rounded-xl bg-tinta/95 p-3 font-mono text-xs leading-relaxed text-papel contorno-forte"
+          className="fixed bottom-3 left-3 z-50 max-w-[24rem] rounded-xl bg-fundo/95 p-3 font-mono text-xs leading-relaxed text-texto contorno-forte"
         >
           {diagnostico}
         </p>

@@ -1,39 +1,104 @@
 @import "tailwindcss";
 
-/* Tokens da marca (memory/context/marca.md). Os valores repetem
-   src/lib/tokens.ts; tests/contraste.test.ts confere os dois lados e o AA de
-   cada par usado. A paleta padrão do Tailwind sai: só existem as cores da
-   marca. */
+/* O sistema de design/DESIGN.md: base clara, com o papel como fundo. Os
+   valores repetem src/lib/tokens.ts; tests/contraste.test.ts confere os dois
+   lados (e o front matter do DESIGN.md) e o AA de cada par usado. A paleta
+   padrão do Tailwind sai: só existem as cores do sistema. */
 @theme {
   --color-*: initial;
-  --color-tinta: #121418;
-  --color-papel: #F2F1EC;
-  --color-grafite: #2A2D34;
-  --color-superficie: #1A1D22;
-  --color-secundario: #A9ACB4;
-  --color-secundario-claro: #5A5D66;
-  --color-ambar: #F2A516;
-  --color-ambar-forte: #FFB937;
-  --color-ambar-texto: #8A5600;
-  --color-violeta: #6B46C8;
-  --color-verde: #17773F;
-  --color-azul: #2457C5;
-  --color-violeta-claro: #9B8BE0;
-  --color-verde-claro: #5CC48A;
-  --color-azul-claro: #7FA3F0;
-  --color-regua: #D6D4CC;
-  --color-linha: rgb(242 241 236 / 0.08);
-  --color-linha-forte: rgb(242 241 236 / 0.15);
-  --color-vidro: rgb(242 241 236 / 0.04);
-  --color-vidro-forte: rgb(242 241 236 / 0.08);
+  --color-fundo: #F2F1EC;
+  --color-fundo-cartao: #FAF9F5;
+  --color-fundo-alternado: #E8E6DF;
+  --color-texto: #121418;
+  --color-texto-secundario: #5A5D66;
+  --color-linha: #D6D4CC;
+  --color-linha-campo: #7A7972;
+  --color-acao: #F2A516;
+  --color-acao-borda: #8A5600;
+  --color-acao-texto: #8A5600;
+  --color-etapa-atracao: #6B46C8;
+  --color-etapa-atendimento: #17773F;
+  --color-etapa-crm: #2457C5;
+  --color-faixa-escura: #121418;
+  --color-faixa-escura-texto: #F2F1EC;
+  --color-faixa-escura-secundario: #A9ACB4;
+  --color-erro: #B3261E;
 
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
   --font-mono: "Geist Mono", "Geist Mono Reserva", "Geist Mono Reserva Consolas", "Liberation Mono", "Courier New", monospace;
 
-  --ease-saida: cubic-bezier(0.23, 1, 0.32, 1);
-  --ease-movimento: cubic-bezier(0.645, 0.045, 0.355, 1);
-  /* Mola suave (pouco quique), em linear(): física sem JavaScript. */
-  --ease-mola: linear(0, 0.006, 0.025 2.8%, 0.101 6.1%, 0.539 18.9%, 0.721 25.3%, 0.849 31.5%, 0.937 38.1%, 0.968 41.8%, 0.991 45.7%, 1.006 50.1%, 1.015 55%, 1.017 63.9%, 1.001 85.9%, 1);
+  /* Escala de razão 1,25 sobre o corpo de 17 px, fluida de 375 a 1440 px.
+     Viram as utilidades text-marca, text-titulo-1... com peso, entrelinha e
+     espacejamento juntos. Os tamanhos padrão do Tailwind continuam: as
+     páginas ainda os usam até o redesign de cada uma. */
+  --text-marca: clamp(4.0625rem, 2.698rem + 5.822vw, 7.9375rem);
+  --text-marca--line-height: 0.9;
+  --text-marca--letter-spacing: -0.05em;
+  --text-marca--font-weight: 600;
+  --text-numero: clamp(3.25rem, 2.172rem + 4.601vw, 6.3125rem);
+  --text-numero--line-height: 1;
+  --text-numero--letter-spacing: -0.045em;
+  --text-numero--font-weight: 600;
+  --text-titulo-1: clamp(2.625rem, 1.767rem + 3.662vw, 5.0625rem);
+  --text-titulo-1--line-height: 1;
+  --text-titulo-1--letter-spacing: -0.045em;
+  --text-titulo-1--font-weight: 600;
+  --text-titulo-2: clamp(2.0625rem, 1.644rem + 1.784vw, 3.25rem);
+  --text-titulo-2--line-height: 1.05;
+  --text-titulo-2--letter-spacing: -0.04em;
+  --text-titulo-2--font-weight: 600;
+  --text-destaque: clamp(1.6875rem, 1.357rem + 1.408vw, 2.625rem);
+  --text-destaque--line-height: 1.15;
+  --text-destaque--letter-spacing: -0.03em;
+  --text-destaque--font-weight: 500;
+  --text-titulo-3: clamp(1.6875rem, 1.555rem + 0.5634vw, 2.0625rem);
+  --text-titulo-3--line-height: 1.1;
+  --text-titulo-3--letter-spacing: -0.025em;
+  --text-titulo-3--font-weight: 600;
+  --text-titulo-cartao: 1.3125rem;
+  --text-titulo-cartao--line-height: 1.2;
+  --text-titulo-cartao--letter-spacing: -0.02em;
+  --text-titulo-cartao--font-weight: 600;
+  --text-guia: clamp(1.0625rem, 0.9745rem + 0.3756vw, 1.3125rem);
+  --text-guia--line-height: 1.45;
+  --text-guia--font-weight: 400;
+  --text-corpo: 1.0625rem;
+  --text-corpo--line-height: 1.6;
+  --text-corpo--font-weight: 400;
+  --text-legenda: 0.875rem;
+  --text-legenda--line-height: 1.5;
+  --text-legenda--font-weight: 400;
+  --text-rotulo: 0.75rem;
+  --text-rotulo--line-height: 1.4;
+  --text-rotulo--letter-spacing: 0.08em;
+  --text-rotulo--font-weight: 500;
+
+  /* Ritmo em 4 px: o passo do Tailwind (0,25rem) já dá 4, 8, 12, 16, 24, 32,
+     48, 64 e 96 px em p-1 ... p-24. Os três nomeados são fluidos:
+     py-secao, mb-titulo-conteudo, gap-grade. */
+  --spacing: 0.25rem;
+  --spacing-secao: clamp(4rem, 3.296rem + 3.005vw, 6rem);
+  --spacing-titulo-conteudo: clamp(2rem, 1.648rem + 1.502vw, 3rem);
+  --spacing-grade: clamp(1.5rem, 1.324rem + 0.7512vw, 2rem);
+
+  /* transition-colors e companhia saem com a duração curta e o ease. */
+  --default-transition-duration: var(--duracao-curta);
+  --default-transition-timing-function: var(--curva-padrao);
+}
+
+/* Movimento: as curvas medidas no Joshgrafik e quatro durações. Ficam fora
+   do @theme porque o Tailwind não tem espaço para durações; nas classes,
+   duration-(--duracao-curta) e ease-(--curva-saida). Com menos movimento as
+   quatro durações vão a zero (bloco no fim do arquivo). */
+:root {
+  --curva-saida: cubic-bezier(0.22, 1, 0.36, 1);
+  --curva-abre: cubic-bezier(0.625, 0.05, 0, 1);
+  --curva-percurso: cubic-bezier(0.65, 0, 0.35, 1);
+  --curva-padrao: ease;
+  --duracao-curta: 200ms;
+  --duracao-media: 350ms;
+  --duracao-abre: 500ms;
+  --duracao-revela: 900ms;
 }
 
 /* Reservas da Geist Mono com a mesma largura de avanço (0,6 em) e as mesmas
@@ -63,23 +128,22 @@
 
 @layer base {
   html {
-    color-scheme: dark;
-    background-color: var(--color-tinta);
-    color: var(--color-papel);
+    color-scheme: light;
+    background-color: var(--color-fundo);
+    color: var(--color-texto);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-size-adjust: 100%;
     scroll-padding-top: 5rem;
   }
 
-  /* Ruído fino sobre a tinta: um ladrilho SVG de 160 px, sem imagem externa. */
+  /* O papel liso: sem o ruído e sem manchas de luz da base escura. */
   body {
     min-height: 100dvh;
     font-family: var(--font-sans);
-    font-size: 1.0625rem;
-    line-height: 1.6;
-    background-color: var(--color-tinta);
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='r'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 .04 0 0 0 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23r)'/%3E%3C/svg%3E");
+    font-size: var(--text-corpo);
+    line-height: var(--text-corpo--line-height);
+    background-color: var(--color-fundo);
     overflow-x: clip;
   }
 
@@ -94,13 +158,13 @@
   }
 
   :focus-visible {
-    outline: 2px solid var(--color-ambar);
+    outline: 2px solid var(--color-acao-texto);
     outline-offset: 3px;
   }
 
   ::selection {
-    background-color: var(--color-ambar);
-    color: var(--color-tinta);
+    background-color: var(--color-acao);
+    color: var(--color-texto);
   }
 }
 
@@ -125,43 +189,42 @@
   }
 
   /* ---------------------------------------------------------------------
-     Tipografia. Geist 600 nos títulos, com o espaçamento fechado que o
-     corpo grande pede; o texto corrido fica no 400.
+     Tipografia: as classes de sempre, agora com os estilos da escala.
      --------------------------------------------------------------------- */
 
   /* Cor sólida de propósito: com texto em degradê (background-clip) o
      Chrome atribui o LCP ao contêiner do hero em vez do H1. */
   .titulo-hero {
-    font-size: clamp(2.5rem, 1.2rem + 3.75vw, 4.375rem);
-    font-weight: 600;
-    line-height: 1;
-    letter-spacing: -0.046em;
+    font-size: var(--text-titulo-1);
+    font-weight: var(--text-titulo-1--font-weight);
+    line-height: var(--text-titulo-1--line-height);
+    letter-spacing: var(--text-titulo-1--letter-spacing);
   }
 
   .titulo-secao {
-    font-size: clamp(2rem, 1.3rem + 2.6vw, 3.5rem);
-    font-weight: 600;
-    line-height: 1.04;
-    letter-spacing: -0.042em;
+    font-size: var(--text-titulo-2);
+    font-weight: var(--text-titulo-2--font-weight);
+    line-height: var(--text-titulo-2--line-height);
+    letter-spacing: var(--text-titulo-2--letter-spacing);
   }
 
   /* Título em dois tons: a segunda frase continua o título em cinza. */
   .titulo-secao .apagado,
   .titulo-cartao .apagado {
-    color: var(--color-secundario);
+    color: var(--color-texto-secundario);
   }
 
   .titulo-cartao {
-    font-size: 1.25rem;
-    font-weight: 600;
-    line-height: 1.2;
-    letter-spacing: -0.025em;
+    font-size: var(--text-titulo-cartao);
+    font-weight: var(--text-titulo-cartao--font-weight);
+    line-height: var(--text-titulo-cartao--line-height);
+    letter-spacing: var(--text-titulo-cartao--letter-spacing);
   }
 
   .texto-guia {
-    font-size: clamp(1.0625rem, 1rem + 0.3vw, 1.1875rem);
-    line-height: 1.6;
-    color: var(--color-secundario);
+    font-size: var(--text-guia);
+    line-height: var(--text-guia--line-height);
+    color: var(--color-texto-secundario);
   }
 
   /* Sobretítulo: uma linha âmbar curta antes do nome da seção. */
@@ -169,25 +232,25 @@
     display: inline-flex;
     align-items: center;
     gap: 0.625rem;
-    font-size: 0.875rem;
+    font-size: var(--text-legenda);
     font-weight: 500;
-    color: var(--color-secundario);
+    color: var(--color-texto-secundario);
   }
 
   .sobretitulo::before {
     content: "";
     width: 1.5rem;
     height: 1px;
-    background: linear-gradient(90deg, transparent, var(--color-ambar));
+    background: linear-gradient(90deg, transparent, var(--color-acao-borda));
   }
 
   /* Rótulo em Geist Mono, só onde informa algo (demonstração, exemplo). */
   .rotulo {
     font-family: var(--font-mono);
-    font-size: 0.6875rem;
-    font-weight: 500;
-    line-height: 1.3;
-    letter-spacing: 0.08em;
+    font-size: var(--text-rotulo);
+    font-weight: var(--text-rotulo--font-weight);
+    line-height: var(--text-rotulo--line-height);
+    letter-spacing: var(--text-rotulo--letter-spacing);
     text-transform: uppercase;
   }
 
@@ -197,26 +260,24 @@
     font-variant-numeric: tabular-nums;
   }
 
+  /* Números do case: maiores e em cor sólida (o degradê no texto saiu). */
   .numero-grande {
-    font-size: clamp(3.25rem, 2.2rem + 3.4vw, 5rem);
-    font-weight: 600;
-    line-height: 0.9;
-    letter-spacing: -0.055em;
+    font-size: var(--text-numero);
+    font-weight: var(--text-numero--font-weight);
+    line-height: var(--text-numero--line-height);
+    letter-spacing: var(--text-numero--letter-spacing);
     font-variant-numeric: tabular-nums;
-    background-image: linear-gradient(180deg, var(--color-papel) 40%, rgb(242 241 236 / 0.55));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    color: var(--color-texto);
   }
 
   /* ---------------------------------------------------------------------
      Botões e links
      --------------------------------------------------------------------- */
 
-  /* Botões em vidro. A luz interna segue o cursor (--luz-x/--luz-y) e o
-     botão é puxado de leve na direção dele (--ima-x/--ima-y), os dois
-     escritos por `LuzDoCursor.tsx`; a volta é uma mola (--ease-mola). Sem
-     JavaScript, a luz fica em cima e nada se move. */
+  /* O botão é puxado de leve na direção do cursor (--ima-x/--ima-y, escritos
+     por `LuzDoCursor.tsx`) e volta pela curva de saída. A mola e a luz que
+     seguia o cursor dentro do botão eram da base escura e saíram
+     (DESIGN.md). Sem JavaScript, nada se move. */
   .botao {
     position: relative;
     isolation: isolate;
@@ -232,18 +293,17 @@
     line-height: 1;
     letter-spacing: -0.01em;
     white-space: nowrap;
-    color: var(--color-papel);
+    color: var(--color-texto);
     /* Translação 2D e sem backdrop-filter: cada botão viraria uma camada de
        composição, e com o canvas do hero animando isso pesa em todo quadro. */
     transform: translate(var(--ima-x, 0px), var(--ima-y, 0px));
     transition-property: transform, background-color, box-shadow, color;
-    transition-duration: 650ms, 220ms, 220ms, 220ms;
-    transition-timing-function: var(--ease-mola), ease, ease, ease;
+    transition-duration: var(--duracao-media), var(--duracao-curta), var(--duracao-curta), var(--duracao-curta);
+    transition-timing-function: var(--curva-saida), var(--curva-padrao), var(--curva-padrao), var(--curva-padrao);
   }
 
   .botao:active {
     transform: translate(var(--ima-x, 0px), var(--ima-y, 0px)) scale(0.97);
-    transition-duration: 120ms, 220ms, 220ms, 220ms;
   }
 
   .botao-compacto {
@@ -253,34 +313,21 @@
   }
 
   .botao .seta {
-    transition: transform 400ms var(--ease-mola);
+    transition: transform var(--duracao-media) var(--curva-saida);
   }
 
-  /* Primário: vidro âmbar escuro, com borda e brilho de luz. O texto em papel
-     passa no AA mesmo no ponto mais claro da luz (tests/contraste.test.ts). */
+  /* Primário: o âmbar da ação com a tinta por cima (8,93:1). Sobre o papel o
+     âmbar some (1,83:1), por isso a borda de 1 px em `acao-borda`, por
+     dentro para não mudar o tamanho (tests/contraste.test.ts). */
   .botao-primario {
-    background-color: rgb(46 34 14 / 0.55);
-    background-image:
-      radial-gradient(9rem 6rem at var(--luz-x, 50%) var(--luz-y, -30%), rgb(255 196 92 / 0.25), transparent 70%),
-      linear-gradient(180deg, rgb(242 165 22 / 0.24), rgb(242 165 22 / 0.06));
-    box-shadow:
-      inset 0 1px 0 rgb(255 218 150 / 0.45),
-      inset 0 0 0 1px rgb(242 165 22 / 0.5),
-      inset 0 -10px 20px -12px rgb(242 165 22 / 0.55),
-      0 14px 34px -16px rgb(242 165 22 / 0.6);
+    background-color: var(--color-acao);
+    box-shadow: inset 0 0 0 1px var(--color-acao-borda);
   }
 
-  .botao-primario .seta {
-    color: var(--color-ambar-forte);
-  }
-
-  /* Secundário: vidro claro quase transparente. */
+  /* Secundário: só o contorno, na cor de borda de controle (3:1). */
   .botao-secundario {
-    background-color: rgb(242 241 236 / 0.035);
-    background-image: radial-gradient(8rem 5rem at var(--luz-x, 50%) var(--luz-y, -30%), rgb(242 241 236 / 0.1), transparent 70%);
-    box-shadow:
-      inset 0 0 0 1px rgb(242 241 236 / 0.14),
-      inset 0 1px 0 rgb(255 255 255 / 0.06);
+    background-color: transparent;
+    box-shadow: inset 0 0 0 1px var(--color-linha-campo);
   }
 
   @media (hover: hover) and (pointer: fine) {
@@ -289,28 +336,21 @@
     }
 
     .botao-primario:hover {
-      background-color: rgb(60 43 14 / 0.6);
-      box-shadow:
-        inset 0 1px 0 rgb(255 225 165 / 0.6),
-        inset 0 0 0 1px rgb(255 185 55 / 0.85),
-        inset 0 -12px 24px -12px rgb(242 165 22 / 0.7),
-        0 18px 44px -14px rgb(242 165 22 / 0.75);
+      background-color: color-mix(in srgb, var(--color-acao) 88%, var(--color-acao-borda));
     }
 
     .botao-secundario:hover {
-      background-color: rgb(242 241 236 / 0.07);
-      box-shadow:
-        inset 0 0 0 1px rgb(242 241 236 / 0.26),
-        inset 0 1px 0 rgb(255 255 255 / 0.08);
+      background-color: var(--color-fundo-cartao);
+      box-shadow: inset 0 0 0 1px var(--color-texto);
     }
   }
 
   .link-sublinhado {
     text-decoration-line: underline;
-    text-decoration-color: var(--color-linha-forte);
+    text-decoration-color: var(--color-linha-campo);
     text-decoration-thickness: 1px;
     text-underline-offset: 0.25em;
-    transition: text-decoration-color 150ms ease;
+    transition: text-decoration-color var(--duracao-curta) var(--curva-saida);
   }
 
   .link-sublinhado:hover {
@@ -324,21 +364,20 @@
     gap: 0.625rem;
     padding: 0.3125rem 0.875rem 0.3125rem 0.375rem;
     border-radius: 999px;
-    font-size: 0.875rem;
+    font-size: var(--text-legenda);
     font-weight: 500;
-    background-color: var(--color-vidro);
-    box-shadow:
-      inset 0 0 0 1px var(--color-linha-forte),
-      inset 0 1px 0 rgb(255 255 255 / 0.04);
+    background-color: var(--color-fundo-cartao);
+    box-shadow: inset 0 0 0 1px var(--color-linha);
   }
 
-  /* Contorno fino por dentro (sombra, não borda: não mexe no tamanho). */
+  /* Contorno fino por dentro (sombra, não borda: não mexe no tamanho). A
+     `linha` é só decoração; o forte usa a borda de controle. */
   .contorno {
     box-shadow: inset 0 0 0 1px var(--color-linha);
   }
 
   .contorno-forte {
-    box-shadow: inset 0 0 0 1px var(--color-linha-forte);
+    box-shadow: inset 0 0 0 1px var(--color-linha-campo);
   }
 
   .chip {
@@ -352,8 +391,8 @@
     font-weight: 500;
     line-height: 1;
     white-space: nowrap;
-    color: var(--color-papel);
-    background-color: var(--color-vidro-forte);
+    color: var(--color-texto);
+    background-color: var(--color-fundo-alternado);
     box-shadow: inset 0 0 0 1px var(--color-linha);
   }
 
@@ -363,25 +402,20 @@
     width: 0.75rem;
     height: 0.75rem;
     flex-shrink: 0;
-    background-color: var(--color-verde-claro);
+    background-color: var(--color-etapa-atendimento);
     mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4.5 10.5l3.5 3.5 7.5-8'/%3E%3C/svg%3E") center / contain no-repeat;
   }
 
   /* ---------------------------------------------------------------------
-     Superfícies. A borda é um degradê de luz vindo de cima (fundo no
-     padding-box, borda no border-box), em vez de uma linha cinza chapada.
+     Superfícies. O cartão é um tom mais claro que o papel, com a linha de
+     borda e sem sombra; a área de dentro, um tom mais escuro.
      --------------------------------------------------------------------- */
 
   .superficie {
     position: relative;
-    border: 1px solid transparent;
+    border: 1px solid var(--color-linha);
     border-radius: 1.25rem;
-    background:
-      linear-gradient(180deg, rgb(29 32 38), rgb(22 25 30)) padding-box,
-      linear-gradient(180deg, rgb(242 241 236 / 0.16), rgb(242 241 236 / 0.05) 45%, rgb(242 241 236 / 0.03)) border-box;
-    box-shadow:
-      0 1px 2px rgb(0 0 0 / 0.3),
-      0 28px 56px -32px rgb(0 0 0 / 0.8);
+    background-color: var(--color-fundo-cartao);
   }
 
   /* Área de "produto" dentro de um cartão: mais funda que o cartão. */
@@ -389,21 +423,18 @@
     position: relative;
     overflow: hidden;
     border-radius: 0.875rem;
-    background-color: rgb(12 13 16 / 0.55);
-    box-shadow:
-      inset 0 0 0 1px var(--color-linha),
-      inset 0 12px 24px -16px rgb(0 0 0 / 0.6);
+    background-color: var(--color-fundo-alternado);
+    box-shadow: inset 0 0 0 1px var(--color-linha);
   }
 
   /* Janela de aplicativo (orquestrador, terminal do case). */
   .janela {
     overflow: hidden;
     border-radius: 1.125rem;
-    background-color: rgb(16 18 22);
+    background-color: var(--color-fundo-cartao);
     box-shadow:
-      inset 0 0 0 1px var(--color-linha-forte),
-      0 1px 0 0 rgb(255 255 255 / 0.04) inset,
-      0 40px 80px -40px rgb(0 0 0 / 0.9);
+      inset 0 0 0 1px var(--color-linha),
+      0 32px 64px -40px rgb(18 20 24 / 0.3);
   }
 
   .janela-barra {
@@ -413,7 +444,7 @@
     min-height: 3rem;
     padding-inline: 1rem;
     border-bottom: 1px solid var(--color-linha);
-    background-color: rgb(242 241 236 / 0.025);
+    background-color: var(--color-fundo-alternado);
   }
 
   /* Cartão do bento: borda de luz âmbar só no cartão em foco ou sob o
@@ -421,7 +452,7 @@
      JavaScript ela fica no canto de cima. */
   .cartao-luz {
     isolation: isolate;
-    transition: transform 240ms var(--ease-saida);
+    transition: transform var(--duracao-media) var(--curva-saida);
   }
 
   .cartao-luz::before {
@@ -433,15 +464,15 @@
     padding: 1px;
     background: radial-gradient(
       20rem circle at var(--luz-x, 30%) var(--luz-y, 0%),
-      var(--color-ambar),
-      rgb(242 165 22 / 0.18) 40%,
+      var(--color-acao-borda),
+      rgb(242 165 22 / 0.35) 40%,
       transparent 70%
     );
     mask:
       linear-gradient(#000 0 0) content-box exclude,
       linear-gradient(#000 0 0);
     opacity: 0;
-    transition: opacity 220ms ease;
+    transition: opacity var(--duracao-curta) var(--curva-padrao);
     pointer-events: none;
   }
 
@@ -458,7 +489,7 @@
       transparent 60%
     );
     opacity: 0;
-    transition: opacity 220ms ease;
+    transition: opacity var(--duracao-curta) var(--curva-padrao);
     pointer-events: none;
   }
 
@@ -473,9 +504,9 @@
 
   .cartao-luz .seta-do-cartao {
     transition:
-      transform 220ms var(--ease-saida),
-      background-color 220ms ease,
-      color 220ms ease;
+      transform var(--duracao-media) var(--curva-saida),
+      background-color var(--duracao-curta) var(--curva-padrao),
+      color var(--duracao-curta) var(--curva-padrao);
   }
 
   @media (hover: hover) and (pointer: fine) {
@@ -490,8 +521,8 @@
 
     .cartao-luz:hover .seta-do-cartao {
       transform: translateX(2px);
-      background-color: var(--color-ambar);
-      color: var(--color-tinta);
+      background-color: var(--color-acao);
+      color: var(--color-texto);
     }
   }
 
@@ -513,11 +544,11 @@
   }
 
   /* ---------------------------------------------------------------------
-     Topo: transparente sobre o hero, vidro fosco depois de rolar
+     Topo: transparente sobre o hero, papel fosco depois de rolar
      --------------------------------------------------------------------- */
 
   .topo {
-    background-color: rgb(18 20 24 / 0.72);
+    background-color: rgb(242 241 236 / 0.8);
     border-bottom: 1px solid var(--color-linha);
     /* O prefixo vem antes: na ordem inversa o minificador descarta o padrão. */
     -webkit-backdrop-filter: blur(16px) saturate(150%);
@@ -542,8 +573,8 @@
     position: absolute;
     inset: 0;
     background-image:
-      linear-gradient(to right, rgb(242 241 236 / 0.045) 1px, transparent 1px),
-      linear-gradient(to bottom, rgb(242 241 236 / 0.045) 1px, transparent 1px);
+      linear-gradient(to right, rgb(18 20 24 / 0.06) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(18 20 24 / 0.06) 1px, transparent 1px);
     background-size: 4rem 4rem;
     background-position: center -1px;
     mask-image: radial-gradient(ellipse 65% 70% at 68% 30%, #000 0%, transparent 72%);
@@ -556,20 +587,20 @@
     inset: 0;
     background:
       radial-gradient(42rem 30rem at 74% 40%, rgb(242 165 22 / 0.09), transparent 70%),
-      radial-gradient(40rem 28rem at 100% -10%, rgb(107 70 200 / 0.16), transparent 70%),
-      radial-gradient(36rem 24rem at 0% -10%, rgb(36 87 197 / 0.1), transparent 70%);
+      radial-gradient(40rem 28rem at 100% -10%, rgb(107 70 200 / 0.08), transparent 70%),
+      radial-gradient(36rem 24rem at 0% -10%, rgb(36 87 197 / 0.05), transparent 70%);
   }
 
   /* Palco da molécula: o SVG estático fica; o canvas só põe as partículas
      por cima e, quando pinta, as partículas paradas do SVG saem. */
   .palco-particulas {
-    transition: opacity 700ms var(--ease-saida);
+    transition: opacity var(--duracao-revela) var(--curva-saida);
   }
 
   .molecula-canvas,
   .molecula-3d {
     opacity: 0;
-    transition: opacity 900ms var(--ease-saida);
+    transition: opacity var(--duracao-revela) var(--curva-saida);
   }
 
   .molecula-3d[data-pronto] {
@@ -577,7 +608,7 @@
   }
 
   .palco-molecula {
-    transition: opacity 900ms var(--ease-saida);
+    transition: opacity var(--duracao-revela) var(--curva-saida);
   }
 
   .molecula-3d[data-pronto] ~ svg .palco-molecula {
@@ -596,8 +627,8 @@
      data-visivel; sem JavaScript, todos aparecem. */
   .passo {
     transition-property: opacity, transform;
-    transition-duration: 360ms;
-    transition-timing-function: var(--ease-saida);
+    transition-duration: var(--duracao-media);
+    transition-timing-function: var(--curva-saida);
   }
 
   .passo[data-oculto] {
@@ -620,8 +651,8 @@
     width: 0.75rem;
     height: 1.5px;
     border-radius: 1px;
-    background-color: var(--color-papel);
-    transition: transform 260ms var(--ease-saida);
+    background-color: var(--color-texto);
+    transition: transform var(--duracao-abre) var(--curva-abre);
   }
 
   .pergunta-sinal::after {
@@ -633,19 +664,20 @@
   }
 
   .pergunta[open] > summary {
-    color: var(--color-papel);
+    color: var(--color-texto);
   }
 
   /* ---------------------------------------------------------------------
-     Formulário do diagnóstico: campos em vidro escuro, foco âmbar.
+     Formulário do diagnóstico: campo no tom do cartão, borda de controle
+     (3:1) e foco no âmbar de texto.
      --------------------------------------------------------------------- */
 
   .rotulo-do-campo {
     display: block;
     margin-bottom: 0.375rem;
-    font-size: 0.875rem;
+    font-size: var(--text-legenda);
     font-weight: 500;
-    color: var(--color-papel);
+    color: var(--color-texto);
   }
 
   .campo {
@@ -657,32 +689,29 @@
     font: inherit;
     font-size: 1rem;
     line-height: 1.4;
-    color: var(--color-papel);
-    background-color: rgb(12 13 16 / 0.55);
-    box-shadow: inset 0 0 0 1px var(--color-linha-forte);
-    transition: box-shadow 160ms ease;
+    color: var(--color-texto);
+    background-color: var(--color-fundo-cartao);
+    box-shadow: inset 0 0 0 1px var(--color-linha-campo);
+    transition: box-shadow var(--duracao-curta) var(--curva-padrao);
   }
 
   .campo::placeholder {
-    color: var(--color-secundario);
-    opacity: 0.7;
+    color: var(--color-texto-secundario);
   }
 
   .campo:focus-visible {
     outline: none;
-    box-shadow:
-      inset 0 0 0 1px var(--color-ambar),
-      0 0 0 3px rgb(242 165 22 / 0.2);
+    box-shadow: inset 0 0 0 2px var(--color-acao-texto);
   }
 
   .campo[aria-invalid="true"] {
-    box-shadow: inset 0 0 0 1px rgb(255 120 100 / 0.8);
+    box-shadow: inset 0 0 0 1px var(--color-erro);
   }
 
   select.campo {
     appearance: none;
     padding-right: 2.5rem;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none' stroke='%23A9ACB4' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 8l4 4 4-4'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none' stroke='%235A5D66' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 8l4 4 4-4'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: right 0.75rem center;
     background-size: 1.125rem;
@@ -704,21 +733,21 @@
     font-size: 0.9375rem;
     font-weight: 500;
     cursor: pointer;
-    color: var(--color-papel);
-    background-color: var(--color-vidro);
-    box-shadow: inset 0 0 0 1px var(--color-linha-forte);
+    color: var(--color-texto);
+    background-color: var(--color-fundo-cartao);
+    box-shadow: inset 0 0 0 1px var(--color-linha-campo);
     transition:
-      background-color 160ms ease,
-      box-shadow 160ms ease;
+      background-color var(--duracao-curta) var(--curva-padrao),
+      box-shadow var(--duracao-curta) var(--curva-padrao);
   }
 
   .opcao:has(input:checked) {
-    background-color: rgb(242 165 22 / 0.14);
-    box-shadow: inset 0 0 0 1px rgb(242 165 22 / 0.7);
+    background-color: rgb(242 165 22 / 0.18);
+    box-shadow: inset 0 0 0 2px var(--color-acao-borda);
   }
 
   .opcao:has(input:focus-visible) {
-    outline: 2px solid var(--color-ambar);
+    outline: 2px solid var(--color-acao-texto);
     outline-offset: 3px;
   }
 
@@ -731,18 +760,16 @@
     white-space: nowrap;
   }
 
-  /* Botão fixo de WhatsApp (celular): vidro verde, sem backdrop-filter. */
+  /* Botão fixo de WhatsApp (celular): o verde da etapa com o papel por cima,
+     sem backdrop-filter. */
   .botao-whatsapp {
-    color: var(--color-papel);
-    background-color: rgb(14 52 32 / 0.92);
-    background-image: linear-gradient(180deg, rgb(92 196 138 / 0.28), rgb(92 196 138 / 0.08));
-    box-shadow:
-      inset 0 1px 0 rgb(170 240 200 / 0.4),
-      inset 0 0 0 1px rgb(92 196 138 / 0.55),
-      0 14px 34px -14px rgb(0 0 0 / 0.9);
+    color: var(--color-fundo);
+    background-color: var(--color-etapa-atendimento);
+    box-shadow: 0 14px 34px -14px rgb(18 20 24 / 0.5);
   }
 
-  /* Três pontos de "digitando" (vinheta do agente). */
+  /* Três pontos de "digitando" (vinheta do agente). Parados: animação que
+     nunca para saiu com o sistema novo (DESIGN.md). */
   .digitando > span {
     display: block;
     width: 0.3125rem;
@@ -750,6 +777,14 @@
     border-radius: 999px;
     background-color: currentColor;
     opacity: 0.4;
+  }
+
+  .digitando > span:nth-child(2) {
+    opacity: 0.6;
+  }
+
+  .digitando > span:nth-child(3) {
+    opacity: 0.8;
   }
 
   /* ---------------------------------------------------------------------
@@ -778,12 +813,11 @@
   }
 
   .costura::before {
-    background-color: var(--color-linha-forte);
+    background-color: var(--color-linha);
   }
 
   .costura::after {
-    background: repeating-linear-gradient(180deg, var(--color-ambar) 0 10px, transparent 10px 16px);
-    filter: drop-shadow(0 0 5px rgb(242 165 22 / 0.55));
+    background: repeating-linear-gradient(180deg, var(--color-acao) 0 10px, transparent 10px 16px);
   }
 
   .costura-area {
@@ -800,8 +834,8 @@
     width: 10px;
     height: 10px;
     border-radius: 999px;
-    background-color: rgb(22 25 30);
-    box-shadow: inset 0 0 0 2px var(--color-ambar);
+    background-color: var(--color-fundo-cartao);
+    box-shadow: inset 0 0 0 2px var(--color-acao);
   }
 
   .costura-acao {
@@ -829,11 +863,9 @@
     font-size: 0.8125rem;
     font-weight: 500;
     line-height: 1.25;
-    color: var(--color-papel);
-    background-color: rgb(24 27 32);
-    box-shadow:
-      inset 0 0 0 1px rgb(242 165 22 / 0.5),
-      0 0 28px -10px rgb(242 165 22 / 0.6);
+    color: var(--color-texto);
+    background-color: var(--color-fundo-cartao);
+    box-shadow: inset 0 0 0 1px var(--color-acao-borda);
   }
 
   .costura-ponto::before {
@@ -842,8 +874,8 @@
     width: 0.5rem;
     height: 0.5rem;
     border-radius: 999px;
-    background-color: var(--color-ambar);
-    box-shadow: 0 0 8px rgb(242 165 22 / 0.8);
+    background-color: var(--color-acao);
+    box-shadow: inset 0 0 0 1px var(--color-acao-borda);
   }
 
   /* Amostra do fio na legenda. */
@@ -851,8 +883,7 @@
     flex-shrink: 0;
     width: 2.25rem;
     height: 2px;
-    background: repeating-linear-gradient(90deg, var(--color-ambar) 0 8px, transparent 8px 12px);
-    filter: drop-shadow(0 0 4px rgb(242 165 22 / 0.6));
+    background: repeating-linear-gradient(90deg, var(--color-acao) 0 8px, transparent 8px 12px);
   }
 
   @media (min-width: 64rem) {
@@ -876,7 +907,7 @@
     }
 
     .costura::after {
-      background: repeating-linear-gradient(90deg, var(--color-ambar) 0 10px, transparent 10px 16px);
+      background: repeating-linear-gradient(90deg, var(--color-acao) 0 10px, transparent 10px 16px);
     }
 
     .costura-area {
@@ -938,10 +969,18 @@
   }
 }
 
-/* Com menos movimento nada se move: nem transição, nem animação, nem
-   rolagem suave. Os componentes com canvas, Motion ou timer perguntam a
-   lib/movimento.ts antes de agendar quadro (tests/movimento.test.ts). */
+/* Com menos movimento nada se move: as quatro durações vão a zero e não há
+   transição, animação nem rolagem suave. Os componentes com canvas, Motion
+   ou timer perguntam a lib/movimento.ts antes de agendar quadro
+   (tests/movimento.test.tsx). */
 @media (prefers-reduced-motion: reduce) {
+  :root {
+    --duracao-curta: 0ms;
+    --duracao-media: 0ms;
+    --duracao-abre: 0ms;
+    --duracao-revela: 0ms;
+  }
+
   *,
   *::before,
   *::after {
@@ -955,46 +994,9 @@
    não reancora o alvo quando algo acima dele muda de altura durante a
    animação (hidratação, seção adiada, fonte), e a página pousava no lugar
    errado. lib/ancora.ts confere o pouso depois da carga. */
-@media (prefers-reduced-motion: no-preference) {
-  .digitando > span {
-    animation: digita 1.3s var(--ease-movimento) infinite;
-  }
 
-  .digitando > span:nth-child(2) {
-    animation-delay: 0.16s;
-  }
-
-  .digitando > span:nth-child(3) {
-    animation-delay: 0.32s;
-  }
-
-  /* Vinhetas que só se mexem com o cursor em cima do cartão. */
-  .cartao-luz:hover .fluxo-corre {
-    animation: fluxo-corre 900ms linear infinite;
-  }
-}
-
-@keyframes digita {
-  0%,
-  70%,
-  100% {
-    opacity: 0.35;
-    transform: translateY(0);
-  }
-  35% {
-    opacity: 1;
-    transform: translateY(-2px);
-  }
-}
-
-@keyframes fluxo-corre {
-  to {
-    stroke-dashoffset: -8;
-  }
-}
-
-/* O topo ganha o vidro conforme a página rola, por CSS. Sem suporte (ou
-   com menos movimento), fica sempre com o vidro. */
+/* O topo ganha o papel fosco conforme a página rola, por CSS. Sem suporte
+   (ou com menos movimento), fica sempre fosco. */
 @supports (animation-timeline: scroll()) {
   @media (prefers-reduced-motion: no-preference) {
     .topo {
@@ -1007,7 +1009,7 @@
 
 @keyframes topo-aparece {
   from {
-    background-color: rgb(18 20 24 / 0);
+    background-color: rgb(242 241 236 / 0);
     border-bottom-color: transparent;
     -webkit-backdrop-filter: blur(0) saturate(100%);
     backdrop-filter: blur(0) saturate(100%);
@@ -1058,8 +1060,7 @@
   }
 }
 
-/* Recorte em vez de escala: o pesponto aparece sem esticar. A folga de 8 px
-   deixa o brilho do fio fora do recorte. */
+/* Recorte em vez de escala: o pesponto aparece sem esticar. */
 @keyframes fio-desce {
   from {
     clip-path: inset(-8px -8px 100% -8px);
@@ -1080,11 +1081,9 @@
 
 @keyframes ponto-costura {
   from {
-    color: var(--color-secundario);
-    background-color: rgb(24 27 32);
-    box-shadow:
-      inset 0 0 0 1px var(--color-linha-forte),
-      0 0 0 0 transparent;
+    color: var(--color-texto-secundario);
+    background-color: var(--color-fundo-cartao);
+    box-shadow: inset 0 0 0 1px var(--color-linha);
   }
 }
 
@@ -1100,7 +1099,7 @@
 .diagrama .peca {
   cursor: pointer;
   outline: none;
-  transition: opacity 200ms ease;
+  transition: opacity var(--duracao-curta) var(--curva-padrao);
 }
 
 .diagrama .peca .anel-foco {
@@ -1118,13 +1117,13 @@
 
 /* Card do CRM da demonstração: um brilho âmbar quando atualiza. */
 .cartao-crm[data-pronto] {
-  animation: crm-atualiza 900ms var(--ease-saida);
+  animation: crm-atualiza var(--duracao-revela) var(--curva-saida);
 }
 
 @keyframes crm-atualiza {
   from {
     box-shadow:
-      inset 0 0 0 1px var(--color-ambar),
+      inset 0 0 0 1px var(--color-acao-borda),
       0 0 40px -6px rgb(242 165 22 / 0.45);
   }
 }

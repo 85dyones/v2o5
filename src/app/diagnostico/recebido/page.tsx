@@ -20,13 +20,13 @@ export default function Pagina() {
     <>
       <Topo />
       <main id="conteudo" className="conteiner min-h-[60vh] py-20 md:py-28">
-        <p className="flex items-center gap-2 text-sm font-medium text-verde-claro">
+        <p className="flex items-center gap-2 text-sm font-medium text-etapa-atendimento">
           <Icone nome="check" className="size-4" />
           Pedido enviado
         </p>
         <h1 className="titulo-secao mt-5 max-w-[40rem]">{r.titulo}</h1>
         <p className="texto-guia mt-6 max-w-[36rem]">{r.texto}</p>
-        <p className="mt-12 text-sm font-medium text-secundario">{r.enquantoIsso}</p>
+        <p className="mt-12 text-sm font-medium text-texto-secundario">{r.enquantoIsso}</p>
         <ul className="mt-4 flex flex-wrap gap-3">
           <li>
             <a

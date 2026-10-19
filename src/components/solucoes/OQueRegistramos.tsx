@@ -42,19 +42,19 @@ export default function OQueRegistramos() {
     ["Clique de anúncio", clique ? `sim (${clique})` : "não"],
   ];
   return (
-    <div className="mt-6 rounded-2xl bg-vidro px-5 contorno">
+    <div className="mt-6 rounded-2xl bg-fundo-cartao px-5 contorno">
       <dl className="grid gap-0">
         {linhas.map(([rotulo, valor]) => (
           <div key={rotulo} className="flex flex-wrap justify-between gap-x-6 gap-y-1 border-t border-linha py-3 text-[0.9375rem] first:border-t-0">
-            <dt className="text-secundario">{rotulo}</dt>
-            <dd className="max-w-full break-all font-mono text-sm text-papel">{valor}</dd>
+            <dt className="text-texto-secundario">{rotulo}</dt>
+            <dd className="max-w-full break-all font-mono text-sm text-texto">{valor}</dd>
           </div>
         ))}
       </dl>
-      <p className="border-t border-linha py-3 text-sm leading-relaxed text-secundario">
+      <p className="border-t border-linha py-3 text-sm leading-relaxed text-texto-secundario">
         Só isto, guardado neste navegador até a aba fechar. Sai daqui apenas com o formulário do diagnóstico. As
         ferramentas de medição, quando ligadas, estão descritas na{" "}
-        <Link href="/privacidade" className="link-sublinhado text-papel">
+        <Link href="/privacidade" className="link-sublinhado text-texto">
           política de privacidade
         </Link>
         .

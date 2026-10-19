@@ -92,9 +92,9 @@ export default function Pagina() {
           texto="Entram em cima do Atendimento ou do Completo, na mesma base: o que um módulo registra aparece no CRM e no painel."
         >
           <Modulos />
-          <p className="mt-5 text-[0.9375rem] leading-relaxed text-secundario">
+          <p className="mt-5 text-[0.9375rem] leading-relaxed text-texto-secundario">
             Para revendas, a consulta veicular completa e a área de repasse estão na{" "}
-            <Link href="/segmentos/revendas-de-veiculos" className="link-sublinhado text-papel">
+            <Link href="/segmentos/revendas-de-veiculos" className="link-sublinhado text-texto">
               página de revendas
             </Link>
             .

@@ -6,7 +6,7 @@ import type { Etapa } from "@/lib/tokens";
 
 export function MarcaDeEtapa({ etapa }: { etapa: Etapa }) {
   return (
-    <span className="inline-flex items-center gap-2 text-[0.8125rem] font-medium text-secundario">
+    <span className="inline-flex items-center gap-2 text-[0.8125rem] font-medium text-texto-secundario">
       <span aria-hidden="true" className={`size-1.5 rounded-full ${PONTO_DA_ETAPA[etapa]}`} />
       {NOME_DA_ETAPA[etapa]}
     </span>
@@ -16,10 +16,10 @@ export function MarcaDeEtapa({ etapa }: { etapa: Etapa }) {
 function Rodape({ servico }: { servico: Servico }) {
   return (
     <div className="mt-auto flex items-center justify-between gap-4 pt-6">
-      <p className="text-sm font-medium tabular-nums text-papel/90">{servico.preco}</p>
+      <p className="text-sm font-medium tabular-nums text-texto/90">{servico.preco}</p>
       <span
         aria-hidden="true"
-        className="seta-do-cartao flex size-8 shrink-0 items-center justify-center rounded-full bg-vidro-forte text-papel contorno"
+        className="seta-do-cartao flex size-8 shrink-0 items-center justify-center rounded-full bg-fundo-alternado text-texto contorno"
       >
         <Icone nome="seta" className="size-3.5" />
       </span>
@@ -56,7 +56,7 @@ function Cartao({ servico, formato, classe }: { servico: Servico; formato: Forma
             </h4>
           </div>
           <div className="flex flex-col md:pt-9">
-            <p className="text-[1.0625rem] leading-relaxed text-secundario">{servico.frase}</p>
+            <p className="text-[1.0625rem] leading-relaxed text-texto-secundario">{servico.frase}</p>
             <Rodape servico={servico} />
           </div>
         </div>
@@ -78,7 +78,7 @@ function Cartao({ servico, formato, classe }: { servico: Servico; formato: Forma
       <div className={`flex flex-1 flex-col px-3 pb-3 pt-5 ${largo ? "lg:px-6 lg:pt-6" : ""}`}>
         <MarcaDeEtapa etapa={servico.etapa} />
         <h4 className="titulo-cartao mt-2.5">{servico.titulo}</h4>
-        <p className="mt-2 text-[0.9375rem] leading-relaxed text-secundario">{servico.frase}</p>
+        <p className="mt-2 text-[0.9375rem] leading-relaxed text-texto-secundario">{servico.frase}</p>
         <Rodape servico={servico} />
       </div>
     </Link>
@@ -106,8 +106,8 @@ export default function Solucoes() {
           <div key={pilar.id} className={p ? "mt-20 md:mt-28" : "mt-14 md:mt-20"}>
             <div className="grid gap-x-10 gap-y-4 border-t border-linha pt-8 md:grid-cols-2 md:items-end">
               <div>
-                <p className="flex items-center gap-3 text-[0.8125rem] font-medium text-secundario">
-                  <span className="numero text-ambar">{String(p + 1).padStart(2, "0")}</span>
+                <p className="flex items-center gap-3 text-[0.8125rem] font-medium text-texto-secundario">
+                  <span className="numero text-acao-texto">{String(p + 1).padStart(2, "0")}</span>
                   {pilar.sobretitulo}
                 </p>
                 <h3 className="mt-4 text-[clamp(1.75rem,1.3rem+1.6vw,2.625rem)] font-semibold leading-[1.05] tracking-[-0.04em]">

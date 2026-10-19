@@ -16,7 +16,7 @@ export default function ParceiroDeFotografia() {
     >
       <div>
         <p className="titulo-cartao">{f.pergunta}</p>
-        <p className="mt-2 text-[0.9375rem] leading-relaxed text-secundario">{f.texto}</p>
+        <p className="mt-2 text-[0.9375rem] leading-relaxed text-texto-secundario">{f.texto}</p>
       </div>
       <a
         href={linkWhatsApp(f.mensagem)}

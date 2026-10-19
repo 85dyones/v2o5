@@ -17,11 +17,11 @@ export default function Hero({ titulo }: { titulo: string }) {
       <div className="conteiner grid items-center gap-x-8 gap-y-6 pb-14 pt-14 md:pt-20 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] lg:pb-20 lg:pt-24">
         <div className="max-w-[44rem]">
           <p className="selo mb-7">
-            <span aria-hidden="true" className="relative flex size-5 items-center justify-center rounded-full bg-ambar/15">
-              <span className="size-1.5 rounded-full bg-ambar shadow-[0_0_10px_2px_rgb(242_165_22/0.6)]" />
+            <span aria-hidden="true" className="relative flex size-5 items-center justify-center rounded-full bg-acao/15">
+              <span className="size-1.5 rounded-full bg-acao shadow-[0_0_10px_2px_rgb(242_165_22/0.6)]" />
             </span>
             <span>
-              Catalisador de vendas com <span className="text-ambar">IA</span>
+              Catalisador de vendas com <span className="text-acao-texto">IA</span>
             </span>
           </p>
           <h1 id="titulo-hero" className="titulo-hero">
@@ -37,8 +37,8 @@ export default function Hero({ titulo }: { titulo: string }) {
               Ver como tudo se liga
             </a>
           </div>
-          <p className="mt-6 flex max-w-[32rem] items-start gap-2.5 text-[0.9375rem] leading-snug text-secundario">
-            <Icone nome="relogio" className="mt-px size-[1.125rem] shrink-0 text-ambar" />
+          <p className="mt-6 flex max-w-[32rem] items-start gap-2.5 text-[0.9375rem] leading-snug text-texto-secundario">
+            <Icone nome="relogio" className="mt-px size-[1.125rem] shrink-0 text-acao-texto" />
             {HERO.nota}
           </p>
         </div>
@@ -51,11 +51,11 @@ export default function Hero({ titulo }: { titulo: string }) {
 
       <div className="conteiner">
         <div className="flex flex-col gap-4 border-t border-linha py-7 md:flex-row md:items-center md:gap-10">
-          <p className="flex shrink-0 items-center gap-2 text-sm text-secundario">
-            <span aria-hidden="true" className="size-1.5 rounded-full bg-verde-claro shadow-[0_0_8px_rgb(92_196_138/0.8)]" />
+          <p className="flex shrink-0 items-center gap-2 text-sm text-texto-secundario">
+            <span aria-hidden="true" className="size-1.5 rounded-full bg-etapa-atendimento shadow-[0_0_8px_rgb(23_119_63/0.5)]" />
             {FERRAMENTAS.rotulo}
           </p>
-          <ul className="flex flex-wrap items-center gap-x-8 gap-y-2.5 text-[0.9375rem] font-semibold tracking-[-0.01em] text-papel/70">
+          <ul className="flex flex-wrap items-center gap-x-8 gap-y-2.5 text-[0.9375rem] font-semibold tracking-[-0.01em] text-texto/70">
             {FERRAMENTAS.nomes.map((f) => (
               <li key={f}>{f}</li>
             ))}

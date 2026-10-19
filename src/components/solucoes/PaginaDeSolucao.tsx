@@ -59,8 +59,8 @@ export default function PaginaDeSolucao({ rota, demonstracao }: { rota: string; 
             <dl className="mt-12 grid gap-4 border-t border-linha pt-8 md:grid-cols-3">
               {s.fatos.map((f) => (
                 <div key={f.rotulo}>
-                  <dt className="text-[0.8125rem] font-medium text-secundario">{f.rotulo}</dt>
-                  <dd className="mt-1 text-[0.9375rem] leading-snug text-papel">{f.valor}</dd>
+                  <dt className="text-[0.8125rem] font-medium text-texto-secundario">{f.rotulo}</dt>
+                  <dd className="mt-1 text-[0.9375rem] leading-snug text-texto">{f.valor}</dd>
                 </div>
               ))}
             </dl>
@@ -76,7 +76,7 @@ export default function PaginaDeSolucao({ rota, demonstracao }: { rota: string; 
               </h2>
               <p className="texto-guia mt-6">{s.problema.texto}</p>
               {s.problema.fonte ? (
-                <p className="mt-4 text-sm text-secundario">
+                <p className="mt-4 text-sm text-texto-secundario">
                   Fonte:{" "}
                   {s.problema.href ? (
                     <a href={s.problema.href} target="_blank" rel="noopener" className="link-sublinhado">
@@ -92,7 +92,7 @@ export default function PaginaDeSolucao({ rota, demonstracao }: { rota: string; 
             <div className="superficie p-3">
               <div className="mb-3 flex items-center justify-between px-2 pt-1">
                 <MarcaDeEtapa etapa={s.etapa} />
-                <span className="rotulo text-secundario">exemplo</span>
+                <span className="rotulo text-texto-secundario">exemplo</span>
               </div>
               <div className="min-h-[16rem]">
                 <VinhetaDaLinha vinheta={s.vinheta} />
@@ -103,7 +103,7 @@ export default function PaginaDeSolucao({ rota, demonstracao }: { rota: string; 
 
         <section
           aria-labelledby="titulo-entregas"
-          className="border-y border-linha bg-[linear-gradient(180deg,rgb(26_29_34/0.7),rgb(18_20_24/0.4))] py-20 md:py-28"
+          className="border-y border-linha bg-fundo-alternado py-20 md:py-28"
         >
           <div className="conteiner">
             <div className="max-w-[44rem]">
@@ -117,13 +117,13 @@ export default function PaginaDeSolucao({ rota, demonstracao }: { rota: string; 
                 <li key={e.titulo} className="superficie flex gap-4 p-6 md:p-7">
                   <span
                     aria-hidden="true"
-                    className="mt-0.5 flex size-6 shrink-0 items-center justify-center rounded-full bg-verde/25 text-verde-claro"
+                    className="mt-0.5 flex size-6 shrink-0 items-center justify-center rounded-full bg-etapa-atendimento/25 text-etapa-atendimento"
                   >
                     <Icone nome="check" className="size-3.5" />
                   </span>
                   <span>
                     <h3 className="font-semibold tracking-[-0.01em]">{e.titulo}</h3>
-                    <p className="mt-1.5 text-[0.9375rem] leading-relaxed text-secundario">{e.texto}</p>
+                    <p className="mt-1.5 text-[0.9375rem] leading-relaxed text-texto-secundario">{e.texto}</p>
                   </span>
                 </li>
               ))}
@@ -145,10 +145,10 @@ export default function PaginaDeSolucao({ rota, demonstracao }: { rota: string; 
             <ol className="superficie divide-y divide-linha">
               {s.comoFunciona.map((p, i) => (
                 <li key={p.titulo} className="grid grid-cols-[2.5rem_1fr] gap-4 p-6 md:p-7">
-                  <span className="numero text-ambar">{String(i + 1).padStart(2, "0")}</span>
+                  <span className="numero text-acao-texto">{String(i + 1).padStart(2, "0")}</span>
                   <span>
                     <span className="block font-semibold tracking-[-0.01em]">{p.titulo}</span>
-                    <span className="mt-1 block text-[0.9375rem] leading-relaxed text-secundario">{p.texto}</span>
+                    <span className="mt-1 block text-[0.9375rem] leading-relaxed text-texto-secundario">{p.texto}</span>
                   </span>
                 </li>
               ))}
@@ -176,20 +176,20 @@ export default function PaginaDeSolucao({ rota, demonstracao }: { rota: string; 
                     key={n.texto}
                     className={`flex flex-col p-7 md:p-9 ${i > 0 ? "border-t border-linha md:border-l md:border-t-0" : ""}`}
                   >
-                    <dt className="order-2 mt-4 max-w-[22rem] text-[0.9375rem] leading-relaxed text-secundario">{n.texto}</dt>
+                    <dt className="order-2 mt-4 max-w-[22rem] text-[0.9375rem] leading-relaxed text-texto-secundario">{n.texto}</dt>
                     <dd className="order-1 flex items-baseline gap-3">
                       <span className="numero-grande">
                         <NumeroQueConta valor={n.valor} />
                       </span>
                       {n.complemento ? (
-                        <span className="text-xl font-medium tracking-[-0.02em] text-secundario">{n.complemento}</span>
+                        <span className="text-xl font-medium tracking-[-0.02em] text-texto-secundario">{n.complemento}</span>
                       ) : null}
                     </dd>
                   </div>
                 ))}
               </dl>
-              <p className="mt-4 flex items-start gap-2 text-sm text-secundario">
-                <Icone nome="check" className="mt-0.5 size-4 shrink-0 text-verde-claro" />
+              <p className="mt-4 flex items-start gap-2 text-sm text-texto-secundario">
+                <Icone nome="check" className="mt-0.5 size-4 shrink-0 text-etapa-atendimento" />
                 {CASE.fonte}
               </p>
               <Link href="/cases/motors-store" className="botao botao-secundario mt-8" data-evento="cta_click" data-local="na-motors">
@@ -209,28 +209,28 @@ export default function PaginaDeSolucao({ rota, demonstracao }: { rota: string; 
                   {linha.nome}: a partir de.
                 </h2>
                 <dl className="mt-6 grid gap-4 sm:grid-cols-2">
-                  <div className="rounded-xl bg-vidro p-4 contorno">
-                    <dt className="text-sm text-secundario">Implantação a partir de</dt>
+                  <div className="rounded-xl bg-fundo-cartao p-4 contorno">
+                    <dt className="text-sm text-texto-secundario">Implantação a partir de</dt>
                     <dd className="mt-1 text-2xl font-semibold tabular-nums tracking-[-0.03em]">{implantacao(linha) || "sem"}</dd>
                   </div>
-                  <div className="rounded-xl bg-vidro p-4 contorno">
-                    <dt className="text-sm text-secundario">Mensalidade a partir de</dt>
+                  <div className="rounded-xl bg-fundo-cartao p-4 contorno">
+                    <dt className="text-sm text-texto-secundario">Mensalidade a partir de</dt>
                     <dd className="mt-1 text-2xl font-semibold tabular-nums tracking-[-0.03em]">{mensalidade(linha) || "sem"}</dd>
                   </div>
                 </dl>
-                <p className="mt-5 text-[0.9375rem] leading-relaxed text-secundario">{linha.cobre}</p>
+                <p className="mt-5 text-[0.9375rem] leading-relaxed text-texto-secundario">{linha.cobre}</p>
                 <Detalhes l={linha} />
                 <Link href="/precos" className="botao botao-secundario mt-7" data-evento="cta_click" data-local="preco">
                   Ver a tabela completa
                   <Icone nome="seta" className="seta size-4" />
                 </Link>
               </div>
-              <div className="flex flex-col justify-center border-t border-linha bg-[rgb(12_13_16/0.35)] p-7 md:p-9 lg:border-l lg:border-t-0">
-                <p className="text-sm font-medium text-secundario">O preço final</p>
+              <div className="flex flex-col justify-center border-t border-linha bg-fundo-alternado p-7 md:p-9 lg:border-l lg:border-t-0">
+                <p className="text-sm font-medium text-texto-secundario">O preço final</p>
                 <p className="mt-3 text-[1.125rem] leading-snug">
                   Sai do diagnóstico, com o escopo fechado antes de começar. Todo valor publicado é a partir de.
                 </p>
-                <p className="mt-4 text-sm leading-relaxed text-secundario">
+                <p className="mt-4 text-sm leading-relaxed text-texto-secundario">
                   Implantação em até 6 vezes, ou metade na assinatura e metade na entrega. Mensalidade mês a mês.
                 </p>
               </div>
@@ -256,8 +256,8 @@ export default function PaginaDeSolucao({ rota, demonstracao }: { rota: string; 
                 <Link href={l.href} className="superficie cartao-luz flex h-full flex-col p-6">
                   <MarcaDeEtapa etapa={l.etapa} />
                   <span className="titulo-cartao mt-2.5 block">{l.titulo}</span>
-                  <span className="mt-2 block text-[0.9375rem] leading-relaxed text-secundario">{l.frase}</span>
-                  <span className="mt-auto flex items-center justify-between gap-4 pt-6 text-sm font-medium tabular-nums text-papel/90">
+                  <span className="mt-2 block text-[0.9375rem] leading-relaxed text-texto-secundario">{l.frase}</span>
+                  <span className="mt-auto flex items-center justify-between gap-4 pt-6 text-sm font-medium tabular-nums text-texto/90">
                     {l.preco}
                     <Icone nome="seta" className="size-3.5 shrink-0" />
                   </span>

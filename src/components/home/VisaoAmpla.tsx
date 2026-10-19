@@ -24,8 +24,8 @@ export default function VisaoAmpla() {
           <div className="max-w-[36rem]">
             <p className="texto-guia">{v.texto}</p>
             <figure className="mt-6 border-t border-linha pt-5">
-              <p className="text-[0.9375rem] leading-relaxed text-papel/85">{v.evidencia.texto}</p>
-              <figcaption className="mt-2 text-[0.8125rem] leading-relaxed text-secundario">
+              <p className="text-[0.9375rem] leading-relaxed text-texto/85">{v.evidencia.texto}</p>
+              <figcaption className="mt-2 text-[0.8125rem] leading-relaxed text-texto-secundario">
                 Fonte:{" "}
                 <a href={v.evidencia.href} className="link-sublinhado">
                   {v.evidencia.fonte}
@@ -40,12 +40,12 @@ export default function VisaoAmpla() {
             {v.areas.map((area, i) => (
               <li key={area.nome} className="costura-area">
                 <div className="costura-cabeca">
-                  <h3 className="text-sm font-medium text-secundario">{area.nome}</h3>
+                  <h3 className="text-sm font-medium text-texto-secundario">{area.nome}</h3>
                   <p className="titulo-cartao mt-2">{area.pergunta}</p>
                 </div>
-                <p className="costura-acao text-[0.9375rem] leading-relaxed text-secundario">{area.acao}</p>
+                <p className="costura-acao text-[0.9375rem] leading-relaxed text-texto-secundario">{area.acao}</p>
                 <p className="costura-base text-[0.8125rem] leading-snug">
-                  <span className="block text-secundario">{area.base.tipo}</span>
+                  <span className="block text-texto-secundario">{area.base.tipo}</span>
                   {area.base.texto}
                 </p>
                 {i < v.costuras.length && (
@@ -60,7 +60,7 @@ export default function VisaoAmpla() {
             <span aria-hidden="true" className="fio-amostra" />
             <span>
               <span className="font-medium">{v.fio.titulo}</span>{" "}
-              <span className="text-secundario">{v.fio.texto}</span>
+              <span className="text-texto-secundario">{v.fio.texto}</span>
             </span>
           </p>
         </div>
@@ -68,7 +68,7 @@ export default function VisaoAmpla() {
         <div className="mt-14 grid gap-4 md:mt-16 md:grid-cols-[minmax(0,15rem)_minmax(0,1fr)] md:gap-12">
           <div>
             <p className="text-[1.375rem] font-semibold leading-tight tracking-[-0.03em]">{v.fundador.nome}</p>
-            <p className="mt-1 text-sm text-secundario">{v.fundador.papel}</p>
+            <p className="mt-1 text-sm text-texto-secundario">{v.fundador.papel}</p>
           </div>
           <p className="texto-guia max-w-[44rem]">{v.fundador.texto}</p>
         </div>

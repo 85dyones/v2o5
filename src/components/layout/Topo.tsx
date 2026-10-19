@@ -12,7 +12,7 @@ export function Marca() {
       className="-ml-1 flex min-h-11 items-center gap-2 rounded-md px-1"
       aria-label="V2O5 Vendas e Tecnologia, página inicial"
     >
-      <Simbolo tamanho="pequeno" className="h-[1.625rem] w-auto text-papel" />
+      <Simbolo tamanho="pequeno" className="h-[1.625rem] w-auto text-texto" />
       <span className="text-[1.0625rem] font-semibold tracking-[-0.03em]">V2O5</span>
     </Link>
   );
@@ -34,7 +34,7 @@ export default function Topo() {
               <li key={item.href}>
                 <LinkOuAncora
                   href={item.href}
-                  className="flex min-h-10 items-center rounded-full px-3.5 text-sm font-medium text-secundario transition-colors duration-150 hover:bg-vidro hover:text-papel"
+                  className="flex min-h-10 items-center rounded-full px-3.5 text-sm font-medium text-texto-secundario transition-colors hover:bg-fundo-alternado hover:text-texto"
                 >
                   {item.rotulo}
                 </LinkOuAncora>

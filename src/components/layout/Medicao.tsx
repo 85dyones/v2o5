@@ -66,12 +66,12 @@ export default function Medicao() {
   return (
     <aside
       aria-label="Aviso de medição"
-      className="fixed inset-x-4 bottom-20 z-40 rounded-2xl bg-superficie p-4 text-[0.9375rem] leading-snug text-secundario contorno-forte shadow-[0_12px_40px_rgb(0_0_0/0.45)] md:inset-x-auto md:bottom-4 md:left-4 md:max-w-[22rem]"
+      className="fixed inset-x-4 bottom-20 z-40 rounded-2xl bg-fundo-cartao p-4 text-[0.9375rem] leading-snug text-texto-secundario contorno-forte shadow-[0_12px_40px_rgb(18_20_24/0.18)] md:inset-x-auto md:bottom-4 md:left-4 md:max-w-[22rem]"
     >
       <p>
         Este site mede visitas e o resultado dos anúncios com base no legítimo interesse. Você pode desligar a medição
         neste navegador na{" "}
-        <LinkOuAncora href="/privacidade#medicao" className="link-sublinhado text-papel" onClick={fechar}>
+        <LinkOuAncora href="/privacidade#medicao" className="link-sublinhado text-texto" onClick={fechar}>
           página de privacidade
         </LinkOuAncora>
         .

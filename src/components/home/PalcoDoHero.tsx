@@ -47,17 +47,17 @@ export default function PalcoDoHero() {
     >
       <defs>
         <radialGradient id="palco-luz-ambar">
-          <stop offset="0" stopColor={CORES.ambar} stopOpacity="0.5" />
-          <stop offset="0.3" stopColor={CORES.ambar} stopOpacity="0.14" />
-          <stop offset="1" stopColor={CORES.ambar} stopOpacity="0" />
+          <stop offset="0" stopColor={CORES.acao} stopOpacity="0.5" />
+          <stop offset="0.3" stopColor={CORES.acao} stopOpacity="0.14" />
+          <stop offset="1" stopColor={CORES.acao} stopOpacity="0" />
         </radialGradient>
         <radialGradient id="palco-luz-centro">
-          <stop offset="0" stopColor={CORES.papel} stopOpacity="0.07" />
-          <stop offset="1" stopColor={CORES.papel} stopOpacity="0" />
+          <stop offset="0" stopColor={CORES.texto} stopOpacity="0.07" />
+          <stop offset="1" stopColor={CORES.texto} stopOpacity="0" />
         </radialGradient>
         <linearGradient id="palco-entrada" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2={r2(xMaisAEsquerda)} y2="0">
-          <stop offset="0" stopColor={CORES.secundarioEscuro} stopOpacity="0" />
-          <stop offset="1" stopColor={CORES.secundarioEscuro} stopOpacity="0.3" />
+          <stop offset="0" stopColor={CORES.textoSecundario} stopOpacity="0" />
+          <stop offset="1" stopColor={CORES.textoSecundario} stopOpacity="0.3" />
         </linearGradient>
         <linearGradient
           id="palco-saida"
@@ -67,18 +67,18 @@ export default function PalcoDoHero() {
           x2={PALCO.largura}
           y2="0"
         >
-          <stop offset="0" stopColor={CORES.ambar} stopOpacity="0.55" />
-          <stop offset="1" stopColor={CORES.ambar} stopOpacity="0" />
+          <stop offset="0" stopColor={CORES.acao} stopOpacity="0.55" />
+          <stop offset="1" stopColor={CORES.acao} stopOpacity="0" />
         </linearGradient>
         <linearGradient id="palco-borda" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stopColor={CORES.violetaClaro} />
-          <stop offset="0.5" stopColor={CORES.verdeClaro} />
-          <stop offset="1" stopColor={CORES.azulClaro} />
+          <stop offset="0" stopColor={CORES.etapaAtracao} />
+          <stop offset="0.5" stopColor={CORES.etapaAtendimento} />
+          <stop offset="1" stopColor={CORES.etapaCrm} />
         </linearGradient>
       </defs>
 
       <circle cx={C.x} cy={C.y} r={48} fill="url(#palco-luz-centro)" />
-      <g fill="none" stroke={CORES.papel} strokeWidth={1} vectorEffect="non-scaling-stroke">
+      <g fill="none" stroke={CORES.texto} strokeWidth={1} vectorEffect="non-scaling-stroke">
         <circle cx={C.x} cy={C.y} r={34} strokeOpacity={0.08} vectorEffect="non-scaling-stroke" />
         <circle
           cx={C.x}
@@ -100,7 +100,7 @@ export default function PalcoDoHero() {
       </g>
 
       <g className="palco-particulas">
-        <g fill={CORES.secundarioEscuro}>
+        <g fill={CORES.textoSecundario}>
           {PARADAS.filter((p) => p.tipo === "entrada").map((p, i) => (
             <circle key={i} cx={r1(p.x)} cy={r1(p.y)} r={r2(p.tamanho)} opacity={r1(p.alfa)} />
           ))}
@@ -110,12 +110,12 @@ export default function PalcoDoHero() {
             .map((p) => `M${r1(p.de!.x)} ${r1(p.de!.y)}L${r1(p.x)} ${r1(p.y)}`)
             .join("")}
           fill="none"
-          stroke={CORES.ambar}
+          stroke={CORES.acao}
           strokeWidth={0.5}
           strokeLinecap="round"
           opacity={0.8}
         />
-        <g fill={CORES.ambarForte}>
+        <g fill={CORES.acao}>
           {PARADAS.filter((p) => p.tipo === "saida").map((p, i) => (
             <circle key={i} cx={r1(p.x)} cy={r1(p.y)} r={r2(p.tamanho)} opacity={r1(p.alfa)} />
           ))}
@@ -142,13 +142,13 @@ export default function PalcoDoHero() {
           strokeWidth={1.25}
           vectorEffect="non-scaling-stroke"
         />
-        <g fill="none" stroke={CORES.ambar} strokeLinecap="round" strokeLinejoin="round">
+        <g fill="none" stroke={CORES.acao} strokeLinecap="round" strokeLinejoin="round">
           <path d={filamento()} strokeWidth={3.2} strokeOpacity={0.18} />
           <path d={filamento()} strokeWidth={0.7} strokeOpacity={0.85} />
         </g>
-        <circle cx={r2(ambar.x)} cy={r2(ambar.y)} r={r2(ambar.r)} fill={CORES.ambar} />
+        <circle cx={r2(ambar.x)} cy={r2(ambar.y)} r={r2(ambar.r)} fill={CORES.acao} />
         {/* Reflexo de vidro em cada átomo, da luz que vem de cima à esquerda. */}
-        <g fill={CORES.papel}>
+        <g fill={CORES.fundo}>
           {Object.values(ATOMOS).map((a, i) => (
             <circle key={i} cx={r2(a.x - a.r * 0.38)} cy={r2(a.y - a.r * 0.38)} r={r2(a.r * 0.17)} opacity={0.75} />
           ))}

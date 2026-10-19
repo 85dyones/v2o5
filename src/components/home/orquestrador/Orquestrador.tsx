@@ -17,8 +17,8 @@ export default function Orquestrador() {
               <span className="apagado">Da mensagem ao card no CRM, etapa por etapa.</span>
             </h2>
           </div>
-          <p className="rotulo flex items-center gap-2 rounded-full bg-vidro px-3 py-2 text-secundario contorno">
-            <span aria-hidden="true" className="size-1.5 rounded-full bg-ambar" />
+          <p className="rotulo flex items-center gap-2 rounded-full bg-fundo-cartao px-3 py-2 text-texto-secundario contorno">
+            <span aria-hidden="true" className="size-1.5 rounded-full bg-acao" />
             Demonstração com dados fictícios
           </p>
         </div>

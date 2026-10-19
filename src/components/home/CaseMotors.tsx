@@ -9,7 +9,7 @@ export default function CaseMotors() {
     <section
       id="case"
       aria-labelledby="titulo-case"
-      className="adiada relative border-y border-linha bg-[linear-gradient(180deg,rgb(26_29_34/0.7),rgb(18_20_24/0.4))] py-24 md:py-36"
+      className="adiada relative border-y border-linha bg-fundo-alternado py-24 md:py-36"
     >
       <div className="conteiner">
         <div className="grid gap-8 lg:grid-cols-[1.1fr_1fr] lg:items-end">
@@ -31,27 +31,27 @@ export default function CaseMotors() {
               key={n.texto}
               className={`flex flex-col p-7 md:p-9 ${i > 0 ? "border-t border-linha md:border-l md:border-t-0" : ""}`}
             >
-              <dt className="order-2 mt-4 max-w-[18rem] text-[0.9375rem] leading-relaxed text-secundario">{n.texto}</dt>
+              <dt className="order-2 mt-4 max-w-[18rem] text-[0.9375rem] leading-relaxed text-texto-secundario">{n.texto}</dt>
               <dd className="order-1 flex items-baseline gap-3">
                 <span className="numero-grande">
                   <NumeroQueConta valor={n.valor} />
                 </span>
                 {n.complemento ? (
-                  <span className="text-xl font-medium tracking-[-0.02em] text-secundario">{n.complemento}</span>
+                  <span className="text-xl font-medium tracking-[-0.02em] text-texto-secundario">{n.complemento}</span>
                 ) : null}
               </dd>
             </div>
           ))}
         </dl>
-        <p className="mt-4 flex items-start gap-2 text-sm text-secundario">
-          <Icone nome="check" className="mt-0.5 size-4 shrink-0 text-verde-claro" />
+        <p className="mt-4 flex items-start gap-2 text-sm text-texto-secundario">
+          <Icone nome="check" className="mt-0.5 size-4 shrink-0 text-etapa-atendimento" />
           {CASE.fonte}
         </p>
 
         <div className="mt-16 grid gap-10 lg:grid-cols-[1.35fr_1fr] lg:items-center">
           <TerminalDeEventos linhas={CASE.terminal} />
           <div>
-            <p className="text-secundario">
+            <p className="text-texto-secundario">
               Formato real dos eventos que o sistema da Motors registra; os valores são ilustrativos. Cada lead
               do site sai com um identificador que o navegador e o servidor compartilham, e com ele a Meta e o
               Google contam a conversão uma vez só.

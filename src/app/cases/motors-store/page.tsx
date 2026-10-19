@@ -39,15 +39,15 @@ export default function Pagina() {
                 <p className="texto-guia mt-7 max-w-[38rem]">{c.resumo}</p>
               </div>
               <div className="superficie flex flex-col gap-5 p-7 md:p-8">
-                <MarcaMotors className="h-9 w-auto max-w-full text-papel" />
-                <p className="text-[0.9375rem] leading-relaxed text-secundario">
+                <MarcaMotors className="h-9 w-auto max-w-full text-texto" />
+                <p className="text-[0.9375rem] leading-relaxed text-texto-secundario">
                   {c.cliente.ramo.charAt(0).toUpperCase() + c.cliente.ramo.slice(1)} em {c.cliente.cidade}/{c.cliente.estado}.
                 </p>
                 <a
                   href={c.cliente.url}
                   target="_blank"
                   rel="noopener"
-                  className="link-sublinhado w-fit text-[0.9375rem] text-papel"
+                  className="link-sublinhado w-fit text-[0.9375rem] text-texto"
                 >
                   {c.cliente.url.replace("https://", "")}
                 </a>
@@ -57,8 +57,8 @@ export default function Pagina() {
             <dl className="mt-12 grid gap-4 border-t border-linha pt-8 md:grid-cols-3">
               {c.fatos.map((f) => (
                 <div key={f.rotulo}>
-                  <dt className="text-[0.8125rem] font-medium text-secundario">{f.rotulo}</dt>
-                  <dd className="mt-1 text-[0.9375rem] leading-snug text-papel">{f.valor}</dd>
+                  <dt className="text-[0.8125rem] font-medium text-texto-secundario">{f.rotulo}</dt>
+                  <dd className="mt-1 text-[0.9375rem] leading-snug text-texto">{f.valor}</dd>
                 </div>
               ))}
             </dl>
@@ -75,9 +75,9 @@ export default function Pagina() {
           <ul className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             {c.construido.pecas.map((peca) => (
               <li key={peca.titulo} className="superficie flex flex-col p-6 md:p-7">
-                <span className="chip w-fit text-secundario">{peca.linha}</span>
+                <span className="chip w-fit text-texto-secundario">{peca.linha}</span>
                 <h3 className="titulo-cartao mt-5">{peca.titulo}</h3>
-                <p className="mt-2 text-[0.9375rem] leading-relaxed text-secundario">{peca.texto}</p>
+                <p className="mt-2 text-[0.9375rem] leading-relaxed text-texto-secundario">{peca.texto}</p>
               </li>
             ))}
           </ul>
@@ -85,7 +85,7 @@ export default function Pagina() {
 
         <section
           aria-labelledby="titulo-numeros"
-          className="border-y border-linha bg-[linear-gradient(180deg,rgb(26_29_34/0.7),rgb(18_20_24/0.4))] py-20 md:py-28"
+          className="border-y border-linha bg-fundo-alternado py-20 md:py-28"
         >
           <div className="conteiner">
             <h2 id="titulo-numeros" className="titulo-secao max-w-[40rem]">
@@ -97,7 +97,7 @@ export default function Pagina() {
                   key={n.texto}
                   className={`flex flex-col p-7 md:p-8 ${i > 0 ? "border-t border-linha" : ""} ${i % 2 === 1 ? "md:border-l" : ""} ${i < 2 ? "md:border-t-0" : ""} ${i % 3 !== 0 ? "lg:border-l" : "lg:border-l-0"} ${i < 3 ? "lg:border-t-0" : "lg:border-t"}`}
                 >
-                  <dt className="order-2 mt-4 max-w-[20rem] text-[0.9375rem] leading-relaxed text-secundario">
+                  <dt className="order-2 mt-4 max-w-[20rem] text-[0.9375rem] leading-relaxed text-texto-secundario">
                     {n.texto}
                   </dt>
                   <dd className="order-1 flex items-baseline gap-3">
@@ -105,14 +105,14 @@ export default function Pagina() {
                       <NumeroQueConta valor={n.valor} />
                     </span>
                     {n.complemento ? (
-                      <span className="text-xl font-medium tracking-[-0.02em] text-secundario">{n.complemento}</span>
+                      <span className="text-xl font-medium tracking-[-0.02em] text-texto-secundario">{n.complemento}</span>
                     ) : null}
                   </dd>
                 </div>
               ))}
             </dl>
-            <p className="mt-4 flex items-start gap-2 text-sm text-secundario">
-              <Icone nome="check" className="mt-0.5 size-4 shrink-0 text-verde-claro" />
+            <p className="mt-4 flex items-start gap-2 text-sm text-texto-secundario">
+              <Icone nome="check" className="mt-0.5 size-4 shrink-0 text-etapa-atendimento" />
               {c.numeros.fonte}
             </p>
 
@@ -126,7 +126,7 @@ export default function Pagina() {
                 {c.rastreio.titulo}
               </h2>
               <p className="texto-guia mt-5">{c.rastreio.texto}</p>
-              <p className="mt-4 text-sm text-secundario">{c.rastreio.exemplo}</p>
+              <p className="mt-4 text-sm text-texto-secundario">{c.rastreio.exemplo}</p>
             </div>
             <TerminalDeEventos linhas={CASE.terminal} />
           </div>
@@ -135,7 +135,7 @@ export default function Pagina() {
         <section aria-labelledby="titulo-stack" className="border-t border-linha">
           <div className="conteiner grid gap-10 py-16 md:py-20 lg:grid-cols-2 lg:gap-16">
             <div>
-              <h2 id="titulo-stack" className="text-[0.8125rem] font-medium text-secundario">
+              <h2 id="titulo-stack" className="text-[0.8125rem] font-medium text-texto-secundario">
                 {c.stack.titulo}
               </h2>
               <ul className="mt-4 flex flex-wrap gap-2">
@@ -146,9 +146,9 @@ export default function Pagina() {
                 ))}
               </ul>
             </div>
-            <p className="text-[1.0625rem] leading-relaxed text-secundario lg:pt-7">
+            <p className="text-[1.0625rem] leading-relaxed text-texto-secundario lg:pt-7">
               {c.assinatura.split("Dyones Oliveira")[0]}
-              <Link href="/sobre" className="link-sublinhado text-papel">
+              <Link href="/sobre" className="link-sublinhado text-texto">
                 Dyones Oliveira
               </Link>
               {c.assinatura.split("Dyones Oliveira")[1]}

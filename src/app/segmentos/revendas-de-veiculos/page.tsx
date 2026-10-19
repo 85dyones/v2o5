@@ -48,22 +48,22 @@ export default function Pagina() {
               </div>
             </div>
             <div className="mt-9">
-              <p className="text-[0.8125rem] font-medium text-secundario">{h.sistemas.rotulo}</p>
+              <p className="text-[0.8125rem] font-medium text-texto-secundario">{h.sistemas.rotulo}</p>
               <ul className="mt-2.5 flex flex-wrap gap-2">
                 <li className="chip chip-ok">{h.sistemas.emProducao} · em produção</li>
                 {h.sistemas.integraveis.map((s) => (
-                  <li key={s} className="chip text-secundario">
+                  <li key={s} className="chip text-texto-secundario">
                     {s}
                   </li>
                 ))}
-                <li className="chip text-secundario">{h.sistemas.outros}</li>
+                <li className="chip text-texto-secundario">{h.sistemas.outros}</li>
               </ul>
             </div>
             <dl className="mt-12 grid gap-4 border-t border-linha pt-8 md:grid-cols-3">
               {h.fatos.map((f) => (
                 <div key={f.rotulo}>
-                  <dt className="text-[0.8125rem] font-medium text-secundario">{f.rotulo}</dt>
-                  <dd className="mt-1 text-[0.9375rem] leading-snug text-papel">{f.valor}</dd>
+                  <dt className="text-[0.8125rem] font-medium text-texto-secundario">{f.rotulo}</dt>
+                  <dd className="mt-1 text-[0.9375rem] leading-snug text-texto">{f.valor}</dd>
                 </div>
               ))}
             </dl>
@@ -80,9 +80,9 @@ export default function Pagina() {
           <ul className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
             {h.pacote.pecas.map((peca) => (
               <li key={peca.titulo} className="superficie flex flex-col p-6 md:p-7">
-                <span className="chip w-fit text-secundario">{peca.linha}</span>
+                <span className="chip w-fit text-texto-secundario">{peca.linha}</span>
                 <h3 className="titulo-cartao mt-5">{peca.titulo}</h3>
-                <p className="mt-2 text-[0.9375rem] leading-relaxed text-secundario">{peca.texto}</p>
+                <p className="mt-2 text-[0.9375rem] leading-relaxed text-texto-secundario">{peca.texto}</p>
               </li>
             ))}
           </ul>
@@ -97,7 +97,7 @@ export default function Pagina() {
 
         <section
           aria-labelledby="titulo-caminho"
-          className="border-y border-linha bg-[linear-gradient(180deg,rgb(26_29_34/0.7),rgb(18_20_24/0.4))] py-20 md:py-28"
+          className="border-y border-linha bg-fundo-alternado py-20 md:py-28"
         >
           <div className="conteiner grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.5fr)] lg:gap-16">
             <div>
@@ -109,10 +109,10 @@ export default function Pagina() {
             <ol className="superficie divide-y divide-linha">
               {h.caminho.passos.map((p, i) => (
                 <li key={p.titulo} className="grid grid-cols-[2.5rem_1fr] gap-4 p-6 md:p-7">
-                  <span className="numero text-ambar">{String(i + 1).padStart(2, "0")}</span>
+                  <span className="numero text-acao-texto">{String(i + 1).padStart(2, "0")}</span>
                   <span>
                     <span className="block font-semibold tracking-[-0.01em]">{p.titulo}</span>
-                    <span className="mt-1 block text-[0.9375rem] leading-relaxed text-secundario">{p.texto}</span>
+                    <span className="mt-1 block text-[0.9375rem] leading-relaxed text-texto-secundario">{p.texto}</span>
                   </span>
                 </li>
               ))}
@@ -131,10 +131,10 @@ export default function Pagina() {
             {h.extras.itens.map((item) => (
               <li key={item.nome} className="superficie flex flex-col p-6 md:p-7">
                 <h3 className="titulo-cartao">{item.nome}</h3>
-                <p className="mt-2 text-[0.9375rem] leading-relaxed text-secundario">{item.texto}</p>
+                <p className="mt-2 text-[0.9375rem] leading-relaxed text-texto-secundario">{item.texto}</p>
                 <p className="mt-auto flex items-center justify-between gap-4 pt-6 text-sm">
-                  <span className="font-medium tabular-nums text-papel/90">{item.preco}</span>
-                  <LinkOuAncora href={item.href} className="link-sublinhado text-secundario">
+                  <span className="font-medium tabular-nums text-texto/90">{item.preco}</span>
+                  <LinkOuAncora href={item.href} className="link-sublinhado text-texto-secundario">
                     {item.link ?? "na tabela"}
                   </LinkOuAncora>
                 </p>
@@ -160,20 +160,20 @@ export default function Pagina() {
                   key={n.texto}
                   className={`flex flex-col p-7 md:p-9 ${i > 0 ? "border-t border-linha md:border-l md:border-t-0" : ""}`}
                 >
-                  <dt className="order-2 mt-4 max-w-[18rem] text-[0.9375rem] leading-relaxed text-secundario">{n.texto}</dt>
+                  <dt className="order-2 mt-4 max-w-[18rem] text-[0.9375rem] leading-relaxed text-texto-secundario">{n.texto}</dt>
                   <dd className="order-1 flex items-baseline gap-3">
                     <span className="numero-grande">
                       <NumeroQueConta valor={n.valor} />
                     </span>
                     {n.complemento ? (
-                      <span className="text-xl font-medium tracking-[-0.02em] text-secundario">{n.complemento}</span>
+                      <span className="text-xl font-medium tracking-[-0.02em] text-texto-secundario">{n.complemento}</span>
                     ) : null}
                   </dd>
                 </div>
               ))}
             </dl>
-            <p className="mt-4 flex items-start gap-2 text-sm text-secundario">
-              <Icone nome="check" className="mt-0.5 size-4 shrink-0 text-verde-claro" />
+            <p className="mt-4 flex items-start gap-2 text-sm text-texto-secundario">
+              <Icone nome="check" className="mt-0.5 size-4 shrink-0 text-etapa-atendimento" />
               {h.case.fonte}
             </p>
             <Link href={h.case.href} className="botao botao-secundario mt-8" data-evento="cta_click" data-local="case">

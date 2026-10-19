@@ -43,7 +43,7 @@ export default function MenuCelular({ itens }: { itens: { rotulo: string; href: 
       <div
         id={id}
         hidden={!aberto}
-        className="absolute inset-x-0 top-16 h-[calc(100dvh-4rem)] overflow-y-auto border-t border-linha bg-tinta px-5 pb-8 pt-3"
+        className="absolute inset-x-0 top-16 h-[calc(100dvh-4rem)] overflow-y-auto border-t border-linha bg-fundo px-5 pb-8 pt-3"
       >
         <nav aria-label="Principal no celular">
           <ul>

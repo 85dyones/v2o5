@@ -55,7 +55,7 @@ export default function Simbolo({
           />
         )}
         <path d={v.rede} fill="currentColor" />
-        <circle cx={v.ambar.cx} cy={v.ambar.cy} r={v.ambar.r} fill="var(--color-ambar)" />
+        <circle cx={v.ambar.cx} cy={v.ambar.cy} r={v.ambar.r} fill="var(--color-acao)" />
       </svg>
     );
   }
@@ -78,7 +78,7 @@ function SimboloPorPecas({
   const porId = new Map(desenho.nos.map((n) => [n.id, n]));
   const noPequeno = (n: No) => n.tipo === "V" || Boolean(n.ambar);
   const nos = pequeno ? desenho.nos.filter(noPequeno) : desenho.nos;
-  const corDaRede = solido ? "var(--cor-fundo-simbolo, var(--color-tinta))" : "currentColor";
+  const corDaRede = solido ? "var(--cor-fundo-simbolo, var(--color-fundo))" : "currentColor";
   return (
     <svg viewBox={VIEWBOX_TEXTO} className={className} aria-hidden="true" focusable="false">
       <path d={desenho.nuvem} fill={solido ? "currentColor" : "none"} stroke="currentColor" strokeWidth={6} strokeLinejoin="round" />
@@ -96,7 +96,7 @@ function SimboloPorPecas({
         </g>
       ) : null}
       {nos.map((n) => (
-        <circle key={n.id} cx={n.x} cy={n.y} r={RAIO[n.tipo]} fill={n.ambar ? "var(--color-ambar)" : corDaRede} />
+        <circle key={n.id} cx={n.x} cy={n.y} r={RAIO[n.tipo]} fill={n.ambar ? "var(--color-acao)" : corDaRede} />
       ))}
     </svg>
   );

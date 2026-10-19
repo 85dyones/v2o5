@@ -7,7 +7,7 @@ export default function Fechamento() {
     <section aria-labelledby="titulo-fechamento" className="adiada relative isolate overflow-hidden py-28 md:py-40">
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute inset-x-0 bottom-0 h-[38rem] bg-[radial-gradient(60%_70%_at_50%_100%,rgb(242_165_22/0.16),transparent)]" />
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgb(242_241_236/0.04)_1px,transparent_1px),linear-gradient(to_bottom,rgb(242_241_236/0.04)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_55%_60%_at_50%_60%,#000,transparent_75%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgb(18_20_24/0.04)_1px,transparent_1px),linear-gradient(to_bottom,rgb(18_20_24/0.04)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_55%_60%_at_50%_60%,#000,transparent_75%)]" />
       </div>
       <div className="conteiner flex flex-col items-center text-center">
         <div className="relative">
@@ -15,7 +15,7 @@ export default function Fechamento() {
             aria-hidden="true"
             className="absolute inset-0 -m-8 rounded-full bg-[radial-gradient(closest-side,rgb(242_165_22/0.22),transparent)]"
           />
-          <Simbolo className="relative h-20 w-auto text-papel md:h-24" />
+          <Simbolo className="relative h-20 w-auto text-texto md:h-24" />
         </div>
         <h2 id="titulo-fechamento" className="titulo-secao mt-10 max-w-[40rem]">
           Comece pelo diagnóstico, que é gratuito.

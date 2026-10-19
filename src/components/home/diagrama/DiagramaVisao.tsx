@@ -10,18 +10,28 @@ import { HORIZONTAL, VERTICAL, ligacaoEntre, type Arranjo } from "./geometria";
  * acrescenta clique, teclado e o pulso que percorre o caminho.
  */
 
-export const COR_CLARA: Record<Etapa, string> = {
-  violeta: "var(--color-violeta-claro)",
-  verde: "var(--color-verde-claro)",
-  azul: "var(--color-azul-claro)",
-  ambar: "var(--color-ambar)",
+/** Traço, ponto e ícone de cada etapa sobre o claro (3:1 ou mais). O âmbar
+ *  da ação some no papel, então a venda usa o âmbar de texto. */
+export const COR_DO_TRACO: Record<Etapa, string> = {
+  violeta: "var(--color-etapa-atracao)",
+  verde: "var(--color-etapa-atendimento)",
+  azul: "var(--color-etapa-crm)",
+  ambar: "var(--color-acao-texto)",
 };
 
-const COR_BASE: Record<Etapa, string> = {
-  violeta: "var(--color-violeta)",
-  verde: "var(--color-verde)",
-  azul: "var(--color-azul)",
-  ambar: "var(--color-ambar)",
+/** Preenchimento da peça escolhida e a cor do ícone por cima dele. */
+const COR_DO_PREENCHIMENTO: Record<Etapa, string> = {
+  violeta: "var(--color-etapa-atracao)",
+  verde: "var(--color-etapa-atendimento)",
+  azul: "var(--color-etapa-crm)",
+  ambar: "var(--color-acao)",
+};
+
+const COR_POR_CIMA: Record<Etapa, string> = {
+  violeta: "var(--color-fundo)",
+  verde: "var(--color-fundo)",
+  azul: "var(--color-fundo)",
+  ambar: "var(--color-texto)",
 };
 
 const ICONE_DA_PECA: Record<IdDaPeca, NomeDoIcone> = {
@@ -70,14 +80,14 @@ export default function DiagramaVisao({ selecionada, aoEscolher }: PropsDoDiagra
         </defs>
       </svg>
       <figure className="superficie overflow-hidden p-4 md:p-6">
-        <div className="rounded-2xl bg-[radial-gradient(rgb(242_241_236/0.06)_1px,transparent_1px)] bg-[length:20px_20px]">
+        <div className="rounded-2xl bg-[radial-gradient(rgb(18_20_24/0.06)_1px,transparent_1px)] bg-[length:20px_20px]">
           <Svg arranjo={HORIZONTAL} className="hidden md:block" {...{ selecionada, aoEscolher, noCaminho, ligacoesAcesas }} />
           <Svg arranjo={VERTICAL} className="mx-auto max-w-[22rem] md:hidden" {...{ selecionada, aoEscolher, noCaminho, ligacoesAcesas }} />
         </div>
         <figcaption className="mt-4 flex flex-wrap gap-2 border-t border-linha pt-4">
           {(Object.keys(NOME_DA_ETAPA) as Etapa[]).map((etapa) => (
-            <span key={etapa} className="chip text-secundario">
-              <span aria-hidden="true" className="size-1.5 rounded-full" style={{ background: COR_CLARA[etapa] }} />
+            <span key={etapa} className="chip text-texto-secundario">
+              <span aria-hidden="true" className="size-1.5 rounded-full" style={{ background: COR_DO_TRACO[etapa] }} />
               {NOME_DA_ETAPA[etapa]}
             </span>
           ))}
@@ -85,24 +95,24 @@ export default function DiagramaVisao({ selecionada, aoEscolher }: PropsDoDiagra
       </figure>
 
       <div aria-live="polite" className="superficie flex flex-col p-6 md:p-8">
-        <p className="inline-flex items-center gap-2 text-[0.8125rem] font-medium text-secundario">
-          <span aria-hidden="true" className="size-1.5 rounded-full" style={{ background: COR_CLARA[peca.etapa] }} />
+        <p className="inline-flex items-center gap-2 text-[0.8125rem] font-medium text-texto-secundario">
+          <span aria-hidden="true" className="size-1.5 rounded-full" style={{ background: COR_DO_TRACO[peca.etapa] }} />
           {NOME_DA_ETAPA[peca.etapa]}
         </p>
         <h3 className="mt-3 text-[1.75rem] font-semibold tracking-[-0.035em]">{peca.nome}</h3>
-        <p className="mt-3 text-secundario">{peca.texto}</p>
+        <p className="mt-3 text-texto-secundario">{peca.texto}</p>
         <div className="mt-auto pt-8">
           <p className="text-sm font-medium">Caminho que passa por aqui</p>
           <ol className="mt-3 flex flex-wrap items-center gap-x-1 gap-y-2 text-sm">
             {passos.map((p, i) => (
               <li key={`${p.id}-${i}`} className="flex items-center gap-1">
                 {i > 0 ? (
-                  <svg viewBox="0 0 12 12" className="size-3 text-secundario" aria-hidden="true">
+                  <svg viewBox="0 0 12 12" className="size-3 text-texto-secundario" aria-hidden="true">
                     <path d="M4 2l4 4-4 4" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
                   </svg>
                 ) : null}
                 <span className="chip">
-                  <span aria-hidden="true" className="size-1.5 rounded-full" style={{ background: COR_CLARA[p.etapa] }} />
+                  <span aria-hidden="true" className="size-1.5 rounded-full" style={{ background: COR_DO_TRACO[p.etapa] }} />
                   {p.nome}
                 </span>
               </li>
@@ -149,15 +159,15 @@ function Svg({
           const destino = ligacoesAcesas.get(chave);
           return destino ? (
             <g key={chave} className="ligacao">
-              <path d={d} stroke={COR_CLARA[ETAPA_DA_PECA[destino]]} strokeWidth={10} opacity={0.12} />
-              <path d={d} stroke={COR_CLARA[ETAPA_DA_PECA[destino]]} strokeWidth={2.5} opacity={0.95} />
+              <path d={d} stroke={COR_DO_TRACO[ETAPA_DA_PECA[destino]]} strokeWidth={10} opacity={0.12} />
+              <path d={d} stroke={COR_DO_TRACO[ETAPA_DA_PECA[destino]]} strokeWidth={2.5} opacity={0.95} />
             </g>
           ) : (
             <path
               key={chave}
               d={d}
               className="ligacao"
-              stroke="var(--color-linha-forte)"
+              stroke="var(--color-linha-campo)"
               strokeWidth={1.5}
               strokeDasharray="1 7"
             />
@@ -174,7 +184,7 @@ function Svg({
                 pathLength={100}
                 strokeDasharray="14 100"
                 strokeDashoffset={14}
-                stroke="var(--color-ambar)"
+                stroke="var(--color-acao)"
                 strokeWidth={4}
               />
             ))
@@ -213,20 +223,20 @@ function Svg({
                   height={lado + 12}
                   rx={r * 0.55}
                   fill="none"
-                  stroke="var(--color-ambar)"
+                  stroke="var(--color-acao-texto)"
                   strokeWidth={2}
                 />
               </>
             ) : null}
-            {escolhida ? <circle r={r * 1.9} fill={COR_BASE[p.etapa]} opacity={0.18} /> : null}
+            {escolhida ? <circle r={r * 1.9} fill={COR_DO_PREENCHIMENTO[p.etapa]} opacity={0.18} /> : null}
             <rect
               x={-r}
               y={-r}
               width={lado}
               height={lado}
               rx={r * 0.42}
-              fill={escolhida ? COR_BASE[p.etapa] : "rgb(24 27 32)"}
-              stroke={COR_CLARA[p.etapa]}
+              fill={escolhida ? COR_DO_PREENCHIMENTO[p.etapa] : "var(--color-fundo-cartao)"}
+              stroke={COR_DO_TRACO[p.etapa]}
               strokeOpacity={escolhida ? 1 : acesa ? 0.6 : 0.25}
               strokeWidth={1.5}
             />
@@ -238,7 +248,7 @@ function Svg({
               width={icone}
               height={icone}
               fill="none"
-              stroke={escolhida ? "var(--color-papel)" : COR_CLARA[p.etapa]}
+              stroke={escolhida ? COR_POR_CIMA[p.etapa] : COR_DO_TRACO[p.etapa]}
               strokeWidth={1.5}
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -248,12 +258,12 @@ function Svg({
               x={rotulo === "direita" ? r + 14 : 0}
               y={rotulo === "direita" ? arranjo.fonte / 3 : r + arranjo.fonte + 10}
               textAnchor={rotulo === "direita" ? "start" : "middle"}
-              fill={acesa ? "var(--color-papel)" : "var(--color-secundario)"}
+              fill={acesa ? "var(--color-texto)" : "var(--color-texto-secundario)"}
               fontSize={arranjo.fonte}
               fontWeight={500}
               letterSpacing="-0.01em"
               // Halo da cor do cartão: a ligação que passa por baixo não corta o nome.
-              stroke="rgb(25 28 33)"
+              stroke="var(--color-fundo-cartao)"
               strokeWidth={7}
               strokeLinejoin="round"
               paintOrder="stroke"

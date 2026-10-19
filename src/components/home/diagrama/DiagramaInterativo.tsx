@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import type { AnimationPlaybackControls, AnimationSequence } from "motion";
-import DiagramaVisao, { COR_CLARA } from "./DiagramaVisao";
+import DiagramaVisao, { COR_DO_TRACO } from "./DiagramaVisao";
 import { ligacaoEntre } from "./geometria";
 import { PECAS, type IdDaPeca } from "@/conteudo/home";
 import { prefereMenosMovimento } from "@/lib/movimento";
@@ -33,11 +33,11 @@ export default function DiagramaInterativo({ comecarZerado = false }: { comecarZ
       const traco = ligacao && svg.querySelector<SVGPathElement>(`[data-pulso="${ligacao.chave}"]`);
       const nucleo = svg.querySelector<SVGUseElement>(`[data-peca="${caminho[i + 1]}"] .nucleo`);
       if (!ligacao || !traco) continue;
-      traco.style.stroke = COR_CLARA[PECAS.find((p) => p.id === caminho[i + 1])!.etapa];
+      traco.style.stroke = COR_DO_TRACO[PECAS.find((p) => p.id === caminho[i + 1])!.etapa];
       sequencia.push([
         traco,
         { strokeDashoffset: ligacao.invertida ? [-100, 14] : [14, -100] },
-        { duration: 0.62, ease: [0.645, 0.045, 0.355, 1], at: i === 0 ? 0 : "-0.14" },
+        { duration: 0.62, ease: [0.65, 0, 0.35, 1], at: i === 0 ? 0 : "-0.14" },
       ]);
       if (nucleo) sequencia.push([nucleo, { scale: [1, 1.6, 1] }, { duration: 0.42, at: "-0.12" }]);
     }

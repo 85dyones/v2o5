@@ -18,7 +18,7 @@ export default function Automotivo() {
               {AUTOMOTIVO.titulo}
             </h2>
             <p className="texto-guia mt-6 max-w-[34rem]">{AUTOMOTIVO.texto}</p>
-            <p className="mt-8 max-w-[30rem] border-l-2 border-ambar pl-4 font-medium leading-snug">
+            <p className="mt-8 max-w-[30rem] border-l-2 border-acao pl-4 font-medium leading-snug">
               {AUTOMOTIVO.preco}
             </p>
             <Link href={AUTOMOTIVO.href} className="botao botao-primario mt-8" data-evento="cta_click" data-local="automotivo">
@@ -29,32 +29,32 @@ export default function Automotivo() {
 
           <div
             aria-hidden="true"
-            className="border-t border-linha bg-[rgb(12_13_16/0.45)] p-5 md:p-8 lg:border-l lg:border-t-0"
+            className="border-t border-linha bg-fundo-alternado p-5 md:p-8 lg:border-l lg:border-t-0"
           >
             <div className="flex flex-wrap items-center justify-between gap-3">
               <p className="flex items-center gap-2 font-semibold">
-                <Icone nome="carro" className="size-5 text-secundario" />
+                <Icone nome="carro" className="size-5 text-texto-secundario" />
                 {e.titulo}
               </p>
-              <span className="rotulo rounded-full bg-grafite px-2.5 py-1 text-papel">exemplo</span>
+              <span className="rotulo rounded-full bg-fundo-alternado px-2.5 py-1 text-texto">exemplo</span>
             </div>
-            <p className="mt-2 flex items-center gap-1.5 text-sm text-secundario">
-              <Icone nome="check" className="size-4 text-verde-claro" />
+            <p className="mt-2 flex items-center gap-1.5 text-sm text-texto-secundario">
+              <Icone nome="check" className="size-4 text-etapa-atendimento" />
               {e.origem}
             </p>
             <ul className="mt-6 grid gap-2">
               {e.carros.map(([carro, ano]) => (
                 <li
                   key={carro}
-                  className="flex flex-wrap items-center gap-x-3 gap-y-2 rounded-xl bg-vidro px-4 py-3 contorno"
+                  className="flex flex-wrap items-center gap-x-3 gap-y-2 rounded-xl bg-fundo-cartao px-4 py-3 contorno"
                 >
                   <span className="min-w-[10rem] flex-1 leading-tight">
                     <span className="block truncate text-[0.9375rem] font-medium">{carro}</span>
-                    <span className="text-xs tabular-nums text-secundario">{ano}</span>
+                    <span className="text-xs tabular-nums text-texto-secundario">{ano}</span>
                   </span>
                   <span className="flex gap-1.5">
                     {e.destinos.map((d) => (
-                      <span key={d} className="chip chip-ok text-secundario">
+                      <span key={d} className="chip chip-ok text-texto-secundario">
                         {d}
                       </span>
                     ))}

@@ -36,7 +36,7 @@ function Secao({ id, titulo, children }: { id: string; titulo: string; children:
       <h2 id={`titulo-${id}`} className="text-[1.375rem] font-semibold leading-tight tracking-[-0.03em]">
         {titulo}
       </h2>
-      <div className="mt-4 grid gap-4 text-[1.0625rem] leading-relaxed text-secundario [&_strong]:text-papel">
+      <div className="mt-4 grid gap-4 text-[1.0625rem] leading-relaxed text-texto-secundario [&_strong]:text-texto">
         {children}
       </div>
     </section>
@@ -44,7 +44,7 @@ function Secao({ id, titulo, children }: { id: string; titulo: string; children:
 }
 
 const A = ({ href, children }: { href: string; children: ReactNode }) => (
-  <a href={href} className="link-sublinhado text-papel">
+  <a href={href} className="link-sublinhado text-texto">
     {children}
   </a>
 );
@@ -69,15 +69,15 @@ export default function Pagina() {
               Esta página explica quais dados a {EMPRESA.nome} coleta quando você usa este site, por que coleta,
               com quem compartilha, por quanto tempo guarda e como você pede acesso, correção ou exclusão.
             </p>
-            <p className="mt-4 text-sm text-secundario">Última atualização: {ULTIMA_ATUALIZACAO}.</p>
+            <p className="mt-4 text-sm text-texto-secundario">Última atualização: {ULTIMA_ATUALIZACAO}.</p>
           </header>
 
           <nav aria-label="Nesta página" className="mt-8">
             <ol className="grid gap-1 text-[0.9375rem]">
               {SECOES.map(([id, rotulo], i) => (
                 <li key={id}>
-                  <a href={`#${id}`} className="flex min-h-9 items-center gap-3 text-secundario hover:text-papel">
-                    <span className="numero text-xs text-ambar">{String(i + 1).padStart(2, "0")}</span>
+                  <a href={`#${id}`} className="flex min-h-9 items-center gap-3 text-texto-secundario hover:text-texto">
+                    <span className="numero text-xs text-acao-texto">{String(i + 1).padStart(2, "0")}</span>
                     {rotulo}
                   </a>
                 </li>
@@ -92,7 +92,7 @@ export default function Pagina() {
                 {EMPRESA.nome}), CNPJ {EMPRESA.cnpj}, com sede em {EMPRESA.cidade}. &ldquo;Controladora&rdquo; é o termo que a
                 Lei Geral de Proteção de Dados (Lei nº 13.709/2018) usa para quem decide como e por que os dados são
                 tratados. O encarregado pelo tratamento é {VISAO_360.fundador.nome}, fundador da empresa, no endereço{" "}
-                <a href={linkEmail(EMAIL.assuntos.privacidade, EMPRESA.emailPrivacidade)} className="link-sublinhado text-papel">
+                <a href={linkEmail(EMAIL.assuntos.privacidade, EMPRESA.emailPrivacidade)} className="link-sublinhado text-texto">
                   {EMPRESA.emailPrivacidade}
                 </a>
                 .
@@ -283,7 +283,7 @@ export default function Pagina() {
             <Secao id="contato" titulo="Como falar com a V2O5">
               <p>
                 Para exercer qualquer direito, tirar dúvidas ou se opor a um tratamento, escreva para{" "}
-                <a href={linkEmail(EMAIL.assuntos.privacidade, EMPRESA.emailPrivacidade)} className="link-sublinhado text-papel">
+                <a href={linkEmail(EMAIL.assuntos.privacidade, EMPRESA.emailPrivacidade)} className="link-sublinhado text-texto">
                   {EMPRESA.emailPrivacidade}
                 </a>
                 , chame no{" "}
@@ -291,13 +291,13 @@ export default function Pagina() {
                   href={linkWhatsApp(WHATSAPP.mensagens.home)}
                   target="_blank"
                   rel="noopener"
-                  className="link-sublinhado text-papel"
+                  className="link-sublinhado text-texto"
                   data-evento="click_whatsapp"
                   data-local="privacidade"
                 >
                   WhatsApp {whatsappParaLer()}
                 </a>{" "}
-                ou use o <Link href="/diagnostico" className="link-sublinhado text-papel" data-evento="cta_click" data-local="privacidade">formulário do site</Link>. O
+                ou use o <Link href="/diagnostico" className="link-sublinhado text-texto" data-evento="cta_click" data-local="privacidade">formulário do site</Link>. O
                 pedido é respondido pelo encarregado, {VISAO_360.fundador.nome}.
               </p>
               <p>
