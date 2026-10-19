@@ -11,7 +11,7 @@ import { linkWhatsApp } from "@/lib/whatsapp";
 export default function ParceiroDeFotografia() {
   const f = FOTOGRAFIA_PARCEIRA;
   return (
-    <aside
+    <section
       aria-label={f.pergunta}
       className="border-y-2 border-texto bg-fundo-cartao grid gap-5 p-6 md:grid-cols-[minmax(0,1fr)_auto] md:items-center md:p-7"
     >
@@ -30,6 +30,6 @@ export default function ParceiroDeFotografia() {
         {f.botao}
         <Icone nome="seta" className="seta size-4" />
       </a>
-    </aside>
+    </section>
   );
 }

@@ -37,7 +37,8 @@ export default function TerminalDeEventos({ linhas }: { linhas: string[] }) {
         <span className="font-mono text-xs text-texto-secundario">eventos do sistema</span>
         <span className="rotulo bg-tinta-ambar px-2 py-1 text-texto">exemplo</span>
       </figcaption>
-      <div className="overflow-x-auto pb-1">
+      {/* Rola de lado no celular: com tabIndex o teclado também alcança a rolagem. */}
+      <div className="overflow-x-auto pb-1" tabIndex={0} role="region" aria-label="Registro de eventos do sistema, exemplo">
         <div className="grid w-max min-w-full grid-cols-[auto_auto_1fr] font-mono text-[0.8125rem] leading-relaxed">
           {linhas.map((linha) => (
             <LinhaDoRegistro key={linha} linha={linha} />
