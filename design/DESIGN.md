@@ -128,7 +128,7 @@ Base escolhida pelo Dyones em 19/10/2026: **clara, com o papel como fundo**. Iss
 
 ## Cores
 
-Nenhuma referência. Tudo parte da tabela da marca; o que muda é o papel de cada cor, porque a base passa de escura para clara. Contrastes medidos pela fórmula do WCAG 2.
+Nenhuma referência. Tudo parte da tabela da marca; o que muda é o papel de cada cor, porque a base passa de escura para clara. Contrastes medidos pela fórmula do WCAG 2 (`design/ferramentas/contraste.py`).
 
 | Token | Hex | Uso | Contraste medido | Origem e o que mudou |
 |---|---|---|---|---|
