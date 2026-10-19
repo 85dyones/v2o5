@@ -1,4 +1,6 @@
 import type { CSSProperties } from "react";
+import Image from "next/image";
+import retrato from "@/assets/fundador/dyones-pb.webp";
 import Link from "next/link";
 import Icone from "@/components/Icone";
 import JsonLd from "@/components/JsonLd";
@@ -46,8 +48,8 @@ const ANATOMIA = [
 /**
  * Sobre, na direção B: a página quase toda não é etapa, então a rota corre
  * em fio fino, com uma parada em cada título, e termina no botão âmbar do
- * fecho. O fundador e a empresa viram fichas em células (sem foto e sem
- * retrato: não há imagem registrada). O fundador mantém o `id="autor"`,
+ * fecho. O fundador e a empresa viram fichas em células; o fundador abre
+ * com o retrato em preto e branco. O fundador mantém o `id="autor"`,
  * que o schema aponta. Texto em `conteudo/sobre.ts`.
  */
 export default function Pagina() {
@@ -90,6 +92,14 @@ export default function Pagina() {
           <div className="relative grid grid-cols-12 gap-x-6 gap-y-10">
             <Parada />
             <div className="order-2 col-span-12 self-start border-y-2 border-texto lg:order-1 lg:col-span-5">
+              {/* O retrato (19/10, Dyones): foto real, em preto e branco, chapada no topo da ficha. */}
+              <Image
+                src={retrato}
+                alt="Dyones Oliveira, fundador da V2O5, em Londres"
+                sizes="(min-width: 64rem) 32vw, 100vw"
+                placeholder="blur"
+                className="block h-auto w-full border-b border-linha"
+              />
               <div className="border-b border-linha bg-fundo-cartao p-6 md:p-7">
                 <p className="text-[1.5rem] font-semibold leading-tight tracking-[-0.03em]">{s.fundador.nome}</p>
                 <p className="rotulo mt-2 text-texto-secundario">{s.fundador.papel}</p>

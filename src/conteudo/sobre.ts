@@ -29,9 +29,12 @@ export const SOBRE = {
     fatos: [
       { rotulo: "Formação", valor: `Administração de Empresas, ${VISAO_360.fundador.escola}` },
       // 19/10 (Dyones): o ano sai do texto corrido para a ficha, com as mesmas palavras.
-      { rotulo: "Na informática", valor: "Desde 1992" },
+      { rotulo: "Na tecnologia", valor: "Desde 1992" },
       { rotulo: "Marca", valor: "Rebranding da Top Imóveis para Top Soluções Imobiliárias" },
-      { rotulo: "Conteúdo", valor: "Assina os 26 guias do site da Motors Store" },
+      {
+        rotulo: "Conteúdo",
+        valor: "Assina os 26 guias do site da Motors Store; assinou o blog da Top Soluções Imobiliárias até agosto de 2024",
+      },
       { rotulo: "Na V2O5", valor: "Conduz o diagnóstico gratuito e a implantação de cada projeto" },
     ],
   },

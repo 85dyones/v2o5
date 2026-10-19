@@ -23,6 +23,8 @@ Uma equipe só, do site ao CRM, com preço publicado e número medido. De Almira
 
 DO <!-- decorativo, aria-hidden -->
 
+[imagem: "Dyones Oliveira, fundador da V2O5, em Londres", foto em preto e branco] <!-- 19/10 (Dyones): o retrato abre a ficha -->
+
 Dyones Oliveira
 
 Fundador da V2O5
@@ -31,7 +33,7 @@ Formação
 
 Administração de Empresas, FAE Business School
 
-Na informática <!-- 19/10 (Dyones): célula nova na ficha do fundador, com o dado do texto corrido -->
+Na tecnologia <!-- 19/10 (Dyones): célula nova na ficha do fundador, com o dado do texto corrido; "Na tecnologia" no lugar de "Na informática" -->
 
 Desde 1992
 
@@ -41,7 +43,7 @@ Rebranding da Top Imóveis para Top Soluções Imobiliárias
 
 Conteúdo
 
-Assina os 26 guias do site da Motors Store
+Assina os 26 guias do site da Motors Store; assinou o blog da Top Soluções Imobiliárias até agosto de 2024 <!-- 19/10 (Dyones): o blog da Top entrou -->
 
 Na V2O5
 
