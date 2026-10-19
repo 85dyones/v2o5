@@ -18,7 +18,7 @@ export const SOBRE = {
   sobretitulo: "Sobre a V2O5",
   titulo: "Quem faz a V2O5, de onde vem o nome e como ela trabalha.",
   /** Curto de propósito: o LCP é o H1 (medido em 13/10: com 131 caracteres o parágrafo roubava o posto). */
-  resumo: "Uma equipe só, do site ao CRM, com preço publicado e número medido. De Almirante Tamandaré, na região de Curitiba.",
+  resumo: "Uma equipe só, do site ao CRM, com preço publicado e número medido.",
   fundador: {
     nome: VISAO_360.fundador.nome,
     papel: VISAO_360.fundador.papel,
@@ -94,9 +94,8 @@ export const SOBRE = {
     nome: EMPRESA.nome,
     razaoSocial: EMPRESA.razaoSocial,
     cnpj: EMPRESA.cnpj,
-    cidade: EMPRESA.cidade,
     fundacao: EMPRESA.fundacaoPorExtenso,
-    atendimento: "Atendimento remoto para empresas de todo o Brasil; reunião presencial na região de Curitiba quando o projeto pede.",
+    atendimento: "Atendimento remoto para empresas de todo o Brasil.",
     antes: "Antes do site novo, a V2O5 se apresentava como V2O5 ConsultorIA.",
   },
   chamada: {

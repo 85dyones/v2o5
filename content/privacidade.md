@@ -41,7 +41,7 @@ Esta página explica quais dados a V2O5 Vendas e Tecnologia coleta quando você 
 
 ## Quem responde pelos seus dados
 
-A controladora dos dados pessoais tratados neste site é a V2O5 Tecnologia da Informação Ltda (nome fantasia V2O5 Vendas e Tecnologia), CNPJ 68.490.470/0001-14, com sede em Almirante Tamandaré/PR. “Controladora” é o termo que a Lei Geral de Proteção de Dados (Lei nº 13.709/2018) usa para quem decide como e por que os dados são tratados. O encarregado pelo tratamento é Dyones Oliveira, fundador da empresa, no endereço [privacidade@v2o5.com.br](mailto:privacidade@v2o5.com.br?subject=Meus%20dados%20pessoais).
+A controladora dos dados pessoais tratados neste site é a V2O5 Tecnologia da Informação Ltda (nome fantasia V2O5 Vendas e Tecnologia), CNPJ 68.490.470/0001-14. “Controladora” é o termo que a Lei Geral de Proteção de Dados (Lei nº 13.709/2018) usa para quem decide como e por que os dados são tratados. O encarregado pelo tratamento é Dyones Oliveira, fundador da empresa, no endereço [privacidade@v2o5.com.br](mailto:privacidade@v2o5.com.br?subject=Meus%20dados%20pessoais).
 
 ## Quais dados este site coleta
 

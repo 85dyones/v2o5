@@ -89,7 +89,7 @@ export default function Pagina() {
             <Secao id="controlador" titulo="Quem responde pelos seus dados">
               <p>
                 A controladora dos dados pessoais tratados neste site é a <strong>{razao}</strong> (nome fantasia{" "}
-                {EMPRESA.nome}), CNPJ {EMPRESA.cnpj}, com sede em {EMPRESA.cidade}. &ldquo;Controladora&rdquo; é o termo que a
+                {EMPRESA.nome}), CNPJ {EMPRESA.cnpj}. &ldquo;Controladora&rdquo; é o termo que a
                 Lei Geral de Proteção de Dados (Lei nº 13.709/2018) usa para quem decide como e por que os dados são
                 tratados. O encarregado pelo tratamento é {VISAO_360.fundador.nome}, fundador da empresa, no endereço{" "}
                 <a href={linkEmail(EMAIL.assuntos.privacidade, EMPRESA.emailPrivacidade)} className="link-sublinhado text-texto">

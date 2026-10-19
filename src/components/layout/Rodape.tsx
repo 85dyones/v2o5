@@ -92,7 +92,7 @@ export default function Rodape() {
           <p>
             {EMPRESA.razaoSocial} · CNPJ <span className="tabular-nums">{EMPRESA.cnpj}</span>
           </p>
-          <p>{EMPRESA.cidade}, atendimento em todo o Brasil</p>
+          <p>Atendimento em todo o Brasil</p>
         </div>
       </div>
 

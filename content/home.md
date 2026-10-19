@@ -868,7 +868,7 @@ São 45 minutos de conversa com o fundador sobre presença, atendimento, operaç
 
 A V2O5 atende fora de Curitiba?
 
-Sim. A sede fica em Almirante Tamandaré, na região de Curitiba, e o atendimento é remoto para empresas de todo o Brasil.
+Sim. O atendimento é remoto, para empresas de todo o Brasil. <!-- 19/10 (Dyones): sem Almirante Tamandaré, "é digital, não precisa ter uma âncora física" -->
 
 ## Comece pelo diagnóstico, que é gratuito.
 

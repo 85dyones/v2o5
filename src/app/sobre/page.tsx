@@ -273,7 +273,6 @@ export default function Pagina() {
                 ["Razão social", s.empresa.razaoSocial],
                 ["Fundação", s.empresa.fundacao],
                 ["CNPJ", s.empresa.cnpj],
-                ["Sede", s.empresa.cidade],
               ].map(([rotulo, valor]) => (
                 <div key={rotulo} className={`${CELULA} grid content-start gap-2 p-6`}>
                   <dt className="rotulo text-texto-secundario">{rotulo}</dt>

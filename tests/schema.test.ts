@@ -41,12 +41,9 @@ describe("grafo da home", () => {
     expect(o.taxID).toBe(EMPRESA.cnpj);
     expect(o.legalName).toBe("V2O5 Tecnologia da Informação Ltda");
     expect(o.alternateName).toEqual(["V2O5", "V2O5 ConsultorIA"]);
-    expect(o.address).toEqual({
-      "@type": "PostalAddress",
-      addressLocality: "Almirante Tamandaré",
-      addressRegion: "PR",
-      addressCountry: "BR",
-    });
+    // A V2O5 é digital (Dyones, 19/10): sem endereço, só a área atendida.
+    expect(o.address).toBeUndefined();
+    expect(o.areaServed).toEqual({ "@type": "Country", name: "Brasil" });
   });
 
   it("WhatsApp e e-mail entram como telefone, e-mail e ponto de contato", () => {

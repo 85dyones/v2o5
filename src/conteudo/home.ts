@@ -774,7 +774,6 @@ export const EMPRESA = {
   nome: "V2O5 Vendas e Tecnologia",
   razaoSocial: "V2O5 Tecnologia da Informação Ltda.",
   cnpj: "68.490.470/0001-14",
-  cidade: "Almirante Tamandaré/PR",
   /** Só dígitos, com o 55 (Dyones, 10/10). Link e rótulo saem daqui (`lib/whatsapp.ts`). */
   whatsapp: "5541998089550",
   /**
@@ -916,6 +915,6 @@ export const PERGUNTAS = [
   {
     pergunta: "A V2O5 atende fora de Curitiba?",
     resposta:
-      "Sim. A sede fica em Almirante Tamandaré, na região de Curitiba, e o atendimento é remoto para empresas de todo o Brasil.",
+      "Sim. O atendimento é remoto, para empresas de todo o Brasil.",
   },
 ];

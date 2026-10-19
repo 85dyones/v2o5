@@ -2,6 +2,10 @@
 
 Log datado. Decisão nova entra no topo do dia; decisão revogada fica riscada com a data da troca.
 
+## 19/10/2026 (sem âncora física, pelo Dyones: "tire a menção à almirante tamandaré, é digital, não precisa ter uma ancora fisica")
+- Almirante Tamandaré sai do site: rodapé ("Atendimento em todo o Brasil"), resumo e ficha da empresa em /sobre (sem a célula "Sede" e sem a reunião presencial na região de Curitiba), resposta "atende fora de Curitiba?", privacidade, `llms.txt` e o `address` do JSON-LD da organização (fica só `areaServed: Brasil`). Substitui a decisão de 09/10 de mostrar cidade e estado no site e no schema.
+- Ainda em 19/10: no /sobre, a célula "Na informática" vira "Na tecnologia", a de conteúdo ganha o blog da Top Soluções Imobiliárias (assinado até agosto de 2024) e a ficha do fundador abre com o retrato em preto e branco (foto em Londres, mandada pelo Dyones).
+
 ## 19/10/2026 (marca em construção, pelo Dyones: referência brand.dropbox.com/logo, "siga sua recomendação"; proposta em https://claude.ai/artifact/EGFgbECz4XDG5c1dJut2Po)
 - O símbolo aparece como construção (grade pelos átomos, os quatro círculos da nuvem, cotas em mono) no fecho das 12 páginas, no lugar do logo solto, e no fim do rodapé, no lugar da marca grande apagada (`components/marca/Construcao.tsx`, geometria em `lib/construcao.ts`).
 - Em /sobre, a anatomia do símbolo no lugar do logo grande, com a ficha "Nuvem · 4 arcos, raios 18, 24, 20 e 18", "Rede · 2 V e 5 O, a fórmula do V2O5", "Átomo âmbar · a cor da ação".

@@ -13,7 +13,7 @@ fonte: "produção (www.v2o5.com.br), main em 46c4103"
 
 > Catalisador de vendas com IA. Site, Google, anúncios, agente de IA e CRM montados por uma equipe só, num sistema que mostra de onde veio cada venda e fica no nome da sua empresa.
 
-V2O5 Tecnologia da Informação Ltda., CNPJ 68.490.470/0001-14, Almirante Tamandaré/PR. Atende empresas em todo o Brasil.
+V2O5 Tecnologia da Informação Ltda., CNPJ 68.490.470/0001-14. Atende empresas em todo o Brasil.
 
 Fundador: Dyones Oliveira. Formado em Administração pela FAE Business School, está na informática desde 1992, quando ganhou um curso num concurso da escola. Em branding, fez a mudança da Top Imóveis para Top Soluções Imobiliárias; na Motors Store, assina os 26 guias do site. É ele quem conduz o diagnóstico gratuito.
 

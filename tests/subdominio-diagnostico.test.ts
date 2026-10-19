@@ -185,7 +185,7 @@ describe("raiz de diagnostico.v2o5.com.br", () => {
     // Sem cidade e sem contato pessoal (nome, número escrito, e-mail) no subdomínio (Dyones, 16/10): o contato é pelos botões.
     for (const d of [raiz, naoEncontrado]) {
       const tt = texto(d);
-      for (const fora of [EMPRESA.cidade, EMPRESA.email, "Dyones", whatsappParaLer()]) expect(tt, fora).not.toContain(fora);
+      for (const fora of ["Tamandaré", EMPRESA.email, "Dyones", whatsappParaLer()]) expect(tt, fora).not.toContain(fora);
       expect(d.querySelector('a[href^="mailto:"]')).toBeNull();
     }
   });

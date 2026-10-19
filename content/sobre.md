@@ -15,7 +15,7 @@ Sobre a V2O5
 
 # Quem faz a V2O5, de onde vem o nome e como ela trabalha.
 
-Uma equipe só, do site ao CRM, com preço publicado e número medido. De Almirante Tamandaré, na região de Curitiba.
+Uma equipe só, do site ao CRM, com preço publicado e número medido. <!-- 19/10 (Dyones): sem Almirante Tamandaré, "é digital, não precisa ter uma âncora física" -->
 
 [Pedir diagnóstico gratuito](/diagnostico)
 
@@ -172,7 +172,7 @@ Dados
 
 ## A empresa
 
-Atendimento remoto para empresas de todo o Brasil; reunião presencial na região de Curitiba quando o projeto pede.
+Atendimento remoto para empresas de todo o Brasil. <!-- 19/10 (Dyones): sem Almirante Tamandaré, "é digital, não precisa ter uma âncora física" -->
 
 Antes do site novo, a V2O5 se apresentava como V2O5 ConsultorIA.
 
@@ -191,10 +191,6 @@ dezembro de 2019
 CNPJ
 
 68.490.470/0001-14
-
-Sede
-
-Almirante Tamandaré/PR
 
 WhatsApp
 

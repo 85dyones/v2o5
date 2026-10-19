@@ -83,7 +83,7 @@ Catalisador de vendas com IA
 
 V2O5 Tecnologia da Informação Ltda. · CNPJ 68.490.470/0001-14
 
-Almirante Tamandaré/PR, atendimento em todo o Brasil
+Atendimento em todo o Brasil <!-- 19/10 (Dyones): sem Almirante Tamandaré, "é digital, não precisa ter uma âncora física" -->
 
 <!-- 19/10: a marca "V2O5" grande e apagada saiu; no lugar, a planta do símbolo (desenho decorativo, aria-hidden, sem texto) -->
 
