@@ -6,7 +6,7 @@ import Topo from "@/components/layout/Topo";
 import Rodape from "@/components/layout/Rodape";
 import BotaoWhatsAppFixo from "@/components/layout/BotaoWhatsAppFixo";
 import Entradas from "@/components/layout/Entradas";
-import Simbolo from "@/components/marca/Simbolo";
+import Construcao from "@/components/marca/Construcao";
 import { COR_DA_ROTA, ComMarcas, Parada, TEXTO_DA_ETAPA, Trecho } from "@/components/rota/Rota";
 import { VISAO_360 } from "@/conteudo/home";
 import { metadataDa } from "@/conteudo/paginas";
@@ -35,6 +35,13 @@ const PRAZOS = ["45 minutos", "24 horas", `${REGRAS.diasParaEntregarNaSaida} dia
 
 /** Célula de ficha: fio em cima e à esquerda; o invólucro corta o fio da borda de fora. */
 const CELULA = "border-l border-t border-linha";
+
+/** As três peças do símbolo, com as medidas do desenho (`lib/construcao.ts`, `lib/marca-vetor.ts`). */
+const ANATOMIA = [
+  ["Nuvem", "4 arcos, raios 18, 24, 20 e 18"],
+  ["Rede", "2 V e 5 O, a fórmula do V2O5"],
+  ["Átomo âmbar", "a cor da ação"],
+] as const;
 
 /**
  * Sobre, na direção B: a página quase toda não é etapa, então a rota corre
@@ -152,7 +159,20 @@ export default function Pagina() {
               </p>
             </div>
             <div className="col-span-12 flex flex-col items-start justify-start gap-6 border-t border-linha pt-8 lg:col-span-5 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-2">
-              <Simbolo className="h-24 w-auto text-texto md:h-28" />
+              {/* A anatomia do símbolo (19/10): o desenho mostra a molécula que o texto ao lado explica. */}
+              <figure className="w-full">
+                <Construcao tom="claro" className="h-auto w-full max-w-[26rem]" />
+                <figcaption>
+                  <dl className="mt-4 grid border-t-2 border-texto text-[0.9375rem]">
+                    {ANATOMIA.map(([parte, valor]) => (
+                      <div key={parte} className="flex justify-between gap-4 border-b border-linha py-2.5">
+                        <dt className="rotulo text-texto-secundario">{parte}</dt>
+                        <dd className="text-right tabular-nums">{valor}</dd>
+                      </div>
+                    ))}
+                  </dl>
+                </figcaption>
+              </figure>
               <p className="text-[1.5rem] font-semibold leading-tight tracking-[-0.03em]">
                 {s.nome.assinatura.replace(/ IA$/, " ")}
                 <span className="text-acao-texto">IA</span>
@@ -307,7 +327,7 @@ export default function Pagina() {
               </div>
             </div>
             <div aria-hidden="true" className="col-span-12 flex items-end lg:col-span-5 lg:justify-end lg:border-l lg:border-faixa-escura-linha">
-              <Simbolo className="h-28 w-auto text-faixa-escura-texto md:h-36" />
+              <Construcao className="h-40 w-auto max-w-full md:h-52" />
             </div>
           </div>
         </section>

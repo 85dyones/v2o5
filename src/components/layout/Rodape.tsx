@@ -1,6 +1,7 @@
 import Link from "next/link";
 import LinkOuAncora from "@/components/LinkOuAncora";
 import Icone from "@/components/Icone";
+import Construcao from "@/components/marca/Construcao";
 import Simbolo from "@/components/marca/Simbolo";
 import { EMAIL, EMPRESA, PILARES, WHATSAPP } from "@/conteudo/home";
 import { linkWhatsApp, whatsappParaLer } from "@/lib/whatsapp";
@@ -95,12 +96,15 @@ export default function Rodape() {
         </div>
       </div>
 
-      <p
-        aria-hidden="true"
-        className="pointer-events-none -mb-[0.16em] select-none border-t border-linha pt-[0.08em] text-center text-[clamp(7rem,27vw,24rem)] font-semibold leading-[0.8] tracking-[-0.07em] text-fundo-alternado"
-      >
-        V2O5
-      </p>
+      {/* A planta do símbolo, cortada pela base (19/10): no lugar da marca grande e apagada. */}
+      <div className="border-t border-linha">
+        <Construcao
+          tom="planta"
+          viewBox="0 20 128 52"
+          preserveAspectRatio="xMidYMin slice"
+          className="pointer-events-none mx-auto block aspect-[128/40] w-full max-w-[44rem]"
+        />
+      </div>
     </footer>
   );
 }

@@ -91,6 +91,19 @@ Gestão
 
 Venda
 
+<!-- 19/10 (Dyones): a anatomia do símbolo no lugar do logo grande; desenho decorativo, a ficha abaixo é texto -->
+Nuvem
+
+4 arcos, raios 18, 24, 20 e 18
+
+Rede
+
+2 V e 5 O, a fórmula do V2O5
+
+Átomo âmbar
+
+a cor da ação
+
 Catalisador de vendas com IA
 
 O jeito

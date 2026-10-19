@@ -5,7 +5,7 @@ import LinkOuAncora from "@/components/LinkOuAncora";
 import Icone from "@/components/Icone";
 import JsonLd from "@/components/JsonLd";
 import Perguntas from "@/components/home/Perguntas";
-import Simbolo from "@/components/marca/Simbolo";
+import Construcao from "@/components/marca/Construcao";
 import Topo from "@/components/layout/Topo";
 import Rodape from "@/components/layout/Rodape";
 import BotaoWhatsAppFixo from "@/components/layout/BotaoWhatsAppFixo";
@@ -307,7 +307,7 @@ export default function Pagina() {
               aria-hidden="true"
               className="col-span-12 flex items-end lg:col-span-5 lg:justify-end lg:border-l lg:border-faixa-escura-linha"
             >
-              <Simbolo className="h-28 w-auto text-faixa-escura-texto md:h-36" />
+              <Construcao className="h-40 w-auto max-w-full md:h-52" />
             </div>
           </div>
         </section>
