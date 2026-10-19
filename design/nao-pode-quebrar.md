@@ -16,7 +16,7 @@ Já existem testes que travam boa parte disto (`npm test`): `paginas`, `schema`,
 | `/criacao-de-sites` | 200 | sim | sim | `solucao · service_line=sites` | `content/criacao-de-sites.md` |
 | `/crm-com-whatsapp` | 200 | sim | sim | `solucao · service_line=crm` | `content/crm-com-whatsapp.md` |
 | `/rastreamento-de-conversoes` | 200 | sim | sim | `solucao · service_line=rastreamento` | `content/rastreamento-de-conversoes.md` |
-| `/gestao-de-trafego` | 200 | não (`noindex, follow`) | não | `solucao · service_line=trafego` | `content/gestao-de-trafego.md` |
+| `/gestao-de-trafego` | 307 para `/precos#titulo-trafego` (19/10, Dyones, até ganhar texto) | · | não | · | `content/gestao-de-trafego.md` (texto da versão provisória) |
 | `/segmentos/revendas-de-veiculos` | 200 | sim | sim | `segmento · segment=revendas-de-veiculos` | `content/segmentos/revendas-de-veiculos.md` |
 | `/cases/motors-store` | 200 | sim | sim | `case` | `content/cases/motors-store.md` |
 | `/precos` | 200 | sim | sim | `precos` | `content/precos.md` |
@@ -27,7 +27,7 @@ Já existem testes que travam boa parte disto (`npm test`): `paginas`, `schema`,
 | `/privacidade` | 200 | sim | sim | `privacidade` | `content/privacidade.md` |
 | qualquer rota inexistente | 404 | não (`noindex`) | não | `nao-encontrada` | `content/nao-encontrada.md` |
 
-Provisórias hoje: `/gestao-de-trafego` e `/guias` (`pronta: false` em `src/conteudo/paginas.ts`, com `noindex, follow` e fora do sitemap). Ganham conteúdo antes de entrar no sitemap, nunca o contrário.
+Provisória hoje: `/guias`; `/gestao-de-trafego` responde 307 para `/precos#titulo-trafego` desde 19/10 (`REDIRECIONAMENTOS_PROVISORIOS` em `next.config.ts`), e os links de tráfego da home, do rodapé e das soluções apontam para lá. As provisórias ficam (`pronta: false` em `src/conteudo/paginas.ts`, com `noindex, follow` e fora do sitemap). Ganham conteúdo antes de entrar no sitemap, nunca o contrário.
 
 ### Domínio, canônico e respostas que não são página
 
@@ -98,7 +98,7 @@ Fora da tabela: `#conteudo`, alvo do link "Pular para o conteúdo" e `id` do `<m
 
 ### Quem aponta para o site de fora
 
-A vitrine de `diagnostico.v2o5.com.br` (`subdominios/diagnostico/`, publicada pelo projeto `v2o5-diagnosticos` na Vercel) linka para `/`, `/diagnostico`, `/precos`, `/sobre`, `/privacidade`, `/cases/motors-store`, `/gestao-de-trafego` e as cinco páginas de solução prontas, com `utm_source=diagnostico.v2o5.com.br`. Renomear ou tirar qualquer uma dessas rotas quebra links publicados; se precisar, entra um 301 em `next.config.ts`.
+A vitrine de `diagnostico.v2o5.com.br` (`subdominios/diagnostico/`, publicada pelo projeto `v2o5-diagnosticos` na Vercel) linka para `/`, `/diagnostico`, `/precos`, `/sobre`, `/privacidade`, `/cases/motors-store`, `/gestao-de-trafego` (hoje 307 para `/precos#titulo-trafego`) e as cinco páginas de solução prontas, com `utm_source=diagnostico.v2o5.com.br`. Renomear ou tirar qualquer uma dessas rotas quebra links publicados; se precisar, entra um 301 em `next.config.ts`.
 
 ## 2. Title e description de cada rota
 
@@ -193,7 +193,7 @@ Os CTAs e os links de WhatsApp e e-mail não têm JavaScript próprio: levam `da
 | `/gestao-de-trafego` | · | · | · |
 | `/segmentos/revendas-de-veiculos` | `hero`, `pacote`, `case`, `chamada` | `fotografia`, `botao-fixo` | · |
 | `/cases/motors-store` | `chamada` | · | · |
-| `/precos` | `hero`, `planos`, `garantias`, `fechamento` | `fotografia`, `botao-fixo` | · |
+| `/precos` | `hero`, `planos`, `garantias`, `fechamento`; novos no redesign (19/10, Dyones): `trafego`, `modulos`, `servicos` (as linhas do cardápio; o rótulo é o começo do texto da linha, que abre com o título) | `fotografia`, `botao-fixo` | · |
 | `/sobre` | `hero`, `chamada` | `empresa`, `botao-fixo` | `empresa` |
 | `/diagnostico` | · | `diagnostico` | `diagnostico` |
 | `/diagnostico/recebido` | · | `recebido` | · |
@@ -283,7 +283,7 @@ Os códigos (`automotivo`, `2-5`, `aparecer`, `31-80`, `revenda-mais`...) são c
 - Número: `5541998089550` (`EMPRESA.whatsapp` em `src/conteudo/home.ts`). Link e número escrito saem do mesmo campo (`src/lib/whatsapp.ts`): `(41) 99808-9550` no rodapé e `+55 41 99808-9550` no JSON-LD.
 - Formato: `https://wa.me/5541998089550?text=<mensagem com encodeURIComponent>`, `target="_blank"`, `rel="noopener"`, `data-evento="click_whatsapp"` e o `data-local` do lugar.
 - **Toda mensagem pronta tem o trecho `site da V2O5`** (`MARCA_DO_SITE`). É por ele que o fluxo `origem-do-lead.json` do n8n reconhece a primeira mensagem, marca o contato com `origem = v2o5` e libera o agente de IA. Mensagem sem esse trecho cai na caixa como conversa comum, sem agente. A comparação ignora maiúscula, acento e espaço repetido, mas não ignora outra redação.
-- Botão fixo: canto inferior direito, só abaixo de 768 px (`md:hidden`), Server Component sem JavaScript (`BotaoWhatsAppFixo`). Não aparece em `/gestao-de-trafego`, `/guias`, `/cases/motors-store`, `/diagnostico`, `/diagnostico/recebido`, `/privacidade` nem na 404.
+- Botão fixo: canto inferior direito, só abaixo de 768 px (`md:hidden`), link que funciona sem JavaScript (`BotaoWhatsAppFixo`). Desde 19/10 (Dyones) fica escondido enquanto o primeiro botão principal da página está na tela (`EsconderNaAbertura`); sem JavaScript, sempre à mostra. Não aparece em `/guias`, `/cases/motors-store`, `/diagnostico`, `/diagnostico/recebido`, `/privacidade` nem na 404.
 
 As mensagens moram em `WHATSAPP.mensagens` (`src/conteudo/home.ts`), na frase das páginas de solução (`src/conteudo/solucoes.ts`, com o nome da linha no meio) e na do fotógrafo parceiro (`src/conteudo/precos.ts`). Como servidas hoje, decodificadas do `href`:
 

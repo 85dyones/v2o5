@@ -1,5 +1,18 @@
 # Handoff do redesign 2026
 
+## Estado em 19/10/2026, fim da sessão na nuvem (bunshin do Genjutsu)
+
+Branch **`redesign-2026-km7atp`** (PR #24, rascunho, contra `redesign-2026`). A direção B foi aprovada pelo Dyones (mapa de linhas: a rota das etapas desce pela margem da página até o botão do fecho; acabamento de ficha técnica). Home aprovada; as 11 rotas (`/precos`, `/sobre`, `/cases/motors-store`, o hub, as cinco soluções, `/gestao-de-trafego`, `/diagnostico` e `/diagnostico/recebido`) redesenhadas por clones e revisadas em duas rodadas. O revisor de acabamento deu "ship" na rodada 1; a rodada 2 fechou os três P2 dele e duas regras do diretor de arte (marca-texto só no que decide, formulário mais alto no celular).
+
+- Conferido no fim: `next build`, `tsc`, `vitest` (314), `eslint` limpos; nenhum travessão em `src`; as 13 telas em 390x664, 390x844, 1280x720 e 1440x900 com 200, sem transbordo e sem erro de console.
+- Conferido antes do merge (19/10): `extrair.cjs` contra o build local comparado com `extracao-producao.json`. As únicas diferenças são as decididas: `theme-color` e `color-scheme`, o 307 de `/gestao-de-trafego`, e no JSON-LD de `/precos` a URL dos quatro itens de tráfego. As mensagens de WhatsApp e os e-mails são todos iguais. axe (WCAG 2.1 AA e boas práticas) nas 13 telas em 390 e 1440 px: limpo, menos a marca decorativa do rodapé, que já tem `aria-hidden` e é falso positivo. Teclado: foco âmbar na faixa escura; o envio vazio leva o foco ao nome e o erro dos objetivos leva o foco aos objetivos. Ainda não conferido: leitor de tela de verdade (VoiceOver ou TalkBack).
+- Mudanças de contrato decididas pelo Dyones: célula "Na informática · Desde 1992" em `/sobre` (em `content/sobre.md`); `cta_click` com `data-local` `trafego`, `modulos`, `servicos` nas linhas do cardápio de `/precos`.
+- Depois do fecho, ainda em 19/10 (respostas do Dyones): capturas reais da Motors no case, no hub e em `/criacao-de-sites`; `/gestao-de-trafego` em 307 para `/precos#titulo-trafego`; faixa dos três planos na primeira tela de `/precos`; botão fixo de WhatsApp escondido enquanto o botão principal da abertura aparece; Painel do dono com uma descrição só.
+- Em aberto com o Dyones: pendência 24 de `memory/pendencias.md` (retrato do fundador, objeto próprio por página de solução, rodapé e fecho).
+- Material de trabalho (fora do git): `.bunshin/` (contrato da direção, revisões, capturas por rodada, relatório em `.bunshin/report.md`).
+
+---
+
 Atualizado em 19/10/2026, ao fim da primeira sessão do redesign (Claude Code no Windows, `D:\V2O5-SITE`). Leia isto antes de continuar em outra máquina ou numa sessão na nuvem.
 
 ## Onde está

@@ -1,26 +1,85 @@
+import type { CSSProperties, ReactNode } from "react";
+import CapturasDaMotors from "@/components/case/CapturasDaMotors";
 import Link from "next/link";
 import LinkOuAncora from "@/components/LinkOuAncora";
 import Icone from "@/components/Icone";
 import JsonLd from "@/components/JsonLd";
-import NumeroQueConta from "@/components/home/NumeroQueConta";
 import Perguntas from "@/components/home/Perguntas";
+import Simbolo from "@/components/marca/Simbolo";
 import Topo from "@/components/layout/Topo";
 import Rodape from "@/components/layout/Rodape";
 import BotaoWhatsAppFixo from "@/components/layout/BotaoWhatsAppFixo";
+import Entradas from "@/components/layout/Entradas";
 import ParceiroDeFotografia from "@/components/precos/ParceiroDeFotografia";
-import { CompletoParaRevendas } from "@/components/precos/TabelaDePrecos";
+import { COR_DA_ROTA, ComMarcas, Parada, TEXTO_DA_ETAPA, Trecho } from "@/components/rota/Rota";
 import { HUB_AUTOMOTIVO } from "@/conteudo/automotivo";
 import { metadataDa } from "@/conteudo/paginas";
 import { grafoDoHubAutomotivo } from "@/lib/schema";
+import type { Etapa } from "@/lib/tokens";
+import { CompletoParaRevendas } from "./CompletoParaRevendas";
 
 const ROTA = HUB_AUTOMOTIVO.rota;
 
 export const metadata = metadataDa(ROTA);
 
+/** Os valores em real de um preço ("R$ 990", "R$ 190/mês"), para o marca-texto. */
+const VALORES = /R\$ [\d.,]+(?:\/mês)?/g;
+
+/** A etapa de cada peça do Completo, na ordem do pacote (rastreamento é atração, como na home). */
+const ETAPA_DA_PECA: Etapa[] = ["violeta", "verde", "azul", "violeta"];
+
 /**
- * O hub do segmento automotivo (plano, seção 6.2): o plano Completo com o
- * site de estoque, o caminho de um lead, os módulos de revenda, os números do
- * case, as perguntas de dono de loja e a chamada. Conteúdo em `conteudo/automotivo.ts`.
+ * A etapa de cada passo do caminho de um lead: o estoque é gestão, a busca é
+ * atração, o WhatsApp é atendimento, o CRM é gestão e o último é a venda.
+ */
+const ETAPA_DO_PASSO: Etapa[] = ["azul", "violeta", "verde", "azul", "ambar"];
+
+/** A etapa de cada módulo, a mesma da tabela de `/precos` (tráfego é atração, reativação é atendimento). */
+const ETAPA_DO_MODULO: Etapa[] = ["azul", "azul", "violeta", "verde", "azul"];
+
+/**
+ * O fio de cada célula da ficha do hero: uma por linha no celular, duas por
+ * linha no meio e quatro no desktop.
+ */
+const BORDA_DO_FATO = [
+  "",
+  "border-t sm:border-t-0 sm:border-l sm:pl-5",
+  "border-t lg:border-t-0 lg:border-l lg:pl-5",
+  "border-t lg:border-t-0 sm:border-l sm:pl-5",
+];
+
+/** O título da seção com a parada da rota à altura dele e o texto-guia ao lado. */
+function Cabeca({ id, titulo, texto }: { id: string; titulo: string; texto: string }) {
+  return (
+    <div className="relative grid grid-cols-12 gap-x-6 gap-y-6">
+      <Parada />
+      <h2 id={id} className="titulo-secao col-span-12 lg:col-span-7">
+        {titulo}
+      </h2>
+      <p className="texto-guia col-span-12 lg:col-span-5 lg:pt-2">{texto}</p>
+    </div>
+  );
+}
+
+/** Uma linha da ficha que pinta o trecho da rota na cor da etapa e leva a parada dela. */
+function Linha({ etapa, className = "", children }: { etapa: Etapa; className?: string; children: ReactNode }) {
+  return (
+    <li className="servico" style={{ "--cor-da-rota": COR_DA_ROTA[etapa] } as CSSProperties}>
+      <div className={`relative grid grid-cols-12 gap-x-6 gap-y-3 border-b border-linha py-6 md:py-7 ${className}`}>
+        <Parada />
+        {children}
+      </div>
+    </li>
+  );
+}
+
+/**
+ * O hub do segmento automotivo na direção B (19/10): a rota começa no H1,
+ * passa pelas quatro peças do Completo (cada uma na cor da sua etapa), pelo
+ * preço, pelo caminho de um lead na revenda (do estoque à venda), pelos
+ * módulos como linhas de cardápio e pelos números do case em mosaico; as
+ * perguntas ligam com o fio fino e a rota termina, em âmbar, no botão da
+ * chamada. Conteúdo em `conteudo/automotivo.ts`; preço só de `precos.ts`.
  */
 export default function Pagina() {
   const h = HUB_AUTOMOTIVO;
@@ -28,160 +87,190 @@ export default function Pagina() {
     <>
       <Topo />
       <main id="conteudo">
-        <section aria-labelledby="titulo-hub" className="relative isolate">
-          <div aria-hidden="true" className="hero-fundo" />
-          <div className="conteiner pb-14 pt-14 md:pt-20 lg:pb-16 lg:pt-24">
-            <div className="max-w-[46rem]">
-              <p className="sobretitulo">{h.sobretitulo}</p>
-              <h1 id="titulo-hub" className="titulo-hero mt-5">
-                {h.titulo}
-              </h1>
-              <p className="texto-guia mt-7 max-w-[38rem]">{h.resumo}</p>
-              <div className="mt-9 flex flex-wrap gap-3">
+        {/* O rótulo "Revendas de veículos" saiu da tela e virou o nome da seção (decisão de 19/10). Acima da dobra: sem `adiada`. */}
+        <section aria-label={h.sobretitulo} className="trecho border-b-2 border-texto" data-fino="">
+          <div className="conteiner conteiner-rota grid grid-cols-12 border-b border-linha">
+            <div className="col-span-12 pb-10 pt-12 md:pb-16 md:pt-20 lg:col-span-8 lg:pr-12">
+              <div className="relative">
+                <Parada />
+                <h1 id="titulo-hub" className="titulo-hero max-w-[15ch]">
+                  {h.titulo}
+                </h1>
+              </div>
+            </div>
+            <div className="col-span-12 border-t border-linha pb-12 pt-8 md:pb-16 lg:col-span-4 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-20">
+              {/* Curto de propósito: o LCP da página é o H1. */}
+              <p className="text-[1.0625rem] leading-relaxed">{h.resumo}</p>
+              <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-4">
                 <Link href="/diagnostico" className="botao botao-primario" data-evento="cta_click" data-local="hero">
                   {h.chamada.botao}
                   <Icone nome="seta" className="seta size-4" />
                 </Link>
-                <a href="#titulo-pacote" className="botao botao-secundario" data-evento="cta_click" data-local="hero">
+                <a href="#titulo-pacote" className="link-sublinhado inline-flex min-h-11 items-center text-[0.9375rem] font-medium" data-evento="cta_click" data-local="hero">
                   Ver o pacote
                 </a>
               </div>
             </div>
-            <div className="mt-9">
-              <p className="text-[0.8125rem] font-medium text-texto-secundario">{h.sistemas.rotulo}</p>
-              <ul className="mt-2.5 flex flex-wrap gap-2">
-                <li className="chip chip-ok">{h.sistemas.emProducao} · em produção</li>
+          </div>
+
+          {/* Os sistemas de gestão numa faixa de células, como as ferramentas da home. */}
+          <div className="conteiner conteiner-rota border-b border-linha">
+            <div className="flex flex-col py-4 md:flex-row md:items-stretch md:py-0">
+              <p className="rotulo flex items-center text-texto-secundario md:min-h-12 md:border-r md:border-linha md:pr-5 xl:max-w-[11rem] xl:shrink-0">
+                {h.sistemas.rotulo}
+              </p>
+              <ul className="mt-2 flex flex-wrap gap-x-5 gap-y-1 md:mt-0 md:min-w-0 md:flex-1 md:gap-0 xl:flex-nowrap">
+                <li className="flex items-center font-mono text-[0.8125rem] font-medium md:min-h-12 md:border-r md:border-linha md:px-5 xl:px-4">
+                  <span>
+                    {h.sistemas.emProducao} <span className="text-etapa-atendimento">· em produção</span>
+                  </span>
+                </li>
                 {h.sistemas.integraveis.map((s) => (
-                  <li key={s} className="chip text-texto-secundario">
+                  <li
+                    key={s}
+                    className="flex items-center font-mono text-[0.8125rem] font-medium text-texto-secundario md:min-h-12 md:border-r md:border-linha md:px-5 xl:px-4"
+                  >
                     {s}
                   </li>
                 ))}
-                <li className="chip text-texto-secundario">{h.sistemas.outros}</li>
+                <li className="flex items-center font-mono text-[0.8125rem] font-medium text-texto-secundario md:min-h-12 md:basis-full md:border-t md:border-linha md:px-5 xl:basis-auto xl:border-t-0 xl:px-4">
+                  {h.sistemas.outros}
+                </li>
               </ul>
             </div>
-            <dl className="mt-12 grid gap-4 border-t border-linha pt-8 md:grid-cols-3">
-              {h.fatos.map((f) => (
-                <div key={f.rotulo}>
-                  <dt className="text-[0.8125rem] font-medium text-texto-secundario">{f.rotulo}</dt>
-                  <dd className="mt-1 text-[0.9375rem] leading-snug text-texto">{f.valor}</dd>
-                </div>
-              ))}
-            </dl>
           </div>
-        </section>
 
-        <section aria-labelledby="titulo-pecas" className="conteiner py-20 md:py-28">
-          <div className="max-w-[44rem]">
-            <h2 id="titulo-pecas" className="titulo-secao">
-              {h.pacote.titulo}
-            </h2>
-            <p className="texto-guia mt-5">{h.pacote.texto}</p>
-          </div>
-          <ul className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-            {h.pacote.pecas.map((peca) => (
-              <li key={peca.titulo} className="superficie flex flex-col p-6 md:p-7">
-                <span className="chip w-fit text-texto-secundario">{peca.linha}</span>
-                <h3 className="titulo-cartao mt-5">{peca.titulo}</h3>
-                <p className="mt-2 text-[0.9375rem] leading-relaxed text-texto-secundario">{peca.texto}</p>
-              </li>
-            ))}
-          </ul>
-        </section>
-
-        <section aria-labelledby="titulo-pacote" className="conteiner pb-20 md:pb-28">
-          <h2 id="titulo-pacote" className="sr-only">
-            Preço do plano Completo
-          </h2>
-          <CompletoParaRevendas />
-        </section>
-
-        <section
-          aria-labelledby="titulo-caminho"
-          className="border-y border-linha bg-fundo-alternado py-20 md:py-28"
-        >
-          <div className="conteiner grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.5fr)] lg:gap-16">
-            <div>
-              <h2 id="titulo-caminho" className="titulo-secao">
-                {h.caminho.titulo}
-              </h2>
-              <p className="texto-guia mt-5 max-w-[30rem]">{h.caminho.texto}</p>
-            </div>
-            <ol className="superficie divide-y divide-linha">
-              {h.caminho.passos.map((p, i) => (
-                <li key={p.titulo} className="grid grid-cols-[2.5rem_1fr] gap-4 p-6 md:p-7">
-                  <span className="numero text-acao-texto">{String(i + 1).padStart(2, "0")}</span>
-                  <span>
-                    <span className="block font-semibold tracking-[-0.01em]">{p.titulo}</span>
-                    <span className="mt-1 block text-[0.9375rem] leading-relaxed text-texto-secundario">{p.texto}</span>
-                  </span>
-                </li>
-              ))}
-            </ol>
-          </div>
-        </section>
-
-        <section aria-labelledby="titulo-extras" className="conteiner py-20 md:py-28">
-          <div className="max-w-[44rem]">
-            <h2 id="titulo-extras" className="titulo-secao">
-              {h.extras.titulo}
-            </h2>
-            <p className="texto-guia mt-5">{h.extras.texto}</p>
-          </div>
-          <ul className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {h.extras.itens.map((item) => (
-              <li key={item.nome} className="superficie flex flex-col p-6 md:p-7">
-                <h3 className="titulo-cartao">{item.nome}</h3>
-                <p className="mt-2 text-[0.9375rem] leading-relaxed text-texto-secundario">{item.texto}</p>
-                <p className="mt-auto flex items-center justify-between gap-4 pt-6 text-sm">
-                  <span className="font-medium tabular-nums text-texto/90">{item.preco}</span>
-                  <LinkOuAncora href={item.href} className="link-sublinhado text-texto-secundario">
-                    {item.link ?? "na tabela"}
-                  </LinkOuAncora>
-                </p>
-              </li>
-            ))}
-          </ul>
-          <div className="mt-6">
-            <ParceiroDeFotografia />
-          </div>
-        </section>
-
-        <section aria-labelledby="titulo-medido" className="border-t border-linha py-20 md:py-28">
-          <div className="conteiner">
-            <div className="grid gap-8 lg:grid-cols-[1.1fr_1fr] lg:items-end">
-              <h2 id="titulo-medido" className="titulo-secao">
-                {h.case.titulo}
-              </h2>
-              <p className="texto-guia lg:pb-2">{h.case.texto}</p>
-            </div>
-            <dl className="superficie mt-12 grid md:grid-cols-3">
-              {h.case.numeros.map((n, i) => (
+          {/* A ficha do hub: quatro células em fio; o preço do Completo no marca-texto. */}
+          <div className="conteiner conteiner-rota">
+            <dl className="grid grid-cols-12">
+              {h.fatos.map((f, i) => (
                 <div
-                  key={n.texto}
-                  className={`flex flex-col p-7 md:p-9 ${i > 0 ? "border-t border-linha md:border-l md:border-t-0" : ""}`}
+                  key={f.rotulo}
+                  className={`col-span-12 border-linha py-5 pr-5 sm:col-span-6 md:py-6 lg:col-span-3 ${BORDA_DO_FATO[i]}`}
                 >
-                  <dt className="order-2 mt-4 max-w-[18rem] text-[0.9375rem] leading-relaxed text-texto-secundario">{n.texto}</dt>
-                  <dd className="order-1 flex items-baseline gap-3">
-                    <span className="numero-grande">
-                      <NumeroQueConta valor={n.valor} />
-                    </span>
-                    {n.complemento ? (
-                      <span className="text-xl font-medium tracking-[-0.02em] text-texto-secundario">{n.complemento}</span>
-                    ) : null}
+                  <dt className="rotulo text-texto-secundario">{f.rotulo}</dt>
+                  <dd className="mt-2 text-[0.9375rem] leading-snug">
+                    {i === 0 ? <ComMarcas texto={f.valor} marcas={f.valor.match(/R\$ [\d.,]+/g) ?? []} /> : f.valor}
                   </dd>
                 </div>
               ))}
             </dl>
-            <p className="mt-4 flex items-start gap-2 text-sm text-texto-secundario">
-              <Icone nome="check" className="mt-0.5 size-4 shrink-0 text-etapa-atendimento" />
-              {h.case.fonte}
-            </p>
-            <Link href={h.case.href} className="botao botao-secundario mt-8" data-evento="cta_click" data-local="case">
-              {h.case.botao}
-              <Icone nome="seta" className="seta size-4" />
-            </Link>
           </div>
         </section>
+
+        {/* As quatro peças, cada uma na cor da sua etapa: do violeta da presença ao azul da gestão. */}
+        <Trecho aria-labelledby="titulo-pecas" etapa="violeta">
+          <Cabeca id="titulo-pecas" titulo={h.pacote.titulo} texto={h.pacote.texto} />
+          <ul className="mt-titulo-conteudo border-t-2 border-texto">
+            {h.pacote.pecas.map((peca, i) => (
+              <Linha key={peca.titulo} etapa={ETAPA_DA_PECA[i]}>
+                <div className="col-span-12 md:col-span-5">
+                  <p className="rotulo" style={{ color: TEXTO_DA_ETAPA[ETAPA_DA_PECA[i]] }}>
+                    {peca.linha}
+                  </p>
+                  <h3 className="titulo-cartao mt-2">{peca.titulo}</h3>
+                </div>
+                <p className="col-span-12 max-w-[40rem] text-[0.9375rem] leading-relaxed text-texto-secundario md:col-span-7 md:pt-6">
+                  {peca.texto}
+                </p>
+                {/* O site de estoque mostrado, não só descrito: as telas reais da Motors (19/10). */}
+                {i === 0 ? (
+                  <CapturasDaMotors className="col-span-12 mt-4 md:col-span-7 md:col-start-6" sizes="(min-width: 64rem) 18vw, (min-width: 40rem) 28vw, 90vw" />
+                ) : null}
+              </Linha>
+            ))}
+          </ul>
+        </Trecho>
+
+        {/* O preço: a âncora #titulo-pacote é contrato (o botão do hero e outras páginas apontam para ela). */}
+        <Trecho aria-labelledby="titulo-pacote" etapa="azul">
+          <h2 id="titulo-pacote" className="sr-only">
+            Preço do plano Completo
+          </h2>
+          <div className="relative">
+            <Parada />
+            <CompletoParaRevendas />
+          </div>
+        </Trecho>
+
+        {/* O caminho de um lead é a própria rota: cada passo pinta a margem na cor da sua etapa e o último é a venda. */}
+        <Trecho aria-labelledby="titulo-caminho" etapa="azul" etapaFim="ambar">
+          <Cabeca id="titulo-caminho" titulo={h.caminho.titulo} texto={h.caminho.texto} />
+          <ol className="mt-titulo-conteudo border-t-2 border-texto">
+            {h.caminho.passos.map((p, i) => (
+              <Linha key={p.titulo} etapa={ETAPA_DO_PASSO[i]}>
+                <span className="numero col-span-2 text-[0.9375rem] text-texto-secundario md:col-span-1">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <span className="col-span-10 text-[1.0625rem] font-semibold leading-snug tracking-[-0.01em] md:col-span-4">
+                  {p.titulo}
+                </span>
+                <span className="col-span-12 max-w-[38rem] text-[0.9375rem] leading-relaxed text-texto-secundario md:col-span-7">
+                  {p.texto}
+                </span>
+              </Linha>
+            ))}
+          </ol>
+        </Trecho>
+
+        {/* Os módulos como linhas de cardápio: o que é, o preço no marca-texto e onde ver mais. */}
+        <Trecho aria-labelledby="titulo-extras" etapa="azul">
+          <Cabeca id="titulo-extras" titulo={h.extras.titulo} texto={h.extras.texto} />
+          <ul className="mt-titulo-conteudo border-t-2 border-texto">
+            {h.extras.itens.map((item, i) => (
+              <Linha key={item.nome} etapa={ETAPA_DO_MODULO[i]}>
+                <div className="col-span-12 md:col-span-7">
+                  <h3 className="titulo-cartao">{item.nome}</h3>
+                  <p className="mt-2 max-w-[38rem] text-[0.9375rem] leading-relaxed text-texto-secundario">{item.texto}</p>
+                </div>
+                <div className="col-span-12 md:col-span-5 md:pt-0.5">
+                  <p className="text-[1.0625rem] font-medium leading-relaxed tabular-nums">
+                    <ComMarcas texto={item.preco} marcas={item.preco.match(VALORES) ?? []} etapa={ETAPA_DO_MODULO[i]} />
+                  </p>
+                  <LinkOuAncora href={item.href} className="link-sublinhado mt-2 inline-flex min-h-11 items-center text-[0.9375rem] text-texto-secundario">
+                    {item.link ?? "na tabela"}
+                  </LinkOuAncora>
+                </div>
+              </Linha>
+            ))}
+          </ul>
+          <div className="mt-8">
+            <ParceiroDeFotografia />
+          </div>
+        </Trecho>
+
+        {/* Os números do case num mosaico de células (tinta, papel, hachura), estáticos, com a fonte logo embaixo. */}
+        <Trecho aria-labelledby="titulo-medido" etapa="azul">
+          <Cabeca id="titulo-medido" titulo={h.case.titulo} texto={h.case.texto} />
+          <dl className="mt-titulo-conteudo grid grid-cols-2 border-2 border-texto md:grid-cols-[1.3fr_1fr_1fr_0.55fr]">
+            {h.case.numeros.map((n, i) => (
+              <div
+                key={n.texto}
+                className={`flex min-h-44 flex-col justify-between gap-6 p-6 md:min-h-60 md:p-7 ${
+                  i === 0 ? "col-span-2 bg-texto text-fundo md:col-span-1" : "border-t border-linha md:border-l md:border-t-0"
+                } ${i === 2 ? "border-l" : ""}`}
+              >
+                <dt
+                  className={`order-2 max-w-[18rem] text-[0.9375rem] leading-relaxed ${
+                    i === 0 ? "text-faixa-escura-secundario" : "text-texto-secundario"
+                  }`}
+                >
+                  {n.texto}
+                </dt>
+                <dd className="order-1 flex items-baseline gap-3">
+                  <span className="numero-grande">{n.valor}</span>
+                  {n.complemento ? <span className="text-xl font-medium tracking-[-0.02em] opacity-75">{n.complemento}</span> : null}
+                </dd>
+              </div>
+            ))}
+            <div aria-hidden="true" className="hachura col-span-2 hidden border-l border-linha md:col-span-1 md:block" />
+          </dl>
+          <p className="mt-4 text-sm text-texto-secundario">{h.case.fonte}</p>
+          <Link href={h.case.href} className="botao botao-secundario mt-8" data-evento="cta_click" data-local="case">
+            {h.case.botao}
+            <Icone nome="seta" className="seta size-4" />
+          </Link>
+        </Trecho>
 
         <Perguntas
           lista={h.perguntas}
@@ -190,24 +279,35 @@ export default function Pagina() {
           texto="Sistema de gestão, usuários, fotos, estoque no agente e de quem é o site. O resto cabe no diagnóstico."
         />
 
-        <section aria-labelledby="titulo-chamada" className="border-t border-linha">
-          <div className="conteiner py-20 md:py-28">
-            <div className="superficie grid gap-8 p-8 md:p-12 lg:grid-cols-[1.2fr_1fr] lg:items-center">
-              <div>
-                <h2 id="titulo-chamada" className="titulo-secao">
-                  {h.chamada.titulo}
-                </h2>
-                <p className="texto-guia mt-5">{h.chamada.texto}</p>
-              </div>
-              <div className="flex flex-wrap gap-3 lg:justify-end">
-                <Link href="/diagnostico" className="botao botao-primario" data-evento="cta_click" data-local="chamada">
+        {/* O fecho, na única faixa escura da página: a rota chega em âmbar e termina no botão principal. */}
+        <section
+          aria-labelledby="titulo-chamada"
+          className="trecho adiada overflow-hidden bg-faixa-escura text-faixa-escura-texto"
+          style={{ "--cor-da-rota": COR_DA_ROTA.ambar } as CSSProperties}
+          data-entra=""
+        >
+          <div className="conteiner conteiner-rota fecho-miolo grid grid-cols-12 gap-x-6 gap-y-12 py-24 md:py-32">
+            <div className="relative col-span-12 lg:col-span-7">
+              <h2 id="titulo-chamada" className="titulo-secao max-w-[40rem]">
+                {h.chamada.titulo}
+              </h2>
+              <p className="mt-6 max-w-[36rem] text-guia text-faixa-escura-secundario">{h.chamada.texto}</p>
+              <div className="fecho-acoes relative mt-10 flex flex-wrap gap-3">
+                <Parada final />
+                <Link href="/diagnostico" className="botao botao-primario botao-claro" data-evento="cta_click" data-local="chamada">
                   {h.chamada.botao}
                   <Icone nome="seta" className="seta size-4" />
                 </Link>
-                <Link href="/precos" className="botao botao-secundario" data-evento="cta_click" data-local="chamada">
+                <Link href="/precos" className="botao botao-secundario botao-claro" data-evento="cta_click" data-local="chamada">
                   {h.chamada.secundario}
                 </Link>
               </div>
+            </div>
+            <div
+              aria-hidden="true"
+              className="col-span-12 flex items-end lg:col-span-5 lg:justify-end lg:border-l lg:border-faixa-escura-linha"
+            >
+              <Simbolo className="h-28 w-auto text-faixa-escura-texto md:h-36" />
             </div>
           </div>
         </section>
@@ -215,6 +315,7 @@ export default function Pagina() {
       <Rodape />
       <BotaoWhatsAppFixo pagina="revendas" />
       <JsonLd grafo={grafoDoHubAutomotivo()} />
+      <Entradas />
     </>
   );
 }

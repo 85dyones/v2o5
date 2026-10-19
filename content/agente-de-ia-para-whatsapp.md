@@ -11,6 +11,7 @@ extraido_em: "2026-10-19T00:26:22.723Z"
 fonte: "produção (www.v2o5.com.br), main em 46c4103"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
+<!-- Redesign 2026 (19/10): a vinheta decorativa (aria-hidden) desta página saiu da tela; só /crm-com-whatsapp manteve a cena. O texto dela abaixo é da produção e não é palavra perdida. -->
 Agente de IA no WhatsApp
 
 # Agente de IA para WhatsApp que responde, qualifica e agenda.

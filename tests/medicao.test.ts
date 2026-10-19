@@ -110,11 +110,11 @@ describe("tipo da página", () => {
 
   it("a linha de cada página de solução é a mesma de conteudo/solucoes.ts", () => {
     for (const [rota, linha] of Object.entries(LINHA_DA_ROTA)) {
-      if (rota === "/gestao-de-trafego") continue;
       expect(solucaoDa(rota).linha, rota).toBe(linha);
       expect(contextoDaPagina(rota)).toEqual({ page_type: "solucao", service_line: linha });
     }
-    expect(PAGINAS.find((p) => p.rota === "/gestao-de-trafego")).toBeDefined();
+    // /gestao-de-trafego saiu do mapa em 19/10: responde 307 para /precos#titulo-trafego.
+    expect(PAGINAS.find((p) => p.rota === "/gestao-de-trafego")).toBeUndefined();
   });
 });
 

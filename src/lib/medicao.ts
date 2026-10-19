@@ -196,7 +196,6 @@ export const LINHA_DA_ROTA: Record<string, string> = {
   "/automacao-com-ia": "automacao",
   "/crm-com-whatsapp": "crm",
   "/rastreamento-de-conversoes": "rastreamento",
-  "/gestao-de-trafego": "trafego",
 };
 
 export interface ContextoDaPagina {

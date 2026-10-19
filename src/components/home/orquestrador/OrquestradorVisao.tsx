@@ -1,4 +1,5 @@
-import type { KeyboardEvent } from "react";
+import type { CSSProperties, KeyboardEvent } from "react";
+import { COR_DA_ROTA } from "@/components/rota/Rota";
 import Icone, { type NomeDoIcone } from "@/components/Icone";
 import { FRENTES, NOME_DA_ETAPA, type CartaoDoCrm, type Passo } from "@/conteudo/home";
 import { ETAPAS, type Etapa } from "@/lib/tokens";
@@ -60,7 +61,7 @@ export default function OrquestradorVisao({
         <div
           role="tablist"
           aria-label="Frentes da demonstração"
-          className="grid w-full grid-cols-3 gap-1 rounded-full bg-fundo-cartao p-1 contorno sm:flex sm:w-fit"
+          className="grid w-full grid-cols-3 sm:flex sm:w-fit"
         >
           {FRENTES.map((f, i) => (
             <button
@@ -73,7 +74,7 @@ export default function OrquestradorVisao({
               tabIndex={i === estado.ativa ? 0 : -1}
               onClick={aoEscolher ? () => aoEscolher(i) : undefined}
               onKeyDown={aoTeclarAba}
-              className="min-h-10 rounded-full px-3 text-[0.8125rem] font-medium leading-tight text-texto-secundario transition-colors hover:text-texto aria-selected:bg-fundo-cartao aria-selected:text-texto aria-selected:shadow-[inset_0_0_0_1px_var(--color-linha),0_1px_2px_rgb(18_20_24/0.08)] sm:px-4 sm:text-sm"
+              className="min-h-11 border-b-2 border-transparent px-3 text-[0.8125rem] font-medium leading-tight text-texto-secundario transition-colors hover:text-texto aria-selected:border-texto aria-selected:text-texto sm:px-4 sm:text-sm"
             >
               {f.aba}
             </button>
@@ -86,7 +87,7 @@ export default function OrquestradorVisao({
           type="button"
           onClick={aoRepetir}
           disabled={!aoRepetir}
-          className="inline-flex min-h-10 items-center gap-2 rounded-full px-3 text-sm text-texto-secundario transition-colors hover:bg-fundo-alternado hover:text-texto disabled:opacity-60 disabled:hover:bg-transparent"
+          className="inline-flex min-h-10 items-center gap-2 px-3 text-sm text-texto-secundario transition-colors hover:bg-fundo-cartao hover:text-texto disabled:opacity-60 disabled:hover:bg-transparent"
         >
           <svg viewBox="0 0 20 20" className="size-4" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             <path d="M4 10a6 6 0 1 0 1.76-4.24L4 7.5M4 4v3.5h3.5" />
@@ -121,8 +122,8 @@ function PassoVisao({ passo }: { passo: Passo }) {
   if (passo.tipo === "sistema") {
     const { icone, classe } = ICONE_DA_ETAPA[passo.etapa];
     return (
-      <div className="flex gap-3 rounded-xl bg-fundo-cartao px-3.5 py-3 contorno">
-        <span aria-hidden="true" className={`flex size-7 shrink-0 items-center justify-center rounded-lg ${classe}`}>
+      <div className="flex gap-3 border-l-4 border-(--cor-do-passo) bg-fundo px-3.5 py-3 contorno" style={{ "--cor-do-passo": COR_DA_ROTA[passo.etapa] } as CSSProperties}>
+        <span aria-hidden="true" className={`flex size-7 shrink-0 items-center justify-center ${classe}`}>
           <Icone nome={icone} className="size-3.5" />
         </span>
         <div className="min-w-0">
@@ -144,8 +145,8 @@ function PassoVisao({ passo }: { passo: Passo }) {
         <span className="tabular-nums">{passo.hora}</span>
       </p>
       <p
-        className={`mt-1.5 rounded-2xl px-4 py-2.5 text-left text-[0.9375rem] leading-snug ${
-          saida ? "rounded-br-md bg-etapa-atendimento text-fundo" : "rounded-bl-md bg-fundo-alternado"
+        className={`mt-1.5 px-4 py-2.5 text-left text-[0.9375rem] leading-snug ${
+          saida ? "bg-etapa-atendimento text-fundo" : "bg-fundo-alternado"
         }`}
       >
         {passo.texto}
@@ -159,7 +160,7 @@ function CartaoCrmVisao({ cartao, pronto }: { cartao: CartaoDoCrm; pronto: boole
   return (
     <div
       data-pronto={pronto ? "" : undefined}
-      className="cartao-crm border-t border-linha bg-fundo-alternado/50 p-5 md:p-7 lg:border-l lg:border-t-0"
+      className="cartao-crm border-t border-linha bg-fundo p-5 md:p-7 lg:border-l lg:border-t-0"
     >
       <div className="flex items-center justify-between gap-3">
         <p className="flex items-center gap-2 text-sm font-medium text-texto-secundario">
@@ -167,7 +168,7 @@ function CartaoCrmVisao({ cartao, pronto }: { cartao: CartaoDoCrm; pronto: boole
           Card no CRM
         </p>
         <span
-          className={`rounded-full px-2.5 py-1 text-xs font-semibold ${pronto ? FUNDO_DA_ETAPA[cartao.etapa] : "bg-fundo-alternado text-texto-secundario"}`}
+          className={`px-2.5 py-1 text-xs font-semibold ${pronto ? FUNDO_DA_ETAPA[cartao.etapa] : "bg-fundo-alternado text-texto-secundario"}`}
         >
           {pronto ? cartao.etiqueta : "Aguardando"}
         </span>
@@ -179,7 +180,7 @@ function CartaoCrmVisao({ cartao, pronto }: { cartao: CartaoDoCrm; pronto: boole
           const feita = pronto && i <= ate;
           return (
             <li key={e} className="grid gap-1.5">
-              <span className={`h-1 rounded-full ${feita ? COR_DO_PONTO[e] : "bg-fundo-alternado"}`} />
+              <span className={`h-1 ${feita ? COR_DO_PONTO[e] : "bg-fundo-alternado"}`} />
               <span className={`text-[0.6875rem] ${feita ? "text-texto" : "text-texto-secundario"}`}>{NOME_DA_ETAPA[e]}</span>
             </li>
           );

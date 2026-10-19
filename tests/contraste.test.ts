@@ -78,6 +78,10 @@ describe("os pares da tabela de cores do DESIGN.md", () => {
     ["etapa CRM", "etapaCrm", "fundo", 5.72, AA],
     ["erro de formulário no fundo", "erro", "fundo", 5.78, AA],
     ["erro de formulário no cartão", "erro", "fundoCartao", 6.2, AA],
+    ["texto no marca-texto violeta", "texto", "tintaVioleta", 13.48, AA],
+    ["texto no marca-texto verde", "texto", "tintaVerde", 14.13, AA],
+    ["texto no marca-texto azul", "texto", "tintaAzul", 13.86, AA],
+    ["texto no marca-texto âmbar", "texto", "tintaAmbar", 14.49, AA],
     ["faixa escura: papel", "faixaEscuraTexto", "faixaEscura", 16.3, AA],
     ["faixa escura: âmbar", "acao", "faixaEscura", 8.93, AA],
     ["faixa escura: secundário", "faixaEscuraSecundario", "faixaEscura", 8.12, AA],
@@ -100,21 +104,29 @@ describe("os pares da tabela de cores do DESIGN.md", () => {
     }
   });
 
-  it("o âmbar some no papel (1,83:1): nunca é texto no claro e o botão leva a borda", () => {
+  it("o âmbar some no papel (1,83:1): nunca é texto no claro e, no botão, é o bloco da seta fechado por tinta", () => {
     expect(contraste("acao", "fundo")).toBeCloseTo(1.83, 1);
     expect(contraste("acao", "fundo")).toBeLessThan(PECA);
+    // Botão em dois blocos (direção B, 19/10): o texto no bloco de tinta com o
+    // papel por cima, a seta no bloco âmbar com a tinta por cima, e o bloco
+    // âmbar fechado por um fio de tinta, que faz a borda que o âmbar não faz.
     const primario = /\.botao-primario\s*\{([^}]*)\}/.exec(css)![1];
-    expect(primario).toMatch(/background-color:\s*var\(--color-acao\);/);
-    expect(primario).toMatch(/box-shadow:\s*inset 0 0 0 1px var\(--color-acao-borda\);/);
+    expect(primario).toMatch(/background-color:\s*var\(--color-texto\);/);
+    expect(primario).toMatch(/color:\s*var\(--color-faixa-escura-texto\);/);
+    expect(contraste("faixaEscuraTexto", "texto")).toBeGreaterThanOrEqual(AA);
+    const bloco = /\.botao-primario:has\(\.seta\)::before\s*\{([^}]*)\}/.exec(css)![1];
+    expect(bloco).toMatch(/background-color:\s*var\(--color-acao\);/);
+    expect(bloco).toMatch(/box-shadow:\s*inset 0 0 0 1px var\(--color-texto\);/);
+    expect(contraste("texto", "acao")).toBeGreaterThanOrEqual(AA);
     for (const arquivo of arquivos("src", /\.tsx$/)) {
       expect(semComentarios(ler(arquivo)), arquivo).not.toMatch(/(?<![\w-])text-acao(?![\w-])/);
     }
   });
 
-  it("o botão âmbar sob o cursor escurece e a tinta continua passando", () => {
-    expect(css).toMatch(/background-color:\s*color-mix\(in srgb, var\(--color-acao\) 88%, var\(--color-acao-borda\)\);/);
-    const sobOCursor = sobrepor(CORES.acaoBorda, 0.12, CORES.acao);
-    expect(razaoDeContraste(CORES.texto, sobOCursor)!).toBeGreaterThanOrEqual(AA);
+  it("o bloco de texto do botão sob o cursor clareia e o papel continua passando", () => {
+    expect(css).toMatch(/background-color:\s*color-mix\(in srgb, var\(--color-texto\) 86%, var\(--color-fundo\)\);/);
+    const sobOCursor = sobrepor(CORES.fundo, 0.14, CORES.texto);
+    expect(razaoDeContraste(CORES.faixaEscuraTexto, sobOCursor)!).toBeGreaterThanOrEqual(AA);
   });
 
   it("o contorno de foco usa o âmbar de texto, que passa em 3:1 em todos os fundos", () => {

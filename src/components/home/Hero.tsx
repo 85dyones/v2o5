@@ -1,63 +1,58 @@
 import Link from "next/link";
 import Icone from "@/components/Icone";
-import HeroMolecula from "@/components/home/HeroMolecula";
-import PalcoDoHero from "@/components/home/PalcoDoHero";
+import MapaDaAbertura from "@/components/home/mapa/MapaDaAbertura";
+import { ComMarcas } from "@/components/rota/Rota";
 import { FERRAMENTAS, HERO } from "@/conteudo/home";
 
 /**
- * O H1 é o LCP: texto do servidor, sem animação de entrada e sem nada por
- * cima. O palco da molécula fica numa caixa própria (à direita no desktop,
- * abaixo dos botões no celular): primeiro o SVG do servidor, depois o
- * canvas por cima, só com as partículas.
+ * A abertura. O H1 é o LCP: texto do servidor, sem animação de entrada e sem
+ * nada por cima. À direita, separada por fio, a coluna com o subtítulo, os
+ * botões e a nota do diagnóstico. Embaixo, o mapa das sete peças, de onde
+ * sai a rota que desce pela página, e as ferramentas em produção.
  */
 export default function Hero({ titulo }: { titulo: string }) {
   return (
-    <section aria-labelledby="titulo-hero" className="relative isolate">
-      <div aria-hidden="true" className="hero-fundo" />
-      <div className="conteiner grid items-center gap-x-8 gap-y-6 pb-14 pt-14 md:pt-20 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] lg:pb-20 lg:pt-24">
-        <div className="max-w-[44rem]">
-          <p className="selo mb-7">
-            <span aria-hidden="true" className="relative flex size-5 items-center justify-center rounded-full bg-acao/15">
-              <span className="size-1.5 rounded-full bg-acao shadow-[0_0_10px_2px_rgb(242_165_22/0.6)]" />
-            </span>
-            <span>
-              Catalisador de vendas com <span className="text-acao-texto">IA</span>
-            </span>
+    <section aria-labelledby="titulo-hero" className="border-b-2 border-texto">
+      <div className="conteiner conteiner-rota grid grid-cols-12 border-b border-linha">
+        <div className="col-span-12 pb-10 pt-12 md:pb-16 md:pt-20 lg:col-span-8 lg:pr-12">
+          <p className="text-[0.9375rem] font-medium">
+            Catalisador de vendas com <span className="text-acao-texto">IA</span>
           </p>
-          <h1 id="titulo-hero" className="titulo-hero">
+          <h1 id="titulo-hero" className="titulo-hero mt-6 max-w-[13ch]">
             {titulo}
           </h1>
-          <p className="texto-guia mt-7 max-w-[35rem]">{HERO.subtitulo}</p>
-          <div className="mt-9 flex flex-wrap gap-3">
-            <Link href="/diagnostico" className="botao botao-primario" data-acende-molecula data-evento="cta_click" data-local="hero">
+        </div>
+        <div className="col-span-12 border-t border-linha bg-fundo pb-12 pt-8 md:pb-16 lg:col-span-4 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-20">
+          <p className="text-[1.0625rem] leading-relaxed">
+            <ComMarcas texto={HERO.subtitulo} marcas={["de onde veio cada venda"]} />
+          </p>
+          <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-4">
+            <Link href="/diagnostico" className="botao botao-primario" data-evento="cta_click" data-local="hero">
               Pedir diagnóstico
               <Icone nome="seta" className="seta size-4" />
             </Link>
-            <a href="#como-se-liga" className="botao botao-secundario" data-acende-molecula data-evento="cta_click" data-local="hero">
+            <a href="#como-se-liga" className="link-sublinhado text-[0.9375rem] font-medium" data-evento="cta_click" data-local="hero">
               Ver como tudo se liga
             </a>
           </div>
-          <p className="mt-6 flex max-w-[32rem] items-start gap-2.5 text-[0.9375rem] leading-snug text-texto-secundario">
-            <Icone nome="relogio" className="mt-px size-[1.125rem] shrink-0 text-acao-texto" />
-            {HERO.nota}
+          <p className="mt-8 text-[0.9375rem] leading-relaxed text-texto-secundario">
+            <ComMarcas texto={HERO.nota} marcas={["45 minutos", "24 horas"]} etapa="verde" />
           </p>
-        </div>
-
-        <div className="relative -mx-5 aspect-[4/3] md:mx-0 lg:-ml-4 lg:-mr-10">
-          <HeroMolecula />
-          <PalcoDoHero />
         </div>
       </div>
 
-      <div className="conteiner">
-        <div className="flex flex-col gap-4 border-t border-linha py-7 md:flex-row md:items-center md:gap-10">
-          <p className="flex shrink-0 items-center gap-2 text-sm text-texto-secundario">
-            <span aria-hidden="true" className="size-1.5 rounded-full bg-etapa-atendimento shadow-[0_0_8px_rgb(23_119_63/0.5)]" />
-            {FERRAMENTAS.rotulo}
-          </p>
-          <ul className="flex flex-wrap items-center gap-x-8 gap-y-2.5 text-[0.9375rem] font-semibold tracking-[-0.01em] text-texto/70">
+      <div className="conteiner border-b border-linha px-0 md:px-0">
+        <MapaDaAbertura />
+      </div>
+
+      <div className="conteiner conteiner-rota">
+        <div className="flex flex-col py-4 md:flex-row md:items-stretch md:py-0">
+          <p className="rotulo flex items-center text-texto-secundario md:min-h-12 md:border-r md:border-linha md:pr-5">{FERRAMENTAS.rotulo}</p>
+          <ul className="mt-2 flex flex-wrap gap-x-5 gap-y-1 md:mt-0 md:gap-0">
             {FERRAMENTAS.nomes.map((f) => (
-              <li key={f}>{f}</li>
+              <li key={f} className="flex items-center font-mono text-[0.8125rem] font-medium md:min-h-12 md:border-r md:border-linha md:px-5">
+                {f}
+              </li>
             ))}
           </ul>
         </div>

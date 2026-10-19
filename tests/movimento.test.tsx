@@ -8,23 +8,13 @@ import { arquivos, ler, semComentarios } from "./fonte";
 
 /**
  * A regra: com `prefers-reduced-motion: reduce`, nada se move. Nenhum
- * quadro agendado, nenhuma sequência por timer, e nem o motor de partículas
- * nem o Motion chegam a ser importados. O estado final aparece direto.
+ * quadro agendado, nenhuma sequência por timer, nenhum observador de
+ * entrada. O estado final aparece direto.
  *
  * Cada caso roda também sem a preferência, para provar que o teste vê o
  * movimento quando ele existe (senão passaria por vacuidade).
  */
 
-const iniciarParticulas = vi.fn<(canvas: HTMLCanvasElement, opcoes: { sinalExterno?: boolean }) => object>(() => ({
-  acender() {},
-  ponteiro() {},
-  disparar() {},
-  usarSinalProprio() {},
-  destruir() {},
-}));
-vi.mock("@/lib/particulas", () => ({ iniciarParticulas }));
-const iniciarMolecula3d = vi.fn(() => ({ acender() {}, ponteiro() {}, destruir() {} }));
-vi.mock("@/lib/molecula3d", () => ({ iniciarMolecula3d }));
 const animate = vi.fn(() => ({ stop() {} }));
 vi.mock("motion", () => ({ animate }));
 
@@ -67,8 +57,6 @@ function avisar(visivel: boolean) {
 beforeEach(() => {
   vi.useFakeTimers();
   vi.spyOn(window, "requestAnimationFrame");
-  iniciarParticulas.mockClear();
-  iniciarMolecula3d.mockClear();
   animate.mockClear();
 });
 
@@ -87,68 +75,48 @@ describe("lib/movimento", () => {
   });
 });
 
-describe("hero: a molécula 3D e as partículas", () => {
+describe("entradas ao rolar: a rota e os blocos", () => {
   async function montar() {
-    const { default: HeroMolecula } = await import("@/components/home/HeroMolecula");
+    const { default: Entradas } = await import("@/components/layout/Entradas");
     render(
-      <section>
-        <HeroMolecula />
-      </section>,
+      <>
+        <section data-entra="" data-testid="trecho" />
+        <Entradas />
+      </>,
     );
-    // load + ocioso + import dinâmico
-    await act(async () => {
-      window.dispatchEvent(new Event("load"));
-      await vi.runAllTimersAsync();
-    });
+    return screen.getByTestId("trecho");
   }
 
-  it("com menos movimento nenhum dos dois motores é importado", async () => {
+  it("com menos movimento nada é observado e o trecho fica desenhado", async () => {
     prepararJanela(true);
-    await montar();
-    expect(iniciarParticulas).not.toHaveBeenCalled();
-    expect(iniciarMolecula3d).not.toHaveBeenCalled();
+    const trecho = await montar();
+    expect(observadores).toHaveLength(0);
+    expect(trecho.getAttribute("data-entra")).toBe("");
   });
 
-  it("sem a preferência os dois começam depois do load, e o sinal vem da 3D", async () => {
+  it("sem a preferência, fora da tela espera e desce ao entrar, uma vez", async () => {
     prepararJanela(false);
-    await montar();
-    expect(iniciarMolecula3d).toHaveBeenCalledTimes(1);
-    expect(iniciarParticulas).toHaveBeenCalledTimes(1);
-    expect(iniciarParticulas.mock.calls[0][1]).toMatchObject({ sinalExterno: true });
+    const trecho = await montar();
+    act(() => avisar(false));
+    expect(trecho.getAttribute("data-entra")).toBe("espera");
+    act(() => avisar(true));
+    expect(trecho.getAttribute("data-entra")).toBe("vai");
   });
 
-  it("sem WebGL 2 as partículas voltam ao sinal próprio", async () => {
+  it("o que já está na tela no primeiro aviso fica parado", async () => {
     prepararJanela(false);
-    const usarSinalProprio = vi.fn();
-    iniciarParticulas.mockReturnValueOnce({ acender() {}, ponteiro() {}, disparar() {}, usarSinalProprio, destruir() {} });
-    iniciarMolecula3d.mockReturnValueOnce(null as never);
-    await montar();
-    expect(iniciarMolecula3d).toHaveBeenCalledTimes(1);
-    expect(usarSinalProprio).toHaveBeenCalledTimes(1);
+    const trecho = await montar();
+    act(() => avisar(true));
+    expect(trecho.getAttribute("data-entra")).toBe("");
   });
 });
 
-describe("case: o número que conta", () => {
-  async function montar() {
-    const { default: NumeroQueConta } = await import("@/components/home/NumeroQueConta");
-    render(<NumeroQueConta valor={132} />);
-  }
-
-  it("com menos movimento fica no valor e não agenda quadro", async () => {
-    prepararJanela(true);
-    await montar();
-    expect(observadores).toHaveLength(0);
-    expect(screen.getByText("132")).toBeTruthy();
-    expect(window.requestAnimationFrame).not.toHaveBeenCalled();
-  });
-
-  it("sem a preferência zera fora da tela e conta ao entrar", async () => {
-    prepararJanela(false);
-    await montar();
-    act(() => avisar(false));
-    expect(screen.getByText("0")).toBeTruthy();
-    act(() => avisar(true));
-    expect(window.requestAnimationFrame).toHaveBeenCalled();
+describe("case: o número parado", () => {
+  it("o número do case é texto do servidor: nenhum contador sobrou no site", () => {
+    expect(ler("src/components/home/CaseMotors.tsx")).toMatch(/\{n\.valor\}/);
+    for (const arquivo of arquivos("src", /\.tsx$/)) {
+      expect(semComentarios(ler(arquivo)), arquivo).not.toMatch(/NumeroQueConta/);
+    }
   });
 });
 
@@ -179,67 +147,27 @@ describe("orquestrador: a demonstração", () => {
   });
 });
 
-describe("diagrama: o pulso", () => {
+describe("diagrama: a peça escolhida", () => {
   async function clicarNoCrm() {
     const { default: DiagramaInterativo } = await import("@/components/home/diagrama/DiagramaInterativo");
     render(<DiagramaInterativo />);
-    // getClientRects vazio no jsdom: finge que o primeiro arranjo está visível.
-    const svg = document.querySelector("svg[data-diagrama]") as SVGSVGElement;
-    svg.getClientRects = () => [{}] as unknown as DOMRectList;
     await act(async () => {
-      fireEvent.click(screen.getAllByRole("button", { name: "CRM" })[0]);
+      fireEvent.click(screen.getByRole("button", { name: /^CRM/ }));
       await vi.runAllTimersAsync();
     });
   }
 
-  it("com menos movimento o caminho acende e o Motion não é chamado", async () => {
-    prepararJanela(true);
-    await clicarNoCrm();
-    expect(screen.getAllByRole("button", { name: "CRM" })[0].getAttribute("aria-pressed")).toBe("true");
-    expect(animate).not.toHaveBeenCalled();
-  });
-
-  it("sem a preferência o pulso corre", async () => {
-    prepararJanela(false);
-    await clicarNoCrm();
-    expect(animate).toHaveBeenCalledTimes(1);
-  });
-});
-
-describe("cursor: luz e ímã dos botões", () => {
-  async function passarOMouse(menosMovimento: boolean) {
-    prepararJanela(menosMovimento);
-    const base = window.matchMedia;
-    window.matchMedia = ((q: string) => ({ ...base(q), matches: q.includes("hover") ? true : base(q).matches })) as typeof window.matchMedia;
-    const { default: LuzDoCursor } = await import("@/components/layout/LuzDoCursor");
-    render(
-      <>
-        <LuzDoCursor />
-        <a href="#x" className="botao">
-          Pedir diagnóstico
-        </a>
-      </>,
-    );
-    const botao = screen.getByText("Pedir diagnóstico");
-    botao.getBoundingClientRect = () => ({ left: 0, top: 0, width: 200, height: 40 }) as DOMRect;
-    const evento = new MouseEvent("pointermove", { bubbles: true, clientX: 190, clientY: 35 });
-    Object.defineProperty(evento, "pointerType", { value: "mouse" });
-    act(() => {
-      botao.dispatchEvent(evento);
-      vi.runOnlyPendingTimers();
-    });
-    return botao;
-  }
-
-  it("com menos movimento a luz segue, mas o botão não anda", async () => {
-    const botao = await passarOMouse(true);
-    expect(botao.style.getPropertyValue("--luz-x")).toBe("190px");
-    expect(botao.style.getPropertyValue("--ima-x")).toBe("");
-  });
-
-  it("sem a preferência o botão é puxado na direção do cursor", async () => {
-    const botao = await passarOMouse(false);
-    expect(parseFloat(botao.style.getPropertyValue("--ima-x"))).toBeGreaterThan(0);
+  it("o clique escolhe a peça e acende o caminho dela, sem nada correr sozinho", async () => {
+    for (const menos of [true, false]) {
+      prepararJanela(menos);
+      await clicarNoCrm();
+      expect(screen.getByRole("button", { name: /^CRM/ }).getAttribute("aria-pressed")).toBe("true");
+      expect(screen.getByRole("button", { name: /^Site/ }).hasAttribute("data-no-caminho")).toBe(false);
+      expect(screen.getByRole("button", { name: /^Agente de IA/ }).hasAttribute("data-no-caminho")).toBe(true);
+      expect(animate).not.toHaveBeenCalled();
+      expect(vi.getTimerCount()).toBe(0);
+      cleanup();
+    }
   });
 });
 
@@ -293,26 +221,29 @@ describe("CSS e fonte", () => {
     }
   });
 
-  it("o pulso do diagrama corre na curva de percurso", () => {
-    const numeros = MOVIMENTO.curvaPercurso.match(/[\d.]+/g)!.join(", ");
-    expect(ler("src/components/home/diagrama/DiagramaInterativo.tsx")).toContain(`ease: [${numeros}]`);
+  it("a rota e o mapa se desenham na curva de percurso, uma vez", () => {
+    const css = semComentarios(ler("src/app/globals.css"));
+    const tracos = [...css.matchAll(/animation:\s*traca-[a-z]+\s+var\(--duracao-[a-z]+\)\s+var\(--([a-z-]+)\)/g)];
+    expect(tracos.length).toBeGreaterThan(2);
+    for (const [, curva] of tracos) expect(curva).toBe("curva-percurso");
   });
 
   it("todo código que agenda quadro ou anima pergunta a lib/movimento", () => {
-    // Exceções, com motivo: os motores são chamados só por quem já
-    // perguntou (HeroMolecula); a rota de leads e o CAPI usam setTimeout no
+    // Exceções, com motivo: a rota de leads e o CAPI usam setTimeout no
     // servidor, como limite de tempo das chamadas; a medição usa setTimeout
     // para esperar a página carregar antes das tags; a âncora confere o pouso
-    // em momentos marcados. Nenhum deles anima.
+    // em momentos marcados; o carregador por seção observa a tela só para
+    // importar o pedaço interativo; o botão fixo de WhatsApp observa o botão
+    // da abertura só para sair de cena (a transição é do CSS). Nenhum deles anima.
     const excecoes = new Set([
-      "src/lib/particulas.ts",
-      "src/lib/molecula3d.ts",
+      "src/lib/useCarregarPerto.ts",
       "src/app/api/leads/route.ts",
       "src/lib/capi.ts",
       "src/lib/medicao.ts",
       "src/lib/ancora.ts",
+      "src/components/layout/EsconderNaAbertura.tsx",
     ]);
-    const anima = /requestAnimationFrame|import\("motion"\)|from "motion"|setTimeout|iniciarParticulas\(/;
+    const anima = /requestAnimationFrame|import\("motion"\)|from "motion"|setTimeout|IntersectionObserver\(/;
     for (const arquivo of arquivos("src", /\.tsx?$/)) {
       const codigo = semComentarios(ler(arquivo));
       if (!anima.test(codigo) || excecoes.has(arquivo)) continue;

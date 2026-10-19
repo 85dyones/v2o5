@@ -215,7 +215,7 @@ Serve. Os campos e as etapas são desenhados com você. O automotivo é o primei
 
 [Atendimento Agente de IA no WhatsApp Responde na hora, a qualquer hora, com as informações do seu negócio. Quando a conversa pede uma pessoa, chama alguém da equipe. no plano Atendimento, a partir de R$ 7.900 + R$ 1.590/mês](/agente-de-ia-para-whatsapp)
 
-[Gestão Painel do dono Funil, verba, custo por lead e vendas por origem numa tela só, atualizada todo dia a partir do CRM e do rastreamento. Sem licença por usuário. a partir de R$ 3.900 + R$ 490/mês; implantação de bônus no Completo](/diagnostico)
+[Gestão Painel do dono Funil, verba, custo por lead e vendas por origem numa tela, atualizada todo dia a partir do CRM, do rastreamento e das contas de anúncio. Sem licença por usuário. a partir de R$ 3.900 + R$ 490/mês; implantação de bônus no Completo](/diagnostico)
 
 [Gestão Automação de processos A tarefa que alguém faz à mão toda semana passa a rodar sozinha entre os sistemas que você já usa. a partir de R$ 1.900 por fluxo](/automacao-com-ia)
 

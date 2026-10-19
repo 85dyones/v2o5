@@ -11,6 +11,7 @@ extraido_em: "2026-10-19T00:26:22.723Z"
 fonte: "produção (www.v2o5.com.br), main em 46c4103"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
+<!-- Redesign 2026 (19/10): a vinheta decorativa (aria-hidden) desta página saiu da tela; só /crm-com-whatsapp manteve a cena. O texto dela abaixo é da produção e não é palavra perdida. -->
 Rastreamento até a venda
 
 # Rastreamento de conversões até a venda.
@@ -229,7 +230,7 @@ Funciona se o site aceitar tags e o formulário puder gravar a origem. O diagnó
 
 ## Linhas que combinam com esta.
 
-[Atração Tráfego pago no Google e na Meta Google Ads e Meta Ads por plataforma ou juntos, com anúncios que abrem conversa no WhatsApp e a verba ajustada pela venda registrada no CRM. Quem contrata os dois leva o feed de catálogo. Começa com o rastreamento ligado. a partir de R$ 1.200/mês + verba, por plataforma](/gestao-de-trafego)
+[Atração Tráfego pago no Google e na Meta Google Ads e Meta Ads por plataforma ou juntos, com anúncios que abrem conversa no WhatsApp e a verba ajustada pela venda registrada no CRM. Quem contrata os dois leva o feed de catálogo. Começa com o rastreamento ligado. a partir de R$ 1.200/mês + verba, por plataforma](/precos#titulo-trafego)
 
 [Gestão CRM e sistemas sob medida Nenhum contato esquecido numa conversa: cada um num funil, com a origem, a etapa e o próximo passo à vista. no plano Atendimento, a partir de R$ 7.900 + R$ 1.590/mês](/crm-com-whatsapp)
 

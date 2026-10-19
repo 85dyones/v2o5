@@ -1,5 +1,5 @@
 import PaginaDeSolucao from "@/components/solucoes/PaginaDeSolucao";
-import { OQueRegistramosSecao } from "@/components/solucoes/OQueRegistramos";
+import { OQueRegistramosSecao } from "@/components/solucoes/OQueRegistramosSecao";
 import { metadataDa } from "@/conteudo/paginas";
 
 const ROTA = "/rastreamento-de-conversoes";

@@ -9,6 +9,7 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { SIMBOLO_C1D } from "@/lib/marca-vetor";
 import { ler, RAIZ } from "./fonte";
+import { REDIRECIONAMENTOS_PROVISORIOS } from "../next.config";
 
 /**
  * As páginas da raiz de diagnostico.v2o5.com.br (`subdominios/diagnostico/`)
@@ -155,7 +156,9 @@ describe("raiz de diagnostico.v2o5.com.br", () => {
       expect(l, linha).toBeDefined();
       expect(t, linha).toContain(l!.frase);
     }
-    const rotas = new Set(PAGINAS.map((p) => p.rota));
+    // A vitrine é publicada por outro projeto; um link para rota que hoje redireciona
+    // (REDIRECIONAMENTOS_PROVISORIOS, 307) continua chegando a uma página.
+    const rotas = new Set([...PAGINAS.map((p) => p.rota), ...REDIRECIONAMENTOS_PROVISORIOS.map((r) => r.source)]);
     const links = [...raiz.querySelectorAll<HTMLAnchorElement>("a[href^='https://www.v2o5.com.br']")].map((a) => new URL(a.href));
     expect(links.length).toBeGreaterThan(10);
     for (const url of links) {

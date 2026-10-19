@@ -1,6 +1,7 @@
 import Topo from "@/components/layout/Topo";
 import Rodape from "@/components/layout/Rodape";
 import BotaoWhatsAppFixo from "@/components/layout/BotaoWhatsAppFixo";
+import Entradas from "@/components/layout/Entradas";
 import Hero from "@/components/home/Hero";
 import Solucoes from "@/components/home/Solucoes";
 import Garantias from "@/components/home/Garantias";
@@ -33,6 +34,7 @@ export default function Home({ titulo }: { titulo: string }) {
       </main>
       <Rodape />
       <BotaoWhatsAppFixo pagina="home" />
+      <Entradas />
     </>
   );
 }

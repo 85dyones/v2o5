@@ -1,23 +1,17 @@
-import type { CSSProperties } from "react";
-
 /**
- * A janela de eventos do sistema da Motors, em três colunas da grade (hora,
- * evento, pares chave=valor). Cada célula leva `.linha-terminal` e o índice
- * da linha, para a linha inteira aparecer junto ao rolar. Rotulada como
- * exemplo: o formato é real, os valores não.
+ * Os eventos do sistema da Motors numa tabela de três colunas (hora, evento,
+ * pares chave=valor), como um livro de registros: fio entre as linhas,
+ * algarismos tabulares, mono só aqui, que é dado. Rotulada como exemplo: o
+ * formato é real, os valores não. (O nome do componente ficou da versão em
+ * janela de terminal, que saiu com a direção B.)
  */
-function LinhaDoTerminal({ linha, i }: { linha: string; i: number }) {
+function LinhaDoRegistro({ linha }: { linha: string }) {
   const [hora, evento, ...pares] = linha.split(/\s{2,}/);
-  const estilo = { "--i": i } as CSSProperties;
   return (
-    <>
-      <span className="linha-terminal text-texto-secundario" style={estilo}>
-        {hora}
-      </span>
-      <span className="linha-terminal text-texto" style={estilo}>
-        {evento}
-      </span>
-      <span className="linha-terminal flex gap-x-4" style={estilo}>
+    <div className="contents">
+      <span className="border-t border-linha py-2.5 pr-6 tabular-nums text-texto-secundario">{hora}</span>
+      <span className="border-t border-linha py-2.5 pr-6 text-texto">{evento}</span>
+      <span className="flex flex-wrap gap-x-4 border-t border-linha py-2.5">
         {pares
           .join(" ")
           .split(/\s+/)
@@ -32,31 +26,25 @@ function LinhaDoTerminal({ linha, i }: { linha: string; i: number }) {
             );
           })}
       </span>
-    </>
+    </div>
   );
 }
 
 export default function TerminalDeEventos({ linhas }: { linhas: string[] }) {
   return (
-    <figure className="janela">
-      <figcaption className="janela-barra justify-between">
-        <span className="flex items-center gap-2.5">
-          <span aria-hidden="true" className="flex gap-1.5">
-            <span className="size-2.5 rounded-full bg-texto/15" />
-            <span className="size-2.5 rounded-full bg-texto/15" />
-            <span className="size-2.5 rounded-full bg-texto/15" />
-          </span>
-          <span className="font-mono text-xs text-texto-secundario">eventos do sistema</span>
-        </span>
-        <span className="rotulo rounded-full bg-fundo-alternado px-2.5 py-1 text-texto">exemplo</span>
+    <figure className="border-y-2 border-texto bg-fundo">
+      <figcaption className="flex items-center justify-between gap-4 py-3">
+        <span className="font-mono text-xs text-texto-secundario">eventos do sistema</span>
+        <span className="rotulo bg-tinta-ambar px-2 py-1 text-texto">exemplo</span>
       </figcaption>
-      <pre className="terminal overflow-x-auto px-5 py-5 font-mono text-[0.8125rem] leading-[2]">
-        <span className="grid w-max grid-cols-[auto_auto_auto] gap-x-6">
-          {linhas.map((linha, i) => (
-            <LinhaDoTerminal key={linha} linha={linha} i={i} />
+      {/* Rola de lado no celular: com tabIndex o teclado também alcança a rolagem. */}
+      <div className="overflow-x-auto pb-1" tabIndex={0} role="region" aria-label="Registro de eventos do sistema, exemplo">
+        <div className="grid w-max min-w-full grid-cols-[auto_auto_1fr] font-mono text-[0.8125rem] leading-relaxed">
+          {linhas.map((linha) => (
+            <LinhaDoRegistro key={linha} linha={linha} />
           ))}
-        </span>
-      </pre>
+        </div>
+      </div>
     </figure>
   );
 }
