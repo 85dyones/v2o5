@@ -25,7 +25,9 @@ const CELULA = "border-t border-linha p-6 first:border-t-0";
  * resumo, separados por fio. Embaixo, uma ficha fechada por fio de 2 px:
  * o formulário na primeira coluna, para a rota pousar no título dele e
  * terminar na parada âmbar do botão de envio, e os passos e as garantias ao
- * lado. No celular a ordem é a do texto: passos, garantias, formulário.
+ * lado. O formulário vem primeiro no DOM: no celular o primeiro campo aparece
+ * logo depois do resumo, e o tab segue a leitura (esquerda antes da direita).
+ * A rota desce do topo do trecho e acaba na parada do botão (`rota-ate-a-parada`).
  * O formulário é o único pedaço com JavaScript.
  */
 export default function Pagina() {
@@ -49,38 +51,9 @@ export default function Pagina() {
         </Trecho>
 
         {/* A ficha começa perto do título: numa página de pedido, o formulário tem de aparecer cedo. */}
-        <Trecho etapa="verde" aria-labelledby="titulo-pedido" adiada={false} miolo="!pt-10 md:!pt-12">
+        <Trecho etapa="verde" aria-labelledby="titulo-pedido" adiada={false} miolo="rota-ate-a-parada !pt-10 md:!pt-12">
           <div className="grid grid-cols-12 border-y-2 border-texto bg-fundo">
-            <div className="col-span-12 lg:order-2 lg:col-span-5 lg:border-l lg:border-linha">
-              <ol>
-                {d.passos.map((p, i) => (
-                  <li key={p.titulo} className={`${CELULA} grid grid-cols-[2rem_minmax(0,1fr)] gap-x-3`}>
-                    <span className="numero pt-px text-[0.9375rem] text-texto-secundario">{i + 1}</span>
-                    <span>
-                      <span className="block font-semibold tracking-[-0.01em]">
-                        <ComMarcas texto={p.titulo} marcas={["45 minutos", "24 horas"]} etapa="verde" />
-                      </span>
-                      <span className="mt-1 block text-[0.9375rem] leading-relaxed text-texto-secundario">{p.texto}</span>
-                    </span>
-                  </li>
-                ))}
-              </ol>
-
-              <p className={`${CELULA} bg-fundo-cartao text-[0.9375rem] leading-relaxed`}>{d.paraQuem}</p>
-
-              <ul className="border-t border-linha">
-                {GARANTIAS.map((g) => (
-                  <li key={g.titulo} className={`${CELULA} flex gap-3 !py-4 text-[0.9375rem] leading-relaxed text-texto-secundario`}>
-                    <Icone nome="check" className="mt-1 size-4 shrink-0 text-etapa-atendimento" />
-                    <span>
-                      <span className="font-medium text-texto">{g.titulo}.</span> {g.texto}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="col-span-12 border-t border-linha lg:order-1 lg:col-span-7 lg:border-t-0">
+            <div className="col-span-12 lg:order-1 lg:col-span-7">
               <Formulario />
               <p className="flex items-start gap-3 border-t border-linha p-6 text-[0.9375rem] leading-relaxed text-texto-secundario">
                 <Icone nome="conversa" className="mt-1 size-4 shrink-0 text-etapa-atendimento" />
@@ -108,6 +81,35 @@ export default function Pagina() {
                   .
                 </span>
               </p>
+            </div>
+
+            <div className="col-span-12 border-t border-linha lg:order-2 lg:col-span-5 lg:border-l lg:border-t-0">
+              <ol>
+                {d.passos.map((p, i) => (
+                  <li key={p.titulo} className={`${CELULA} grid grid-cols-[2rem_minmax(0,1fr)] gap-x-3`}>
+                    <span className="numero pt-px text-[0.9375rem] text-texto-secundario">{i + 1}</span>
+                    <span>
+                      <span className="block font-semibold tracking-[-0.01em]">
+                        <ComMarcas texto={p.titulo} marcas={["45 minutos", "24 horas"]} etapa="verde" />
+                      </span>
+                      <span className="mt-1 block text-[0.9375rem] leading-relaxed text-texto-secundario">{p.texto}</span>
+                    </span>
+                  </li>
+                ))}
+              </ol>
+
+              <p className={`${CELULA} bg-fundo-cartao text-[0.9375rem] leading-relaxed`}>{d.paraQuem}</p>
+
+              <ul className="border-t border-linha">
+                {GARANTIAS.map((g) => (
+                  <li key={g.titulo} className={`${CELULA} flex gap-3 !py-4 text-[0.9375rem] leading-relaxed text-texto-secundario`}>
+                    <Icone nome="check" className="mt-1 size-4 shrink-0 text-etapa-atendimento" />
+                    <span>
+                      <span className="font-medium text-texto">{g.titulo}.</span> {g.texto}
+                    </span>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </Trecho>

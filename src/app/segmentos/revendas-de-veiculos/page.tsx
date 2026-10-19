@@ -100,12 +100,12 @@ export default function Pagina() {
             <div className="col-span-12 border-t border-linha pb-12 pt-8 md:pb-16 lg:col-span-4 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-20">
               {/* Curto de propósito: o LCP da página é o H1. */}
               <p className="text-[1.0625rem] leading-relaxed">{h.resumo}</p>
-              <div className="mt-8 flex flex-wrap gap-3">
+              <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-4">
                 <Link href="/diagnostico" className="botao botao-primario" data-evento="cta_click" data-local="hero">
                   {h.chamada.botao}
                   <Icone nome="seta" className="seta size-4" />
                 </Link>
-                <a href="#titulo-pacote" className="botao botao-secundario" data-evento="cta_click" data-local="hero">
+                <a href="#titulo-pacote" className="link-sublinhado inline-flex min-h-11 items-center text-[0.9375rem] font-medium" data-evento="cta_click" data-local="hero">
                   Ver o pacote
                 </a>
               </div>
@@ -115,11 +115,11 @@ export default function Pagina() {
           {/* Os sistemas de gestão numa faixa de células, como as ferramentas da home. */}
           <div className="conteiner conteiner-rota border-b border-linha">
             <div className="flex flex-col py-4 md:flex-row md:items-stretch md:py-0">
-              <p className="rotulo flex items-center text-texto-secundario md:min-h-12 md:border-r md:border-linha md:pr-5">
+              <p className="rotulo flex items-center text-texto-secundario md:min-h-12 md:border-r md:border-linha md:pr-5 xl:max-w-[11rem] xl:shrink-0">
                 {h.sistemas.rotulo}
               </p>
-              <ul className="mt-2 flex flex-wrap gap-x-5 gap-y-1 md:mt-0 md:gap-0">
-                <li className="flex items-center font-mono text-[0.8125rem] font-medium md:min-h-12 md:border-r md:border-linha md:px-5">
+              <ul className="mt-2 flex flex-wrap gap-x-5 gap-y-1 md:mt-0 md:min-w-0 md:flex-1 md:gap-0 xl:flex-nowrap">
+                <li className="flex items-center font-mono text-[0.8125rem] font-medium md:min-h-12 md:border-r md:border-linha md:px-5 xl:px-4">
                   <span>
                     {h.sistemas.emProducao} <span className="text-etapa-atendimento">· em produção</span>
                   </span>
@@ -127,12 +127,12 @@ export default function Pagina() {
                 {h.sistemas.integraveis.map((s) => (
                   <li
                     key={s}
-                    className="flex items-center font-mono text-[0.8125rem] font-medium text-texto-secundario md:min-h-12 md:border-r md:border-linha md:px-5"
+                    className="flex items-center font-mono text-[0.8125rem] font-medium text-texto-secundario md:min-h-12 md:border-r md:border-linha md:px-5 xl:px-4"
                   >
                     {s}
                   </li>
                 ))}
-                <li className="flex items-center font-mono text-[0.8125rem] font-medium text-texto-secundario md:min-h-12 md:px-5">
+                <li className="flex items-center font-mono text-[0.8125rem] font-medium text-texto-secundario md:min-h-12 md:basis-full md:border-t md:border-linha md:px-5 xl:basis-auto xl:border-t-0 xl:px-4">
                   {h.sistemas.outros}
                 </li>
               </ul>

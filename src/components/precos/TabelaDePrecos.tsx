@@ -33,7 +33,10 @@ export function mensalidade(l: LinhaDePreco) {
 }
 
 const degrau = (d: { rotulo: string; valor: number; unidade: string }) =>
-  `${d.rotulo}: ${BRL(d.valor)}${d.unidade.startsWith("/") ? "" : " "}${d.unidade}`;
+  semQuebra(`${d.rotulo}: ${BRL(d.valor)}${d.unidade.startsWith("/") ? "" : " "}${d.unidade}`);
+
+/** "R$" preso ao número: o espaço comum deixava o "R$" sozinho no fim da linha. */
+export const semQuebra = (t: string) => t.replace(/R\$ (?=\d)/g, "R$\u00A0");
 
 /** "Uso do modelo de IA" vira "uso do modelo de IA" no meio da frase; sigla no início ("SMS") fica. */
 const minuscula = (t: string) => (/^[A-Z][a-z]/.test(t) ? t.charAt(0).toLowerCase() + t.slice(1) : t);
@@ -47,7 +50,7 @@ export function Detalhes({ l }: { l: LinhaDePreco }) {
         <p className="flex flex-wrap gap-1.5">
           {l.inclui.map((i) => (
             <span key={i} className="chip chip-ok text-texto-secundario">
-              {i}
+              {semQuebra(i)}
             </span>
           ))}
         </p>
@@ -55,7 +58,7 @@ export function Detalhes({ l }: { l: LinhaDePreco }) {
       {l.bonus ? (
         <p className="flex items-start gap-1.5 text-etapa-atendimento">
           <Icone nome="brilho" className="mt-0.5 size-3.5 shrink-0" />
-          {l.bonus}
+          {semQuebra(l.bonus)}
         </p>
       ) : null}
       {l.degraus ? (
@@ -70,7 +73,7 @@ export function Detalhes({ l }: { l: LinhaDePreco }) {
       ) : null}
       {l.repasses ? (
         <p className="text-texto-secundario">
-          <span className="text-texto/80">Pelo valor real, na mesma fatura:</span> {l.repasses.map(minuscula).join("; ")}.
+          <span className="text-texto/80">Pelo valor real, na mesma fatura:</span> {semQuebra(l.repasses.map(minuscula).join("; "))}.
         </p>
       ) : null}
     </div>
@@ -96,8 +99,8 @@ const CELULA = "border-t border-linha px-5 py-5 first:border-t-0 md:px-6";
 /** Valor da ficha do plano: grande, tabular, com o marca-texto na tinta da etapa do plano. */
 function ValorDoPlano({ valor, sufixo, etapa }: { valor: string; sufixo?: string; etapa: Etapa }) {
   return (
-    <span className="text-[1.75rem] font-semibold leading-none tracking-[-0.03em] tabular-nums">
-      <span className="marca-texto" style={{ "--tinta": TINTA_DA_ETAPA[etapa] } as CSSProperties}>
+    <span className="text-[1.5rem] font-semibold xl:text-[1.75rem] leading-none tracking-[-0.03em] tabular-nums">
+      <span className="marca-texto whitespace-nowrap" style={{ "--tinta": TINTA_DA_ETAPA[etapa] } as CSSProperties}>
         {valor}
       </span>
       {sufixo ? <span className="text-base font-medium tracking-normal text-texto-secundario">{sufixo}</span> : null}
@@ -109,7 +112,7 @@ function ValorDoPlano({ valor, sufixo, etapa }: { valor: string; sufixo?: string
 function PrecoDoPlano({ p, etapa }: { p: Plano; etapa: Etapa }) {
   const emOferta = p.id === "completo";
   return (
-    <dl className="grid grid-cols-2 gap-x-4">
+    <dl className="grid grid-cols-1 gap-y-5 min-[26rem]:grid-cols-2 min-[26rem]:gap-x-4 lg:grid-cols-1 xl:grid-cols-2">
       <div className="grid content-start gap-2">
         <dt className="rotulo text-texto-secundario">Implantação</dt>
         <dd>
@@ -123,7 +126,7 @@ function PrecoDoPlano({ p, etapa }: { p: Plano; etapa: Etapa }) {
         </dd>
         {emOferta ? (
           <dd className="text-sm text-texto-secundario">
-            <s className="tabular-nums">{BRL(p.mensalidade)}</s> até {dataBR(OFERTA_DO_COMPLETO.ate)}
+            <del className="tabular-nums">{semQuebra(BRL(p.mensalidade))}</del> até {dataBR(OFERTA_DO_COMPLETO.ate)}
           </dd>
         ) : null}
       </div>
@@ -166,13 +169,13 @@ export function Planos() {
             </div>
             <div className={CELULA}>
               <h3 className="text-titulo-3">{p.nome}</h3>
-              <p className="mt-3 text-[0.9375rem] leading-relaxed text-texto-secundario">{p.para}</p>
+              <p className="mt-3 text-[0.9375rem] leading-relaxed text-texto-secundario">{semQuebra(p.para)}</p>
             </div>
             <ul className={`${CELULA} grid content-start gap-2.5 text-[0.9375rem] leading-snug`}>
               {p.inclui.map((item) => (
                 <li key={item} className="flex items-start gap-2.5">
                   <Icone nome="check" className="mt-0.5 size-4 shrink-0" />
-                  {item}
+                  {semQuebra(item)}
                 </li>
               ))}
             </ul>
@@ -180,11 +183,11 @@ export function Planos() {
               <PrecoDoPlano p={p} etapa={etapa} />
             </div>
             {p.bonus ? (
-              <p className={`${CELULA} text-[0.9375rem] font-medium leading-relaxed`}>{p.bonus}</p>
+              <p className={`${CELULA} text-[0.9375rem] font-medium leading-relaxed`}>{semQuebra(p.bonus)}</p>
             ) : (
               <div aria-hidden="true" className={`${CELULA} hachura hidden lg:block`} />
             )}
-            <p className={`${CELULA} text-sm leading-relaxed ${completo ? "text-texto" : "text-texto-secundario"}`}>{p.rodape}</p>
+            <p className={`${CELULA} text-sm leading-relaxed ${completo ? "text-texto" : "text-texto-secundario"}`}>{semQuebra(p.rodape)}</p>
             <div className={`${CELULA} flex items-end`}>
               <Link
                 href="/diagnostico"
@@ -212,12 +215,12 @@ function DetalhesDaLinha({ l }: { l: LinhaDePreco }) {
         <ul className="flex flex-wrap gap-2">
           {l.inclui.map((i) => (
             <li key={i} className="rotulo border border-linha px-2 py-1 text-texto-secundario">
-              {i}
+              {semQuebra(i)}
             </li>
           ))}
         </ul>
       ) : null}
-      {l.bonus ? <p className="font-medium text-texto">{l.bonus}</p> : null}
+      {l.bonus ? <p className="font-medium text-texto">{semQuebra(l.bonus)}</p> : null}
       {l.degraus ? (
         <ul className="grid gap-1 tabular-nums text-texto-secundario">
           {l.degraus.map((d) => (
@@ -227,12 +230,20 @@ function DetalhesDaLinha({ l }: { l: LinhaDePreco }) {
       ) : null}
       {l.repasses ? (
         <p className="text-texto-secundario">
-          <span className="text-texto">Pelo valor real, na mesma fatura:</span> {l.repasses.map(minuscula).join("; ")}.
+          <span className="text-texto">Pelo valor real, na mesma fatura:</span> {semQuebra(l.repasses.map(minuscula).join("; "))}.
         </p>
       ) : null}
     </div>
   );
 }
+
+/** Os locais de medição das linhas do cardápio, escritos por extenso para a busca por `data-local` achar. */
+const MEDICAO_DA_LINHA = {
+  trafego: { "data-evento": "cta_click", "data-local": "trafego" },
+  modulos: { "data-evento": "cta_click", "data-local": "modulos" },
+  servicos: { "data-evento": "cta_click", "data-local": "servicos" },
+} as const;
+type LocalDaLinha = keyof typeof MEDICAO_DA_LINHA;
 
 /**
  * Uma linha do cardápio, no padrão `.servico` da home: a célula inteira é o
@@ -246,10 +257,13 @@ function LinhaDoCardapio({
   marca,
   frase,
   preco,
+  local,
   children,
 }: {
   etapa: Etapa;
   href: string;
+  /** Onde o clique é medido (19/10, Dyones: as linhas de /precos contam como CTA). */
+  local?: LocalDaLinha;
   titulo: string;
   /** Nota curta que informa ao lado do título ("com bônus"). */
   marca?: string;
@@ -259,7 +273,11 @@ function LinhaDoCardapio({
 }) {
   return (
     <li className="servico" style={{ "--cor-da-rota": COR_DA_ROTA[etapa] } as CSSProperties}>
-      <Link href={href} className="servico-celula grid grid-cols-12 gap-x-6 gap-y-3 border-b border-linha py-6 md:py-7">
+      <Link
+        href={href}
+        className="servico-celula grid grid-cols-12 gap-x-6 gap-y-3 border-b border-linha py-6 md:py-7"
+        {...(local ? MEDICAO_DA_LINHA[local] : {})}
+      >
         <Parada />
         <div className="col-span-12 md:col-span-7">
           <p className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
@@ -270,7 +288,7 @@ function LinhaDoCardapio({
               </span>
             ) : null}
           </p>
-          <p className="mt-2 max-w-[38rem] text-[0.9375rem] leading-relaxed text-texto-secundario">{frase}</p>
+          <p className="mt-2 max-w-[38rem] text-[0.9375rem] leading-relaxed text-texto-secundario">{semQuebra(frase)}</p>
           {children}
         </div>
         <p className="col-span-10 text-[1.0625rem] font-medium leading-relaxed tabular-nums md:col-span-4 md:pt-0.5">
@@ -285,9 +303,9 @@ function LinhaDoCardapio({
 }
 
 /** Uma linha de preço da tabela no cardápio: nome, preço sem o "a partir de", o que cobre e os detalhes. */
-function LinhaDePrecoNoCardapio({ l, etapa }: { l: LinhaDePreco; etapa: Etapa }) {
+function LinhaDePrecoNoCardapio({ l, etapa, local }: { l: LinhaDePreco; etapa: Etapa; local?: LocalDaLinha }) {
   return (
-    <LinhaDoCardapio etapa={etapa} href={l.href} titulo={l.nome} frase={l.cobre} preco={precoDaLinha(l).replace(/^a partir de /, "")}>
+    <LinhaDoCardapio etapa={etapa} local={local} href={l.href} titulo={l.nome} frase={l.cobre} preco={precoDaLinha(l).replace(/^a partir de /, "")}>
       <DetalhesDaLinha l={l} />
     </LinhaDoCardapio>
   );
@@ -327,6 +345,7 @@ export function Trafego() {
           <LinhaDoCardapio
             key={c.nome}
             etapa="violeta"
+            local="trafego"
             href={google.href}
             titulo={c.nome}
             marca={c.marca}
@@ -372,7 +391,12 @@ export function Modulos({ onde = "precos" }: { onde?: "precos" | "revendas" }) {
   return (
     <ul className="border-t-2 border-texto">
       {linhasDoGrupo("modulo", onde).map((l) => (
-        <LinhaDePrecoNoCardapio key={l.id} l={l} etapa={ETAPA_DA_LINHA[l.id] ?? "azul"} />
+        <LinhaDePrecoNoCardapio
+          key={l.id}
+          l={l}
+          etapa={ETAPA_DA_LINHA[l.id] ?? "azul"}
+          local={onde === "precos" ? "modulos" : undefined}
+        />
       ))}
     </ul>
   );
@@ -383,7 +407,7 @@ export function Servicos() {
   return (
     <ul className="border-t-2 border-texto">
       {linhasDoGrupo("servico").map((l) => (
-        <LinhaDePrecoNoCardapio key={l.id} l={l} etapa={ETAPA_DA_LINHA[l.id] ?? "violeta"} />
+        <LinhaDePrecoNoCardapio key={l.id} l={l} etapa={ETAPA_DA_LINHA[l.id] ?? "violeta"} local="servicos" />
       ))}
     </ul>
   );
@@ -428,8 +452,8 @@ export function OQueCresce() {
           } ${n < 2 ? "sm:border-t-0" : ""} ${n === 2 ? "lg:border-l" : ""} lg:border-t-0`}
         >
           <dt className="text-[0.9375rem] font-semibold tracking-[-0.01em]">{i.titulo}</dt>
-          <dd className="text-[1.5rem] font-semibold leading-tight tracking-[-0.03em] tabular-nums">{i.valor}</dd>
-          <dd className="text-[0.9375rem] leading-relaxed text-texto-secundario">{i.texto}</dd>
+          <dd className="text-[1.5rem] font-semibold leading-tight tracking-[-0.03em] tabular-nums">{semQuebra(i.valor)}</dd>
+          <dd className="text-[0.9375rem] leading-relaxed text-texto-secundario">{semQuebra(i.texto)}</dd>
         </div>
       ))}
     </dl>
@@ -461,7 +485,7 @@ export function ForaDaMensalidade() {
           } ${n < 2 ? "sm:border-t-0" : ""} ${n === 2 ? "lg:border-l" : ""} lg:border-t-0`}
         >
           <p className="text-[0.9375rem] font-semibold tracking-[-0.01em]">{titulo}</p>
-          <p className="text-[0.9375rem] leading-relaxed text-texto-secundario">{texto}</p>
+          <p className="text-[0.9375rem] leading-relaxed text-texto-secundario">{semQuebra(texto)}</p>
         </li>
       ))}
     </ul>

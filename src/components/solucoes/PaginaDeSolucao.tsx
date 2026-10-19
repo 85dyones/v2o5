@@ -234,10 +234,13 @@ function ComoFunciona({ s }: { s: Solucao }) {
 /**
  * O que roda na Motors Store, com os números do case num mosaico parado
  * (da CROX, como na home): o primeiro na célula de tinta, o segundo no
- * papel, a sobra em hachura. Fonte e período logo embaixo.
+ * papel, a sobra em hachura. Fonte e período logo embaixo; com um número
+ * só, fonte e botão ocupam a célula ao lado.
  */
 function NaMotors({ m, etapa }: { m: NonNullable<Solucao["naMotors"]>; etapa: Etapa }) {
-  const colunas = m.numeros.length > 1 ? "md:grid-cols-[1.3fr_1fr_0.55fr]" : "md:grid-cols-[1.3fr_1fr]";
+  const sozinho = m.numeros.length === 1;
+  const colunas = sozinho ? "md:grid-cols-[1.3fr_1fr]" : "md:grid-cols-[1.3fr_1fr_0.55fr]";
+  const celulas = <CelulasDoCase numeros={m.numeros} />;
   return (
     <Trecho aria-label="Case" etapa={etapa}>
       <div className="relative grid grid-cols-12 gap-x-6 gap-y-6">
@@ -248,31 +251,57 @@ function NaMotors({ m, etapa }: { m: NonNullable<Solucao["naMotors"]>; etapa: Et
         <p className="texto-guia col-span-12 lg:col-span-5 lg:pt-2">{m.texto}</p>
       </div>
 
-      <dl className={`mt-12 grid grid-cols-1 border-2 border-texto md:mt-14 ${colunas}`}>
-        {m.numeros.map((n, i) => (
-          <div
-            key={n.texto}
-            className={`flex min-h-44 flex-col justify-between gap-6 p-6 md:min-h-56 md:p-7 ${
-              i === 0 ? "bg-texto text-fundo" : "border-t border-linha md:border-l md:border-t-0"
-            }`}
-          >
-            <dt className={`order-2 max-w-[20rem] text-[0.9375rem] leading-relaxed ${i === 0 ? "text-faixa-escura-secundario" : "text-texto-secundario"}`}>
-              {n.texto}
-            </dt>
-            <dd className="order-1 flex items-baseline gap-3">
-              <span className="numero-grande">{n.valor}</span>
-              {n.complemento ? <span className="text-xl font-medium tracking-[-0.02em] opacity-75">{n.complemento}</span> : null}
-            </dd>
+      {sozinho ? (
+        // Um número só: a sobra vira a célula da fonte e do botão, em vez de
+        // ~43% de hachura vazia. O wrapper existe porque a célula não é dt/dd.
+        <div className={`mt-12 grid grid-cols-1 border-2 border-texto md:mt-14 ${colunas}`}>
+          {/* grid para a célula de tinta esticar até a altura da linha */}
+          <dl className="grid">{celulas}</dl>
+          <div className="flex flex-col justify-between gap-6 border-t border-linha p-6 md:border-l md:border-t-0 md:p-7">
+            <p className="text-sm text-texto-secundario">{CASE.fonte}</p>
+            <Link href="/cases/motors-store" className="botao botao-secundario self-start" data-evento="cta_click" data-local="na-motors">
+              Ler o case completo
+              <Icone nome="seta" className="seta size-4" />
+            </Link>
           </div>
-        ))}
-        <div aria-hidden="true" className="hachura hidden border-l border-linha md:block" />
-      </dl>
-      <p className="mt-4 text-sm text-texto-secundario">{CASE.fonte}</p>
-      <Link href="/cases/motors-store" className="botao botao-secundario mt-8" data-evento="cta_click" data-local="na-motors">
-        Ler o case completo
-        <Icone nome="seta" className="seta size-4" />
-      </Link>
+        </div>
+      ) : (
+        <>
+          <dl className={`mt-12 grid grid-cols-1 border-2 border-texto md:mt-14 ${colunas}`}>
+            {celulas}
+            <div aria-hidden="true" className="hachura hidden border-l border-linha md:block" />
+          </dl>
+          <p className="mt-4 text-sm text-texto-secundario">{CASE.fonte}</p>
+          <Link href="/cases/motors-store" className="botao botao-secundario mt-8" data-evento="cta_click" data-local="na-motors">
+            Ler o case completo
+            <Icone nome="seta" className="seta size-4" />
+          </Link>
+        </>
+      )}
     </Trecho>
+  );
+}
+
+function CelulasDoCase({ numeros }: { numeros: NonNullable<Solucao["naMotors"]>["numeros"] }) {
+  return (
+    <>
+      {numeros.map((n, i) => (
+        <div
+          key={n.texto}
+          className={`flex min-h-44 flex-col justify-between gap-6 p-6 md:min-h-56 md:p-7 ${
+            i === 0 ? "bg-texto text-fundo" : "border-t border-linha md:border-l md:border-t-0"
+          }`}
+        >
+          <dt className={`order-2 max-w-[20rem] text-[0.9375rem] leading-relaxed ${i === 0 ? "text-faixa-escura-secundario" : "text-texto-secundario"}`}>
+            {n.texto}
+          </dt>
+          <dd className="order-1 flex items-baseline gap-3">
+            <span className="numero-grande">{n.valor}</span>
+            {n.complemento ? <span className="text-xl font-medium tracking-[-0.02em] opacity-75">{n.complemento}</span> : null}
+          </dd>
+        </div>
+      ))}
+    </>
   );
 }
 

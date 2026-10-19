@@ -193,7 +193,7 @@ Os CTAs e os links de WhatsApp e e-mail não têm JavaScript próprio: levam `da
 | `/gestao-de-trafego` | · | · | · |
 | `/segmentos/revendas-de-veiculos` | `hero`, `pacote`, `case`, `chamada` | `fotografia`, `botao-fixo` | · |
 | `/cases/motors-store` | `chamada` | · | · |
-| `/precos` | `hero`, `planos`, `garantias`, `fechamento` | `fotografia`, `botao-fixo` | · |
+| `/precos` | `hero`, `planos`, `garantias`, `fechamento`; novos no redesign (19/10, Dyones): `trafego`, `modulos`, `servicos` (as linhas do cardápio; o rótulo é o começo do texto da linha, que abre com o título) | `fotografia`, `botao-fixo` | · |
 | `/sobre` | `hero`, `chamada` | `empresa`, `botao-fixo` | `empresa` |
 | `/diagnostico` | · | `diagnostico` | `diagnostico` |
 | `/diagnostico/recebido` | · | `recebido` | · |

@@ -8,6 +8,12 @@ import type { Etapa } from "@/lib/tokens";
  * etapa liga as paradas com um fio fino neutro.
  */
 
+/**
+ * Espaço sem quebra entre "R$" e o número: o preço no marca-texto não pode
+ * partir a moeda do valor. Só na tela; BRL e as regex seguem com espaço comum.
+ */
+const semQuebraNaMoeda = (t: string) => t.replace(/R\$ (?=\d)/g, "R$\u00A0");
+
 /** A cor de cada etapa na rota. A venda é o âmbar da ação. */
 export const COR_DA_ROTA: Record<Etapa, string> = {
   violeta: "var(--color-etapa-atracao)",
@@ -96,14 +102,14 @@ export function ComMarcas({ texto, marcas, etapa = "ambar" }: { texto: string; m
       .filter((a) => a.i >= 0)
       .sort((a, b) => a.i - b.i);
     if (!achados.length) {
-      partes.push(resto);
+      partes.push(semQuebraNaMoeda(resto));
       break;
     }
     const { m, i } = achados[0];
-    if (i > 0) partes.push(resto.slice(0, i));
+    if (i > 0) partes.push(semQuebraNaMoeda(resto.slice(0, i)));
     partes.push(
       <span key={chave++} className="marca-texto" style={{ "--tinta": TINTA_DA_ETAPA[etapa] } as CSSProperties}>
-        {m}
+        {semQuebraNaMoeda(m)}
       </span>,
     );
     resto = resto.slice(i + m.length);

@@ -2,6 +2,11 @@
 
 Log datado. Decisão nova entra no topo do dia; decisão revogada fica riscada com a data da troca.
 
+## 19/10/2026 (perguntas dos clones do redesign, pelo Dyones: "faça isso", "crie os eventos", "siga sua recomendação")
+- `/sobre`: a ficha do fundador ganha a célula "Na informática · Desde 1992", com o dado do texto corrido (entrou em `content/sobre.md`).
+- `/precos`: as linhas do cardápio clicáveis medem `cta_click` com `data-local` `trafego`, `modulos` e `servicos` (novos na tabela de `design/nao-pode-quebrar.md`).
+- Ficam como os clones fizeram: título de `/diagnostico` um tamanho abaixo para o formulário começar na primeira tela; uma única maquete nas páginas de solução, no `/crm-com-whatsapp`; "Ver o preço" e "Conhecer o fundador" como link sublinhado.
+
 ## 19/10/2026 (direção do redesign, pelo Dyones: "gosto da B", "ainda me parece muito cru" com a ITSUA como exemplo, mais referências do Awwwards, "aprovado, pode começar a fundação da home")
 - Direção B, o mapa de linhas: as peças do sistema (Site, WhatsApp, Agente de IA, n8n, CRM, Rastreamento, Venda) são estações; a linha das etapas sai do mapa da abertura e desce pela margem esquerda da página até o botão do fecho, em âmbar. Acabamento de ficha técnica (ITSUA, CROX, Crosswalk): células em fio, fio de 2 px em tinta, grade de 12 colunas em fio claro, marca-texto nas tintas das etapas, números em mosaico, raio zero e nenhuma sombra. Contrato em `.bunshin/direction.md`; página aprovada em https://claude.ai/artifact/Fyk4Vo4KBL6NrdCeUUTnJ7 (versão 3).
 - Botão principal em dois blocos: a seta no bloco âmbar e o texto no bloco de tinta. Quatro tintas claras das cores da marca para o marca-texto (`design/DESIGN.md`).

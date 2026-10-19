@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import Link from "next/link";
 import JsonLd from "@/components/JsonLd";
 import Icone from "@/components/Icone";
@@ -22,6 +23,16 @@ const SAIDAS = [
   { href: "/", texto: "Voltar para a página inicial" },
 ];
 
+/** "e-mail" não parte no hífen: a palavra vai inteira num span sem quebra. */
+function SemQuebraNoHifen({ texto }: { texto: string }) {
+  return texto.split("e-mail").map((pedaco, i) => (
+    <Fragment key={i}>
+      {i > 0 ? <span className="whitespace-nowrap">e-mail</span> : null}
+      {pedaco}
+    </Fragment>
+  ));
+}
+
 /**
  * Depois do envio: o que acontece agora. Fora do índice (`pronta: false`).
  * O contato chegou, então a rota é verde (atendimento) e termina na parada
@@ -34,45 +45,56 @@ export default function Pagina() {
     <>
       <Topo />
       <main id="conteudo" className="min-h-[60vh]">
-        <Trecho etapa="verde" aria-label="Pedido enviado" adiada={false} className="!border-b-0" miolo="grid grid-cols-12">
-          <div className="col-span-12 lg:col-span-8">
+        <Trecho
+          etapa="verde"
+          aria-label="Pedido enviado"
+          adiada={false}
+          className="!border-b-0"
+          miolo="rota-ate-a-parada grid grid-cols-12"
+        >
+          {/* Abertura como nas outras rotas: título à esquerda, texto em fio ao lado. */}
+          <div className="col-span-12 pb-8 lg:col-span-8 lg:pb-0 lg:pr-12">
             <div className="relative">
               <Parada />
               <h1 className="titulo-secao max-w-[20ch]">{r.titulo}</h1>
             </div>
-            <p className="texto-guia mt-6 max-w-[36rem]">{r.texto}</p>
+          </div>
+          <div className="col-span-12 border-t border-linha pt-6 lg:col-span-4 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-2">
+            <p className="text-[1.0625rem] leading-relaxed">
+              <SemQuebraNoHifen texto={r.texto} />
+            </p>
+          </div>
 
-            <div className="mt-12 border-y-2 border-texto bg-fundo">
-              <p className="rotulo border-b border-linha px-6 py-4 text-texto-secundario">{r.enquantoIsso}</p>
-              <ul className="grid gap-px bg-linha sm:grid-cols-2">
-                {/* A parada final desce até o meio do botão: 1,5rem de respiro mais 0,6875rem. */}
-                <li className="relative bg-fundo p-6 [&>.parada]:top-[2.1875rem]">
-                  <Parada final />
-                  <a
-                    href={linkWhatsApp(WHATSAPP.mensagens.recebido)}
-                    target="_blank"
-                    rel="noopener"
-                    className="botao botao-primario"
-                    data-evento="click_whatsapp"
-                    data-local="recebido"
+          <div className="col-span-12 mt-12 border-y-2 border-texto bg-fundo">
+            <p className="rotulo border-b border-linha px-6 py-4 text-texto-secundario">{r.enquantoIsso}</p>
+            <ul className="grid gap-px bg-linha sm:grid-cols-2 lg:grid-cols-4">
+              {/* A parada final desce até o meio do botão: 1,5rem de respiro mais 0,6875rem. */}
+              <li className="relative bg-fundo p-6 [&>.parada]:top-[2.1875rem]">
+                <Parada final />
+                <a
+                  href={linkWhatsApp(WHATSAPP.mensagens.recebido)}
+                  target="_blank"
+                  rel="noopener"
+                  className="botao botao-primario"
+                  data-evento="click_whatsapp"
+                  data-local="recebido"
+                >
+                  Adiantar pelo WhatsApp
+                  <Icone nome="seta" className="seta size-4" />
+                </a>
+              </li>
+              {SAIDAS.map((s) => (
+                <li key={s.href} className="bg-fundo">
+                  <Link
+                    href={s.href}
+                    className="servico-celula flex min-h-24 items-center justify-between gap-4 px-6 text-[0.9375rem] font-semibold tracking-[-0.01em]"
                   >
-                    Adiantar pelo WhatsApp
-                    <Icone nome="seta" className="seta size-4" />
-                  </a>
+                    {s.texto}
+                    <Icone nome="seta" className="servico-seta size-4 shrink-0 text-texto-secundario" />
+                  </Link>
                 </li>
-                {SAIDAS.map((s) => (
-                  <li key={s.href} className="bg-fundo">
-                    <Link
-                      href={s.href}
-                      className="servico-celula flex min-h-24 items-center justify-between gap-4 px-6 text-[0.9375rem] font-semibold tracking-[-0.01em]"
-                    >
-                      {s.texto}
-                      <Icone nome="seta" className="servico-seta size-4 shrink-0 text-texto-secundario" />
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
+              ))}
+            </ul>
           </div>
         </Trecho>
       </main>

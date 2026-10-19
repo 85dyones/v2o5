@@ -88,10 +88,10 @@ export default function Pagina() {
                 <p className="rotulo mt-2 text-texto-secundario">{s.fundador.papel}</p>
               </div>
               <dl className="grid sm:grid-cols-2">
-                {s.fundador.fatos.map((f, i) => (
+                {s.fundador.fatos.map((f, i, arr) => (
                   <div
                     key={f.rotulo}
-                    className={`grid content-start gap-2 border-linha p-6 ${i > 0 ? "border-t" : ""} ${i % 2 ? "sm:border-l" : ""} ${i === 1 ? "sm:border-t-0" : ""}`}
+                    className={`grid content-start gap-2 border-linha p-6 ${i > 0 ? "border-t" : ""} ${i % 2 ? "sm:border-l" : ""} ${i === 1 ? "sm:border-t-0" : ""} ${i === arr.length - 1 && i % 2 === 0 ? "sm:col-span-2" : ""}`}
                   >
                     <dt className="rotulo text-texto-secundario">{f.rotulo}</dt>
                     <dd className="text-[0.9375rem] leading-snug">{f.valor}</dd>
@@ -151,7 +151,7 @@ export default function Pagina() {
                 ))}
               </p>
             </div>
-            <div className="col-span-12 flex flex-col items-start justify-end gap-6 border-t border-linha pt-8 lg:col-span-5 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0">
+            <div className="col-span-12 flex flex-col items-start justify-start gap-6 border-t border-linha pt-8 lg:col-span-5 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-2">
               <Simbolo className="h-24 w-auto text-texto md:h-28" />
               <p className="text-[1.5rem] font-semibold leading-tight tracking-[-0.03em]">
                 {s.nome.assinatura.replace(/ IA$/, " ")}

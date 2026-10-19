@@ -65,12 +65,12 @@ export default function Pagina() {
           {/* Mosaico como o da home: o total na célula de tinta, os outros no
               papel, a sobra em hachura. O fio entre células é o fundo que
               aparece no `gap-px`, então vale em qualquer número de colunas. */}
-          <dl className="mt-12 grid grid-cols-2 gap-px border-2 border-texto bg-linha md:mt-14 lg:grid-cols-4">
+          <dl className="mt-12 grid grid-cols-1 gap-px sm:grid-cols-2 border-2 border-texto bg-linha md:mt-14 lg:grid-cols-4">
             {c.numeros.itens.map((n, i) => (
               <div
                 key={n.texto}
-                className={`flex min-h-44 flex-col justify-between gap-6 p-6 md:min-h-56 md:p-7 ${
-                  i === 0 ? "col-span-2 bg-texto text-fundo" : "bg-fundo"
+                className={`flex min-h-44 flex-col justify-start gap-6 p-6 sm:justify-between md:min-h-56 md:p-7 ${
+                  i === 0 ? "sm:col-span-2 bg-texto text-fundo" : "bg-fundo"
                 }`}
               >
                 <dt
@@ -86,7 +86,7 @@ export default function Pagina() {
                 </dd>
               </div>
             ))}
-            <div aria-hidden="true" className="hachura bg-fundo" />
+            <div aria-hidden="true" className="hachura hidden bg-fundo sm:block" />
           </dl>
           <p className="mt-4 text-sm text-texto-secundario">{c.numeros.fonte}</p>
         </Trecho>
@@ -197,7 +197,7 @@ function Abertura() {
           </div>
           <p className="texto-guia mt-7 max-w-[38rem]">{c.resumo}</p>
         </div>
-        <div className="col-span-12 flex flex-col gap-5 border-t border-linha pb-12 pt-8 md:pb-16 lg:col-span-4 lg:justify-end lg:border-l lg:border-t-0 lg:pl-8 lg:pt-20">
+        <div className="col-span-12 flex flex-col gap-5 border-t border-linha pb-12 pt-8 md:pb-16 lg:col-span-4 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-20">
           <MarcaMotors className="h-9 w-auto max-w-full self-start text-texto" />
           <p className="text-[0.9375rem] leading-relaxed text-texto-secundario">
             {ramo} em {c.cliente.cidade}/{c.cliente.estado}.

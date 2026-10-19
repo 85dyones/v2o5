@@ -33,13 +33,15 @@ function Funil() {
           className={`flex min-w-0 flex-col ${i > 0 ? "border-l border-linha" : ""}`}
           style={{ "--cor": COR_DA_ROTA[c.etapa as Etapa] } as CSSProperties}
         >
-          <p className="flex items-center gap-2 border-b border-linha px-3 py-2.5 font-medium">
+          {/* Em 390 a coluna fica estreita: o trilho do grid trava em minmax(0,1fr)
+              para o truncate agir em vez de o cartão passar por cima do fio. */}
+          <p className="flex min-w-0 items-center gap-2 border-b border-linha px-2 py-2.5 text-[0.75rem] font-medium sm:px-3 sm:text-[0.8125rem]">
             <span className="size-2 shrink-0 bg-(--cor)" />
-            {c.coluna}
+            <span className="truncate">{c.coluna}</span>
           </p>
-          <ul className="grid content-start gap-2 p-2 sm:p-3">
+          <ul className="grid grid-cols-[minmax(0,1fr)] content-start gap-2 p-2 sm:p-3">
             {c.cartoes.map(([carro, origem]) => (
-              <li key={carro} className="border border-linha bg-fundo-cartao px-2.5 py-2">
+              <li key={carro} className="min-w-0 border border-linha bg-fundo-cartao px-2.5 py-2">
                 <p className="truncate font-semibold leading-tight">{carro}</p>
                 <p className="rotulo mt-1 truncate text-texto-secundario">{origem}</p>
               </li>

@@ -83,12 +83,12 @@ export default function Pagina() {
                 Todo valor é a partir de, e o preço final sai do diagnóstico gratuito. Hospedagem, manutenção e suporte
                 estão dentro da mensalidade.
               </p>
-              <div className="mt-8 flex flex-wrap gap-3">
+              <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-4">
                 <Link href="/diagnostico" className="botao botao-primario" data-evento="cta_click" data-local="hero">
                   Pedir diagnóstico gratuito
                   <Icone nome="seta" className="seta size-4" />
                 </Link>
-                <a href="#perguntas" className="botao botao-secundario" data-evento="cta_click" data-local="hero">
+                <a href="#perguntas" className="link-sublinhado text-[0.9375rem] font-medium" data-evento="cta_click" data-local="hero">
                   Ver as perguntas
                 </a>
               </div>
@@ -97,7 +97,7 @@ export default function Pagina() {
         </section>
 
         {/* Os planos logo abaixo da dobra: a primeira coisa que quem chega quer ver. Sem `adiada`. */}
-        <Trecho aria-labelledby="titulo-planos" etapa="violeta" etapaFim="azul" adiada={false}>
+        <Trecho aria-labelledby="titulo-planos" etapa="violeta" adiada={false}>
           <h2 id="titulo-planos" className="sr-only">
             Planos
           </h2>

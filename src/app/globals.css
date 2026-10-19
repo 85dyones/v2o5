@@ -167,6 +167,11 @@
     outline-offset: 3px;
   }
 
+  /* Na faixa escura o âmbar de texto some (2,99:1); o âmbar da ação passa de 3:1. */
+  .bg-faixa-escura :focus-visible {
+    outline-color: var(--color-acao);
+  }
+
   ::selection {
     background-color: var(--color-acao);
     color: var(--color-texto);
@@ -791,6 +796,28 @@
     transform-origin: center top;
   }
 
+  /* Trecho fora do fecho cuja rota termina numa parada final (o envio do
+     diagnóstico): a linha da margem some e sobe da parada, como no fecho. */
+  .trecho > .rota-ate-a-parada::before {
+    display: none;
+  }
+
+  .rota-ate-a-parada .parada-final::before {
+    content: "";
+    position: absolute;
+    left: calc(50% - 4px);
+    bottom: calc(100% + 4px);
+    width: 8px;
+    height: 200vh;
+    background-color: var(--cor-da-rota);
+    transform-origin: center top;
+  }
+
+  /* A linha alta sobe só até o topo do próprio trecho. */
+  .trecho:has(> .rota-ate-a-parada) {
+    overflow: clip;
+  }
+
   /* ---------------------------------------------------------------------
      Linha do cardápio (soluções): pinta o trecho da rota na cor da etapa do
      serviço e leva a parada dele. No hover, a célula ganha o fundo do
@@ -962,6 +989,13 @@
   .opcao:has(input:checked) {
     background-color: var(--color-tinta-ambar);
     box-shadow: inset 0 0 0 2px var(--color-acao-borda);
+  }
+
+  /* Como os outros controles, a opção reage ao ponteiro. */
+  @media (hover: hover) and (pointer: fine) {
+    .opcao:hover:not(:has(input:checked)) {
+      box-shadow: inset 0 0 0 1px var(--color-texto);
+    }
   }
 
   .opcao:has(input:focus-visible) {

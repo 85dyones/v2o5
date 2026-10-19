@@ -21,6 +21,9 @@ import {
  * `components/precos/TabelaDePrecos.tsx`. O rótulo "Plano Completo", que
  * ficava acima do título, virou o nome do grupo (decisão de 19/10).
  */
+/** Valor em real que não parte entre "R$" e o número no texto corrido (mesma regra do ComMarcas). */
+const semQuebra = (t: string) => t.replace(/R\$ (?=\d)/g, "R$\u00A0");
+
 export function CompletoParaRevendas() {
   const p = plano("completo");
   const separados = somaDosPlanosSeparados();
@@ -34,37 +37,37 @@ export function CompletoParaRevendas() {
         <h3 className="text-titulo-3 max-w-[24ch]">O sistema da Motors Store na sua loja.</h3>
         <p className="mt-5 max-w-[36rem] text-[0.9375rem] leading-relaxed text-texto-secundario">
           Site de estoque integrado ao sistema da loja, agente de IA no WhatsApp, CRM com {USUARIOS_NO_CRM} usuários,
-          rastreamento até a venda e um fluxo de automação. Presença e Atendimento separados somam {BRL(separados.implantacao)}{" "}
-          de implantação e {BRL(separados.mensalidade)} por mês.
+          rastreamento até a venda e um fluxo de automação. Presença e Atendimento separados somam {semQuebra(BRL(separados.implantacao))}{" "}
+          de implantação e {semQuebra(BRL(separados.mensalidade))} por mês.
         </p>
 
         {/* Os dois valores que decidem, grandes e no marca-texto, em células de fio. */}
-        <dl className="mt-8 grid grid-cols-2 border-y border-linha">
+        <dl className="mt-8 grid grid-cols-1 border-y border-linha sm:grid-cols-2">
           <div className="py-5 pr-4 md:py-6 md:pr-6">
             <dt className="rotulo text-texto-secundario">Implantação a partir de</dt>
             <dd className="mt-3 text-titulo-2 tabular-nums">
               <ComMarcas texto={implantacao} marcas={[implantacao]} />
             </dd>
           </div>
-          <div className="border-l border-linha py-5 pl-4 md:py-6 md:pl-6">
+          <div className="border-t border-linha py-5 sm:border-l sm:border-t-0 sm:pl-4 md:py-6 md:pl-6">
             <dt className="rotulo text-texto-secundario">Mensalidade a partir de</dt>
             <dd className="mt-3 text-titulo-2 tabular-nums">
               <ComMarcas texto={mensalidade} marcas={[mensalidade]} />
             </dd>
             <dd className="mt-2 text-sm text-texto-secundario">
-              <s className="tabular-nums">{BRL(p.mensalidade)}</s> até {dataBR(OFERTA_DO_COMPLETO.ate)}
+              <del className="tabular-nums">{semQuebra(BRL(p.mensalidade))}</del> até {dataBR(OFERTA_DO_COMPLETO.ate)}
             </dd>
           </div>
         </dl>
 
         {p.bonus ? (
           <p className="mt-6 text-[0.9375rem] font-medium leading-relaxed">
-            <ComMarcas texto={p.bonus} marcas={["Bônus de fechamento"]} etapa="verde" />
+            <ComMarcas texto={p.bonus} marcas={["Bônus de fechamento:"]} etapa="verde" />
           </p>
         ) : null}
         <p className="mt-3 max-w-[36rem] text-[0.9375rem] leading-relaxed text-texto-secundario">
-          Com Google Ads e Meta Ads: {BRL(mensalidadeDoCompletoComTrafego())} por mês mais a verba, com o feed de catálogo
-          incluso. Usuário extra {BRL(DEGRAUS.usuarioExtra)} por mês.
+          Com Google Ads e Meta Ads: {semQuebra(BRL(mensalidadeDoCompletoComTrafego()))} por mês mais a verba, com o feed de catálogo
+          incluso. Usuário extra {semQuebra(BRL(DEGRAUS.usuarioExtra))} por mês.
         </p>
         <Link href="/precos" className="botao botao-secundario mt-8" data-evento="cta_click" data-local="pacote">
           Ver todos os planos

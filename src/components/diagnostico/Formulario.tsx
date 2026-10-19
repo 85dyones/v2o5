@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useId, useState, type FormEvent } from "react";
+import { Fragment, useId, useState, type FormEvent } from "react";
+import { flushSync } from "react-dom";
 import Icone from "@/components/Icone";
 import { Parada } from "@/components/rota/Rota";
 import { DIAGNOSTICO, ESTOQUES, OBJETIVOS, PORTES, SEGMENTOS, SISTEMAS } from "@/conteudo/diagnostico";
@@ -52,6 +53,33 @@ function Campo({
 const FORM_ID = "diagnostico";
 
 /**
+ * Foca o primeiro campo com erro na ordem da tela (a do DOM), e não na das
+ * chaves de `lib/leads.ts`. As caixas dos objetivos se chamam `objetivo`,
+ * mas o erro delas vem na chave `objetivos`.
+ */
+function focarPrimeiroErro(form: HTMLFormElement, erros: Erros) {
+  const campos = form.querySelectorAll<HTMLElement>("[name]");
+  for (const el of campos) {
+    const nome = el.getAttribute("name");
+    const chave = (nome === "objetivo" ? "objetivos" : nome) as keyof Lead;
+    if (erros[chave]) {
+      el.focus();
+      return;
+    }
+  }
+}
+
+/** "e-mail" não parte no hífen: a palavra vai inteira num span sem quebra. */
+function SemQuebraNoHifen({ texto }: { texto: string }) {
+  return texto.split("e-mail").map((pedaco, i) => (
+    <Fragment key={i}>
+      {i > 0 ? <span className="whitespace-nowrap">e-mail</span> : null}
+      {pedaco}
+    </Fragment>
+  ));
+}
+
+/**
  * O pedido de diagnóstico, numa ficha em células. Valida no navegador com as
  * mesmas regras da API (`lib/leads.ts`), manda a origem da visita junto e,
  * no sucesso, vai para `/diagnostico/recebido`. O campo `site` é a
@@ -95,9 +123,9 @@ export default function Formulario() {
 
     const validacao = validarLead(dados);
     if (!validacao.ok) {
-      setErros(validacao.erros);
-      const primeiro = Object.keys(validacao.erros)[0];
-      form.querySelector<HTMLElement>(`[name="${primeiro}"]`)?.focus();
+      // flushSync: o aria-invalid e a mensagem entram antes do foco, e o leitor de tela lê os dois.
+      flushSync(() => setErros(validacao.erros));
+      focarPrimeiroErro(form, validacao.erros);
       return;
     }
     setErros({});
@@ -115,7 +143,11 @@ export default function Formulario() {
         return;
       }
       const corpo = (await resposta.json().catch(() => ({}))) as { erros?: Erros; erro?: string };
-      if (corpo.erros) setErros(corpo.erros);
+      if (corpo.erros) {
+        const errosDoServidor = corpo.erros;
+        flushSync(() => setErros(errosDoServidor));
+        focarPrimeiroErro(form, errosDoServidor);
+      }
       setEstado(corpo.erro === "canal" ? "canal" : "erro");
     } catch {
       setEstado("erro");
@@ -250,11 +282,14 @@ export default function Formulario() {
       ) : null}
 
       <div className={`${CELULA} sm:col-span-2`}>
-        <fieldset>
+        <fieldset
+          aria-invalid={erros.objetivos ? true : undefined}
+          aria-describedby={erros.objetivos ? campo("objetivos-erro") : undefined}
+        >
           <legend className="rotulo-do-campo">O que você quer resolver primeiro</legend>
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap gap-2.5">
             {OBJETIVOS.map((o) => (
-              <label key={o.valor} className="opcao">
+              <label key={o.valor} className="opcao w-full py-2.5 leading-snug sm:w-auto">
                 <input
                   type="checkbox"
                   name="objetivo"
@@ -267,7 +302,11 @@ export default function Formulario() {
               </label>
             ))}
           </div>
-          {erros.objetivos ? <p className="mt-1.5 text-sm text-erro">{erros.objetivos}</p> : null}
+          {erros.objetivos ? (
+            <p id={campo("objetivos-erro")} className="mt-1.5 text-sm text-erro">
+              {erros.objetivos}
+            </p>
+          ) : null}
         </fieldset>
       </div>
 
@@ -299,7 +338,7 @@ export default function Formulario() {
           <Icone nome="seta" className="seta size-4" />
         </button>
         <p className="text-sm leading-snug text-texto-secundario">
-          {f.consentimento}{" "}
+          <SemQuebraNoHifen texto={f.consentimento} />{" "}
           <Link href="/privacidade" className="link-sublinhado">
             Como tratamos os dados
           </Link>

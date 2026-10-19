@@ -31,6 +31,10 @@ Formação
 
 Administração de Empresas, FAE Business School
 
+Na informática <!-- 19/10 (Dyones): célula nova na ficha do fundador, com o dado do texto corrido -->
+
+Desde 1992
+
 Marca
 
 Rebranding da Top Imóveis para Top Soluções Imobiliárias

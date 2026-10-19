@@ -28,6 +28,8 @@ export const SOBRE = {
       "Até os sete anos o mundo dele era de livros. Em 1992, um concurso da escola rendeu um curso de informática, e os computadores 386 e os disquetes viraram o começo de tudo.",
     fatos: [
       { rotulo: "Formação", valor: `Administração de Empresas, ${VISAO_360.fundador.escola}` },
+      // 19/10 (Dyones): o ano sai do texto corrido para a ficha, com as mesmas palavras.
+      { rotulo: "Na informática", valor: "Desde 1992" },
       { rotulo: "Marca", valor: "Rebranding da Top Imóveis para Top Soluções Imobiliárias" },
       { rotulo: "Conteúdo", valor: "Assina os 26 guias do site da Motors Store" },
       { rotulo: "Na V2O5", valor: "Conduz o diagnóstico gratuito e a implantação de cada projeto" },
