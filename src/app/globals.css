@@ -421,6 +421,16 @@
     background-color: var(--color-texto);
     color: var(--color-faixa-escura-texto);
     box-shadow: inset 0 0 0 1px var(--color-texto);
+    transition:
+      opacity var(--duracao-curta) var(--curva-saida),
+      translate var(--duracao-curta) var(--curva-saida);
+  }
+
+  /* Enquanto o botão principal da abertura está na tela (EsconderNaAbertura). */
+  .botao-whatsapp[data-escondido] {
+    opacity: 0;
+    translate: 0 0.5rem;
+    pointer-events: none;
   }
 
   .botao-primario:has(.seta) {

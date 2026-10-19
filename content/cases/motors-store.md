@@ -37,6 +37,11 @@ banco de dados da Motors, lido em 08/10/2026
 
 Cada peça é uma linha do cardápio da V2O5, ligada às outras pela mesma base de dados.
 
+<!-- 19/10 (Dyones): telas reais do site da Motors, capturadas no celular; no celular só a primeira aparece -->
+[imagem] motorsstore.com.br, capturado em 19/10/2026
+[imagem] motorsstore.com.br/estoque, capturado em 19/10/2026
+[imagem] motorsstore.com.br/carros/volkswagen/t-cross, capturado em 19/10/2026
+
 Sites e presença
 
 ### Site de estoque em Next.js

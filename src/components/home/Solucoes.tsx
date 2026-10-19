@@ -1,5 +1,5 @@
 import type { CSSProperties } from "react";
-import Link from "next/link";
+import LinkOuAncora from "@/components/LinkOuAncora";
 import { COR_DA_ROTA, ComMarcas, Parada, TEXTO_DA_ETAPA, Trecho } from "@/components/rota/Rota";
 import { NOME_DA_ETAPA, PILARES, SOLUCOES, type Servico } from "@/conteudo/home";
 import type { Etapa } from "@/lib/tokens";
@@ -27,7 +27,7 @@ function LinhaDoServico({ servico }: { servico: Servico }) {
   const estilo = { "--cor-da-rota": COR_DA_ROTA[servico.etapa] } as CSSProperties;
   return (
     <li className="servico" style={estilo}>
-      <Link href={servico.href} className="servico-celula grid grid-cols-12 gap-x-6 gap-y-3 border-b border-linha py-6 md:py-7">
+      <LinkOuAncora href={servico.href} className="servico-celula grid grid-cols-12 gap-x-6 gap-y-3 border-b border-linha py-6 md:py-7">
         <Parada />
         <span className="col-span-12 md:col-span-7">
           <MarcaDeEtapa etapa={servico.etapa} />
@@ -40,7 +40,7 @@ function LinhaDoServico({ servico }: { servico: Servico }) {
         <span aria-hidden="true" className="servico-seta col-span-2 self-center justify-self-end text-lg md:col-span-1">
           →
         </span>
-      </Link>
+      </LinkOuAncora>
     </li>
   );
 }

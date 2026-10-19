@@ -7,6 +7,7 @@ import Entradas from "@/components/layout/Entradas";
 import Topo from "@/components/layout/Topo";
 import Rodape from "@/components/layout/Rodape";
 import MarcaMotors from "@/components/marca/MarcaMotors";
+import CapturasDaMotors from "@/components/case/CapturasDaMotors";
 import Simbolo from "@/components/marca/Simbolo";
 import { COR_DA_ROTA, ComMarcas, Parada, Trecho } from "@/components/rota/Rota";
 import { CASE_MOTORS } from "@/conteudo/case";
@@ -41,6 +42,8 @@ export default function Pagina() {
             </h2>
             <p className="texto-guia col-span-12 lg:col-span-5 lg:pt-2">{c.construido.texto}</p>
           </div>
+          {/* As telas reais do site, antes da lista do que foi entregue (Dyones, 19/10). */}
+          <CapturasDaMotors className="mt-12 md:mt-14" />
           {/* Cada peça é uma linha de registro: a linha do cardápio, a peça e o que ela faz. */}
           <ul className="mt-12 border-t-2 border-texto md:mt-14">
             {c.construido.pecas.map((peca) => (

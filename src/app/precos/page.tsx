@@ -11,7 +11,7 @@ import Perguntas from "@/components/home/Perguntas";
 import Fechamento from "@/components/home/Fechamento";
 import { Parada, Trecho } from "@/components/rota/Rota";
 import ParceiroDeFotografia from "@/components/precos/ParceiroDeFotografia";
-import { ForaDaMensalidade, Modulos, OQueCresce, Planos, Servicos, Trafego } from "@/components/precos/TabelaDePrecos";
+import { ForaDaMensalidade, Modulos, OQueCresce, Planos, ResumoDosPlanos, Servicos, Trafego } from "@/components/precos/TabelaDePrecos";
 import { metadataDa } from "@/conteudo/paginas";
 import { grafoDosPrecos } from "@/lib/schema";
 import type { Etapa } from "@/lib/tokens";
@@ -92,6 +92,9 @@ export default function Pagina() {
                   Ver as perguntas
                 </a>
               </div>
+            </div>
+            <div className="col-span-12">
+              <ResumoDosPlanos />
             </div>
           </div>
         </section>

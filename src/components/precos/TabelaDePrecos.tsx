@@ -11,6 +11,7 @@ import {
   FOTOGRAFIA_PARCEIRA,
   linhaDePreco,
   linhasDoGrupo,
+  mensalidadeDoPlano,
   OFERTA_DO_COMPLETO,
   PLANOS,
   precoDaLinha,
@@ -140,6 +141,36 @@ function PrecoDoPlano({ p, etapa }: { p: Plano; etapa: Etapa }) {
  * sem bônus leva hachura (não se aplica). O Completo tem o fundo do cartão e
  * o botão primário; os outros, o secundário.
  */
+/**
+ * Os três planos numa faixa logo abaixo do título (Dyones, 19/10): quem volta
+ * só para ver o preço acha na primeira tela. Cada célula leva ao cartão do
+ * plano; o detalhe e o preço riscado continuam no cartão.
+ */
+export function ResumoDosPlanos() {
+  return (
+    <ul className="grid border-t border-linha sm:grid-cols-3" aria-label="Preço de cada plano">
+      {PLANOS.map((p, i) => (
+        <li key={p.id} className={`border-linha ${i > 0 ? "border-t sm:border-l sm:border-t-0" : ""}`}>
+          <a
+            href={`#plano-${p.id}`}
+            className="flex h-full flex-wrap items-baseline justify-between gap-x-4 gap-y-1 px-0 py-4 transition-colors hover:bg-fundo-cartao sm:block sm:px-5 sm:py-5"
+          >
+            <span className="font-semibold">{p.nome}</span>
+            <span className="block text-[0.9375rem] tabular-nums sm:mt-1.5">
+              {semQuebra(`${BRL(p.implantacao)} + ${BRL(mensalidadeDoPlano(p))}/mês`)}
+            </span>
+            {p.id === "completo" ? (
+              <span className="rotulo block w-full text-texto-secundario sm:mt-1.5">
+                oferta até {dataBR(OFERTA_DO_COMPLETO.ate)}
+              </span>
+            ) : null}
+          </a>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
 export function Planos() {
   return (
     <ul className="grid grid-cols-12 border-y-2 border-texto">
@@ -344,7 +375,7 @@ export function Trafego() {
             key={c.nome}
             etapa="violeta"
             local="trafego"
-            href={google.href}
+            href="/diagnostico"
             titulo={c.nome}
             marca={c.marca}
             frase={c.nota}

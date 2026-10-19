@@ -11,6 +11,7 @@ extraido_em: "2026-10-19T00:26:22.723Z"
 fonte: "produção (www.v2o5.com.br), main em 46c4103"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
+<!-- 19/10 (Dyones): a rota saiu do ar e responde 307 para /precos#titulo-trafego até ganhar texto; este arquivo guarda o texto da versão provisória. -->
 Em construção
 
 # Tráfego pago no Google e na Meta

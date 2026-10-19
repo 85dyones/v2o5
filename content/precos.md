@@ -21,6 +21,11 @@ Todo valor é a partir de, e o preço final sai do diagnóstico gratuito. Hosped
 
 [Ver as perguntas](#perguntas)
 
+<!-- 19/10 (Dyones): faixa com os três planos na primeira tela; cada célula leva ao cartão do plano -->
+[Presença R$ 8.900 + R$ 990/mês](#plano-presenca)
+[Atendimento R$ 7.900 + R$ 1.590/mês](#plano-atendimento)
+[Completo R$ 14.900 + R$ 1.990/mês oferta até 31/12/2026](#plano-completo)
+
 ## Planos <!-- só leitor de tela -->
 
 No mapa

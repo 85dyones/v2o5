@@ -1,4 +1,5 @@
 import Link from "next/link";
+import LinkOuAncora from "@/components/LinkOuAncora";
 import Icone from "@/components/Icone";
 import Simbolo from "@/components/marca/Simbolo";
 import { EMAIL, EMPRESA, PILARES, WHATSAPP } from "@/conteudo/home";
@@ -40,9 +41,9 @@ export default function Rodape() {
           <ul className="mt-4 space-y-0.5 text-[0.9375rem] text-texto-secundario">
             {PILARES.flatMap((p) => p.servicos).map((s) => (
               <li key={s.titulo}>
-                <Link href={s.href} className={LINK}>
+                <LinkOuAncora href={s.href} className={LINK}>
                   {s.titulo}
-                </Link>
+                </LinkOuAncora>
               </li>
             ))}
           </ul>

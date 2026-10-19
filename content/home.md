@@ -131,7 +131,7 @@ Carrega rápido no celular, aparece no Google e grava de onde veio cada contato.
 
 no plano Presença, a partir de R$ 8.900 + R$ 990/mês
 
-<!-- o bloco abaixo é um link para /gestao-de-trafego -->
+<!-- o bloco abaixo é um link para /precos#titulo-trafego (19/10; antes /gestao-de-trafego) -->
 
 Otimizando por venda confirmada <!-- decorativo, aria-hidden -->
 
@@ -185,7 +185,7 @@ Cada venda com a origem: qual anúncio, qual busca, qual página. Sem isso, a ve
 
 a partir de R$ 2.900 + R$ 690/mês, ou no plano Presença
 
-<!-- o bloco abaixo é um link para /gestao-de-trafego -->
+<!-- o bloco abaixo é um link para /precos#titulo-trafego (19/10; antes /gestao-de-trafego) -->
 
 Feed do estoque <!-- decorativo, aria-hidden -->
 
@@ -395,7 +395,7 @@ Gestão
 
 #### Painel do dono
 
-Funil, verba, custo por lead e vendas por origem numa tela só, atualizada todo dia a partir do CRM e do rastreamento. Sem licença por usuário.
+Funil, verba, custo por lead e vendas por origem numa tela, atualizada todo dia a partir do CRM, do rastreamento e das contas de anúncio. Sem licença por usuário.
 
 a partir de R$ 3.900 + R$ 490/mês; implantação de bônus no Completo
 

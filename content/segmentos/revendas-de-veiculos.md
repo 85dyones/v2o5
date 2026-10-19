@@ -57,6 +57,11 @@ Sites e presença
 
 Vitrine, ficha de veículo, páginas por marca e modelo e páginas locais. O carro entra no site quando entra no sistema de gestão e sai quando é vendido. Em produção com o Revenda Mais. Autoconf, BNDV, Boom, Altimus e Syonet entram por fluxo de integração.
 
+<!-- 19/10 (Dyones): telas reais do site da Motors, capturadas no celular; no celular só a primeira aparece -->
+[imagem] motorsstore.com.br, capturado em 19/10/2026
+[imagem] motorsstore.com.br/estoque, capturado em 19/10/2026
+[imagem] motorsstore.com.br/carros/volkswagen/t-cross, capturado em 19/10/2026
+
 Agente de IA no WhatsApp
 
 ### Atende à noite e no fim de semana
@@ -177,7 +182,7 @@ a partir de R$ 1.900 + R$ 290/mês
 
 ### Painel do dono
 
-Leads, custo por lead e vendas por origem, com o estoque na mesma tela. No Completo, a implantação é bônus de fechamento. Usuário extra R$ 89 por mês.
+Funil, verba, custo por lead e vendas por origem numa tela, atualizada todo dia a partir do CRM, do rastreamento e das contas de anúncio. Sem licença por usuário. No Completo, a implantação é bônus de fechamento. Usuário extra R$ 89 por mês.
 
 a partir de R$ 3.900 + R$ 490/mês
 

@@ -1,4 +1,5 @@
 import type { CSSProperties, ReactNode } from "react";
+import CapturasDaMotors from "@/components/case/CapturasDaMotors";
 import Link from "next/link";
 import LinkOuAncora from "@/components/LinkOuAncora";
 import Icone from "@/components/Icone";
@@ -172,6 +173,10 @@ export default function Pagina() {
                 <p className="col-span-12 max-w-[40rem] text-[0.9375rem] leading-relaxed text-texto-secundario md:col-span-7 md:pt-6">
                   {peca.texto}
                 </p>
+                {/* O site de estoque mostrado, não só descrito: as telas reais da Motors (19/10). */}
+                {i === 0 ? (
+                  <CapturasDaMotors className="col-span-12 mt-4 md:col-span-7 md:col-start-6" sizes="(min-width: 64rem) 18vw, (min-width: 40rem) 28vw, 90vw" />
+                ) : null}
               </Linha>
             ))}
           </ul>

@@ -144,7 +144,7 @@ export const HUB_AUTOMOTIVO = {
         nome: linhaDePreco("painel").nome,
         preco: precoDaLinha(linhaDePreco("painel")),
         href: "/precos#titulo-modulos",
-        texto: `Leads, custo por lead e vendas por origem, com o estoque na mesma tela. No Completo, a implantação é bônus de fechamento. Usuário extra ${BRL(DEGRAUS.usuarioExtra)} por mês.`,
+        texto: `Funil, verba, custo por lead e vendas por origem numa tela, atualizada todo dia a partir do CRM, do rastreamento e das contas de anúncio. Sem licença por usuário. No Completo, a implantação é bônus de fechamento. Usuário extra ${BRL(DEGRAUS.usuarioExtra)} por mês.`,
       },
     ],
   },

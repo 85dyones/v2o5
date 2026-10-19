@@ -2,6 +2,14 @@
 
 Log datado. Decisão nova entra no topo do dia; decisão revogada fica riscada com a data da troca.
 
+## 19/10/2026 (pontos abertos do redesign, pelo Dyones: "1 faça isso", "2 faça isso", "faça isso", "sobre o botão, siga sua recomendação", "a redação do texto promocional riscado fica até dezembro", "unifique a descrição do painel do dono")
+- Telas reais do site da Motors (vitrine, estoque e ficha de veículo, capturadas no celular em 19/10/2026) no case, no hub e no mosaico de `/criacao-de-sites`, chapadas, com endereço e data na legenda (`components/case/CapturasDaMotors.tsx`). O retrato do fundador também foi aprovado, mas depende da foto.
+- `/gestao-de-trafego` sai do ar: responde 307 para `/precos#titulo-trafego` até ganhar texto; os links de tráfego da home, do rodapé e das soluções apontam para lá.
+- `/precos` ganha na primeira tela a faixa com os três planos (implantação + mensalidade; no Completo, "oferta até 31/12/2026").
+- Botão fixo de WhatsApp no celular: some enquanto o botão principal da abertura está na tela, em todas as páginas (sem JavaScript, fica sempre). O case continua sem botão fixo.
+- O preço riscado do Completo fica com a redação de hoje até dezembro.
+- Painel do dono com uma descrição só: "Funil, verba, custo por lead e vendas por origem numa tela, atualizada todo dia a partir do CRM, do rastreamento e das contas de anúncio. Sem licença por usuário." (home, `/precos`, `/crm-com-whatsapp`, hub e `llms.txt`).
+
 ## 19/10/2026 (perguntas dos clones do redesign, pelo Dyones: "faça isso", "crie os eventos", "siga sua recomendação")
 - `/sobre`: a ficha do fundador ganha a célula "Na informática · Desde 1992", com o dado do texto corrido (entrou em `content/sobre.md`).
 - `/precos`: as linhas do cardápio clicáveis medem `cta_click` com `data-local` `trafego`, `modulos` e `servicos` (novos na tabela de `design/nao-pode-quebrar.md`).

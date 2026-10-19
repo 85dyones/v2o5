@@ -1,5 +1,7 @@
 import type { CSSProperties, ReactNode } from "react";
 import Link from "next/link";
+import LinkOuAncora from "@/components/LinkOuAncora";
+import CapturasDaMotors, { type Captura } from "@/components/case/CapturasDaMotors";
 import Icone from "@/components/Icone";
 import JsonLd from "@/components/JsonLd";
 import Garantias from "@/components/home/Garantias";
@@ -43,7 +45,7 @@ export default function PaginaDeSolucao({ rota, demonstracao }: { rota: string; 
         <Entregas s={s} />
         <ComoFunciona s={s} />
         {demonstracao}
-        {s.naMotors ? <NaMotors m={s.naMotors} etapa={s.etapa} /> : null}
+        {s.naMotors ? <NaMotors m={s.naMotors} etapa={s.etapa} captura={s.linha === "sites" ? "vitrine" : undefined} /> : null}
         <Preco s={s} />
         <Garantias />
         <Perguntas
@@ -237,7 +239,7 @@ function ComoFunciona({ s }: { s: Solucao }) {
  * papel, a sobra em hachura. Fonte e período logo embaixo; com um número
  * só, fonte e botão ocupam a célula ao lado.
  */
-function NaMotors({ m, etapa }: { m: NonNullable<Solucao["naMotors"]>; etapa: Etapa }) {
+function NaMotors({ m, etapa, captura }: { m: NonNullable<Solucao["naMotors"]>; etapa: Etapa; captura?: Captura }) {
   const sozinho = m.numeros.length === 1;
   const colunas = sozinho ? "md:grid-cols-[1.3fr_1fr]" : "md:grid-cols-[1.3fr_1fr_0.55fr]";
   const celulas = <CelulasDoCase numeros={m.numeros} />;
@@ -267,10 +269,21 @@ function NaMotors({ m, etapa }: { m: NonNullable<Solucao["naMotors"]>; etapa: Et
         </div>
       ) : (
         <>
-          <dl className={`mt-12 grid grid-cols-1 border-2 border-texto md:mt-14 ${colunas}`}>
-            {celulas}
-            <div aria-hidden="true" className="hachura hidden border-l border-linha md:block" />
-          </dl>
+          {captura ? (
+            // Em /criacao-de-sites a sobra do mosaico mostra o site entregue em
+            // vez da hachura (19/10). O wrapper existe porque a figura não é dt/dd.
+            <div className="mt-12 grid grid-cols-1 border-2 border-texto md:mt-14 md:grid-cols-[2.3fr_0.75fr]">
+              <dl className="grid grid-cols-1 md:grid-cols-[1.3fr_1fr]">{celulas}</dl>
+              <div className="border-t border-linha p-5 md:border-l md:border-t-0">
+                <CapturasDaMotors quais={[captura]} sizes="(min-width: 48rem) 18vw, 80vw" className="mx-auto max-w-[16rem]" />
+              </div>
+            </div>
+          ) : (
+            <dl className={`mt-12 grid grid-cols-1 border-2 border-texto md:mt-14 ${colunas}`}>
+              {celulas}
+              <div aria-hidden="true" className="hachura hidden border-l border-linha md:block" />
+            </dl>
+          )}
           <p className="mt-4 text-sm text-texto-secundario">{CASE.fonte}</p>
           <Link href="/cases/motors-store" className="botao botao-secundario mt-8" data-evento="cta_click" data-local="na-motors">
             Ler o case completo
@@ -442,7 +455,7 @@ function Relacionadas({ linhas }: { linhas: Linha[] }) {
       <ul className="mt-10 border-t-2 border-texto">
         {linhas.map((l) => (
           <li key={l.titulo} className="servico" style={{ "--cor-da-rota": COR_DA_ROTA[l.etapa] } as CSSProperties}>
-            <Link href={l.href} className="servico-celula grid grid-cols-12 gap-x-6 gap-y-3 border-b border-linha py-6 md:py-7">
+            <LinkOuAncora href={l.href} className="servico-celula grid grid-cols-12 gap-x-6 gap-y-3 border-b border-linha py-6 md:py-7">
               <Parada />
               <span className="col-span-12 md:col-span-7">
                 <MarcaDeEtapa etapa={l.etapa} />
@@ -455,7 +468,7 @@ function Relacionadas({ linhas }: { linhas: Linha[] }) {
               <span aria-hidden="true" className="servico-seta col-span-2 self-center justify-self-end md:col-span-1">
                 <Icone nome="seta" className="size-4" />
               </span>
-            </Link>
+            </LinkOuAncora>
           </li>
         ))}
       </ul>

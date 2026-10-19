@@ -233,13 +233,15 @@ describe("CSS e fonte", () => {
     // servidor, como limite de tempo das chamadas; a medição usa setTimeout
     // para esperar a página carregar antes das tags; a âncora confere o pouso
     // em momentos marcados; o carregador por seção observa a tela só para
-    // importar o pedaço interativo. Nenhum deles anima.
+    // importar o pedaço interativo; o botão fixo de WhatsApp observa o botão
+    // da abertura só para sair de cena (a transição é do CSS). Nenhum deles anima.
     const excecoes = new Set([
       "src/lib/useCarregarPerto.ts",
       "src/app/api/leads/route.ts",
       "src/lib/capi.ts",
       "src/lib/medicao.ts",
       "src/lib/ancora.ts",
+      "src/components/layout/EsconderNaAbertura.tsx",
     ]);
     const anima = /requestAnimationFrame|import\("motion"\)|from "motion"|setTimeout|IntersectionObserver\(/;
     for (const arquivo of arquivos("src", /\.tsx?$/)) {

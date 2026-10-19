@@ -108,7 +108,7 @@ export const LINHAS: Linha[] = [
     frase:
       "Google Ads e Meta Ads por plataforma ou juntos, com anúncios que abrem conversa no WhatsApp e a verba ajustada pela venda registrada no CRM. Quem contrata os dois leva o feed de catálogo. Começa com o rastreamento ligado.",
     preco: precoDa("googleAds"),
-    href: "/gestao-de-trafego",
+    href: "/precos#titulo-trafego",
     etapa: "violeta",
     vinheta: "campanhas",
   },
@@ -118,7 +118,7 @@ export const LINHAS: Linha[] = [
     frase:
       "O estoque ou os produtos viram anúncio no Google (anúncios de veículos e Shopping) e na Meta, e saem do ar quando o item é vendido.",
     preco: precoDa("catalogo"),
-    href: "/gestao-de-trafego",
+    href: "/precos#titulo-trafego",
     etapa: "violeta",
     vinheta: "catalogo",
   },
@@ -165,7 +165,7 @@ export const LINHAS: Linha[] = [
     linha: "painel",
     titulo: "Painel do dono",
     frase:
-      "Funil, verba, custo por lead e vendas por origem numa tela só, atualizada todo dia a partir do CRM e do rastreamento. Sem licença por usuário.",
+      "Funil, verba, custo por lead e vendas por origem numa tela, atualizada todo dia a partir do CRM, do rastreamento e das contas de anúncio. Sem licença por usuário.",
     preco: precoDa("painel"),
     href: "/diagnostico",
     etapa: "azul",

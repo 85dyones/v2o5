@@ -1,11 +1,13 @@
 import Icone from "@/components/Icone";
+import EsconderNaAbertura from "@/components/layout/EsconderNaAbertura";
 import { WHATSAPP } from "@/conteudo/home";
 import { linkWhatsApp } from "@/lib/whatsapp";
 
 /**
  * O botão fixo de WhatsApp do celular (plano, seção 6.1): canto inferior
  * direito, só abaixo de 768 px, com a mensagem pré-preenchida da página.
- * Server Component: um link, sem JavaScript.
+ * O link funciona sem JavaScript; `EsconderNaAbertura` só o tira de cena
+ * enquanto o botão principal da abertura está na tela (19/10).
  */
 export default function BotaoWhatsAppFixo({
   pagina,
@@ -16,6 +18,7 @@ export default function BotaoWhatsAppFixo({
   mensagem?: string;
 }) {
   return (
+    <>
     <a
       href={linkWhatsApp(mensagem ?? WHATSAPP.mensagens[pagina])}
       target="_blank"
@@ -27,5 +30,7 @@ export default function BotaoWhatsAppFixo({
       <Icone nome="conversa" className="size-5" />
       WhatsApp
     </a>
+    <EsconderNaAbertura />
+    </>
   );
 }

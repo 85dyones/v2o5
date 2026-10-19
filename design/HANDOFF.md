@@ -7,7 +7,8 @@ Branch **`redesign-2026-km7atp`** (PR #24, rascunho, contra `redesign-2026`). A 
 - Conferido no fim: `next build`, `tsc`, `vitest` (314), `eslint` limpos; nenhum travessão em `src`; as 13 telas em 390x664, 390x844, 1280x720 e 1440x900 com 200, sem transbordo e sem erro de console.
 - Não conferido: foco com Tab na faixa escura e no erro dos objetivos (código no lugar, sem teste de navegador); leitor de tela; preview da Vercel e a comparação de `design/baseline/ferramentas/extrair.cjs` contra a produção (passo 2 da seção final de `nao-pode-quebrar.md`). Faça os dois antes do merge.
 - Mudanças de contrato decididas pelo Dyones: célula "Na informática · Desde 1992" em `/sobre` (em `content/sobre.md`); `cta_click` com `data-local` `trafego`, `modulos`, `servicos` nas linhas do cardápio de `/precos`.
-- Em aberto com o Dyones: pendência 24 de `memory/pendencias.md`.
+- Depois do fecho, ainda em 19/10 (respostas do Dyones): capturas reais da Motors no case, no hub e em `/criacao-de-sites`; `/gestao-de-trafego` em 307 para `/precos#titulo-trafego`; faixa dos três planos na primeira tela de `/precos`; botão fixo de WhatsApp escondido enquanto o botão principal da abertura aparece; Painel do dono com uma descrição só.
+- Em aberto com o Dyones: pendência 24 de `memory/pendencias.md` (retrato do fundador, objeto próprio por página de solução, rodapé e fecho).
 - Material de trabalho (fora do git): `.bunshin/` (contrato da direção, revisões, capturas por rodada, relatório em `.bunshin/report.md`).
 
 ---

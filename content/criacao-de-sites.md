@@ -122,6 +122,9 @@ guias publicados, assinados pelo fundador da V2O5
 
 26
 
+<!-- 19/10 (Dyones): no lugar da hachura do mosaico, a vitrine real da Motors -->
+[imagem] motorsstore.com.br, capturado em 19/10/2026
+
 Banco de dados da Motors Store, lido em 08/10/2026. Leads contados de 05/09 a 08/10/2026.
 
 [Ler o case completo](/cases/motors-store)
