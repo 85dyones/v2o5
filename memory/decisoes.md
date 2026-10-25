@@ -314,3 +314,10 @@ Log datado. Decisão nova entra no topo do dia; decisão revogada fica riscada c
 - Fenauto 2026: não ir.
 - Sede residencial: Perfil de Empresa como área de serviço, endereço oculto; site e schema só com cidade e estado (Almirante Tamandaré, PR).
 - Dados do Chatwoot e do Search Console da Motors: esperar mais histórico; entram na atualização de 90 dias do case.
+
+## 25/10/2026 (reposicionamento da home em torno do Sprint de Eficiência)
+- Fonte: `V2O5_CORE.md` v1.0 e `CLAUDE_SITE_IMPLEMENTATION.md` do kit de refresh (25/10). Oferta principal: **Sprint de Eficiência V2O5** (mapear, simplificar, implementar, medir), com escada Diagnóstico de Gargalo, Sprint e Evolução Monitorada, sem preço publicado nela.
+- Novo H1 da home: "Do problema ao resultado, pelo caminho mais simples." (o de 09/10, "Coloque sua empresa no mapa e multiplique a operação com IA.", sai da home; segue aqui como histórico). Title: "V2O5 Vendas e Tecnologia | Menos atrito entre problema e resultado".
+- Ordem da home: hero, dores, Sprint, indicadores, projeto real (Motors, só o que o case já publica), escada, cardápio de peças (rebaixado, mesmos preços), "como se liga", automotivo, perguntas, nome, fecho. Saíram da composição da home (componentes continuam no repo): Garantias, VisaoAmpla, Orquestrador, CaseMotors com números, ChamadaCurta. Nenhuma rota, preço, redirecionamento ou página foi removido.
+- CTA principal "Mapear um gargalo" leva a `/diagnostico` (formulário já ligado ao n8n); o botão fixo do WhatsApp segue. A prévia copiava um briefing: não entrou.
+- A 16ª Vara Cível não aparece na home. Assinatura "Catalisador de vendas com IA" segue no rodapé, em `/sobre` e no schema até o Dyones decidir se muda.

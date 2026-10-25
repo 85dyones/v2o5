@@ -24,10 +24,10 @@ export const TITULO_PADRAO = "V2O5 Vendas e Tecnologia | Catalisador de vendas c
 export const PAGINAS: Pagina[] = [
   {
     rota: "/",
-    titulo: TITULO_PADRAO,
+    titulo: "V2O5 Vendas e Tecnologia | Menos atrito entre problema e resultado",
     descricao:
-      "Site, Perfil no Google, anúncios, agente de IA no WhatsApp e CRM montados por uma equipe só, num sistema que mostra de onde veio cada venda. Sem fidelidade.",
-    atualizadaEm: "2026-10-10",
+      "A V2O5 acha o gargalo, simplifica o processo e implementa tecnologia, automação e IA para a operação render mais e ser medida. Comece pelo Sprint de Eficiência.",
+    atualizadaEm: "2026-10-25",
     pronta: true,
   },
   {
