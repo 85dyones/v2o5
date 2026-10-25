@@ -168,7 +168,7 @@ export const ESCADA = {
       titulo: "Estabilidade e evolução contínua",
       texto:
         "Mensalidade para manter as soluções, corrigir o que estiver previsto e evoluir o processo, dentro de limites de atendimento e escopo definidos em contrato.",
-      saida: `Referência de ${BRL(Math.min(...CONTINUIDADE.modalidades.map((m) => m.faixa.de)))} a ${BRL(Math.max(...CONTINUIDADE.modalidades.map((m) => m.faixa.ate)))} por mês, em contrato. Na maioria dos projetos há uma parte recorrente. A mensalidade não inclui desenvolvimento ilimitado, novas integrações sem orçamento nem garantia de resultado comercial. Custos de terceiros e de API ficam discriminados.`,
+      saida: `Referência de ${BRL(Math.min(...CONTINUIDADE.modalidades.map((m) => m.faixa.de)))} a ${BRL(Math.max(...CONTINUIDADE.modalidades.map((m) => m.faixa.ate)))} por mês pela gestão, em contrato. Nuvem e IA ficam por fora, pelo valor do provedor, e a V2O5 gerencia. Não inclui desenvolvimento ilimitado, novas integrações sem orçamento nem garantia de resultado comercial.`,
       href: "/precos#titulo-sprint",
     },
   ],
@@ -1011,7 +1011,7 @@ export const PERGUNTAS = [
   },
   {
     pergunta: "E depois que o Sprint termina?",
-    resposta: `Na maioria dos projetos há uma parte recorrente, e pode haver em todos. É outro contrato, opcional, com limites de atendimento e escopo escritos: ${CONTINUIDADE.modalidades.map((m) => `${m.nome.toLowerCase()}, de ${faixaEmTexto(m.faixa)} por mês`).join(", ou ")}. Ela não cobre desenvolvimento ilimitado nem novas integrações sem orçamento, e custos de terceiros e de API ficam discriminados. Sem esse contrato, o projeto termina na entrega acordada.`,
+    resposta: `O Sprint termina na entrega. Se a solução continua rodando, há uma parte recorrente, em contrato à parte e com limites escritos. A gestão continuada é ${CONTINUIDADE.modalidades.map((m) => `${m.nome.toLowerCase()}, de ${faixaEmTexto(m.faixa)} por mês`).join(", ou ")}. Nuvem e IA ficam por fora da faixa, pelo valor do provedor e discriminadas, e a V2O5 gerencia as duas. A faixa não cobre desenvolvimento ilimitado nem novas integrações sem orçamento.`,
   },
   {
     pergunta: "Preciso trocar o sistema de gestão que já uso?",

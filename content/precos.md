@@ -7,13 +7,13 @@ description: "Sprint de Eficiência com preço fechado em proposta, faixas de R$
 canonical: "https://www.v2o5.com.br/precos"
 robots: null
 h1: "Sprint de Eficiência: preço fechado em proposta."
-extraido_em: "2026-10-25T21:22:44.355Z"
+extraido_em: "2026-10-25T21:36:46.516Z"
 fonte: "build local da branch claude/keen-ptolemy-vnfnfu (só o Sprint e a recorrência com valor público, 25/10/2026), extraída com design/baseline/ferramentas; as demais rotas seguem como em 19/10"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 # Sprint de Eficiência: preço fechado em proposta.
 
-O diagnóstico inicial é gratuito. O Sprint tem preço fechado em proposta, e a maioria dos projetos tem também uma parte recorrente.
+O diagnóstico inicial é gratuito. O Sprint tem preço fechado em proposta, e o que continua rodando depois dele tem uma parte recorrente.
 
 [Pedir diagnóstico gratuito](/diagnostico)
 
@@ -67,9 +67,15 @@ Uma solução que parecia simples pode revelar sistemas antigos ou dependências
 - Complexidade e risco: integrações frágeis, dados ruins, dependência de terceiros e incerteza técnica.
 - Custos diretos: APIs, infraestrutura, licenças e fornecedores do projeto, discriminados na proposta.
 
-### Depois da entrega
+### O que continua depois da entrega.
 
-O Sprint é um projeto fechado. Na maioria dos projetos há também uma parte recorrente, e pode haver em todos: é outro contrato, opcional, com limites de atendimento e escopo escritos. As faixas abaixo são de referência por mês.
+O Sprint termina na entrega. Se a solução continua rodando, há uma parte recorrente, em contrato à parte, com limites de atendimento e escopo escritos. A proposta separa cada custo:
+
+- Gestão continuada. Monitoramento, correções e ajustes, com capacidade reservada. É a faixa mensal abaixo.
+- Nuvem. Servidor, banco de dados e backups, pelo valor do provedor e discriminados. A V2O5 gerencia.
+- IA e mensagens. O consumo de IA e as mensagens do WhatsApp variam com o volume e vêm pelo valor do provedor, discriminados na fatura. A V2O5 gerencia.
+
+Modelos de IA, APIs e regras do negócio mudam, e o que funciona na entrega precisa de ajuste para continuar funcionando.
 
 Estabilidade e suporte
 
@@ -87,7 +93,7 @@ Suporte, revisão de indicadores e capacidade mensal reservada para melhorias pr
 
 Faixa de referência. Valor e limites em contrato.
 
-O contrato define prazo de resposta, canais, limite de horas ou capacidade, exclusões e o preço de demandas adicionais. A mensalidade não cobre desenvolvimento ilimitado, plantão irrestrito, nova integração sem orçamento, API ou fornecedor sem discriminação nem garantia de resultado comercial. Novos gargalos, integrações, automações ou produtos são orçados à parte.
+O contrato define prazo de resposta, canais, limite de horas ou capacidade, exclusões e o preço de demandas adicionais. A faixa mensal paga a gestão: nuvem, IA e demais custos de terceiros ficam por fora, discriminados. Ela não cobre desenvolvimento ilimitado, plantão irrestrito, nova integração sem orçamento nem garantia de resultado comercial. Novos gargalos, integrações, automações ou produtos são orçados à parte.
 
 ### Como o projeto é combinado
 
@@ -129,7 +135,7 @@ Em projetos, 50% na contratação, 30% na validação intermediária e 20% no ac
 
 E depois que o Sprint termina?
 
-Na maioria dos projetos há uma parte recorrente, e pode haver em todos. É outro contrato, opcional, com limites de atendimento e escopo escritos: estabilidade e suporte, de R$ 1.200 a R$ 2.500 por mês, ou evolução contínua, de R$ 2.500 a R$ 5.000 por mês. Ela não cobre desenvolvimento ilimitado nem novas integrações sem orçamento, e custos de terceiros e de API ficam discriminados. Sem esse contrato, o projeto termina na entrega acordada.
+O Sprint termina na entrega. Se a solução continua rodando, há uma parte recorrente, em contrato à parte e com limites escritos. A gestão continuada é estabilidade e suporte, de R$ 1.200 a R$ 2.500 por mês, ou evolução contínua, de R$ 2.500 a R$ 5.000 por mês. Nuvem e IA ficam por fora da faixa, pelo valor do provedor e discriminadas, e a V2O5 gerencia as duas. A faixa não cobre desenvolvimento ilimitado nem novas integrações sem orçamento.
 
 Preciso trocar o sistema de gestão que já uso?
 

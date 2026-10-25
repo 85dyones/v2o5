@@ -37,6 +37,14 @@ export default function SprintDeEficiencia() {
         <div className="md:col-span-7">
           <h3 className="titulo-cartao">{CONTINUIDADE.titulo}</h3>
           <p className="mt-3 text-[0.9375rem] leading-relaxed text-texto-secundario">{CONTINUIDADE.texto}</p>
+          <ul className="mt-4 grid gap-3">
+            {CONTINUIDADE.recorrencia.map((r) => (
+              <li key={r.titulo} className="border-l-2 border-texto pl-4 text-[0.9375rem] leading-relaxed">
+                <span className="font-semibold">{r.titulo}.</span> {r.texto}
+              </li>
+            ))}
+          </ul>
+          <p className="mt-4 text-[0.9375rem] leading-relaxed text-texto-secundario">{CONTINUIDADE.porque}</p>
           <dl className="mt-5 grid gap-px border border-linha bg-linha sm:grid-cols-2">
             {CONTINUIDADE.modalidades.map((m) => (
               <div key={m.nome} className="bg-fundo p-5">

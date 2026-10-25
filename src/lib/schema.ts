@@ -140,7 +140,7 @@ export function catalogo(): No {
       ...CONTINUIDADE.modalidades.map((m) => ({
         "@type": "Offer",
         name: `${m.nome} (por mês)`,
-        description: `Faixa de referência por mês, depois do Sprint. ${m.texto} Valor e limites em contrato.`,
+        description: `Faixa de referência por mês pela gestão continuada, depois do Sprint. ${m.texto} Nuvem e IA ficam por fora, pelo valor do provedor. Valor e limites em contrato.`,
         priceSpecification: {
           "@type": "UnitPriceSpecification",
           minPrice: m.faixa.de,

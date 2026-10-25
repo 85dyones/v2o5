@@ -459,7 +459,7 @@ describe("fluxo do agente", () => {
   it("as instruções do agente seguem as regras do texto público e levam ao diagnóstico", () => {
     const instrucoes = js(agente, "Montar pedido");
     expect(instrucoes).not.toMatch(/[—–]/);
-    for (const trecho of ["45 minutos", "Sprint de Eficiência", "Só o Sprint de Eficiência e a recorrência que o acompanha", "Não invente número"]) expect(instrucoes).toContain(trecho);
+    for (const trecho of ["45 minutos", "Sprint de Eficiência", "Só o Sprint de Eficiência e a recorrência que o acompanha", "se a solução continua rodando", "Não invente número"]) expect(instrucoes).toContain(trecho);
     expect(instrucoes).not.toContain("24 horas");
     expect(campo(agente, "conhecimentoUrl")).toBe("https://v2o5.vercel.app/llms.txt");
   });

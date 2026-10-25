@@ -29,7 +29,7 @@ export function textoDoLlms(): string {
     "",
     "## Sprint de Eficiência (oferta principal)",
     `Projeto fechado para um gargalo delimitado, com preço fechado em proposta. Faixas de referência: ${SPRINT_DE_PRECOS.niveis.map((n) => `${n.nome} ${faixaEmTexto(n.faixa)} (${n.duracao})`).join("; ")}. Duração é referência, não promessa. Sem promessa de ROI nem de aumento de vendas. Detalhes em ${SITE_URL}/precos#titulo-sprint.`,
-    `Na maioria dos projetos há uma parte recorrente, e pode haver em todos, em contrato próprio e opcional: ${CONTINUIDADE.modalidades.map((m) => `${m.nome} ${faixaEmTexto(m.faixa)} por mês`).join("; ")}. ${CONTINUIDADE.limites}`,
+    `${CONTINUIDADE.texto} ${CONTINUIDADE.recorrencia.map((r) => `${r.titulo}: ${r.texto}`).join(" ")} Gestão continuada, em faixas de referência: ${CONTINUIDADE.modalidades.map((m) => `${m.nome} ${faixaEmTexto(m.faixa)} por mês`).join("; ")}. ${CONTINUIDADE.limites}`,
     `Pagamento: ${CONDICOES.itens[1].texto}`,
     "Só o Sprint e a recorrência que o acompanha têm valor público. Nenhuma outra peça ou plano tem preço publicado; se perguntarem, o Dyones confirma no diagnóstico.",
     "",
