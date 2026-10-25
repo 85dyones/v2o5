@@ -189,13 +189,13 @@ describe("tabela de preços", () => {
     expect(ler("src/app/precos/page.tsx")).not.toContain("ParceiroDeFotografia");
   });
 
-  it("piso e teto saem do site: o texto público não fala mais em teto", () => {
+  it("piso e teto de preço saem do site (o teto mensal de consumo da recorrência é outro assunto)", () => {
     const publico = [
       ler("src/app/precos/page.tsx"),
       JSON.stringify(HUB_AUTOMOTIVO),
       ler("src/conteudo/home.ts"),
       ler("src/app/llms.txt/route.ts"),
     ].join(" ");
-    expect(publico).not.toMatch(/\bteto\b/i);
+    expect(publico).not.toMatch(/\bpiso\b|\bteto (de|da|do) (preço|mensalidade|valor)/i);
   });
 });

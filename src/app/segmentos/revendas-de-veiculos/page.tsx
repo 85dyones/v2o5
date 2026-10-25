@@ -23,11 +23,8 @@ export const metadata = metadataDa(ROTA);
 /** A etapa de cada peça do pacote, na ordem dele (rastreamento é atração, como na home). */
 const ETAPA_DA_PECA: Etapa[] = ["violeta", "verde", "azul", "violeta"];
 
-/**
- * A etapa de cada passo do caminho de um lead: o estoque é gestão, a busca é
- * atração, o WhatsApp é atendimento, o CRM é gestão e o último é a venda.
- */
-const ETAPA_DO_PASSO: Etapa[] = ["azul", "violeta", "verde", "azul", "ambar"];
+/** A etapa de cada pacote: Presença é atração, Atendimento é atendimento, Completo é gestão. */
+const ETAPA_DO_PLANO: Etapa[] = ["violeta", "verde", "azul"];
 
 /**
  * O fio de cada célula da ficha do hero: uma por linha no celular, duas por
@@ -68,10 +65,9 @@ function Linha({ etapa, className = "", children }: { etapa: Etapa; className?: 
 /**
  * O hub do segmento automotivo na direção B (19/10): a rota começa no H1,
  * passa pelas quatro peças que um Sprint para revendas costuma juntar (cada
- * uma na cor da sua etapa), pelo caminho de um lead na revenda (do estoque à
- * venda) e pelos números do case em mosaico; as perguntas ligam com o fio
- * fino e a rota termina, em âmbar, no botão da chamada. Sem valor público
- * (25/10/2026). Conteúdo em `conteudo/automotivo.ts`.
+ * uma na cor da sua etapa) e pelos três pacotes com valor (25/10/2026); um
+ * bloco aponta para o case; as perguntas ligam com o fio fino e a rota
+ * termina, em âmbar, no botão da chamada. Conteúdo em `conteudo/automotivo.ts`.
  */
 export default function Pagina() {
   const h = HUB_AUTOMOTIVO;
@@ -132,7 +128,7 @@ export default function Pagina() {
             </div>
           </div>
 
-          {/* A ficha do hub: quatro células em fio; o preço do Completo no marca-texto. */}
+          {/* A ficha do hub: quatro células em fio. */}
           <div className="conteiner conteiner-rota">
             <dl className="grid grid-cols-12">
               {h.fatos.map((f, i) => (
@@ -172,53 +168,41 @@ export default function Pagina() {
           </ul>
         </Trecho>
 
-        {/* O caminho de um lead é a própria rota: cada passo pinta a margem na cor da sua etapa e o último é a venda. */}
-        <Trecho aria-labelledby="titulo-caminho" etapa="azul" etapaFim="ambar">
-          <Cabeca id="titulo-caminho" titulo={h.caminho.titulo} texto={h.caminho.texto} />
-          <ol className="mt-titulo-conteudo border-t-2 border-texto">
-            {h.caminho.passos.map((p, i) => (
-              <Linha key={p.titulo} etapa={ETAPA_DO_PASSO[i]}>
-                <span className="numero col-span-2 text-[0.9375rem] text-texto-secundario md:col-span-1">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <span className="col-span-10 text-[1.0625rem] font-semibold leading-snug tracking-[-0.01em] md:col-span-4">
-                  {p.titulo}
-                </span>
-                <span className="col-span-12 max-w-[38rem] text-[0.9375rem] leading-relaxed text-texto-secundario md:col-span-7">
-                  {p.texto}
-                </span>
+        {/* Os três pacotes, únicos preços de plano do site (25/10/2026): cada um na cor da sua etapa. */}
+        <Trecho aria-labelledby="titulo-planos" etapa="verde">
+          <Cabeca id="titulo-planos" titulo={h.planos.titulo} texto={h.planos.texto} />
+          <ul className="mt-titulo-conteudo border-t-2 border-texto">
+            {h.planos.itens.map((p, i) => (
+              <Linha key={p.id} etapa={ETAPA_DO_PLANO[i]}>
+                <div className="col-span-12 md:col-span-4">
+                  <p className="rotulo" style={{ color: TEXTO_DA_ETAPA[ETAPA_DO_PLANO[i]] }}>
+                    {p.linha}
+                  </p>
+                  <h3 className="titulo-cartao mt-2">{p.nome}</h3>
+                  <p className="mt-2 text-[0.9375rem] leading-relaxed text-texto-secundario">{p.para}</p>
+                </div>
+                <ul className="col-span-12 flex flex-col gap-1.5 text-[0.9375rem] leading-relaxed text-texto-secundario md:col-span-5">
+                  {p.inclui.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+                <dl className="col-span-12 md:col-span-3">
+                  <dt className="rotulo text-texto-secundario">Implantação</dt>
+                  <dd className="numero text-[1.125rem] font-semibold">{p.implantacao}</dd>
+                  <dt className="rotulo mt-3 text-texto-secundario">Mensalidade</dt>
+                  <dd className="numero text-[1.125rem] font-semibold">{p.mensalidade}</dd>
+                  {p.condicao ? <dd className="mt-1 text-sm text-texto-secundario">{p.condicao}</dd> : null}
+                  {p.bonus ? <dd className="mt-2 text-sm leading-snug">{p.bonus}</dd> : null}
+                </dl>
               </Linha>
             ))}
-          </ol>
+          </ul>
+          <p className="mt-4 max-w-[48rem] text-sm text-texto-secundario">{h.planos.rodape}</p>
         </Trecho>
 
-        {/* Os números do case num mosaico de células (tinta, papel, hachura), estáticos, com a fonte logo embaixo. */}
-        <Trecho aria-labelledby="titulo-medido" etapa="azul">
-          <Cabeca id="titulo-medido" titulo={h.case.titulo} texto={h.case.texto} />
-          <dl className="mt-titulo-conteudo grid grid-cols-2 border-2 border-texto md:grid-cols-[1.3fr_1fr_1fr_0.55fr]">
-            {h.case.numeros.map((n, i) => (
-              <div
-                key={n.texto}
-                className={`flex min-h-44 flex-col justify-between gap-6 p-6 md:min-h-60 md:p-7 ${
-                  i === 0 ? "col-span-2 bg-texto text-fundo md:col-span-1" : "border-t border-linha md:border-l md:border-t-0"
-                } ${i === 2 ? "border-l" : ""}`}
-              >
-                <dt
-                  className={`order-2 max-w-[18rem] text-[0.9375rem] leading-relaxed ${
-                    i === 0 ? "text-faixa-escura-secundario" : "text-texto-secundario"
-                  }`}
-                >
-                  {n.texto}
-                </dt>
-                <dd className="order-1 flex items-baseline gap-3">
-                  <span className="numero-grande">{n.valor}</span>
-                  {n.complemento ? <span className="text-xl font-medium tracking-[-0.02em] opacity-75">{n.complemento}</span> : null}
-                </dd>
-              </div>
-            ))}
-            <div aria-hidden="true" className="hachura col-span-2 hidden border-l border-linha md:col-span-1 md:block" />
-          </dl>
-          <p className="mt-4 text-sm text-texto-secundario">{h.case.fonte}</p>
+        {/* Os números e o caminho do lead moram no case; o hub só aponta para ele. */}
+        <Trecho aria-labelledby="titulo-case" etapa="azul">
+          <Cabeca id="titulo-case" titulo="A prova está no case." texto={h.case.texto} />
           <Link href={h.case.href} className="botao botao-secundario mt-8" data-evento="cta_click" data-local="case">
             {h.case.botao}
             <Icone nome="seta" className="seta size-4" />

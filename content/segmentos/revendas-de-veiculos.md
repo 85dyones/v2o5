@@ -1,14 +1,14 @@
 ---
 rota: "/segmentos/revendas-de-veiculos"
-url: "https://www.v2o5.com.br/segmentos/revendas-de-veiculos"
+url: "http://localhost:3100/segmentos/revendas-de-veiculos"
 status: 200
 title: "Sistema de vendas para revendas de veículos | V2O5 Vendas e Tecnologia"
 description: "Site de estoque ligado ao sistema da loja (Revenda Mais, Autoconf e outros), agente de IA no WhatsApp, CRM e rastreamento até a venda, num Sprint."
 canonical: "https://www.v2o5.com.br/segmentos/revendas-de-veiculos"
 robots: null
 h1: "O sistema da Motors Store, pronto para a sua revenda."
-extraido_em: "2026-10-25T20:08:16.046Z"
-fonte: "build local da branch claude/keen-ptolemy-vnfnfu (só o Sprint com valor público, 25/10/2026), extraída com design/baseline/ferramentas; as demais rotas seguem como em 19/10"
+extraido_em: "2026-10-25T23:16:55.066Z"
+fonte: "produção (www.v2o5.com.br), main em 74ff989"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 # O sistema da Motors Store, pronto para a sua revenda.
@@ -86,61 +86,79 @@ Rastreamento até a venda
 
 Pixel, API de Conversões e GA4 com um identificador único por lead. A campanha passa a otimizar pelo carro vendido.
 
-## O caminho de um lead na revenda.
+## Três pacotes prontos para revendas.
 
-Do carro que entra no estoque à venda que volta para o anúncio, sem ninguém digitar duas vezes.
+Para a loja que já sabe o que precisa. O Sprint de Eficiência, que resolve um gargalo por vez, tem as faixas em Preços; os pacotes abaixo têm valor fechado.
 
-01
+No mapa
 
-O carro entra no sistema da loja
+### Presença
 
-Revenda Mais, Autoconf, BNDV, Boom, Altimus, Syonet ou outro: na sincronização seguinte está no site, na ficha do agente e no feed de anúncios.
+Ser encontrado no Google e saber de onde vem cada contato.
 
-02
+- Site institucional ou de estoque, com hospedagem e manutenção
+- Perfil da Empresa no Google e SEO técnico
+- Rastreamento até a venda, com API de Conversões
+- Pedido de avaliação no WhatsApp depois da venda
+- Relatório mensal da origem dos contatos
 
-Alguém busca o modelo
+Implantação
 
-Acha o anúncio de veículo no Google, o catálogo na Meta ou a página do carro na busca.
+R$ 8.900
 
-03
+Mensalidade
 
-Chama no WhatsApp às 21h
+R$ 990
 
-O agente responde com a ficha, o preço e os horários de visita, e avisa o vendedor.
+Operação com IA
 
-04
+### Atendimento
 
-O lead entra no CRM com a origem
+Responder na hora, a qualquer hora, sem perder o contato que chegou.
 
-O vendedor começa o dia com o nome, o carro e o anúncio que trouxe a pessoa.
+- Agente de IA no WhatsApp, 500 conversas por mês
+- CRM com funil, aviso de lead parado e 5 usuários
+- Passagem do agente para a equipe na mesma conversa
+- Treinamento da equipe
+- Banco próprio, backups e suporte
 
-05
+Implantação
 
-A venda é registrada
+R$ 7.900
 
-O carro sai do site, o cliente recebe o obrigado e Google e Meta recebem a conversão uma vez só.
+Mensalidade
 
-## Medido na Motors Store.
+R$ 1.590
 
-Os números do sistema rodando, lidos no banco de dados da loja. O case completo tem o que foi construído, peça por peça.
+Mapa e operação
 
-leads do site chegaram com identificador para não contar a mesma conversão duas vezes
+### Completo
 
-42
+Do anúncio à venda, tudo ligado e medido.
 
-de 44
+- Tudo da Presença e do Atendimento
+- Integração com o sistema de gestão (Revenda Mais em produção)
+- Um fluxo de automação à escolha: pós-venda ou integração entre sistemas
 
-guias publicados, assinados pelo fundador da V2O5
+Implantação
 
-26
+R$ 14.900
 
-veículos sincronizados com o estoque do Revenda Mais
+Mensalidade
 
-132
+R$ 1.990
 
-Banco de dados da Motors Store, lido em 08/10/2026. Leads contados de 05/09 a 08/10/2026.
+Mensalidade até 31/12/2026; depois, R$ 2.290.
 
-[Ler o case completo](/cases/motors-store)
+Bônus de fechamento: a implantação do Painel do dono fica por conta da V2O5.
+
+A mensalidade cobre hospedagem e manutenção. Nuvem, IA e mensagens ficam por fora, pelo valor do provedor, discriminados na fatura, com teto mensal combinado e aviso antes de ultrapassá-lo; a V2O5 gerencia. Tráfego pago e outros serviços saem em proposta.
+
+## A prova está no case.
+
+O que foi construído na Motors Store, os números lidos no banco da loja e o caminho de um lead, do estoque à venda, estão no case.
+
+[Ler o case da Motors Store](/cases/motors-store)
 
 ## O que toda revenda pergunta antes de fechar.
 

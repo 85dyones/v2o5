@@ -1,12 +1,14 @@
 import { listaDeSistemasIntegraveis, SISTEMA_EM_PRODUCAO, SISTEMAS_INTEGRAVEIS } from "@/conteudo/diagnostico";
-import { CASE } from "@/conteudo/home";
+import { BRL, dataBR, mensalidadeDoPlano, OFERTA_DO_COMPLETO, PLANOS } from "@/conteudo/precos";
 /**
  * Hub do segmento automotivo (`/segmentos/revendas-de-veiculos`): o que um
  * Sprint de Eficiência para revendas costuma juntar (o site de estoque do
- * sistema da Motors Store, agente, CRM e rastreamento), o caminho de um lead
- * na revenda, os números do case e as perguntas de dono de loja. Sem valor
- * público desde 25/10/2026 (só o Sprint tem, em `sprint.ts`); número só de
- * `CASE` (lido do banco da Motors, com fonte e período).
+ * sistema da Motors Store, agente, CRM e rastreamento), os três pacotes
+ * prontos para revendas e as perguntas de dono de loja. É o único lugar do
+ * site com o valor dos planos Presença, Atendimento e Completo (Dyones,
+ * 25/10/2026: "podem ficar no segmento automotivo"); tráfego, módulos e
+ * serviços seguem internos. Os números do case e o caminho do lead moram em
+ * `/cases/motors-store`, que o hub só aponta. `/precos` cobre o Sprint.
  * `tests/automotivo.test.ts` confere.
  *
  * Sobre o agente: a memória do case registra n8n, Evolution e Chatwoot na
@@ -63,39 +65,29 @@ export const HUB_AUTOMOTIVO = {
       },
     ],
   },
-  caminho: {
-    titulo: "O caminho de um lead na revenda.",
-    texto: "Do carro que entra no estoque à venda que volta para o anúncio, sem ninguém digitar duas vezes.",
-    passos: [
-      {
-        titulo: "O carro entra no sistema da loja",
-        texto: `Revenda Mais, ${listaDeSistemasIntegraveis().replace(" e ", ", ")} ou outro: na sincronização seguinte está no site, na ficha do agente e no feed de anúncios.`,
-      },
-      {
-        titulo: "Alguém busca o modelo",
-        texto: "Acha o anúncio de veículo no Google, o catálogo na Meta ou a página do carro na busca.",
-      },
-      {
-        titulo: "Chama no WhatsApp às 21h",
-        texto: "O agente responde com a ficha, o preço e os horários de visita, e avisa o vendedor.",
-      },
-      {
-        titulo: "O lead entra no CRM com a origem",
-        texto: "O vendedor começa o dia com o nome, o carro e o anúncio que trouxe a pessoa.",
-      },
-      {
-        titulo: "A venda é registrada",
-        texto: "O carro sai do site, o cliente recebe o obrigado e Google e Meta recebem a conversão uma vez só.",
-      },
-    ],
+  planos: {
+    titulo: "Três pacotes prontos para revendas.",
+    texto:
+      "Para a loja que já sabe o que precisa. O Sprint de Eficiência, que resolve um gargalo por vez, tem as faixas em Preços; os pacotes abaixo têm valor fechado.",
+    itens: PLANOS.map((p) => ({
+      id: p.id,
+      nome: p.nome,
+      linha: p.pilar,
+      para: p.para,
+      inclui: p.inclui.filter((i) => !/Google Ads/.test(i)),
+      implantacao: BRL(p.implantacao),
+      mensalidade: BRL(mensalidadeDoPlano(p)),
+      /** O Completo tem preço de lançamento com data; depois dela volta à tabela. */
+      condicao: p.id === "completo" ? `Mensalidade até ${dataBR(OFERTA_DO_COMPLETO.ate)}; depois, ${BRL(p.mensalidade)}.` : undefined,
+      bonus: p.bonus,
+    })),
+    rodape:
+      "A mensalidade cobre hospedagem e manutenção. Nuvem, IA e mensagens ficam por fora, pelo valor do provedor, discriminados na fatura, com teto mensal combinado e aviso antes de ultrapassá-lo; a V2O5 gerencia. Tráfego pago e outros serviços saem em proposta.",
   },
   case: {
-    titulo: "Medido na Motors Store.",
-    texto: "Os números do sistema rodando, lidos no banco de dados da loja. O case completo tem o que foi construído, peça por peça.",
-    fonte: CASE.fonte,
-    numeros: CASE.numeros,
+    texto: "O que foi construído na Motors Store, os números lidos no banco da loja e o caminho de um lead, do estoque à venda, estão no case.",
     href: "/cases/motors-store",
-    botao: "Ler o case completo",
+    botao: "Ler o case da Motors Store",
   },
   perguntas: [
     {

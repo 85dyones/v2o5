@@ -25,10 +25,12 @@ import { arquivos, ler } from "./fonte";
 
 /**
  * Decisão do Dyones em 25/10/2026: só o Sprint de Eficiência e a recorrência
- * que o acompanha (continuidade mensal) têm valor público. Os planos, o tráfego, os módulos, os serviços e o fotógrafo
- * parceiro de `precos.ts` são dado interno. Este teste varre tudo que o
- * visitante, o Google, os assistentes de IA e o agente do n8n leem e falha se
- * algum desses valores aparecer.
+ * que o acompanha (continuidade mensal) têm valor público, com uma exceção: o
+ * valor dos três planos (Presença, Atendimento e Completo) pode ficar no hub do
+ * segmento automotivo, e só nele. O tráfego, os módulos, os serviços e o
+ * fotógrafo parceiro de `precos.ts` são dado interno. Este teste varre tudo
+ * que o visitante, o Google, os assistentes de IA e o agente do n8n leem e
+ * falha se algum desses valores aparecer fora do lugar permitido.
  */
 
 const permitidos = new Set([...SPRINT_DE_PRECOS.niveis, ...CONTINUIDADE.modalidades].flatMap((n) => [n.faixa.de, n.faixa.ate]));
@@ -58,6 +60,10 @@ const internos = (() => {
     v.add(n);
   return [...v].filter((n) => !permitidos.has(n));
 })();
+
+/** Os valores dos planos, liberados só no hub automotivo (os dois arquivos que o formam). */
+const valoresDosPlanos = [...PLANOS.flatMap((p) => [p.implantacao, p.mensalidade]), OFERTA_DO_COMPLETO.mensalidade].filter((n) => !permitidos.has(n));
+const DO_HUB = ["conteudo/automotivo", "src/app/segmentos/revendas-de-veiculos/page.tsx"];
 
 /** `R$ 990` não casa com `R$ 9.900` nem com `R$ 99`: o número tem de acabar ali. */
 const aparece = (texto: string, n: number) => new RegExp(`${BRL(n).replace(/[$.]/g, "\\$&")}(?![\\d]|[.,]\\d)`).test(texto.replace(/ /g, " "));
@@ -91,8 +97,19 @@ describe("valores que não são publicados", () => {
 
   it("nenhuma página, dado público, vitrine, llms.txt ou fluxo do n8n traz um valor de plano, tráfego, módulo ou serviço", () => {
     for (const [onde, texto] of Object.entries(publicos)) {
-      for (const n of internos) expect(aparece(texto, n), `${onde} traz ${BRL(n)}`).toBe(false);
+      for (const n of internos) {
+        if (DO_HUB.includes(onde) && valoresDosPlanos.includes(n)) continue;
+        expect(aparece(texto, n), `${onde} traz ${BRL(n)}`).toBe(false);
+      }
     }
+  });
+
+  it("o hub automotivo mostra os valores dos três planos e nenhum de tráfego, módulo ou serviço", () => {
+    const hub = publicos["conteudo/automotivo"];
+    for (const n of valoresDosPlanos) expect(aparece(hub, n), `hub sem ${BRL(n)}`).toBe(true);
+    for (const n of internos.filter((i) => !valoresDosPlanos.includes(i))) expect(aparece(hub, n), `hub traz ${BRL(n)}`).toBe(false);
+    // Fora do hub, o valor de plano continua proibido: a lista de arquivos liberados é só o hub.
+    expect(DO_HUB).toEqual(["conteudo/automotivo", "src/app/segmentos/revendas-de-veiculos/page.tsx"]);
   });
 
   it("nenhuma página importa os componentes de preço que ficaram sem uso", () => {
@@ -102,9 +119,10 @@ describe("valores que não são publicados", () => {
 
   it("os únicos valores em real nos textos públicos são as faixas do Sprint e da continuidade", () => {
     const aceitos = [...permitidos].map((n) => BRL(n));
+    const aceitosNoHub = [...aceitos, ...valoresDosPlanos.map((n) => BRL(n))];
     for (const onde of ["conteudo/home", "conteudo/solucoes", "conteudo/automotivo", "conteudo/sobre", "conteudo/paginas", "llms.txt"]) {
       const valores = (publicos[onde].match(/R\$ \d{1,3}(?:\.\d{3})*(?:,\d{2})?/g) ?? []).map((v) => v.replace(/ /g, " "));
-      for (const v of valores) expect(aceitos, `${onde}: ${v}`).toContain(v);
+      for (const v of valores) expect(onde === "conteudo/automotivo" ? aceitosNoHub : aceitos, `${onde}: ${v}`).toContain(v);
     }
   });
 });

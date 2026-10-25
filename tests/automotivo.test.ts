@@ -1,15 +1,15 @@
 import { describe, expect, it } from "vitest";
 import { HUB_AUTOMOTIVO } from "@/conteudo/automotivo";
-import { CASE } from "@/conteudo/home";
+import { BRL, OFERTA_DO_COMPLETO, plano } from "@/conteudo/precos";
 import { paginaDa } from "@/conteudo/paginas";
 import { grafoDoHubAutomotivo, servicoAutomotivo } from "@/lib/schema";
 import { ler, semComentarios } from "./fonte";
 
 /**
- * O hub automotivo não publica valor (só o Sprint tem preço, desde
- * 25/10/2026) e só publica número de `CASE` (lido do banco da Motors, com
- * fonte e período). Sobre o agente, não afirma que roda na Motors
- * (pendência 13). A área de repasse não é produto da V2O5 (`V2O5_CORE.md`).
+ * O hub automotivo é o único lugar com o valor dos três planos (Dyones,
+ * 25/10/2026); não repete os números nem o caminho do lead do case, só aponta
+ * para ele. Sobre o agente, não afirma que roda na Motors (pendência 13). A
+ * área de repasse não é produto da V2O5 (`V2O5_CORE.md`).
  */
 
 const texto = JSON.stringify(HUB_AUTOMOTIVO);
@@ -26,19 +26,32 @@ describe("hub automotivo", () => {
     expect(faq.mainEntity.map((p) => p.name)).toEqual(HUB_AUTOMOTIVO.perguntas.map((p) => p.pergunta));
   });
 
-  it("nenhum valor em real, nenhum módulo avulso e nada de repasse", () => {
-    expect(texto).not.toMatch(/R\$|mensalidade|a partir de|plano |fidelidade/i);
-    expect(texto).not.toMatch(/Completo/);
+  it("mostra os três planos com o valor de plano e nenhum módulo avulso, tráfego ou repasse", () => {
+    expect(HUB_AUTOMOTIVO.planos.itens.map((p) => p.nome)).toEqual(["Presença", "Atendimento", "Completo"]);
+    for (const p of HUB_AUTOMOTIVO.planos.itens) {
+      expect(p.implantacao).toBe(BRL(plano(p.id).implantacao));
+      expect(texto).toContain(p.implantacao);
+    }
+    const completo = HUB_AUTOMOTIVO.planos.itens[2];
+    expect(completo.mensalidade).toBe(BRL(OFERTA_DO_COMPLETO.mensalidade));
+    expect(completo.condicao).toContain(BRL(plano("completo").mensalidade));
+    expect(texto).not.toMatch(/Google Ads|Meta Ads|R\$ 1\.300|R\$ 1\.200/);
     expect(HUB_AUTOMOTIVO).not.toHaveProperty("extras");
     expect(texto).not.toMatch(/repasse|consulta veicular|por placa/i);
     expect(HUB_AUTOMOTIVO.fatos[0].rotulo).toBe("No Sprint");
     expect(pagina).not.toContain("ParceiroDeFotografia");
   });
 
-  it("os números são os do case, com a mesma fonte e período", () => {
-    expect(HUB_AUTOMOTIVO.case.numeros).toBe(CASE.numeros);
-    expect(HUB_AUTOMOTIVO.case.fonte).toBe(CASE.fonte);
-    expect(pagina).toContain("{h.case.fonte}");
+  it("os custos de nuvem, IA e mensagens ficam por fora, com teto combinado e aviso", () => {
+    expect(HUB_AUTOMOTIVO.planos.rodape).toMatch(/por fora/);
+    expect(HUB_AUTOMOTIVO.planos.rodape).toMatch(/teto mensal combinado e aviso antes de ultrapass/);
+  });
+
+  it("não repete o case: sem números, sem caminho do lead, só o link", () => {
+    expect(HUB_AUTOMOTIVO).not.toHaveProperty("caminho");
+    expect(HUB_AUTOMOTIVO.case.href).toBe("/cases/motors-store");
+    expect(HUB_AUTOMOTIVO.case).not.toHaveProperty("numeros");
+    expect(pagina).not.toContain("numero-grande");
     expect(pagina).not.toContain("CompletoParaRevendas");
   });
 
