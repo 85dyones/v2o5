@@ -1,7 +1,8 @@
 // @vitest-environment jsdom
 import { describe, expect, it } from "vitest";
 import { CASE_MOTORS } from "@/conteudo/case";
-import { CASE, EMPRESA, HERO, LINHAS, MARCA_DO_SITE } from "@/conteudo/home";
+import { CASE, EMPRESA, ESCADA, HERO, LINHAS, MARCA_DO_SITE } from "@/conteudo/home";
+import { CONTINUIDADE, faixaEmTexto, SPRINT_DE_PRECOS } from "@/conteudo/sprint";
 import { PAGINAS } from "@/conteudo/paginas";
 import { BRL, dataBR, mensalidadeDoPlano, OFERTA_DO_COMPLETO, PLANOS, REGRAS } from "@/conteudo/precos";
 import { whatsappParaLer } from "@/lib/whatsapp";
@@ -139,6 +140,16 @@ describe("raiz de diagnostico.v2o5.com.br", () => {
     const completo = texto(raiz.querySelector('[data-plano="completo"]'));
     expect(completo).toContain(`até ${dataBR(OFERTA_DO_COMPLETO.ate)}; depois, ${BRL(PLANOS.find((p) => p.id === "completo")!.mensalidade)}`);
     expect(texto(raiz)).toContain(`o código, os dados e o domínio em até ${REGRAS.diasParaEntregarNaSaida} dias`);
+  });
+
+  it("a seção do Sprint repete as faixas e o escopo do diagnóstico do site, sem mapa nem 24 horas", () => {
+    const sprint = texto(raiz.getElementById("sprint"));
+    const niveis = SPRINT_DE_PRECOS.niveis;
+    expect(sprint).toContain(`${BRL(niveis[0].faixa.de)} a ${BRL(niveis[2].faixa.ate)} ou mais`);
+    expect(sprint).toContain(`${BRL(Math.min(...CONTINUIDADE.modalidades.map((m) => m.faixa.de)))} a ${BRL(Math.max(...CONTINUIDADE.modalidades.map((m) => m.faixa.ate)))} por mês`);
+    expect(sprint).toContain(ESCADA.degraus[0].saida);
+    expect(faixaEmTexto(niveis[1].faixa)).toBe("R$ 6.000 a R$ 12.000");
+    expect(texto(raiz)).not.toMatch(/24 horas|Catalisador de vendas/);
   });
 
   it("os números do case são os da home, com a fonte ao lado", () => {

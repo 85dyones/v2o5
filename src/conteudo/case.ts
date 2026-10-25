@@ -30,7 +30,26 @@ export const CASE_MOTORS = {
     { rotulo: "Entrega", valor: "site de estoque, guias, rastreamento, painel e automações" },
     { rotulo: "Fonte", valor: "banco de dados da Motors, lido em 08/10/2026" },
   ],
+  /**
+   * Os gargalos que o Dyones confirmou em 25/10/2026 (roteiro ajustado). São
+   * diagnóstico, não resultado: aparecem separados do que foi implementado e
+   * do que foi medido.
+   */
+  diagnosticado: {
+    sobretitulo: "Antes: diagnosticado",
+    titulo: "O que travava a Motors Store.",
+    texto: "Os gargalos identificados antes da intervenção, na ordem da jornada do comprador.",
+    itens: [
+      "Baixa visibilidade nas buscas orgânicas, nos buscadores e nas IAs.",
+      "Falta de leads qualificados.",
+      "Presença digital fraca.",
+      "Design do site ruim.",
+      "Site lento.",
+      "Acompanhamento comercial inconsistente.",
+    ],
+  },
   construido: {
+    sobretitulo: "Depois: implementado",
     titulo: "O que a V2O5 montou.",
     texto: "Cada peça é uma linha do cardápio da V2O5, ligada às outras pela mesma base de dados.",
     pecas: [
@@ -72,6 +91,7 @@ export const CASE_MOTORS = {
     ],
   },
   numeros: {
+    sobretitulo: "Medido",
     titulo: "Os números do sistema.",
     fonte: CASE.fonte,
     itens: [

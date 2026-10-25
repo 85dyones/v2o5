@@ -199,8 +199,8 @@ describe("garantias, perguntas e chamadas (regras de oferta.md)", () => {
 });
 
 describe("texto público", () => {
-  it("o H1 da home é o escolhido em 09/10 e a decisão está registrada", () => {
-    expect(TITULO_DA_HOME).toBe("Coloque sua empresa no mapa e multiplique a operação com IA.");
+  it("o H1 da home é o de 25/10 (Sprint de Eficiência) e a decisão está registrada", () => {
+    expect(TITULO_DA_HOME).toBe("Do problema ao resultado, pelo caminho mais simples.");
     expect(ler("memory/decisoes.md")).toContain(TITULO_DA_HOME);
   });
 

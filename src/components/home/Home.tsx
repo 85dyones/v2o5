@@ -4,33 +4,40 @@ import BotaoWhatsAppFixo from "@/components/layout/BotaoWhatsAppFixo";
 import Entradas from "@/components/layout/Entradas";
 import Hero from "@/components/home/Hero";
 import Solucoes from "@/components/home/Solucoes";
-import Garantias from "@/components/home/Garantias";
-import ChamadaCurta from "@/components/home/ChamadaCurta";
 import Perguntas from "@/components/home/Perguntas";
-import VisaoAmpla from "@/components/home/VisaoAmpla";
-import Orquestrador from "@/components/home/orquestrador/Orquestrador";
 import ComoSeLiga from "@/components/home/diagrama/ComoSeLiga";
-import CaseMotors from "@/components/home/CaseMotors";
 import Automotivo from "@/components/home/Automotivo";
 import Fechamento from "@/components/home/Fechamento";
+import Dores from "@/components/home/Dores";
+import Sprint from "@/components/home/Sprint";
+import Indicadores from "@/components/home/Indicadores";
+import ProjetoReal from "@/components/home/ProjetoReal";
+import Escada from "@/components/home/Escada";
+import Nome from "@/components/home/Nome";
+import { FECHO } from "@/conteudo/home";
 
-/** A home inteira. O H1 vem de `TITULO_DA_HOME` (conteudo/home.ts). */
+/**
+ * A home inteira. O H1 vem de `TITULO_DA_HOME` (conteudo/home.ts). A ordem
+ * segue `V2O5_CORE.md`: dor, Sprint, indicadores, projeto, escada de oferta e
+ * só então o cardápio de peças, que serve ao método e não o substitui.
+ */
 export default function Home({ titulo }: { titulo: string }) {
   return (
     <>
       <Topo />
       <main id="conteudo">
         <Hero titulo={titulo} />
+        <Dores />
+        <Sprint />
+        <Indicadores />
+        <ProjetoReal />
+        <Escada />
         <Solucoes />
-        <Garantias />
-        <VisaoAmpla />
-        <Orquestrador />
         <ComoSeLiga />
-        <CaseMotors />
-        <ChamadaCurta qual="depoisDoCase" />
         <Automotivo />
         <Perguntas />
-        <Fechamento />
+        <Nome />
+        <Fechamento titulo={FECHO.titulo} texto={FECHO.texto} botao={FECHO.botao} />
       </main>
       <Rodape />
       <BotaoWhatsAppFixo pagina="home" />

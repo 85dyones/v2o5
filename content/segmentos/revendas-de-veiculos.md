@@ -7,12 +7,10 @@ description: "Site de estoque ligado ao sistema da loja (Revenda Mais, Autoconf 
 canonical: "https://www.v2o5.com.br/segmentos/revendas-de-veiculos"
 robots: null
 h1: "O sistema da Motors Store, pronto para a sua revenda."
-extraido_em: "2026-10-19T00:26:22.723Z"
-fonte: "produção (www.v2o5.com.br), main em 46c4103"
+extraido_em: "2026-10-25T18:36:04.076Z"
+fonte: "build local da branch claude/keen-ptolemy-vnfnfu (25/10/2026), extraída com design/baseline/ferramentas; as demais rotas seguem como em 19/10"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
-Revendas de veículos
-
 # O sistema da Motors Store, pronto para a sua revenda.
 
 Site de estoque ligado ao sistema que a loja já usa, agente de IA no WhatsApp, CRM e rastreamento até a venda, com preço publicado.
@@ -23,7 +21,8 @@ Site de estoque ligado ao sistema que a loja já usa, agente de IA no WhatsApp, 
 
 Funciona com o sistema da loja
 
-- Revenda Mais · em produção
+Revenda Mais · em produção
+
 - Autoconf
 - BNDV
 - Boom
@@ -33,7 +32,7 @@ Funciona com o sistema da loja
 
 Plano Completo
 
-a partir de R$ 14.900 de implantação e R$ 1.990 por mês até 31/12/2026
+a partir de R$ 14.900 de implantação e R$ 1.990 por mês até 31/12/2026
 
 Integração em produção
 
@@ -57,10 +56,17 @@ Sites e presença
 
 Vitrine, ficha de veículo, páginas por marca e modelo e páginas locais. O carro entra no site quando entra no sistema de gestão e sai quando é vendido. Em produção com o Revenda Mais. Autoconf, BNDV, Boom, Altimus e Syonet entram por fluxo de integração.
 
-<!-- 19/10 (Dyones): telas reais do site da Motors, capturadas no celular; no celular só a primeira aparece -->
-[imagem] motorsstore.com.br, capturado em 19/10/2026
-[imagem] motorsstore.com.br/estoque, capturado em 19/10/2026
-[imagem] motorsstore.com.br/carros/volkswagen/t-cross, capturado em 19/10/2026
+![Vitrine do site da Motors Store no celular: veículo em destaque, preço e a busca por marca e modelo.](/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fvitrine.2s6-vxquanhzs.webp&w=3840&q=75)
+
+motorsstore.com.br, capturado em 19/10/2026
+
+![Página de estoque do site da Motors Store no celular: título, ordenação, busca e o primeiro veículo da lista.](/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Festoque.3-jymr6pppbhf.webp&w=3840&q=75)
+
+motorsstore.com.br/estoque, capturado em 19/10/2026
+
+![Ficha de um veículo no site da Motors Store no celular: galeria de fotos, modelo, ano, preço e os botões de contato.](/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fveiculo.0m3bnf55vhsfs.webp&w=3840&q=75)
+
+motorsstore.com.br/carros/volkswagen/t-cross, capturado em 19/10/2026
 
 Agente de IA no WhatsApp
 
@@ -82,31 +88,29 @@ Pixel, API de Conversões e GA4 com um identificador único por lead. A campanha
 
 ## Preço do plano Completo <!-- só leitor de tela -->
 
-Plano Completo
-
 ### O sistema da Motors Store na sua loja.
 
-Site de estoque integrado ao sistema da loja, agente de IA no WhatsApp, CRM com 5 usuários, rastreamento até a venda e um fluxo de automação. Presença e Atendimento separados somam R$ 16.800 de implantação e R$ 2.580 por mês.
+Site de estoque integrado ao sistema da loja, agente de IA no WhatsApp, CRM com 5 usuários, rastreamento até a venda e um fluxo de automação. Presença e Atendimento separados somam R$ 16.800 de implantação e R$ 2.580 por mês.
 
 Implantação a partir de
 
-R$ 14.900
+R$ 14.900
 
 Mensalidade a partir de
 
-R$ 1.990
+R$ 1.990
 
-R$ 2.290 até 31/12/2026
+R$ 2.290 até 31/12/2026
 
 Bônus de fechamento: a implantação do Painel do dono fica por conta da V2O5.
 
-Com Google Ads e Meta Ads: R$ 3.290 por mês mais a verba, com o feed de catálogo incluso. Usuário extra R$ 89 por mês.
+Com Google Ads e Meta Ads: R$ 3.290 por mês mais a verba, com o feed de catálogo incluso. Usuário extra R$ 89 por mês.
 
 [Ver todos os planos](/precos)
 
 A conta que importa
 
-Com uma margem de R$ 7.000 por carro, uma venda a mais a cada 3 meses paga a mensalidade do Completo.
+Com uma margem de R$ 7.000 por carro, uma venda a mais a cada 3 meses paga a mensalidade do Completo.
 
 A margem é a referência do plano de mídia da Motors Store. Na sua loja, a conta sai no diagnóstico, com o seu número.
 
@@ -152,7 +156,7 @@ Entram em cima do Completo ou do Atendimento, na mesma base. Cada um com preço 
 
 Antes de comprar: FIPE do mês sem custo, histórico de 24 meses com tendência e faixa de compra, e a placa com dez checagens (leilão, sinistro, gravame, roubo, débitos, recall e outras) e um veredito.
 
-a partir de R$ 990 + R$ 190/mês e R$ 49,90 por placa
+a partir de R$ 990 + R$ 190/mês e R$ 49,90 por placa
 
 [no diagnóstico](/diagnostico)
 
@@ -160,7 +164,7 @@ a partir de R$ 990 + R$ 190/mês e R$ 49,90 por placa
 
 O carro que não vai para a vitrine sai às claras: laudo, conta aberta contra a FIPE e ficha de defeitos com foto, para lojistas e consumidores inscritos.
 
-a partir de R$ 2.900 + R$ 390/mês
+a partir de R$ 2.900 + R$ 390/mês
 
 [no diagnóstico](/diagnostico)
 
@@ -168,7 +172,7 @@ a partir de R$ 2.900 + R$ 390/mês
 
 As duas plataformas pela mesma equipe: anúncios de veículos no Google, catálogo na Meta e o feed do estoque incluso. Começa com o rastreamento ligado.
 
-a partir de R$ 1.300/mês + verba
+a partir de R$ 1.300/mês + verba
 
 [na tabela](/precos#titulo-trafego)
 
@@ -176,7 +180,7 @@ a partir de R$ 1.300/mês + verba
 
 Quem comprou há dois ou três anos recebe a mensagem certa: troca, avaliação do usado, oferta do mês. SMS com link rastreado e campanha de WhatsApp, só com base própria.
 
-a partir de R$ 1.900 + R$ 290/mês
+a partir de R$ 1.900 + R$ 290/mês
 
 [na tabela](/precos#titulo-modulos)
 
@@ -184,13 +188,13 @@ a partir de R$ 1.900 + R$ 290/mês
 
 Funil, verba, custo por lead e vendas por origem numa tela, atualizada todo dia a partir do CRM, do rastreamento e das contas de anúncio. Sem licença por usuário. No Completo, a implantação é bônus de fechamento. Usuário extra R$ 89 por mês.
 
-a partir de R$ 3.900 + R$ 490/mês
+a partir de R$ 3.900 + R$ 490/mês
 
 [na tabela](/precos#titulo-modulos)
 
 Precisa de fotógrafo?
 
-A V2O5 indica parceiros de fotografia, com pacote mensal a partir de R$ 890.
+A V2O5 indica parceiros de fotografia, com pacote mensal a partir de R$ 890.
 
 [Saiba mais](https://wa.me/5541998089550?text=Ol%C3%A1!%20Vi%20no%20site%20da%20V2O5%20a%20indica%C3%A7%C3%A3o%20de%20fot%C3%B3grafo%20parceiro%20e%20quero%20saber%20mais.)
 
@@ -215,8 +219,6 @@ veículos sincronizados com o estoque do Revenda Mais
 Banco de dados da Motors Store, lido em 08/10/2026. Leads contados de 05/09 a 08/10/2026.
 
 [Ler o case completo](/cases/motors-store)
-
-Dono de loja pergunta
 
 ## O que toda revenda pergunta antes de fechar.
 
@@ -256,15 +258,31 @@ Sim. Sem fidelidade: se sair, você recebe o código, os dados e o domínio em a
 
 ## Quer ver o Completo rodando na sua revenda?
 
-O diagnóstico é gratuito: 45 minutos com o fundador, que montou o sistema da Motors Store, e um mapa do que fazer primeiro, com custo e prazo.
+O diagnóstico é gratuito: 45 minutos com o fundador, que montou o sistema da Motors Store, para identificar e priorizar o gargalo da sua revenda.
 
 [Pedir diagnóstico gratuito](/diagnostico)
 
 [Ver a tabela de preços](/precos)
 
+r 18 <!-- texto em SVG; decorativo, aria-hidden -->
+
+r 24 <!-- texto em SVG; decorativo, aria-hidden -->
+
+r 20 <!-- texto em SVG; decorativo, aria-hidden -->
+
+r 18 <!-- texto em SVG; decorativo, aria-hidden -->
+
+V · 6,8 <!-- texto em SVG; decorativo, aria-hidden -->
+
+O · 4,8 <!-- texto em SVG; decorativo, aria-hidden -->
+
 <!-- fora do <main>: botão fixo do WhatsApp (só abaixo de 768 px) -->
 [WhatsApp](https://wa.me/5541998089550?text=Ol%C3%A1!%20Vi%20a%20p%C3%A1gina%20de%20revendas%20no%20site%20da%20V2O5%20e%20quero%20conversar%20sobre%20a%20minha%20loja.)
 
 <!-- rótulos de acessibilidade (aria-label) desta rota, fora topo e rodapé:
-- "Precisa de fotógrafo?" (aside)
+- "Revendas de veículos" (section)
+- "Plano Completo" (div role=group)
+- "Precisa de fotógrafo?" (section)
+- "Dono de loja pergunta" (section)
+- "Conversa no WhatsApp" (aside)
 -->

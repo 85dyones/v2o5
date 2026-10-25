@@ -318,3 +318,11 @@ E-mail, com o mesmo contrato (`data-evento="click_email"`, link de `src/lib/emai
 3. Gerar o `content/` de novo a partir do preview e fazer `git diff content/`: a diferença tem de ser zero palavra, ou só o que foi decidido mudar.
 4. Enviar um pedido de diagnóstico no preview (teste (a) do `docs/n8n/LEIA-ME.md`) e ver o lead chegar ao n8n e ao Chatwoot com `origem = v2o5`; clicar no WhatsApp de uma página e ver o agente responder.
 5. Rodar o Dembrandt com `--compare design/baseline/dembrandt-2026-10-19.json` para ver o que mudou no visual (no redesign, mudar é o esperado; serve para registrar o quê).
+
+## Atualização de 25/10/2026 (home em torno do Sprint de Eficiência)
+
+Mudança de propósito, decidida pelo Dyones (`memory/decisoes.md`, 25/10): H1, `<title>` e `description` da home mudaram; o JSON-LD, as rotas, o sitemap, os redirecionamentos e as âncoras `#solucoes` e `#como-se-liga` seguem iguais. Novas âncoras na home: `#problemas`, `#metodo`, `#indicadores`, `#case`, `#como-trabalhamos`, `#nome`. `data-local` novos no `cta_click` da home: `hero-metodo`, `sprint`; saíram da home `garantias` e `chamada-curta`. O texto da home em `content/home.md` é o de 19/10 e precisa ser extraído de novo.
+
+Ajuste de 25/10 (roteiro ajustado): `/diagnostico`, a home, `/sobre`, `/criacao-de-sites`, o hub automotivo e o case deixaram de prometer "mapa em até 24 horas"; o title de `/diagnostico` não mudou, a `description` sim. `/cases/motors-store` ganhou a seção "O que travava a Motors Store" antes de "O que a V2O5 montou" e dos números, e o FAQ da home (e o `FAQPage`) trocou a resposta sobre o diagnóstico. Formulário, campos, `/api/leads`, consentimento e eventos seguem iguais.
+
+Aprovação do apêndice (25/10): `/precos` ganhou a seção `#titulo-sprint` (faixas do Sprint e da continuidade, condições), entre os planos e o tráfego; `src/conteudo/sprint.ts` é a fonte e `tests/sprint.test.ts` confere contra `memory/context/oferta.md`. O `OfferCatalog` do JSON-LD de `/precos` não mudou (só os três planos). A escada da home linka `/precos#titulo-sprint` com `data-local="escada"`; o `llms.txt` ganhou a seção do Sprint (e o agente do n8n lê o `llms.txt`). O case usa "Antes: diagnosticado", "Depois: implementado" e "Medido".

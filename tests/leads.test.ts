@@ -231,10 +231,11 @@ describe("rota /api/leads", () => {
 });
 
 describe("textos do diagnóstico", () => {
-  it("sem travessão e com as promessas de 45 minutos e 24 horas", () => {
+  it("sem travessão, com os 45 minutos e sem prometer mapa nem prazo de entrega", () => {
     const tudo = JSON.stringify(DIAGNOSTICO);
     expect(tudo).not.toMatch(/[—–]/);
     expect(tudo).toContain("45 minutos");
-    expect(tudo).toContain("24 horas");
+    expect(tudo).not.toMatch(/24 horas/);
+    expect(tudo).not.toMatch(/mapa (com|do|em)/i);
   });
 });

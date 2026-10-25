@@ -1,4 +1,5 @@
 import { CASE_MOTORS } from "@/conteudo/case";
+import { ASSINATURA } from "@/conteudo/home";
 import { EMPRESA, VISAO_360 } from "@/conteudo/home";
 import { REGRAS } from "@/conteudo/precos";
 
@@ -49,7 +50,7 @@ export const SOBRE = {
       "V2O5 é o pentóxido de vanádio, o catalisador industrial da produção de ácido sulfúrico: acelera a reação e continua lá no fim. A V2O5 acelera o negócio, e o catalisador dela é a inteligência artificial. O sistema fica com o cliente.",
     cores:
       "O vanádio muda de cor conforme o estado de oxidação. As quatro cores do site são as quatro etapas do caminho do cliente: violeta na atração, verde no atendimento, azul na gestão e âmbar na venda.",
-    assinatura: "Catalisador de vendas com IA",
+    assinatura: ASSINATURA,
   },
   jeito: {
     titulo: "Como a V2O5 trabalha.",
@@ -57,7 +58,7 @@ export const SOBRE = {
     regras: [
       {
         titulo: "Começa pelo diagnóstico",
-        texto: "45 minutos com o fundador e, em até 24 horas, um mapa do que fazer primeiro, com custo e prazo, para usar com ou sem a V2O5.",
+        texto: "45 minutos com o fundador para identificar e priorizar um gargalo, sem compromisso. O que vem depois só é proposto se houver um bom caso.",
       },
       {
         titulo: "Preço publicado",
@@ -100,7 +101,7 @@ export const SOBRE = {
   },
   chamada: {
     titulo: "Quer conversar com quem vai fazer?",
-    texto: "O diagnóstico é com o fundador. 45 minutos sobre presença, atendimento, operação e funil, e um mapa em até 24 horas.",
+    texto: "O diagnóstico é com o fundador: 45 minutos sobre presença, atendimento, operação e funil, para priorizar um gargalo.",
     botao: "Pedir diagnóstico gratuito",
   },
 };

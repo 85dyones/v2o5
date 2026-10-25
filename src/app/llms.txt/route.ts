@@ -1,4 +1,5 @@
-import { AUTOMOTIVO, CASE, EMPRESA, HERO, PILARES, VISAO_360 } from "@/conteudo/home";
+import { CONDICOES, CONTINUIDADE, faixaEmTexto, SPRINT_DE_PRECOS } from "@/conteudo/sprint";
+import { ASSINATURA, AUTOMOTIVO, CASE, EMPRESA, HERO, PILARES, VISAO_360 } from "@/conteudo/home";
 import { BRL, dataBR, DEGRAUS, linhaDePreco, linhasDoGrupo, OFERTA_DO_COMPLETO, PLANOS, precoDaLinha, REAJUSTE } from "@/conteudo/precos";
 import { SITE_URL } from "@/lib/site";
 import { whatsappParaLer } from "@/lib/whatsapp";
@@ -35,11 +36,16 @@ export function textoDoLlms(): string {
   return [
     `# ${EMPRESA.nome}`,
     "",
-    `> Catalisador de vendas com IA. ${HERO.subtitulo}`,
+    `> ${ASSINATURA} ${HERO.subtitulo}`,
     "",
     `${EMPRESA.razaoSocial}, CNPJ ${EMPRESA.cnpj}. Atende empresas em todo o Brasil.`,
     "",
     `Fundador: ${VISAO_360.fundador.nome}. ${VISAO_360.fundador.texto}`,
+    "",
+    "## Sprint de Eficiência (oferta principal)",
+    `Projeto fechado para um gargalo delimitado, com preço fechado em proposta. Faixas de referência: ${SPRINT_DE_PRECOS.niveis.map((n) => `${n.nome} ${faixaEmTexto(n.faixa)} (${n.duracao})`).join("; ")}. Duração é referência, não promessa. Sem promessa de ROI nem de aumento de vendas. Detalhes em ${SITE_URL}/precos#titulo-sprint.`,
+    `Continuidade em contrato próprio: ${CONTINUIDADE.modalidades.map((m) => `${m.nome} ${faixaEmTexto(m.faixa)} por mês`).join("; ")}. ${CONTINUIDADE.limites}`,
+    `Pagamento: ${CONDICOES.itens[1].texto}`,
     "",
     "## Planos",
     "Todo preço é a partir de, com hospedagem e manutenção na mensalidade. Sem fidelidade.",

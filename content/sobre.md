@@ -7,23 +7,19 @@ description: "Quem é a V2O5 Vendas e Tecnologia, de onde vem o nome, o fundador
 canonical: "https://www.v2o5.com.br/sobre"
 robots: null
 h1: "Quem faz a V2O5, de onde vem o nome e como ela trabalha."
-extraido_em: "2026-10-19T00:26:22.723Z"
-fonte: "produção (www.v2o5.com.br), main em 46c4103"
+extraido_em: "2026-10-25T18:36:04.076Z"
+fonte: "build local da branch claude/keen-ptolemy-vnfnfu (25/10/2026), extraída com design/baseline/ferramentas; as demais rotas seguem como em 19/10"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
-Sobre a V2O5
-
 # Quem faz a V2O5, de onde vem o nome e como ela trabalha.
 
-Uma equipe só, do site ao CRM, com preço publicado e número medido. <!-- 19/10 (Dyones): sem Almirante Tamandaré, "é digital, não precisa ter uma âncora física" -->
+Uma equipe só, do site ao CRM, com preço publicado e número medido.
 
 [Pedir diagnóstico gratuito](/diagnostico)
 
 [Conhecer o fundador](#autor)
 
-DO <!-- decorativo, aria-hidden -->
-
-[imagem: "Dyones Oliveira, fundador da V2O5, em Londres", foto em preto e branco] <!-- 19/10 (Dyones): o retrato abre a ficha -->
+![Dyones Oliveira, fundador da V2O5, em Londres](/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fdyones-pb.2fmfx13-9ad2q.webp&w=3840&q=75)
 
 Dyones Oliveira
 
@@ -33,7 +29,7 @@ Formação
 
 Administração de Empresas, FAE Business School
 
-Na tecnologia <!-- 19/10 (Dyones): célula nova na ficha do fundador, com o dado do texto corrido; "Na tecnologia" no lugar de "Na informática" -->
+Na tecnologia
 
 Desde 1992
 
@@ -43,13 +39,11 @@ Rebranding da Top Imóveis para Top Soluções Imobiliárias
 
 Conteúdo
 
-Assina os 26 guias do site da Motors Store; assinou o blog da Top Soluções Imobiliárias até agosto de 2024 <!-- 19/10 (Dyones): o blog da Top entrou -->
+Assina os 26 guias do site da Motors Store; assinou o blog da Top Soluções Imobiliárias até agosto de 2024
 
 Na V2O5
 
 Conduz o diagnóstico gratuito e a implantação de cada projeto
-
-O fundador
 
 ## Dyones conduz o diagnóstico e a implantação.
 
@@ -77,8 +71,6 @@ Gestão
 
 Formação: Administração na FAE Business School
 
-O nome
-
 ## O nome vem de um catalisador.
 
 V2O5 é o pentóxido de vanádio, o catalisador industrial da produção de ácido sulfúrico: acelera a reação e continua lá no fim. A V2O5 acelera o negócio, e o catalisador dela é a inteligência artificial. O sistema fica com o cliente.
@@ -93,7 +85,18 @@ Gestão
 
 Venda
 
-<!-- 19/10 (Dyones): a anatomia do símbolo no lugar do logo grande; desenho decorativo, a ficha abaixo é texto -->
+r 18 <!-- texto em SVG; decorativo, aria-hidden -->
+
+r 24 <!-- texto em SVG; decorativo, aria-hidden -->
+
+r 20 <!-- texto em SVG; decorativo, aria-hidden -->
+
+r 18 <!-- texto em SVG; decorativo, aria-hidden -->
+
+V · 6,8 <!-- texto em SVG; decorativo, aria-hidden -->
+
+O · 4,8 <!-- texto em SVG; decorativo, aria-hidden -->
+
 Nuvem
 
 4 arcos, raios 18, 24, 20 e 18
@@ -106,9 +109,7 @@ Rede
 
 a cor da ação
 
-Catalisador de vendas com IA
-
-O jeito
+V2O5 | Eficiência comercial e operacional com tecnologia.
 
 ## Como a V2O5 trabalha.
 
@@ -118,7 +119,7 @@ Cinco regras que valem para todo projeto e estão escritas na página de preços
 
 ### Começa pelo diagnóstico
 
-45 minutos com o fundador e, em até 24 horas, um mapa do que fazer primeiro, com custo e prazo, para usar com ou sem a V2O5.
+45 minutos com o fundador para identificar e priorizar um gargalo, sem compromisso. O que vem depois só é proposto se houver um bom caso.
 
 02
 
@@ -146,8 +147,6 @@ Sem fidelidade. Se sair, recebe o código, os dados e o domínio em até 15 dias
 
 [Ver a tabela de preços](/precos)
 
-Case
-
 ## A relação com a Motors Store.
 
 A Motors Store, revenda de seminovos em Curitiba, é cliente da V2O5 e o case principal do site. A relação é de fornecedora: a V2O5 montou e mantém o sistema da loja, e o fundador assina os guias publicados nela. Os números do case são lidos no banco de dados da Motors, com fonte e período, e a publicação do nome, do logo e dos números foi autorizada pela loja.
@@ -155,6 +154,8 @@ A Motors Store, revenda de seminovos em Curitiba, é cliente da V2O5 e o case pr
 [Ler o case da Motors Store](/cases/motors-store)
 
 ## Com o que a V2O5 constrói
+
+A mesma base em todo projeto: o que entra por uma linha aparece nas outras. Automação, atendimento e WhatsApp rodam no servidor da V2O5.
 
 - Next.js
 - Vercel
@@ -166,13 +167,9 @@ A Motors Store, revenda de seminovos em Curitiba, é cliente da V2O5 e o case pr
 - GA4 e GTM
 - Revenda Mais
 
-A mesma base em todo projeto: o que entra por uma linha aparece nas outras. Automação, atendimento e WhatsApp rodam no servidor da V2O5.
-
-Dados
-
 ## A empresa
 
-Atendimento remoto para empresas de todo o Brasil. <!-- 19/10 (Dyones): sem Almirante Tamandaré, "é digital, não precisa ter uma âncora física" -->
+Atendimento remoto para empresas de todo o Brasil.
 
 Antes do site novo, a V2O5 se apresentava como V2O5 ConsultorIA.
 
@@ -202,15 +199,34 @@ E-mail
 
 ## Quer conversar com quem vai fazer?
 
-O diagnóstico é com o fundador. 45 minutos sobre presença, atendimento, operação e funil, e um mapa em até 24 horas.
+O diagnóstico é com o fundador: 45 minutos sobre presença, atendimento, operação e funil, para priorizar um gargalo.
 
 [Pedir diagnóstico gratuito](/diagnostico)
 
 [Ver preços](/precos)
 
+r 18 <!-- texto em SVG; decorativo, aria-hidden -->
+
+r 24 <!-- texto em SVG; decorativo, aria-hidden -->
+
+r 20 <!-- texto em SVG; decorativo, aria-hidden -->
+
+r 18 <!-- texto em SVG; decorativo, aria-hidden -->
+
+V · 6,8 <!-- texto em SVG; decorativo, aria-hidden -->
+
+O · 4,8 <!-- texto em SVG; decorativo, aria-hidden -->
+
 <!-- fora do <main>: botão fixo do WhatsApp (só abaixo de 768 px) -->
 [WhatsApp](https://wa.me/5541998089550?text=Ol%C3%A1!%20Vi%20a%20p%C3%A1gina%20Sobre%20no%20site%20da%20V2O5%20e%20quero%20conversar%20sobre%20a%20minha%20empresa.)
 
 <!-- rótulos de acessibilidade (aria-label) desta rota, fora topo e rodapé:
+- "Sobre a V2O5" (section)
+- "O fundador" (section)
+- "O nome" (section)
 - "As quatro etapas" (p)
+- "O jeito" (section)
+- "Case" (section)
+- "Dados" (section)
+- "Conversa no WhatsApp" (aside)
 -->

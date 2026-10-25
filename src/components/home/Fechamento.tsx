@@ -8,7 +8,15 @@ import { COR_DA_ROTA, Parada } from "@/components/rota/Rota";
  * O fecho, na única faixa escura da página: a rota chega em âmbar e termina
  * no botão principal, que é a Venda. À direita, o símbolo em papel.
  */
-export default function Fechamento() {
+export default function Fechamento({
+  titulo = "Comece pelo diagnóstico, que é gratuito.",
+  texto = "Em 45 minutos de conversa com o fundador, a gente entende como a sua empresa vende hoje e identifica o gargalo que vale priorizar. A sessão é gratuita e sem compromisso.",
+  botao = "Pedir diagnóstico",
+}: {
+  titulo?: string;
+  texto?: string;
+  botao?: string;
+}) {
   return (
     <section
       aria-labelledby="titulo-fechamento"
@@ -19,16 +27,15 @@ export default function Fechamento() {
       <div className="conteiner conteiner-rota fecho-miolo grid grid-cols-12 gap-x-6 gap-y-12 py-24 md:py-32">
         <div className="relative col-span-12 lg:col-span-7">
           <h2 id="titulo-fechamento" className="titulo-secao max-w-[40rem]">
-            Comece pelo diagnóstico, que é gratuito.
+            {titulo}
           </h2>
           <p className="mt-6 max-w-[36rem] text-guia text-faixa-escura-secundario">
-            Em 45 minutos de conversa com o fundador, a gente entende como a sua empresa vende hoje. Em até 24 horas você
-            recebe um mapa do que fazer primeiro, com custo e prazo, para usar com ou sem a V2O5.
+            {texto}
           </p>
           <div className="fecho-acoes relative mt-10 flex flex-wrap gap-3">
             <Parada final />
             <Link href="/diagnostico" className="botao botao-primario botao-claro" data-evento="cta_click" data-local="fechamento">
-              Pedir diagnóstico
+              {botao}
               <Icone nome="seta" className="seta size-4" />
             </Link>
             <Link href="/precos" className="botao botao-secundario botao-claro" data-evento="cta_click" data-local="fechamento">

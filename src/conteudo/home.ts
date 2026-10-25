@@ -8,18 +8,189 @@
  */
 import { listaDeSistemasIntegraveis } from "@/conteudo/diagnostico";
 import type { Etapa } from "@/lib/tokens";
+import { CONTINUIDADE, faixaEmTexto, SPRINT_DE_PRECOS } from "@/conteudo/sprint";
 import { BRL, dataBR, DEGRAUS, linhaDePreco, mensalidadeDoPlano, OFERTA_DO_COMPLETO, plano, PLANOS, precoDa, REAJUSTE, REGRAS, somaDosPlanosSeparados, USUARIOS_NO_CRM } from "@/conteudo/precos";
 
 /**
- * O H1 da home, escolhido em 09/10 entre duas opções (a outra está em
- * `memory/decisoes.md`).
+ * O H1 da home, desde 25/10/2026 (reposicionamento em torno do Sprint de
+ * Eficiência, `V2O5_CORE.md`). O de 09/10 e a decisão estão em
+ * `memory/decisoes.md`.
  */
-export const TITULO_DA_HOME = "Coloque sua empresa no mapa e multiplique a operação com IA.";
+export const TITULO_DA_HOME = "Do problema ao resultado, pelo caminho mais simples.";
 
 export const HERO = {
+  eyebrow: "Estratégia, processos e tecnologia",
   subtitulo:
-    "Site, Google, anúncios, agente de IA e CRM montados por uma equipe só, num sistema que mostra de onde veio cada venda e fica no nome da sua empresa.",
-  nota: "Diagnóstico gratuito: 45 minutos de conversa com o fundador e um mapa do que fazer, em até 24 horas.",
+    "Achamos o gargalo, simplificamos o processo e implementamos tecnologia para reduzir atrito e medir o resultado. IA entra onde faz diferença.",
+  /** A vitrine de diagnostico.v2o5.com.br repete esta nota (`tests/subdominio-diagnostico.test.ts`). */
+  nota: "Diagnóstico gratuito: 45 minutos de conversa com o fundador para identificar e priorizar um gargalo.",
+  principio: "Começamos pelo processo e pelo resultado desejado. A ferramenta vem depois.",
+  cta: "Mapear um gargalo",
+  ctaSecundario: "Conhecer o método",
+  conectamos: { rotulo: "O que conectamos", itens: ["Processos", "Atendimento", "Dados", "Integrações", "Automação", "IA aplicada"] },
+};
+
+/** O problema, antes da ferramenta (`V2O5_CORE.md`, seção 4). */
+export const DORES = {
+  titulo: "O problema raramente é falta de ferramenta.",
+  apagado: "Quase sempre é atrito entre as que já existem.",
+  texto:
+    "A operação perde tempo entre sistemas que não conversam, tarefas repetidas e decisões tomadas sem informação suficiente. É por aí que a gente começa.",
+  itens: [
+    {
+      titulo: "Informação espalhada",
+      texto: "Dados em planilhas, mensagens e sistemas diferentes impedem uma visão confiável do que está acontecendo.",
+    },
+    {
+      titulo: "Retrabalho que virou rotina",
+      texto:
+        "Gente copiando dados, cobrando retorno e repetindo etapas que poderiam ser eliminadas, integradas ou automatizadas.",
+    },
+    {
+      titulo: "Atividade sem resultado visível",
+      texto:
+        "A operação funciona, mas ninguém mede com clareza o tempo gasto, onde trava e o que de fato melhorou.",
+    },
+  ],
+};
+
+/** O produto principal. Sem preço e sem prazo: o escopo se define depois da conversa. */
+export const SPRINT = {
+  rotulo: "Produto principal",
+  titulo: "Sprint de Eficiência V2O5",
+  texto:
+    "Uma intervenção com escopo definido: diagnosticar um gargalo específico, mapear o fluxo atual, priorizar uma intervenção, implementar uma solução proporcional e comparar os indicadores disponíveis antes e depois. Processo, integração, automação e IA entram como meios, conforme o problema.",
+  principio:
+    "Comprar, integrar, automatizar ou desenvolver: a decisão depende do problema, não da preferência por uma ferramenta.",
+  cta: "Escolher um processo",
+  etapas: [
+    {
+      titulo: "Mapear o processo real",
+      texto:
+        "Entendemos o fluxo atual, as pessoas envolvidas, as falhas, os tempos e o custo do problema. Definimos uma linha de base antes de mexer.",
+      entregas: ["Mapa do fluxo", "Gargalo prioritário", "Indicador inicial"],
+    },
+    {
+      titulo: "Simplificar antes de automatizar",
+      texto:
+        "Tiramos as etapas desnecessárias e desenhamos uma solução proporcional. Nem todo problema pede um agente de IA ou um software novo.",
+      entregas: ["Fluxo proposto", "Escopo acordado", "Plano de implementação"],
+    },
+    {
+      titulo: "Implementar a solução",
+      texto:
+        "Conectamos as ferramentas que já existem e, quando faz sentido, desenvolvemos integrações, automações ou agentes de IA para rodar o novo fluxo.",
+      entregas: ["Integrações", "Automação", "Documentação essencial"],
+    },
+    {
+      titulo: "Medir e decidir o próximo passo",
+      texto:
+        "Comparamos os indicadores disponíveis com a linha de base, registramos o que mudou e decidimos a próxima melhoria, ou encerramos.",
+      entregas: ["Indicadores", "Leitura de resultado", "Próxima decisão"],
+    },
+  ],
+};
+
+/** Indicadores possíveis. Nenhum percentual: `V2O5_CORE.md`, seção 2. */
+export const INDICADORES = {
+  sobretitulo: "Resultado antes de vaidade técnica",
+  titulo: "O que conta é o que mudou na operação.",
+  texto:
+    "O indicador depende do problema escolhido. Antes de implementar, combinamos o que acompanhar e como o resultado será observado.",
+  itens: [
+    { titulo: "Tempo", texto: "Quanto demora para concluir uma tarefa ou mover uma solicitação entre etapas." },
+    { titulo: "Retrabalho", texto: "Quantas vezes a informação precisa ser recopiada, corrigida ou pedida de novo." },
+    {
+      titulo: "Conversão e resposta",
+      texto: "Onde os contatos se perdem, quanto demora a resposta e quais oportunidades avançam.",
+    },
+    {
+      titulo: "Visibilidade",
+      texto: "Se a equipe entende o estado da operação e age com dados confiáveis.",
+    },
+  ],
+  regra:
+    "Não prometemos um percentual de melhoria igual para todos. Definimos uma linha de base, implementamos dentro do escopo acordado e medimos o que os dados disponíveis permitem medir.",
+};
+
+/**
+ * O resumo do case na home: só o que o case já publica (estoque sincronizado,
+ * origem dos leads, integrações comerciais). Os números ficam em `CASE` e na
+ * página do case, com fonte e período. A 16ª Vara Cível não aparece aqui.
+ */
+export const PROJETO = {
+  rotulo: "Projeto em ambiente real",
+  titulo: "Motors Store",
+  texto:
+    "Revenda de seminovos em Curitiba, com gargalos diagnosticados em busca, leads, site e acompanhamento comercial. O case mostra o diagnóstico como o antes, o que a V2O5 implementou como o depois e, à parte, o que foi medido.",
+  pilulas: ["Sincronização de estoque", "Rastreamento de leads", "Integrações comerciais"],
+  sobretitulo: "Construir, observar, melhorar",
+  chamada: "A tecnologia precisa deixar rastro de valor.",
+  paragrafo:
+    "Os projetos da V2O5 testam hipóteses em operações reais. Implementar é uma parte do trabalho; registrar a linha de base, acompanhar o comportamento e aprender com os dados também é entrega.",
+  provas: [
+    "Começamos por um gargalo específico, não por uma lista de funcionalidades.",
+    "Usamos os sistemas que já existem sempre que resolvem com menos atrito.",
+    "Separamos o que foi implementado do que já tem resultado comprovado.",
+  ],
+  link: "Ler o case completo",
+};
+
+/**
+ * A arquitetura comercial (roteiro ajustado de 25/10/2026). Nenhum valor:
+ * o preço do Sprint sai em proposta, e as faixas internas do roteiro são
+ * hipóteses não validadas, que não entram no site. O bônus por desempenho é
+ * só uma nota, nunca oferta.
+ */
+export const ESCADA = {
+  sobretitulo: "Uma entrada clara, sem escopo infinito",
+  titulo: "Começamos pequeno e ampliamos com evidência.",
+  texto: "Escopo, valor e prazo se definem em proposta, depois que o gargalo é delimitado.",
+  degraus: [
+    {
+      tipo: "Etapa inicial",
+      titulo: "Diagnóstico de Gargalo",
+      texto:
+        "Sessão inicial gratuita de 45 minutos para entender o problema e priorizar um gargalo. Avalia se existe um projeto viável.",
+      saida: "Não inclui mapeamento completo do processo, implementação nem acompanhamento.",
+    },
+    {
+      tipo: "Produto principal",
+      titulo: "Sprint de Eficiência",
+      texto:
+        "Projeto fechado para um gargalo delimitado: mapeamento do fluxo, priorização, implementação acordada, testes e comparação dos indicadores disponíveis.",
+      saida: `Faixas de referência de ${BRL(SPRINT_DE_PRECOS.niveis[0].faixa.de)} a ${faixaEmTexto(SPRINT_DE_PRECOS.niveis[2].faixa).split(" a ")[1]}, conforme a complexidade. O preço fechado sai em proposta, com problema, entregáveis, exclusões, prazo, critérios de aceite e custos de terceiros. Mudança de escopo exige nova estimativa e aprovação.`,
+      href: "/precos#titulo-sprint",
+      destaque: true,
+    },
+    {
+      tipo: "Depois da entrega",
+      titulo: "Estabilidade e evolução contínua",
+      texto:
+        "Mensalidade para manter as soluções, corrigir o que estiver previsto e evoluir o processo, dentro de limites de atendimento e escopo definidos em contrato.",
+      saida: `Referência de ${BRL(Math.min(...CONTINUIDADE.modalidades.map((m) => m.faixa.de)))} a ${BRL(Math.max(...CONTINUIDADE.modalidades.map((m) => m.faixa.ate)))} por mês. A mensalidade não inclui desenvolvimento ilimitado, novas integrações sem orçamento nem garantia de resultado comercial. Custos de terceiros e de API ficam discriminados.`,
+      href: "/precos#titulo-sprint",
+    },
+  ],
+  nota: "Bônus por desempenho fica como opção futura, só com linha de base, regra de atribuição acordada e dados auditáveis. Não faz parte da oferta padrão.",
+};
+
+/** De onde vem o nome (também em `/sobre`). */
+export const NOME = {
+  rotulo: "Por que V2O5?",
+  titulo: "Um catalisador para a mudança.",
+  paragrafos: [
+    "O nome vem do pentóxido de vanádio, usado como catalisador em processos químicos. A imagem resume como a V2O5 pensa tecnologia: ela não precisa ser o centro da operação, precisa ajudar a mudança a acontecer com menos esforço.",
+    "O trabalho começa entendendo como o negócio funciona de fato. Depois a gente liga estratégia, processos e tecnologia para achar o caminho mais simples entre o problema e o resultado.",
+  ],
+};
+
+/** O fecho da home: o CTA leva ao formulário de `/diagnostico`. */
+export const FECHO = {
+  titulo: "Qual processo está fazendo a sua operação perder tempo?",
+  texto:
+    "Não precisa chegar com um briefing grande nem saber qual ferramenta usar. Traga o problema, como ele acontece hoje e o que deveria melhorar. A primeira conversa serve para avaliar se existe um bom caso para trabalhar.",
+  botao: "Mapear um gargalo",
 };
 
 /**
@@ -223,8 +394,8 @@ const linha = (id: string): Servico => {
 
 /** Cabeçalho da seção de soluções. */
 export const SOLUCOES = {
-  titulo: "Tudo que leva o cliente do primeiro clique ao caixa.",
-  apagado: "Comece pelo que trava hoje e some o resto depois.",
+  titulo: "As peças que o Sprint usa quando o problema pede.",
+  apagado: "Cada uma também pode ser contratada avulsa.",
   texto:
     "Tudo com preço publicado e sem fidelidade, em três planos ou avulso. A mensalidade já inclui hospedagem e manutenção, e tudo roda na mesma base: o que entra por uma peça aparece nas outras.",
 };
@@ -806,6 +977,9 @@ export const EMAIL = {
  */
 export const MARCA_DO_SITE = "site da V2O5";
 
+/** A assinatura institucional desde 25/10/2026 (rodapé, `/sobre`, schema, `llms.txt`). */
+export const ASSINATURA = "V2O5 | Eficiência comercial e operacional com tecnologia.";
+
 /** Mensagem pré-preenchida do WhatsApp, por página (plano, seção 6.1). */
 export const WHATSAPP = {
   mensagens: {
@@ -842,8 +1016,8 @@ export const GARANTIAS = [
 /** Chamada curta entre seções: a pergunta que o dono está se fazendo e o botão. */
 export const CHAMADA = {
   depoisDasSolucoes: {
-    titulo: "Quer saber o que fazer primeiro na sua empresa?",
-    texto: "O diagnóstico é gratuito e sai com um mapa do que fazer, com custo e prazo, para usar com ou sem a V2O5.",
+    titulo: "Quer saber qual gargalo atacar primeiro?",
+    texto: "O diagnóstico é gratuito: 45 minutos com o fundador para identificar e priorizar um gargalo, sem compromisso.",
   },
   depoisDoCase: {
     titulo: "Quer o mesmo sistema na sua empresa?",
@@ -910,7 +1084,7 @@ export const PERGUNTAS = [
   {
     pergunta: "Como funciona o diagnóstico gratuito?",
     resposta:
-      "São 45 minutos de conversa com o fundador sobre presença, atendimento, operação e funil. Em até 24 horas você recebe um mapa do que fazer primeiro, com custo e prazo, para usar com ou sem a V2O5.",
+      "São 45 minutos de conversa com o fundador sobre presença, atendimento, operação e funil, para identificar e priorizar um gargalo e avaliar se existe um projeto viável. A sessão não inclui mapeamento completo do processo, implementação nem acompanhamento de resultados. Havendo um bom caso, o próximo passo é o Sprint de Eficiência, com escopo, entregáveis, prazo e investimento definidos em proposta.",
   },
   {
     pergunta: "A V2O5 atende fora de Curitiba?",

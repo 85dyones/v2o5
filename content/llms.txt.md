@@ -1,21 +1,26 @@
 ---
 rota: "/llms.txt"
-url: "https://www.v2o5.com.br/llms.txt"
+url: "http://localhost:3114/llms.txt"
 status: 200
 content_type: "text/plain; charset=utf-8"
-extraido_em: "2026-10-19T00:26:22.723Z"
-fonte: "produção (www.v2o5.com.br), main em 46c4103"
+extraido_em: "2026-10-25T19:09:34.547Z"
+fonte: "produção (www.v2o5.com.br), main em 29c47c8"
 ---
 
 <!-- Corpo de /llms.txt exatamente como servido (gerado por src/app/llms.txt/route.ts). -->
 
 # V2O5 Vendas e Tecnologia
 
-> Catalisador de vendas com IA. Site, Google, anúncios, agente de IA e CRM montados por uma equipe só, num sistema que mostra de onde veio cada venda e fica no nome da sua empresa.
+> V2O5 | Eficiência comercial e operacional com tecnologia. Achamos o gargalo, simplificamos o processo e implementamos tecnologia para reduzir atrito e medir o resultado. IA entra onde faz diferença.
 
 V2O5 Tecnologia da Informação Ltda., CNPJ 68.490.470/0001-14. Atende empresas em todo o Brasil.
 
 Fundador: Dyones Oliveira. Formado em Administração pela FAE Business School, está na tecnologia desde 1992, quando ganhou um curso num concurso da escola. Em branding, fez a mudança da Top Imóveis para Top Soluções Imobiliárias e assinou o blog da Top até agosto de 2024; na Motors Store, assina os 26 guias do site. É ele quem conduz o diagnóstico gratuito.
+
+## Sprint de Eficiência (oferta principal)
+Projeto fechado para um gargalo delimitado, com preço fechado em proposta. Faixas de referência: Sprint Essencial R$ 3.000 a R$ 5.000 (1 a 2 semanas); Sprint Integrada R$ 6.000 a R$ 12.000 (2 a 4 semanas); Sprint Avançada R$ 12.000 a R$ 25.000 ou mais (4 a 8 semanas ou mais). Duração é referência, não promessa. Sem promessa de ROI nem de aumento de vendas. Detalhes em https://www.v2o5.com.br/precos#titulo-sprint.
+Continuidade em contrato próprio: Estabilidade e suporte R$ 1.200 a R$ 2.500 por mês; Evolução contínua R$ 2.500 a R$ 5.000 por mês. O contrato define prazo de resposta, canais, limite de horas ou capacidade, exclusões e o preço de demandas adicionais. A mensalidade não cobre desenvolvimento ilimitado, plantão irrestrito, nova integração sem orçamento, API ou fornecedor sem discriminação nem garantia de resultado comercial. Novos gargalos, integrações, automações ou produtos são orçados à parte.
+Pagamento: Em projetos, 50% na contratação, 30% na validação intermediária e 20% no aceite final. Em Sprints pequenas, 50% na contratação e 50% na entrega.
 
 ## Planos
 Todo preço é a partir de, com hospedagem e manutenção na mensalidade. Sem fidelidade.
@@ -71,7 +76,7 @@ Revenda de seminovos em Curitiba. Banco de dados da Motors Store, lido em 08/10/
 - 132 veículos sincronizados com o estoque do Revenda Mais.
 
 ## Como começar
-- [Diagnóstico gratuito](https://www.v2o5.com.br/diagnostico): Diagnóstico gratuito: 45 minutos de conversa com o fundador e um mapa do que fazer, em até 24 horas.
+- [Diagnóstico gratuito](https://www.v2o5.com.br/diagnostico): Diagnóstico gratuito: 45 minutos de conversa com o fundador para identificar e priorizar um gargalo.
 - WhatsApp: (41) 99808-9550
 - E-mail: diagnostico@v2o5.com.br
 - [Preços](https://www.v2o5.com.br/precos) e [privacidade](https://www.v2o5.com.br/privacidade).

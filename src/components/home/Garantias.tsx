@@ -35,7 +35,7 @@ export default function Garantias() {
             <Icone nome="seta" className="seta size-4" />
           </Link>
           <p className="mt-5 text-sm leading-relaxed text-texto-secundario">
-            <ComMarcas texto={HERO.nota} marcas={["45 minutos", "24 horas"]} etapa="verde" />
+            <ComMarcas texto={HERO.nota} marcas={["45 minutos"]} etapa="verde" />
           </p>
         </div>
       </div>

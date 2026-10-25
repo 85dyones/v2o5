@@ -34,12 +34,35 @@ export default function Pagina() {
       <main id="conteudo">
         <Abertura />
 
+        <Trecho aria-labelledby="titulo-diagnosticado">
+          <div className="relative grid grid-cols-12 gap-x-6 gap-y-6">
+            <Parada />
+            <div className="col-span-12 lg:col-span-7">
+              <p className="rotulo text-texto-secundario">{c.diagnosticado.sobretitulo}</p>
+              <h2 id="titulo-diagnosticado" className="titulo-secao mt-3">
+                {c.diagnosticado.titulo}
+              </h2>
+            </div>
+            <p className="texto-guia col-span-12 lg:col-span-5 lg:pt-8">{c.diagnosticado.texto}</p>
+          </div>
+          <ul className="mt-12 grid border-t-2 border-texto sm:grid-cols-2 lg:grid-cols-3">
+            {c.diagnosticado.itens.map((item) => (
+              <li key={item} className="border-b border-linha py-5 pr-6 text-[0.9375rem] leading-relaxed">
+                {item}
+              </li>
+            ))}
+          </ul>
+        </Trecho>
+
         <Trecho aria-labelledby="titulo-construido">
           <div className="relative grid grid-cols-12 gap-x-6 gap-y-6">
             <Parada />
-            <h2 id="titulo-construido" className="titulo-secao col-span-12 lg:col-span-7">
-              {c.construido.titulo}
-            </h2>
+            <div className="col-span-12 lg:col-span-7">
+              <p className="rotulo text-texto-secundario">{c.construido.sobretitulo}</p>
+              <h2 id="titulo-construido" className="titulo-secao mt-3">
+                {c.construido.titulo}
+              </h2>
+            </div>
             <p className="texto-guia col-span-12 lg:col-span-5 lg:pt-2">{c.construido.texto}</p>
           </div>
           {/* As telas reais do site, antes da lista do que foi entregue (Dyones, 19/10). */}
@@ -61,9 +84,12 @@ export default function Pagina() {
         <Trecho aria-labelledby="titulo-numeros" etapa="azul">
           <div className="relative grid grid-cols-12">
             <Parada />
-            <h2 id="titulo-numeros" className="titulo-secao col-span-12 lg:col-span-7">
-              {c.numeros.titulo}
-            </h2>
+            <div className="col-span-12 lg:col-span-7">
+              <p className="rotulo text-texto-secundario">{c.numeros.sobretitulo}</p>
+              <h2 id="titulo-numeros" className="titulo-secao mt-3">
+                {c.numeros.titulo}
+              </h2>
+            </div>
           </div>
           {/* Mosaico como o da home: o total na célula de tinta, os outros no
               papel, a sobra em hachura. O fio entre células é o fundo que

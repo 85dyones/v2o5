@@ -2,671 +2,257 @@
 rota: "/"
 url: "https://www.v2o5.com.br/"
 status: 200
-title: "V2O5 Vendas e Tecnologia | Catalisador de vendas com IA"
-description: "Site, Perfil no Google, anúncios, agente de IA no WhatsApp e CRM montados por uma equipe só, num sistema que mostra de onde veio cada venda. Sem fidelidade."
+title: "V2O5 Vendas e Tecnologia | Menos atrito entre problema e resultado"
+description: "A V2O5 acha o gargalo, simplifica o processo e implementa tecnologia, automação e IA para a operação render mais e ser medida. Comece pelo Sprint de Eficiência."
 canonical: "https://www.v2o5.com.br"
 robots: null
-h1: "Coloque sua empresa no mapa e multiplique a operação com IA."
-extraido_em: "2026-10-19T00:26:22.723Z"
-fonte: "produção (www.v2o5.com.br), main em 46c4103"
+h1: "Do problema ao resultado, pelo caminho mais simples."
+extraido_em: "2026-10-25T19:09:34.547Z"
+fonte: "build local da branch claude/keen-ptolemy-vnfnfu (25/10/2026), extraída com design/baseline/ferramentas; as demais rotas seguem como em 19/10"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
-Catalisador de vendas com IA
+Estratégia, processos e tecnologia
 
-# Coloque sua empresa no mapa e multiplique a operação com IA.
+# Do problema ao resultado, pelo caminho mais simples.
 
-Site, Google, anúncios, agente de IA e CRM montados por uma equipe só, num sistema que mostra de onde veio cada venda e fica no nome da sua empresa.
+Achamos o gargalo, simplificamos o processo e implementamos tecnologia para reduzir atrito e medir o resultado. IA entra onde faz diferença.
 
-[Pedir diagnóstico](/diagnostico)
+[Mapear um gargalo](/diagnostico)
 
-[Ver como tudo se liga](#como-se-liga)
+[Conhecer o método](#metodo)
 
-Diagnóstico gratuito: 45 minutos de conversa com o fundador e um mapa do que fazer, em até 24 horas.
+Começamos pelo processo e pelo resultado desejado. A ferramenta vem depois.
 
-Em produção na Motors Store
+O que conectamos
 
-- WhatsApp
-- Meta Ads
-- GA4
-- n8n
-- Revenda Mais
+- Processos
+- Atendimento
+- Dados
+- Integrações
+- Automação
+- IA aplicada
 
-Soluções
+## O problema raramente é falta de ferramenta. Quase sempre é atrito entre as que já existem.
 
-## Tudo que leva o cliente do primeiro clique ao caixa. Comece pelo que trava hoje e some o resto depois.
+A operação perde tempo entre sistemas que não conversam, tarefas repetidas e decisões tomadas sem informação suficiente. É por aí que a gente começa.
+
+### Informação espalhada
+
+Dados em planilhas, mensagens e sistemas diferentes impedem uma visão confiável do que está acontecendo.
+
+### Retrabalho que virou rotina
+
+Gente copiando dados, cobrando retorno e repetindo etapas que poderiam ser eliminadas, integradas ou automatizadas.
+
+### Atividade sem resultado visível
+
+A operação funciona, mas ninguém mede com clareza o tempo gasto, onde trava e o que de fato melhorou.
+
+Produto principal
+
+## Sprint de Eficiência V2O5
+
+Uma intervenção com escopo definido: diagnosticar um gargalo específico, mapear o fluxo atual, priorizar uma intervenção, implementar uma solução proporcional e comparar os indicadores disponíveis antes e depois. Processo, integração, automação e IA entram como meios, conforme o problema.
+
+Comprar, integrar, automatizar ou desenvolver: a decisão depende do problema, não da preferência por uma ferramenta.
+
+[Escolher um processo](/diagnostico)
+
+01 <!-- decorativo, aria-hidden -->
+
+### Mapear o processo real
+
+Entendemos o fluxo atual, as pessoas envolvidas, as falhas, os tempos e o custo do problema. Definimos uma linha de base antes de mexer.
+
+- Mapa do fluxo
+- Gargalo prioritário
+- Indicador inicial
+
+02 <!-- decorativo, aria-hidden -->
+
+### Simplificar antes de automatizar
+
+Tiramos as etapas desnecessárias e desenhamos uma solução proporcional. Nem todo problema pede um agente de IA ou um software novo.
+
+- Fluxo proposto
+- Escopo acordado
+- Plano de implementação
+
+03 <!-- decorativo, aria-hidden -->
+
+### Implementar a solução
+
+Conectamos as ferramentas que já existem e, quando faz sentido, desenvolvemos integrações, automações ou agentes de IA para rodar o novo fluxo.
+
+- Integrações
+- Automação
+- Documentação essencial
+
+04 <!-- decorativo, aria-hidden -->
+
+### Medir e decidir o próximo passo
+
+Comparamos os indicadores disponíveis com a linha de base, registramos o que mudou e decidimos a próxima melhoria, ou encerramos.
+
+- Indicadores
+- Leitura de resultado
+- Próxima decisão
+
+Resultado antes de vaidade técnica
+
+## O que conta é o que mudou na operação.
+
+O indicador depende do problema escolhido. Antes de implementar, combinamos o que acompanhar e como o resultado será observado.
+
+Tempo
+
+Quanto demora para concluir uma tarefa ou mover uma solicitação entre etapas.
+
+Retrabalho
+
+Quantas vezes a informação precisa ser recopiada, corrigida ou pedida de novo.
+
+Conversão e resposta
+
+Onde os contatos se perdem, quanto demora a resposta e quais oportunidades avançam.
+
+Visibilidade
+
+Se a equipe entende o estado da operação e age com dados confiáveis.
+
+Não prometemos um percentual de melhoria igual para todos. Definimos uma linha de base, implementamos dentro do escopo acordado e medimos o que os dados disponíveis permitem medir.
+
+Projeto em ambiente real
+
+## Motors Store
+
+Revenda de seminovos em Curitiba, com gargalos diagnosticados em busca, leads, site e acompanhamento comercial. O case mostra o diagnóstico como o antes, o que a V2O5 implementou como o depois e, à parte, o que foi medido.
+
+- Sincronização de estoque
+- Rastreamento de leads
+- Integrações comerciais
+
+Construir, observar, melhorar
+
+A tecnologia precisa deixar rastro de valor.
+
+Os projetos da V2O5 testam hipóteses em operações reais. Implementar é uma parte do trabalho; registrar a linha de base, acompanhar o comportamento e aprender com os dados também é entrega.
+
+- Começamos por um gargalo específico, não por uma lista de funcionalidades.
+- Usamos os sistemas que já existem sempre que resolvem com menos atrito.
+- Separamos o que foi implementado do que já tem resultado comprovado.
+
+[Ler o case completo](/cases/motors-store)
+
+Uma entrada clara, sem escopo infinito
+
+## Começamos pequeno e ampliamos com evidência.
+
+Escopo, valor e prazo se definem em proposta, depois que o gargalo é delimitado.
+
+Etapa inicial
+
+### Diagnóstico de Gargalo
+
+Sessão inicial gratuita de 45 minutos para entender o problema e priorizar um gargalo. Avalia se existe um projeto viável.
+
+Não inclui mapeamento completo do processo, implementação nem acompanhamento.
+
+Produto principal
+
+### Sprint de Eficiência
+
+Projeto fechado para um gargalo delimitado: mapeamento do fluxo, priorização, implementação acordada, testes e comparação dos indicadores disponíveis.
+
+Faixas de referência de R$ 3.000 a R$ 25.000 ou mais, conforme a complexidade. O preço fechado sai em proposta, com problema, entregáveis, exclusões, prazo, critérios de aceite e custos de terceiros. Mudança de escopo exige nova estimativa e aprovação.
+
+[Ver faixas e condições](/precos#titulo-sprint)
+
+Depois da entrega
+
+### Estabilidade e evolução contínua
+
+Mensalidade para manter as soluções, corrigir o que estiver previsto e evoluir o processo, dentro de limites de atendimento e escopo definidos em contrato.
+
+Referência de R$ 1.200 a R$ 5.000 por mês. A mensalidade não inclui desenvolvimento ilimitado, novas integrações sem orçamento nem garantia de resultado comercial. Custos de terceiros e de API ficam discriminados.
+
+[Ver faixas e condições](/precos#titulo-sprint)
+
+Bônus por desempenho fica como opção futura, só com linha de base, regra de atribuição acordada e dados auditáveis. Não faz parte da oferta padrão.
+
+## As peças que o Sprint usa quando o problema pede. Cada uma também pode ser contratada avulsa.
 
 Tudo com preço publicado e sem fidelidade, em três planos ou avulso. A mensalidade já inclui hospedagem e manutenção, e tudo roda na mesma base: o que entra por uma peça aparece nas outras.
-
-01
-
-No mapa
 
 ### Coloque sua empresa no mapa.
 
 Quem procura o que você vende acha você ou acha o concorrente. Esta metade cuida de ser você: no Google, no Maps, nos anúncios, nas redes e nas respostas das IAs de busca.
 
-<!-- o bloco abaixo é um link para /diagnostico -->
+[Atração Branding e gestão de marca Antes de anunciar, decida o que a marca promete. Posicionamento, identidade visual e tom de voz num guia que vale para o perfil, o site, os anúncios e o atendimento. sob consulta →](/diagnostico)
 
-Guia da marca <!-- decorativo, aria-hidden -->
+[Atração Perfil da Empresa no Google Quem busca perto de casa vê o Maps antes do site. O antigo Google Meu Negócio, completo e verificado, com a empresa aparecendo na sua região. incluso no plano Presença →](/criacao-de-sites)
 
-exemplo <!-- decorativo, aria-hidden -->
+[Atração SEO e busca por IA Para ranquear no Google e ser citado nas respostas das IAs: SEO técnico, conteúdo e dados estruturados no site. SEO técnico incluso no plano Presença →](/criacao-de-sites)
 
-Aa <!-- decorativo, aria-hidden -->
+[Atração Sites e presença Carrega rápido no celular, aparece no Google e grava de onde veio cada contato. Hospedagem, manutenção e SEO técnico já na mensalidade. no plano Presença, a partir de R$ 8.900 + R$ 990/mês →](/criacao-de-sites)
 
-Tipografia <!-- decorativo, aria-hidden -->
+[Atração Tráfego pago no Google e na Meta Google Ads e Meta Ads por plataforma ou juntos, com anúncios que abrem conversa no WhatsApp e a verba ajustada pela venda registrada no CRM. Quem contrata os dois leva o feed de catálogo. Começa com o rastreamento ligado. a partir de R$ 1.200/mês + verba, por plataforma →](/precos#titulo-trafego)
 
-Tom de voz <!-- decorativo, aria-hidden -->
+[Atração Rastreamento até a venda Cada venda com a origem: qual anúncio, qual busca, qual página. Sem isso, a verba vai para onde parece funcionar. a partir de R$ 2.900 + R$ 690/mês, ou no plano Presença →](/rastreamento-de-conversoes)
 
-direto <!-- decorativo, aria-hidden -->
+[Atração Anúncios de catálogo O estoque ou os produtos viram anúncio no Google (anúncios de veículos e Shopping) e na Meta, e saem do ar quando o item é vendido. incluso no Google Ads e Meta Ads juntos →](/precos#titulo-trafego)
 
-próximo <!-- decorativo, aria-hidden -->
+[Atração Conteúdo e gestão de redes sociais Duas redes com perfis configurados e um calendário de 12 publicações por mês feitas do que a empresa já produz: o estoque, os guias, a novidade da semana. Cada post com link rastreado. a partir de R$ 1.500 + R$ 1.699/mês →](/diagnostico)
 
-Atração
-
-#### Branding e gestão de marca
-
-Antes de anunciar, decida o que a marca promete. Posicionamento, identidade visual e tom de voz num guia que vale para o perfil, o site, os anúncios e o atendimento.
-
-sob consulta
-
-<!-- o bloco abaixo é um link para /criacao-de-sites -->
-
-Sua Empresa <!-- decorativo, aria-hidden -->
-
-Categoria do negócio · Sua cidade <!-- decorativo, aria-hidden -->
-
-Aberto agora · fecha às 18h <!-- decorativo, aria-hidden -->
-
-Rotas <!-- decorativo, aria-hidden -->
-
-Ligar <!-- decorativo, aria-hidden -->
-
-Site <!-- decorativo, aria-hidden -->
-
-WhatsApp <!-- decorativo, aria-hidden -->
-
-Atração
-
-#### Perfil da Empresa no Google
-
-Quem busca perto de casa vê o Maps antes do site. O antigo Google Meu Negócio, completo e verificado, com a empresa aparecendo na sua região.
-
-incluso no plano Presença
-
-<!-- o bloco abaixo é um link para /criacao-de-sites -->
-
-seminovos em curitiba <!-- decorativo, aria-hidden -->
-
-suaempresa.com.br <!-- decorativo, aria-hidden -->
-
-› estoque <!-- decorativo, aria-hidden -->
-
-Seminovos revisados em Curitiba <!-- decorativo, aria-hidden -->
-
-Resposta de IA <!-- decorativo, aria-hidden -->
-
-suaempresa.com.br <!-- decorativo, aria-hidden -->
-
-Atração
-
-#### SEO e busca por IA
-
-Para ranquear no Google e ser citado nas respostas das IAs: SEO técnico, conteúdo e dados estruturados no site.
-
-SEO técnico incluso no plano Presença
-
-<!-- o bloco abaixo é um link para /criacao-de-sites -->
-
-suaempresa.com.br <!-- decorativo, aria-hidden -->
-
-Chamar no WhatsApp <!-- decorativo, aria-hidden -->
-
-Ver serviços <!-- decorativo, aria-hidden -->
-
-Atração
-
-#### Sites e presença
-
-Carrega rápido no celular, aparece no Google e grava de onde veio cada contato. Hospedagem, manutenção e SEO técnico já na mensalidade.
-
-no plano Presença, a partir de R$ 8.900 + R$ 990/mês
-
-<!-- o bloco abaixo é um link para /precos#titulo-trafego (19/10; antes /gestao-de-trafego) -->
-
-Otimizando por venda confirmada <!-- decorativo, aria-hidden -->
-
-Seminovos <!-- decorativo, aria-hidden -->
-
-Google Ads <!-- decorativo, aria-hidden -->
-
-gera venda <!-- decorativo, aria-hidden -->
-
-Remarketing <!-- decorativo, aria-hidden -->
-
-Meta Ads <!-- decorativo, aria-hidden -->
-
-gera venda <!-- decorativo, aria-hidden -->
-
-Institucional <!-- decorativo, aria-hidden -->
-
-Meta Ads <!-- decorativo, aria-hidden -->
-
-pausada <!-- decorativo, aria-hidden -->
-
-Atração
-
-#### Tráfego pago no Google e na Meta
-
-Google Ads e Meta Ads por plataforma ou juntos, com anúncios que abrem conversa no WhatsApp e a verba ajustada pela venda registrada no CRM. Quem contrata os dois leva o feed de catálogo. Começa com o rastreamento ligado.
-
-a partir de R$ 1.200/mês + verba, por plataforma
-
-<!-- o bloco abaixo é um link para /rastreamento-de-conversoes -->
-
-Anúncio <!-- decorativo, aria-hidden -->
-
-Site <!-- decorativo, aria-hidden -->
-
-Lead <!-- decorativo, aria-hidden -->
-
-Venda <!-- decorativo, aria-hidden -->
-
-event_id Lead.3f9c2a7e <!-- decorativo, aria-hidden -->
-
-navegador <!-- decorativo, aria-hidden -->
-
-servidor <!-- decorativo, aria-hidden -->
-
-Atração
-
-#### Rastreamento até a venda
-
-Cada venda com a origem: qual anúncio, qual busca, qual página. Sem isso, a verba vai para onde parece funcionar.
-
-a partir de R$ 2.900 + R$ 690/mês, ou no plano Presença
-
-<!-- o bloco abaixo é um link para /precos#titulo-trafego (19/10; antes /gestao-de-trafego) -->
-
-Feed do estoque <!-- decorativo, aria-hidden -->
-
-atualizado às 3h <!-- decorativo, aria-hidden -->
-
-Onix LT 2022 <!-- decorativo, aria-hidden -->
-
-Google <!-- decorativo, aria-hidden -->
-
-Meta <!-- decorativo, aria-hidden -->
-
-HB20 Comfort 2021 <!-- decorativo, aria-hidden -->
-
-Google <!-- decorativo, aria-hidden -->
-
-Meta <!-- decorativo, aria-hidden -->
-
-Corolla XEi 2020 <!-- decorativo, aria-hidden -->
-
-vendido, saiu do ar <!-- decorativo, aria-hidden -->
-
-Atração
-
-#### Anúncios de catálogo
-
-O estoque ou os produtos viram anúncio no Google (anúncios de veículos e Shopping) e na Meta, e saem do ar quando o item é vendido.
-
-incluso no Google Ads e Meta Ads juntos
-
-<!-- o bloco abaixo é um link para /diagnostico -->
-
-Calendário <!-- decorativo, aria-hidden -->
-
-link rastreado <!-- decorativo, aria-hidden -->
-
-seg <!-- decorativo, aria-hidden -->
-
-Carro da semana <!-- decorativo, aria-hidden -->
-
-Instagram <!-- decorativo, aria-hidden -->
-
-ter <!-- decorativo, aria-hidden -->
-
-qua <!-- decorativo, aria-hidden -->
-
-Guia novo <!-- decorativo, aria-hidden -->
-
-Instagram <!-- decorativo, aria-hidden -->
-
-qui <!-- decorativo, aria-hidden -->
-
-sex <!-- decorativo, aria-hidden -->
-
-Cliente levou o dele <!-- decorativo, aria-hidden -->
-
-Facebook <!-- decorativo, aria-hidden -->
-
-sáb <!-- decorativo, aria-hidden -->
-
-Atração
-
-#### Conteúdo e gestão de redes sociais
-
-Duas redes com perfis configurados e um calendário de 12 publicações por mês feitas do que a empresa já produz: o estoque, os guias, a novidade da semana. Cada post com link rastreado.
-
-a partir de R$ 1.500 + R$ 1.699/mês
-
-<!-- o bloco abaixo é um link para /diagnostico -->
-
-Obrigado pela compra, Marina! Se puder, conta como foi o atendimento: g.page/sua-empresa/review <!-- decorativo, aria-hidden -->
-
-MR <!-- decorativo, aria-hidden -->
-
-Marina R. <!-- decorativo, aria-hidden -->
-
-Atendimento rápido e o carro igual ao anúncio. <!-- decorativo, aria-hidden -->
-
-Venda
-
-#### Avaliações no Google
-
-Depois da venda, o cliente recebe no WhatsApp o pedido de avaliação com o link certo, e o painel mostra quem respondeu.
-
-incluso no plano Presença
-
-02
-
-Operação com IA
+[Venda Avaliações no Google Depois da venda, o cliente recebe no WhatsApp o pedido de avaliação com o link certo, e o painel mostra quem respondeu. incluso no plano Presença →](/diagnostico)
 
 ### Multiplique a operação com IA.
 
 O contato que chega fora do horário recebe resposta na hora e entra no funil com a origem. A equipe começa o dia com o próximo passo pronto, e o dono vê o mês numa tela.
 
-<!-- o bloco abaixo é um link para /agente-de-ia-para-whatsapp -->
+[Atendimento Agente de IA no WhatsApp Responde na hora, a qualquer hora, com as informações do seu negócio. Quando a conversa pede uma pessoa, chama alguém da equipe. no plano Atendimento, a partir de R$ 7.900 + R$ 1.590/mês →](/agente-de-ia-para-whatsapp)
 
-Atendimento
+[Gestão CRM e sistemas sob medida Nenhum contato esquecido numa conversa: cada um num funil, com a origem, a etapa e o próximo passo à vista. no plano Atendimento, a partir de R$ 7.900 + R$ 1.590/mês →](/crm-com-whatsapp)
 
-#### Agente de IA no WhatsApp
+[Gestão Painel do dono Funil, verba, custo por lead e vendas por origem numa tela, atualizada todo dia a partir do CRM, do rastreamento e das contas de anúncio. Sem licença por usuário. a partir de R$ 3.900 + R$ 490/mês; implantação de bônus no Completo →](/diagnostico)
 
-Responde na hora, a qualquer hora, com as informações do seu negócio. Quando a conversa pede uma pessoa, chama alguém da equipe.
+[Gestão Automação de processos A tarefa que alguém faz à mão toda semana passa a rodar sozinha entre os sistemas que você já usa. a partir de R$ 1.900 por fluxo →](/automacao-com-ia)
 
-no plano Atendimento, a partir de R$ 7.900 + R$ 1.590/mês
+[Atendimento Reativação de base A sua base de clientes antigos, limpa e segmentada, recebe uma conversa no WhatsApp ou um SMS. Quem responde entra no CRM com a origem. a partir de R$ 1.900 + R$ 290/mês →](/diagnostico)
 
-Agente da loja <!-- decorativo, aria-hidden -->
+[Venda Pós-venda e recorrência Revisão, troca, seguro ou recompra: a régua de retorno manda a mensagem na data certa e devolve o cliente ao funil. a partir de R$ 1.900 por fluxo; um vem no plano Completo →](/diagnostico)
 
-responde na hora <!-- decorativo, aria-hidden -->
-
-WhatsApp <!-- decorativo, aria-hidden -->
-
-Hoje <!-- decorativo, aria-hidden -->
-
-Oi! Vocês abrem sábado? <!-- decorativo, aria-hidden -->
-
-Consultou os horários da loja <!-- decorativo, aria-hidden -->
-
-Abrimos sim, das 9h às 13h. Quer que eu reserve um horário para você? <!-- decorativo, aria-hidden -->
-
-Pode ser às 10h. <!-- decorativo, aria-hidden -->
-
-Horário reservado e equipe avisada <!-- decorativo, aria-hidden -->
-
-Pronto, sábado às 10h com a Carla. Quer a localização da loja? <!-- decorativo, aria-hidden -->
-
-Quero sim, obrigado! <!-- decorativo, aria-hidden -->
-
-Ficha no CRM <!-- decorativo, aria-hidden -->
-
-MR <!-- decorativo, aria-hidden -->
-
-Marina R. <!-- decorativo, aria-hidden -->
-
-veio do Google Ads <!-- decorativo, aria-hidden -->
-
-Em atendimento <!-- decorativo, aria-hidden -->
-
-Interesse <!-- decorativo, aria-hidden -->
-
-Visita no sábado <!-- decorativo, aria-hidden -->
-
-Próximo passo <!-- decorativo, aria-hidden -->
-
-Sábado, 10h <!-- decorativo, aria-hidden -->
-
-Responsável <!-- decorativo, aria-hidden -->
-
-Carla <!-- decorativo, aria-hidden -->
-
-Carla foi avisada no WhatsApp <!-- decorativo, aria-hidden -->
-
-<!-- o bloco abaixo é um link para /crm-com-whatsapp -->
-
-Novo <!-- decorativo, aria-hidden -->
-
-HB20 2021 <!-- decorativo, aria-hidden -->
-
-Meta Ads <!-- decorativo, aria-hidden -->
-
-Kicks 2022 <!-- decorativo, aria-hidden -->
-
-Site <!-- decorativo, aria-hidden -->
-
-Atendimento <!-- decorativo, aria-hidden -->
-
-Onix LT 2022 <!-- decorativo, aria-hidden -->
-
-Google Ads <!-- decorativo, aria-hidden -->
-
-Venda <!-- decorativo, aria-hidden -->
-
-Corolla 2020 <!-- decorativo, aria-hidden -->
-
-Google Ads <!-- decorativo, aria-hidden -->
-
-Gestão
-
-#### CRM e sistemas sob medida
-
-Nenhum contato esquecido numa conversa: cada um num funil, com a origem, a etapa e o próximo passo à vista.
-
-no plano Atendimento, a partir de R$ 7.900 + R$ 1.590/mês
-
-<!-- o bloco abaixo é um link para /diagnostico -->
-
-Painel do dono <!-- decorativo, aria-hidden -->
-
-atualizado hoje às 6h <!-- decorativo, aria-hidden -->
-
-Leads <!-- decorativo, aria-hidden -->
-
-Custo por lead <!-- decorativo, aria-hidden -->
-
-Vendas <!-- decorativo, aria-hidden -->
-
-Google Ads <!-- decorativo, aria-hidden -->
-
-Meta Ads <!-- decorativo, aria-hidden -->
-
-Site <!-- decorativo, aria-hidden -->
-
-CRM <!-- decorativo, aria-hidden -->
-
-Rastreamento <!-- decorativo, aria-hidden -->
-
-Revenda Mais <!-- decorativo, aria-hidden -->
-
-Gestão
-
-#### Painel do dono
-
-Funil, verba, custo por lead e vendas por origem numa tela, atualizada todo dia a partir do CRM, do rastreamento e das contas de anúncio. Sem licença por usuário.
-
-a partir de R$ 3.900 + R$ 490/mês; implantação de bônus no Completo
-
-<!-- o bloco abaixo é um link para /automacao-com-ia -->
-
-Venda marcada no CRM <!-- decorativo, aria-hidden -->
-
-Carro sai da vitrine do site <!-- decorativo, aria-hidden -->
-
-Cliente recebe o obrigado <!-- decorativo, aria-hidden -->
-
-Google e Meta recebem a venda <!-- decorativo, aria-hidden -->
-
-Gestão
-
-#### Automação de processos
-
-A tarefa que alguém faz à mão toda semana passa a rodar sozinha entre os sistemas que você já usa.
-
-a partir de R$ 1.900 por fluxo
-
-<!-- o bloco abaixo é um link para /diagnostico -->
-
-Clientes de 2023 <!-- decorativo, aria-hidden -->
-
-WhatsApp pela API oficial <!-- decorativo, aria-hidden -->
-
-Paulo S. <!-- decorativo, aria-hidden -->
-
-respondeu <!-- decorativo, aria-hidden -->
-
-Ana L. <!-- decorativo, aria-hidden -->
-
-agendou visita <!-- decorativo, aria-hidden -->
-
-Jorge M. <!-- decorativo, aria-hidden -->
-
-sem WhatsApp, foi por SMS <!-- decorativo, aria-hidden -->
-
-Rita F. <!-- decorativo, aria-hidden -->
-
-pediu para sair <!-- decorativo, aria-hidden -->
-
-Atendimento
-
-#### Reativação de base
-
-A sua base de clientes antigos, limpa e segmentada, recebe uma conversa no WhatsApp ou um SMS. Quem responde entra no CRM com a origem.
-
-a partir de R$ 1.900 + R$ 290/mês
-
-<!-- o bloco abaixo é um link para /diagnostico -->
-
-Venda registrada no CRM <!-- decorativo, aria-hidden -->
-
-6 meses: lembrete da revisão <!-- decorativo, aria-hidden -->
-
-12 meses: o seguro vence, quer cotar? <!-- decorativo, aria-hidden -->
-
-24 meses: hora de trocar? <!-- decorativo, aria-hidden -->
-
-Venda
-
-#### Pós-venda e recorrência
-
-Revisão, troca, seguro ou recompra: a régua de retorno manda a mensagem na data certa e devolve o cliente ao funil.
-
-a partir de R$ 1.900 por fluxo; um vem no plano Completo
-
-<!-- o bloco abaixo é um link para /automacao-com-ia -->
-
-Revenda Mais <!-- decorativo, aria-hidden -->
-
-em produção <!-- decorativo, aria-hidden -->
-
-n8n <!-- decorativo, aria-hidden -->
-
-- Site <!-- decorativo, aria-hidden -->
-- CRM <!-- decorativo, aria-hidden -->
-- Agente de IA <!-- decorativo, aria-hidden -->
-
-Gestão
-
-#### Integrações entre sistemas
-
-Site, CRM, ERP e os sistemas do seu setor trocando dados sozinhos. Em produção hoje: o estoque do Revenda Mais.
-
-a partir de R$ 1.900 por fluxo
-
-Sem fidelidade
-
-Mensalidade mês a mês. Cancela quando quiser.
-
-Implantação em até 6x
-
-Ou metade na assinatura e metade na entrega.
-
-O sistema é seu
-
-Se sair, recebe o código, os dados e o domínio em até 15 dias.
-
-Mensalidade fechada por plano
-
-Três planos de R$ 990 a R$ 2.290 por mês, com hospedagem e manutenção dentro. O que cresce com você (usuário, dados, conversas) tem preço publicado. IA e mensagens do WhatsApp pelo valor real, na mesma fatura.
-
-## Quer saber o que fazer primeiro na sua empresa?
-
-O diagnóstico é gratuito e sai com um mapa do que fazer, com custo e prazo, para usar com ou sem a V2O5.
-
-[Pedir diagnóstico gratuito](/diagnostico)
-
-Diagnóstico gratuito: 45 minutos de conversa com o fundador e um mapa do que fazer, em até 24 horas.
-
-Visão 360
-
-## O cliente se perde nas costuras entre uma área e outra. A V2O5 olha o caminho inteiro, da marca ao caixa.
-
-É comum a empresa contratar por partes: a marca com um designer, os anúncios com uma agência, o site com um programador, enquanto o atendimento fica com a equipe. Cada parte entrega a sua e mede o próprio número, e o trecho entre elas fica sem dono.
-
-Pesquisadores mandaram um contato pelo site de 2.241 empresas americanas: 23% nunca responderam, e as que responderam levaram 42 horas em média. No mesmo estudo, quem retornou em até uma hora teve quase sete vezes mais chance de conversar com quem decide a compra.
-
-Fonte: [Oldroyd, McElheran e Elkington, The Short Life of Online Sales Leads, Harvard Business Review, março de 2011](https://hbr.org/2011/03/the-short-life-of-online-sales-leads)
-
-### Marca
-
-Por que escolher você?
-
-Uma promessa só, dita do mesmo jeito no Google, no anúncio, no site e na conversa com o agente.
-
-Experiência
-
-Rebranding da Top Imóveis para Top Soluções Imobiliárias
-
-A promessa muda no caminho
-
-### Marketing
-
-Quem encontra você?
-
-SEO e anúncios no Google e na Meta para quem já procura o que você vende, com a verba indo para o que virou venda.
-
-Prática
-
-Conteúdo, SEO e tráfego da Motors Store
-
-O contato espera 42 h
-
-### Vendas
-
-Quem responde, e quando?
-
-O agente de IA responde na hora e passa ao vendedor a conversa, o interesse e a origem do cliente.
-
-Prática
-
-Funil e CRM da Motors Store
-
-A venda entra sem origem
-
-### Gestão
-
-Quanto sobra no fim do mês?
-
-O projeto começa pela conta da empresa: margem, ticket médio, custo por venda e prazo para se pagar.
-
-Formação
-
-Administração na FAE Business School
-
-O fio é a tecnologia. Dados num lugar só e integrações que rodam sozinhas, tudo no nome da sua empresa.
-
-Dyones Oliveira
-
-Fundador da V2O5
-
-Formado em Administração pela FAE Business School, está na tecnologia desde 1992, quando ganhou um curso num concurso da escola. Em branding, fez a mudança da Top Imóveis para Top Soluções Imobiliárias e assinou o blog da Top até agosto de 2024; na Motors Store, assina os 26 guias do site. É ele quem conduz o diagnóstico gratuito.
-
-Demonstração
-
-## Veja o sistema trabalhando. Da mensagem ao card no CRM, etapa por etapa.
-
-Demonstração com dados fictícios
-
-Agente de IA
-
-Automação
-
-Site e rastreamento
-
-Repetir a demonstração
-
-Uma mensagem chega no WhatsApp da loja às 21h e é respondida na hora.
-
-Cliente 21:14
-
-Boa noite! O Onix 2022 do anúncio ainda está disponível?
-
-Agente consulta a base
-
-- Estoque: Onix LT 1.0 turbo 2022, disponível
-- Agenda: test drive amanhã às 10h e às 15h
-
-Agente de IA 21:14
-
-Está sim! É o LT 1.0 turbo, com 41 mil km. Quer agendar um test drive? Tenho amanhã às 10h ou às 15h.
-
-Card no CRM
-
-Em atendimento
-
-Onix LT 2022
-
-Atração
-
-Atendimento
-
-Gestão
-
-Venda
-
-Origem
-
-Google Ads, campanha Seminovos
-
-Interesse
-
-Test drive
-
-Responsável
-
-Agente de IA
-
-Arquitetura
+[Gestão Integrações entre sistemas Site, CRM, ERP e os sistemas do seu setor trocando dados sozinhos. Em produção hoje: o estoque do Revenda Mais. a partir de R$ 1.900 por fluxo →](/automacao-com-ia)
 
 ## Como tudo se liga. Cada peça passa o contato adiante, com a origem junto.
 
 Escolha uma peça para ver o caminho que passa por ela.
 
-Site <!-- texto em SVG -->
-
-WhatsApp <!-- texto em SVG -->
-
-Agente de IA <!-- texto em SVG -->
-
-n8n <!-- texto em SVG -->
-
-CRM <!-- texto em SVG -->
-
-Rastreamento <!-- texto em SVG -->
-
-Venda <!-- texto em SVG -->
-
-Site <!-- texto em SVG -->
-
-WhatsApp <!-- texto em SVG -->
-
-Agente de IA <!-- texto em SVG -->
-
-n8n <!-- texto em SVG -->
-
-CRM <!-- texto em SVG -->
-
-Rastreamento <!-- texto em SVG -->
-
-Venda <!-- texto em SVG -->
+Site
 
 Atração
 
+WhatsApp
+
 Atendimento
 
+Agente de IA
+
+Atendimento
+
+n8n
+
 Gestão
+
+CRM
+
+Gestão
+
+Rastreamento
+
+Atração
+
+Venda
 
 Venda
 
@@ -680,97 +266,27 @@ Caminho que passa por aqui
 
 Site
 
+→ <!-- decorativo, aria-hidden -->
+
 WhatsApp
+
+→ <!-- decorativo, aria-hidden -->
 
 Agente de IA
 
+→ <!-- decorativo, aria-hidden -->
+
 CRM
 
+→ <!-- decorativo, aria-hidden -->
+
 Venda
-
-Case
-
-## Motors Store, revenda de seminovos em Curitiba.
-
-A V2O5 montou o site, os guias, o rastreamento e as automações da loja. Os números abaixo medem o sistema funcionando, contados no banco de dados da Motors.
-
-leads do site chegaram com identificador para não contar a mesma conversão duas vezes
-
-42
-
-de 44
-
-guias publicados, assinados pelo fundador da V2O5
-
-26
-
-veículos sincronizados com o estoque do Revenda Mais
-
-132
-
-Banco de dados da Motors Store, lido em 08/10/2026. Leads contados de 05/09 a 08/10/2026.
-
-eventos do sistema
-
-exemplo
-
-03:00:12
-
-estoque.sync
-
-fonte=revenda-mais
-
-alterados=3
-
-14:32:07
-
-lead.recebido
-
-origem=google/cpc
-
-gclid=sim
-
-14:32:07
-
-meta.capi.Lead
-
-event_id=Lead.3f9c2a7e
-
-status=200
-
-14:32:08
-
-ga4.generate_lead
-
-event_id=Lead.3f9c2a7e
-
-status=204
-
-14:32:08
-
-n8n.novo_lead
-
-aviso=equipe
-
-canal=whatsapp
-
-Formato real dos eventos que o sistema da Motors registra; os valores são ilustrativos. Cada lead do site sai com um identificador que o navegador e o servidor compartilham, e com ele a Meta e o Google contam a conversão uma vez só.
-
-[Ler o case completo](/cases/motors-store)
-
-Quer o mesmo sistema na sua empresa?
-
-A conversa de 45 minutos é com o fundador, que montou o da Motors Store.
-
-[Pedir diagnóstico gratuito](/diagnostico)
-
-Segmento
 
 ## Para revendas de veículos
 
 O pacote é o sistema da Motors Store: site de estoque integrado ao sistema da loja (Revenda Mais, Autoconf e outros), agente de IA no WhatsApp, CRM e rastreamento até a venda.
 
-Plano Completo a partir de R$ 14.900 de implantação e R$ 1.990 por mês até 31/12/2026; depois, R$ 2.290.
+Plano Completo a partir de R$ 14.900 de implantação e R$ 1.990 por mês até 31/12/2026; depois, R$ 2.290.
 
 [Ver a página de revendas](/segmentos/revendas-de-veiculos)
 
@@ -811,8 +327,6 @@ Compass Longitude <!-- decorativo, aria-hidden -->
 no site <!-- decorativo, aria-hidden -->
 
 no agente <!-- decorativo, aria-hidden -->
-
-Antes de contratar
 
 ## O que todo mundo pergunta antes de fechar.
 
@@ -864,164 +378,44 @@ Por SMS, com link rastreado e saída fácil, disparado do painel; ou por WhatsAp
 
 Como funciona o diagnóstico gratuito?
 
-São 45 minutos de conversa com o fundador sobre presença, atendimento, operação e funil. Em até 24 horas você recebe um mapa do que fazer primeiro, com custo e prazo, para usar com ou sem a V2O5.
+São 45 minutos de conversa com o fundador sobre presença, atendimento, operação e funil, para identificar e priorizar um gargalo e avaliar se existe um projeto viável. A sessão não inclui mapeamento completo do processo, implementação nem acompanhamento de resultados. Havendo um bom caso, o próximo passo é o Sprint de Eficiência, com escopo, entregáveis, prazo e investimento definidos em proposta.
 
 A V2O5 atende fora de Curitiba?
 
-Sim. O atendimento é remoto, para empresas de todo o Brasil. <!-- 19/10 (Dyones): sem Almirante Tamandaré, "é digital, não precisa ter uma âncora física" -->
+Sim. O atendimento é remoto, para empresas de todo o Brasil.
 
-## Comece pelo diagnóstico, que é gratuito.
+Por que V2O5?
 
-Em 45 minutos de conversa com o fundador, a gente entende como a sua empresa vende hoje. Em até 24 horas você recebe um mapa do que fazer primeiro, com custo e prazo, para usar com ou sem a V2O5.
+## Um catalisador para a mudança.
 
-[Pedir diagnóstico](/diagnostico)
+O nome vem do pentóxido de vanádio, usado como catalisador em processos químicos. A imagem resume como a V2O5 pensa tecnologia: ela não precisa ser o centro da operação, precisa ajudar a mudança a acontecer com menos esforço.
+
+O trabalho começa entendendo como o negócio funciona de fato. Depois a gente liga estratégia, processos e tecnologia para achar o caminho mais simples entre o problema e o resultado.
+
+## Qual processo está fazendo a sua operação perder tempo?
+
+Não precisa chegar com um briefing grande nem saber qual ferramenta usar. Traga o problema, como ele acontece hoje e o que deveria melhorar. A primeira conversa serve para avaliar se existe um bom caso para trabalhar.
+
+[Mapear um gargalo](/diagnostico)
 
 [Ver preços](/precos)
+
+r 18 <!-- texto em SVG; decorativo, aria-hidden -->
+
+r 24 <!-- texto em SVG; decorativo, aria-hidden -->
+
+r 20 <!-- texto em SVG; decorativo, aria-hidden -->
+
+r 18 <!-- texto em SVG; decorativo, aria-hidden -->
+
+V · 6,8 <!-- texto em SVG; decorativo, aria-hidden -->
+
+O · 4,8 <!-- texto em SVG; decorativo, aria-hidden -->
 
 <!-- fora do <main>: botão fixo do WhatsApp (só abaixo de 768 px) -->
 [WhatsApp](https://wa.me/5541998089550?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20V2O5%20e%20quero%20pedir%20o%20diagn%C3%B3stico%20gratuito.)
 
-<!-- ===== Estados que só aparecem com clique. Capturados com "menos movimento", em que cada aba aparece completa de uma vez. ===== -->
-
-<!-- demonstração: painel de cada aba (role=tabpanel). Com movimento, os passos aparecem um a um e a aba "Agente de IA" já vem aberta. -->
-
-<!-- aba: Agente de IA -->
-
-Uma mensagem chega no WhatsApp da loja às 21h e é respondida na hora.
-
-Cliente 21:14
-
-Boa noite! O Onix 2022 do anúncio ainda está disponível?
-
-Agente consulta a base
-
-- Estoque: Onix LT 1.0 turbo 2022, disponível
-- Agenda: test drive amanhã às 10h e às 15h
-
-Agente de IA 21:14
-
-Está sim! É o LT 1.0 turbo, com 41 mil km. Quer agendar um test drive? Tenho amanhã às 10h ou às 15h.
-
-Card no CRM
-
-Em atendimento
-
-Onix LT 2022
-
-Atração
-
-Atendimento
-
-Gestão
-
-Venda
-
-Origem
-
-Google Ads, campanha Seminovos
-
-Interesse
-
-Test drive
-
-Responsável
-
-Agente de IA
-
-<!-- aba: Automação -->
-
-A venda é marcada no CRM e o resto acontece sem ninguém digitar nada.
-
-CRM: negócio marcado como ganho
-
-- Onix LT 2022, vendido por Carla
-
-Fluxo no n8n começa
-
-- Site: carro sai da vitrine
-- Equipe: aviso no grupo de vendas
-
-WhatsApp automático 09:02
-
-Obrigado pela compra! Se puder, conta pra gente como foi o atendimento.
-
-Conversão enviada
-
-- Google Ads e Meta recebem a venda
-- Com o identificador do lead, ela conta uma vez só
-
-Card no CRM
-
-Venda
-
-Onix LT 2022
-
-Atração
-
-Atendimento
-
-Gestão
-
-Venda
-
-Origem
-
-Google Ads, campanha Seminovos
-
-Desfecho
-
-Ganho
-
-Venda atribuída
-
-Anúncio de 02/10
-
-<!-- aba: Site e rastreamento -->
-
-Do clique no anúncio ao lead no CRM, com a origem registrada em cada passo.
-
-Visitante chega de um anúncio
-
-- Origem e clique do Google guardados
-
-Abre a ficha e preenche o formulário
-
-- Lead gravado com um identificador único
-
-Lead enviado para Meta e Google
-
-- Pelo servidor, com o mesmo identificador do navegador
-- Meta e Google contam o lead uma vez só
-
-Lead entra no CRM
-
-- Com origem, campanha e veículo de interesse
-
-Card no CRM
-
-Novo
-
-Novo lead
-
-Atração
-
-Atendimento
-
-Gestão
-
-Venda
-
-Origem
-
-Google Ads, campanha Seminovos
-
-Veículo
-
-Onix LT 2022
-
-Identificador
-
-Lead.3f9c2a7e
+<!-- ===== Estados que só aparecem com clique. Só o diagrama "como tudo se liga" continua na home; a demonstração em abas (Orquestrador) saiu da home em 25/10 e segue em /agente-de-ia-para-whatsapp. ===== -->
 
 <!-- diagrama "como tudo se liga": painel de cada peça (a peça "site" é a que vem escolhida no HTML) -->
 
@@ -1150,16 +544,10 @@ Venda
 Rastreamento
 
 <!-- rótulos de acessibilidade (aria-label) desta rota, fora topo e rodapé:
-- "O caminho do cliente, da marca à gestão" (ol)
-- "Frentes da demonstração" (div role=tablist)
-- "Etapa do funil" (ol)
-- "Diagrama: como as peças do sistema se ligam" (svg role=group)
-- "Site" (g role=button)
-- "WhatsApp" (g role=button)
-- "Agente de IA" (g role=button)
-- "n8n" (g role=button)
-- "CRM" (g role=button)
-- "Rastreamento" (g role=button)
-- "Venda" (g role=button)
-- "Quer o mesmo sistema na sua empresa?" (section)
+- "No mapa" (section)
+- "Operação com IA" (section)
+- "Diagrama: como as peças do sistema se ligam" (ol)
+- "Segmento" (section)
+- "Antes de contratar" (section)
+- "Conversa no WhatsApp" (aside)
 -->
