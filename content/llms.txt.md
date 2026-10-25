@@ -1,10 +1,10 @@
 ---
 rota: "/llms.txt"
-url: "http://localhost:3117/llms.txt"
+url: "http://localhost:3118/llms.txt"
 status: 200
 content_type: "text/plain; charset=utf-8"
-extraido_em: "2026-10-25T21:36:46.516Z"
-fonte: "produção (www.v2o5.com.br), main em 87b0af9"
+extraido_em: "2026-10-25T21:59:35.773Z"
+fonte: "produção (www.v2o5.com.br), main em cb006ea"
 ---
 
 <!-- Corpo de /llms.txt exatamente como servido (gerado por src/app/llms.txt/route.ts). -->
@@ -19,7 +19,7 @@ Fundador: Dyones Oliveira. Formado em Administração pela FAE Business School, 
 
 ## Sprint de Eficiência (oferta principal)
 Projeto fechado para um gargalo delimitado, com preço fechado em proposta. Faixas de referência: Sprint Essencial R$ 3.000 a R$ 5.000 (1 a 2 semanas); Sprint Integrada R$ 6.000 a R$ 12.000 (2 a 4 semanas); Sprint Avançada R$ 12.000 a R$ 25.000 ou mais (4 a 8 semanas ou mais). Duração é referência, não promessa. Sem promessa de ROI nem de aumento de vendas. Detalhes em https://www.v2o5.com.br/precos#titulo-sprint.
-O Sprint termina na entrega. Se a solução continua rodando, há uma parte recorrente, em contrato à parte, com limites de atendimento e escopo escritos. A proposta separa cada custo: Gestão continuada: Monitoramento, correções e ajustes, com capacidade reservada. É a faixa mensal abaixo. Nuvem: Servidor, banco de dados e backups, pelo valor do provedor e discriminados. A V2O5 gerencia. IA e mensagens: O consumo de IA e as mensagens do WhatsApp variam com o volume e vêm pelo valor do provedor, discriminados na fatura. A V2O5 gerencia. Gestão continuada, em faixas de referência: Estabilidade e suporte R$ 1.200 a R$ 2.500 por mês; Evolução contínua R$ 2.500 a R$ 5.000 por mês. O contrato define prazo de resposta, canais, limite de horas ou capacidade, exclusões e o preço de demandas adicionais. A faixa mensal paga a gestão: nuvem, IA e demais custos de terceiros ficam por fora, discriminados. Ela não cobre desenvolvimento ilimitado, plantão irrestrito, nova integração sem orçamento nem garantia de resultado comercial. Novos gargalos, integrações, automações ou produtos são orçados à parte.
+O Sprint termina na entrega. Se a solução continua rodando, há uma parte recorrente, em contrato à parte, com limites de atendimento e escopo escritos. A proposta separa cada custo: Gestão continuada: Monitoramento, correções e ajustes, com capacidade reservada. É a faixa mensal abaixo. Nuvem: Servidor, banco de dados e backups, pelo valor do provedor e discriminados. A V2O5 gerencia. IA e mensagens: O consumo de IA e as mensagens do WhatsApp variam com o volume e vêm pelo valor do provedor, discriminados na fatura, com teto mensal combinado e aviso antes de ultrapassá-lo. A V2O5 gerencia. Gestão continuada, em faixas de referência: Estabilidade e suporte R$ 1.200 a R$ 2.500 por mês; Evolução contínua R$ 2.500 a R$ 5.000 por mês. O contrato define prazo de resposta, canais, limite de horas ou capacidade, exclusões e o preço de demandas adicionais. A faixa mensal paga a gestão: nuvem, IA e demais custos de terceiros ficam por fora, discriminados. Ela não cobre desenvolvimento ilimitado, plantão irrestrito, nova integração sem orçamento nem garantia de resultado comercial. Novos gargalos, integrações, automações ou produtos são orçados à parte.
 Pagamento: Em projetos, 50% na contratação, 30% na validação intermediária e 20% no aceite final. Em Sprints pequenas, 50% na contratação e 50% na entrega.
 Só o Sprint e a recorrência que o acompanha têm valor público. Nenhuma outra peça ou plano tem preço publicado; se perguntarem, o Dyones confirma no diagnóstico.
 

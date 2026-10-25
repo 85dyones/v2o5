@@ -84,7 +84,7 @@ export const CONTINUIDADE = {
     {
       titulo: "IA e mensagens",
       texto:
-        "O consumo de IA e as mensagens do WhatsApp variam com o volume e vêm pelo valor do provedor, discriminados na fatura. A V2O5 gerencia.",
+        "O consumo de IA e as mensagens do WhatsApp variam com o volume e vêm pelo valor do provedor, discriminados na fatura, com teto mensal combinado e aviso antes de ultrapassá-lo. A V2O5 gerencia.",
     },
   ],
   porque:

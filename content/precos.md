@@ -7,7 +7,7 @@ description: "Sprint de Eficiência com preço fechado em proposta, faixas de R$
 canonical: "https://www.v2o5.com.br/precos"
 robots: null
 h1: "Sprint de Eficiência: preço fechado em proposta."
-extraido_em: "2026-10-25T21:36:46.516Z"
+extraido_em: "2026-10-25T21:59:35.773Z"
 fonte: "build local da branch claude/keen-ptolemy-vnfnfu (só o Sprint e a recorrência com valor público, 25/10/2026), extraída com design/baseline/ferramentas; as demais rotas seguem como em 19/10"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
@@ -73,7 +73,7 @@ O Sprint termina na entrega. Se a solução continua rodando, há uma parte reco
 
 - Gestão continuada. Monitoramento, correções e ajustes, com capacidade reservada. É a faixa mensal abaixo.
 - Nuvem. Servidor, banco de dados e backups, pelo valor do provedor e discriminados. A V2O5 gerencia.
-- IA e mensagens. O consumo de IA e as mensagens do WhatsApp variam com o volume e vêm pelo valor do provedor, discriminados na fatura. A V2O5 gerencia.
+- IA e mensagens. O consumo de IA e as mensagens do WhatsApp variam com o volume e vêm pelo valor do provedor, discriminados na fatura, com teto mensal combinado e aviso antes de ultrapassá-lo. A V2O5 gerencia.
 
 Modelos de IA, APIs e regras do negócio mudam, e o que funciona na entrega precisa de ajuste para continuar funcionando.
 

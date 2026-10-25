@@ -19,6 +19,9 @@ describe("Sprint de Eficiência", () => {
     expect(CONTINUIDADE.texto).toMatch(/Se a solução continua rodando, há uma parte recorrente/);
     expect(CONTINUIDADE.recorrencia.map((r) => r.titulo)).toEqual(["Gestão continuada", "Nuvem", "IA e mensagens"]);
     expect(JSON.stringify(CONTINUIDADE)).toMatch(/A V2O5 gerencia/);
+    // Repasse pelo valor do provedor, sem margem anunciada, com teto mensal combinado e aviso (Dyones, 25/10).
+    expect(CONTINUIDADE.recorrencia[2].texto).toMatch(/teto mensal combinado e aviso antes de ultrapassá-lo/);
+    expect(JSON.stringify(CONTINUIDADE)).not.toMatch(/margem|markup/i);
     // Não detalha de quem são as contas de nuvem e de IA: só fala em recorrência (Dyones, 25/10).
     expect(JSON.stringify(CONTINUIDADE)).not.toMatch(/suas contas|conta do cliente|paga os provedores/i);
   });
