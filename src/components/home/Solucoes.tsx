@@ -1,6 +1,6 @@
 import type { CSSProperties } from "react";
 import LinkOuAncora from "@/components/LinkOuAncora";
-import { COR_DA_ROTA, ComMarcas, Parada, TEXTO_DA_ETAPA, Trecho } from "@/components/rota/Rota";
+import { COR_DA_ROTA, Parada, TEXTO_DA_ETAPA, Trecho } from "@/components/rota/Rota";
 import { NOME_DA_ETAPA, PILARES, SOLUCOES, type Servico } from "@/conteudo/home";
 import type { Etapa } from "@/lib/tokens";
 
@@ -16,8 +16,6 @@ export function MarcaDeEtapa({ etapa }: { etapa: Etapa }) {
 /** A cor do trecho no cabeçalho de cada metade: o mapa é atração, a operação começa no atendimento. */
 const ETAPA_DO_PILAR: Etapa[] = ["violeta", "verde"];
 
-/** Os valores em real do texto de preço, para o marca-texto. */
-const VALORES = /R\$ [\d.,]+(?: \+ R\$ [\d.,]+\/mês)?(?:\/mês)?/g;
 
 /**
  * Uma linha do cardápio: a célula inteira é o link. A linha pinta o trecho
@@ -29,13 +27,10 @@ function LinhaDoServico({ servico }: { servico: Servico }) {
     <li className="servico" style={estilo}>
       <LinkOuAncora href={servico.href} className="servico-celula grid grid-cols-12 gap-x-6 gap-y-3 border-b border-linha py-6 md:py-7">
         <Parada />
-        <span className="col-span-12 md:col-span-7">
+        <span className="col-span-10 md:col-span-11">
           <MarcaDeEtapa etapa={servico.etapa} />
           <span className="titulo-cartao mt-2 block">{servico.titulo}</span>
           <span className="mt-2 block max-w-[38rem] text-[0.9375rem] leading-relaxed text-texto-secundario">{servico.frase}</span>
-        </span>
-        <span className="col-span-10 self-center text-[0.9375rem] leading-relaxed tabular-nums md:col-span-4">
-          <ComMarcas texto={servico.preco} marcas={servico.preco.match(VALORES) ?? []} etapa={servico.etapa} />
         </span>
         <span aria-hidden="true" className="servico-seta col-span-2 self-center justify-self-end text-lg md:col-span-1">
           →
@@ -46,9 +41,9 @@ function LinhaDoServico({ servico }: { servico: Servico }) {
 }
 
 /**
- * O cardápio, nas duas metades do H1: o que coloca a empresa no mapa e o que
- * multiplica a operação com IA. Cada serviço é uma linha, com a etapa, o
- * preço "a partir de" da tabela (ou a linha em que vem incluso) e a seta.
+ * As intervenções que um Sprint costuma usar, em dois grupos. Cada uma é uma
+ * linha, com a etapa e a seta, e leva à página dela (rota e SEO preservados).
+ * Sem valor: só o Sprint tem preço público (decisão de 25/10/2026).
  */
 export default function Solucoes() {
   return (

@@ -3,37 +3,33 @@ rota: "/crm-com-whatsapp"
 url: "https://www.v2o5.com.br/crm-com-whatsapp"
 status: 200
 title: "CRM com WhatsApp integrado | V2O5 Vendas e Tecnologia"
-description: "CRM sob medida com WhatsApp dentro do funil: cada contato com origem, etapa e próximo passo. 5 usuários inclusos, sem licença por pessoa, a partir de R$ 4.900."
+description: "CRM sob medida com WhatsApp dentro do funil: cada contato com origem, etapa e próximo passo. Intervenção de um Sprint de Eficiência."
 canonical: "https://www.v2o5.com.br/crm-com-whatsapp"
 robots: null
 h1: "CRM com WhatsApp integrado e IA."
-extraido_em: "2026-10-19T00:26:22.723Z"
-fonte: "produção (www.v2o5.com.br), main em 46c4103"
+extraido_em: "2026-10-25T20:08:16.046Z"
+fonte: "build local da branch claude/keen-ptolemy-vnfnfu (só o Sprint com valor público, 25/10/2026), extraída com design/baseline/ferramentas; as demais rotas seguem como em 19/10"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
-CRM e sistemas sob medida
-
 # CRM com WhatsApp integrado e IA.
 
-Cada contato num funil, com a origem, a etapa e o próximo passo à vista. Sem licença por usuário e no nome da sua empresa.
+Cada contato num funil, com a origem, a etapa e o próximo passo à vista, no nome da sua empresa.
 
 [Pedir diagnóstico gratuito](/diagnostico)
 
-[Ver o preço](#titulo-preco)
+[Ver como entra num Sprint](#titulo-no-sprint)
 
-Preço
+No Sprint
 
-no plano Atendimento, a partir de R$ 7.900 + R$ 1.590/mês
+Intervenção para quando o gargalo é o funil espalhado entre conversas e planilhas
 
-Inclui
+O que entra
 
-5 usuários, o agente de IA no WhatsApp, banco próprio, backups e suporte
+Funil e campos do seu negócio, WhatsApp dentro do CRM, banco próprio, backups e treinamento da equipe, conforme o escopo
 
 Em produção
 
 Motors Store: painel com funil, estoque, clientes, investidores e mídia paga
-
-O problema
 
 ## O funil vive no WhatsApp de cada vendedor.
 
@@ -65,8 +61,6 @@ Corolla 2020 <!-- decorativo, aria-hidden -->
 
 Google Ads <!-- decorativo, aria-hidden -->
 
-O que entra
-
 ## O que a V2O5 entrega nesta linha.
 
 ### Funil com origem
@@ -89,11 +83,9 @@ Os campos são os do seu negócio: veículo de interesse, imóvel, procedimento,
 
 Os dados ficam num banco só seu, com backup diário e exportação quando pedir.
 
-### Sem licença por usuário
+### Usuários e volume de dados
 
-5 usuários inclusos; usuário extra R$ 89 por mês. Acima de 20 mil contatos ou 8 GB de dados, mais R$ 190 por mês.
-
-Como funciona
+Quantos usuários e quanto de dado entram é definido na proposta do Sprint, conforme o tamanho da equipe e da base.
 
 ## Do diagnóstico ao ar.
 
@@ -123,8 +115,6 @@ Treinamento e ajuste
 
 A equipe é treinada na implantação, e o primeiro mês ajusta o que a rotina pedir.
 
-Case
-
 ## O painel da Motors Store.
 
 Funil de leads, estoque, clientes, investidores e mídia paga num painel só, com as conversas do Chatwoot.
@@ -137,67 +127,29 @@ Banco de dados da Motors Store, lido em 08/10/2026. Leads contados de 05/09 a 08
 
 [Ler o case completo](/cases/motors-store)
 
-Preço
+## CRM e sistemas sob medida num Sprint de Eficiência.
 
-## Plano Atendimento: a partir de.
+O CRM entra num Sprint quando o gargalo é o funil espalhado entre conversas e planilhas. O Sprint mapeia como a venda acontece, desenha as etapas e os campos com a equipe, implanta e compara a proporção de contatos acompanhados e a conversão de etapa.
 
-Implantação a partir de
-
-R$ 7.900
-
-Mensalidade a partir de
-
-R$ 1.590/mês
-
-Responder na hora, a qualquer hora, sem perder o contato que chegou. Agente de IA no WhatsApp, 500 conversas por mês; CRM com funil, aviso de lead parado e 5 usuários; Passagem do agente para a equipe na mesma conversa; Treinamento da equipe; Banco próprio, backups e suporte.
-
-Pelo valor real, na mesma fatura: uso do modelo de IA; mensagens da API oficial do WhatsApp.
-
-[Ver a tabela completa](/precos)
+[Ver o Sprint e suas faixas](/precos#titulo-sprint)
 
 O preço final
 
-Sai do diagnóstico, com o escopo fechado antes de começar. Todo valor publicado é a partir de.
+Sai da proposta do Sprint, depois de delimitar o gargalo, o escopo, os entregáveis e o prazo.
 
-Implantação em até 6 vezes, ou metade na assinatura e metade na entrega. Mensalidade mês a mês.
-
-Sem fidelidade
-
-Mensalidade mês a mês. Cancela quando quiser.
-
-Implantação em até 6x
-
-Ou metade na assinatura e metade na entrega.
-
-O sistema é seu
-
-Se sair, recebe o código, os dados e o domínio em até 15 dias.
-
-Mensalidade fechada por plano
-
-Três planos de R$ 990 a R$ 2.290 por mês, com hospedagem e manutenção dentro. O que cresce com você (usuário, dados, conversas) tem preço publicado. IA e mensagens do WhatsApp pelo valor real, na mesma fatura.
-
-## Quer saber o que fazer primeiro na sua empresa?
-
-O diagnóstico é gratuito e sai com um mapa do que fazer, com custo e prazo, para usar com ou sem a V2O5.
-
-[Pedir diagnóstico gratuito](/diagnostico)
-
-Diagnóstico gratuito: 45 minutos de conversa com o fundador e um mapa do que fazer, em até 24 horas.
-
-Antes de contratar
+O diagnóstico inicial, de 45 minutos, é gratuito.
 
 ## O que perguntam sobre crm e sistemas sob medida antes de fechar.
 
-Preço, o que entra, o que fica de fora e o que acontece se você sair. O resto cabe no diagnóstico.
+O que entra, onde encaixa num Sprint e o que fica de fora. O resto cabe no diagnóstico.
 
-Tem cobrança por usuário?
+Como ficam os usuários e o volume de dados?
 
-O CRM vem com 5 usuários, sem licença por pessoa. Acima disso, cada usuário extra custa R$ 89 por mês.
+Definidos na proposta do Sprint, conforme o tamanho da equipe e da base de contatos.
 
 Posso integrar com o sistema que já uso?
 
-Sim, por fluxo de automação, a partir de R$ 1.900 por fluxo. Em produção hoje: o estoque do Revenda Mais. Para revendas, Autoconf, BNDV, Boom, Altimus e Syonet entram do mesmo jeito.
+Sim, por integração dentro de um Sprint. Em produção hoje: o estoque do Revenda Mais. Para revendas, Autoconf, BNDV, Boom, Altimus e Syonet entram do mesmo jeito.
 
 O WhatsApp fica dentro do CRM?
 
@@ -205,27 +157,50 @@ Sim. As conversas entram no funil com o histórico, pela API oficial ou pelo Cha
 
 E se eu sair?
 
-Você recebe o código, os dados e o domínio em até 15 dias. Sem fidelidade.
+Os dados ficam num banco do seu negócio, com exportação quando você pedir. Os termos de saída e de continuidade ficam no contrato.
 
 Serve para qualquer setor?
 
 Serve. Os campos e as etapas são desenhados com você. O automotivo é o primeiro segmento com pacote pronto.
 
-## Linhas que combinam com esta.
+## Intervenções que combinam com esta.
 
-[Atendimento Agente de IA no WhatsApp Responde na hora, a qualquer hora, com as informações do seu negócio. Quando a conversa pede uma pessoa, chama alguém da equipe. no plano Atendimento, a partir de R$ 7.900 + R$ 1.590/mês](/agente-de-ia-para-whatsapp)
+[Atendimento Agente de IA no WhatsApp Responde na hora, a qualquer hora, com as informações do seu negócio. Quando a conversa pede uma pessoa, chama alguém da equipe.](/agente-de-ia-para-whatsapp)
 
-[Gestão Painel do dono Funil, verba, custo por lead e vendas por origem numa tela, atualizada todo dia a partir do CRM, do rastreamento e das contas de anúncio. Sem licença por usuário. a partir de R$ 3.900 + R$ 490/mês; implantação de bônus no Completo](/diagnostico)
+[Gestão Painel do dono Funil, verba, custo por lead e vendas por origem numa tela, atualizada todo dia a partir do CRM, do rastreamento e das contas de anúncio. Sem licença por usuário.](/diagnostico)
 
-[Gestão Automação de processos A tarefa que alguém faz à mão toda semana passa a rodar sozinha entre os sistemas que você já usa. a partir de R$ 1.900 por fluxo](/automacao-com-ia)
+[Gestão Automação de processos A tarefa que alguém faz à mão toda semana passa a rodar sozinha entre os sistemas que você já usa.](/automacao-com-ia)
 
 ## Comece pelo diagnóstico, que é gratuito.
 
-Em 45 minutos de conversa com o fundador, a gente entende como a sua empresa vende hoje. Em até 24 horas você recebe um mapa do que fazer primeiro, com custo e prazo, para usar com ou sem a V2O5.
+Em 45 minutos de conversa com o fundador, a gente entende como a sua empresa vende hoje e identifica o gargalo que vale priorizar. A sessão é gratuita e sem compromisso.
 
 [Pedir diagnóstico](/diagnostico)
 
-[Ver preços](/precos)
+[Ver os preços do Sprint](/precos#titulo-sprint)
+
+r 18 <!-- texto em SVG; decorativo, aria-hidden -->
+
+r 24 <!-- texto em SVG; decorativo, aria-hidden -->
+
+r 20 <!-- texto em SVG; decorativo, aria-hidden -->
+
+r 18 <!-- texto em SVG; decorativo, aria-hidden -->
+
+V · 6,8 <!-- texto em SVG; decorativo, aria-hidden -->
+
+O · 4,8 <!-- texto em SVG; decorativo, aria-hidden -->
 
 <!-- fora do <main>: botão fixo do WhatsApp (só abaixo de 768 px) -->
 [WhatsApp](https://wa.me/5541998089550?text=Ol%C3%A1!%20Vi%20a%20p%C3%A1gina%20de%20CRM%20e%20sistemas%20sob%20medida%20no%20site%20da%20V2O5%20e%20quero%20conversar%20sobre%20a%20minha%20empresa.)
+
+<!-- rótulos de acessibilidade (aria-label) desta rota, fora topo e rodapé:
+- "CRM e sistemas sob medida" (section)
+- "O problema" (section)
+- "O que entra" (section)
+- "Como funciona" (section)
+- "Case" (section)
+- "No Sprint" (section)
+- "Antes de contratar" (section)
+- "Conversa no WhatsApp" (aside)
+-->

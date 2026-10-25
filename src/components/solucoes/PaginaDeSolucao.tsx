@@ -4,7 +4,6 @@ import LinkOuAncora from "@/components/LinkOuAncora";
 import CapturasDaMotors, { type Captura } from "@/components/case/CapturasDaMotors";
 import Icone from "@/components/Icone";
 import JsonLd from "@/components/JsonLd";
-import Garantias from "@/components/home/Garantias";
 import Fechamento from "@/components/home/Fechamento";
 import Perguntas from "@/components/home/Perguntas";
 import { MarcaDeEtapa } from "@/components/home/Solucoes";
@@ -13,9 +12,9 @@ import Topo from "@/components/layout/Topo";
 import Rodape from "@/components/layout/Rodape";
 import BotaoWhatsAppFixo from "@/components/layout/BotaoWhatsAppFixo";
 import Entradas from "@/components/layout/Entradas";
-import { COR_DA_ROTA, ComMarcas, Parada, TEXTO_DA_ETAPA, Trecho } from "@/components/rota/Rota";
+import { COR_DA_ROTA, Parada, TEXTO_DA_ETAPA, Trecho } from "@/components/rota/Rota";
 import { CASE, LINHAS, type Linha } from "@/conteudo/home";
-import { BRL, capacidade, ofertaDaCapacidade, type LinhaDePreco } from "@/conteudo/precos";
+import { capacidade } from "@/conteudo/precos";
 import { mensagemDaSolucao, solucaoDa, type Solucao } from "@/conteudo/solucoes";
 import { grafoDaSolucao } from "@/lib/schema";
 import type { Etapa } from "@/lib/tokens";
@@ -23,10 +22,12 @@ import type { Etapa } from "@/lib/tokens";
 /**
  * O molde das páginas de solução, na direção B (19/10). A rota da margem
  * toma a cor da etapa da solução (`etapa` em `conteudo/solucoes.ts`) da
- * abertura ao preço; garantias, perguntas e as linhas que combinam ligam as
- * paradas com o fio fino, e o fecho leva a rota em âmbar até o botão.
+ * abertura a "como entra num Sprint"; perguntas e as linhas que combinam
+ * ligam as paradas com o fio fino, e o fecho leva a rota em âmbar até o botão.
+ * Desde 25/10/2026 a página não publica valor: a linha é uma intervenção que
+ * pode fazer parte de um Sprint, e o preço do Sprint mora em `/precos`.
  * Os sobretítulos saíram da tela e viraram o nome acessível de cada seção.
- * Texto todo de `conteudo/solucoes.ts` e `conteudo/precos.ts`.
+ * Texto todo de `conteudo/solucoes.ts`.
  */
 export default function PaginaDeSolucao({ rota, demonstracao }: { rota: string; demonstracao?: ReactNode }) {
   const s = solucaoDa(rota);
@@ -46,13 +47,12 @@ export default function PaginaDeSolucao({ rota, demonstracao }: { rota: string; 
         <ComoFunciona s={s} />
         {demonstracao}
         {s.naMotors ? <NaMotors m={s.naMotors} etapa={s.etapa} captura={s.linha === "sites" ? "vitrine" : undefined} /> : null}
-        <Preco s={s} />
-        <Garantias />
+        <NoSprint s={s} />
         <Perguntas
           lista={s.perguntas}
           sobretitulo="Antes de contratar"
           titulo={`O que perguntam sobre ${nomeDaLinha.toLowerCase()}`}
-          texto="Preço, o que entra, o que fica de fora e o que acontece se você sair. O resto cabe no diagnóstico."
+          texto="O que entra, onde encaixa num Sprint e o que fica de fora. O resto cabe no diagnóstico."
         />
         <Relacionadas linhas={relacionadas} />
         <Fechamento />
@@ -63,13 +63,6 @@ export default function PaginaDeSolucao({ rota, demonstracao }: { rota: string; 
       <JsonLd grafo={grafoDaSolucao(rota)} />
     </>
   );
-}
-
-/** Os valores em real de um texto de preço, para o marca-texto (o mesmo padrão do cardápio da home). */
-const VALORES = /R\$ [\d.,]+(?: \+ R\$ [\d.,]+\/mês)?(?:\/mês)?(?: por \w+)?/g;
-
-function Valores({ texto, etapa }: { texto: string; etapa: Etapa }) {
-  return <ComMarcas texto={texto} marcas={texto.match(VALORES) ?? []} etapa={etapa} />;
 }
 
 /**
@@ -101,8 +94,8 @@ function Abertura({ s }: { s: Solucao }) {
               Pedir diagnóstico gratuito
               <Icone nome="seta" className="seta size-4" />
             </Link>
-            <a href="#titulo-preco" className="link-sublinhado text-[0.9375rem] font-medium" data-evento="cta_click" data-local="hero">
-              Ver o preço
+            <a href="#titulo-no-sprint" className="link-sublinhado text-[0.9375rem] font-medium" data-evento="cta_click" data-local="hero">
+              Ver como entra num Sprint
             </a>
           </div>
         </div>
@@ -118,7 +111,7 @@ function Abertura({ s }: { s: Solucao }) {
               } ${i === 1 ? "md:pr-6" : ""}`}
             >
               <dt className="rotulo text-texto-secundario">{f.rotulo}</dt>
-              <dd className="text-[0.9375rem] leading-snug">{i === 0 ? <Valores texto={f.valor} etapa={s.etapa} /> : f.valor}</dd>
+              <dd className="text-[0.9375rem] leading-snug">{f.valor}</dd>
             </div>
           ))}
         </dl>
@@ -318,119 +311,37 @@ function CelulasDoCase({ numeros }: { numeros: NonNullable<Solucao["naMotors"]>[
   );
 }
 
-// O texto de cada valor, como na tabela de /precos ("R$ 1.900 por fluxo",
-// "sem mensalidade"). Mora aqui para o molde não depender do miolo da tabela.
-function valorDaImplantacao(l: LinhaDePreco) {
-  if (l.sobConsulta) return "sob consulta";
-  if (l.implantacao) return `${BRL(l.implantacao)}${l.unidade ? ` ${l.unidade}` : ""}`;
-  return l.semImplantacao ?? "";
-}
-
-function valorDaMensalidade(l: LinhaDePreco) {
-  if (l.sobConsulta) return "sob consulta";
-  if (!l.mensalidade) return l.unidade ? "sem mensalidade" : "";
-  return `${BRL(l.mensalidade)}/mês${l.maisVerba ? " + verba" : ""}`;
-}
-
-const minuscula = (t: string) => (/^[A-Z][a-z]/.test(t) ? t.charAt(0).toLowerCase() + t.slice(1) : t);
-
-/** O que vem dentro, o que cresce e o que é repassado, embaixo de "o que cobre". */
-function DetalhesDoPreco({ l }: { l: LinhaDePreco }) {
-  if (!l.inclui && !l.degraus && !l.repasses && !l.bonus) return null;
-  return (
-    <div className="mt-4 grid gap-2.5 text-sm leading-snug">
-      {l.inclui ? (
-        <ul className="flex flex-wrap gap-2">
-          {l.inclui.map((i) => (
-            <li key={i} className="rotulo border border-linha px-2 py-1 text-texto-secundario">
-              {i}
-            </li>
-          ))}
-        </ul>
-      ) : null}
-      {l.bonus ? <p className="font-medium">{l.bonus}</p> : null}
-      {l.degraus ? (
-        <ul className="grid gap-1 tabular-nums text-texto-secundario">
-          {l.degraus.map((d) => (
-            <li key={d.rotulo}>
-              {d.rotulo}: {BRL(d.valor)}
-              {d.unidade.startsWith("/") ? "" : " "}
-              {d.unidade}
-            </li>
-          ))}
-        </ul>
-      ) : null}
-      {l.repasses ? (
-        <p className="text-texto-secundario">
-          <span className="text-texto">Pelo valor real, na mesma fatura:</span> {l.repasses.map(minuscula).join("; ")}.
-        </p>
-      ) : null}
-    </div>
-  );
-}
-
 /**
- * O preço da tabela, numa ficha fechada por fio de 2 px: os dois valores
- * "a partir de" no marca-texto da etapa, o que cobre, e ao lado como sai o
- * preço final. O `id="titulo-preco"` é a âncora do botão "Ver o preço".
+ * Como a linha entra num Sprint, numa ficha fechada por fio de 2 px: o texto
+ * da própria solução à esquerda e, ao lado, de onde sai o preço (proposta do
+ * Sprint, com as faixas de referência em `/precos`). O `id="titulo-no-sprint"`
+ * é a âncora do botão "Ver como entra num Sprint".
  */
-function Preco({ s }: { s: Solucao }) {
-  const l = ofertaDaCapacidade(s.linha);
-  // Com unidade ("por fluxo"), a unidade sai do marca-texto e fica em corpo
-  // menor ao lado, como o "/mês" dos planos em /precos: o valor não quebra no meio.
-  const porUnidade = !l.sobConsulta && l.implantacao && l.unidade;
-  const valores = [
-    {
-      rotulo: "Implantação a partir de",
-      valor: porUnidade ? BRL(l.implantacao!) : valorDaImplantacao(l) || "sem",
-      unidade: porUnidade ? l.unidade : undefined,
-    },
-    { rotulo: "Mensalidade a partir de", valor: valorDaMensalidade(l) || "sem", unidade: undefined },
-  ];
+function NoSprint({ s }: { s: Solucao }) {
+  const nome = capacidade(s.linha).nome;
   return (
-    <Trecho aria-label="Preço" etapa={s.etapa}>
+    <Trecho aria-label="No Sprint" etapa={s.etapa}>
       <div className="relative grid grid-cols-12 gap-x-6">
         <Parada />
-        <h2 id="titulo-preco" className="titulo-secao col-span-12 lg:col-span-8">
-          {l.nome}: a partir de.
+        <h2 id="titulo-no-sprint" className="titulo-secao col-span-12 lg:col-span-8">
+          {nome} num Sprint de Eficiência.
         </h2>
       </div>
       <div className="mt-12 grid grid-cols-12 border-2 border-texto md:mt-14">
-        <div className="col-span-12 lg:col-span-7">
-          <dl className="grid border-b border-linha sm:grid-cols-2">
-            {valores.map((v, i) => (
-              <div key={v.rotulo} className={`grid content-start gap-3 border-linha p-6 md:p-7 ${i > 0 ? "border-t sm:border-l sm:border-t-0" : ""}`}>
-                <dt className="rotulo text-texto-secundario">{v.rotulo}</dt>
-                <dd className="text-titulo-3 tabular-nums">
-                  <span className="whitespace-nowrap">
-                    <Valores texto={v.valor} etapa={s.etapa} />
-                  </span>
-                  {v.unidade ? (
-                    <>
-                      {" "}
-                      <span className="text-base font-normal text-texto-secundario">{v.unidade}</span>
-                    </>
-                  ) : null}
-                </dd>
-              </div>
-            ))}
-          </dl>
-          <div className="p-6 md:p-7">
-            <p className="max-w-[40rem] text-[0.9375rem] leading-relaxed text-texto-secundario">{l.cobre}</p>
-            <DetalhesDoPreco l={l} />
-            <Link href="/precos" className="botao botao-secundario mt-7" data-evento="cta_click" data-local="preco">
-              Ver a tabela completa
-              <Icone nome="seta" className="seta size-4" />
-            </Link>
-          </div>
+        <div className="col-span-12 p-6 md:p-7 lg:col-span-7">
+          <p className="max-w-[40rem] text-[1.0625rem] leading-relaxed">{s.noSprint}</p>
+          <LinkOuAncora href="/precos#titulo-sprint" className="botao botao-secundario mt-7" data-evento="cta_click" data-local="preco">
+            Ver o Sprint e suas faixas
+            <Icone nome="seta" className="seta size-4" />
+          </LinkOuAncora>
         </div>
         <div className="col-span-12 flex flex-col justify-center border-t border-linha bg-fundo-cartao p-6 md:p-8 lg:col-span-5 lg:border-l lg:border-t-0">
           <p className="rotulo text-texto-secundario">O preço final</p>
           <p className="mt-3 text-[1.125rem] leading-snug">
-            Sai do diagnóstico, com o escopo fechado antes de começar. Todo valor publicado é a partir de.
+            Sai da proposta do Sprint, depois de delimitar o gargalo, o escopo, os entregáveis e o prazo.
           </p>
           <p className="mt-4 text-sm leading-relaxed text-texto-secundario">
-            Implantação em até 6 vezes, ou metade na assinatura e metade na entrega. Mensalidade mês a mês.
+            O diagnóstico inicial, de 45 minutos, é gratuito.
           </p>
         </div>
       </div>
@@ -449,7 +360,7 @@ function Relacionadas({ linhas }: { linhas: Linha[] }) {
       <div className="relative grid grid-cols-12 gap-x-6">
         <Parada />
         <h2 id="titulo-relacionadas" className="col-span-12 text-titulo-3 lg:col-span-8">
-          Linhas que combinam com esta.
+          Intervenções que combinam com esta.
         </h2>
       </div>
       <ul className="mt-10 border-t-2 border-texto">
@@ -457,13 +368,10 @@ function Relacionadas({ linhas }: { linhas: Linha[] }) {
           <li key={l.titulo} className="servico" style={{ "--cor-da-rota": COR_DA_ROTA[l.etapa] } as CSSProperties}>
             <LinkOuAncora href={l.href} className="servico-celula grid grid-cols-12 gap-x-6 gap-y-3 border-b border-linha py-6 md:py-7">
               <Parada />
-              <span className="col-span-12 md:col-span-7">
+              <span className="col-span-10 md:col-span-11">
                 <MarcaDeEtapa etapa={l.etapa} />
                 <span className="titulo-cartao mt-2 block">{l.titulo}</span>
                 <span className="mt-2 block max-w-[38rem] text-[0.9375rem] leading-relaxed text-texto-secundario">{l.frase}</span>
-              </span>
-              <span className="col-span-10 self-center text-[0.9375rem] leading-relaxed tabular-nums md:col-span-4">
-                <Valores texto={l.preco} etapa={l.etapa} />
               </span>
               <span aria-hidden="true" className="servico-seta col-span-2 self-center justify-self-end md:col-span-1">
                 <Icone nome="seta" className="size-4" />

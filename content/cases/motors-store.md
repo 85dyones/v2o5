@@ -7,8 +7,8 @@ description: "O que a V2O5 montou para a Motors Store, revenda de seminovos em C
 canonical: "https://www.v2o5.com.br/cases/motors-store"
 robots: null
 h1: "Motors Store: o sistema inteiro numa revenda de seminovos."
-extraido_em: "2026-10-25T19:09:34.547Z"
-fonte: "build local da branch claude/keen-ptolemy-vnfnfu (25/10/2026), extraída com design/baseline/ferramentas; as demais rotas seguem como em 19/10"
+extraido_em: "2026-10-25T20:08:16.046Z"
+fonte: "build local da branch claude/keen-ptolemy-vnfnfu (só o Sprint com valor público, 25/10/2026), extraída com design/baseline/ferramentas; as demais rotas seguem como em 19/10"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 # Motors Store: o sistema inteiro numa revenda de seminovos.

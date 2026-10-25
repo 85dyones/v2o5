@@ -3,56 +3,39 @@ rota: "/automacao-com-ia"
 url: "https://www.v2o5.com.br/automacao-com-ia"
 status: 200
 title: "Automação de processos com IA e n8n | V2O5 Vendas e Tecnologia"
-description: "Fluxos no n8n que ligam os sistemas que a sua empresa já usa, com IA validada contra invenção de dado e registro de cada execução. R$ 1.900 por fluxo."
+description: "Fluxos no n8n que ligam os sistemas que a sua empresa já usa, com IA validada contra invenção de dado e registro de cada execução. Entra num Sprint."
 canonical: "https://www.v2o5.com.br/automacao-com-ia"
 robots: null
 h1: "Automação de processos com IA e n8n."
-extraido_em: "2026-10-19T00:26:22.723Z"
-fonte: "produção (www.v2o5.com.br), main em 46c4103"
+extraido_em: "2026-10-25T20:08:16.046Z"
+fonte: "build local da branch claude/keen-ptolemy-vnfnfu (só o Sprint com valor público, 25/10/2026), extraída com design/baseline/ferramentas; as demais rotas seguem como em 19/10"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
-<!-- Redesign 2026 (19/10): a vinheta decorativa (aria-hidden) desta página saiu da tela; só /crm-com-whatsapp manteve a cena. O texto dela abaixo é da produção e não é palavra perdida. -->
-Automação de processos
-
 # Automação de processos com IA e n8n.
 
 A tarefa que alguém faz à mão toda semana passa a rodar sozinha entre os sistemas que você já usa, com registro de cada execução.
 
 [Pedir diagnóstico gratuito](/diagnostico)
 
-[Ver o preço](#titulo-preco)
+[Ver como entra num Sprint](#titulo-no-sprint)
 
-Preço
+No Sprint
 
-a partir de R$ 1.900 por fluxo
+Intervenção para quando o gargalo é tarefa repetida entre sistemas
 
 Manutenção
 
-entra na mensalidade do CRM ou do site
+definida na proposta ou na continuidade, se contratada
 
 Em produção
 
 Motors Store: 132 veículos sincronizados com o Revenda Mais
-
-O problema
 
 ## O processo existe, mas mora na cabeça de uma pessoa.
 
 Atualizar o estoque no site, avisar o vendedor, mandar o obrigado, conferir a venda que ficou pela metade. Cada passo é feito à mão, quando dá tempo, e para quando a pessoa sai de férias.
 
 Gestão
-
-exemplo
-
-Venda marcada no CRM <!-- decorativo, aria-hidden -->
-
-Carro sai da vitrine do site <!-- decorativo, aria-hidden -->
-
-Cliente recebe o obrigado <!-- decorativo, aria-hidden -->
-
-Google e Meta recebem a venda <!-- decorativo, aria-hidden -->
-
-O que entra
 
 ## O que a V2O5 entrega nesta linha.
 
@@ -80,8 +63,6 @@ Toda rodada fica registrada, com erro ou sucesso, e o erro gera aviso. A correç
 
 Roda no n8n da infraestrutura da V2O5, com backup e monitoramento. Se sair, leva o fluxo exportado em arquivo.
 
-Como funciona
-
 ## Do diagnóstico ao ar.
 
 Começa pelo diagnóstico gratuito, com o escopo fechado antes da implantação. Sem fidelidade.
@@ -108,47 +89,37 @@ Passa a rodar sozinho, com alerta de erro e registro de cada execução.
 
 Manutenção
 
-Ajustes e correções entram na mensalidade do CRM ou do site.
-
-Arquitetura
+Ajustes e correções dentro do período e do escopo definidos na proposta.
 
 ## Como tudo se liga. Cada peça passa o contato adiante, com a origem junto.
 
 Escolha uma peça para ver o caminho que passa por ela.
 
-Site <!-- texto em SVG -->
-
-WhatsApp <!-- texto em SVG -->
-
-Agente de IA <!-- texto em SVG -->
-
-n8n <!-- texto em SVG -->
-
-CRM <!-- texto em SVG -->
-
-Rastreamento <!-- texto em SVG -->
-
-Venda <!-- texto em SVG -->
-
-Site <!-- texto em SVG -->
-
-WhatsApp <!-- texto em SVG -->
-
-Agente de IA <!-- texto em SVG -->
-
-n8n <!-- texto em SVG -->
-
-CRM <!-- texto em SVG -->
-
-Rastreamento <!-- texto em SVG -->
-
-Venda <!-- texto em SVG -->
+Site
 
 Atração
 
+WhatsApp
+
 Atendimento
 
+Agente de IA
+
+Atendimento
+
+n8n
+
 Gestão
+
+CRM
+
+Gestão
+
+Rastreamento
+
+Atração
+
+Venda
 
 Venda
 
@@ -162,15 +133,21 @@ Caminho que passa por aqui
 
 Site
 
+→ <!-- decorativo, aria-hidden -->
+
 WhatsApp
+
+→ <!-- decorativo, aria-hidden -->
 
 Agente de IA
 
+→ <!-- decorativo, aria-hidden -->
+
 CRM
 
-Venda
+→ <!-- decorativo, aria-hidden -->
 
-Case
+Venda
 
 ## Rodando na Motors Store.
 
@@ -184,61 +161,25 @@ Banco de dados da Motors Store, lido em 08/10/2026. Leads contados de 05/09 a 08
 
 [Ler o case completo](/cases/motors-store)
 
-Preço
+## Automação de processos num Sprint de Eficiência.
 
-## Fluxo de automação: a partir de.
+A automação entra num Sprint quando o gargalo é uma tarefa repetida entre sistemas. O Sprint mapeia o processo real, tira as etapas desnecessárias antes de automatizar e mede o tempo e o retrabalho antes e depois.
 
-Implantação a partir de
-
-R$ 1.900 por fluxo
-
-Mensalidade a partir de
-
-sem mensalidade
-
-Um fluxo no n8n entregue, testado e documentado: pós-venda, avaliações ou integração entre sistemas. A manutenção entra na mensalidade do plano.
-
-[Ver a tabela completa](/precos)
+[Ver o Sprint e suas faixas](/precos#titulo-sprint)
 
 O preço final
 
-Sai do diagnóstico, com o escopo fechado antes de começar. Todo valor publicado é a partir de.
+Sai da proposta do Sprint, depois de delimitar o gargalo, o escopo, os entregáveis e o prazo.
 
-Implantação em até 6 vezes, ou metade na assinatura e metade na entrega. Mensalidade mês a mês.
-
-Sem fidelidade
-
-Mensalidade mês a mês. Cancela quando quiser.
-
-Implantação em até 6x
-
-Ou metade na assinatura e metade na entrega.
-
-O sistema é seu
-
-Se sair, recebe o código, os dados e o domínio em até 15 dias.
-
-Mensalidade fechada por plano
-
-Três planos de R$ 990 a R$ 2.290 por mês, com hospedagem e manutenção dentro. O que cresce com você (usuário, dados, conversas) tem preço publicado. IA e mensagens do WhatsApp pelo valor real, na mesma fatura.
-
-## Quer saber o que fazer primeiro na sua empresa?
-
-O diagnóstico é gratuito e sai com um mapa do que fazer, com custo e prazo, para usar com ou sem a V2O5.
-
-[Pedir diagnóstico gratuito](/diagnostico)
-
-Diagnóstico gratuito: 45 minutos de conversa com o fundador e um mapa do que fazer, em até 24 horas.
-
-Antes de contratar
+O diagnóstico inicial, de 45 minutos, é gratuito.
 
 ## O que perguntam sobre automação de processos antes de fechar.
 
-Preço, o que entra, o que fica de fora e o que acontece se você sair. O resto cabe no diagnóstico.
+O que entra, onde encaixa num Sprint e o que fica de fora. O resto cabe no diagnóstico.
 
 O que conta como um fluxo?
 
-Uma rotina do começo ao fim. A venda marcada no CRM que tira o carro do site, avisa o grupo e manda o obrigado ao cliente é um fluxo. Cada um custa a partir de R$ 1.900.
+Uma rotina do começo ao fim. A venda marcada no CRM que tira o carro do site, avisa o grupo e manda o obrigado ao cliente é um fluxo. O escopo do Sprint diz quantos fluxos entram.
 
 Preciso trocar o sistema de gestão que já uso?
 
@@ -246,7 +187,7 @@ Não. A V2O5 liga o que você já usa. Em produção hoje: o estoque do Revenda 
 
 E quando o fluxo quebra?
 
-Ele avisa. Toda execução fica registrada, e a correção entra na manutenção, dentro da mensalidade do CRM ou do site.
+Ele avisa. Toda execução fica registrada, e a correção entra na manutenção prevista na proposta ou na continuidade.
 
 Dá para usar IA sem inventar dado?
 
@@ -256,32 +197,45 @@ Por que n8n?
 
 Roda na infraestrutura da V2O5, sem cobrança por tarefa executada, e o fluxo é exportável em arquivo se você sair.
 
-## Linhas que combinam com esta.
+## Intervenções que combinam com esta.
 
-[Gestão CRM e sistemas sob medida Nenhum contato esquecido numa conversa: cada um num funil, com a origem, a etapa e o próximo passo à vista. no plano Atendimento, a partir de R$ 7.900 + R$ 1.590/mês](/crm-com-whatsapp)
+[Gestão CRM e sistemas sob medida Nenhum contato esquecido numa conversa: cada um num funil, com a origem, a etapa e o próximo passo à vista.](/crm-com-whatsapp)
 
-[Atendimento Agente de IA no WhatsApp Responde na hora, a qualquer hora, com as informações do seu negócio. Quando a conversa pede uma pessoa, chama alguém da equipe. no plano Atendimento, a partir de R$ 7.900 + R$ 1.590/mês](/agente-de-ia-para-whatsapp)
+[Atendimento Agente de IA no WhatsApp Responde na hora, a qualquer hora, com as informações do seu negócio. Quando a conversa pede uma pessoa, chama alguém da equipe.](/agente-de-ia-para-whatsapp)
 
-[Venda Pós-venda e recorrência Revisão, troca, seguro ou recompra: a régua de retorno manda a mensagem na data certa e devolve o cliente ao funil. a partir de R$ 1.900 por fluxo; um vem no plano Completo](/diagnostico)
+[Venda Pós-venda e recorrência Revisão, troca, seguro ou recompra: a régua de retorno manda a mensagem na data certa e devolve o cliente ao funil.](/diagnostico)
 
 ## Comece pelo diagnóstico, que é gratuito.
 
-Em 45 minutos de conversa com o fundador, a gente entende como a sua empresa vende hoje. Em até 24 horas você recebe um mapa do que fazer primeiro, com custo e prazo, para usar com ou sem a V2O5.
+Em 45 minutos de conversa com o fundador, a gente entende como a sua empresa vende hoje e identifica o gargalo que vale priorizar. A sessão é gratuita e sem compromisso.
 
 [Pedir diagnóstico](/diagnostico)
 
-[Ver preços](/precos)
+[Ver os preços do Sprint](/precos#titulo-sprint)
+
+r 18 <!-- texto em SVG; decorativo, aria-hidden -->
+
+r 24 <!-- texto em SVG; decorativo, aria-hidden -->
+
+r 20 <!-- texto em SVG; decorativo, aria-hidden -->
+
+r 18 <!-- texto em SVG; decorativo, aria-hidden -->
+
+V · 6,8 <!-- texto em SVG; decorativo, aria-hidden -->
+
+O · 4,8 <!-- texto em SVG; decorativo, aria-hidden -->
 
 <!-- fora do <main>: botão fixo do WhatsApp (só abaixo de 768 px) -->
 [WhatsApp](https://wa.me/5541998089550?text=Ol%C3%A1!%20Vi%20a%20p%C3%A1gina%20de%20Automa%C3%A7%C3%A3o%20de%20processos%20no%20site%20da%20V2O5%20e%20quero%20conversar%20sobre%20a%20minha%20empresa.)
 
 <!-- rótulos de acessibilidade (aria-label) desta rota, fora topo e rodapé:
-- "Diagrama: como as peças do sistema se ligam" (svg role=group)
-- "Site" (g role=button)
-- "WhatsApp" (g role=button)
-- "Agente de IA" (g role=button)
-- "n8n" (g role=button)
-- "CRM" (g role=button)
-- "Rastreamento" (g role=button)
-- "Venda" (g role=button)
+- "Automação de processos" (section)
+- "O problema" (section)
+- "O que entra" (section)
+- "Como funciona" (section)
+- "Diagrama: como as peças do sistema se ligam" (ol)
+- "Case" (section)
+- "No Sprint" (section)
+- "Antes de contratar" (section)
+- "Conversa no WhatsApp" (aside)
 -->

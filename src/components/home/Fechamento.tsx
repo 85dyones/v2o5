@@ -1,6 +1,7 @@
 import type { CSSProperties } from "react";
 import Link from "next/link";
 import Icone from "@/components/Icone";
+import LinkOuAncora from "@/components/LinkOuAncora";
 import Construcao from "@/components/marca/Construcao";
 import { COR_DA_ROTA, Parada } from "@/components/rota/Rota";
 
@@ -12,10 +13,13 @@ export default function Fechamento({
   titulo = "Comece pelo diagnóstico, que é gratuito.",
   texto = "Em 45 minutos de conversa com o fundador, a gente entende como a sua empresa vende hoje e identifica o gargalo que vale priorizar. A sessão é gratuita e sem compromisso.",
   botao = "Pedir diagnóstico",
+  secundario = { href: "/precos#titulo-sprint", texto: "Ver os preços do Sprint" },
 }: {
   titulo?: string;
   texto?: string;
   botao?: string;
+  /** O segundo botão do fecho; `null` quando a própria página já é o destino. */
+  secundario?: { href: string; texto: string } | null;
 }) {
   return (
     <section
@@ -38,9 +42,11 @@ export default function Fechamento({
               {botao}
               <Icone nome="seta" className="seta size-4" />
             </Link>
-            <Link href="/precos" className="botao botao-secundario botao-claro" data-evento="cta_click" data-local="fechamento">
-              Ver preços
-            </Link>
+            {secundario ? (
+              <LinkOuAncora href={secundario.href} className="botao botao-secundario botao-claro" data-evento="cta_click" data-local="fechamento">
+                {secundario.texto}
+              </LinkOuAncora>
+            ) : null}
           </div>
         </div>
         <div aria-hidden="true" className="col-span-12 flex items-end lg:col-span-5 lg:justify-end lg:border-l lg:border-faixa-escura-linha">

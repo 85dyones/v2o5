@@ -123,17 +123,13 @@ describe("tabela de preços", () => {
     for (const l of LINHAS_DE_PRECO) expect(oferta, l.nome).toContain(l.nome.replace(" (cada plataforma)", ""));
   });
 
-  it("cada cartão da home mora num plano ou numa linha, e o preço sai de lá", () => {
+  it("cada cartão da home mora numa capacidade interna, sem valor público (25/10/2026)", () => {
     for (const l of LINHAS) {
       expect(CAPACIDADES[l.linha], l.titulo).toBeDefined();
-      expect(l.preco, l.titulo).toBe(precoDa(l.linha));
-      expect(oferta).toContain(`\`${l.href}\``);
+      expect(l, l.titulo).not.toHaveProperty("preco");
     }
-    for (const s of PILARES.flatMap((p) => p.servicos)) {
-      if (s.linha) expect(s.preco, s.titulo).toBe(precoDa(s.linha));
-    }
-    expect(AUTOMOTIVO.preco).toContain(BRL(plano("completo").implantacao));
-    expect(AUTOMOTIVO.preco).toContain(BRL(OFERTA_DO_COMPLETO.mensalidade));
+    for (const s of PILARES.flatMap((p) => p.servicos)) expect(s, s.titulo).not.toHaveProperty("preco");
+    expect(AUTOMOTIVO).not.toHaveProperty("preco");
   });
 
   it("os textos de preço seguem o formato dos cartões", () => {
@@ -182,21 +178,20 @@ describe("tabela de preços", () => {
     expect(oferta).toContain("uma venda a mais a cada 3 meses");
   });
 
-  it("fotógrafo parceiro: indicação a partir de R$ 890 por mês, no hub, em /precos e nas perguntas (Dyones, 13/10)", () => {
+  it("fotógrafo parceiro: o valor é dado interno e o hub só diz que se contrata à parte (25/10/2026)", () => {
     expect(FOTOGRAFIA_PARCEIRA.aPartirDe).toBe(890);
-    expect(FOTOGRAFIA_PARCEIRA.texto).toContain("a partir de R$ 890");
     expect(FOTOGRAFIA_PARCEIRA.texto).not.toMatch(/incr[ií]ve/);
-    expect(ler("src/app/segmentos/revendas-de-veiculos/page.tsx")).toContain("<ParceiroDeFotografia />");
-    expect(ler("src/app/precos/page.tsx")).toContain("<ParceiroDeFotografia />");
     expect(ler("src/components/precos/ParceiroDeFotografia.tsx")).toContain('data-evento="click_whatsapp"');
-    expect(HUB_AUTOMOTIVO.perguntas.find((p) => p.pergunta === "Preciso de fotógrafo?")?.resposta).toContain("R$ 890");
-    expect(ler("src/components/precos/TabelaDePrecos.tsx")).toContain("FOTOGRAFIA_PARCEIRA.aPartirDe");
+    const resposta = HUB_AUTOMOTIVO.perguntas.find((p) => p.pergunta === "Preciso de fotógrafo?")?.resposta ?? "";
+    expect(resposta).not.toContain("R$");
+    expect(resposta).toContain("contratados à parte");
+    expect(ler("src/app/segmentos/revendas-de-veiculos/page.tsx")).not.toContain("ParceiroDeFotografia");
+    expect(ler("src/app/precos/page.tsx")).not.toContain("ParceiroDeFotografia");
   });
 
   it("piso e teto saem do site: o texto público não fala mais em teto", () => {
     const publico = [
       ler("src/app/precos/page.tsx"),
-      ler("src/components/precos/TabelaDePrecos.tsx"),
       JSON.stringify(HUB_AUTOMOTIVO),
       ler("src/conteudo/home.ts"),
       ler("src/app/llms.txt/route.ts"),

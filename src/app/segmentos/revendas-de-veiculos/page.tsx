@@ -10,22 +10,17 @@ import Topo from "@/components/layout/Topo";
 import Rodape from "@/components/layout/Rodape";
 import BotaoWhatsAppFixo from "@/components/layout/BotaoWhatsAppFixo";
 import Entradas from "@/components/layout/Entradas";
-import ParceiroDeFotografia from "@/components/precos/ParceiroDeFotografia";
-import { COR_DA_ROTA, ComMarcas, Parada, TEXTO_DA_ETAPA, Trecho } from "@/components/rota/Rota";
+import { COR_DA_ROTA, Parada, TEXTO_DA_ETAPA, Trecho } from "@/components/rota/Rota";
 import { HUB_AUTOMOTIVO } from "@/conteudo/automotivo";
 import { metadataDa } from "@/conteudo/paginas";
 import { grafoDoHubAutomotivo } from "@/lib/schema";
 import type { Etapa } from "@/lib/tokens";
-import { CompletoParaRevendas } from "./CompletoParaRevendas";
 
 const ROTA = HUB_AUTOMOTIVO.rota;
 
 export const metadata = metadataDa(ROTA);
 
-/** Os valores em real de um preço ("R$ 990", "R$ 190/mês"), para o marca-texto. */
-const VALORES = /R\$ [\d.,]+(?:\/mês)?/g;
-
-/** A etapa de cada peça do Completo, na ordem do pacote (rastreamento é atração, como na home). */
+/** A etapa de cada peça do pacote, na ordem dele (rastreamento é atração, como na home). */
 const ETAPA_DA_PECA: Etapa[] = ["violeta", "verde", "azul", "violeta"];
 
 /**
@@ -33,9 +28,6 @@ const ETAPA_DA_PECA: Etapa[] = ["violeta", "verde", "azul", "violeta"];
  * atração, o WhatsApp é atendimento, o CRM é gestão e o último é a venda.
  */
 const ETAPA_DO_PASSO: Etapa[] = ["azul", "violeta", "verde", "azul", "ambar"];
-
-/** A etapa de cada módulo, a mesma da tabela de `/precos` (tráfego é atração, reativação é atendimento). */
-const ETAPA_DO_MODULO: Etapa[] = ["azul", "azul", "violeta", "verde", "azul"];
 
 /**
  * O fio de cada célula da ficha do hero: uma por linha no celular, duas por
@@ -75,11 +67,11 @@ function Linha({ etapa, className = "", children }: { etapa: Etapa; className?: 
 
 /**
  * O hub do segmento automotivo na direção B (19/10): a rota começa no H1,
- * passa pelas quatro peças do Completo (cada uma na cor da sua etapa), pelo
- * preço, pelo caminho de um lead na revenda (do estoque à venda), pelos
- * módulos como linhas de cardápio e pelos números do case em mosaico; as
- * perguntas ligam com o fio fino e a rota termina, em âmbar, no botão da
- * chamada. Conteúdo em `conteudo/automotivo.ts`; preço só de `precos.ts`.
+ * passa pelas quatro peças que um Sprint para revendas costuma juntar (cada
+ * uma na cor da sua etapa), pelo caminho de um lead na revenda (do estoque à
+ * venda) e pelos números do case em mosaico; as perguntas ligam com o fio
+ * fino e a rota termina, em âmbar, no botão da chamada. Sem valor público
+ * (25/10/2026). Conteúdo em `conteudo/automotivo.ts`.
  */
 export default function Pagina() {
   const h = HUB_AUTOMOTIVO;
@@ -149,9 +141,7 @@ export default function Pagina() {
                   className={`col-span-12 border-linha py-5 pr-5 sm:col-span-6 md:py-6 lg:col-span-3 ${BORDA_DO_FATO[i]}`}
                 >
                   <dt className="rotulo text-texto-secundario">{f.rotulo}</dt>
-                  <dd className="mt-2 text-[0.9375rem] leading-snug">
-                    {i === 0 ? <ComMarcas texto={f.valor} marcas={f.valor.match(/R\$ [\d.,]+/g) ?? []} /> : f.valor}
-                  </dd>
+                  <dd className="mt-2 text-[0.9375rem] leading-snug">{f.valor}</dd>
                 </div>
               ))}
             </dl>
@@ -159,8 +149,8 @@ export default function Pagina() {
         </section>
 
         {/* As quatro peças, cada uma na cor da sua etapa: do violeta da presença ao azul da gestão. */}
-        <Trecho aria-labelledby="titulo-pecas" etapa="violeta">
-          <Cabeca id="titulo-pecas" titulo={h.pacote.titulo} texto={h.pacote.texto} />
+        <Trecho aria-labelledby="titulo-pacote" etapa="violeta">
+          <Cabeca id="titulo-pacote" titulo={h.pacote.titulo} texto={h.pacote.texto} />
           <ul className="mt-titulo-conteudo border-t-2 border-texto">
             {h.pacote.pecas.map((peca, i) => (
               <Linha key={peca.titulo} etapa={ETAPA_DA_PECA[i]}>
@@ -182,17 +172,6 @@ export default function Pagina() {
           </ul>
         </Trecho>
 
-        {/* O preço: a âncora #titulo-pacote é contrato (o botão do hero e outras páginas apontam para ela). */}
-        <Trecho aria-labelledby="titulo-pacote" etapa="azul">
-          <h2 id="titulo-pacote" className="sr-only">
-            Preço do plano Completo
-          </h2>
-          <div className="relative">
-            <Parada />
-            <CompletoParaRevendas />
-          </div>
-        </Trecho>
-
         {/* O caminho de um lead é a própria rota: cada passo pinta a margem na cor da sua etapa e o último é a venda. */}
         <Trecho aria-labelledby="titulo-caminho" etapa="azul" etapaFim="ambar">
           <Cabeca id="titulo-caminho" titulo={h.caminho.titulo} texto={h.caminho.texto} />
@@ -211,32 +190,6 @@ export default function Pagina() {
               </Linha>
             ))}
           </ol>
-        </Trecho>
-
-        {/* Os módulos como linhas de cardápio: o que é, o preço no marca-texto e onde ver mais. */}
-        <Trecho aria-labelledby="titulo-extras" etapa="azul">
-          <Cabeca id="titulo-extras" titulo={h.extras.titulo} texto={h.extras.texto} />
-          <ul className="mt-titulo-conteudo border-t-2 border-texto">
-            {h.extras.itens.map((item, i) => (
-              <Linha key={item.nome} etapa={ETAPA_DO_MODULO[i]}>
-                <div className="col-span-12 md:col-span-7">
-                  <h3 className="titulo-cartao">{item.nome}</h3>
-                  <p className="mt-2 max-w-[38rem] text-[0.9375rem] leading-relaxed text-texto-secundario">{item.texto}</p>
-                </div>
-                <div className="col-span-12 md:col-span-5 md:pt-0.5">
-                  <p className="text-[1.0625rem] font-medium leading-relaxed tabular-nums">
-                    <ComMarcas texto={item.preco} marcas={item.preco.match(VALORES) ?? []} etapa={ETAPA_DO_MODULO[i]} />
-                  </p>
-                  <LinkOuAncora href={item.href} className="link-sublinhado mt-2 inline-flex min-h-11 items-center text-[0.9375rem] text-texto-secundario">
-                    {item.link ?? "na tabela"}
-                  </LinkOuAncora>
-                </div>
-              </Linha>
-            ))}
-          </ul>
-          <div className="mt-8">
-            <ParceiroDeFotografia />
-          </div>
         </Trecho>
 
         {/* Os números do case num mosaico de células (tinta, papel, hachura), estáticos, com a fonte logo embaixo. */}
@@ -276,7 +229,7 @@ export default function Pagina() {
           lista={h.perguntas}
           sobretitulo="Dono de loja pergunta"
           titulo="O que toda revenda pergunta"
-          texto="Sistema de gestão, usuários, fotos, estoque no agente e de quem é o site. O resto cabe no diagnóstico."
+          texto="Sistema de gestão, fotos, estoque no agente e de quem é o site. O resto cabe no diagnóstico."
         />
 
         {/* O fecho, na única faixa escura da página: a rota chega em âmbar e termina no botão principal. */}
@@ -298,9 +251,9 @@ export default function Pagina() {
                   {h.chamada.botao}
                   <Icone nome="seta" className="seta size-4" />
                 </Link>
-                <Link href="/precos" className="botao botao-secundario botao-claro" data-evento="cta_click" data-local="chamada">
+                <LinkOuAncora href="/precos#titulo-sprint" className="botao botao-secundario botao-claro" data-evento="cta_click" data-local="chamada">
                   {h.chamada.secundario}
-                </Link>
+                </LinkOuAncora>
               </div>
             </div>
             <div

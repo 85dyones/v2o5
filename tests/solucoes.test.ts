@@ -2,19 +2,18 @@ import { describe, expect, it } from "vitest";
 import { CASE_MOTORS } from "@/conteudo/case";
 import { CASE, LINHAS, VISAO_360 } from "@/conteudo/home";
 import { paginaDa } from "@/conteudo/paginas";
-import { ofertaDaCapacidade, precoDa } from "@/conteudo/precos";
 import { SOLUCOES, solucaoDa } from "@/conteudo/solucoes";
 import { grafoDaSolucao, servicoDaSolucao } from "@/lib/schema";
+import { PLANOS } from "@/conteudo/precos";
 import { ler, semComentarios } from "./fonte";
 
 /**
- * As cinco páginas de solução: prontas e indexáveis, com preço só da
- * tabela, número só do case (por referência) ou da evidência citada com
- * fonte, resumo curto (o LCP é o H1), FAQ igual ao schema e texto sem
- * marcas de IA.
+ * As cinco páginas de solução: prontas e indexáveis, sem valor público
+ * (só o Sprint tem preço, desde 25/10/2026), número só do case (por
+ * referência) ou da evidência citada com fonte, resumo curto (o LCP é o H1),
+ * FAQ igual ao schema e texto sem marcas de IA.
  */
 
-const oferta = ler("memory/context/oferta.md");
 const ROTAS = [
   "/criacao-de-sites",
   "/agente-de-ia-para-whatsapp",
@@ -29,8 +28,8 @@ describe("páginas de solução", () => {
     expect(SOLUCOES.map((s) => s.rota).sort()).toEqual([...ROTAS].sort());
     for (const rota of ROTAS) {
       expect(paginaDa(rota).pronta, rota).toBe(true);
-      // /criacao-de-sites mudou o passo do diagnóstico em 25/10 (sem promessa de mapa nem de 24 horas).
-      expect(paginaDa(rota).atualizadaEm, rota).toBe(rota === "/criacao-de-sites" ? "2026-10-25" : "2026-10-13");
+      // As cinco mudaram em 25/10/2026: sem promessa de mapa em 24 horas e sem valor de plano.
+      expect(paginaDa(rota).atualizadaEm, rota).toBe("2026-10-25");
       const pagina = semComentarios(ler(`src/app${rota}/page.tsx`));
       expect(pagina, rota).toContain("<PaginaDeSolucao rota={ROTA}");
       expect(pagina, rota).not.toContain("PaginaProvisoria");
@@ -40,13 +39,16 @@ describe("páginas de solução", () => {
     expect(semComentarios(ler("src/app/rastreamento-de-conversoes/page.tsx"))).toContain("<OQueRegistramosSecao />");
   });
 
-  it("o preço de cada página é o da tabela, e todo valor em real está em oferta.md", () => {
+  it("nenhuma página publica valor: cada uma diz como a linha entra num Sprint", () => {
     for (const s of SOLUCOES) {
-      expect(s.fatos[0].valor, s.rota).toBe(precoDa(s.linha));
-      const valores = JSON.stringify(s).match(/R\$ \d{1,3}(?:\.\d{3})*/g) ?? [];
-      expect(valores.length, s.rota).toBeGreaterThan(0);
-      for (const v of valores) expect(oferta, `${s.rota}: ${v}`).toContain(v);
+      const texto = JSON.stringify(s);
+      expect(texto, s.rota).not.toMatch(/R\$|mensalidade|a partir de|fidelidade|plano /i);
+      expect(s.fatos[0].rotulo, s.rota).toBe("No Sprint");
+      expect(s.noSprint.length, s.rota).toBeGreaterThan(80);
+      expect(s.noSprint, s.rota).toMatch(/Sprint/);
     }
+    const todos = PLANOS.flatMap((p) => [p.implantacao, p.mensalidade]).map((v) => `R$ ${v.toLocaleString("pt-BR")}`);
+    for (const v of todos) expect(JSON.stringify(SOLUCOES)).not.toContain(v);
   });
 
   it("número do case só por referência, e número de estudo só com fonte e link", () => {
@@ -69,15 +71,13 @@ describe("páginas de solução", () => {
     }
   });
 
-  it("cada página tem pelo menos quatro perguntas, e o schema traz serviço, ofertas e as mesmas perguntas", () => {
+  it("cada página tem pelo menos quatro perguntas, e o schema traz serviço (sem oferta de preço) e as mesmas perguntas", () => {
     for (const s of SOLUCOES) {
       expect(s.perguntas.length, s.rota).toBeGreaterThanOrEqual(4);
       const grafo = grafoDaSolucao(s.rota) as { "@graph": ({ "@type"?: string; mainEntity?: { name: string }[] })[] };
       expect(grafo["@graph"].slice(1).map((n) => n["@type"])).toEqual(["BreadcrumbList", "Service", "FAQPage"]);
       expect(grafo["@graph"][3].mainEntity?.map((p) => p.name)).toEqual(s.perguntas.map((p) => p.pergunta));
-      const l = ofertaDaCapacidade(s.linha);
-      const servico = servicoDaSolucao(s.rota) as { offers: { price: number }[] };
-      expect(servico.offers.map((o) => o.price)).toEqual([l.implantacao, l.mensalidade].filter(Boolean));
+      expect(servicoDaSolucao(s.rota)).not.toHaveProperty("offers");
     }
   });
 

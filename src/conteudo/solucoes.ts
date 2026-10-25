@@ -1,17 +1,18 @@
 import { listaDeSistemasIntegraveis } from "@/conteudo/diagnostico";
 import { CASE_MOTORS } from "@/conteudo/case";
 import { CASE, MARCA_DO_SITE, VISAO_360, type Vinheta } from "@/conteudo/home";
-import { BRL, capacidade, DEGRAUS, FOTOGRAFIA_PARCEIRA, linhaDePreco, plano, precoDa, REGRAS, USUARIOS_NO_CRM, type Pilar } from "@/conteudo/precos";
+import { capacidade, type Pilar } from "@/conteudo/precos";
 import type { Etapa } from "@/lib/tokens";
 
 /**
  * As páginas de solução (plano, seções 3.2 e 4.2): uma por linha do
  * cardápio, com o H1 igual à busca-alvo, a resposta em duas frases no
  * primeiro parágrafo, o problema, o que entra, como funciona, o que roda na
- * Motors Store (só o que roda, com número do case), o preço da tabela e as
- * perguntas, que viram FAQPage. Tudo que é preço sai de `precos.ts`; tudo
- * que é número sai de `CASE`, `CASE_MOTORS` ou da evidência da Visão 360,
- * com fonte. `tests/solucoes.test.ts` confere.
+ * Motors Store (só o que roda, com número do case), como a linha entra num
+ * Sprint e as perguntas, que viram FAQPage. Desde 25/10/2026 nenhuma página
+ * publica valor: a linha é uma intervenção que pode fazer parte de um Sprint,
+ * e só o Sprint tem preço público (`conteudo/sprint.ts`). Tudo que é número
+ * sai de `CASE`, `CASE_MOTORS` ou da evidência da Visão 360, com fonte. `tests/solucoes.test.ts` confere.
  *
  * Sobre o agente: a memória do case não registra agente de IA na Motors,
  * então a página do agente não cita a loja (pendência 13); a prova dela é a
@@ -26,7 +27,7 @@ export interface Numero {
 
 export interface Solucao {
   rota: string;
-  /** A capacidade em `precos.ts` (`CAPACIDADES`): o plano ou a linha de onde sai o preço. */
+  /** A capacidade em `precos.ts` (`CAPACIDADES`), dado interno: o nome da linha. Nenhum valor dela é publicado. */
   linha: string;
   pilar: Pilar;
   etapa: Etapa;
@@ -42,14 +43,12 @@ export interface Solucao {
   comoFunciona: { titulo: string; texto: string }[];
   /** Só quando a linha roda na Motors Store; os números são os do case, por referência. */
   naMotors?: { titulo: string; texto: string; numeros: Numero[] };
+  /** Como a linha entra num Sprint de Eficiência: a ficha "No Sprint" da página (sem valor). */
+  noSprint: string;
   perguntas: { pergunta: string; resposta: string }[];
   /** Ids de `LINHAS` (home.ts) que combinam com esta. */
   relacionadas: string[];
 }
-
-const presenca = plano("presenca");
-const automacao = linhaDePreco("automacao");
-const rastreamento = linhaDePreco("rastreamento");
 
 export const SOLUCOES: Solucao[] = [
   {
@@ -61,12 +60,12 @@ export const SOLUCOES: Solucao[] = [
     sobretitulo: "Sites e presença",
     titulo: "Criação de site profissional com SEO e rastreamento.",
     resumo:
-      "Site que carrega rápido no celular, aparece no Google e grava de onde veio cada contato. Hospedagem e manutenção na mensalidade.",
+      "Site que carrega rápido no celular, aparece no Google e grava de onde veio cada contato. Entra num Sprint quando o gargalo é a presença.",
     fatos: [
-      { rotulo: "Preço", valor: precoDa("sites") },
+      { rotulo: "No Sprint", valor: "Intervenção para quando o gargalo é ser encontrado e saber de onde vêm os contatos" },
       {
-        rotulo: "A mensalidade cobre",
-        valor: "Hospedagem, manutenção, atualizações de segurança, SEO técnico, Perfil da Empresa no Google, rastreamento até a venda e relatório mensal",
+        rotulo: "O que entra",
+        valor: "Páginas que o Google entende, SEO técnico, Perfil da Empresa no Google e rastreamento até a venda, conforme o escopo do Sprint",
       },
       {
         rotulo: "Em produção",
@@ -101,11 +100,11 @@ export const SOLUCOES: Solucao[] = [
       {
         titulo: "Domínio, e-mail e hospedagem",
         texto:
-          "Domínio e e-mail profissional entram na fundação do projeto. Hospedagem, atualizações de segurança e monitoramento ficam na mensalidade.",
+          "Domínio e e-mail profissional entram na fundação do projeto. Hospedagem, atualizações de segurança e monitoramento são definidos na proposta, ou na continuidade, se contratada.",
       },
       {
         titulo: "O código é seu",
-        texto: `Se sair, recebe o código, os dados e o domínio em até ${REGRAS.diasParaEntregarNaSaida} dias. Sem fidelidade.`,
+        texto: "Domínio, hospedagem e código ficam no nome da sua empresa desde o primeiro dia.",
       },
     ],
     comoFunciona: [
@@ -132,10 +131,13 @@ export const SOLUCOES: Solucao[] = [
         "Site de estoque com vitrine, ficha de veículo, páginas por marca e modelo e seis páginas locais. O estoque entra sozinho do Revenda Mais.",
       numeros: [CASE.numeros[2], CASE.numeros[1]],
     },
+    noSprint:
+      "O site entra num Sprint quando o gargalo é ser encontrado: páginas que o Google entende, Perfil da Empresa, SEO técnico e a origem de cada contato gravada. O Sprint começa pelo mapeamento do fluxo atual e termina com os indicadores disponíveis comparados antes e depois.",
     perguntas: [
       {
         pergunta: "Quanto custa um site profissional?",
-        resposta: `O site vem no plano Presença, a partir de ${BRL(presenca.implantacao)} de implantação e ${BRL(presenca.mensalidade)} por mês, junto com o Perfil da Empresa no Google, o SEO técnico, o rastreamento até a venda e o pedido de avaliação. A mensalidade cobre hospedagem, manutenção, atualizações de segurança e o relatório mensal. Domínio e e-mail profissional entram na fundação do projeto.`,
+        resposta:
+          "O site entra num Sprint de Eficiência, com preço fechado em proposta depois de delimitar o gargalo, o escopo e os entregáveis. As faixas de referência do Sprint estão em /precos. O diagnóstico inicial, de 45 minutos, é gratuito.",
       },
       {
         pergunta: "Posso aproveitar o site que já tenho?",
@@ -144,11 +146,11 @@ export const SOLUCOES: Solucao[] = [
       },
       {
         pergunta: "O site fica no meu nome?",
-        resposta: `Sim. Domínio, hospedagem e código no nome da sua empresa desde o primeiro dia. Se sair, recebe tudo em até ${REGRAS.diasParaEntregarNaSaida} dias.`,
+        resposta: "Sim. Domínio, hospedagem e código no nome da sua empresa desde o primeiro dia.",
       },
       {
         pergunta: "Preciso ter fotos e textos prontos?",
-        resposta: `Os textos a V2O5 escreve e revisa com você. Fotos e vídeos ficam com a sua equipe ou com um fotógrafo parceiro que a V2O5 indica, a partir de ${BRL(FOTOGRAFIA_PARCEIRA.aPartirDe)} por mês.`,
+        resposta: "Os textos a V2O5 escreve e revisa com você. Fotos e vídeos ficam com a sua equipe ou com um fotógrafo parceiro que a V2O5 indica, contratado à parte.",
       },
       {
         pergunta: "O site vem com loja virtual?",
@@ -169,9 +171,9 @@ export const SOLUCOES: Solucao[] = [
     resumo:
       "Responde na hora, a qualquer hora, com as informações do seu negócio. Quando a conversa pede uma pessoa, chama alguém da equipe.",
     fatos: [
-      { rotulo: "Preço", valor: precoDa("agente") },
-      { rotulo: "Inclui", valor: `${DEGRAUS.conversas.bloco} conversas por mês, o CRM com ${USUARIOS_NO_CRM} usuários, ajustes de roteiro e da base de conhecimento, suporte` },
-      { rotulo: "Por fora, pelo valor real", valor: "uso do modelo de IA e mensagens da API oficial do WhatsApp, na mesma fatura" },
+      { rotulo: "No Sprint", valor: "Intervenção para quando o gargalo é responder rápido e não perder o contato que chegou" },
+      { rotulo: "O que entra", valor: "Agente treinado com a base de conhecimento da empresa, registro no CRM, ajustes de roteiro e passagem para a equipe, conforme o escopo" },
+      { rotulo: "Custos de terceiros", valor: "Uso do modelo de IA e mensagens da API oficial do WhatsApp, discriminados na proposta" },
     ],
     problema: {
       titulo: "O contato chega às 21h e é respondido no dia seguinte.",
@@ -201,11 +203,11 @@ export const SOLUCOES: Solucao[] = [
       },
       {
         titulo: "API oficial do WhatsApp",
-        texto: "Número verificado no nome da empresa, modelo de mensagem aprovado e saída fácil. As mensagens são repassadas pelo valor da Meta.",
+        texto: "Número verificado no nome da empresa, modelo de mensagem aprovado e saída fácil. O custo das mensagens é da Meta e fica discriminado na proposta.",
       },
       {
         titulo: "Roteiro ajustado todo mês",
-        texto: "A V2O5 lê as conversas, corrige o roteiro e amplia a base de conhecimento. Entra na mensalidade.",
+        texto: "A V2O5 lê as conversas, corrige o roteiro e amplia a base de conhecimento. Faz parte da continuidade, quando contratada.",
       },
     ],
     comoFunciona: [
@@ -226,6 +228,8 @@ export const SOLUCOES: Solucao[] = [
         texto: "Entra no número oficial da empresa. Toda conversa fica no CRM, com origem e desfecho.",
       },
     ],
+    noSprint:
+      "O agente entra num Sprint quando o gargalo é a resposta lenta ou o contato que se perde fora do horário. O Sprint mapeia o atendimento de hoje, define o que o agente responde e quando chama uma pessoa, implementa e compara o tempo de resposta e os contatos acompanhados antes e depois.",
     perguntas: [
       {
         pergunta: "O agente de IA atende sozinho?",
@@ -244,7 +248,8 @@ export const SOLUCOES: Solucao[] = [
       },
       {
         pergunta: "Quanto custam a IA e as mensagens?",
-        resposta: `Pelo valor real, discriminados na mesma fatura. A mensalidade inclui ${DEGRAUS.conversas.bloco} conversas por mês; cada ${DEGRAUS.conversas.bloco} a mais custam ${BRL(DEGRAUS.conversas.valor)} por mês.`,
+        resposta:
+          "São custos de terceiros: o modelo de IA e as mensagens da API oficial do WhatsApp. Ficam discriminados na proposta do Sprint, separados do valor do projeto.",
       },
       {
         pergunta: "Preciso de um CRM?",
@@ -265,8 +270,8 @@ export const SOLUCOES: Solucao[] = [
     resumo:
       "A tarefa que alguém faz à mão toda semana passa a rodar sozinha entre os sistemas que você já usa, com registro de cada execução.",
     fatos: [
-      { rotulo: "Preço", valor: precoDa("automacao") },
-      { rotulo: "Manutenção", valor: "entra na mensalidade do CRM ou do site" },
+      { rotulo: "No Sprint", valor: "Intervenção para quando o gargalo é tarefa repetida entre sistemas" },
+      { rotulo: "Manutenção", valor: "definida na proposta ou na continuidade, se contratada" },
       { rotulo: "Em produção", valor: `Motors Store: ${CASE.numeros[2].valor} veículos sincronizados com o Revenda Mais` },
     ],
     problema: {
@@ -305,7 +310,7 @@ export const SOLUCOES: Solucao[] = [
       { titulo: "Mapa do processo", texto: "Desenhamos o processo com quem faz hoje: entradas, decisões e saídas." },
       { titulo: "Fluxo em teste", texto: "O fluxo roda em paralelo ao processo manual até os dois baterem." },
       { titulo: "No ar", texto: "Passa a rodar sozinho, com alerta de erro e registro de cada execução." },
-      { titulo: "Manutenção", texto: "Ajustes e correções entram na mensalidade do CRM ou do site." },
+      { titulo: "Manutenção", texto: "Ajustes e correções dentro do período e do escopo definidos na proposta." },
     ],
     naMotors: {
       titulo: "Rodando na Motors Store.",
@@ -313,10 +318,12 @@ export const SOLUCOES: Solucao[] = [
         "Sincronização do estoque com o Revenda Mais, vendas incompletas e alertas de estagnação do funil, com WhatsApp pela Evolution API.",
       numeros: [CASE.numeros[2]],
     },
+    noSprint:
+      "A automação entra num Sprint quando o gargalo é uma tarefa repetida entre sistemas. O Sprint mapeia o processo real, tira as etapas desnecessárias antes de automatizar e mede o tempo e o retrabalho antes e depois.",
     perguntas: [
       {
         pergunta: "O que conta como um fluxo?",
-        resposta: `Uma rotina do começo ao fim. A venda marcada no CRM que tira o carro do site, avisa o grupo e manda o obrigado ao cliente é um fluxo. Cada um custa a partir de ${BRL(automacao.implantacao!)}.`,
+        resposta: `Uma rotina do começo ao fim. A venda marcada no CRM que tira o carro do site, avisa o grupo e manda o obrigado ao cliente é um fluxo. O escopo do Sprint diz quantos fluxos entram.`,
       },
       {
         pergunta: "Preciso trocar o sistema de gestão que já uso?",
@@ -326,7 +333,7 @@ export const SOLUCOES: Solucao[] = [
       {
         pergunta: "E quando o fluxo quebra?",
         resposta:
-          "Ele avisa. Toda execução fica registrada, e a correção entra na manutenção, dentro da mensalidade do CRM ou do site.",
+          "Ele avisa. Toda execução fica registrada, e a correção entra na manutenção prevista na proposta ou na continuidade.",
       },
       {
         pergunta: "Dá para usar IA sem inventar dado?",
@@ -350,10 +357,10 @@ export const SOLUCOES: Solucao[] = [
     sobretitulo: "CRM e sistemas sob medida",
     titulo: "CRM com WhatsApp integrado e IA.",
     resumo:
-      "Cada contato num funil, com a origem, a etapa e o próximo passo à vista. Sem licença por usuário e no nome da sua empresa.",
+      "Cada contato num funil, com a origem, a etapa e o próximo passo à vista, no nome da sua empresa.",
     fatos: [
-      { rotulo: "Preço", valor: precoDa("crm") },
-      { rotulo: "Inclui", valor: `${USUARIOS_NO_CRM} usuários, o agente de IA no WhatsApp, banco próprio, backups e suporte` },
+      { rotulo: "No Sprint", valor: "Intervenção para quando o gargalo é o funil espalhado entre conversas e planilhas" },
+      { rotulo: "O que entra", valor: "Funil e campos do seu negócio, WhatsApp dentro do CRM, banco próprio, backups e treinamento da equipe, conforme o escopo" },
       { rotulo: "Em produção", valor: "Motors Store: painel com funil, estoque, clientes, investidores e mídia paga" },
     ],
     problema: {
@@ -384,8 +391,8 @@ export const SOLUCOES: Solucao[] = [
         texto: "Os dados ficam num banco só seu, com backup diário e exportação quando pedir.",
       },
       {
-        titulo: "Sem licença por usuário",
-        texto: `${USUARIOS_NO_CRM} usuários inclusos; usuário extra ${BRL(DEGRAUS.usuarioExtra)} por mês. Acima de ${DEGRAUS.dados.limite} de dados, mais ${BRL(DEGRAUS.dados.valor)} por mês.`,
+        titulo: "Usuários e volume de dados",
+        texto: "Quantos usuários e quanto de dado entram é definido na proposta do Sprint, conforme o tamanho da equipe e da base.",
       },
     ],
     comoFunciona: [
@@ -399,14 +406,16 @@ export const SOLUCOES: Solucao[] = [
       texto: "Funil de leads, estoque, clientes, investidores e mídia paga num painel só, com as conversas do Chatwoot.",
       numeros: [CASE_MOTORS.numeros.itens[0]],
     },
+    noSprint:
+      "O CRM entra num Sprint quando o gargalo é o funil espalhado entre conversas e planilhas. O Sprint mapeia como a venda acontece, desenha as etapas e os campos com a equipe, implanta e compara a proporção de contatos acompanhados e a conversão de etapa.",
     perguntas: [
       {
-        pergunta: "Tem cobrança por usuário?",
-        resposta: `O CRM vem com ${USUARIOS_NO_CRM} usuários, sem licença por pessoa. Acima disso, cada usuário extra custa ${BRL(DEGRAUS.usuarioExtra)} por mês.`,
+        pergunta: "Como ficam os usuários e o volume de dados?",
+        resposta: "Definidos na proposta do Sprint, conforme o tamanho da equipe e da base de contatos.",
       },
       {
         pergunta: "Posso integrar com o sistema que já uso?",
-        resposta: `Sim, por fluxo de automação, a partir de ${BRL(automacao.implantacao!)} por fluxo. Em produção hoje: o estoque do Revenda Mais. Para revendas, ${listaDeSistemasIntegraveis()} entram do mesmo jeito.`,
+        resposta: `Sim, por integração dentro de um Sprint. Em produção hoje: o estoque do Revenda Mais. Para revendas, ${listaDeSistemasIntegraveis()} entram do mesmo jeito.`,
       },
       {
         pergunta: "O WhatsApp fica dentro do CRM?",
@@ -415,7 +424,7 @@ export const SOLUCOES: Solucao[] = [
       },
       {
         pergunta: "E se eu sair?",
-        resposta: `Você recebe o código, os dados e o domínio em até ${REGRAS.diasParaEntregarNaSaida} dias. Sem fidelidade.`,
+        resposta: "Os dados ficam num banco do seu negócio, com exportação quando você pedir. Os termos de saída e de continuidade ficam no contrato.",
       },
       {
         pergunta: "Serve para qualquer setor?",
@@ -435,8 +444,8 @@ export const SOLUCOES: Solucao[] = [
     resumo:
       "GA4, API de Conversões da Meta e conversões offline do Google Ads, ligando cada venda ao anúncio que trouxe o cliente.",
     fatos: [
-      { rotulo: "Preço", valor: precoDa("rastreamento") },
-      { rotulo: "A mensalidade cobre", valor: rastreamento.cobre },
+      { rotulo: "No Sprint", valor: "Intervenção para quando o gargalo é não saber de onde vem cada venda" },
+      { rotulo: "O que entra", valor: "GA4 e GTM arrumados, API de Conversões da Meta, conversão offline do Google Ads e relatório de origem das vendas, conforme o escopo" },
       {
         rotulo: "Em produção",
         valor: `Motors Store: ${CASE.numeros[0].valor} ${CASE.numeros[0].complemento} leads do site com identificador único`,
@@ -471,7 +480,7 @@ export const SOLUCOES: Solucao[] = [
       },
       {
         titulo: "Conferência mensal",
-        texto: "Todo mês a V2O5 confere a qualidade do dado: deduplicação, cobertura, parâmetros. Entra na mensalidade.",
+        texto: "Todo mês a V2O5 confere a qualidade do dado: deduplicação, cobertura, parâmetros. Faz parte da continuidade, quando contratada.",
       },
     ],
     comoFunciona: [
@@ -489,6 +498,8 @@ export const SOLUCOES: Solucao[] = [
         "Camada de dados versionada e testada; Meta Pixel com API de Conversões deduplicada por identificador; GA4 e GTM; UTM e click IDs gravados no lead.",
       numeros: [CASE.numeros[0]],
     },
+    noSprint:
+      "O rastreamento entra num Sprint quando o gargalo é não saber de onde vem cada venda. O Sprint audita o que já existe, implementa a camada de dados e compara a cobertura da origem nas vendas antes e depois.",
     perguntas: [
       {
         pergunta: "Vocês fazem tráfego pago sem rastreamento?",

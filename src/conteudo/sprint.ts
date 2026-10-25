@@ -2,7 +2,9 @@
  * Sprint de Eficiência e continuidade: a política comercial do apêndice de
  * `CLAUDE_SITE_IMPLEMENTATION_AJUSTADO.md`, que o Dyones aprovou por inteiro
  * em 25/10/2026 ("todo o apêndice pode ser tratado como aprovado"). As
- * faixas são de referência: o preço fechado de cada projeto sai em proposta.
+ * faixas do Sprint são de referência: o preço fechado de cada projeto sai em
+ * proposta. Em 25/10/2026 o Dyones decidiu que só o Sprint tem valor público:
+ * a mensalidade de continuidade segue sem valor (definido em contrato).
  * Duração é referência, nunca promessa. Sem percentual, ROI nem garantia de
  * resultado. O repetido em `memory/context/oferta.md` é conferido por
  * `tests/sprint.test.ts`.
@@ -69,12 +71,10 @@ export const CONTINUIDADE = {
   modalidades: [
     {
       nome: "Estabilidade e suporte",
-      faixa: { de: 1200, ate: 2500 } as Faixa,
       texto: "Monitoramento acordado, correções dentro do escopo, manutenção e acompanhamento técnico.",
     },
     {
       nome: "Evolução contínua",
-      faixa: { de: 2500, ate: 5000 } as Faixa,
       texto: "Suporte, revisão de indicadores e capacidade mensal reservada para melhorias priorizadas.",
     },
   ],

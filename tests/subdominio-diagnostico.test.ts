@@ -2,9 +2,9 @@
 import { describe, expect, it } from "vitest";
 import { CASE_MOTORS } from "@/conteudo/case";
 import { CASE, EMPRESA, ESCADA, HERO, LINHAS, MARCA_DO_SITE } from "@/conteudo/home";
-import { CONTINUIDADE, faixaEmTexto, SPRINT_DE_PRECOS } from "@/conteudo/sprint";
+import { faixaEmTexto, SPRINT_DE_PRECOS } from "@/conteudo/sprint";
 import { PAGINAS } from "@/conteudo/paginas";
-import { BRL, dataBR, mensalidadeDoPlano, OFERTA_DO_COMPLETO, PLANOS, REGRAS } from "@/conteudo/precos";
+import { BRL } from "@/conteudo/precos";
 import { whatsappParaLer } from "@/lib/whatsapp";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
@@ -123,33 +123,21 @@ describe("raiz de diagnostico.v2o5.com.br", () => {
     expect(texto(naoEncontrado)).not.toMatch(/[—–]/);
   });
 
-  it("os planos têm o preço e o conteúdo da tabela vigente do site", () => {
-    for (const p of PLANOS) {
-      const cartao = raiz.querySelector(`[data-plano="${p.id}"]`);
-      expect(cartao, p.id).not.toBeNull();
-      const t = texto(cartao);
-      expect(t).toContain(p.nome);
-      expect(t).toContain(p.pilar);
-      expect(t).toContain(p.para);
-      for (const item of p.inclui) expect(t, `${p.id}: ${item}`).toContain(item);
-      expect(t).toContain(`Implantação a partir de ${BRL(p.implantacao)}`);
-      expect(t).toContain(`Mensalidade a partir de ${BRL(mensalidadeDoPlano(p))} /mês`);
-      if (p.destaque) expect(t).toContain(p.destaque);
-      if (p.bonus) expect(t).toContain(p.bonus.replace(/^Bônus de fechamento: /, ""));
-    }
-    const completo = texto(raiz.querySelector('[data-plano="completo"]'));
-    expect(completo).toContain(`até ${dataBR(OFERTA_DO_COMPLETO.ate)}; depois, ${BRL(PLANOS.find((p) => p.id === "completo")!.mensalidade)}`);
-    expect(texto(raiz)).toContain(`o código, os dados e o domínio em até ${REGRAS.diasParaEntregarNaSaida} dias`);
-  });
-
   it("a seção do Sprint repete as faixas e o escopo do diagnóstico do site, sem mapa nem 24 horas", () => {
     const sprint = texto(raiz.getElementById("sprint"));
     const niveis = SPRINT_DE_PRECOS.niveis;
     expect(sprint).toContain(`${BRL(niveis[0].faixa.de)} a ${BRL(niveis[2].faixa.ate)} ou mais`);
-    expect(sprint).toContain(`${BRL(Math.min(...CONTINUIDADE.modalidades.map((m) => m.faixa.de)))} a ${BRL(Math.max(...CONTINUIDADE.modalidades.map((m) => m.faixa.ate)))} por mês`);
+    expect(sprint).not.toMatch(/por mês/);
     expect(sprint).toContain(ESCADA.degraus[0].saida);
     expect(faixaEmTexto(niveis[1].faixa)).toBe("R$ 6.000 a R$ 12.000");
     expect(texto(raiz)).not.toMatch(/24 horas|Catalisador de vendas/);
+  });
+
+  it("a vitrine não publica os planos nem valor nenhum além das faixas do Sprint", () => {
+    expect(raiz.getElementById("planos")).toBeNull();
+    expect(raiz.querySelector('[data-plano]')).toBeNull();
+    const permitidos = SPRINT_DE_PRECOS.niveis.flatMap((n) => [n.faixa.de, n.faixa.ate].map((v) => BRL(v)));
+    for (const v of texto(raiz).match(/R\$ \d{1,3}(?:\.\d{3})*/g) ?? []) expect(permitidos, v).toContain(v);
   });
 
   it("os números do case são os da home, com a fonte ao lado", () => {

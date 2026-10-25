@@ -6,7 +6,7 @@ import Entradas from "@/components/layout/Entradas";
 import Formulario from "@/components/diagnostico/Formulario";
 import { ComMarcas, Parada, Trecho } from "@/components/rota/Rota";
 import { DIAGNOSTICO } from "@/conteudo/diagnostico";
-import { EMAIL, EMPRESA, GARANTIAS, WHATSAPP } from "@/conteudo/home";
+import { EMAIL, EMPRESA, WHATSAPP } from "@/conteudo/home";
 import { linkWhatsApp } from "@/lib/whatsapp";
 import { linkEmail } from "@/lib/email";
 import { metadataDa } from "@/conteudo/paginas";
@@ -101,17 +101,6 @@ export default function Pagina() {
 
               <p className={`${CELULA} bg-fundo-cartao text-[0.9375rem] leading-relaxed`}>{d.paraQuem}</p>
               <p className={`${CELULA} border-t border-linha text-[0.9375rem] leading-relaxed text-texto-secundario`}>{d.escopo}</p>
-
-              <ul className="border-t border-linha">
-                {GARANTIAS.map((g) => (
-                  <li key={g.titulo} className={`${CELULA} flex gap-3 !py-4 text-[0.9375rem] leading-relaxed text-texto-secundario`}>
-                    <Icone nome="check" className="mt-1 size-4 shrink-0 text-etapa-atendimento" />
-                    <span>
-                      <span className="font-medium text-texto">{g.titulo}.</span> {g.texto}
-                    </span>
-                  </li>
-                ))}
-              </ul>
             </div>
           </div>
         </Trecho>
