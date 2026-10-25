@@ -11,6 +11,8 @@ import Perguntas from "@/components/home/Perguntas";
 import Fechamento from "@/components/home/Fechamento";
 import { Parada, Trecho } from "@/components/rota/Rota";
 import ParceiroDeFotografia from "@/components/precos/ParceiroDeFotografia";
+import SprintDeEficiencia from "@/components/precos/SprintDeEficiencia";
+import { SPRINT_DE_PRECOS } from "@/conteudo/sprint";
 import { ForaDaMensalidade, Modulos, OQueCresce, Planos, ResumoDosPlanos, Servicos, Trafego } from "@/components/precos/TabelaDePrecos";
 import { metadataDa } from "@/conteudo/paginas";
 import { grafoDosPrecos } from "@/lib/schema";
@@ -109,6 +111,10 @@ export default function Pagina() {
             <Planos />
           </div>
         </Trecho>
+
+        <Secao id="sprint" etapa="ambar" titulo={SPRINT_DE_PRECOS.titulo} texto={SPRINT_DE_PRECOS.texto}>
+          <SprintDeEficiencia />
+        </Secao>
 
         <Secao
           id="trafego"

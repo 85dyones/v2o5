@@ -159,3 +159,14 @@ Fontes comerciais (blogs de agências, tabelas de fornecedores); nenhuma é leva
 
 ## Referência de mercado (páginas públicas, 08/10/2026)
 Revenda Mais: gerencial R$ 600 + CRM R$ 500 + NF-e R$ 400 por mês. Autoconf: R$ 299 a 899; IA R$ 1.199. AutoSDR: R$ 387 / 777 / 1.297. IAEO: chatbot R$ 2 a 5 mil/mês, automação R$ 5 a 15 mil, sistema R$ 15 a 50 mil.
+
+
+## Sprint de Eficiência e continuidade (aprovado em 25/10/2026)
+Fonte: apêndice de `CLAUDE_SITE_IMPLEMENTATION_AJUSTADO.md`, aprovado por inteiro pelo Dyones em 25/10. Código em `src/conteudo/sprint.ts`; página `/precos#titulo-sprint`. Preço fechado em proposta; as faixas são de referência e a duração não é promessa.
+- Sprint Essencial: R$ 3.000 a R$ 5.000, 1 a 2 semanas.
+- Sprint Integrada (oferta principal): R$ 6.000 a R$ 12.000, 2 a 4 semanas.
+- Sprint Avançada: R$ 12.000 a R$ 25.000 ou mais, 4 a 8 semanas ou mais.
+- Estabilidade e suporte: R$ 1.200 a R$ 2.500 por mês.
+- Evolução contínua: R$ 2.500 a R$ 5.000 por mês.
+- Pagamento: 50% na contratação, 30% na validação intermediária e 20% no aceite final; Sprints pequenas, 50% e 50%.
+- Fora da política pública: descontos (só com contrapartida), margem e horas internas. Período de correção de defeitos: definido na proposta, sem prazo publicado. Termos contratuais a validar com assessoria antes de contratar.

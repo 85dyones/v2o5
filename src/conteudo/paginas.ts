@@ -91,7 +91,7 @@ export const PAGINAS: Pagina[] = [
     titulo: "Preços e planos",
     descricao:
       "Três planos com preço fechado: Presença a partir de R$ 8.900 + R$ 990/mês, Atendimento com agente de IA e CRM, e o Completo. Sem fidelidade.",
-    atualizadaEm: "2026-10-15",
+    atualizadaEm: "2026-10-25",
     pronta: true,
   },
   {

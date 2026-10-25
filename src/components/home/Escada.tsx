@@ -1,3 +1,4 @@
+import LinkOuAncora from "@/components/LinkOuAncora";
 import { Parada, Trecho } from "@/components/rota/Rota";
 import { ESCADA } from "@/conteudo/home";
 
@@ -25,6 +26,11 @@ export default function Escada() {
             <h3 className="titulo-cartao mt-3">{d.titulo}</h3>
             <p className="mt-3 flex-1 text-[0.9375rem] leading-relaxed text-texto-secundario">{d.texto}</p>
             <p className="mt-6 border-t border-linha pt-4 text-[0.875rem] font-medium leading-relaxed">{d.saida}</p>
+            {"href" in d && d.href ? (
+              <LinkOuAncora href={d.href} className="link-sublinhado mt-4 text-[0.875rem] font-medium" data-evento="cta_click" data-local="escada">
+                Ver faixas e condições
+              </LinkOuAncora>
+            ) : null}
           </li>
         ))}
       </ol>

@@ -8,6 +8,7 @@
  */
 import { listaDeSistemasIntegraveis } from "@/conteudo/diagnostico";
 import type { Etapa } from "@/lib/tokens";
+import { CONTINUIDADE, faixaEmTexto, SPRINT_DE_PRECOS } from "@/conteudo/sprint";
 import { BRL, dataBR, DEGRAUS, linhaDePreco, mensalidadeDoPlano, OFERTA_DO_COMPLETO, plano, PLANOS, precoDa, REAJUSTE, REGRAS, somaDosPlanosSeparados, USUARIOS_NO_CRM } from "@/conteudo/precos";
 
 /**
@@ -121,7 +122,7 @@ export const PROJETO = {
   rotulo: "Projeto em ambiente real",
   titulo: "Motors Store",
   texto:
-    "Revenda de seminovos em Curitiba, com gargalos diagnosticados em busca, leads, site e acompanhamento comercial. O case separa o que foi diagnosticado, o que a V2O5 implementou e o que foi medido.",
+    "Revenda de seminovos em Curitiba, com gargalos diagnosticados em busca, leads, site e acompanhamento comercial. O case mostra o diagnóstico como o antes, o que a V2O5 implementou como o depois e, à parte, o que foi medido.",
   pilulas: ["Sincronização de estoque", "Rastreamento de leads", "Integrações comerciais"],
   sobretitulo: "Construir, observar, melhorar",
   chamada: "A tecnologia precisa deixar rastro de valor.",
@@ -158,8 +159,8 @@ export const ESCADA = {
       titulo: "Sprint de Eficiência",
       texto:
         "Projeto fechado para um gargalo delimitado: mapeamento do fluxo, priorização, implementação acordada, testes e comparação dos indicadores disponíveis.",
-      saida:
-        "Preço fechado em proposta, que define o problema, os entregáveis, as exclusões, o prazo, as responsabilidades do cliente, os critérios de aceite e os custos de terceiros. Mudança de escopo exige nova estimativa e aprovação.",
+      saida: `Faixas de referência de ${BRL(SPRINT_DE_PRECOS.niveis[0].faixa.de)} a ${faixaEmTexto(SPRINT_DE_PRECOS.niveis[2].faixa).split(" a ")[1]}, conforme a complexidade. O preço fechado sai em proposta, com problema, entregáveis, exclusões, prazo, critérios de aceite e custos de terceiros. Mudança de escopo exige nova estimativa e aprovação.`,
+      href: "/precos#titulo-sprint",
       destaque: true,
     },
     {
@@ -167,7 +168,8 @@ export const ESCADA = {
       titulo: "Estabilidade e evolução contínua",
       texto:
         "Mensalidade para manter as soluções, corrigir o que estiver previsto e evoluir o processo, dentro de limites de atendimento e escopo definidos em contrato.",
-      saida: "A mensalidade não inclui desenvolvimento ilimitado, novas integrações sem orçamento nem garantia de resultado comercial. Custos de terceiros e de API ficam discriminados.",
+      saida: `Referência de ${BRL(Math.min(...CONTINUIDADE.modalidades.map((m) => m.faixa.de)))} a ${BRL(Math.max(...CONTINUIDADE.modalidades.map((m) => m.faixa.ate)))} por mês. A mensalidade não inclui desenvolvimento ilimitado, novas integrações sem orçamento nem garantia de resultado comercial. Custos de terceiros e de API ficam discriminados.`,
+      href: "/precos#titulo-sprint",
     },
   ],
   nota: "Bônus por desempenho fica como opção futura, só com linha de base, regra de atribuição acordada e dados auditáveis. Não faz parte da oferta padrão.",

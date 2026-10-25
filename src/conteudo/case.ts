@@ -36,7 +36,7 @@ export const CASE_MOTORS = {
    * do que foi medido.
    */
   diagnosticado: {
-    sobretitulo: "Diagnosticado",
+    sobretitulo: "Antes: diagnosticado",
     titulo: "O que travava a Motors Store.",
     texto: "Os gargalos identificados antes da intervenção, na ordem da jornada do comprador.",
     itens: [
@@ -49,7 +49,7 @@ export const CASE_MOTORS = {
     ],
   },
   construido: {
-    sobretitulo: "Implementado",
+    sobretitulo: "Depois: implementado",
     titulo: "O que a V2O5 montou.",
     texto: "Cada peça é uma linha do cardápio da V2O5, ligada às outras pela mesma base de dados.",
     pecas: [

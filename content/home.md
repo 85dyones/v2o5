@@ -7,7 +7,7 @@ description: "A V2O5 acha o gargalo, simplifica o processo e implementa tecnolog
 canonical: "https://www.v2o5.com.br"
 robots: null
 h1: "Do problema ao resultado, pelo caminho mais simples."
-extraido_em: "2026-10-25T18:36:04.076Z"
+extraido_em: "2026-10-25T19:09:34.547Z"
 fonte: "build local da branch claude/keen-ptolemy-vnfnfu (25/10/2026), extraída com design/baseline/ferramentas; as demais rotas seguem como em 19/10"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
@@ -126,7 +126,7 @@ Projeto em ambiente real
 
 ## Motors Store
 
-Revenda de seminovos em Curitiba, com gargalos diagnosticados em busca, leads, site e acompanhamento comercial. O case separa o que foi diagnosticado, o que a V2O5 implementou e o que foi medido.
+Revenda de seminovos em Curitiba, com gargalos diagnosticados em busca, leads, site e acompanhamento comercial. O case mostra o diagnóstico como o antes, o que a V2O5 implementou como o depois e, à parte, o que foi medido.
 
 - Sincronização de estoque
 - Rastreamento de leads
@@ -164,7 +164,9 @@ Produto principal
 
 Projeto fechado para um gargalo delimitado: mapeamento do fluxo, priorização, implementação acordada, testes e comparação dos indicadores disponíveis.
 
-Preço fechado em proposta, que define o problema, os entregáveis, as exclusões, o prazo, as responsabilidades do cliente, os critérios de aceite e os custos de terceiros. Mudança de escopo exige nova estimativa e aprovação.
+Faixas de referência de R$ 3.000 a R$ 25.000 ou mais, conforme a complexidade. O preço fechado sai em proposta, com problema, entregáveis, exclusões, prazo, critérios de aceite e custos de terceiros. Mudança de escopo exige nova estimativa e aprovação.
+
+[Ver faixas e condições](/precos#titulo-sprint)
 
 Depois da entrega
 
@@ -172,7 +174,9 @@ Depois da entrega
 
 Mensalidade para manter as soluções, corrigir o que estiver previsto e evoluir o processo, dentro de limites de atendimento e escopo definidos em contrato.
 
-A mensalidade não inclui desenvolvimento ilimitado, novas integrações sem orçamento nem garantia de resultado comercial. Custos de terceiros e de API ficam discriminados.
+Referência de R$ 1.200 a R$ 5.000 por mês. A mensalidade não inclui desenvolvimento ilimitado, novas integrações sem orçamento nem garantia de resultado comercial. Custos de terceiros e de API ficam discriminados.
+
+[Ver faixas e condições](/precos#titulo-sprint)
 
 Bônus por desempenho fica como opção futura, só com linha de base, regra de atribuição acordada e dados auditáveis. Não faz parte da oferta padrão.
 
