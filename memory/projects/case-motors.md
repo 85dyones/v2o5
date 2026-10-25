@@ -5,6 +5,9 @@ Autorizado em 08/10: nome, logo e números. O case declara que o fundador da V2O
 ## O que a V2O5 entregou (repo `85dyones/motors-site-oficial`)
 Site Next.js com vitrine, ficha, páginas de marca/modelo e 6 páginas locais; hub de 26 guias com método próprio, schema, `llms.txt`, IndexNow; camada de dados testada, Pixel + CAPI com `event_id`, GA4, GTM, UTM e click IDs no lead; painel com funil, estoque, clientes, investidores, mídia paga; n8n (sync de estoque com Revenda Mais, vendas incompletas, alertas de estagnação) com WhatsApp via Evolution e Chatwoot; gerador de descritivo com LLM validado contra invenção.
 
+## Diagnosticado (confirmado pelo Dyones em 25/10/2026)
+Gargalos da Motors Store antes da intervenção, registrados no roteiro `CLAUDE_SITE_IMPLEMENTATION_AJUSTADO.md` e publicados em `/cases/motors-store` como "Diagnosticado": baixa visibilidade em buscas orgânicas, buscadores e IAs; falta de leads qualificados; presença digital fraca; design do site ruim; site lento; acompanhamento comercial inconsistente. São diagnóstico, não resultado: o case separa o **diagnosticado**, o **implementado** (seção acima) e o **medido** (números abaixo). Sem métrica de antes e depois para estes itens; só entra quando houver dado verificável. Não presumir que SEO, visibilidade, leads e velocidade se resolvem pela mesma implementação (roteiro, seção 7).
+
 ## Números (lidos do banco em 08/10/2026, só contagens; tabela de leads começa em 05/09/2026)
 | Dado | Valor |
 |---|---|

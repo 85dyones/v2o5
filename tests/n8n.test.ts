@@ -292,7 +292,8 @@ describe("fluxo do diagnóstico", () => {
     const codigo = js(diagnostico, "Lead");
     expect(codigo).not.toMatch(/[—–]/);
     expect(codigo).toContain("45 minutos com o Dyones");
-    expect(codigo).toContain("em até 24 horas");
+    expect(codigo).toContain("identificar e priorizar um gargalo");
+    expect(codigo).not.toContain("24 horas");
   });
 });
 
@@ -458,7 +459,8 @@ describe("fluxo do agente", () => {
   it("as instruções do agente seguem as regras do texto público e levam ao diagnóstico", () => {
     const instrucoes = js(agente, "Montar pedido");
     expect(instrucoes).not.toMatch(/[—–]/);
-    for (const trecho of ["45 minutos", "24 horas", "a partir de", "Não invente número"]) expect(instrucoes).toContain(trecho);
+    for (const trecho of ["45 minutos", "Sprint de Eficiência", "a partir de", "Não invente número"]) expect(instrucoes).toContain(trecho);
+    expect(instrucoes).not.toContain("24 horas");
     expect(campo(agente, "conhecimentoUrl")).toBe("https://v2o5.vercel.app/llms.txt");
   });
 

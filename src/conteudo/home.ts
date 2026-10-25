@@ -159,7 +159,7 @@ export const ESCADA = {
       texto:
         "Projeto fechado para um gargalo delimitado: mapeamento do fluxo, priorização, implementação acordada, testes e comparação dos indicadores disponíveis.",
       saida:
-        "Preço fechado em proposta, depois de definir objetivo, escopo, entregáveis, exclusões, prazo, critérios de aceite e custos de terceiros.",
+        "Preço fechado em proposta, que define o problema, os entregáveis, as exclusões, o prazo, as responsabilidades do cliente, os critérios de aceite e os custos de terceiros. Mudança de escopo exige nova estimativa e aprovação.",
       destaque: true,
     },
     {
@@ -167,7 +167,7 @@ export const ESCADA = {
       titulo: "Estabilidade e evolução contínua",
       texto:
         "Mensalidade para manter as soluções, corrigir o que estiver previsto e evoluir o processo, dentro de limites de atendimento e escopo definidos em contrato.",
-      saida: "Novas frentes são orçadas à parte. Custos de terceiros e de API ficam separados.",
+      saida: "A mensalidade não inclui desenvolvimento ilimitado, novas integrações sem orçamento nem garantia de resultado comercial. Custos de terceiros e de API ficam discriminados.",
     },
   ],
   nota: "Bônus por desempenho fica como opção futura, só com linha de base, regra de atribuição acordada e dados auditáveis. Não faz parte da oferta padrão.",
