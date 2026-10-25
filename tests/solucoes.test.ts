@@ -29,7 +29,8 @@ describe("páginas de solução", () => {
     expect(SOLUCOES.map((s) => s.rota).sort()).toEqual([...ROTAS].sort());
     for (const rota of ROTAS) {
       expect(paginaDa(rota).pronta, rota).toBe(true);
-      expect(paginaDa(rota).atualizadaEm, rota).toBe("2026-10-13");
+      // /criacao-de-sites mudou o passo do diagnóstico em 25/10 (sem promessa de mapa nem de 24 horas).
+      expect(paginaDa(rota).atualizadaEm, rota).toBe(rota === "/criacao-de-sites" ? "2026-10-25" : "2026-10-13");
       const pagina = semComentarios(ler(`src/app${rota}/page.tsx`));
       expect(pagina, rota).toContain("<PaginaDeSolucao rota={ROTA}");
       expect(pagina, rota).not.toContain("PaginaProvisoria");
