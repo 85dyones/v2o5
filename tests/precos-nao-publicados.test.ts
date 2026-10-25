@@ -20,18 +20,18 @@ import {
 } from "@/conteudo/precos";
 import * as sobre from "@/conteudo/sobre";
 import * as solucoes from "@/conteudo/solucoes";
-import { SPRINT_DE_PRECOS } from "@/conteudo/sprint";
+import { CONTINUIDADE, SPRINT_DE_PRECOS } from "@/conteudo/sprint";
 import { arquivos, ler } from "./fonte";
 
 /**
- * Decisão do Dyones em 25/10/2026: só o Sprint de Eficiência tem valor
- * público. Os planos, o tráfego, os módulos, os serviços e o fotógrafo
+ * Decisão do Dyones em 25/10/2026: só o Sprint de Eficiência e a recorrência
+ * que o acompanha (continuidade mensal) têm valor público. Os planos, o tráfego, os módulos, os serviços e o fotógrafo
  * parceiro de `precos.ts` são dado interno. Este teste varre tudo que o
  * visitante, o Google, os assistentes de IA e o agente do n8n leem e falha se
  * algum desses valores aparecer.
  */
 
-const permitidos = new Set(SPRINT_DE_PRECOS.niveis.flatMap((n) => [n.faixa.de, n.faixa.ate]));
+const permitidos = new Set([...SPRINT_DE_PRECOS.niveis, ...CONTINUIDADE.modalidades].flatMap((n) => [n.faixa.de, n.faixa.ate]));
 
 const internos = (() => {
   const v = new Set<number>();
@@ -100,7 +100,7 @@ describe("valores que não são publicados", () => {
     expect(codigo).not.toMatch(/from "@\/components\/precos\/(TabelaDePrecos|ParceiroDeFotografia)"/);
   });
 
-  it("os únicos valores em real nos textos públicos são as faixas do Sprint", () => {
+  it("os únicos valores em real nos textos públicos são as faixas do Sprint e da continuidade", () => {
     const aceitos = [...permitidos].map((n) => BRL(n));
     for (const onde of ["conteudo/home", "conteudo/solucoes", "conteudo/automotivo", "conteudo/sobre", "conteudo/paginas", "llms.txt"]) {
       const valores = (publicos[onde].match(/R\$ \d{1,3}(?:\.\d{3})*(?:,\d{2})?/g) ?? []).map((v) => v.replace(/ /g, " "));

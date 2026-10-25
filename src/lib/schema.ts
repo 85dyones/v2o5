@@ -5,7 +5,7 @@ import { solucaoDa } from "@/conteudo/solucoes";
 import { ASSINATURA, EMPRESA, PERGUNTAS, PILARES, VISAO_360 } from "@/conteudo/home";
 import { paginaDa } from "@/conteudo/paginas";
 import { ofertaDaCapacidade } from "@/conteudo/precos";
-import { SPRINT_DE_PRECOS } from "@/conteudo/sprint";
+import { CONTINUIDADE, SPRINT_DE_PRECOS } from "@/conteudo/sprint";
 import { SITE_URL } from "@/lib/site";
 import { whatsappInternacional } from "@/lib/whatsapp";
 
@@ -119,8 +119,9 @@ const ofertaDoSprint = (n: (typeof SPRINT_DE_PRECOS.niveis)[number]): No => ({
 });
 
 /**
- * O catálogo de `/precos` desde 25/10/2026: só o Sprint de Eficiência, nas
- * três faixas de referência de `sprint.ts`. Os planos de `precos.ts` não são
+ * O catálogo de `/precos` desde 25/10/2026: o Sprint de Eficiência, nas três
+ * faixas de referência de `sprint.ts`, e as duas faixas mensais da
+ * continuidade que o acompanha. Os planos de `precos.ts` não são
  * publicados, então não entram no schema.
  */
 export function catalogo(): No {
@@ -134,7 +135,25 @@ export function catalogo(): No {
     "@type": "OfferCatalog",
     "@id": `${SITE_URL}/precos#catalogo`,
     name: "Sprint de Eficiência V2O5",
-    itemListElement: SPRINT_DE_PRECOS.niveis.map((n) => ({ ...ofertaDoSprint(n), itemOffered: servico })),
+    itemListElement: [
+      ...SPRINT_DE_PRECOS.niveis.map((n) => ({ ...ofertaDoSprint(n), itemOffered: servico })),
+      ...CONTINUIDADE.modalidades.map((m) => ({
+        "@type": "Offer",
+        name: `${m.nome} (por mês)`,
+        description: `Faixa de referência por mês, depois do Sprint. ${m.texto} Valor e limites em contrato.`,
+        priceSpecification: {
+          "@type": "UnitPriceSpecification",
+          minPrice: m.faixa.de,
+          maxPrice: m.faixa.ate,
+          priceCurrency: "BRL",
+          unitCode: "MON",
+        },
+        availability: "https://schema.org/InStock",
+        areaServed: { "@type": "Country", name: "Brasil" },
+        seller: ref(ID_DA_ORGANIZACAO),
+        itemOffered: servico,
+      })),
+    ],
   };
 }
 

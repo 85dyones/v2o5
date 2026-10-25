@@ -3,17 +3,17 @@ rota: "/precos"
 url: "https://www.v2o5.com.br/precos"
 status: 200
 title: "Preços do Sprint de Eficiência | V2O5 Vendas e Tecnologia"
-description: "Sprint de Eficiência com preço fechado em proposta e faixas de referência de R$ 3.000 a R$ 25.000 ou mais. O diagnóstico inicial, de 45 minutos, é gratuito."
+description: "Sprint de Eficiência com preço fechado em proposta, faixas de R$ 3.000 a R$ 25.000 ou mais e recorrência mensal de R$ 1.200 a R$ 5.000. Diagnóstico gratuito."
 canonical: "https://www.v2o5.com.br/precos"
 robots: null
 h1: "Sprint de Eficiência: preço fechado em proposta."
-extraido_em: "2026-10-25T20:08:16.046Z"
-fonte: "build local da branch claude/keen-ptolemy-vnfnfu (só o Sprint com valor público, 25/10/2026), extraída com design/baseline/ferramentas; as demais rotas seguem como em 19/10"
+extraido_em: "2026-10-25T21:22:44.355Z"
+fonte: "build local da branch claude/keen-ptolemy-vnfnfu (só o Sprint e a recorrência com valor público, 25/10/2026), extraída com design/baseline/ferramentas; as demais rotas seguem como em 19/10"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 # Sprint de Eficiência: preço fechado em proposta.
 
-O diagnóstico inicial é gratuito. O valor do Sprint sai depois de delimitar o gargalo.
+O diagnóstico inicial é gratuito. O Sprint tem preço fechado em proposta, e a maioria dos projetos tem também uma parte recorrente.
 
 [Pedir diagnóstico gratuito](/diagnostico)
 
@@ -69,19 +69,23 @@ Uma solução que parecia simples pode revelar sistemas antigos ou dependências
 
 ### Depois da entrega
 
-A Sprint é um projeto fechado. A continuidade é outro contrato, com limites de atendimento e escopo escritos.
+O Sprint é um projeto fechado. Na maioria dos projetos há também uma parte recorrente, e pode haver em todos: é outro contrato, opcional, com limites de atendimento e escopo escritos. As faixas abaixo são de referência por mês.
 
 Estabilidade e suporte
 
+R$ 1.200 a R$ 2.500 por mês
+
 Monitoramento acordado, correções dentro do escopo, manutenção e acompanhamento técnico.
 
-Valor e limites em contrato.
+Faixa de referência. Valor e limites em contrato.
 
 Evolução contínua
 
+R$ 2.500 a R$ 5.000 por mês
+
 Suporte, revisão de indicadores e capacidade mensal reservada para melhorias priorizadas.
 
-Valor e limites em contrato.
+Faixa de referência. Valor e limites em contrato.
 
 O contrato define prazo de resposta, canais, limite de horas ou capacidade, exclusões e o preço de demandas adicionais. A mensalidade não cobre desenvolvimento ilimitado, plantão irrestrito, nova integração sem orçamento, API ou fornecedor sem discriminação nem garantia de resultado comercial. Novos gargalos, integrações, automações ou produtos são orçados à parte.
 
@@ -125,7 +129,7 @@ Em projetos, 50% na contratação, 30% na validação intermediária e 20% no ac
 
 E depois que o Sprint termina?
 
-A continuidade é outro contrato, com limites de atendimento e escopo escritos: estabilidade e suporte, ou evolução contínua. Ela não cobre desenvolvimento ilimitado nem novas integrações sem orçamento, e custos de terceiros e de API ficam discriminados. Sem esse contrato, o projeto termina na entrega acordada.
+Na maioria dos projetos há uma parte recorrente, e pode haver em todos. É outro contrato, opcional, com limites de atendimento e escopo escritos: estabilidade e suporte, de R$ 1.200 a R$ 2.500 por mês, ou evolução contínua, de R$ 2.500 a R$ 5.000 por mês. Ela não cobre desenvolvimento ilimitado nem novas integrações sem orçamento, e custos de terceiros e de API ficam discriminados. Sem esse contrato, o projeto termina na entrega acordada.
 
 Preciso trocar o sistema de gestão que já uso?
 

@@ -41,8 +41,11 @@ export default function SprintDeEficiencia() {
             {CONTINUIDADE.modalidades.map((m) => (
               <div key={m.nome} className="bg-fundo p-5">
                 <dt className="font-semibold">{m.nome}</dt>
+                <dd className="mt-2 tabular-nums">
+                  <ComMarcas texto={`${faixaEmTexto(m.faixa)} por mês`} marcas={[faixaEmTexto(m.faixa)]} etapa="ambar" />
+                </dd>
                 <dd className="mt-2 text-[0.9375rem] leading-relaxed text-texto-secundario">{m.texto}</dd>
-                <dd className="mt-2 text-[0.8125rem] text-texto-secundario">Valor e limites em contrato.</dd>
+                <dd className="mt-2 text-[0.8125rem] text-texto-secundario">Faixa de referência. Valor e limites em contrato.</dd>
               </div>
             ))}
           </dl>

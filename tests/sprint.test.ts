@@ -14,9 +14,9 @@ describe("Sprint de Eficiência", () => {
       "R$ 12.000 a R$ 25.000 ou mais",
     ]);
     for (const n of SPRINT_DE_PRECOS.niveis) expect(oferta).toContain(`${n.nome}${n.principal ? " (oferta principal)" : ""}: ${faixaEmTexto(n.faixa)}`);
-    // Só o Sprint tem valor público (25/10/2026): a continuidade não tem faixa.
-    for (const m of CONTINUIDADE.modalidades) expect(m).not.toHaveProperty("faixa");
-    expect(oferta).toContain("Mensalidade de continuidade: sem valor público");
+    expect(CONTINUIDADE.modalidades.map((m) => faixaEmTexto(m.faixa))).toEqual(["R$ 1.200 a R$ 2.500", "R$ 2.500 a R$ 5.000"]);
+    for (const m of CONTINUIDADE.modalidades) expect(oferta).toContain(`${m.nome}: ${faixaEmTexto(m.faixa)} por mês`);
+    expect(CONTINUIDADE.texto).toMatch(/Na maioria dos projetos há também uma parte recorrente, e pode haver em todos/);
   });
 
   it("a oferta principal é uma só e a duração é referência", () => {

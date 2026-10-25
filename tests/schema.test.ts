@@ -11,7 +11,7 @@ import {
   organizacao,
 } from "@/lib/schema";
 import { PERGUNTAS } from "@/conteudo/home";
-import { SPRINT_DE_PRECOS } from "@/conteudo/sprint";
+import { CONTINUIDADE, SPRINT_DE_PRECOS } from "@/conteudo/sprint";
 
 /** Seção 4.5 do plano e `marca.md`: um grafo por página, contado por teste. */
 
@@ -73,8 +73,14 @@ describe("página de preços", () => {
     expect(catalogo["@type"]).toBe("OfferCatalog");
     expect(faq["@type"]).toBe("FAQPage");
     const ofertas = catalogo.itemListElement as No[];
-    expect(ofertas).toHaveLength(SPRINT_DE_PRECOS.niveis.length);
-    ofertas.forEach((o, i) => {
+    expect(ofertas).toHaveLength(SPRINT_DE_PRECOS.niveis.length + CONTINUIDADE.modalidades.length);
+    const mensais = ofertas.slice(SPRINT_DE_PRECOS.niveis.length);
+    mensais.forEach((o, i) => {
+      const { faixa } = CONTINUIDADE.modalidades[i];
+      expect(o.priceSpecification).toEqual({ "@type": "UnitPriceSpecification", minPrice: faixa.de, maxPrice: faixa.ate, priceCurrency: "BRL", unitCode: "MON" });
+      expect(String(o.name)).toMatch(/por mês/);
+    });
+    ofertas.slice(0, SPRINT_DE_PRECOS.niveis.length).forEach((o, i) => {
       const { faixa } = SPRINT_DE_PRECOS.niveis[i];
       expect(o["@type"]).toBe("Offer");
       expect(o.priceSpecification).toEqual({ "@type": "PriceSpecification", minPrice: faixa.de, maxPrice: faixa.ate, priceCurrency: "BRL" });

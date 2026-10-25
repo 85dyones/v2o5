@@ -8,7 +8,7 @@
  */
 import { listaDeSistemasIntegraveis } from "@/conteudo/diagnostico";
 import type { Etapa } from "@/lib/tokens";
-import { CONDICOES, faixaEmTexto, SPRINT_DE_PRECOS } from "@/conteudo/sprint";
+import { CONDICOES, CONTINUIDADE, faixaEmTexto, SPRINT_DE_PRECOS } from "@/conteudo/sprint";
 import { BRL } from "@/conteudo/precos";
 
 /**
@@ -168,7 +168,7 @@ export const ESCADA = {
       titulo: "Estabilidade e evolução contínua",
       texto:
         "Mensalidade para manter as soluções, corrigir o que estiver previsto e evoluir o processo, dentro de limites de atendimento e escopo definidos em contrato.",
-      saida: `Valor e limites em contrato. A mensalidade não inclui desenvolvimento ilimitado, novas integrações sem orçamento nem garantia de resultado comercial. Custos de terceiros e de API ficam discriminados.`,
+      saida: `Referência de ${BRL(Math.min(...CONTINUIDADE.modalidades.map((m) => m.faixa.de)))} a ${BRL(Math.max(...CONTINUIDADE.modalidades.map((m) => m.faixa.ate)))} por mês, em contrato. Na maioria dos projetos há uma parte recorrente. A mensalidade não inclui desenvolvimento ilimitado, novas integrações sem orçamento nem garantia de resultado comercial. Custos de terceiros e de API ficam discriminados.`,
       href: "/precos#titulo-sprint",
     },
   ],
@@ -1011,8 +1011,7 @@ export const PERGUNTAS = [
   },
   {
     pergunta: "E depois que o Sprint termina?",
-    resposta:
-      "A continuidade é outro contrato, com limites de atendimento e escopo escritos: estabilidade e suporte, ou evolução contínua. Ela não cobre desenvolvimento ilimitado nem novas integrações sem orçamento, e custos de terceiros e de API ficam discriminados. Sem esse contrato, o projeto termina na entrega acordada.",
+    resposta: `Na maioria dos projetos há uma parte recorrente, e pode haver em todos. É outro contrato, opcional, com limites de atendimento e escopo escritos: ${CONTINUIDADE.modalidades.map((m) => `${m.nome.toLowerCase()}, de ${faixaEmTexto(m.faixa)} por mês`).join(", ou ")}. Ela não cobre desenvolvimento ilimitado nem novas integrações sem orçamento, e custos de terceiros e de API ficam discriminados. Sem esse contrato, o projeto termina na entrega acordada.`,
   },
   {
     pergunta: "Preciso trocar o sistema de gestão que já uso?",

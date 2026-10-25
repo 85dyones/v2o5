@@ -90,7 +90,7 @@ export const PAGINAS: Pagina[] = [
     rota: "/precos",
     titulo: "Preços do Sprint de Eficiência",
     descricao:
-      "Sprint de Eficiência com preço fechado em proposta e faixas de referência de R$ 3.000 a R$ 25.000 ou mais. O diagnóstico inicial, de 45 minutos, é gratuito.",
+      "Sprint de Eficiência com preço fechado em proposta, faixas de R$ 3.000 a R$ 25.000 ou mais e recorrência mensal de R$ 1.200 a R$ 5.000. Diagnóstico gratuito.",
     atualizadaEm: "2026-10-25",
     pronta: true,
   },

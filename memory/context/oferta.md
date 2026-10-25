@@ -1,6 +1,6 @@
 # Oferta e preços
 
-> **Em 25/10/2026 o Dyones decidiu que só o Sprint de Eficiência tem valor público** ("preços só dos sprints", "manter apenas o descrito no plano atualizado no apêndice"). Os planos, o tráfego, os módulos, os serviços e o fotógrafo parceiro abaixo são **dado interno de referência: não aparecem no site, na vitrine, no `llms.txt`, no schema nem no agente do n8n**. `tests/precos-nao-publicados.test.ts` trava isso. A seção "Sprint de Eficiência e continuidade", no fim, é a única oferta pública.
+> **Em 25/10/2026 o Dyones decidiu que só o Sprint de Eficiência e a recorrência que o acompanha têm valor público** ("preços só dos sprints", "manter apenas o descrito no plano atualizado no apêndice"). Os planos, o tráfego, os módulos, os serviços e o fotógrafo parceiro abaixo são **dado interno de referência: não aparecem no site, na vitrine, no `llms.txt`, no schema nem no agente do n8n**. `tests/precos-nao-publicados.test.ts` trava isso. A seção "Sprint de Eficiência e continuidade", no fim, é a única oferta pública.
 
 Fonte em código: `src/conteudo/precos.ts` (home, `/precos`, hub automotivo, páginas de solução, `llms.txt` e schema saem dela). Esta página repete os mesmos números e `tests/precos.test.ts` confere os dois lados.
 
@@ -168,6 +168,8 @@ Fonte: apêndice de `CLAUDE_SITE_IMPLEMENTATION_AJUSTADO.md`, aprovado por intei
 - Sprint Essencial: R$ 3.000 a R$ 5.000, 1 a 2 semanas.
 - Sprint Integrada (oferta principal): R$ 6.000 a R$ 12.000, 2 a 4 semanas.
 - Sprint Avançada: R$ 12.000 a R$ 25.000 ou mais, 4 a 8 semanas ou mais.
-- Estabilidade e suporte e Evolução contínua: sem valor público. Mensalidade de continuidade: sem valor público, definida em contrato, com limites de atendimento e escopo escritos. As faixas mensais do apêndice (R$ 1.200 a R$ 2.500 e R$ 2.500 a R$ 5.000) ficam internas.
+- Estabilidade e suporte: R$ 1.200 a R$ 2.500 por mês.
+- Evolução contínua: R$ 2.500 a R$ 5.000 por mês.
+- Recorrência: na maioria dos projetos há uma parte recorrente, e pode haver em todos; é contrato à parte, opcional, com limites de atendimento e escopo escritos. Faixas de referência, valor em contrato (Dyones, 25/10).
 - Pagamento: 50% na contratação, 30% na validação intermediária e 20% no aceite final; Sprints pequenas, 50% e 50%.
 - Fora da política pública: descontos (só com contrapartida), margem e horas internas. Período de correção de defeitos: definido na proposta, sem prazo publicado. Termos contratuais a validar com assessoria antes de contratar.

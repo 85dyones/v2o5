@@ -81,7 +81,7 @@ export default function Pagina() {
             <div className="col-span-12 border-t border-linha pb-12 pt-8 md:pb-16 lg:col-span-4 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-20">
               {/* Curto de propósito: o LCP da página é o H1, e um parágrafo maior que ele rouba o posto. */}
               <p className="text-[1.0625rem] leading-relaxed">
-                O diagnóstico inicial é gratuito. O valor do Sprint sai depois de delimitar o gargalo.
+                O diagnóstico inicial é gratuito. O Sprint tem preço fechado em proposta, e a maioria dos projetos tem também uma parte recorrente.
               </p>
               <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-4">
                 <Link href="/diagnostico" className="botao botao-primario" data-evento="cta_click" data-local="hero">

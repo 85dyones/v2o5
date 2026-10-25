@@ -7,8 +7,8 @@ description: "A V2O5 acha o gargalo, simplifica o processo e implementa tecnolog
 canonical: "https://www.v2o5.com.br"
 robots: null
 h1: "Do problema ao resultado, pelo caminho mais simples."
-extraido_em: "2026-10-25T20:08:16.046Z"
-fonte: "build local da branch claude/keen-ptolemy-vnfnfu (só o Sprint com valor público, 25/10/2026), extraída com design/baseline/ferramentas; as demais rotas seguem como em 19/10"
+extraido_em: "2026-10-25T21:22:44.355Z"
+fonte: "build local da branch claude/keen-ptolemy-vnfnfu (só o Sprint e a recorrência com valor público, 25/10/2026), extraída com design/baseline/ferramentas; as demais rotas seguem como em 19/10"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 Estratégia, processos e tecnologia
@@ -174,7 +174,7 @@ Depois da entrega
 
 Mensalidade para manter as soluções, corrigir o que estiver previsto e evoluir o processo, dentro de limites de atendimento e escopo definidos em contrato.
 
-Valor e limites em contrato. A mensalidade não inclui desenvolvimento ilimitado, novas integrações sem orçamento nem garantia de resultado comercial. Custos de terceiros e de API ficam discriminados.
+Referência de R$ 1.200 a R$ 5.000 por mês, em contrato. Na maioria dos projetos há uma parte recorrente. A mensalidade não inclui desenvolvimento ilimitado, novas integrações sem orçamento nem garantia de resultado comercial. Custos de terceiros e de API ficam discriminados.
 
 [Ver faixas e condições](/precos#titulo-sprint)
 
@@ -344,7 +344,7 @@ Em projetos, 50% na contratação, 30% na validação intermediária e 20% no ac
 
 E depois que o Sprint termina?
 
-A continuidade é outro contrato, com limites de atendimento e escopo escritos: estabilidade e suporte, ou evolução contínua. Ela não cobre desenvolvimento ilimitado nem novas integrações sem orçamento, e custos de terceiros e de API ficam discriminados. Sem esse contrato, o projeto termina na entrega acordada.
+Na maioria dos projetos há uma parte recorrente, e pode haver em todos. É outro contrato, opcional, com limites de atendimento e escopo escritos: estabilidade e suporte, de R$ 1.200 a R$ 2.500 por mês, ou evolução contínua, de R$ 2.500 a R$ 5.000 por mês. Ela não cobre desenvolvimento ilimitado nem novas integrações sem orçamento, e custos de terceiros e de API ficam discriminados. Sem esse contrato, o projeto termina na entrega acordada.
 
 Preciso trocar o sistema de gestão que já uso?
 

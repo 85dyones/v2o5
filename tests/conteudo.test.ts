@@ -11,7 +11,7 @@ import {
   TITULO_DA_HOME,
   VISAO_360,
 } from "@/conteudo/home";
-import { faixaEmTexto, SPRINT_DE_PRECOS } from "@/conteudo/sprint";
+import { CONTINUIDADE, faixaEmTexto, SPRINT_DE_PRECOS } from "@/conteudo/sprint";
 import { arquivos, ler, semComentarios } from "./fonte";
 
 /**
@@ -163,8 +163,8 @@ describe("Visão 360", () => {
 });
 
 describe("perguntas e chamadas", () => {
-  it("todo valor em real das perguntas é uma faixa do Sprint", () => {
-    const permitidos = SPRINT_DE_PRECOS.niveis.flatMap((n) => [n.faixa.de, n.faixa.ate].map((v) => `R$ ${v.toLocaleString("pt-BR")}`));
+  it("todo valor em real das perguntas é uma faixa do Sprint ou da recorrência", () => {
+    const permitidos = [...SPRINT_DE_PRECOS.niveis, ...CONTINUIDADE.modalidades].flatMap((n) => [n.faixa.de, n.faixa.ate].map((v) => `R$ ${v.toLocaleString("pt-BR")}`));
     const tudo = PERGUNTAS.map((p) => p.resposta).join(" ");
     const valores = tudo.match(/R\$ \d{1,3}(?:\.\d{3})*/g) ?? [];
     expect(valores.length).toBeGreaterThan(0);
