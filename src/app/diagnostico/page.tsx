@@ -91,7 +91,7 @@ export default function Pagina() {
                     <span className="numero pt-px text-[0.9375rem] text-texto-secundario">{i + 1}</span>
                     <span>
                       <span className="block font-semibold tracking-[-0.01em]">
-                        <ComMarcas texto={p.titulo} marcas={["45 minutos", "24 horas"]} etapa="verde" />
+                        <ComMarcas texto={p.titulo} marcas={["45 minutos"]} etapa="verde" />
                       </span>
                       <span className="mt-1 block text-[0.9375rem] leading-relaxed text-texto-secundario">{p.texto}</span>
                     </span>

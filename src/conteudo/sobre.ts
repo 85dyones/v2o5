@@ -58,7 +58,7 @@ export const SOBRE = {
     regras: [
       {
         titulo: "Começa pelo diagnóstico",
-        texto: "45 minutos com o fundador e, em até 24 horas, um mapa do que fazer primeiro, com custo e prazo, para usar com ou sem a V2O5.",
+        texto: "45 minutos com o fundador para identificar e priorizar um gargalo, sem compromisso. O que vem depois só é proposto se houver um bom caso.",
       },
       {
         titulo: "Preço publicado",
@@ -101,7 +101,7 @@ export const SOBRE = {
   },
   chamada: {
     titulo: "Quer conversar com quem vai fazer?",
-    texto: "O diagnóstico é com o fundador. 45 minutos sobre presença, atendimento, operação e funil, e um mapa em até 24 horas.",
+    texto: "O diagnóstico é com o fundador: 45 minutos sobre presença, atendimento, operação e funil, para priorizar um gargalo.",
     botao: "Pedir diagnóstico gratuito",
   },
 };

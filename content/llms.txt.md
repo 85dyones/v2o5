@@ -1,10 +1,10 @@
 ---
 rota: "/llms.txt"
-url: "https://www.v2o5.com.br/llms.txt"
+url: "http://localhost:3113/llms.txt"
 status: 200
 content_type: "text/plain; charset=utf-8"
-extraido_em: "2026-10-19T00:26:22.723Z"
-fonte: "produção (www.v2o5.com.br), main em 46c4103"
+extraido_em: "2026-10-25T18:36:04.076Z"
+fonte: "produção (www.v2o5.com.br), main em 75a0f83"
 ---
 
 <!-- Corpo de /llms.txt exatamente como servido (gerado por src/app/llms.txt/route.ts). -->
@@ -71,7 +71,7 @@ Revenda de seminovos em Curitiba. Banco de dados da Motors Store, lido em 08/10/
 - 132 veículos sincronizados com o estoque do Revenda Mais.
 
 ## Como começar
-- [Diagnóstico gratuito](https://www.v2o5.com.br/diagnostico): Diagnóstico gratuito: 45 minutos de conversa com o fundador e um mapa do que fazer, em até 24 horas.
+- [Diagnóstico gratuito](https://www.v2o5.com.br/diagnostico): Diagnóstico gratuito: 45 minutos de conversa com o fundador para identificar e priorizar um gargalo.
 - WhatsApp: (41) 99808-9550
 - E-mail: diagnostico@v2o5.com.br
 - [Preços](https://www.v2o5.com.br/precos) e [privacidade](https://www.v2o5.com.br/privacidade).

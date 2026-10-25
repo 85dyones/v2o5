@@ -3,49 +3,17 @@ rota: "/diagnostico"
 url: "https://www.v2o5.com.br/diagnostico"
 status: 200
 title: "Diagnóstico gratuito | V2O5 Vendas e Tecnologia"
-description: "45 minutos de conversa com o fundador e, em até 24 horas, um mapa do que fazer primeiro na sua empresa, com custo e prazo. Sem compromisso."
+description: "Sessão inicial gratuita de 45 minutos com o fundador para identificar e priorizar um gargalo. Sem mapeamento completo, implementação ou acompanhamento."
 canonical: "https://www.v2o5.com.br/diagnostico"
 robots: null
-h1: "Em 45 minutos, o que fazer primeiro. E um mapa com custo e prazo em até 24 horas."
-extraido_em: "2026-10-19T00:26:22.723Z"
-fonte: "produção (www.v2o5.com.br), main em 46c4103"
+h1: "Em 45 minutos, qual gargalo atacar primeiro. Sessão inicial gratuita, sem compromisso."
+extraido_em: "2026-10-25T18:36:04.076Z"
+fonte: "build local da branch claude/keen-ptolemy-vnfnfu (25/10/2026), extraída com design/baseline/ferramentas; as demais rotas seguem como em 19/10"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
-Diagnóstico de Gargalo, gratuito
+# Em 45 minutos, qual gargalo atacar primeiro. Sessão inicial gratuita, sem compromisso.
 
-# Em 45 minutos, o que fazer primeiro. E um mapa com custo e prazo em até 24 horas.
-
-Uma conversa com o fundador sobre como a sua empresa aparece, atende e vende hoje. Você sai com o que mudar primeiro, quanto custa e em quanto tempo, para usar com ou sem a V2O5.
-
-1
-
-Você conta como vende hoje
-
-O formulário ao lado leva dois minutos. Com ele, a conversa já começa no que importa.
-
-2
-
-45 minutos com o fundador
-
-Por chamada de vídeo ou WhatsApp. Olhamos presença, atendimento, operação e funil, com os seus números.
-
-3
-
-Mapa em até 24 horas
-
-As mudanças de maior retorno, em ordem, com custo e prazo. É seu, mesmo que não contrate nada.
-
-Para quem tem uma empresa que vende pelo WhatsApp, pela internet ou pela loja, e quer saber onde o cliente se perde antes de gastar em anúncio, site ou sistema.
-
-O Diagnóstico de Gargalo é a sessão inicial, gratuita, de 45 minutos. Ele não inclui mapeamento completo do processo, implementação nem acompanhamento de resultados: esses passos vêm depois, no Sprint de Eficiência e na Evolução Monitorada, com escopo, valor e prazo combinados.
-
-Sem fidelidade. Mensalidade mês a mês. Cancela quando quiser.
-
-Implantação em até 6x. Ou metade na assinatura e metade na entrega.
-
-O sistema é seu. Se sair, recebe o código, os dados e o domínio em até 15 dias.
-
-Mensalidade fechada por plano. Três planos de R$ 990 a R$ 2.290 por mês, com hospedagem e manutenção dentro. O que cresce com você (usuário, dados, conversas) tem preço publicado. IA e mensagens do WhatsApp pelo valor real, na mesma fatura.
+Uma conversa com o fundador sobre como a sua empresa aparece, atende e vende hoje. Serve para entender o problema, estimar o impacto e decidir se existe um projeto viável.
 
 ## Pedir o diagnóstico
 
@@ -105,6 +73,36 @@ Pedir diagnóstico gratuito
 Ao enviar, você concorda em receber o contato da V2O5 pelo WhatsApp e pelo e-mail informados, para marcar a conversa. [Como tratamos os dados](/privacidade).
 
 Prefere conversar? [Chame no WhatsApp](https://wa.me/5541998089550?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20V2O5%20e%20quero%20marcar%20o%20diagn%C3%B3stico%20gratuito.) ou escreva para [diagnostico@v2o5.com.br](mailto:diagnostico@v2o5.com.br?subject=Quero%20o%20diagn%C3%B3stico%20gratuito).
+
+1
+
+Você conta como vende hoje
+
+O formulário ao lado leva dois minutos. Com ele, a conversa já começa no que importa.
+
+2
+
+45 minutos com o fundador
+
+Por chamada de vídeo ou WhatsApp. Olhamos presença, atendimento, operação e funil, com os seus números.
+
+3
+
+O próximo passo, se houver
+
+Havendo um bom caso, a V2O5 propõe um Sprint de Eficiência, com escopo, entregáveis, prazo e investimento definidos depois de delimitar o gargalo. Se não houver, a conversa termina ali.
+
+Para quem tem uma empresa que vende pelo WhatsApp, pela internet ou pela loja, e quer saber onde o cliente se perde antes de gastar em anúncio, site ou sistema.
+
+O Diagnóstico de Gargalo é a sessão inicial, gratuita, de 45 minutos. Ele identifica e prioriza um gargalo, mas não inclui mapeamento completo do processo, implementação nem acompanhamento ou mensuração de resultados. Esses passos vêm depois, no Sprint de Eficiência e no acompanhamento contínuo, com escopo, valor e prazo definidos em proposta.
+
+Sem fidelidade. Mensalidade mês a mês. Cancela quando quiser.
+
+Implantação em até 6x. Ou metade na assinatura e metade na entrega.
+
+O sistema é seu. Se sair, recebe o código, os dados e o domínio em até 15 dias.
+
+Mensalidade fechada por plano. Três planos de R$ 990 a R$ 2.290 por mês, com hospedagem e manutenção dentro. O que cresce com você (usuário, dados, conversas) tem preço publicado. IA e mensagens do WhatsApp pelo valor real, na mesma fatura.
 
 <!-- ===== Campos que aparecem quando o segmento escolhido é "Revenda de veículos" (entram depois de "Quantas pessoas trabalham na empresa") ===== -->
 Tamanho do estoque
@@ -170,3 +168,7 @@ Escolha o segmento.
 Marque pelo menos um objetivo.
 
 <!-- campo armadilha "site": rótulo "Site" fora da tela e do tab, para robôs; não é texto para pessoas -->
+
+<!-- rótulos de acessibilidade (aria-label) desta rota, fora topo e rodapé:
+- "Diagnóstico de Gargalo, gratuito" (section)
+-->

@@ -7,8 +7,8 @@ description: "A V2O5 acha o gargalo, simplifica o processo e implementa tecnolog
 canonical: "https://www.v2o5.com.br"
 robots: null
 h1: "Do problema ao resultado, pelo caminho mais simples."
-extraido_em: "2026-10-25T18:07:57.196Z"
-fonte: "build local da branch claude/keen-ptolemy-vnfnfu (home do Sprint de Eficiência, 25/10/2026), extraída com design/baseline/ferramentas; as demais rotas seguem como em 19/10"
+extraido_em: "2026-10-25T18:36:04.076Z"
+fonte: "build local da branch claude/keen-ptolemy-vnfnfu (25/10/2026), extraída com design/baseline/ferramentas; as demais rotas seguem como em 19/10"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 Estratégia, processos e tecnologia
@@ -52,7 +52,7 @@ Produto principal
 
 ## Sprint de Eficiência V2O5
 
-Uma intervenção com escopo definido para escolher um processo prioritário, reduzir atrito e medir o que mudou. Sem começar por uma plataforma completa e sem automatizar o caos só para dizer que tem IA.
+Uma intervenção com escopo definido: diagnosticar um gargalo específico, mapear o fluxo atual, priorizar uma intervenção, implementar uma solução proporcional e comparar os indicadores disponíveis antes e depois. Processo, integração, automação e IA entram como meios, conforme o problema.
 
 Comprar, integrar, automatizar ou desenvolver: a decisão depende do problema, não da preferência por uma ferramenta.
 
@@ -92,7 +92,7 @@ Conectamos as ferramentas que já existem e, quando faz sentido, desenvolvemos i
 
 ### Medir e decidir o próximo passo
 
-Comparamos a operação com a linha de base, registramos o que mudou e decidimos se vale otimizar, ampliar ou encerrar.
+Comparamos os indicadores disponíveis com a linha de base, registramos o que mudou e decidimos a próxima melhoria, ou encerramos.
 
 - Indicadores
 - Leitura de resultado
@@ -126,7 +126,7 @@ Projeto em ambiente real
 
 ## Motors Store
 
-Integração de partes da operação comercial de uma revenda de seminovos para aproximar o estoque, a origem dos contatos e o acompanhamento das oportunidades.
+Revenda de seminovos em Curitiba, com gargalos diagnosticados em busca, leads, site e acompanhamento comercial. O case separa o que foi diagnosticado, o que a V2O5 implementou e o que foi medido.
 
 - Sincronização de estoque
 - Rastreamento de leads
@@ -148,31 +148,33 @@ Uma entrada clara, sem escopo infinito
 
 ## Começamos pequeno e ampliamos com evidência.
 
-Três formas de trabalhar, conforme o estágio da operação. Escopo, valor e prazo se definem depois que o processo é entendido.
+Escopo, valor e prazo se definem em proposta, depois que o gargalo é delimitado.
 
 Etapa inicial
 
 ### Diagnóstico de Gargalo
 
-Para quem sabe que algo trava e ainda precisa descobrir onde uma mudança teria mais efeito. A sessão inicial é gratuita e dura 45 minutos.
+Sessão inicial gratuita de 45 minutos para entender o problema e priorizar um gargalo. Avalia se existe um projeto viável.
 
-Saída: problema priorizado e plano de ação. Mapeamento completo, implementação e acompanhamento ficam para as etapas seguintes.
+Não inclui mapeamento completo do processo, implementação nem acompanhamento.
 
 Produto principal
 
 ### Sprint de Eficiência
 
-Para resolver um processo delimitado, com redesenho, implementação e indicadores de acompanhamento.
+Projeto fechado para um gargalo delimitado: mapeamento do fluxo, priorização, implementação acordada, testes e comparação dos indicadores disponíveis.
 
-Saída: solução implementada e forma de medir.
+Preço fechado em proposta, depois de definir objetivo, escopo, entregáveis, exclusões, prazo, critérios de aceite e custos de terceiros.
 
 Depois da entrega
 
-### Evolução Monitorada
+### Estabilidade e evolução contínua
 
-Para acompanhar o desempenho, corrigir desvios e evoluir o processo com base no uso real.
+Mensalidade para manter as soluções, corrigir o que estiver previsto e evoluir o processo, dentro de limites de atendimento e escopo definidos em contrato.
 
-Saída: melhoria contínua com prioridades claras.
+Novas frentes são orçadas à parte. Custos de terceiros e de API ficam separados.
+
+Bônus por desempenho fica como opção futura, só com linha de base, regra de atribuição acordada e dados auditáveis. Não faz parte da oferta padrão.
 
 ## As peças que o Sprint usa quando o problema pede. Cada uma também pode ser contratada avulsa.
 
@@ -372,7 +374,7 @@ Por SMS, com link rastreado e saída fácil, disparado do painel; ou por WhatsAp
 
 Como funciona o diagnóstico gratuito?
 
-São 45 minutos de conversa com o fundador sobre presença, atendimento, operação e funil. Em até 24 horas você recebe um mapa do que fazer primeiro, com custo e prazo, para usar com ou sem a V2O5.
+São 45 minutos de conversa com o fundador sobre presença, atendimento, operação e funil, para identificar e priorizar um gargalo e avaliar se existe um projeto viável. A sessão não inclui mapeamento completo do processo, implementação nem acompanhamento de resultados. Havendo um bom caso, o próximo passo é o Sprint de Eficiência, com escopo, entregáveis, prazo e investimento definidos em proposta.
 
 A V2O5 atende fora de Curitiba?
 

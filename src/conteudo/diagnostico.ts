@@ -5,10 +5,10 @@
 
 export const DIAGNOSTICO = {
   sobretitulo: "Diagnóstico de Gargalo, gratuito",
-  titulo: "Em 45 minutos, o que fazer primeiro.",
-  apagado: "E um mapa com custo e prazo em até 24 horas.",
+  titulo: "Em 45 minutos, qual gargalo atacar primeiro.",
+  apagado: "Sessão inicial gratuita, sem compromisso.",
   texto:
-    "Uma conversa com o fundador sobre como a sua empresa aparece, atende e vende hoje. Você sai com o que mudar primeiro, quanto custa e em quanto tempo, para usar com ou sem a V2O5.",
+    "Uma conversa com o fundador sobre como a sua empresa aparece, atende e vende hoje. Serve para entender o problema, estimar o impacto e decidir se existe um projeto viável.",
   passos: [
     {
       titulo: "Você conta como vende hoje",
@@ -19,15 +19,15 @@ export const DIAGNOSTICO = {
       texto: "Por chamada de vídeo ou WhatsApp. Olhamos presença, atendimento, operação e funil, com os seus números.",
     },
     {
-      titulo: "Mapa em até 24 horas",
-      texto: "As mudanças de maior retorno, em ordem, com custo e prazo. É seu, mesmo que não contrate nada.",
+      titulo: "O próximo passo, se houver",
+      texto: "Havendo um bom caso, a V2O5 propõe um Sprint de Eficiência, com escopo, entregáveis, prazo e investimento definidos depois de delimitar o gargalo. Se não houver, a conversa termina ali.",
     },
   ],
   paraQuem:
     "Para quem tem uma empresa que vende pelo WhatsApp, pela internet ou pela loja, e quer saber onde o cliente se perde antes de gastar em anúncio, site ou sistema.",
   /** O que a sessão inicial não inclui (decisão de 25/10/2026). */
   escopo:
-    "O Diagnóstico de Gargalo é a sessão inicial, gratuita, de 45 minutos. Ele não inclui mapeamento completo do processo, implementação nem acompanhamento de resultados: esses passos vêm depois, no Sprint de Eficiência e na Evolução Monitorada, com escopo, valor e prazo combinados.",
+    "O Diagnóstico de Gargalo é a sessão inicial, gratuita, de 45 minutos. Ele identifica e prioriza um gargalo, mas não inclui mapeamento completo do processo, implementação nem acompanhamento ou mensuração de resultados. Esses passos vêm depois, no Sprint de Eficiência e no acompanhamento contínuo, com escopo, valor e prazo definidos em proposta.",
   formulario: {
     titulo: "Pedir o diagnóstico",
     enviar: "Pedir diagnóstico gratuito",
@@ -40,7 +40,7 @@ export const DIAGNOSTICO = {
   recebido: {
     titulo: "Pedido recebido.",
     texto:
-      "A V2O5 entra em contato pelo WhatsApp ou pelo e-mail que você informou, para marcar os 45 minutos com o fundador. Depois da conversa, o mapa chega em até 24 horas.",
+      "A V2O5 entra em contato pelo WhatsApp ou pelo e-mail que você informou, para marcar os 45 minutos com o fundador.",
     enquantoIsso: "Enquanto isso",
   },
 };

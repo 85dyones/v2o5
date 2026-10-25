@@ -111,7 +111,7 @@ export const SOLUCOES: Solucao[] = [
     comoFunciona: [
       {
         titulo: "Diagnóstico",
-        texto: "45 minutos com o fundador sobre presença, busca e o que a empresa vende. Em até 24 horas, o mapa do que entra no site.",
+        texto: "45 minutos com o fundador sobre presença, busca e o que a empresa vende, para priorizar o que entra no site.",
       },
       {
         titulo: "Estrutura e textos",

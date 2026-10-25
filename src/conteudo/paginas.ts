@@ -51,7 +51,7 @@ export const PAGINAS: Pagina[] = [
     titulo: "Criação de site profissional com SEO",
     descricao:
       "Site rápido no celular, achado no Google e nas respostas das IAs, que grava de onde veio cada contato. Hospedagem e manutenção na mensalidade de R$ 690.",
-    atualizadaEm: "2026-10-13",
+    atualizadaEm: "2026-10-25",
     pronta: true,
   },
   {
@@ -75,7 +75,7 @@ export const PAGINAS: Pagina[] = [
     titulo: "Sistema de vendas para revendas de veículos",
     descricao:
       "Site de estoque ligado ao sistema da loja (Revenda Mais, Autoconf e outros), agente de IA no WhatsApp, CRM e rastreamento até a venda, a partir de R$ 14.900.",
-    atualizadaEm: "2026-10-12",
+    atualizadaEm: "2026-10-25",
     pronta: true,
   },
   {
@@ -83,7 +83,7 @@ export const PAGINAS: Pagina[] = [
     titulo: "Case Motors Store",
     descricao:
       "O que a V2O5 montou para a Motors Store, revenda de seminovos em Curitiba, e os números do sistema rodando, lidos no banco de dados da loja.",
-    atualizadaEm: "2026-10-11",
+    atualizadaEm: "2026-10-25",
     pronta: true,
   },
   {
@@ -106,7 +106,7 @@ export const PAGINAS: Pagina[] = [
     rota: "/diagnostico",
     titulo: "Diagnóstico gratuito",
     descricao:
-      "45 minutos de conversa com o fundador e, em até 24 horas, um mapa do que fazer primeiro na sua empresa, com custo e prazo. Sem compromisso.",
+      "Sessão inicial gratuita de 45 minutos com o fundador para identificar e priorizar um gargalo. Sem mapeamento completo, implementação ou acompanhamento.",
     atualizadaEm: "2026-10-25",
     pronta: true,
   },

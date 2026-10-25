@@ -22,7 +22,7 @@ export const HERO = {
   subtitulo:
     "Achamos o gargalo, simplificamos o processo e implementamos tecnologia para reduzir atrito e medir o resultado. IA entra onde faz diferença.",
   /** A vitrine de diagnostico.v2o5.com.br repete esta nota (`tests/subdominio-diagnostico.test.ts`). */
-  nota: "Diagnóstico gratuito: 45 minutos de conversa com o fundador e um mapa do que fazer, em até 24 horas.",
+  nota: "Diagnóstico gratuito: 45 minutos de conversa com o fundador para identificar e priorizar um gargalo.",
   principio: "Começamos pelo processo e pelo resultado desejado. A ferramenta vem depois.",
   cta: "Mapear um gargalo",
   ctaSecundario: "Conhecer o método",
@@ -58,7 +58,7 @@ export const SPRINT = {
   rotulo: "Produto principal",
   titulo: "Sprint de Eficiência V2O5",
   texto:
-    "Uma intervenção com escopo definido para escolher um processo prioritário, reduzir atrito e medir o que mudou. Sem começar por uma plataforma completa e sem automatizar o caos só para dizer que tem IA.",
+    "Uma intervenção com escopo definido: diagnosticar um gargalo específico, mapear o fluxo atual, priorizar uma intervenção, implementar uma solução proporcional e comparar os indicadores disponíveis antes e depois. Processo, integração, automação e IA entram como meios, conforme o problema.",
   principio:
     "Comprar, integrar, automatizar ou desenvolver: a decisão depende do problema, não da preferência por uma ferramenta.",
   cta: "Escolher um processo",
@@ -84,7 +84,7 @@ export const SPRINT = {
     {
       titulo: "Medir e decidir o próximo passo",
       texto:
-        "Comparamos a operação com a linha de base, registramos o que mudou e decidimos se vale otimizar, ampliar ou encerrar.",
+        "Comparamos os indicadores disponíveis com a linha de base, registramos o que mudou e decidimos a próxima melhoria, ou encerramos.",
       entregas: ["Indicadores", "Leitura de resultado", "Próxima decisão"],
     },
   ],
@@ -121,7 +121,7 @@ export const PROJETO = {
   rotulo: "Projeto em ambiente real",
   titulo: "Motors Store",
   texto:
-    "Integração de partes da operação comercial de uma revenda de seminovos para aproximar o estoque, a origem dos contatos e o acompanhamento das oportunidades.",
+    "Revenda de seminovos em Curitiba, com gargalos diagnosticados em busca, leads, site e acompanhamento comercial. O case separa o que foi diagnosticado, o que a V2O5 implementou e o que foi medido.",
   pilulas: ["Sincronização de estoque", "Rastreamento de leads", "Integrações comerciais"],
   sobretitulo: "Construir, observar, melhorar",
   chamada: "A tecnologia precisa deixar rastro de valor.",
@@ -135,34 +135,42 @@ export const PROJETO = {
   link: "Ler o case completo",
 };
 
-/** A escada de oferta. Escopo, preço e prazo só depois de entender o problema. */
+/**
+ * A arquitetura comercial (roteiro ajustado de 25/10/2026). Nenhum valor:
+ * o preço do Sprint sai em proposta, e as faixas internas do roteiro são
+ * hipóteses não validadas, que não entram no site. O bônus por desempenho é
+ * só uma nota, nunca oferta.
+ */
 export const ESCADA = {
   sobretitulo: "Uma entrada clara, sem escopo infinito",
   titulo: "Começamos pequeno e ampliamos com evidência.",
-  texto:
-    "Três formas de trabalhar, conforme o estágio da operação. Escopo, valor e prazo se definem depois que o processo é entendido.",
+  texto: "Escopo, valor e prazo se definem em proposta, depois que o gargalo é delimitado.",
   degraus: [
     {
       tipo: "Etapa inicial",
       titulo: "Diagnóstico de Gargalo",
       texto:
-        "Para quem sabe que algo trava e ainda precisa descobrir onde uma mudança teria mais efeito. A sessão inicial é gratuita e dura 45 minutos.",
-      saida: "Saída: problema priorizado e plano de ação. Mapeamento completo, implementação e acompanhamento ficam para as etapas seguintes.",
+        "Sessão inicial gratuita de 45 minutos para entender o problema e priorizar um gargalo. Avalia se existe um projeto viável.",
+      saida: "Não inclui mapeamento completo do processo, implementação nem acompanhamento.",
     },
     {
       tipo: "Produto principal",
       titulo: "Sprint de Eficiência",
-      texto: "Para resolver um processo delimitado, com redesenho, implementação e indicadores de acompanhamento.",
-      saida: "Saída: solução implementada e forma de medir.",
+      texto:
+        "Projeto fechado para um gargalo delimitado: mapeamento do fluxo, priorização, implementação acordada, testes e comparação dos indicadores disponíveis.",
+      saida:
+        "Preço fechado em proposta, depois de definir objetivo, escopo, entregáveis, exclusões, prazo, critérios de aceite e custos de terceiros.",
       destaque: true,
     },
     {
       tipo: "Depois da entrega",
-      titulo: "Evolução Monitorada",
-      texto: "Para acompanhar o desempenho, corrigir desvios e evoluir o processo com base no uso real.",
-      saida: "Saída: melhoria contínua com prioridades claras.",
+      titulo: "Estabilidade e evolução contínua",
+      texto:
+        "Mensalidade para manter as soluções, corrigir o que estiver previsto e evoluir o processo, dentro de limites de atendimento e escopo definidos em contrato.",
+      saida: "Novas frentes são orçadas à parte. Custos de terceiros e de API ficam separados.",
     },
   ],
+  nota: "Bônus por desempenho fica como opção futura, só com linha de base, regra de atribuição acordada e dados auditáveis. Não faz parte da oferta padrão.",
 };
 
 /** De onde vem o nome (também em `/sobre`). */
@@ -1006,8 +1014,8 @@ export const GARANTIAS = [
 /** Chamada curta entre seções: a pergunta que o dono está se fazendo e o botão. */
 export const CHAMADA = {
   depoisDasSolucoes: {
-    titulo: "Quer saber o que fazer primeiro na sua empresa?",
-    texto: "O diagnóstico é gratuito e sai com um mapa do que fazer, com custo e prazo, para usar com ou sem a V2O5.",
+    titulo: "Quer saber qual gargalo atacar primeiro?",
+    texto: "O diagnóstico é gratuito: 45 minutos com o fundador para identificar e priorizar um gargalo, sem compromisso.",
   },
   depoisDoCase: {
     titulo: "Quer o mesmo sistema na sua empresa?",
@@ -1074,7 +1082,7 @@ export const PERGUNTAS = [
   {
     pergunta: "Como funciona o diagnóstico gratuito?",
     resposta:
-      "São 45 minutos de conversa com o fundador sobre presença, atendimento, operação e funil. Em até 24 horas você recebe um mapa do que fazer primeiro, com custo e prazo, para usar com ou sem a V2O5.",
+      "São 45 minutos de conversa com o fundador sobre presença, atendimento, operação e funil, para identificar e priorizar um gargalo e avaliar se existe um projeto viável. A sessão não inclui mapeamento completo do processo, implementação nem acompanhamento de resultados. Havendo um bom caso, o próximo passo é o Sprint de Eficiência, com escopo, entregáveis, prazo e investimento definidos em proposta.",
   },
   {
     pergunta: "A V2O5 atende fora de Curitiba?",

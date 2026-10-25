@@ -33,7 +33,7 @@ const ETAPAS: { nome: string; etapa: Etapa }[] = [
 ];
 
 /** O que decide na regra: o prazo do diagnóstico e o da saída. */
-const PRAZOS = ["45 minutos", "24 horas", `${REGRAS.diasParaEntregarNaSaida} dias`];
+const PRAZOS = ["45 minutos", `${REGRAS.diasParaEntregarNaSaida} dias`];
 
 /** Célula de ficha: fio em cima e à esquerda; o invólucro corta o fio da borda de fora. */
 const CELULA = "border-l border-t border-linha";

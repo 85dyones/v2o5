@@ -195,7 +195,7 @@ export const HUB_AUTOMOTIVO = {
   chamada: {
     titulo: "Quer ver o Completo rodando na sua revenda?",
     texto:
-      "O diagnóstico é gratuito: 45 minutos com o fundador, que montou o sistema da Motors Store, e um mapa do que fazer primeiro, com custo e prazo.",
+      "O diagnóstico é gratuito: 45 minutos com o fundador, que montou o sistema da Motors Store, para identificar e priorizar o gargalo da sua revenda.",
     botao: "Pedir diagnóstico gratuito",
     secundario: "Ver a tabela de preços",
   },

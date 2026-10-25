@@ -7,12 +7,10 @@ description: "O que a V2O5 montou para a Motors Store, revenda de seminovos em C
 canonical: "https://www.v2o5.com.br/cases/motors-store"
 robots: null
 h1: "Motors Store: o sistema inteiro numa revenda de seminovos."
-extraido_em: "2026-10-19T00:26:22.723Z"
-fonte: "produção (www.v2o5.com.br), main em 46c4103"
+extraido_em: "2026-10-25T18:36:04.076Z"
+fonte: "build local da branch claude/keen-ptolemy-vnfnfu (25/10/2026), extraída com design/baseline/ferramentas; as demais rotas seguem como em 19/10"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
-Case
-
 # Motors Store: o sistema inteiro numa revenda de seminovos.
 
 A V2O5 montou para a Motors Store, em Curitiba, o site de estoque, os guias, o rastreamento até a venda, o painel e as automações.
@@ -33,14 +31,36 @@ Fonte
 
 banco de dados da Motors, lido em 08/10/2026
 
+Diagnosticado
+
+## O que travava a Motors Store.
+
+Os gargalos identificados antes da intervenção, na ordem da jornada do comprador.
+
+- Baixa visibilidade nas buscas orgânicas, nos buscadores e nas IAs.
+- Falta de leads qualificados.
+- Presença digital fraca.
+- Design do site ruim.
+- Site lento.
+- Acompanhamento comercial inconsistente.
+
+Implementado
+
 ## O que a V2O5 montou.
 
 Cada peça é uma linha do cardápio da V2O5, ligada às outras pela mesma base de dados.
 
-<!-- 19/10 (Dyones): telas reais do site da Motors, capturadas no celular; no celular só a primeira aparece -->
-[imagem] motorsstore.com.br, capturado em 19/10/2026
-[imagem] motorsstore.com.br/estoque, capturado em 19/10/2026
-[imagem] motorsstore.com.br/carros/volkswagen/t-cross, capturado em 19/10/2026
+![Vitrine do site da Motors Store no celular: veículo em destaque, preço e a busca por marca e modelo.](/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fvitrine.2s6-vxquanhzs.webp&w=3840&q=75)
+
+motorsstore.com.br, capturado em 19/10/2026
+
+![Página de estoque do site da Motors Store no celular: título, ordenação, busca e o primeiro veículo da lista.](/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Festoque.3-jymr6pppbhf.webp&w=3840&q=75)
+
+motorsstore.com.br/estoque, capturado em 19/10/2026
+
+![Ficha de um veículo no site da Motors Store no celular: galeria de fotos, modelo, ano, preço e os botões de contato.](/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fveiculo.0m3bnf55vhsfs.webp&w=3840&q=75)
+
+motorsstore.com.br/carros/volkswagen/t-cross, capturado em 19/10/2026
 
 Sites e presença
 
@@ -77,6 +97,8 @@ Integrações entre sistemas
 ### Descritivo de veículo com IA
 
 Gerador de descritivo com modelo de linguagem, validado contra invenção de dado: o texto só sai com o que a ficha confirma.
+
+Medido
 
 ## Os números do sistema.
 
@@ -184,6 +206,20 @@ O pacote automotivo da V2O5 é este sistema, com preço publicado. O diagnóstic
 
 [Ver o pacote automotivo](/precos)
 
+r 18 <!-- texto em SVG; decorativo, aria-hidden -->
+
+r 24 <!-- texto em SVG; decorativo, aria-hidden -->
+
+r 20 <!-- texto em SVG; decorativo, aria-hidden -->
+
+r 18 <!-- texto em SVG; decorativo, aria-hidden -->
+
+V · 6,8 <!-- texto em SVG; decorativo, aria-hidden -->
+
+O · 4,8 <!-- texto em SVG; decorativo, aria-hidden -->
+
 <!-- rótulos de acessibilidade (aria-label) desta rota, fora topo e rodapé:
+- "Case" (section)
 - "Motors Store" (svg role=img)
+- "Registro de eventos do sistema, exemplo" (div role=region)
 -->

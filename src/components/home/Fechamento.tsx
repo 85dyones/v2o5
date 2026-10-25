@@ -10,7 +10,7 @@ import { COR_DA_ROTA, Parada } from "@/components/rota/Rota";
  */
 export default function Fechamento({
   titulo = "Comece pelo diagnóstico, que é gratuito.",
-  texto = "Em 45 minutos de conversa com o fundador, a gente entende como a sua empresa vende hoje. Em até 24 horas você recebe um mapa do que fazer primeiro, com custo e prazo, para usar com ou sem a V2O5.",
+  texto = "Em 45 minutos de conversa com o fundador, a gente entende como a sua empresa vende hoje e identifica o gargalo que vale priorizar. A sessão é gratuita e sem compromisso.",
   botao = "Pedir diagnóstico",
 }: {
   titulo?: string;

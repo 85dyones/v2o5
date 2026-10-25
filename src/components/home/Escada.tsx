@@ -24,10 +24,11 @@ export default function Escada() {
             <p className="rotulo text-texto-secundario">{d.tipo}</p>
             <h3 className="titulo-cartao mt-3">{d.titulo}</h3>
             <p className="mt-3 flex-1 text-[0.9375rem] leading-relaxed text-texto-secundario">{d.texto}</p>
-            <p className="mt-6 border-t border-linha pt-4 text-[0.875rem] font-semibold">{d.saida}</p>
+            <p className="mt-6 border-t border-linha pt-4 text-[0.875rem] font-medium leading-relaxed">{d.saida}</p>
           </li>
         ))}
       </ol>
+      <p className="mt-8 max-w-[44rem] text-[0.9375rem] leading-relaxed text-texto-secundario">{ESCADA.nota}</p>
     </Trecho>
   );
 }
