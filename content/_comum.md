@@ -44,7 +44,7 @@ Menu <!-- oculto no desktop 1440 -->
 
 V2O5 Vendas e Tecnologia
 
-Catalisador de vendas com IA
+V2O5 | Eficiência comercial e operacional com tecnologia.
 
 [Pedir diagnóstico](/diagnostico)
 

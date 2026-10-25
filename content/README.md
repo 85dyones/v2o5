@@ -1,6 +1,6 @@
 # Texto do site: a fonte da verdade do redesign
 
-O texto de cada rota de `https://www.v2o5.com.br`, como estava no ar em 19/10/2026 (`main` em `46c4103`). O redesign muda a forma; estas palavras ficam. Mudança de texto é decisão à parte, feita aqui primeiro e depois no código.
+O texto de cada rota de `https://www.v2o5.com.br`, como estava no ar em 19/10/2026 (`main` em `46c4103`). Exceções de 25/10/2026, com a home do Sprint de Eficiência: `home.md` reextraído do build da branch `claude/keen-ptolemy-vnfnfu`; a assinatura em `_comum.md`, `sobre.md` e `llms.txt.md`; o escopo do Diagnóstico de Gargalo em `diagnostico.md`. As demais rotas seguem como em 19/10. O que o app lê destes arquivos: nada. São o registro do texto para o redesign e para `design/nao-pode-quebrar.md`, gerados por `design/baseline/ferramentas/gerar_conteudo.py`. O redesign muda a forma; estas palavras ficam. Mudança de texto é decisão à parte, feita aqui primeiro e depois no código.
 
 Nenhuma palavra foi digitada à mão. O texto saiu do DOM de produção por script (`design/baseline/ferramentas/extrair.cjs` e `gerar_conteudo.py`), e os estados que só aparecem com interação foram capturados clicando ou copiados dos literais do código, com o arquivo indicado.
 

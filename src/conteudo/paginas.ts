@@ -19,12 +19,12 @@ export interface Pagina {
   pronta: boolean;
 }
 
-export const TITULO_PADRAO = "V2O5 Vendas e Tecnologia | Catalisador de vendas com IA";
+export const TITULO_PADRAO = "V2O5 Vendas e Tecnologia | Menos atrito entre problema e resultado";
 
 export const PAGINAS: Pagina[] = [
   {
     rota: "/",
-    titulo: "V2O5 Vendas e Tecnologia | Menos atrito entre problema e resultado",
+    titulo: TITULO_PADRAO,
     descricao:
       "A V2O5 acha o gargalo, simplifica o processo e implementa tecnologia, automação e IA para a operação render mais e ser medida. Comece pelo Sprint de Eficiência.",
     atualizadaEm: "2026-10-25",
@@ -99,7 +99,7 @@ export const PAGINAS: Pagina[] = [
     titulo: "Sobre a V2O5: quem faz e como trabalha",
     descricao:
       "Quem é a V2O5 Vendas e Tecnologia, de onde vem o nome, o fundador que conduz o diagnóstico, a relação com a Motors Store e as regras de todo projeto.",
-    atualizadaEm: "2026-10-13",
+    atualizadaEm: "2026-10-25",
     pronta: true,
   },
   {
@@ -107,7 +107,7 @@ export const PAGINAS: Pagina[] = [
     titulo: "Diagnóstico gratuito",
     descricao:
       "45 minutos de conversa com o fundador e, em até 24 horas, um mapa do que fazer primeiro na sua empresa, com custo e prazo. Sem compromisso.",
-    atualizadaEm: "2026-10-10",
+    atualizadaEm: "2026-10-25",
     pronta: true,
   },
   {

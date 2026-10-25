@@ -184,8 +184,7 @@ export default function Pagina() {
                 </figcaption>
               </figure>
               <p className="text-[1.5rem] font-semibold leading-tight tracking-[-0.03em]">
-                {s.nome.assinatura.replace(/ IA$/, " ")}
-                <span className="text-acao-texto">IA</span>
+                {s.nome.assinatura}
               </p>
             </div>
           </div>

@@ -10,11 +10,11 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "V2O5 Vendas e Tecnologia | Catalisador de vendas com IA",
+    default: "V2O5 Vendas e Tecnologia | Menos atrito entre problema e resultado",
     template: "%s | V2O5 Vendas e Tecnologia",
   },
   description:
-    "Site, Perfil no Google, anúncios, agente de IA no WhatsApp e CRM montados por uma equipe só, num sistema que mostra de onde veio cada venda. Sem fidelidade.",
+    "A V2O5 acha o gargalo, simplifica o processo e implementa tecnologia, automação e IA para a operação render mais e ser medida. Comece pelo Sprint de Eficiência.",
   applicationName: "V2O5 Vendas e Tecnologia",
 };
 

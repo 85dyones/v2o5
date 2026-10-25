@@ -9,7 +9,7 @@
 
 ## Conceito
 V2O5 é catalisador industrial (ácido sulfúrico): acelera a reação e continua lá no fim. A V2O5 acelera o negócio, e o catalisador dela é a IA. O sistema fica com o cliente.
-Assinatura: **Catalisador de vendas com IA** ("IA" em âmbar, herança do "ConsultorIA").
+Assinatura: **V2O5 | Eficiência comercial e operacional com tecnologia.** (desde 25/10/2026; antes, "Catalisador de vendas com IA" com "IA" em âmbar, herança do "ConsultorIA"). Cores, logo e tipografia seguem.
 
 ## Cores
 | Token | Hex | Uso | Contraste |

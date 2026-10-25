@@ -100,6 +100,7 @@ export default function Pagina() {
               </ol>
 
               <p className={`${CELULA} bg-fundo-cartao text-[0.9375rem] leading-relaxed`}>{d.paraQuem}</p>
+              <p className={`${CELULA} border-t border-linha text-[0.9375rem] leading-relaxed text-texto-secundario`}>{d.escopo}</p>
 
               <ul className="border-t border-linha">
                 {GARANTIAS.map((g) => (

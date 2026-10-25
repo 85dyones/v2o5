@@ -145,8 +145,9 @@ export const ESCADA = {
     {
       tipo: "Etapa inicial",
       titulo: "Diagnóstico de Gargalo",
-      texto: "Para quem sabe que algo trava e ainda precisa descobrir onde uma mudança teria mais efeito.",
-      saida: "Saída: problema priorizado e plano de ação.",
+      texto:
+        "Para quem sabe que algo trava e ainda precisa descobrir onde uma mudança teria mais efeito. A sessão inicial é gratuita e dura 45 minutos.",
+      saida: "Saída: problema priorizado e plano de ação. Mapeamento completo, implementação e acompanhamento ficam para as etapas seguintes.",
     },
     {
       tipo: "Produto principal",
@@ -965,6 +966,9 @@ export const EMAIL = {
  * fala com o agente de IA. Mudar aqui exige mudar nos fluxos.
  */
 export const MARCA_DO_SITE = "site da V2O5";
+
+/** A assinatura institucional desde 25/10/2026 (rodapé, `/sobre`, schema, `llms.txt`). */
+export const ASSINATURA = "V2O5 | Eficiência comercial e operacional com tecnologia.";
 
 /** Mensagem pré-preenchida do WhatsApp, por página (plano, seção 6.1). */
 export const WHATSAPP = {

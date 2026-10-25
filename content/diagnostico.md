@@ -11,7 +11,7 @@ extraido_em: "2026-10-19T00:26:22.723Z"
 fonte: "produção (www.v2o5.com.br), main em 46c4103"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
-Diagnóstico gratuito
+Diagnóstico de Gargalo, gratuito
 
 # Em 45 minutos, o que fazer primeiro. E um mapa com custo e prazo em até 24 horas.
 
@@ -36,6 +36,8 @@ Mapa em até 24 horas
 As mudanças de maior retorno, em ordem, com custo e prazo. É seu, mesmo que não contrate nada.
 
 Para quem tem uma empresa que vende pelo WhatsApp, pela internet ou pela loja, e quer saber onde o cliente se perde antes de gastar em anúncio, site ou sistema.
+
+O Diagnóstico de Gargalo é a sessão inicial, gratuita, de 45 minutos. Ele não inclui mapeamento completo do processo, implementação nem acompanhamento de resultados: esses passos vêm depois, no Sprint de Eficiência e na Evolução Monitorada, com escopo, valor e prazo combinados.
 
 Sem fidelidade. Mensalidade mês a mês. Cancela quando quiser.
 

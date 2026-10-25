@@ -30,7 +30,7 @@ Novo site da **V2O5 Vendas e Tecnologia** (substitui o WordPress de v2o5.com.br)
 - Logo C1d (molécula em V); H1 "Coloque sua empresa no mapa e multiplique a operação com IA." (09/10)
 - Identidade geral (IA para negócios); automotivo como segmento com hub próprio. (09/10)
 - ~~Visual escuro e tecnológico com motion (09/10).~~ Redesign 2026 em base clara, papel como fundo, sistema em `design/DESIGN.md`; branch `redesign-2026`, texto das rotas em `content/`, contratos em `design/nao-pode-quebrar.md`. (19/10)
-- Nome fixo "V2O5 Vendas e Tecnologia"; assinatura "Catalisador de vendas com IA" com "IA" em âmbar. (08–09/10)
+- Nome fixo "V2O5 Vendas e Tecnologia"; assinatura "V2O5 | Eficiência comercial e operacional com tecnologia." (25/10; antes "Catalisador de vendas com IA").
 - Preço publicado "a partir de" em três planos com preço fechado (15/10; antes, quinze linhas com piso e teto), hospedagem e manutenção dentro; módulos só para quem tem o sistema; IA, WhatsApp e SMS repassados na fatura; cláusula de saída (loja leva código, dados e domínio). (08/10, planos em 15/10)
 - Consentimento no modelo da Motors (interesse legítimo + oposição em /privacidade). (08/10)
 → Log completo e datado: `memory/decisoes.md` · Pendências: `memory/pendencias.md`

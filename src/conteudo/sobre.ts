@@ -1,4 +1,5 @@
 import { CASE_MOTORS } from "@/conteudo/case";
+import { ASSINATURA } from "@/conteudo/home";
 import { EMPRESA, VISAO_360 } from "@/conteudo/home";
 import { REGRAS } from "@/conteudo/precos";
 
@@ -49,7 +50,7 @@ export const SOBRE = {
       "V2O5 é o pentóxido de vanádio, o catalisador industrial da produção de ácido sulfúrico: acelera a reação e continua lá no fim. A V2O5 acelera o negócio, e o catalisador dela é a inteligência artificial. O sistema fica com o cliente.",
     cores:
       "O vanádio muda de cor conforme o estado de oxidação. As quatro cores do site são as quatro etapas do caminho do cliente: violeta na atração, verde no atendimento, azul na gestão e âmbar na venda.",
-    assinatura: "Catalisador de vendas com IA",
+    assinatura: ASSINATURA,
   },
   jeito: {
     titulo: "Como a V2O5 trabalha.",

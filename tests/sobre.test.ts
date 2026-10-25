@@ -56,8 +56,8 @@ describe("página Sobre", () => {
 
   it("o nome vem do catalisador, e a assinatura é a da marca", () => {
     expect(SOBRE.nome.texto).toMatch(/pentóxido de vanádio/);
-    expect(SOBRE.nome.assinatura).toBe("Catalisador de vendas com IA");
-    expect(ler("memory/context/marca.md")).toContain("Catalisador de vendas com IA");
+    expect(SOBRE.nome.assinatura).toBe("V2O5 | Eficiência comercial e operacional com tecnologia.");
+    expect(ler("memory/context/marca.md")).toContain("V2O5 | Eficiência comercial e operacional com tecnologia.");
   });
 
   it("o resumo fica curto para o H1 continuar sendo o LCP", () => {

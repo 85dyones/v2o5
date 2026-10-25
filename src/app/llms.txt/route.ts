@@ -1,4 +1,4 @@
-import { AUTOMOTIVO, CASE, EMPRESA, HERO, PILARES, VISAO_360 } from "@/conteudo/home";
+import { ASSINATURA, AUTOMOTIVO, CASE, EMPRESA, HERO, PILARES, VISAO_360 } from "@/conteudo/home";
 import { BRL, dataBR, DEGRAUS, linhaDePreco, linhasDoGrupo, OFERTA_DO_COMPLETO, PLANOS, precoDaLinha, REAJUSTE } from "@/conteudo/precos";
 import { SITE_URL } from "@/lib/site";
 import { whatsappParaLer } from "@/lib/whatsapp";
@@ -35,7 +35,7 @@ export function textoDoLlms(): string {
   return [
     `# ${EMPRESA.nome}`,
     "",
-    `> Catalisador de vendas com IA. ${HERO.subtitulo}`,
+    `> ${ASSINATURA} ${HERO.subtitulo}`,
     "",
     `${EMPRESA.razaoSocial}, CNPJ ${EMPRESA.cnpj}. Atende empresas em todo o Brasil.`,
     "",

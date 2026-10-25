@@ -106,7 +106,7 @@ Rede
 
 a cor da ação
 
-Catalisador de vendas com IA
+V2O5 | Eficiência comercial e operacional com tecnologia.
 
 O jeito
 

@@ -4,7 +4,7 @@
  */
 
 export const DIAGNOSTICO = {
-  sobretitulo: "Diagnóstico gratuito",
+  sobretitulo: "Diagnóstico de Gargalo, gratuito",
   titulo: "Em 45 minutos, o que fazer primeiro.",
   apagado: "E um mapa com custo e prazo em até 24 horas.",
   texto:
@@ -25,6 +25,9 @@ export const DIAGNOSTICO = {
   ],
   paraQuem:
     "Para quem tem uma empresa que vende pelo WhatsApp, pela internet ou pela loja, e quer saber onde o cliente se perde antes de gastar em anúncio, site ou sistema.",
+  /** O que a sessão inicial não inclui (decisão de 25/10/2026). */
+  escopo:
+    "O Diagnóstico de Gargalo é a sessão inicial, gratuita, de 45 minutos. Ele não inclui mapeamento completo do processo, implementação nem acompanhamento de resultados: esses passos vêm depois, no Sprint de Eficiência e na Evolução Monitorada, com escopo, valor e prazo combinados.",
   formulario: {
     titulo: "Pedir o diagnóstico",
     enviar: "Pedir diagnóstico gratuito",

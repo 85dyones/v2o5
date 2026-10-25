@@ -2,7 +2,7 @@ import { HUB_AUTOMOTIVO } from "@/conteudo/automotivo";
 import { CASE_MOTORS } from "@/conteudo/case";
 import { SOBRE } from "@/conteudo/sobre";
 import { solucaoDa } from "@/conteudo/solucoes";
-import { EMPRESA, PERGUNTAS, PILARES, VISAO_360 } from "@/conteudo/home";
+import { ASSINATURA, EMPRESA, PERGUNTAS, PILARES, VISAO_360 } from "@/conteudo/home";
 import { paginaDa } from "@/conteudo/paginas";
 import { dataBR, LINHAS_DE_PRECO, mensalidadeDoCompletoComTrafego, OFERTA_DO_COMPLETO, ofertaDaCapacidade, plano, PLANOS, USUARIOS_NO_CRM } from "@/conteudo/precos";
 import { SITE_URL } from "@/lib/site";
@@ -35,7 +35,7 @@ export function organizacao(): No {
     taxID: EMPRESA.cnpj,
     url: `${SITE_URL}/`,
     logo: `${SITE_URL}/icon.svg`,
-    slogan: "Catalisador de vendas com IA",
+    slogan: ASSINATURA,
     foundingDate: EMPRESA.fundacao,
     founder: ref(ID_DO_FUNDADOR),
     telephone: whatsappInternacional(),

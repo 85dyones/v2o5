@@ -3,7 +3,7 @@ import LinkOuAncora from "@/components/LinkOuAncora";
 import Icone from "@/components/Icone";
 import Construcao from "@/components/marca/Construcao";
 import Simbolo from "@/components/marca/Simbolo";
-import { EMAIL, EMPRESA, PILARES, WHATSAPP } from "@/conteudo/home";
+import { ASSINATURA, EMAIL, EMPRESA, PILARES, WHATSAPP } from "@/conteudo/home";
 import { linkWhatsApp, whatsappParaLer } from "@/lib/whatsapp";
 import { linkEmail } from "@/lib/email";
 
@@ -27,7 +27,7 @@ export default function Rodape() {
             <p className="font-semibold leading-tight tracking-[-0.02em]">{EMPRESA.nome}</p>
           </div>
           <p className="mt-4 text-[0.9375rem] text-texto-secundario">
-            Catalisador de vendas com <span className="text-acao-texto">IA</span>
+            {ASSINATURA}
           </p>
           <Link href="/diagnostico" className="botao botao-primario botao-compacto mt-7" data-evento="cta_click" data-local="rodape">
             Pedir diagnóstico

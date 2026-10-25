@@ -11,7 +11,7 @@ fonte: "produção (www.v2o5.com.br), main em 46c4103"
 
 # V2O5 Vendas e Tecnologia
 
-> Catalisador de vendas com IA. Site, Google, anúncios, agente de IA e CRM montados por uma equipe só, num sistema que mostra de onde veio cada venda e fica no nome da sua empresa.
+> V2O5 | Eficiência comercial e operacional com tecnologia. Achamos o gargalo, simplificamos o processo e implementamos tecnologia para reduzir atrito e medir o resultado. IA entra onde faz diferença.
 
 V2O5 Tecnologia da Informação Ltda., CNPJ 68.490.470/0001-14. Atende empresas em todo o Brasil.
 
