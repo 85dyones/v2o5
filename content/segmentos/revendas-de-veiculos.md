@@ -7,8 +7,8 @@ description: "Site de estoque ligado ao sistema da loja (Revenda Mais, Autoconf 
 canonical: "https://www.v2o5.com.br/segmentos/revendas-de-veiculos"
 robots: null
 h1: "O sistema da Motors Store, pronto para a sua revenda."
-extraido_em: "2026-10-25T23:16:55.066Z"
-fonte: "produção (www.v2o5.com.br), main em 74ff989"
+extraido_em: "2026-10-25T23:42:09.039Z"
+fonte: "produção (www.v2o5.com.br), main em 111d87c"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 # O sistema da Motors Store, pronto para a sua revenda.
@@ -86,13 +86,13 @@ Rastreamento até a venda
 
 Pixel, API de Conversões e GA4 com um identificador único por lead. A campanha passa a otimizar pelo carro vendido.
 
-## Três pacotes prontos para revendas.
+## Três modelos de Sprint para revendas.
 
-Para a loja que já sabe o que precisa. O Sprint de Eficiência, que resolve um gargalo por vez, tem as faixas em Preços; os pacotes abaixo têm valor fechado.
+São Sprints com o escopo da revenda já desenhado: mudam o gargalo que atacam e o tamanho do projeto. O preço fechado de cada projeto sai em proposta; os valores abaixo são o ponto de partida do modelo.
 
-No mapa
+Sprint Integrada
 
-### Presença
+### Mapa
 
 Ser encontrado no Google e saber de onde vem cada contato.
 
@@ -106,13 +106,13 @@ Implantação
 
 R$ 8.900
 
-Mensalidade
+Recorrência mensal
 
-R$ 990
+R$ 1.200
 
-Operação com IA
+Sprint Integrada
 
-### Atendimento
+### Operação com IA
 
 Responder na hora, a qualquer hora, sem perder o contato que chegou.
 
@@ -126,11 +126,11 @@ Implantação
 
 R$ 7.900
 
-Mensalidade
+Recorrência mensal
 
 R$ 1.590
 
-Mapa e operação
+Sprint Avançada
 
 ### Completo
 
@@ -144,15 +144,15 @@ Implantação
 
 R$ 14.900
 
-Mensalidade
+Recorrência mensal
 
 R$ 1.990
 
-Mensalidade até 31/12/2026; depois, R$ 2.290.
+Recorrência até 31/12/2026; depois, R$ 2.290.
 
 Bônus de fechamento: a implantação do Painel do dono fica por conta da V2O5.
 
-A mensalidade cobre hospedagem e manutenção. Nuvem, IA e mensagens ficam por fora, pelo valor do provedor, discriminados na fatura, com teto mensal combinado e aviso antes de ultrapassá-lo; a V2O5 gerencia. Tráfego pago e outros serviços saem em proposta.
+A recorrência paga a gestão continuada e cobre hospedagem e manutenção. Nuvem, IA e mensagens ficam por fora, pelo valor do provedor, discriminados na fatura, com teto mensal combinado e aviso antes de ultrapassá-lo; a V2O5 gerencia. Tráfego pago e outras capacidades do catálogo entram no escopo do Sprint, em proposta.
 
 ## A prova está no case.
 

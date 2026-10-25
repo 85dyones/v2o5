@@ -1,14 +1,14 @@
 ---
 rota: "/precos"
-url: "https://www.v2o5.com.br/precos"
+url: "http://localhost:3100/precos"
 status: 200
 title: "Preços do Sprint de Eficiência | V2O5 Vendas e Tecnologia"
 description: "Sprint de Eficiência com preço fechado em proposta, faixas de R$ 3.000 a R$ 25.000 ou mais e recorrência mensal de R$ 1.200 a R$ 5.000. Diagnóstico gratuito."
 canonical: "https://www.v2o5.com.br/precos"
 robots: null
 h1: "Sprint de Eficiência: preço fechado em proposta."
-extraido_em: "2026-10-25T21:59:35.773Z"
-fonte: "build local da branch claude/keen-ptolemy-vnfnfu (só o Sprint e a recorrência com valor público, 25/10/2026), extraída com design/baseline/ferramentas; as demais rotas seguem como em 19/10"
+extraido_em: "2026-10-25T23:42:09.039Z"
+fonte: "produção (www.v2o5.com.br), main em 111d87c"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 # Sprint de Eficiência: preço fechado em proposta.
@@ -22,6 +22,8 @@ O diagnóstico inicial é gratuito. O Sprint tem preço fechado em proposta, e o
 ## Um projeto fechado para um gargalo, com preço em proposta.
 
 As faixas abaixo são de referência e mudam com a complexidade, o risco e os custos diretos. O valor fechado sai depois de delimitar o gargalo. A duração é referência, não promessa automática.
+
+São três Sprints, e todo serviço da V2O5 chega por um deles. O diagnóstico acha o gargalo e o escopo costura só as capacidades que ele pede. [Ver o catálogo de capacidades](/#solucoes).
 
 1 a 2 semanas
 

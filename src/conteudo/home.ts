@@ -91,6 +91,20 @@ export const SPRINT = {
   ],
 };
 
+/**
+ * Os três entregáveis (Dyones, 25/10/2026: "o caminho é ter 3 entregáveis
+ * apenas"). Todo serviço da V2O5 chega por um deles; as faixas e a duração
+ * vêm de `sprint.ts`.
+ */
+export const TRES_SPRINTS = {
+  sobretitulo: "Três Sprints",
+  titulo: "Todo serviço da V2O5 chega por um destes três.",
+  texto:
+    "O diagnóstico acha o gargalo, o catálogo oferece as capacidades e o tamanho do problema decide o Sprint. Nada é vendido solto: cada projeto costura só o que o gargalo pede, e o preço fechado sai em proposta.",
+  link: "Ver as faixas e as condições",
+  catalogo: "Ver o catálogo de capacidades",
+};
+
 /** Indicadores possíveis. Nenhum percentual: `V2O5_CORE.md`, seção 2. */
 export const INDICADORES = {
   sobretitulo: "Resultado antes de vaidade técnica",
@@ -324,15 +338,6 @@ export const LINHAS: Linha[] = [
     vinheta: "crm",
   },
   {
-    linha: "painel",
-    titulo: "Painel do dono",
-    frase:
-      "Funil, verba, custo por lead e vendas por origem numa tela, atualizada todo dia a partir do CRM, do rastreamento e das contas de anúncio. Sem licença por usuário.",
-    href: "/diagnostico",
-    etapa: "azul",
-    vinheta: "painel",
-  },
-  {
     linha: "automacao",
     titulo: "Automação de processos",
     frase: "A tarefa que alguém faz à mão toda semana passa a rodar sozinha entre os sistemas que você já usa.",
@@ -350,13 +355,29 @@ export const LINHAS: Linha[] = [
     vinheta: "posvenda",
   },
   {
-    linha: "reativacao",
-    titulo: "Reativação de base",
+    linha: "diagnostico",
+    titulo: "Diagnóstico e análise de operação",
     frase:
-      "A sua base de clientes antigos, limpa e segmentada, recebe uma conversa no WhatsApp ou um SMS. Quem responde entra no CRM com a origem.",
+      "Onde o contato se perde, quanto tempo cada etapa leva e o que pesa na rotina. O diagnóstico de presença e a análise do fluxo viram o mapa que decide o escopo do Sprint.",
     href: "/diagnostico",
     etapa: "verde",
-    vinheta: "reativacao",
+    vinheta: "jornada",
+  },
+  {
+    linha: "consultoria",
+    titulo: "Consultoria de processos",
+    frase: "Desenho do fluxo, regras de passagem entre equipes e rotina de acompanhamento, com o que a equipe já usa antes de comprar qualquer ferramenta.",
+    href: "/diagnostico",
+    etapa: "azul",
+    vinheta: "fluxo",
+  },
+  {
+    linha: "dados",
+    titulo: "Indicadores e painéis",
+    frase: "Funil, tempo de resposta, custo por contato e vendas por origem numa tela só, atualizada a partir do CRM, do rastreamento e das contas de anúncio.",
+    href: "/diagnostico",
+    etapa: "azul",
+    vinheta: "painel",
   },
 ];
 
@@ -379,10 +400,10 @@ const linha = (id: string): Servico => {
 
 /** Cabeçalho da seção de soluções. */
 export const SOLUCOES = {
-  titulo: "O que um Sprint costuma usar.",
-  apagado: "Cada peça entra quando o gargalo pede, não por catálogo.",
+  titulo: "O catálogo de capacidades.",
+  apagado: "Tudo chega por um dos três Sprints.",
   texto:
-    "Um Sprint resolve um gargalo de cada vez. Estas são as intervenções que ele mais usa, e tudo roda na mesma base: o que entra por uma peça aparece nas outras. O escopo de cada projeto sai em proposta.",
+    "Não vendemos módulos soltos. O diagnóstico acha o gargalo, o escopo escolhe as capacidades abaixo e o tamanho do problema decide o Sprint. Cada projeto costura só o que o gargalo pede, e o escopo sai em proposta.",
 };
 
 /**
@@ -396,11 +417,35 @@ export const SOLUCOES = {
  */
 export const PILARES: { id: string; sobretitulo: string; titulo: string; frase: string; servicos: Servico[] }[] = [
   {
-    id: "mapa",
-    sobretitulo: "Atrair e medir",
-    titulo: "Ser encontrado e saber de onde vem cada contato.",
+    id: "operacao",
+    sobretitulo: "Organizar a operação",
+    titulo: "Responder rápido e organizar a operação.",
     frase:
-      "Quem procura o que você vende acha você ou acha o concorrente. Estas intervenções cuidam de ser você no Google, no Maps, nos anúncios, nas redes e nas respostas das IAs de busca, com a origem de cada contato registrada.",
+      "O contato que chega fora do horário recebe resposta na hora e entra no funil com a origem. A equipe começa o dia com o próximo passo pronto, e o dono vê o mês numa tela.",
+    servicos: [
+      linha("agente"),
+      linha("diagnostico"),
+      linha("consultoria"),
+      linha("crm"),
+      linha("dados"),
+      linha("automacao"),
+      linha("posvenda"),
+      {
+        linha: "automacao",
+        titulo: "Integrações entre sistemas",
+        frase: "Site, CRM, ERP e os sistemas do seu setor trocando dados sozinhos. Em produção hoje: o estoque do Revenda Mais.",
+        href: "/automacao-com-ia",
+        etapa: "azul",
+        vinheta: "integracoes",
+      },
+    ],
+  },
+  {
+    id: "mapa",
+    sobretitulo: "Trazer mais gente",
+    titulo: "De que adianta trazer mais gente se a operação não está pronta?",
+    frase:
+      "Por isso esta parte vem depois da operação. Com o atendimento respondendo, estas capacidades cuidam de ser você no Google, no Maps, nos anúncios, nas redes e nas respostas das IAs de busca, com a origem de cada contato registrada.",
     servicos: [
       {
         linha: "branding",
@@ -432,29 +477,6 @@ export const PILARES: { id: string; sobretitulo: string; titulo: string; frase: 
       linha("catalogo"),
       linha("redes"),
       linha("avaliacoes"),
-    ],
-  },
-  {
-    id: "operacao",
-    sobretitulo: "Atender e operar",
-    titulo: "Responder rápido e organizar a operação.",
-    frase:
-      "O contato que chega fora do horário recebe resposta na hora e entra no funil com a origem. A equipe começa o dia com o próximo passo pronto, e o dono vê o mês numa tela.",
-    servicos: [
-      linha("agente"),
-      linha("crm"),
-      linha("painel"),
-      linha("automacao"),
-      linha("reativacao"),
-      linha("posvenda"),
-      {
-        linha: "automacao",
-        titulo: "Integrações entre sistemas",
-        frase: "Site, CRM, ERP e os sistemas do seu setor trocando dados sozinhos. Em produção hoje: o estoque do Revenda Mais.",
-        href: "/automacao-com-ia",
-        etapa: "azul",
-        vinheta: "integracoes",
-      },
     ],
   },
 ];
@@ -905,7 +927,7 @@ export const CASE = {
 export const AUTOMOTIVO = {
   titulo: "Para revendas de veículos",
   texto:
-    "O pacote é o sistema da Motors Store: site de estoque integrado ao sistema da loja (Revenda Mais, Autoconf e outros), agente de IA no WhatsApp, CRM e rastreamento até a venda.",
+    "O modelo parte do sistema da Motors Store: site de estoque integrado ao sistema da loja (Revenda Mais, Autoconf e outros), agente de IA no WhatsApp, CRM e rastreamento até a venda.",
   href: "/segmentos/revendas-de-veiculos",
   /** Vinheta do estoque: carros de exemplo, rotulada como exemplo. */
   estoque: {

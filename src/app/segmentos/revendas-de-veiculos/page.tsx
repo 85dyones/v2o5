@@ -23,7 +23,7 @@ export const metadata = metadataDa(ROTA);
 /** A etapa de cada peça do pacote, na ordem dele (rastreamento é atração, como na home). */
 const ETAPA_DA_PECA: Etapa[] = ["violeta", "verde", "azul", "violeta"];
 
-/** A etapa de cada pacote: Presença é atração, Atendimento é atendimento, Completo é gestão. */
+/** A etapa de cada modelo: Mapa é atração, Operação com IA é atendimento, Completo é gestão. */
 const ETAPA_DO_PLANO: Etapa[] = ["violeta", "verde", "azul"];
 
 /**
@@ -168,7 +168,7 @@ export default function Pagina() {
           </ul>
         </Trecho>
 
-        {/* Os três pacotes, únicos preços de plano do site (25/10/2026): cada um na cor da sua etapa. */}
+        {/* Os três modelos de Sprint para revendas, únicos valores de modelo do site (25/10/2026): cada um na cor da sua etapa. */}
         <Trecho aria-labelledby="titulo-planos" etapa="verde">
           <Cabeca id="titulo-planos" titulo={h.planos.titulo} texto={h.planos.texto} />
           <ul className="mt-titulo-conteudo border-t-2 border-texto">
@@ -176,7 +176,7 @@ export default function Pagina() {
               <Linha key={p.id} etapa={ETAPA_DO_PLANO[i]}>
                 <div className="col-span-12 md:col-span-4">
                   <p className="rotulo" style={{ color: TEXTO_DA_ETAPA[ETAPA_DO_PLANO[i]] }}>
-                    {p.linha}
+                    {p.sprint}
                   </p>
                   <h3 className="titulo-cartao mt-2">{p.nome}</h3>
                   <p className="mt-2 text-[0.9375rem] leading-relaxed text-texto-secundario">{p.para}</p>
@@ -189,7 +189,7 @@ export default function Pagina() {
                 <dl className="col-span-12 md:col-span-3">
                   <dt className="rotulo text-texto-secundario">Implantação</dt>
                   <dd className="numero text-[1.125rem] font-semibold">{p.implantacao}</dd>
-                  <dt className="rotulo mt-3 text-texto-secundario">Mensalidade</dt>
+                  <dt className="rotulo mt-3 text-texto-secundario">Recorrência mensal</dt>
                   <dd className="numero text-[1.125rem] font-semibold">{p.mensalidade}</dd>
                   {p.condicao ? <dd className="mt-1 text-sm text-texto-secundario">{p.condicao}</dd> : null}
                   {p.bonus ? <dd className="mt-2 text-sm leading-snug">{p.bonus}</dd> : null}

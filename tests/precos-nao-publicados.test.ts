@@ -91,7 +91,7 @@ describe("valores que não são publicados", () => {
   it("há valores internos a vigiar", () => {
     expect(internos.length).toBeGreaterThan(20);
     expect(internos).toContain(8900);
-    expect(internos).toContain(990);
+    expect(internos).toContain(1590);
     expect(internos).not.toContain(3000);
   });
 

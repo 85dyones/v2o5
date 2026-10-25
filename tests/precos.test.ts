@@ -46,12 +46,12 @@ describe("tabela de preços", () => {
 
   it("três planos com preço fechado (Dyones, 15/10)", () => {
     expect(PLANOS.map((p) => [p.id, p.implantacao, p.mensalidade])).toEqual([
-      ["presenca", 8900, 990],
+      ["presenca", 8900, 1200],
       ["atendimento", 7900, 1590],
       ["completo", 14900, 2290],
     ]);
-    expect(somaDosPlanosSeparados()).toEqual({ implantacao: 16800, mensalidade: 2580 });
-    expect(plano("completo").rodape).toContain("R$ 16.800 + R$ 2.580/mês");
+    expect(somaDosPlanosSeparados()).toEqual({ implantacao: 16800, mensalidade: 2790 });
+    expect(plano("completo").rodape).toContain("R$ 16.800 + R$ 2.790/mês");
     expect(plano("completo").mensalidade).toBeLessThan(somaDosPlanosSeparados().mensalidade);
     expect(plano("atendimento").inclui.join(" ")).toContain(`${USUARIOS_NO_CRM} usuários`);
   });
@@ -133,7 +133,7 @@ describe("tabela de preços", () => {
   });
 
   it("os textos de preço seguem o formato dos cartões", () => {
-    expect(precoDa("sites")).toBe("no plano Presença, a partir de R$ 8.900 + R$ 990/mês");
+    expect(precoDa("sites")).toBe("no plano Presença, a partir de R$ 8.900 + R$ 1.200/mês");
     expect(precoDa("agente")).toBe("no plano Atendimento, a partir de R$ 7.900 + R$ 1.590/mês");
     expect(precoDa("avaliacoes")).toBe("incluso no plano Presença");
     expect(precoDa("rastreamento")).toBe("a partir de R$ 2.900 + R$ 690/mês, ou no plano Presença");
@@ -148,7 +148,7 @@ describe("tabela de preços", () => {
   });
 
   it("a página de solução mostra o plano em que a peça mora, ou a linha própria", () => {
-    expect(ofertaDaCapacidade("sites")).toMatchObject({ nome: "Plano Presença", implantacao: 8900, mensalidade: 990 });
+    expect(ofertaDaCapacidade("sites")).toMatchObject({ nome: "Plano Presença", implantacao: 8900, mensalidade: 1200 });
     expect(ofertaDaCapacidade("crm")).toMatchObject({ nome: "Plano Atendimento", implantacao: 7900, mensalidade: 1590 });
     expect(ofertaDaCapacidade("rastreamento")).toMatchObject({ id: "rastreamento", implantacao: 2900, mensalidade: 690 });
     expect(ofertaDaCapacidade("automacao")).toMatchObject({ id: "automacao", implantacao: 1900 });

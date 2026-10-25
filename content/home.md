@@ -1,14 +1,14 @@
 ---
 rota: "/"
-url: "https://www.v2o5.com.br/"
+url: "http://localhost:3100/"
 status: 200
 title: "V2O5 Vendas e Tecnologia | Menos atrito entre problema e resultado"
 description: "A V2O5 acha o gargalo, simplifica o processo e implementa tecnologia, automação e IA para a operação render mais e ser medida. Comece pelo Sprint de Eficiência."
 canonical: "https://www.v2o5.com.br"
 robots: null
 h1: "Do problema ao resultado, pelo caminho mais simples."
-extraido_em: "2026-10-25T21:36:46.516Z"
-fonte: "build local da branch claude/keen-ptolemy-vnfnfu (só o Sprint e a recorrência com valor público, 25/10/2026), extraída com design/baseline/ferramentas; as demais rotas seguem como em 19/10"
+extraido_em: "2026-10-25T23:42:09.039Z"
+fonte: "produção (www.v2o5.com.br), main em 111d87c"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 Estratégia, processos e tecnologia
@@ -98,6 +98,44 @@ Comparamos os indicadores disponíveis com a linha de base, registramos o que mu
 - Leitura de resultado
 - Próxima decisão
 
+## Todo serviço da V2O5 chega por um destes três.
+
+O diagnóstico acha o gargalo, o catálogo oferece as capacidades e o tamanho do problema decide o Sprint. Nada é vendido solto: cada projeto costura só o que o gargalo pede, e o preço fechado sai em proposta.
+
+1 a 2 semanas
+
+### Sprint Essencial
+
+R$ 3.000 a R$ 5.000
+
+Um problema específico, resolvido por uma intervenção pequena.
+
+1 a 2 semanas, como referência.
+
+Oferta principal
+
+### Sprint Integrada
+
+R$ 6.000 a R$ 12.000
+
+Um gargalo que pede mudanças ligadas em processo, tecnologia e operação.
+
+2 a 4 semanas, como referência.
+
+4 a 8 semanas ou mais
+
+### Sprint Avançada
+
+R$ 12.000 a R$ 25.000 ou mais
+
+Vários sistemas, regras de negócio, migrações ou maior risco técnico.
+
+4 a 8 semanas ou mais, como referência.
+
+[Ver as faixas e as condições](/precos#titulo-sprint)
+
+[Ver o catálogo de capacidades](/#solucoes)
+
 Resultado antes de vaidade técnica
 
 ## O que conta é o que mudou na operação.
@@ -180,13 +218,33 @@ Referência de R$ 1.200 a R$ 5.000 por mês pela gestão, em contrato. Nuvem e I
 
 Bônus por desempenho fica como opção futura, só com linha de base, regra de atribuição acordada e dados auditáveis. Não faz parte da oferta padrão.
 
-## O que um Sprint costuma usar. Cada peça entra quando o gargalo pede, não por catálogo.
+## O catálogo de capacidades. Tudo chega por um dos três Sprints.
 
-Um Sprint resolve um gargalo de cada vez. Estas são as intervenções que ele mais usa, e tudo roda na mesma base: o que entra por uma peça aparece nas outras. O escopo de cada projeto sai em proposta.
+Não vendemos módulos soltos. O diagnóstico acha o gargalo, o escopo escolhe as capacidades abaixo e o tamanho do problema decide o Sprint. Cada projeto costura só o que o gargalo pede, e o escopo sai em proposta.
 
-### Ser encontrado e saber de onde vem cada contato.
+### Responder rápido e organizar a operação.
 
-Quem procura o que você vende acha você ou acha o concorrente. Estas intervenções cuidam de ser você no Google, no Maps, nos anúncios, nas redes e nas respostas das IAs de busca, com a origem de cada contato registrada.
+O contato que chega fora do horário recebe resposta na hora e entra no funil com a origem. A equipe começa o dia com o próximo passo pronto, e o dono vê o mês numa tela.
+
+[Atendimento Agente de IA no WhatsApp Responde na hora, a qualquer hora, com as informações do seu negócio. Quando a conversa pede uma pessoa, chama alguém da equipe. →](/agente-de-ia-para-whatsapp)
+
+[Atendimento Diagnóstico e análise de operação Onde o contato se perde, quanto tempo cada etapa leva e o que pesa na rotina. O diagnóstico de presença e a análise do fluxo viram o mapa que decide o escopo do Sprint. →](/diagnostico)
+
+[Gestão Consultoria de processos Desenho do fluxo, regras de passagem entre equipes e rotina de acompanhamento, com o que a equipe já usa antes de comprar qualquer ferramenta. →](/diagnostico)
+
+[Gestão CRM e sistemas sob medida Nenhum contato esquecido numa conversa: cada um num funil, com a origem, a etapa e o próximo passo à vista. →](/crm-com-whatsapp)
+
+[Gestão Indicadores e painéis Funil, tempo de resposta, custo por contato e vendas por origem numa tela só, atualizada a partir do CRM, do rastreamento e das contas de anúncio. →](/diagnostico)
+
+[Gestão Automação de processos A tarefa que alguém faz à mão toda semana passa a rodar sozinha entre os sistemas que você já usa. →](/automacao-com-ia)
+
+[Venda Pós-venda e recorrência Revisão, troca, seguro ou recompra: a régua de retorno manda a mensagem na data certa e devolve o cliente ao funil. →](/diagnostico)
+
+[Gestão Integrações entre sistemas Site, CRM, ERP e os sistemas do seu setor trocando dados sozinhos. Em produção hoje: o estoque do Revenda Mais. →](/automacao-com-ia)
+
+### De que adianta trazer mais gente se a operação não está pronta?
+
+Por isso esta parte vem depois da operação. Com o atendimento respondendo, estas capacidades cuidam de ser você no Google, no Maps, nos anúncios, nas redes e nas respostas das IAs de busca, com a origem de cada contato registrada.
 
 [Atração Branding e gestão de marca Antes de anunciar, decida o que a marca promete. Posicionamento, identidade visual e tom de voz num guia que vale para o perfil, o site, os anúncios e o atendimento. →](/diagnostico)
 
@@ -205,24 +263,6 @@ Quem procura o que você vende acha você ou acha o concorrente. Estas interven�
 [Atração Conteúdo e gestão de redes sociais Duas redes com perfis configurados e um calendário de 12 publicações por mês feitas do que a empresa já produz: o estoque, os guias, a novidade da semana. Cada post com link rastreado. →](/diagnostico)
 
 [Venda Avaliações no Google Depois da venda, o cliente recebe no WhatsApp o pedido de avaliação com o link certo, e o painel mostra quem respondeu. →](/diagnostico)
-
-### Responder rápido e organizar a operação.
-
-O contato que chega fora do horário recebe resposta na hora e entra no funil com a origem. A equipe começa o dia com o próximo passo pronto, e o dono vê o mês numa tela.
-
-[Atendimento Agente de IA no WhatsApp Responde na hora, a qualquer hora, com as informações do seu negócio. Quando a conversa pede uma pessoa, chama alguém da equipe. →](/agente-de-ia-para-whatsapp)
-
-[Gestão CRM e sistemas sob medida Nenhum contato esquecido numa conversa: cada um num funil, com a origem, a etapa e o próximo passo à vista. →](/crm-com-whatsapp)
-
-[Gestão Painel do dono Funil, verba, custo por lead e vendas por origem numa tela, atualizada todo dia a partir do CRM, do rastreamento e das contas de anúncio. Sem licença por usuário. →](/diagnostico)
-
-[Gestão Automação de processos A tarefa que alguém faz à mão toda semana passa a rodar sozinha entre os sistemas que você já usa. →](/automacao-com-ia)
-
-[Atendimento Reativação de base A sua base de clientes antigos, limpa e segmentada, recebe uma conversa no WhatsApp ou um SMS. Quem responde entra no CRM com a origem. →](/diagnostico)
-
-[Venda Pós-venda e recorrência Revisão, troca, seguro ou recompra: a régua de retorno manda a mensagem na data certa e devolve o cliente ao funil. →](/diagnostico)
-
-[Gestão Integrações entre sistemas Site, CRM, ERP e os sistemas do seu setor trocando dados sozinhos. Em produção hoje: o estoque do Revenda Mais. →](/automacao-com-ia)
 
 ## Como tudo se liga. Cada peça passa o contato adiante, com a origem junto.
 
@@ -284,7 +324,7 @@ Venda
 
 ## Para revendas de veículos
 
-O pacote é o sistema da Motors Store: site de estoque integrado ao sistema da loja (Revenda Mais, Autoconf e outros), agente de IA no WhatsApp, CRM e rastreamento até a venda.
+O modelo parte do sistema da Motors Store: site de estoque integrado ao sistema da loja (Revenda Mais, Autoconf e outros), agente de IA no WhatsApp, CRM e rastreamento até a venda.
 
 [Ver a página de revendas](/segmentos/revendas-de-veiculos)
 
@@ -405,137 +445,15 @@ O · 4,8 <!-- texto em SVG; decorativo, aria-hidden -->
 <!-- fora do <main>: botão fixo do WhatsApp (só abaixo de 768 px) -->
 [WhatsApp](https://wa.me/5541998089550?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20V2O5%20e%20quero%20pedir%20o%20diagn%C3%B3stico%20gratuito.)
 
-<!-- ===== Estados que só aparecem com clique. Só o diagrama "como tudo se liga" continua na home; a demonstração em abas (Orquestrador) saiu da home em 25/10 e segue em /agente-de-ia-para-whatsapp. ===== -->
+<!-- ===== Estados que só aparecem com clique. Capturados com "menos movimento", em que cada aba aparece completa de uma vez. ===== -->
+
+<!-- demonstração: painel de cada aba (role=tabpanel). Com movimento, os passos aparecem um a um e a aba "Agente de IA" já vem aberta. -->
 
 <!-- diagrama "como tudo se liga": painel de cada peça (a peça "site" é a que vem escolhida no HTML) -->
 
-<!-- peça: site -->
-
-Atração
-
-### Site
-
-Recebe o visitante e guarda de onde ele veio antes de levá-lo ao WhatsApp ou ao formulário.
-
-Caminho que passa por aqui
-
-Site
-
-WhatsApp
-
-Agente de IA
-
-CRM
-
-Venda
-
-<!-- peça: whatsapp -->
-
-Atendimento
-
-### WhatsApp
-
-É onde a conversa acontece. Cada mensagem chega ao agente com o histórico do contato.
-
-Caminho que passa por aqui
-
-Site
-
-WhatsApp
-
-Agente de IA
-
-CRM
-
-<!-- peça: agente -->
-
-Atendimento
-
-### Agente de IA
-
-Responde com as informações do seu negócio e qualifica o contato antes de passar para a equipe.
-
-Caminho que passa por aqui
-
-WhatsApp
-
-Agente de IA
-
-n8n
-
-CRM
-
-<!-- peça: n8n -->
-
-Gestão
-
-### n8n
-
-É a automação entre os sistemas. Atualiza o estoque no site e avisa a equipe quando entra um lead.
-
-Caminho que passa por aqui
-
-Agente de IA
-
-n8n
-
-CRM
-
-<!-- peça: crm -->
-
-Gestão
-
-### CRM
-
-O funil onde cada lead aparece com a origem e o próximo passo.
-
-Caminho que passa por aqui
-
-Agente de IA
-
-CRM
-
-Venda
-
-<!-- peça: rastreamento -->
-
-Atração
-
-### Rastreamento
-
-Liga cada lead e cada venda ao anúncio de origem e devolve a conversão para Google e Meta.
-
-Caminho que passa por aqui
-
-Site
-
-Rastreamento
-
-CRM
-
-Venda
-
-Rastreamento
-
-<!-- peça: venda -->
-
-Venda
-
-### Venda
-
-O fechamento registrado no CRM, com a origem conhecida.
-
-Caminho que passa por aqui
-
-CRM
-
-Venda
-
-Rastreamento
-
 <!-- rótulos de acessibilidade (aria-label) desta rota, fora topo e rodapé:
-- "No mapa" (section)
-- "Operação com IA" (section)
+- "Organizar a operação" (section)
+- "Trazer mais gente" (section)
 - "Diagrama: como as peças do sistema se ligam" (ol)
 - "Segmento" (section)
 - "Antes de contratar" (section)

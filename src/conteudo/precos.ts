@@ -8,7 +8,7 @@
  * das quinze linhas avulsas, o tráfego como serviço à parte, módulos para
  * quem já tem o sistema e serviços. Quem chega escolhe pelo problema que
  * tem; a venda adicional mora nos módulos.
- * - Presença R$ 8.900 + R$ 990/mês; Atendimento R$ 7.900 + R$ 1.590/mês.
+ * - Presença R$ 8.900 + R$ 1.200/mês (subiu de R$ 990 em 25/10, para caber na faixa de continuidade do Sprint); Atendimento R$ 7.900 + R$ 1.590/mês.
  * - Completo R$ 14.900 + R$ 2.290/mês de tabela: a manutenção integrada passa
  *   de 7 horas por mês ("passa de 7 horas, ajuste"). Por tempo limitado, sai
  *   a R$ 1.990/mês (`OFERTA_DO_COMPLETO`), e quem fecha o Completo leva a
@@ -97,7 +97,7 @@ export interface Plano {
   repasses?: string[];
 }
 
-const PRESENCA = { implantacao: 8900, mensalidade: 990 };
+const PRESENCA = { implantacao: 8900, mensalidade: 1200 };
 const ATENDIMENTO = { implantacao: 7900, mensalidade: 1590 };
 const TRAFEGO_NO_COMPLETO = 1300;
 
@@ -456,6 +456,10 @@ export const CAPACIDADES: Record<string, Capacidade> = {
     preco: () => `${precoDaLinha(linhaDePreco("automacao"))}; um vem no plano Completo`,
   },
   reativacao: { nome: "Reativação de base", linha: "reativacao" },
+  // Capacidades do catálogo de 25/10/2026 (tudo entra por um Sprint): sem linha própria na tabela.
+  diagnostico: { nome: "Diagnóstico e análise de operação", preco: () => "gratuito na sessão inicial; depois, dentro do Sprint" },
+  consultoria: { nome: "Consultoria de processos", preco: () => "dentro do Sprint" },
+  dados: { nome: "Indicadores e painéis", linha: "painel" },
   branding: { nome: "Branding e gestão de marca", linha: "branding" },
 };
 

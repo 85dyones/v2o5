@@ -3,8 +3,8 @@ import { BRL, dataBR, mensalidadeDoPlano, OFERTA_DO_COMPLETO, PLANOS } from "@/c
 /**
  * Hub do segmento automotivo (`/segmentos/revendas-de-veiculos`): o que um
  * Sprint de Eficiência para revendas costuma juntar (o site de estoque do
- * sistema da Motors Store, agente, CRM e rastreamento), os três pacotes
- * prontos para revendas e as perguntas de dono de loja. É o único lugar do
+ * sistema da Motors Store, agente, CRM e rastreamento), os três modelos
+ * modelos de Sprint para revendas e as perguntas de dono de loja. É o único lugar do
  * site com o valor dos planos Presença, Atendimento e Completo (Dyones,
  * 25/10/2026: "podem ficar no segmento automotivo"); tráfego, módulos e
  * serviços seguem internos. Os números do case e o caminho do lead moram em
@@ -15,6 +15,10 @@ import { BRL, dataBR, mensalidadeDoPlano, OFERTA_DO_COMPLETO, PLANOS } from "@/c
  * Motors, não um agente de IA. Por isso o texto diz que o agente completa o
  * sistema, sem afirmar que roda na loja (pendência 13).
  */
+/** O nome de cada modelo e o Sprint a que ele pertence, pela faixa da implantação (`sprint.ts`). */
+const NOME_DO_MODELO = { presenca: "Mapa", atendimento: "Operação com IA", completo: "Completo" } as const;
+const SPRINT_DO_MODELO = { presenca: "Sprint Integrada", atendimento: "Sprint Integrada", completo: "Sprint Avançada" } as const;
+
 export const HUB_AUTOMOTIVO = {
   rota: "/segmentos/revendas-de-veiculos",
   sobretitulo: "Revendas de veículos",
@@ -65,24 +69,26 @@ export const HUB_AUTOMOTIVO = {
       },
     ],
   },
+  /** Os três modelos de Sprint para revendas (Dyones, 25/10/2026: "eles são, em suma, sprints também"). */
   planos: {
-    titulo: "Três pacotes prontos para revendas.",
+    titulo: "Três modelos de Sprint para revendas.",
     texto:
-      "Para a loja que já sabe o que precisa. O Sprint de Eficiência, que resolve um gargalo por vez, tem as faixas em Preços; os pacotes abaixo têm valor fechado.",
+      "São Sprints com o escopo da revenda já desenhado: mudam o gargalo que atacam e o tamanho do projeto. O preço fechado de cada projeto sai em proposta; os valores abaixo são o ponto de partida do modelo.",
     itens: PLANOS.map((p) => ({
       id: p.id,
-      nome: p.nome,
+      nome: NOME_DO_MODELO[p.id],
+      sprint: SPRINT_DO_MODELO[p.id],
       linha: p.pilar,
       para: p.para,
       inclui: p.inclui.filter((i) => !/Google Ads/.test(i)),
       implantacao: BRL(p.implantacao),
       mensalidade: BRL(mensalidadeDoPlano(p)),
       /** O Completo tem preço de lançamento com data; depois dela volta à tabela. */
-      condicao: p.id === "completo" ? `Mensalidade até ${dataBR(OFERTA_DO_COMPLETO.ate)}; depois, ${BRL(p.mensalidade)}.` : undefined,
+      condicao: p.id === "completo" ? `Recorrência até ${dataBR(OFERTA_DO_COMPLETO.ate)}; depois, ${BRL(p.mensalidade)}.` : undefined,
       bonus: p.bonus,
     })),
     rodape:
-      "A mensalidade cobre hospedagem e manutenção. Nuvem, IA e mensagens ficam por fora, pelo valor do provedor, discriminados na fatura, com teto mensal combinado e aviso antes de ultrapassá-lo; a V2O5 gerencia. Tráfego pago e outros serviços saem em proposta.",
+      "A recorrência paga a gestão continuada e cobre hospedagem e manutenção. Nuvem, IA e mensagens ficam por fora, pelo valor do provedor, discriminados na fatura, com teto mensal combinado e aviso antes de ultrapassá-lo; a V2O5 gerencia. Tráfego pago e outras capacidades do catálogo entram no escopo do Sprint, em proposta.",
   },
   case: {
     texto: "O que foi construído na Motors Store, os números lidos no banco da loja e o caminho de um lead, do estoque à venda, estão no case.",

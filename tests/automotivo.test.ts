@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { HUB_AUTOMOTIVO } from "@/conteudo/automotivo";
-import { BRL, OFERTA_DO_COMPLETO, plano } from "@/conteudo/precos";
+import { BRL, OFERTA_DO_COMPLETO, plano, PLANOS } from "@/conteudo/precos";
+import { CONTINUIDADE, SPRINT_DE_PRECOS } from "@/conteudo/sprint";
 import { paginaDa } from "@/conteudo/paginas";
 import { grafoDoHubAutomotivo, servicoAutomotivo } from "@/lib/schema";
 import { ler, semComentarios } from "./fonte";
@@ -27,15 +28,31 @@ describe("hub automotivo", () => {
   });
 
   it("mostra os três planos com o valor de plano e nenhum módulo avulso, tráfego ou repasse", () => {
-    expect(HUB_AUTOMOTIVO.planos.itens.map((p) => p.nome)).toEqual(["Presença", "Atendimento", "Completo"]);
+    expect(HUB_AUTOMOTIVO.planos.itens.map((p) => p.nome)).toEqual(["Mapa", "Operação com IA", "Completo"]);
     for (const p of HUB_AUTOMOTIVO.planos.itens) {
       expect(p.implantacao).toBe(BRL(plano(p.id).implantacao));
       expect(texto).toContain(p.implantacao);
     }
+    expect(HUB_AUTOMOTIVO.planos.itens.map((p) => p.sprint)).toEqual(["Sprint Integrada", "Sprint Integrada", "Sprint Avançada"]);
+    expect(HUB_AUTOMOTIVO.planos.titulo).toMatch(/modelos de Sprint/);
+    // A implantação de cada modelo cabe na faixa do Sprint a que ele pertence.
+    for (const p of HUB_AUTOMOTIVO.planos.itens) {
+      const faixa = SPRINT_DE_PRECOS.niveis.find((n) => n.nome === p.sprint.replace("Sprint ", "Sprint "))!.faixa;
+      const valor = plano(p.id).implantacao;
+      expect(valor, p.nome).toBeGreaterThanOrEqual(faixa.de);
+      if (!faixa.ouMais) expect(valor, p.nome).toBeLessThanOrEqual(faixa.ate);
+    }
+    // A recorrência de cada modelo cabe na faixa de continuidade pública.
+    const minimo = Math.min(...CONTINUIDADE.modalidades.map((m) => m.faixa.de));
+    const maximo = Math.max(...CONTINUIDADE.modalidades.map((m) => m.faixa.ate));
+    for (const p of PLANOS) {
+      expect(p.mensalidade, p.nome).toBeGreaterThanOrEqual(minimo);
+      expect(p.mensalidade, p.nome).toBeLessThanOrEqual(maximo);
+    }
     const completo = HUB_AUTOMOTIVO.planos.itens[2];
     expect(completo.mensalidade).toBe(BRL(OFERTA_DO_COMPLETO.mensalidade));
     expect(completo.condicao).toContain(BRL(plano("completo").mensalidade));
-    expect(texto).not.toMatch(/Google Ads|Meta Ads|R\$ 1\.300|R\$ 1\.200/);
+    expect(texto).not.toMatch(/Google Ads|Meta Ads|R\$ 1\.300/);
     expect(HUB_AUTOMOTIVO).not.toHaveProperty("extras");
     expect(texto).not.toMatch(/repasse|consulta veicular|por placa/i);
     expect(HUB_AUTOMOTIVO.fatos[0].rotulo).toBe("No Sprint");
