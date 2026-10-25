@@ -10,6 +10,7 @@ import Automotivo from "@/components/home/Automotivo";
 import Fechamento from "@/components/home/Fechamento";
 import Dores from "@/components/home/Dores";
 import Sprint from "@/components/home/Sprint";
+import TresSprints from "@/components/home/TresSprints";
 import Indicadores from "@/components/home/Indicadores";
 import ProjetoReal from "@/components/home/ProjetoReal";
 import Escada from "@/components/home/Escada";
@@ -18,7 +19,7 @@ import { FECHO } from "@/conteudo/home";
 
 /**
  * A home inteira. O H1 vem de `TITULO_DA_HOME` (conteudo/home.ts). A ordem
- * segue `V2O5_CORE.md`: dor, Sprint, indicadores, projeto, escada de oferta e
+ * segue `V2O5_CORE.md`: dor, Sprint, os três Sprints, indicadores, projeto, escada de oferta e
  * só então o cardápio de peças, que serve ao método e não o substitui.
  */
 export default function Home({ titulo }: { titulo: string }) {
@@ -29,6 +30,7 @@ export default function Home({ titulo }: { titulo: string }) {
         <Hero titulo={titulo} />
         <Dores />
         <Sprint />
+        <TresSprints />
         <Indicadores />
         <ProjetoReal />
         <Escada />

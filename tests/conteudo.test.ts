@@ -8,6 +8,7 @@ import {
   PERGUNTAS,
   PILARES,
   SOLUCOES,
+  TRES_SPRINTS,
   TITULO_DA_HOME,
   VISAO_360,
 } from "@/conteudo/home";
@@ -61,7 +62,7 @@ describe("demonstrações rotuladas", () => {
 
 describe("oferta", () => {
   it("os cartões do catálogo da home não publicam valor nem falam de plano ou mensalidade", () => {
-    expect(LINHAS).toHaveLength(12);
+    expect(LINHAS).toHaveLength(13);
     for (const linha of LINHAS) {
       expect(linha, linha.titulo).not.toHaveProperty("preco");
       expect(`${linha.titulo} ${linha.frase}`, linha.titulo).not.toMatch(/R\$|mensalidade|plano |Completo|Presença/);
@@ -70,11 +71,11 @@ describe("oferta", () => {
   });
 });
 
-describe("os dois grupos do catálogo", () => {
+describe("os dois grupos do catálogo (operação primeiro, \"Trazer mais gente\" depois)", () => {
   const servicos = PILARES.flatMap((p) => p.servicos);
 
   it("são dois grupos, e toda linha da home está num deles", () => {
-    expect(PILARES.map((p) => p.sobretitulo)).toEqual(["Atrair e medir", "Atender e operar"]);
+    expect(PILARES.map((p) => p.sobretitulo)).toEqual(["Organizar a operação", "Trazer mais gente"]);
     for (const l of LINHAS) expect(servicos, l.titulo).toContainEqual(l);
   });
 
@@ -92,22 +93,31 @@ describe("os dois grupos do catálogo", () => {
   });
 
   it("o mapa traz branding, Perfil da Empresa no Google, SEO e tráfego no Google e na Meta", () => {
-    const mapa = PILARES[0].servicos.map((s) => s.titulo).join(" | ");
+    const mapa = PILARES[1].servicos.map((s) => s.titulo).join(" | ");
     expect(mapa).toMatch(/Branding e gestão de marca/);
     expect(mapa).toMatch(/Perfil da Empresa no Google/);
     expect(mapa).toMatch(/SEO/);
     expect(mapa).toMatch(/Google e na Meta/);
-    expect(PILARES[0].servicos).toHaveLength(9);
+    expect(PILARES[1].servicos).toHaveLength(9);
+    expect(PILARES[1].titulo).toMatch(/De que adianta trazer mais gente se a operação não está pronta/);
   });
 
-  it("a operação traz o agente no bloco grande, painel, reativação e pós-venda, e as integrações por último", () => {
-    const operacao = PILARES[1].servicos.map((s) => s.titulo);
+  it("a operação traz o agente no bloco grande, diagnóstico, consultoria, indicadores e pós-venda, e as integrações por último; sem módulos", () => {
+    const operacao = PILARES[0].servicos.map((s) => s.titulo);
     expect(operacao[0]).toBe("Agente de IA no WhatsApp");
-    expect(operacao).toContain("Painel do dono");
-    expect(operacao).toContain("Reativação de base");
+    expect(operacao).toContain("Diagnóstico e análise de operação");
+    expect(operacao).toContain("Consultoria de processos");
+    expect(operacao).toContain("Indicadores e painéis");
     expect(operacao).toContain("Pós-venda e recorrência");
+    expect(operacao).not.toContain("Painel do dono");
+    expect(operacao).not.toContain("Reativação de base");
     expect(operacao[operacao.length - 1]).toBe("Integrações entre sistemas");
-    expect(PILARES[1].servicos).toHaveLength(7);
+    expect(PILARES[0].servicos).toHaveLength(8);
+  });
+
+  it("o cabeçalho do catálogo diz que tudo chega por um dos três Sprints", () => {
+    expect(`${SOLUCOES.titulo} ${SOLUCOES.apagado}`).toMatch(/três Sprints/);
+    expect(TRES_SPRINTS.titulo).toMatch(/três/);
   });
 
   it("as perguntas respondem preço do Sprint, pagamento, continuidade e lista comprada", () => {

@@ -344,3 +344,11 @@ Redação da recorrência (25/10, Dyones): `/precos#titulo-sprint` abre "O que c
 ## Atualização de 25/10/2026 (planos voltam ao hub automotivo)
 
 Decisão do Dyones: "os preços dos planos de presença, atendimento e completo podem ficar no segmento automotivo". O valor de Presença (R$ 8.900 + R$ 990/mês), Atendimento (R$ 7.900 + R$ 1.590/mês) e Completo (R$ 14.900 + R$ 1.990/mês até 31/12/2026, depois R$ 2.290) aparece só em `/segmentos/revendas-de-veiculos` (seção `#titulo-planos`); tráfego, módulos e serviços seguem internos, e `llms.txt`, schema, vitrine e agente do n8n não citam valor de plano. `/precos` cobre só a política do Sprint. Para não repetir o case, o hub perdeu "O caminho de um lead" e "Medido na Motors Store" (âncoras `#titulo-caminho` e `#titulo-medido`) e ganhou `#titulo-case`, que aponta para `/cases/motors-store`. `tests/precos-nao-publicados.test.ts` libera os valores dos planos só nos dois arquivos do hub.
+
+## Atualização de 25/10/2026 (três Sprints como guarda-chuva)
+
+- Home: nova seção `#tres-sprints` (os três Sprints, com faixa e duração de `sprint.ts`) depois do método; o catálogo `#solucoes` virou "O catálogo de capacidades", com a operação primeiro ("Organizar a operação") e "Trazer mais gente" depois. Saíram os cartões "Painel do dono" e "Reativação de base"; entraram "Diagnóstico e análise de operação", "Consultoria de processos" e "Indicadores e painéis". `#solucoes` e `#como-se-liga` seguem.
+- Hub automotivo: `#titulo-planos` mostra os "modelos de Sprint para revendas" (Mapa e Operação com IA na Sprint Integrada, Completo na Avançada); a recorrência da Presença subiu para R$ 1.200.
+- `/criacao-de-sites`: as entregas são a entrega-base do site (`SITE_PADRAO`, nove itens).
+- `/precos`: link para o catálogo acima das três faixas. `llms.txt` descreve os três Sprints e o catálogo, sem valor de modelo.
+

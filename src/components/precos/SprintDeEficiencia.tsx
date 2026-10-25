@@ -1,3 +1,4 @@
+import LinkOuAncora from "@/components/LinkOuAncora";
 import { ComMarcas } from "@/components/rota/Rota";
 import { CONDICOES, CONTINUIDADE, faixaEmTexto, SPRINT_DE_PRECOS as S } from "@/conteudo/sprint";
 
@@ -5,6 +6,13 @@ import { CONDICOES, CONTINUIDADE, faixaEmTexto, SPRINT_DE_PRECOS as S } from "@/
 export default function SprintDeEficiencia() {
   return (
     <div>
+      <p className="mb-6 max-w-[44rem] text-[0.9375rem] leading-relaxed text-texto-secundario">
+        São três Sprints, e todo serviço da V2O5 chega por um deles. O diagnóstico acha o gargalo e o escopo costura só as capacidades que ele pede.{" "}
+        <LinkOuAncora href="/#solucoes" className="link-sublinhado font-medium text-texto" data-evento="cta_click" data-local="precos">
+          Ver o catálogo de capacidades
+        </LinkOuAncora>
+        .
+      </p>
       <ol className="grid gap-4 md:grid-cols-3">
         {S.niveis.map((n) => (
           <li key={n.nome} className={`flex flex-col p-6 ${"principal" in n && n.principal ? "border-2 border-texto" : "border border-linha"}`}>

@@ -7,8 +7,8 @@ description: "O que a V2O5 montou para a Motors Store, revenda de seminovos em C
 canonical: "https://www.v2o5.com.br/cases/motors-store"
 robots: null
 h1: "Motors Store: o sistema inteiro numa revenda de seminovos."
-extraido_em: "2026-10-25T23:16:55.066Z"
-fonte: "produção (www.v2o5.com.br), main em 74ff989"
+extraido_em: "2026-10-25T23:42:09.039Z"
+fonte: "produção (www.v2o5.com.br), main em 111d87c"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 # Motors Store: o sistema inteiro numa revenda de seminovos.
@@ -200,11 +200,11 @@ Quem assina os 26 guias da Motors Store é o fundador da V2O5, [Dyones Oliveira]
 
 ## Quer o mesmo sistema na sua revenda?
 
-Os pacotes da V2O5 para revendas partem deste sistema. O diagnóstico gratuito diz por onde começar.
+Os modelos de Sprint da V2O5 para revendas partem deste sistema. O diagnóstico gratuito diz por onde começar.
 
 [Pedir diagnóstico gratuito](/diagnostico)
 
-[Ver o pacote automotivo](/precos)
+[Ver os modelos para revendas](/precos)
 
 r 18 <!-- texto em SVG; decorativo, aria-hidden -->
 

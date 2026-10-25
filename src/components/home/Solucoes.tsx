@@ -13,8 +13,8 @@ export function MarcaDeEtapa({ etapa }: { etapa: Etapa }) {
   );
 }
 
-/** A cor do trecho no cabeçalho de cada metade: o mapa é atração, a operação começa no atendimento. */
-const ETAPA_DO_PILAR: Etapa[] = ["violeta", "verde"];
+/** A cor do trecho no cabeçalho de cada grupo: a operação (atendimento) vem primeiro e a atração, depois. */
+const ETAPA_DO_PILAR: Etapa[] = ["verde", "violeta"];
 
 
 /**
@@ -41,13 +41,13 @@ function LinhaDoServico({ servico }: { servico: Servico }) {
 }
 
 /**
- * As intervenções que um Sprint costuma usar, em dois grupos. Cada uma é uma
+ * O catálogo de capacidades, em dois grupos (operação primeiro, "Trazer mais gente" depois). Cada uma é uma
  * linha, com a etapa e a seta, e leva à página dela (rota e SEO preservados).
  * Sem valor: só o Sprint tem preço público (decisão de 25/10/2026).
  */
 export default function Solucoes() {
   return (
-    <Trecho id="solucoes" aria-labelledby="titulo-solucoes" etapa="violeta" etapaFim="azul">
+    <Trecho id="solucoes" aria-labelledby="titulo-solucoes" etapa="verde" etapaFim="violeta">
       <div className="relative grid grid-cols-12 gap-x-6">
         <Parada />
         <h2 id="titulo-solucoes" className="titulo-secao col-span-12 lg:col-span-9">

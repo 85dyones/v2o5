@@ -1,14 +1,14 @@
 ---
 rota: "/criacao-de-sites"
-url: "https://www.v2o5.com.br/criacao-de-sites"
+url: "http://localhost:3100/criacao-de-sites"
 status: 200
 title: "Criação de site profissional com SEO | V2O5 Vendas e Tecnologia"
 description: "Site rápido no celular, achado no Google e nas respostas das IAs, que grava de onde veio cada contato. Intervenção de um Sprint de Eficiência."
 canonical: "https://www.v2o5.com.br/criacao-de-sites"
 robots: null
 h1: "Criação de site profissional com SEO e rastreamento."
-extraido_em: "2026-10-25T20:08:16.046Z"
-fonte: "build local da branch claude/keen-ptolemy-vnfnfu (só o Sprint com valor público, 25/10/2026), extraída com design/baseline/ferramentas; as demais rotas seguem como em 19/10"
+extraido_em: "2026-10-25T23:42:09.039Z"
+fonte: "produção (www.v2o5.com.br), main em 111d87c"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 # Criação de site profissional com SEO e rastreamento.
@@ -22,6 +22,10 @@ Site que carrega rápido no celular, aparece no Google e grava de onde veio cada
 No Sprint
 
 Intervenção para quando o gargalo é ser encontrado e saber de onde vêm os contatos
+
+Entrega-base
+
+Nove itens iguais em todo site da V2O5, de páginas que o Google entende ao código no seu nome
 
 O que entra
 
@@ -45,7 +49,11 @@ Uma página por serviço, produto ou modelo, com título, descrição e dados es
 
 ### Rápido no celular
 
-Next.js com o mínimo de JavaScript, imagens no tamanho certo e o título carregando antes de tudo. Este site segue a mesma receita.
+Next.js com o mínimo de JavaScript, imagens no tamanho certo e o título carregando antes de tudo. O site é medido no celular antes de ir ao ar.
+
+### SEO técnico
+
+Mapa do site, redirecionamentos do endereço antigo, robots e arquivo para assistentes de IA, configurados e conferidos no Search Console.
 
 ### Perfil da Empresa no Google
 
@@ -53,11 +61,19 @@ O antigo Google Meu Negócio, completo, verificado e ligado ao site, para quem b
 
 ### Origem de cada contato
 
-Cada botão de WhatsApp e cada formulário gravam a campanha, o anúncio e a página de entrada. Sem isso, o rastreamento até a venda não tem por onde começar.
+Cada botão de WhatsApp e cada formulário gravam a campanha, o anúncio e a página de entrada, com GA4, Pixel e API de Conversões prontos para ligar.
+
+### Contato que chega à equipe
+
+O formulário e o WhatsApp levam a mensagem e a origem para quem atende, no CRM ou no canal que a empresa já usa.
+
+### Privacidade em dia
+
+Página de privacidade e consentimento no modelo já usado em produção, com a oposição do visitante descrita.
 
 ### Domínio, e-mail e hospedagem
 
-Domínio e e-mail profissional entram na fundação do projeto. Hospedagem, atualizações de segurança e monitoramento são definidos na proposta, ou na continuidade, se contratada.
+Domínio e e-mail profissional entram na fundação. Hospedagem, atualizações de segurança e monitoramento são definidos na proposta, ou na recorrência.
 
 ### O código é seu
 

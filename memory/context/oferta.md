@@ -2,6 +2,8 @@
 
 > **Em 25/10/2026 o Dyones decidiu que só o Sprint de Eficiência e a recorrência que o acompanha têm valor público** ("preços só dos sprints", "manter apenas o descrito no plano atualizado no apêndice"). Os planos, o tráfego, os módulos, os serviços e o fotógrafo parceiro abaixo são **dado interno de referência: não aparecem no site, na vitrine, no `llms.txt`, no schema nem no agente do n8n**. `tests/precos-nao-publicados.test.ts` trava isso. A seção "Sprint de Eficiência e continuidade", no fim, é a única oferta pública.
 
+> **Três Sprints, um guarda-chuva (25/10/2026, Dyones).** A partir de hoje a V2O5 vende três Sprints (Essencial, Integrada e Avançada, faixas em `sprint.ts`). Todo serviço vem de dentro deles, identificado a partir de um Sprint e costurado sob medida: os módulos (painel, reativação e campanhas, funil sob medida, consulta veicular, área de repasse) saem de cena como oferta, e os serviços (redes, comentários e Direct, branding, fotógrafo, tráfego) viram capacidades do catálogo da home. Os pacotes do segmento automotivo (Mapa = Presença, Operação com IA = Atendimento, Completo) são modelos de Sprint para revendas: Mapa e Operação com IA na Sprint Integrada, Completo na Sprint Avançada. A mensalidade da Presença subiu de R$ 990 para R$ 1.200, o piso da faixa de continuidade. O tráfego é capacidade dentro do Sprint e a gestão mensal é recorrência. A tabela abaixo segue como referência interna para compor propostas. Entrega-base do site em `src/conteudo/sitePadrao.ts`.
+
 Fonte em código: `src/conteudo/precos.ts` (home, `/precos`, hub automotivo, páginas de solução, `llms.txt` e schema saem dela). Esta página repete os mesmos números e `tests/precos.test.ts` confere os dois lados.
 
 **Cardápio de 15/10/2026 (Dyones).** Três planos com preço fechado no lugar das quinze linhas avulsas, o tráfego como serviço à parte, módulos para quem já tem o sistema e serviços. Quem chega escolhe pelo problema que tem; a venda adicional mora nos módulos. Proposta e margens no artefato "Cardápio enxuto" (https://claude.ai/artifact/HqR5Q1rwjJ7Enbx1JtpoxY). Respostas do Dyones em 15/10: planos "concordo"; painel do dono como extra e, no site, bônus de fechamento do Completo; módulos "concordo"; placa a R$ 49,90 ("precisamos de um lucro"); SMS "foi testado, está funcional"; branding fora da tabela, anunciado como serviço sob consulta; manutenção do Completo "passa de 7 horas, ajuste", com "bônus temporário pelo preço de R$ 1.990".
@@ -9,11 +11,11 @@ Fonte em código: `src/conteudo/precos.ts` (home, `/precos`, hub automotivo, pá
 ## Planos
 | Plano | Para quê | Inclui | Implantação a partir de | Mensalidade a partir de |
 |---|---|---|---|---|
-| Presença | Ser encontrado no Google e saber de onde vem cada contato | site institucional ou de estoque, Perfil da Empresa no Google, SEO técnico, rastreamento até a venda, pedido de avaliação no WhatsApp, relatório mensal | R$ 8.900 | R$ 990 |
+| Presença | Ser encontrado no Google e saber de onde vem cada contato | site institucional ou de estoque, Perfil da Empresa no Google, SEO técnico, rastreamento até a venda, pedido de avaliação no WhatsApp, relatório mensal | R$ 8.900 | R$ 1.200 |
 | Atendimento | Responder na hora, sem perder o contato | agente de IA no WhatsApp (500 conversas/mês), CRM com funil, aviso de lead parado e 5 usuários, passagem para a equipe, treinamento, banco próprio e backups | R$ 7.900 | R$ 1.590 |
 | Completo | Do anúncio à venda, tudo ligado e medido (o sistema da Motors Store) | tudo da Presença e do Atendimento, integração com o sistema de gestão, um fluxo de automação, tráfego das duas plataformas por R$ 1.300/mês se quiser | R$ 14.900 | R$ 2.290 de tabela; **R$ 1.990 por tempo limitado, até 31/12/2026** |
 
-- Separados, Presença e Atendimento somam R$ 16.800 + R$ 2.580/mês.
+- Separados, Presença e Atendimento somam R$ 16.800 + R$ 2.790/mês.
 - **Bônus de fechamento do Completo:** a implantação do Painel do dono (R$ 3.900) fica por conta da V2O5; a mensalidade do painel (R$ 490) segue (confirmado pelo Dyones em 15/10).
 - O preço temporário vale até 31/12/2026 (confirmado pelo Dyones em 15/10); `tests/precos.test.ts` falha quando a data passa, para a oferta não ficar no ar vencida.
 - Piso da mensalidade: R$ 690 (rastreamento sozinho). Nenhuma mensalidade que mantém sistema no ar fica abaixo dele; os módulos rodam em cima da mensalidade do plano.
@@ -84,7 +86,7 @@ Custo pela tabela de 12/10 (abaixo): infra por cliente e hora do fundador a R$ 1
 
 | Item | Mensalidade | Custo integrado | Margem |
 |---|---|---|---|
-| Presença | R$ 990 | R$ 510 (3 h) | 48% |
+| Presença | R$ 1.200 | R$ 510 (3 h) | 58% |
 | Atendimento | R$ 1.590 | R$ 870 (5 h) | 45% |
 | Completo de tabela | R$ 2.290 | acima de R$ 1.230 (mais de 7 h, Dyones 15/10) | abaixo de 46% |
 | Completo na oferta | R$ 1.990 | acima de R$ 1.230 | abaixo de 38% |

@@ -1,3 +1,4 @@
+import { SITE_PADRAO } from "@/conteudo/sitePadrao";
 import { listaDeSistemasIntegraveis } from "@/conteudo/diagnostico";
 import { CASE_MOTORS } from "@/conteudo/case";
 import { CASE, MARCA_DO_SITE, VISAO_360, type Vinheta } from "@/conteudo/home";
@@ -63,6 +64,7 @@ export const SOLUCOES: Solucao[] = [
       "Site que carrega rápido no celular, aparece no Google e grava de onde veio cada contato. Entra num Sprint quando o gargalo é a presença.",
     fatos: [
       { rotulo: "No Sprint", valor: "Intervenção para quando o gargalo é ser encontrado e saber de onde vêm os contatos" },
+      { rotulo: "Entrega-base", valor: "Nove itens iguais em todo site da V2O5, de páginas que o Google entende ao código no seu nome" },
       {
         rotulo: "O que entra",
         valor: "Páginas que o Google entende, SEO técnico, Perfil da Empresa no Google e rastreamento até a venda, conforme o escopo do Sprint",
@@ -77,36 +79,7 @@ export const SOLUCOES: Solucao[] = [
       texto:
         "Carrega devagar no celular, tem uma página só para todos os modelos ou serviços, e quem chega por um anúncio vira um contato sem origem. O Google só acha o que existe como página, e a verba de mídia não aprende com o que virou venda.",
     },
-    entregas: [
-      {
-        titulo: "Páginas que o Google entende",
-        texto:
-          "Uma página por serviço, produto ou modelo, com título, descrição e dados estruturados. É o que faz a empresa aparecer na busca e nas respostas das IAs.",
-      },
-      {
-        titulo: "Rápido no celular",
-        texto:
-          "Next.js com o mínimo de JavaScript, imagens no tamanho certo e o título carregando antes de tudo. Este site segue a mesma receita.",
-      },
-      {
-        titulo: "Perfil da Empresa no Google",
-        texto: "O antigo Google Meu Negócio, completo, verificado e ligado ao site, para quem busca perto aparecer no Maps.",
-      },
-      {
-        titulo: "Origem de cada contato",
-        texto:
-          "Cada botão de WhatsApp e cada formulário gravam a campanha, o anúncio e a página de entrada. Sem isso, o rastreamento até a venda não tem por onde começar.",
-      },
-      {
-        titulo: "Domínio, e-mail e hospedagem",
-        texto:
-          "Domínio e e-mail profissional entram na fundação do projeto. Hospedagem, atualizações de segurança e monitoramento são definidos na proposta, ou na continuidade, se contratada.",
-      },
-      {
-        titulo: "O código é seu",
-        texto: "Domínio, hospedagem e código ficam no nome da sua empresa desde o primeiro dia.",
-      },
-    ],
+    entregas: SITE_PADRAO.itens,
     comoFunciona: [
       {
         titulo: "Diagnóstico",
@@ -431,7 +404,7 @@ export const SOLUCOES: Solucao[] = [
         resposta: "Serve. Os campos e as etapas são desenhados com você. O automotivo é o primeiro segmento com pacote pronto.",
       },
     ],
-    relacionadas: ["agente", "painel", "automacao"],
+    relacionadas: ["agente", "dados", "automacao"],
   },
   {
     rota: "/rastreamento-de-conversoes",
