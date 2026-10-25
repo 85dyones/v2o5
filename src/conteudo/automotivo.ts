@@ -1,27 +1,15 @@
 import { listaDeSistemasIntegraveis, SISTEMA_EM_PRODUCAO, SISTEMAS_INTEGRAVEIS } from "@/conteudo/diagnostico";
-import { CASE } from "@/conteudo/home";
-import {
-  BRL,
-  dataBR,
-  DEGRAUS,
-  FOTOGRAFIA_PARCEIRA,
-  linhaDePreco,
-  OFERTA_DO_COMPLETO,
-  plano,
-  precoDaLinha,
-  REGRAS,
-  USUARIOS_NO_CRM,
-} from "@/conteudo/precos";
-
-const completo = plano("completo");
-const presenca = plano("presenca");
-
+import { BRL, dataBR, mensalidadeDoPlano, OFERTA_DO_COMPLETO, PLANOS } from "@/conteudo/precos";
 /**
- * Hub do segmento automotivo (`/segmentos/revendas-de-veiculos`): o plano
- * Completo com o site de estoque (o sistema da Motors Store), o caminho de um
- * lead na revenda, os módulos de revenda que entram depois, os números do
- * case e as perguntas de dono de loja. Preço só de `precos.ts`; número só de `CASE` (lido do
- * banco da Motors, com fonte e período). `tests/automotivo.test.ts` confere.
+ * Hub do segmento automotivo (`/segmentos/revendas-de-veiculos`): o que um
+ * Sprint de Eficiência para revendas costuma juntar (o site de estoque do
+ * sistema da Motors Store, agente, CRM e rastreamento), os três pacotes
+ * prontos para revendas e as perguntas de dono de loja. É o único lugar do
+ * site com o valor dos planos Presença, Atendimento e Completo (Dyones,
+ * 25/10/2026: "podem ficar no segmento automotivo"); tráfego, módulos e
+ * serviços seguem internos. Os números do case e o caminho do lead moram em
+ * `/cases/motors-store`, que o hub só aponta. `/precos` cobre o Sprint.
+ * `tests/automotivo.test.ts` confere.
  *
  * Sobre o agente: a memória do case registra n8n, Evolution e Chatwoot na
  * Motors, não um agente de IA. Por isso o texto diz que o agente completa o
@@ -33,8 +21,8 @@ export const HUB_AUTOMOTIVO = {
   titulo: "O sistema da Motors Store, pronto para a sua revenda.",
   /** Curto de propósito: o LCP da página é o H1 (`tests/automotivo.test.ts`). */
   resumo:
-    "Site de estoque ligado ao sistema que a loja já usa, agente de IA no WhatsApp, CRM e rastreamento até a venda, com preço publicado.",
-  /** Os sistemas de gestão com que o Completo trabalha: um em produção, os outros por fluxo (Dyones, 13/10). */
+    "Site de estoque ligado ao sistema que a loja já usa, agente de IA no WhatsApp, CRM e rastreamento até a venda, dentro de um Sprint.",
+  /** Os sistemas de gestão com que o Sprint para revendas trabalha: um em produção, os outros por fluxo (Dyones, 13/10). */
   sistemas: {
     rotulo: "Funciona com o sistema da loja",
     emProducao: SISTEMA_EM_PRODUCAO,
@@ -42,18 +30,15 @@ export const HUB_AUTOMOTIVO = {
     outros: "outro sistema, por fluxo",
   },
   fatos: [
-    {
-      rotulo: "Plano Completo",
-      valor: `a partir de ${BRL(completo.implantacao)} de implantação e ${BRL(OFERTA_DO_COMPLETO.mensalidade)} por mês até ${dataBR(OFERTA_DO_COMPLETO.ate)}`,
-    },
+    { rotulo: "No Sprint", valor: "Intervenções para revendas, escolhidas pelo gargalo da loja" },
     { rotulo: "Integração em produção", valor: "Revenda Mais: o estoque entra no site e no agente sozinho" },
     { rotulo: "Integráveis por fluxo", valor: listaDeSistemasIntegraveis() },
     { rotulo: "Referência", valor: "Motors Store, revenda de seminovos em Curitiba, com números lidos do banco" },
   ],
   pacote: {
-    titulo: "O que vem no Completo.",
+    titulo: "O que um Sprint para revendas costuma juntar.",
     texto:
-      "Quatro peças na mesma base: o que entra por uma aparece nas outras. Site, rastreamento, painel e automações rodam na Motors Store; o agente de IA no WhatsApp completa o sistema.",
+      "Quatro peças na mesma base: o que entra por uma aparece nas outras. Site, rastreamento, painel e automações rodam na Motors Store; o agente de IA no WhatsApp completa o sistema. O escopo de cada projeto sai em proposta.",
     pecas: [
       {
         linha: "Sites e presença",
@@ -70,7 +55,7 @@ export const HUB_AUTOMOTIVO = {
       {
         linha: "CRM e sistemas sob medida",
         titulo: "Funil com origem e próximo passo",
-        texto: `Cada lead com o carro de interesse, o anúncio que trouxe a pessoa e o responsável. ${USUARIOS_NO_CRM} usuários inclusos.`,
+        texto: "Cada lead com o carro de interesse, o anúncio que trouxe a pessoa e o responsável.",
       },
       {
         linha: "Rastreamento até a venda",
@@ -80,95 +65,35 @@ export const HUB_AUTOMOTIVO = {
       },
     ],
   },
-  caminho: {
-    titulo: "O caminho de um lead na revenda.",
-    texto: "Do carro que entra no estoque à venda que volta para o anúncio, sem ninguém digitar duas vezes.",
-    passos: [
-      {
-        titulo: "O carro entra no sistema da loja",
-        texto: `Revenda Mais, ${listaDeSistemasIntegraveis().replace(" e ", ", ")} ou outro: na sincronização seguinte está no site, na ficha do agente e no feed de anúncios.`,
-      },
-      {
-        titulo: "Alguém busca o modelo",
-        texto: "Acha o anúncio de veículo no Google, o catálogo na Meta ou a página do carro na busca.",
-      },
-      {
-        titulo: "Chama no WhatsApp às 21h",
-        texto: "O agente responde com a ficha, o preço e os horários de visita, e avisa o vendedor.",
-      },
-      {
-        titulo: "O lead entra no CRM com a origem",
-        texto: "O vendedor começa o dia com o nome, o carro e o anúncio que trouxe a pessoa.",
-      },
-      {
-        titulo: "A venda é registrada",
-        texto: "O carro sai do site, o cliente recebe o obrigado e Google e Meta recebem a conversão uma vez só.",
-      },
-    ],
-  },
-  extras: {
-    titulo: "Módulos para a revenda.",
-    texto: "Entram em cima do Completo ou do Atendimento, na mesma base. Cada um com preço publicado.",
-    itens: [
-      {
-        nome: linhaDePreco("consulta").nome,
-        preco: precoDaLinha(linhaDePreco("consulta")),
-        href: "/diagnostico",
-        link: "no diagnóstico",
-        texto:
-          "Antes de comprar: FIPE do mês sem custo, histórico de 24 meses com tendência e faixa de compra, e a placa com dez checagens (leilão, sinistro, gravame, roubo, débitos, recall e outras) e um veredito.",
-      },
-      {
-        nome: linhaDePreco("repasse").nome,
-        preco: precoDaLinha(linhaDePreco("repasse")),
-        href: "/diagnostico",
-        link: "no diagnóstico",
-        texto:
-          "O carro que não vai para a vitrine sai às claras: laudo, conta aberta contra a FIPE e ficha de defeitos com foto, para lojistas e consumidores inscritos.",
-      },
-      {
-        nome: "Google Ads e Meta Ads no Completo",
-        preco: precoDaLinha(linhaDePreco("trafegoNoCompleto")),
-        href: "/precos#titulo-trafego",
-        texto:
-          "As duas plataformas pela mesma equipe: anúncios de veículos no Google, catálogo na Meta e o feed do estoque incluso. Começa com o rastreamento ligado.",
-      },
-      {
-        nome: linhaDePreco("reativacao").nome,
-        preco: precoDaLinha(linhaDePreco("reativacao")),
-        href: "/precos#titulo-modulos",
-        texto:
-          "Quem comprou há dois ou três anos recebe a mensagem certa: troca, avaliação do usado, oferta do mês. SMS com link rastreado e campanha de WhatsApp, só com base própria.",
-      },
-      {
-        nome: linhaDePreco("painel").nome,
-        preco: precoDaLinha(linhaDePreco("painel")),
-        href: "/precos#titulo-modulos",
-        texto: `Funil, verba, custo por lead e vendas por origem numa tela, atualizada todo dia a partir do CRM, do rastreamento e das contas de anúncio. Sem licença por usuário. No Completo, a implantação é bônus de fechamento. Usuário extra ${BRL(DEGRAUS.usuarioExtra)} por mês.`,
-      },
-    ],
+  planos: {
+    titulo: "Três pacotes prontos para revendas.",
+    texto:
+      "Para a loja que já sabe o que precisa. O Sprint de Eficiência, que resolve um gargalo por vez, tem as faixas em Preços; os pacotes abaixo têm valor fechado.",
+    itens: PLANOS.map((p) => ({
+      id: p.id,
+      nome: p.nome,
+      linha: p.pilar,
+      para: p.para,
+      inclui: p.inclui.filter((i) => !/Google Ads/.test(i)),
+      implantacao: BRL(p.implantacao),
+      mensalidade: BRL(mensalidadeDoPlano(p)),
+      /** O Completo tem preço de lançamento com data; depois dela volta à tabela. */
+      condicao: p.id === "completo" ? `Mensalidade até ${dataBR(OFERTA_DO_COMPLETO.ate)}; depois, ${BRL(p.mensalidade)}.` : undefined,
+      bonus: p.bonus,
+    })),
+    rodape:
+      "A mensalidade cobre hospedagem e manutenção. Nuvem, IA e mensagens ficam por fora, pelo valor do provedor, discriminados na fatura, com teto mensal combinado e aviso antes de ultrapassá-lo; a V2O5 gerencia. Tráfego pago e outros serviços saem em proposta.",
   },
   case: {
-    titulo: "Medido na Motors Store.",
-    texto: "Os números do sistema rodando, lidos no banco de dados da loja. O case completo tem o que foi construído, peça por peça.",
-    fonte: CASE.fonte,
-    numeros: CASE.numeros,
+    texto: "O que foi construído na Motors Store, os números lidos no banco da loja e o caminho de um lead, do estoque à venda, estão no case.",
     href: "/cases/motors-store",
-    botao: "Ler o case completo",
+    botao: "Ler o case da Motors Store",
   },
   perguntas: [
     {
-      pergunta: "Minha loja usa outro sistema de gestão. O Completo funciona?",
+      pergunta: "Minha loja usa outro sistema de gestão. O Sprint funciona?",
       resposta:
-        `Funciona. O Completo lê o estoque do sistema que a loja já usa. Com o Revenda Mais a integração está em produção. ${listaDeSistemasIntegraveis()} entram como fluxo de integração, orçado no diagnóstico depois de ver a API ou a exportação que cada um oferece; o mesmo vale para outro sistema.`,
-    },
-    {
-      pergunta: "O painel do dono vem no Completo?",
-      resposta: `A implantação do painel, a partir de ${BRL(linhaDePreco("painel").implantacao ?? 0)}, vem de bônus para quem fecha o Completo. A mensalidade dele, a partir de ${BRL(linhaDePreco("painel").mensalidade ?? 0)}, entra na mesma fatura do plano. O que cresce com o uso (usuários, dados, conversas) e os repasses ficam fora.`,
-    },
-    {
-      pergunta: "Quantos usuários o Completo inclui?",
-      resposta: `${USUARIOS_NO_CRM} usuários no CRM, sem licença por pessoa. Cada usuário extra custa ${BRL(DEGRAUS.usuarioExtra)} por mês.`,
+        `Funciona. O Sprint lê o estoque do sistema que a loja já usa. Com o Revenda Mais a integração está em produção. ${listaDeSistemasIntegraveis()} entram como integração definida na proposta, depois de ver a API ou a exportação que cada um oferece; o mesmo vale para outro sistema.`,
     },
     {
       pergunta: "O agente responde com o estoque de verdade?",
@@ -177,26 +102,25 @@ export const HUB_AUTOMOTIVO = {
     },
     {
       pergunta: "Preciso de fotógrafo?",
-      resposta: `Se a loja já tem equipe ou fotógrafo, o site, o feed de anúncios e o agente usam as fotos que estão no sistema. Se não tem, a V2O5 indica parceiros de fotografia, com pacote mensal a partir de ${BRL(FOTOGRAFIA_PARCEIRA.aPartirDe)}.`,
+      resposta:
+        "Se a loja já tem equipe ou fotógrafo, o site, o feed de anúncios e o agente usam as fotos que estão no sistema. Se não tem, a V2O5 pode indicar parceiros de fotografia, contratados à parte.",
     },
     {
       pergunta: "Posso começar só pelo site de estoque?",
-      resposta: `Pode. O site de estoque vem no plano Presença, a partir de ${BRL(presenca.implantacao)} de implantação e ${BRL(presenca.mensalidade)} por mês, com o Google e o rastreamento até a venda. O Atendimento entra depois, na mesma base.`,
-    },
-    {
-      pergunta: "Quanto custa a consulta por placa?",
-      resposta: `${BRL(linhaDePreco("consulta").porUso!.valor)} por placa, na fatura do mês, além do módulo (${BRL(linhaDePreco("consulta").implantacao!)} de implantação e ${BRL(linhaDePreco("consulta").mensalidade!)} por mês). A FIPE do mês sai sem custo, e uma placa já consultada abre do histórico sem cobrar de novo.`,
+      resposta:
+        "Pode. Um Sprint resolve um gargalo de cada vez: se o gargalo for o estoque no site e a origem dos contatos, o Sprint começa por aí e o atendimento entra depois, na mesma base.",
     },
     {
       pergunta: "O site e os dados são meus?",
-      resposta: `Sim. Sem fidelidade: se sair, você recebe o código, os dados e o domínio em até ${REGRAS.diasParaEntregarNaSaida} dias.`,
+      resposta:
+        "Sim. Domínio, hospedagem e código ficam no nome da loja desde o primeiro dia, e os dados ficam num banco do seu negócio, com exportação quando você pedir.",
     },
   ],
   chamada: {
-    titulo: "Quer ver o Completo rodando na sua revenda?",
+    titulo: "Quer ver o sistema rodando na sua revenda?",
     texto:
       "O diagnóstico é gratuito: 45 minutos com o fundador, que montou o sistema da Motors Store, para identificar e priorizar o gargalo da sua revenda.",
     botao: "Pedir diagnóstico gratuito",
-    secundario: "Ver a tabela de preços",
+    secundario: "Ver os preços do Sprint",
   },
 };

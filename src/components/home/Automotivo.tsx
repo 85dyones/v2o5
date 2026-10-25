@@ -1,10 +1,8 @@
 import Link from "next/link";
 import Icone from "@/components/Icone";
-import { ComMarcas, Parada, Trecho } from "@/components/rota/Rota";
+import { Parada, Trecho } from "@/components/rota/Rota";
 import { AUTOMOTIVO } from "@/conteudo/home";
 
-/** Os valores em real do preço do pacote, para o marca-texto. */
-const VALORES = /R\$ [\d.,]+/g;
 
 /**
  * A porta para o hub de revendas: o pacote é o sistema da Motors. Ao lado,
@@ -22,9 +20,6 @@ export default function Automotivo() {
             {AUTOMOTIVO.titulo}
           </h2>
           <p className="texto-guia mt-6 max-w-[34rem]">{AUTOMOTIVO.texto}</p>
-          <p className="mt-8 max-w-[32rem] font-medium leading-relaxed">
-            <ComMarcas texto={AUTOMOTIVO.preco} marcas={AUTOMOTIVO.preco.match(VALORES) ?? []} etapa="ambar" />
-          </p>
           <Link href={AUTOMOTIVO.href} className="botao botao-primario mt-8" data-evento="cta_click" data-local="automotivo">
             Ver a página de revendas
             <Icone nome="seta" className="seta size-4" />

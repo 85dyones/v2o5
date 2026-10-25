@@ -133,7 +133,7 @@ export const CASE_MOTORS = {
     "Quem assina os 26 guias da Motors Store é o fundador da V2O5, Dyones Oliveira. É ele quem conduz o diagnóstico gratuito.",
   chamada: {
     titulo: "Quer o mesmo sistema na sua revenda?",
-    texto: "O pacote automotivo da V2O5 é este sistema, com preço publicado. O diagnóstico gratuito diz por onde começar.",
+    texto: "Os pacotes da V2O5 para revendas partem deste sistema. O diagnóstico gratuito diz por onde começar.",
     botao: "Pedir diagnóstico gratuito",
     secundario: "Ver o pacote automotivo",
   },

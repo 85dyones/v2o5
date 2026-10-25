@@ -113,7 +113,7 @@ describe("tipo da página", () => {
       expect(solucaoDa(rota).linha, rota).toBe(linha);
       expect(contextoDaPagina(rota)).toEqual({ page_type: "solucao", service_line: linha });
     }
-    // /gestao-de-trafego saiu do mapa em 19/10: responde 307 para /precos#titulo-trafego.
+    // /gestao-de-trafego saiu do mapa em 19/10: responde 307 para /#solucoes (desde 25/10, quando /precos deixou de ter a seção de tráfego).
     expect(PAGINAS.find((p) => p.rota === "/gestao-de-trafego")).toBeUndefined();
   });
 });

@@ -13,9 +13,17 @@ describe("Sprint de Eficiência", () => {
       "R$ 6.000 a R$ 12.000",
       "R$ 12.000 a R$ 25.000 ou mais",
     ]);
-    expect(CONTINUIDADE.modalidades.map((m) => faixaEmTexto(m.faixa))).toEqual(["R$ 1.200 a R$ 2.500", "R$ 2.500 a R$ 5.000"]);
     for (const n of SPRINT_DE_PRECOS.niveis) expect(oferta).toContain(`${n.nome}${n.principal ? " (oferta principal)" : ""}: ${faixaEmTexto(n.faixa)}`);
+    expect(CONTINUIDADE.modalidades.map((m) => faixaEmTexto(m.faixa))).toEqual(["R$ 1.200 a R$ 2.500", "R$ 2.500 a R$ 5.000"]);
     for (const m of CONTINUIDADE.modalidades) expect(oferta).toContain(`${m.nome}: ${faixaEmTexto(m.faixa)} por mês`);
+    expect(CONTINUIDADE.texto).toMatch(/Se a solução continua rodando, há uma parte recorrente/);
+    expect(CONTINUIDADE.recorrencia.map((r) => r.titulo)).toEqual(["Gestão continuada", "Nuvem", "IA e mensagens"]);
+    expect(JSON.stringify(CONTINUIDADE)).toMatch(/A V2O5 gerencia/);
+    // Repasse pelo valor do provedor, sem margem anunciada, com teto mensal combinado e aviso (Dyones, 25/10).
+    expect(CONTINUIDADE.recorrencia[2].texto).toMatch(/teto mensal combinado e aviso antes de ultrapassá-lo/);
+    expect(JSON.stringify(CONTINUIDADE)).not.toMatch(/margem|markup/i);
+    // Não detalha de quem são as contas de nuvem e de IA: só fala em recorrência (Dyones, 25/10).
+    expect(JSON.stringify(CONTINUIDADE)).not.toMatch(/suas contas|conta do cliente|paga os provedores/i);
   });
 
   it("a oferta principal é uma só e a duração é referência", () => {

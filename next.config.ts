@@ -67,7 +67,7 @@ export const REDIRECIONAMENTOS_DO_WORDPRESS = [
  * leva à seção de tráfego de `/precos` (Dyones, 19/10); a vitrine de
  * diagnostico.v2o5.com.br linka para ela.
  */
-export const REDIRECIONAMENTOS_PROVISORIOS = [{ source: "/gestao-de-trafego", destination: "/precos#titulo-trafego" }];
+export const REDIRECIONAMENTOS_PROVISORIOS = [{ source: "/gestao-de-trafego", destination: "/#solucoes" }];
 
 const nextConfig: NextConfig = {
   cacheComponents: true,

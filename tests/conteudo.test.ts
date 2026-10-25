@@ -3,7 +3,6 @@ import {
   CASE,
   CHAMADA,
   FRENTES,
-  GARANTIAS,
   HERO,
   LINHAS,
   PERGUNTAS,
@@ -12,6 +11,7 @@ import {
   TITULO_DA_HOME,
   VISAO_360,
 } from "@/conteudo/home";
+import { CONTINUIDADE, faixaEmTexto, SPRINT_DE_PRECOS } from "@/conteudo/sprint";
 import { arquivos, ler, semComentarios } from "./fonte";
 
 /**
@@ -60,48 +60,40 @@ describe("demonstrações rotuladas", () => {
 });
 
 describe("oferta", () => {
-  const oferta = ler("memory/context/oferta.md");
-
-  it("cada cartão diz o preço a partir de, o plano em que mora ou onde vem incluso, com os valores de oferta.md", () => {
+  it("os cartões do catálogo da home não publicam valor nem falam de plano ou mensalidade", () => {
     expect(LINHAS).toHaveLength(12);
-    expect(ler("memory/context/oferta.md")).toContain("Piso da mensalidade: R$ 690");
     for (const linha of LINHAS) {
-      expect(linha.preco, linha.titulo).toMatch(/^(a partir de R\$ |no plano |incluso no )/);
-      const valores = [...linha.preco.matchAll(/R\$ ([\d.]+)/g)].map((m) => m[1]);
-      for (const v of valores) expect(oferta, `${linha.titulo}: R$ ${v}`).toContain(`R$ ${v}`);
-      expect(oferta).toContain(`\`${linha.href}\``);
+      expect(linha, linha.titulo).not.toHaveProperty("preco");
+      expect(`${linha.titulo} ${linha.frase}`, linha.titulo).not.toMatch(/R\$|mensalidade|plano |Completo|Presença/);
+      expect(linha.href, linha.titulo).toMatch(/^\//);
     }
   });
 });
 
-describe("os dois pilares do H1", () => {
+describe("os dois grupos do catálogo", () => {
   const servicos = PILARES.flatMap((p) => p.servicos);
 
-  it("cada metade do H1 é um pilar, e as linhas com preço estão neles", () => {
-    expect(PILARES.map((p) => p.titulo.replace(/\.$/, "").toLowerCase())).toEqual([
-      "coloque sua empresa no mapa",
-      "multiplique a operação com ia",
-    ]);
+  it("são dois grupos, e toda linha da home está num deles", () => {
+    expect(PILARES.map((p) => p.sobretitulo)).toEqual(["Atrair e medir", "Atender e operar"]);
     for (const l of LINHAS) expect(servicos, l.titulo).toContainEqual(l);
   });
 
-  it("serviço sem cartão próprio diz em que plano vem incluso, é sob consulta ou traz preço da tabela", () => {
-    const oferta = ler("memory/context/oferta.md");
-    for (const s of servicos.filter((s) => !LINHAS.includes(s as (typeof LINHAS)[number]))) {
-      if (/incluso no plano /.test(s.preco)) {
-        const nome = s.preco.split("incluso no plano ")[1];
-        expect(["Presença", "Atendimento", "Completo"], s.titulo).toContain(nome);
-      } else if (s.preco !== "sob consulta") {
-        expect(s.preco, s.titulo).toMatch(/^a partir de R\$ /);
-        for (const [, v] of s.preco.matchAll(/R\$ ([\d.]+)/g)) expect(oferta).toContain(`R$ ${v}`);
-      }
+  it("nenhum serviço do catálogo publica valor", () => {
+    for (const s of servicos) {
+      expect(s, s.titulo).not.toHaveProperty("preco");
+      expect(`${s.titulo} ${s.frase}`, s.titulo).not.toMatch(/R\$|mensalidade|plano |Completo|Presença/);
     }
+  });
+
+  it("o cabeçalho do catálogo subordina as peças ao Sprint e não fala de contratação avulsa", () => {
+    const cabecalho = `${SOLUCOES.titulo} ${SOLUCOES.apagado} ${SOLUCOES.texto}`;
+    expect(cabecalho).toMatch(/Sprint/);
+    expect(cabecalho).not.toMatch(/avuls|em três planos|preço publicado/i);
   });
 
   it("o mapa traz branding, Perfil da Empresa no Google, SEO e tráfego no Google e na Meta", () => {
     const mapa = PILARES[0].servicos.map((s) => s.titulo).join(" | ");
     expect(mapa).toMatch(/Branding e gestão de marca/);
-    expect(PILARES[0].servicos[0].preco, "branding sob consulta (Dyones, 15/10)").toBe("sob consulta");
     expect(mapa).toMatch(/Perfil da Empresa no Google/);
     expect(mapa).toMatch(/SEO/);
     expect(mapa).toMatch(/Google e na Meta/);
@@ -118,13 +110,16 @@ describe("os dois pilares do H1", () => {
     expect(PILARES[1].servicos).toHaveLength(7);
   });
 
-  it("as perguntas novas respondem usuário extra, dólar e lista comprada", () => {
+  it("as perguntas respondem preço do Sprint, pagamento, continuidade e lista comprada", () => {
     const perguntas = PERGUNTAS.map((p) => p.pergunta);
-    expect(perguntas).toContain("Tem cobrança por usuário?");
-    expect(perguntas).toContain("Os preços sobem com o dólar?");
+    expect(perguntas).toContain("Quanto custa?");
+    expect(perguntas).toContain("Como funciona o pagamento?");
+    expect(perguntas).toContain("E depois que o Sprint termina?");
     expect(perguntas).toContain("Vocês disparam para listas compradas?");
-    expect(PERGUNTAS.find((p) => p.pergunta === "Tem cobrança por usuário?")?.resposta).toContain("R$ 89");
-    expect(PERGUNTAS.find((p) => p.pergunta === "Os preços sobem com o dólar?")?.resposta).toMatch(/IPCA.*10%/);
+    expect(perguntas).not.toContain("Tem cobrança por usuário?");
+    expect(perguntas).not.toContain("Os preços sobem com o dólar?");
+    const custo = PERGUNTAS.find((p) => p.pergunta === "Quanto custa?")?.resposta ?? "";
+    for (const n of SPRINT_DE_PRECOS.niveis) expect(custo).toContain(faixaEmTexto(n.faixa));
     expect(PERGUNTAS.find((p) => p.pergunta === "Vocês disparam para listas compradas?")?.resposta).toMatch(/^Não\./);
   });
 
@@ -167,34 +162,20 @@ describe("Visão 360", () => {
   });
 });
 
-describe("garantias, perguntas e chamadas (regras de oferta.md)", () => {
-  const oferta = ler("memory/context/oferta.md");
-
-  it("as garantias repetem as regras comerciais", () => {
-    expect(GARANTIAS.map((g) => g.titulo)).toEqual([
-      "Sem fidelidade",
-      "Implantação em até 6x",
-      "O sistema é seu",
-      "Mensalidade fechada por plano",
-    ]);
-    expect(oferta).toContain("Sem fidelidade");
-    expect(oferta).toContain("até 6x");
-    expect(oferta).toContain("em até 15 dias");
-    expect(GARANTIAS[2].texto).toContain("15 dias");
-  });
-
-  it("todo valor em real das perguntas está na tabela de oferta.md", () => {
+describe("perguntas e chamadas", () => {
+  it("todo valor em real das perguntas é uma faixa do Sprint ou da recorrência", () => {
+    const permitidos = [...SPRINT_DE_PRECOS.niveis, ...CONTINUIDADE.modalidades].flatMap((n) => [n.faixa.de, n.faixa.ate].map((v) => `R$ ${v.toLocaleString("pt-BR")}`));
     const tudo = PERGUNTAS.map((p) => p.resposta).join(" ");
     const valores = tudo.match(/R\$ \d{1,3}(?:\.\d{3})*/g) ?? [];
     expect(valores.length).toBeGreaterThan(0);
-    for (const v of valores) expect(oferta, v).toContain(v);
+    for (const v of valores) expect(permitidos, v).toContain(v);
     expect(PERGUNTAS.length).toBeGreaterThanOrEqual(6);
   });
 
   it("as chamadas e o cabeçalho das soluções não prometem nada fora das regras", () => {
     const textos = [SOLUCOES.texto, CHAMADA.depoisDasSolucoes.texto, CHAMADA.depoisDoCase.texto].join(" ");
     expect(textos).not.toMatch(/\d+%|\d+x /);
-    expect(SOLUCOES.texto).toContain("sem fidelidade");
+    expect(textos).not.toMatch(/sem fidelidade/i);
   });
 });
 

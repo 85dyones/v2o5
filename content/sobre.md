@@ -7,13 +7,13 @@ description: "Quem é a V2O5 Vendas e Tecnologia, de onde vem o nome, o fundador
 canonical: "https://www.v2o5.com.br/sobre"
 robots: null
 h1: "Quem faz a V2O5, de onde vem o nome e como ela trabalha."
-extraido_em: "2026-10-25T18:36:04.076Z"
-fonte: "build local da branch claude/keen-ptolemy-vnfnfu (25/10/2026), extraída com design/baseline/ferramentas; as demais rotas seguem como em 19/10"
+extraido_em: "2026-10-25T20:08:16.046Z"
+fonte: "build local da branch claude/keen-ptolemy-vnfnfu (só o Sprint com valor público, 25/10/2026), extraída com design/baseline/ferramentas; as demais rotas seguem como em 19/10"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 # Quem faz a V2O5, de onde vem o nome e como ela trabalha.
 
-Uma equipe só, do site ao CRM, com preço publicado e número medido.
+Um método para achar o gargalo, simplificar o processo e medir o que mudou.
 
 [Pedir diagnóstico gratuito](/diagnostico)
 
@@ -53,7 +53,7 @@ Até os sete anos o mundo dele era de livros. Em 1992, um concurso da escola ren
 
 ### A equipe
 
-A V2O5 é o fundador com uma equipe completa de IA: agentes que pesquisam, escrevem, programam, testam e medem, sob a direção dele. É o mesmo tipo de sistema que a V2O5 implanta nos clientes, usado primeiro na própria empresa.
+O fundador conduz o diagnóstico e responde por cada projeto. Na execução, usa agentes de IA para pesquisar, escrever, programar, testar e medir, sob a direção dele: o mesmo tipo de apoio que a V2O5 aplica nos projetos, usado primeiro na própria empresa.
 
 Marca
 
@@ -73,7 +73,7 @@ Formação: Administração na FAE Business School
 
 ## O nome vem de um catalisador.
 
-V2O5 é o pentóxido de vanádio, o catalisador industrial da produção de ácido sulfúrico: acelera a reação e continua lá no fim. A V2O5 acelera o negócio, e o catalisador dela é a inteligência artificial. O sistema fica com o cliente.
+V2O5 é o pentóxido de vanádio, o catalisador industrial da produção de ácido sulfúrico: acelera a reação e continua lá no fim. A V2O5 trabalha como catalisador: ajuda a mudança a acontecer com menos esforço, sem ocupar o centro da operação. Tecnologia, automação e IA entram quando resolvem parte relevante do problema melhor do que uma alternativa mais simples.
 
 O vanádio muda de cor conforme o estado de oxidação. As quatro cores do site são as quatro etapas do caminho do cliente: violeta na atração, verde no atendimento, azul na gestão e âmbar na venda.
 
@@ -113,7 +113,7 @@ V2O5 | Eficiência comercial e operacional com tecnologia.
 
 ## Como a V2O5 trabalha.
 
-Cinco regras que valem para todo projeto e estão escritas na página de preços.
+Cinco regras que valem para todo projeto.
 
 01
 
@@ -123,9 +123,9 @@ Cinco regras que valem para todo projeto e estão escritas na página de preços
 
 02
 
-### Preço publicado
+### Preço fechado em proposta
 
-Toda linha tem preço a partir de na tabela, e o que cresce com o cliente tem preço antes de crescer. O final sai do diagnóstico, com o escopo fechado.
+O Sprint tem preço fechado em proposta, depois de delimitar o gargalo, o escopo e os entregáveis. As faixas de referência estão na página de preços.
 
 03
 
@@ -141,9 +141,9 @@ Uma integração entra na lista quando está em produção num cliente. Hoje: o 
 
 05
 
-### O sistema é seu
+### Escopo e aceite por escrito
 
-Sem fidelidade. Se sair, recebe o código, os dados e o domínio em até 15 dias.
+Toda proposta define problema, entregáveis, exclusões, prazo, responsabilidades do cliente e critérios de aceite. Mudança de escopo exige nova estimativa e aprovação.
 
 [Ver a tabela de preços](/precos)
 

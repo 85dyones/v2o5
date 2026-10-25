@@ -7,8 +7,8 @@ description: "A V2O5 acha o gargalo, simplifica o processo e implementa tecnolog
 canonical: "https://www.v2o5.com.br"
 robots: null
 h1: "Do problema ao resultado, pelo caminho mais simples."
-extraido_em: "2026-10-25T19:09:34.547Z"
-fonte: "build local da branch claude/keen-ptolemy-vnfnfu (25/10/2026), extraída com design/baseline/ferramentas; as demais rotas seguem como em 19/10"
+extraido_em: "2026-10-25T21:36:46.516Z"
+fonte: "build local da branch claude/keen-ptolemy-vnfnfu (só o Sprint e a recorrência com valor público, 25/10/2026), extraída com design/baseline/ferramentas; as demais rotas seguem como em 19/10"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 Estratégia, processos e tecnologia
@@ -174,55 +174,55 @@ Depois da entrega
 
 Mensalidade para manter as soluções, corrigir o que estiver previsto e evoluir o processo, dentro de limites de atendimento e escopo definidos em contrato.
 
-Referência de R$ 1.200 a R$ 5.000 por mês. A mensalidade não inclui desenvolvimento ilimitado, novas integrações sem orçamento nem garantia de resultado comercial. Custos de terceiros e de API ficam discriminados.
+Referência de R$ 1.200 a R$ 5.000 por mês pela gestão, em contrato. Nuvem e IA ficam por fora, pelo valor do provedor, e a V2O5 gerencia. Não inclui desenvolvimento ilimitado, novas integrações sem orçamento nem garantia de resultado comercial.
 
 [Ver faixas e condições](/precos#titulo-sprint)
 
 Bônus por desempenho fica como opção futura, só com linha de base, regra de atribuição acordada e dados auditáveis. Não faz parte da oferta padrão.
 
-## As peças que o Sprint usa quando o problema pede. Cada uma também pode ser contratada avulsa.
+## O que um Sprint costuma usar. Cada peça entra quando o gargalo pede, não por catálogo.
 
-Tudo com preço publicado e sem fidelidade, em três planos ou avulso. A mensalidade já inclui hospedagem e manutenção, e tudo roda na mesma base: o que entra por uma peça aparece nas outras.
+Um Sprint resolve um gargalo de cada vez. Estas são as intervenções que ele mais usa, e tudo roda na mesma base: o que entra por uma peça aparece nas outras. O escopo de cada projeto sai em proposta.
 
-### Coloque sua empresa no mapa.
+### Ser encontrado e saber de onde vem cada contato.
 
-Quem procura o que você vende acha você ou acha o concorrente. Esta metade cuida de ser você: no Google, no Maps, nos anúncios, nas redes e nas respostas das IAs de busca.
+Quem procura o que você vende acha você ou acha o concorrente. Estas intervenções cuidam de ser você no Google, no Maps, nos anúncios, nas redes e nas respostas das IAs de busca, com a origem de cada contato registrada.
 
-[Atração Branding e gestão de marca Antes de anunciar, decida o que a marca promete. Posicionamento, identidade visual e tom de voz num guia que vale para o perfil, o site, os anúncios e o atendimento. sob consulta →](/diagnostico)
+[Atração Branding e gestão de marca Antes de anunciar, decida o que a marca promete. Posicionamento, identidade visual e tom de voz num guia que vale para o perfil, o site, os anúncios e o atendimento. →](/diagnostico)
 
-[Atração Perfil da Empresa no Google Quem busca perto de casa vê o Maps antes do site. O antigo Google Meu Negócio, completo e verificado, com a empresa aparecendo na sua região. incluso no plano Presença →](/criacao-de-sites)
+[Atração Perfil da Empresa no Google Quem busca perto de casa vê o Maps antes do site. O antigo Google Meu Negócio, completo e verificado, com a empresa aparecendo na sua região. →](/criacao-de-sites)
 
-[Atração SEO e busca por IA Para ranquear no Google e ser citado nas respostas das IAs: SEO técnico, conteúdo e dados estruturados no site. SEO técnico incluso no plano Presença →](/criacao-de-sites)
+[Atração SEO e busca por IA Para ranquear no Google e ser citado nas respostas das IAs: SEO técnico, conteúdo e dados estruturados no site. →](/criacao-de-sites)
 
-[Atração Sites e presença Carrega rápido no celular, aparece no Google e grava de onde veio cada contato. Hospedagem, manutenção e SEO técnico já na mensalidade. no plano Presença, a partir de R$ 8.900 + R$ 990/mês →](/criacao-de-sites)
+[Atração Sites e presença Carrega rápido no celular, aparece no Google e grava de onde veio cada contato, com SEO técnico. →](/criacao-de-sites)
 
-[Atração Tráfego pago no Google e na Meta Google Ads e Meta Ads por plataforma ou juntos, com anúncios que abrem conversa no WhatsApp e a verba ajustada pela venda registrada no CRM. Quem contrata os dois leva o feed de catálogo. Começa com o rastreamento ligado. a partir de R$ 1.200/mês + verba, por plataforma →](/precos#titulo-trafego)
+[Atração Tráfego pago no Google e na Meta Google Ads e Meta Ads por plataforma ou juntos, com anúncios que abrem conversa no WhatsApp e a verba ajustada pela venda registrada no CRM. Quem contrata os dois leva o feed de catálogo. Começa com o rastreamento ligado. →](/diagnostico)
 
-[Atração Rastreamento até a venda Cada venda com a origem: qual anúncio, qual busca, qual página. Sem isso, a verba vai para onde parece funcionar. a partir de R$ 2.900 + R$ 690/mês, ou no plano Presença →](/rastreamento-de-conversoes)
+[Atração Rastreamento até a venda Cada venda com a origem: qual anúncio, qual busca, qual página. Sem isso, a verba vai para onde parece funcionar. →](/rastreamento-de-conversoes)
 
-[Atração Anúncios de catálogo O estoque ou os produtos viram anúncio no Google (anúncios de veículos e Shopping) e na Meta, e saem do ar quando o item é vendido. incluso no Google Ads e Meta Ads juntos →](/precos#titulo-trafego)
+[Atração Anúncios de catálogo O estoque ou os produtos viram anúncio no Google (anúncios de veículos e Shopping) e na Meta, e saem do ar quando o item é vendido. →](/diagnostico)
 
-[Atração Conteúdo e gestão de redes sociais Duas redes com perfis configurados e um calendário de 12 publicações por mês feitas do que a empresa já produz: o estoque, os guias, a novidade da semana. Cada post com link rastreado. a partir de R$ 1.500 + R$ 1.699/mês →](/diagnostico)
+[Atração Conteúdo e gestão de redes sociais Duas redes com perfis configurados e um calendário de 12 publicações por mês feitas do que a empresa já produz: o estoque, os guias, a novidade da semana. Cada post com link rastreado. →](/diagnostico)
 
-[Venda Avaliações no Google Depois da venda, o cliente recebe no WhatsApp o pedido de avaliação com o link certo, e o painel mostra quem respondeu. incluso no plano Presença →](/diagnostico)
+[Venda Avaliações no Google Depois da venda, o cliente recebe no WhatsApp o pedido de avaliação com o link certo, e o painel mostra quem respondeu. →](/diagnostico)
 
-### Multiplique a operação com IA.
+### Responder rápido e organizar a operação.
 
 O contato que chega fora do horário recebe resposta na hora e entra no funil com a origem. A equipe começa o dia com o próximo passo pronto, e o dono vê o mês numa tela.
 
-[Atendimento Agente de IA no WhatsApp Responde na hora, a qualquer hora, com as informações do seu negócio. Quando a conversa pede uma pessoa, chama alguém da equipe. no plano Atendimento, a partir de R$ 7.900 + R$ 1.590/mês →](/agente-de-ia-para-whatsapp)
+[Atendimento Agente de IA no WhatsApp Responde na hora, a qualquer hora, com as informações do seu negócio. Quando a conversa pede uma pessoa, chama alguém da equipe. →](/agente-de-ia-para-whatsapp)
 
-[Gestão CRM e sistemas sob medida Nenhum contato esquecido numa conversa: cada um num funil, com a origem, a etapa e o próximo passo à vista. no plano Atendimento, a partir de R$ 7.900 + R$ 1.590/mês →](/crm-com-whatsapp)
+[Gestão CRM e sistemas sob medida Nenhum contato esquecido numa conversa: cada um num funil, com a origem, a etapa e o próximo passo à vista. →](/crm-com-whatsapp)
 
-[Gestão Painel do dono Funil, verba, custo por lead e vendas por origem numa tela, atualizada todo dia a partir do CRM, do rastreamento e das contas de anúncio. Sem licença por usuário. a partir de R$ 3.900 + R$ 490/mês; implantação de bônus no Completo →](/diagnostico)
+[Gestão Painel do dono Funil, verba, custo por lead e vendas por origem numa tela, atualizada todo dia a partir do CRM, do rastreamento e das contas de anúncio. Sem licença por usuário. →](/diagnostico)
 
-[Gestão Automação de processos A tarefa que alguém faz à mão toda semana passa a rodar sozinha entre os sistemas que você já usa. a partir de R$ 1.900 por fluxo →](/automacao-com-ia)
+[Gestão Automação de processos A tarefa que alguém faz à mão toda semana passa a rodar sozinha entre os sistemas que você já usa. →](/automacao-com-ia)
 
-[Atendimento Reativação de base A sua base de clientes antigos, limpa e segmentada, recebe uma conversa no WhatsApp ou um SMS. Quem responde entra no CRM com a origem. a partir de R$ 1.900 + R$ 290/mês →](/diagnostico)
+[Atendimento Reativação de base A sua base de clientes antigos, limpa e segmentada, recebe uma conversa no WhatsApp ou um SMS. Quem responde entra no CRM com a origem. →](/diagnostico)
 
-[Venda Pós-venda e recorrência Revisão, troca, seguro ou recompra: a régua de retorno manda a mensagem na data certa e devolve o cliente ao funil. a partir de R$ 1.900 por fluxo; um vem no plano Completo →](/diagnostico)
+[Venda Pós-venda e recorrência Revisão, troca, seguro ou recompra: a régua de retorno manda a mensagem na data certa e devolve o cliente ao funil. →](/diagnostico)
 
-[Gestão Integrações entre sistemas Site, CRM, ERP e os sistemas do seu setor trocando dados sozinhos. Em produção hoje: o estoque do Revenda Mais. a partir de R$ 1.900 por fluxo →](/automacao-com-ia)
+[Gestão Integrações entre sistemas Site, CRM, ERP e os sistemas do seu setor trocando dados sozinhos. Em produção hoje: o estoque do Revenda Mais. →](/automacao-com-ia)
 
 ## Como tudo se liga. Cada peça passa o contato adiante, com a origem junto.
 
@@ -286,8 +286,6 @@ Venda
 
 O pacote é o sistema da Motors Store: site de estoque integrado ao sistema da loja (Revenda Mais, Autoconf e outros), agente de IA no WhatsApp, CRM e rastreamento até a venda.
 
-Plano Completo a partir de R$ 14.900 de implantação e R$ 1.990 por mês até 31/12/2026; depois, R$ 2.290.
-
 [Ver a página de revendas](/segmentos/revendas-de-veiculos)
 
 Estoque <!-- decorativo, aria-hidden -->
@@ -330,35 +328,27 @@ no agente <!-- decorativo, aria-hidden -->
 
 ## O que todo mundo pergunta antes de fechar.
 
-Preço, fidelidade, o que entra na mensalidade e o que fica de fora. Se a sua pergunta não está aqui, ela cabe no diagnóstico.
+Preço, pagamento, o que o Sprint entrega e o que vem depois. Se a sua pergunta não está aqui, ela cabe no diagnóstico.
 
-Quanto custa um site com a V2O5?
+Quanto custa?
 
-O site vem no plano Presença, a partir de R$ 8.900 de implantação e R$ 990 por mês, junto com o Perfil da Empresa no Google, o SEO técnico, o rastreamento até a venda e o pedido de avaliação. A mensalidade cobre hospedagem, manutenção, atualizações de segurança e o relatório mensal. Domínio e e-mail profissional entram na fundação do projeto.
+O Diagnóstico de Gargalo, a sessão inicial de 45 minutos, é gratuito. O Sprint de Eficiência tem preço fechado em proposta, depois de delimitar o gargalo. As faixas de referência são Sprint Essencial de R$ 3.000 a R$ 5.000, Sprint Integrada de R$ 6.000 a R$ 12.000, Sprint Avançada de R$ 12.000 a R$ 25.000 ou mais, conforme a complexidade, o risco e os custos diretos. A duração é referência, não promessa.
 
-O que a mensalidade inclui?
+O que um Sprint entrega?
 
-Hospedagem, manutenção, atualizações de segurança, monitoramento e um relatório mensal. O uso do modelo de IA e as mensagens da API oficial do WhatsApp são cobrados pelo valor real, discriminados na mesma fatura. A verba de anúncios é paga direto ao Google e à Meta. Usuário, dados e conversas acima do que vem incluso têm preço publicado na tabela.
+Um projeto fechado para um gargalo delimitado: mapeamento do fluxo atual, priorização, implementação da solução acordada, testes e comparação dos indicadores disponíveis antes e depois. A proposta define o problema, os entregáveis, as exclusões, o prazo, as responsabilidades do cliente e os critérios de aceite.
 
-Quero o site e o agente. Pago os dois planos?
+Como funciona o pagamento?
 
-Não precisa. O Completo junta a Presença e o Atendimento por R$ 2.290 por mês (R$ 1.990 até 31/12/2026), contra R$ 2.580 dos dois separados, e ainda traz a integração com o sistema de gestão, um fluxo de automação e a implantação do Painel do dono de bônus. Tráfego, conteúdo e módulos ficam fora do plano, com preço publicado.
+Em projetos, 50% na contratação, 30% na validação intermediária e 20% no aceite final. Em Sprints pequenas, 50% na contratação e 50% na entrega.
 
-Tem cobrança por usuário?
+E depois que o Sprint termina?
 
-O CRM do Atendimento e do Completo vem com 5 usuários e o Painel do dono com 3, sem licença por pessoa. Acima disso, cada usuário extra custa R$ 89 por mês.
-
-Os preços sobem com o dólar?
-
-A mensalidade é reajustada uma vez por ano pelo IPCA. Hospedagem, banco de dados e modelos de IA são cobrados em dólar: se a variação cambial passar de 10% desde a assinatura, a diferença é repassada só nesses itens, com o cálculo na fatura.
-
-Tem fidelidade ou multa?
-
-Não. A implantação pode ser paga metade na assinatura e metade na entrega, ou em até 6 vezes, e a mensalidade cancela quando quiser. Se sair, você recebe o código, os dados e o domínio em até 15 dias.
+O Sprint termina na entrega. Se a solução continua rodando, há uma parte recorrente, em contrato à parte e com limites escritos. A gestão continuada é estabilidade e suporte, de R$ 1.200 a R$ 2.500 por mês, ou evolução contínua, de R$ 2.500 a R$ 5.000 por mês. Nuvem e IA ficam por fora da faixa, pelo valor do provedor e discriminadas, e a V2O5 gerencia as duas. A faixa não cobre desenvolvimento ilimitado nem novas integrações sem orçamento.
 
 Preciso trocar o sistema de gestão que já uso?
 
-Não. A V2O5 liga o que você já usa. Em produção hoje: o estoque do Revenda Mais sincronizado com o site e o agente da Motors Store. Autoconf, BNDV, Boom, Altimus e Syonet e outros sistemas entram como fluxo de automação, a partir de R$ 1.900 por fluxo.
+Não. A V2O5 liga o que você já usa. Em produção hoje: o estoque do Revenda Mais sincronizado com o site e o agente da Motors Store. Autoconf, BNDV, Boom, Altimus e Syonet e outros sistemas entram como integração dentro de um Sprint, quando o gargalo pede.
 
 O agente de IA atende sozinho?
 
@@ -374,7 +364,7 @@ Não. A reativação de base usa a base própria da empresa, com registro de ori
 
 Por onde sai a campanha de reativação?
 
-Por SMS, com link rastreado e saída fácil, disparado do painel; ou por WhatsApp, numa campanha operada pela V2O5, pela API oficial ou por um número dedicado à campanha, nunca o principal da empresa. A API oficial cobra por mensagem e limita o volume diário, por isso o canal sai do diagnóstico, pelo tamanho da base. SMS e mensagens pelo valor do provedor, na mesma fatura.
+Por SMS, com link rastreado e saída fácil, disparado do painel; ou por WhatsApp, numa campanha operada pela V2O5, pela API oficial ou por um número dedicado à campanha, nunca o principal da empresa. A API oficial cobra por mensagem e limita o volume diário, por isso o canal sai do diagnóstico, pelo tamanho da base. Os custos do provedor ficam discriminados na proposta.
 
 Como funciona o diagnóstico gratuito?
 
@@ -398,7 +388,7 @@ Não precisa chegar com um briefing grande nem saber qual ferramenta usar. Traga
 
 [Mapear um gargalo](/diagnostico)
 
-[Ver preços](/precos)
+[Ver os preços do Sprint](/precos#titulo-sprint)
 
 r 18 <!-- texto em SVG; decorativo, aria-hidden -->
 

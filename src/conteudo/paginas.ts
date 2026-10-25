@@ -34,23 +34,23 @@ export const PAGINAS: Pagina[] = [
     rota: "/agente-de-ia-para-whatsapp",
     titulo: "Agente de IA para WhatsApp",
     descricao:
-      "Agente de IA no WhatsApp que responde na hora com as informações do seu negócio, qualifica, agenda e passa para a equipe. A partir de R$ 3.900 + R$ 790/mês.",
-    atualizadaEm: "2026-10-13",
+      "Agente de IA no WhatsApp que responde na hora com as informações do seu negócio, qualifica, agenda e passa para a equipe. Entra num Sprint de Eficiência.",
+    atualizadaEm: "2026-10-25",
     pronta: true,
   },
   {
     rota: "/automacao-com-ia",
     titulo: "Automação de processos com IA e n8n",
     descricao:
-      "Fluxos no n8n que ligam os sistemas que a sua empresa já usa, com IA validada contra invenção de dado e registro de cada execução. R$ 1.900 por fluxo.",
-    atualizadaEm: "2026-10-13",
+      "Fluxos no n8n que ligam os sistemas que a sua empresa já usa, com IA validada contra invenção de dado e registro de cada execução. Entra num Sprint.",
+    atualizadaEm: "2026-10-25",
     pronta: true,
   },
   {
     rota: "/criacao-de-sites",
     titulo: "Criação de site profissional com SEO",
     descricao:
-      "Site rápido no celular, achado no Google e nas respostas das IAs, que grava de onde veio cada contato. Hospedagem e manutenção na mensalidade de R$ 690.",
+      "Site rápido no celular, achado no Google e nas respostas das IAs, que grava de onde veio cada contato. Intervenção de um Sprint de Eficiência.",
     atualizadaEm: "2026-10-25",
     pronta: true,
   },
@@ -58,23 +58,23 @@ export const PAGINAS: Pagina[] = [
     rota: "/crm-com-whatsapp",
     titulo: "CRM com WhatsApp integrado",
     descricao:
-      "CRM sob medida com WhatsApp dentro do funil: cada contato com origem, etapa e próximo passo. 5 usuários inclusos, sem licença por pessoa, a partir de R$ 4.900.",
-    atualizadaEm: "2026-10-13",
+      "CRM sob medida com WhatsApp dentro do funil: cada contato com origem, etapa e próximo passo. Intervenção de um Sprint de Eficiência.",
+    atualizadaEm: "2026-10-25",
     pronta: true,
   },
   {
     rota: "/rastreamento-de-conversoes",
     titulo: "Rastreamento de conversões até a venda",
     descricao:
-      "GA4, API de Conversões da Meta e conversões offline do Google Ads: cada lead e cada venda ligados ao anúncio que trouxe o cliente. A partir de R$ 2.900.",
-    atualizadaEm: "2026-10-13",
+      "GA4, API de Conversões da Meta e conversões offline do Google Ads: cada lead e cada venda ligados ao anúncio que trouxe o cliente. Entra num Sprint.",
+    atualizadaEm: "2026-10-25",
     pronta: true,
   },
   {
     rota: "/segmentos/revendas-de-veiculos",
     titulo: "Sistema de vendas para revendas de veículos",
     descricao:
-      "Site de estoque ligado ao sistema da loja (Revenda Mais, Autoconf e outros), agente de IA no WhatsApp, CRM e rastreamento até a venda, a partir de R$ 14.900.",
+      "Site de estoque ligado ao sistema da loja (Revenda Mais, Autoconf e outros), agente de IA no WhatsApp, CRM e rastreamento até a venda, num Sprint.",
     atualizadaEm: "2026-10-25",
     pronta: true,
   },
@@ -88,9 +88,9 @@ export const PAGINAS: Pagina[] = [
   },
   {
     rota: "/precos",
-    titulo: "Preços e planos",
+    titulo: "Preços do Sprint de Eficiência",
     descricao:
-      "Três planos com preço fechado: Presença a partir de R$ 8.900 + R$ 990/mês, Atendimento com agente de IA e CRM, e o Completo. Sem fidelidade.",
+      "Sprint de Eficiência com preço fechado em proposta, faixas de R$ 3.000 a R$ 25.000 ou mais e recorrência mensal de R$ 1.200 a R$ 5.000. Diagnóstico gratuito.",
     atualizadaEm: "2026-10-25",
     pronta: true,
   },

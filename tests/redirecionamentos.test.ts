@@ -18,7 +18,7 @@ describe("redirecionamentos provisórios", () => {
   it("/gestao-de-trafego vai, por 307, à seção de tráfego de /precos até ganhar texto", async () => {
     const regras = await config.redirects!();
     const trafego = regras.find((r) => r.source === "/gestao-de-trafego");
-    expect(trafego?.destination).toBe("/precos#titulo-trafego");
+    expect(trafego?.destination).toBe("/#solucoes");
     expect(trafego?.statusCode).toBe(307);
     expect(REDIRECIONAMENTOS_PROVISORIOS.map((r) => r.source)).toContain("/gestao-de-trafego");
   });

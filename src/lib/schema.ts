@@ -4,7 +4,8 @@ import { SOBRE } from "@/conteudo/sobre";
 import { solucaoDa } from "@/conteudo/solucoes";
 import { ASSINATURA, EMPRESA, PERGUNTAS, PILARES, VISAO_360 } from "@/conteudo/home";
 import { paginaDa } from "@/conteudo/paginas";
-import { dataBR, LINHAS_DE_PRECO, mensalidadeDoCompletoComTrafego, OFERTA_DO_COMPLETO, ofertaDaCapacidade, plano, PLANOS, USUARIOS_NO_CRM } from "@/conteudo/precos";
+import { ofertaDaCapacidade } from "@/conteudo/precos";
+import { CONTINUIDADE, SPRINT_DE_PRECOS } from "@/conteudo/sprint";
 import { SITE_URL } from "@/lib/site";
 import { whatsappInternacional } from "@/lib/whatsapp";
 
@@ -101,65 +102,58 @@ export function perguntas(rota: string, lista: { pergunta: string; resposta: str
   };
 }
 
-const oferta = (nome: string, preco: number, descricao: string, validaAte?: string): No => ({
+/** Uma faixa de referência do Sprint como oferta: o preço fechado sai em proposta. */
+const ofertaDoSprint = (n: (typeof SPRINT_DE_PRECOS.niveis)[number]): No => ({
   "@type": "Offer",
-  name: nome,
-  description: descricao,
-  price: preco,
-  priceCurrency: "BRL",
-  ...(validaAte ? { priceValidUntil: validaAte } : {}),
+  name: n.nome,
+  description: `Faixa de referência${n.faixa.ouMais ? ", ou mais" : ""}, conforme a complexidade. Duração de referência: ${n.duracao}. O preço fechado sai em proposta.`,
+  priceSpecification: {
+    "@type": "PriceSpecification",
+    minPrice: n.faixa.de,
+    maxPrice: n.faixa.ate,
+    priceCurrency: "BRL",
+  },
   availability: "https://schema.org/InStock",
   areaServed: { "@type": "Country", name: "Brasil" },
   seller: ref(ID_DA_ORGANIZACAO),
 });
 
-/** A mensalidade do Completo por tempo limitado, como oferta com validade. */
-const ofertaDoCompleto = (nome: string): No =>
-  oferta(
-    nome,
-    OFERTA_DO_COMPLETO.mensalidade,
-    `Mensalidade a partir de, por tempo limitado, até ${dataBR(OFERTA_DO_COMPLETO.ate)}`,
-    OFERTA_DO_COMPLETO.ate,
-  );
-
 /**
- * O catálogo de `precos.ts` como ofertas: os planos (implantação e
- * mensalidade separadas, porque são preços diferentes, e a mensalidade do
- * Completo por tempo limitado com validade) e as linhas de tráfego, módulos
- * e serviços. O que é sob consulta fica fora. Preço "a partir de": a
- * descrição diz isso.
+ * O catálogo de `/precos` desde 25/10/2026: o Sprint de Eficiência, nas três
+ * faixas de referência de `sprint.ts`, e as duas faixas mensais da
+ * continuidade que o acompanha. Os planos de `precos.ts` não são
+ * publicados, então não entram no schema.
  */
 export function catalogo(): No {
-  const itens: No[] = [];
-  for (const p of PLANOS) {
-    const servico = { "@type": "Service", name: `Plano ${p.nome}`, url: `${SITE_URL}/precos`, provider: ref(ID_DA_ORGANIZACAO) };
-    itens.push({ ...oferta(`Plano ${p.nome}`, p.implantacao, "Implantação a partir de"), itemOffered: servico });
-    itens.push({ ...oferta(`Plano ${p.nome} (mensalidade)`, p.mensalidade, `Mensalidade a partir de. ${p.para}`), itemOffered: servico });
-    if (p.id === "completo") itens.push({ ...ofertaDoCompleto(`Plano ${p.nome} (mensalidade por tempo limitado)`), itemOffered: servico });
-  }
-  for (const l of LINHAS_DE_PRECO.filter((x) => !x.sobConsulta)) {
-    const servico = { "@type": "Service", name: l.nome, url: `${SITE_URL}${l.href}`, provider: ref(ID_DA_ORGANIZACAO) };
-    if (l.implantacao) {
-      itens.push({
-        ...oferta(l.nome, l.implantacao, `Implantação a partir de${l.unidade ? `, ${l.unidade}` : ""}`),
-        itemOffered: servico,
-      });
-    }
-    if (l.mensalidade) {
-      itens.push({
-        ...oferta(`${l.nome} (mensalidade)`, l.mensalidade, `Mensalidade a partir de${l.maisVerba ? ", mais a verba" : ""}. ${l.cobre}`),
-        itemOffered: servico,
-      });
-    }
-    if (l.porUso) {
-      itens.push({ ...oferta(`${l.nome} (${l.porUso.unidade})`, l.porUso.valor, `Preço a partir de, ${l.porUso.unidade}`), itemOffered: servico });
-    }
-  }
+  const servico = {
+    "@type": "Service",
+    name: "Sprint de Eficiência V2O5",
+    url: `${SITE_URL}/precos#titulo-sprint`,
+    provider: ref(ID_DA_ORGANIZACAO),
+  };
   return {
     "@type": "OfferCatalog",
     "@id": `${SITE_URL}/precos#catalogo`,
-    name: "Preços da V2O5 Vendas e Tecnologia",
-    itemListElement: itens,
+    name: "Sprint de Eficiência V2O5",
+    itemListElement: [
+      ...SPRINT_DE_PRECOS.niveis.map((n) => ({ ...ofertaDoSprint(n), itemOffered: servico })),
+      ...CONTINUIDADE.modalidades.map((m) => ({
+        "@type": "Offer",
+        name: `${m.nome} (por mês)`,
+        description: `Faixa de referência por mês pela gestão continuada, depois do Sprint. ${m.texto} Nuvem e IA ficam por fora, pelo valor do provedor. Valor e limites em contrato.`,
+        priceSpecification: {
+          "@type": "UnitPriceSpecification",
+          minPrice: m.faixa.de,
+          maxPrice: m.faixa.ate,
+          priceCurrency: "BRL",
+          unitCode: "MON",
+        },
+        availability: "https://schema.org/InStock",
+        areaServed: { "@type": "Country", name: "Brasil" },
+        seller: ref(ID_DA_ORGANIZACAO),
+        itemOffered: servico,
+      })),
+    ],
   };
 }
 
@@ -201,31 +195,19 @@ export function grafoDoCase(): No {
   };
 }
 
-/** O plano Completo como serviço para revendas, com as ofertas da página. */
+/** O hub de revendas como serviço (sem valor público desde 25/10/2026). */
 export function servicoAutomotivo(): No {
-  const p = plano("completo");
   const rota = HUB_AUTOMOTIVO.rota;
   return {
     "@type": "Service",
     "@id": `${SITE_URL}${rota}#servico`,
-    name: "Plano Completo para revendas de veículos",
+    name: "Sprint de Eficiência para revendas de veículos",
     description: HUB_AUTOMOTIVO.resumo,
     url: `${SITE_URL}${rota}`,
     provider: ref(ID_DA_ORGANIZACAO),
     serviceType: "Site de estoque, agente de IA no WhatsApp, CRM e rastreamento até a venda",
     audience: { "@type": "BusinessAudience", name: "Revendas de veículos" },
     areaServed: { "@type": "Country", name: "Brasil" },
-    offers: [
-      oferta("Plano Completo (implantação)", p.implantacao, "Implantação a partir de"),
-      ofertaDoCompleto("Plano Completo (mensalidade por tempo limitado)"),
-      oferta("Plano Completo (mensalidade)", p.mensalidade, `Mensalidade a partir de, com ${USUARIOS_NO_CRM} usuários`),
-      oferta(
-        "Plano Completo com Google Ads e Meta Ads (mensalidade)",
-        mensalidadeDoCompletoComTrafego(),
-        `Mensalidade a partir de, mais a verba, até ${dataBR(OFERTA_DO_COMPLETO.ate)}`,
-        OFERTA_DO_COMPLETO.ate,
-      ),
-    ],
   };
 }
 
@@ -233,9 +215,6 @@ export function servicoAutomotivo(): No {
 export function servicoDaSolucao(rota: string): No {
   const s = solucaoDa(rota);
   const l = ofertaDaCapacidade(s.linha);
-  const ofertas: No[] = [];
-  if (l.implantacao) ofertas.push(oferta(`${l.nome} (implantação)`, l.implantacao, `Implantação a partir de${l.unidade ? `, ${l.unidade}` : ""}`));
-  if (l.mensalidade) ofertas.push(oferta(`${l.nome} (mensalidade)`, l.mensalidade, `Mensalidade a partir de${l.maisVerba ? ", mais a verba" : ""}. ${l.cobre}`));
   return {
     "@type": "Service",
     "@id": `${SITE_URL}${rota}#servico`,
@@ -245,7 +224,6 @@ export function servicoDaSolucao(rota: string): No {
     provider: ref(ID_DA_ORGANIZACAO),
     serviceType: s.titulo.replace(/\.$/, ""),
     areaServed: { "@type": "Country", name: "Brasil" },
-    offers: ofertas,
   };
 }
 

@@ -7,8 +7,8 @@ description: "Sessão inicial gratuita de 45 minutos com o fundador para identif
 canonical: "https://www.v2o5.com.br/diagnostico"
 robots: null
 h1: "Em 45 minutos, qual gargalo atacar primeiro. Sessão inicial gratuita, sem compromisso."
-extraido_em: "2026-10-25T18:36:04.076Z"
-fonte: "build local da branch claude/keen-ptolemy-vnfnfu (25/10/2026), extraída com design/baseline/ferramentas; as demais rotas seguem como em 19/10"
+extraido_em: "2026-10-25T20:08:16.046Z"
+fonte: "build local da branch claude/keen-ptolemy-vnfnfu (só o Sprint com valor público, 25/10/2026), extraída com design/baseline/ferramentas; as demais rotas seguem como em 19/10"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 # Em 45 minutos, qual gargalo atacar primeiro. Sessão inicial gratuita, sem compromisso.
@@ -95,14 +95,6 @@ Havendo um bom caso, a V2O5 propõe um Sprint de Eficiência, com escopo, entreg
 Para quem tem uma empresa que vende pelo WhatsApp, pela internet ou pela loja, e quer saber onde o cliente se perde antes de gastar em anúncio, site ou sistema.
 
 O Diagnóstico de Gargalo é a sessão inicial, gratuita, de 45 minutos. Ele identifica e prioriza um gargalo, mas não inclui mapeamento completo do processo, implementação nem acompanhamento ou mensuração de resultados. Esses passos vêm depois, no Sprint de Eficiência e no acompanhamento contínuo, com escopo, valor e prazo definidos em proposta.
-
-Sem fidelidade. Mensalidade mês a mês. Cancela quando quiser.
-
-Implantação em até 6x. Ou metade na assinatura e metade na entrega.
-
-O sistema é seu. Se sair, recebe o código, os dados e o domínio em até 15 dias.
-
-Mensalidade fechada por plano. Três planos de R$ 990 a R$ 2.290 por mês, com hospedagem e manutenção dentro. O que cresce com você (usuário, dados, conversas) tem preço publicado. IA e mensagens do WhatsApp pelo valor real, na mesma fatura.
 
 <!-- ===== Campos que aparecem quando o segmento escolhido é "Revenda de veículos" (entram depois de "Quantas pessoas trabalham na empresa") ===== -->
 Tamanho do estoque

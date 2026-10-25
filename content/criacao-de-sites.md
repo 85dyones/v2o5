@@ -3,29 +3,29 @@ rota: "/criacao-de-sites"
 url: "https://www.v2o5.com.br/criacao-de-sites"
 status: 200
 title: "Criação de site profissional com SEO | V2O5 Vendas e Tecnologia"
-description: "Site rápido no celular, achado no Google e nas respostas das IAs, que grava de onde veio cada contato. Hospedagem e manutenção na mensalidade de R$ 690."
+description: "Site rápido no celular, achado no Google e nas respostas das IAs, que grava de onde veio cada contato. Intervenção de um Sprint de Eficiência."
 canonical: "https://www.v2o5.com.br/criacao-de-sites"
 robots: null
 h1: "Criação de site profissional com SEO e rastreamento."
-extraido_em: "2026-10-25T18:36:04.076Z"
-fonte: "build local da branch claude/keen-ptolemy-vnfnfu (25/10/2026), extraída com design/baseline/ferramentas; as demais rotas seguem como em 19/10"
+extraido_em: "2026-10-25T20:08:16.046Z"
+fonte: "build local da branch claude/keen-ptolemy-vnfnfu (só o Sprint com valor público, 25/10/2026), extraída com design/baseline/ferramentas; as demais rotas seguem como em 19/10"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 # Criação de site profissional com SEO e rastreamento.
 
-Site que carrega rápido no celular, aparece no Google e grava de onde veio cada contato. Hospedagem e manutenção na mensalidade.
+Site que carrega rápido no celular, aparece no Google e grava de onde veio cada contato. Entra num Sprint quando o gargalo é a presença.
 
 [Pedir diagnóstico gratuito](/diagnostico)
 
-[Ver o preço](#titulo-preco)
+[Ver como entra num Sprint](#titulo-no-sprint)
 
-Preço
+No Sprint
 
-no plano Presença, a partir de R$ 8.900 + R$ 990/mês
+Intervenção para quando o gargalo é ser encontrado e saber de onde vêm os contatos
 
-A mensalidade cobre
+O que entra
 
-Hospedagem, manutenção, atualizações de segurança, SEO técnico, Perfil da Empresa no Google, rastreamento até a venda e relatório mensal
+Páginas que o Google entende, SEO técnico, Perfil da Empresa no Google e rastreamento até a venda, conforme o escopo do Sprint
 
 Em produção
 
@@ -57,11 +57,11 @@ Cada botão de WhatsApp e cada formulário gravam a campanha, o anúncio e a pá
 
 ### Domínio, e-mail e hospedagem
 
-Domínio e e-mail profissional entram na fundação do projeto. Hospedagem, atualizações de segurança e monitoramento ficam na mensalidade.
+Domínio e e-mail profissional entram na fundação do projeto. Hospedagem, atualizações de segurança e monitoramento são definidos na proposta, ou na continuidade, se contratada.
 
 ### O código é seu
 
-Se sair, recebe o código, os dados e o domínio em até 15 dias. Sem fidelidade.
+Domínio, hospedagem e código ficam no nome da sua empresa desde o primeiro dia.
 
 ## Do diagnóstico ao ar.
 
@@ -111,57 +111,25 @@ Banco de dados da Motors Store, lido em 08/10/2026. Leads contados de 05/09 a 08
 
 [Ler o case completo](/cases/motors-store)
 
-## Plano Presença: a partir de.
+## Sites e presença num Sprint de Eficiência.
 
-Implantação a partir de
+O site entra num Sprint quando o gargalo é ser encontrado: páginas que o Google entende, Perfil da Empresa, SEO técnico e a origem de cada contato gravada. O Sprint começa pelo mapeamento do fluxo atual e termina com os indicadores disponíveis comparados antes e depois.
 
-R$ 8.900
-
-Mensalidade a partir de
-
-R$ 990/mês
-
-Ser encontrado no Google e saber de onde vem cada contato. Site institucional ou de estoque, com hospedagem e manutenção; Perfil da Empresa no Google e SEO técnico; Rastreamento até a venda, com API de Conversões; Pedido de avaliação no WhatsApp depois da venda; Relatório mensal da origem dos contatos.
-
-[Ver a tabela completa](/precos)
+[Ver o Sprint e suas faixas](/precos#titulo-sprint)
 
 O preço final
 
-Sai do diagnóstico, com o escopo fechado antes de começar. Todo valor publicado é a partir de.
+Sai da proposta do Sprint, depois de delimitar o gargalo, o escopo, os entregáveis e o prazo.
 
-Implantação em até 6 vezes, ou metade na assinatura e metade na entrega. Mensalidade mês a mês.
-
-Sem fidelidade
-
-Mensalidade mês a mês. Cancela quando quiser.
-
-Implantação em até 6x
-
-Ou metade na assinatura e metade na entrega.
-
-O sistema é seu
-
-Se sair, recebe o código, os dados e o domínio em até 15 dias.
-
-Mensalidade fechada por plano
-
-Três planos de R$ 990 a R$ 2.290 por mês, com hospedagem e manutenção dentro. O que cresce com você (usuário, dados, conversas) tem preço publicado. IA e mensagens do WhatsApp pelo valor real, na mesma fatura.
-
-## Quer saber qual gargalo atacar primeiro?
-
-O diagnóstico é gratuito: 45 minutos com o fundador para identificar e priorizar um gargalo, sem compromisso.
-
-[Pedir diagnóstico gratuito](/diagnostico)
-
-Diagnóstico gratuito: 45 minutos de conversa com o fundador para identificar e priorizar um gargalo.
+O diagnóstico inicial, de 45 minutos, é gratuito.
 
 ## O que perguntam sobre sites e presença antes de fechar.
 
-Preço, o que entra, o que fica de fora e o que acontece se você sair. O resto cabe no diagnóstico.
+O que entra, onde encaixa num Sprint e o que fica de fora. O resto cabe no diagnóstico.
 
 Quanto custa um site profissional?
 
-O site vem no plano Presença, a partir de R$ 8.900 de implantação e R$ 990 por mês, junto com o Perfil da Empresa no Google, o SEO técnico, o rastreamento até a venda e o pedido de avaliação. A mensalidade cobre hospedagem, manutenção, atualizações de segurança e o relatório mensal. Domínio e e-mail profissional entram na fundação do projeto.
+O site entra num Sprint de Eficiência, com preço fechado em proposta depois de delimitar o gargalo, o escopo e os entregáveis. As faixas de referência do Sprint estão em /precos. O diagnóstico inicial, de 45 minutos, é gratuito.
 
 Posso aproveitar o site que já tenho?
 
@@ -169,23 +137,23 @@ O diagnóstico começa pelo site atual: velocidade, páginas, tags. Se a base fo
 
 O site fica no meu nome?
 
-Sim. Domínio, hospedagem e código no nome da sua empresa desde o primeiro dia. Se sair, recebe tudo em até 15 dias.
+Sim. Domínio, hospedagem e código no nome da sua empresa desde o primeiro dia.
 
 Preciso ter fotos e textos prontos?
 
-Os textos a V2O5 escreve e revisa com você. Fotos e vídeos ficam com a sua equipe ou com um fotógrafo parceiro que a V2O5 indica, a partir de R$ 890 por mês.
+Os textos a V2O5 escreve e revisa com você. Fotos e vídeos ficam com a sua equipe ou com um fotógrafo parceiro que a V2O5 indica, contratado à parte.
 
 O site vem com loja virtual?
 
 Não. Loja com pagamento está fora do cardápio. O site vende por WhatsApp, formulário e telefone, com a origem de cada contato gravada.
 
-## Linhas que combinam com esta.
+## Intervenções que combinam com esta.
 
-[Atração Rastreamento até a venda Cada venda com a origem: qual anúncio, qual busca, qual página. Sem isso, a verba vai para onde parece funcionar. a partir de R$ 2.900 + R$ 690/mês, ou no plano Presença](/rastreamento-de-conversoes)
+[Atração Rastreamento até a venda Cada venda com a origem: qual anúncio, qual busca, qual página. Sem isso, a verba vai para onde parece funcionar.](/rastreamento-de-conversoes)
 
-[Atendimento Agente de IA no WhatsApp Responde na hora, a qualquer hora, com as informações do seu negócio. Quando a conversa pede uma pessoa, chama alguém da equipe. no plano Atendimento, a partir de R$ 7.900 + R$ 1.590/mês](/agente-de-ia-para-whatsapp)
+[Atendimento Agente de IA no WhatsApp Responde na hora, a qualquer hora, com as informações do seu negócio. Quando a conversa pede uma pessoa, chama alguém da equipe.](/agente-de-ia-para-whatsapp)
 
-[Atração Conteúdo e gestão de redes sociais Duas redes com perfis configurados e um calendário de 12 publicações por mês feitas do que a empresa já produz: o estoque, os guias, a novidade da semana. Cada post com link rastreado. a partir de R$ 1.500 + R$ 1.699/mês](/diagnostico)
+[Atração Conteúdo e gestão de redes sociais Duas redes com perfis configurados e um calendário de 12 publicações por mês feitas do que a empresa já produz: o estoque, os guias, a novidade da semana. Cada post com link rastreado.](/diagnostico)
 
 ## Comece pelo diagnóstico, que é gratuito.
 
@@ -193,7 +161,7 @@ Em 45 minutos de conversa com o fundador, a gente entende como a sua empresa ven
 
 [Pedir diagnóstico](/diagnostico)
 
-[Ver preços](/precos)
+[Ver os preços do Sprint](/precos#titulo-sprint)
 
 r 18 <!-- texto em SVG; decorativo, aria-hidden -->
 
@@ -216,7 +184,7 @@ O · 4,8 <!-- texto em SVG; decorativo, aria-hidden -->
 - "O que entra" (section)
 - "Como funciona" (section)
 - "Case" (section)
-- "Preço" (section)
+- "No Sprint" (section)
 - "Antes de contratar" (section)
 - "Conversa no WhatsApp" (aside)
 -->

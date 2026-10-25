@@ -12,7 +12,7 @@ export default function Perguntas({
   lista = PERGUNTAS,
   sobretitulo = "Antes de contratar",
   titulo = "O que todo mundo pergunta",
-  texto = "Preço, fidelidade, o que entra na mensalidade e o que fica de fora. Se a sua pergunta não está aqui, ela cabe no diagnóstico.",
+  texto = "Preço, pagamento, o que o Sprint entrega e o que vem depois. Se a sua pergunta não está aqui, ela cabe no diagnóstico.",
 }: {
   id?: string;
   lista?: { pergunta: string; resposta: string }[];

@@ -11,7 +11,7 @@ import {
   organizacao,
 } from "@/lib/schema";
 import { PERGUNTAS } from "@/conteudo/home";
-import { LINHAS_DE_PRECO, PLANOS } from "@/conteudo/precos";
+import { CONTINUIDADE, SPRINT_DE_PRECOS } from "@/conteudo/sprint";
 
 /** Seção 4.5 do plano e `marca.md`: um grafo por página, contado por teste. */
 
@@ -66,26 +66,28 @@ describe("grafo da home", () => {
 });
 
 describe("página de preços", () => {
-  it("tem a trilha, o catálogo de ofertas e as perguntas", () => {
+  it("tem a trilha, o catálogo do Sprint e as perguntas, sem plano nenhum", () => {
     const [org, trilha, catalogo, faq] = nos(grafoDosPrecos());
     expect(org).toEqual({ "@id": ID_DA_ORGANIZACAO });
     expect(trilha["@type"]).toBe("BreadcrumbList");
     expect(catalogo["@type"]).toBe("OfferCatalog");
     expect(faq["@type"]).toBe("FAQPage");
     const ofertas = catalogo.itemListElement as No[];
-    const daLinha = LINHAS_DE_PRECO.filter((l) => !l.sobConsulta).reduce(
-      (n, l) => n + (l.implantacao ? 1 : 0) + (l.mensalidade ? 1 : 0) + (l.porUso ? 1 : 0),
-      0,
-    );
-    // Cada plano tem implantação e mensalidade; o Completo, mais a mensalidade por tempo limitado.
-    const esperadas = daLinha + PLANOS.length * 2 + 1;
-    expect(ofertas).toHaveLength(esperadas);
-    for (const o of ofertas) {
+    expect(ofertas).toHaveLength(SPRINT_DE_PRECOS.niveis.length + CONTINUIDADE.modalidades.length);
+    const mensais = ofertas.slice(SPRINT_DE_PRECOS.niveis.length);
+    mensais.forEach((o, i) => {
+      const { faixa } = CONTINUIDADE.modalidades[i];
+      expect(o.priceSpecification).toEqual({ "@type": "UnitPriceSpecification", minPrice: faixa.de, maxPrice: faixa.ate, priceCurrency: "BRL", unitCode: "MON" });
+      expect(String(o.name)).toMatch(/por mês/);
+    });
+    ofertas.slice(0, SPRINT_DE_PRECOS.niveis.length).forEach((o, i) => {
+      const { faixa } = SPRINT_DE_PRECOS.niveis[i];
       expect(o["@type"]).toBe("Offer");
-      expect(o.priceCurrency).toBe("BRL");
-      expect(typeof o.price).toBe("number");
-      expect(String(o.description)).toMatch(/a partir de/);
-    }
+      expect(o.priceSpecification).toEqual({ "@type": "PriceSpecification", minPrice: faixa.de, maxPrice: faixa.ate, priceCurrency: "BRL" });
+      expect(String(o.description)).toMatch(/faixa de referência/i);
+      expect(o).not.toHaveProperty("price");
+    });
+    expect(JSON.stringify(catalogo)).not.toMatch(/Plano (Presença|Atendimento|Completo)/);
   });
 });
 

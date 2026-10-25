@@ -3,38 +3,33 @@ rota: "/agente-de-ia-para-whatsapp"
 url: "https://www.v2o5.com.br/agente-de-ia-para-whatsapp"
 status: 200
 title: "Agente de IA para WhatsApp | V2O5 Vendas e Tecnologia"
-description: "Agente de IA no WhatsApp que responde na hora com as informações do seu negócio, qualifica, agenda e passa para a equipe. A partir de R$ 3.900 + R$ 790/mês."
+description: "Agente de IA no WhatsApp que responde na hora com as informações do seu negócio, qualifica, agenda e passa para a equipe. Entra num Sprint de Eficiência."
 canonical: "https://www.v2o5.com.br/agente-de-ia-para-whatsapp"
 robots: null
 h1: "Agente de IA para WhatsApp que responde, qualifica e agenda."
-extraido_em: "2026-10-19T00:26:22.723Z"
-fonte: "produção (www.v2o5.com.br), main em 46c4103"
+extraido_em: "2026-10-25T20:08:16.046Z"
+fonte: "build local da branch claude/keen-ptolemy-vnfnfu (só o Sprint com valor público, 25/10/2026), extraída com design/baseline/ferramentas; as demais rotas seguem como em 19/10"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
-<!-- Redesign 2026 (19/10): a vinheta decorativa (aria-hidden) desta página saiu da tela; só /crm-com-whatsapp manteve a cena. O texto dela abaixo é da produção e não é palavra perdida. -->
-Agente de IA no WhatsApp
-
 # Agente de IA para WhatsApp que responde, qualifica e agenda.
 
 Responde na hora, a qualquer hora, com as informações do seu negócio. Quando a conversa pede uma pessoa, chama alguém da equipe.
 
 [Pedir diagnóstico gratuito](/diagnostico)
 
-[Ver o preço](#titulo-preco)
+[Ver como entra num Sprint](#titulo-no-sprint)
 
-Preço
+No Sprint
 
-no plano Atendimento, a partir de R$ 7.900 + R$ 1.590/mês
+Intervenção para quando o gargalo é responder rápido e não perder o contato que chegou
 
-Inclui
+O que entra
 
-500 conversas por mês, o CRM com 5 usuários, ajustes de roteiro e da base de conhecimento, suporte
+Agente treinado com a base de conhecimento da empresa, registro no CRM, ajustes de roteiro e passagem para a equipe, conforme o escopo
 
-Por fora, pelo valor real
+Custos de terceiros
 
-uso do modelo de IA e mensagens da API oficial do WhatsApp, na mesma fatura
-
-O problema
+Uso do modelo de IA e mensagens da API oficial do WhatsApp, discriminados na proposta
 
 ## O contato chega às 21h e é respondido no dia seguinte.
 
@@ -43,56 +38,6 @@ Quem manda mensagem fora do horário também está conversando com o concorrente
 Fonte: [Oldroyd, McElheran e Elkington, The Short Life of Online Sales Leads, Harvard Business Review, março de 2011](https://hbr.org/2011/03/the-short-life-of-online-sales-leads).
 
 Atendimento
-
-exemplo
-
-Agente da loja <!-- decorativo, aria-hidden -->
-
-responde na hora <!-- decorativo, aria-hidden -->
-
-WhatsApp <!-- decorativo, aria-hidden -->
-
-Hoje <!-- decorativo, aria-hidden -->
-
-Oi! Vocês abrem sábado? <!-- decorativo, aria-hidden -->
-
-Consultou os horários da loja <!-- decorativo, aria-hidden -->
-
-Abrimos sim, das 9h às 13h. Quer que eu reserve um horário para você? <!-- decorativo, aria-hidden -->
-
-Pode ser às 10h. <!-- decorativo, aria-hidden -->
-
-Horário reservado e equipe avisada <!-- decorativo, aria-hidden -->
-
-Pronto, sábado às 10h com a Carla. Quer a localização da loja? <!-- decorativo, aria-hidden -->
-
-Quero sim, obrigado! <!-- decorativo, aria-hidden -->
-
-Ficha no CRM <!-- decorativo, aria-hidden -->
-
-MR <!-- decorativo, aria-hidden -->
-
-Marina R. <!-- decorativo, aria-hidden -->
-
-veio do Google Ads <!-- decorativo, aria-hidden -->
-
-Em atendimento <!-- decorativo, aria-hidden -->
-
-Interesse <!-- decorativo, aria-hidden -->
-
-Visita no sábado <!-- decorativo, aria-hidden -->
-
-Próximo passo <!-- decorativo, aria-hidden -->
-
-Sábado, 10h <!-- decorativo, aria-hidden -->
-
-Responsável <!-- decorativo, aria-hidden -->
-
-Carla <!-- decorativo, aria-hidden -->
-
-Carla foi avisada no WhatsApp <!-- decorativo, aria-hidden -->
-
-O que entra
 
 ## O que a V2O5 entrega nesta linha.
 
@@ -114,13 +59,11 @@ Quando a conversa pede alguém, o agente chama o vendedor com o histórico intei
 
 ### API oficial do WhatsApp
 
-Número verificado no nome da empresa, modelo de mensagem aprovado e saída fácil. As mensagens são repassadas pelo valor da Meta.
+Número verificado no nome da empresa, modelo de mensagem aprovado e saída fácil. O custo das mensagens é da Meta e fica discriminado na proposta.
 
 ### Roteiro ajustado todo mês
 
-A V2O5 lê as conversas, corrige o roteiro e amplia a base de conhecimento. Entra na mensalidade.
-
-Como funciona
+A V2O5 lê as conversas, corrige o roteiro e amplia a base de conhecimento. Faz parte da continuidade, quando contratada.
 
 ## Do diagnóstico ao ar.
 
@@ -149,8 +92,6 @@ O agente roda num número de teste da V2O5 até a equipe aprovar as respostas.
 No ar e medido
 
 Entra no número oficial da empresa. Toda conversa fica no CRM, com origem e desfecho.
-
-Demonstração
 
 ## Veja o sistema trabalhando. Da mensagem ao card no CRM, etapa por etapa.
 
@@ -205,59 +146,21 @@ Responsável
 
 …
 
-Preço
+## Agente de IA no WhatsApp num Sprint de Eficiência.
 
-## Plano Atendimento: a partir de.
+O agente entra num Sprint quando o gargalo é a resposta lenta ou o contato que se perde fora do horário. O Sprint mapeia o atendimento de hoje, define o que o agente responde e quando chama uma pessoa, implementa e compara o tempo de resposta e os contatos acompanhados antes e depois.
 
-Implantação a partir de
-
-R$ 7.900
-
-Mensalidade a partir de
-
-R$ 1.590/mês
-
-Responder na hora, a qualquer hora, sem perder o contato que chegou. Agente de IA no WhatsApp, 500 conversas por mês; CRM com funil, aviso de lead parado e 5 usuários; Passagem do agente para a equipe na mesma conversa; Treinamento da equipe; Banco próprio, backups e suporte.
-
-Pelo valor real, na mesma fatura: uso do modelo de IA; mensagens da API oficial do WhatsApp.
-
-[Ver a tabela completa](/precos)
+[Ver o Sprint e suas faixas](/precos#titulo-sprint)
 
 O preço final
 
-Sai do diagnóstico, com o escopo fechado antes de começar. Todo valor publicado é a partir de.
+Sai da proposta do Sprint, depois de delimitar o gargalo, o escopo, os entregáveis e o prazo.
 
-Implantação em até 6 vezes, ou metade na assinatura e metade na entrega. Mensalidade mês a mês.
-
-Sem fidelidade
-
-Mensalidade mês a mês. Cancela quando quiser.
-
-Implantação em até 6x
-
-Ou metade na assinatura e metade na entrega.
-
-O sistema é seu
-
-Se sair, recebe o código, os dados e o domínio em até 15 dias.
-
-Mensalidade fechada por plano
-
-Três planos de R$ 990 a R$ 2.290 por mês, com hospedagem e manutenção dentro. O que cresce com você (usuário, dados, conversas) tem preço publicado. IA e mensagens do WhatsApp pelo valor real, na mesma fatura.
-
-## Quer saber o que fazer primeiro na sua empresa?
-
-O diagnóstico é gratuito e sai com um mapa do que fazer, com custo e prazo, para usar com ou sem a V2O5.
-
-[Pedir diagnóstico gratuito](/diagnostico)
-
-Diagnóstico gratuito: 45 minutos de conversa com o fundador e um mapa do que fazer, em até 24 horas.
-
-Antes de contratar
+O diagnóstico inicial, de 45 minutos, é gratuito.
 
 ## O que perguntam sobre agente de ia no whatsapp antes de fechar.
 
-Preço, o que entra, o que fica de fora e o que acontece se você sair. O resto cabe no diagnóstico.
+O que entra, onde encaixa num Sprint e o que fica de fora. O resto cabe no diagnóstico.
 
 O agente de IA atende sozinho?
 
@@ -273,32 +176,52 @@ Sim, pela API oficial do WhatsApp, com o número verificado no nome da empresa. 
 
 Quanto custam a IA e as mensagens?
 
-Pelo valor real, discriminados na mesma fatura. A mensalidade inclui 500 conversas por mês; cada 500 a mais custam R$ 190 por mês.
+São custos de terceiros: o modelo de IA e as mensagens da API oficial do WhatsApp. Ficam discriminados na proposta do Sprint, separados do valor do projeto.
 
 Preciso de um CRM?
 
 O agente registra cada conversa no CRM da V2O5 ou, por integração, no sistema que você já usa. Sem um lugar para registrar, a origem e o desfecho se perdem.
 
-## Linhas que combinam com esta.
+## Intervenções que combinam com esta.
 
-[Gestão CRM e sistemas sob medida Nenhum contato esquecido numa conversa: cada um num funil, com a origem, a etapa e o próximo passo à vista. no plano Atendimento, a partir de R$ 7.900 + R$ 1.590/mês](/crm-com-whatsapp)
+[Gestão CRM e sistemas sob medida Nenhum contato esquecido numa conversa: cada um num funil, com a origem, a etapa e o próximo passo à vista.](/crm-com-whatsapp)
 
-[Gestão Automação de processos A tarefa que alguém faz à mão toda semana passa a rodar sozinha entre os sistemas que você já usa. a partir de R$ 1.900 por fluxo](/automacao-com-ia)
+[Gestão Automação de processos A tarefa que alguém faz à mão toda semana passa a rodar sozinha entre os sistemas que você já usa.](/automacao-com-ia)
 
-[Atração Sites e presença Carrega rápido no celular, aparece no Google e grava de onde veio cada contato. Hospedagem, manutenção e SEO técnico já na mensalidade. no plano Presença, a partir de R$ 8.900 + R$ 990/mês](/criacao-de-sites)
+[Atração Sites e presença Carrega rápido no celular, aparece no Google e grava de onde veio cada contato, com SEO técnico.](/criacao-de-sites)
 
 ## Comece pelo diagnóstico, que é gratuito.
 
-Em 45 minutos de conversa com o fundador, a gente entende como a sua empresa vende hoje. Em até 24 horas você recebe um mapa do que fazer primeiro, com custo e prazo, para usar com ou sem a V2O5.
+Em 45 minutos de conversa com o fundador, a gente entende como a sua empresa vende hoje e identifica o gargalo que vale priorizar. A sessão é gratuita e sem compromisso.
 
 [Pedir diagnóstico](/diagnostico)
 
-[Ver preços](/precos)
+[Ver os preços do Sprint](/precos#titulo-sprint)
+
+r 18 <!-- texto em SVG; decorativo, aria-hidden -->
+
+r 24 <!-- texto em SVG; decorativo, aria-hidden -->
+
+r 20 <!-- texto em SVG; decorativo, aria-hidden -->
+
+r 18 <!-- texto em SVG; decorativo, aria-hidden -->
+
+V · 6,8 <!-- texto em SVG; decorativo, aria-hidden -->
+
+O · 4,8 <!-- texto em SVG; decorativo, aria-hidden -->
 
 <!-- fora do <main>: botão fixo do WhatsApp (só abaixo de 768 px) -->
 [WhatsApp](https://wa.me/5541998089550?text=Ol%C3%A1!%20Vi%20a%20p%C3%A1gina%20de%20Agente%20de%20IA%20no%20WhatsApp%20no%20site%20da%20V2O5%20e%20quero%20conversar%20sobre%20a%20minha%20empresa.)
 
 <!-- rótulos de acessibilidade (aria-label) desta rota, fora topo e rodapé:
+- "Agente de IA no WhatsApp" (section)
+- "O problema" (section)
+- "O que entra" (section)
+- "Como funciona" (section)
+- "Demonstração" (section)
 - "Frentes da demonstração" (div role=tablist)
 - "Etapa do funil" (ol)
+- "No Sprint" (section)
+- "Antes de contratar" (section)
+- "Conversa no WhatsApp" (aside)
 -->

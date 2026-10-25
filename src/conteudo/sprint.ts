@@ -2,7 +2,13 @@
  * Sprint de Eficiência e continuidade: a política comercial do apêndice de
  * `CLAUDE_SITE_IMPLEMENTATION_AJUSTADO.md`, que o Dyones aprovou por inteiro
  * em 25/10/2026 ("todo o apêndice pode ser tratado como aprovado"). As
- * faixas são de referência: o preço fechado de cada projeto sai em proposta.
+ * faixas do Sprint e da continuidade mensal são de referência: o preço
+ * fechado de cada projeto sai em proposta. Em 25/10/2026 o Dyones decidiu
+ * que só o Sprint e a recorrência que acompanha o Sprint têm valor público
+ * (o resto do cardápio de 15/10 é dado interno). A faixa mensal paga a gestão
+ * continuada; nuvem e IA ficam por fora, pelo valor do provedor e discriminadas,
+ * e a V2O5 gerencia as duas (Dyones, 25/10). Não se detalha quem é dono das
+ * contas: o texto só fala em recorrência.
  * Duração é referência, nunca promessa. Sem percentual, ROI nem garantia de
  * resultado. O repetido em `memory/context/oferta.md` é conferido por
  * `tests/sprint.test.ts`.
@@ -63,9 +69,26 @@ export const SPRINT_DE_PRECOS = {
 };
 
 export const CONTINUIDADE = {
-  titulo: "Depois da entrega",
+  titulo: "O que continua depois da entrega.",
   texto:
-    "A Sprint é um projeto fechado. A continuidade é outro contrato, com limites de atendimento e escopo escritos.",
+    "O Sprint termina na entrega. Se a solução continua rodando, há uma parte recorrente, em contrato à parte, com limites de atendimento e escopo escritos. A proposta separa cada custo:",
+  recorrencia: [
+    {
+      titulo: "Gestão continuada",
+      texto: "Monitoramento, correções e ajustes, com capacidade reservada. É a faixa mensal abaixo.",
+    },
+    {
+      titulo: "Nuvem",
+      texto: "Servidor, banco de dados e backups, pelo valor do provedor e discriminados. A V2O5 gerencia.",
+    },
+    {
+      titulo: "IA e mensagens",
+      texto:
+        "O consumo de IA e as mensagens do WhatsApp variam com o volume e vêm pelo valor do provedor, discriminados na fatura, com teto mensal combinado e aviso antes de ultrapassá-lo. A V2O5 gerencia.",
+    },
+  ],
+  porque:
+    "Modelos de IA, APIs e regras do negócio mudam, e o que funciona na entrega precisa de ajuste para continuar funcionando.",
   modalidades: [
     {
       nome: "Estabilidade e suporte",
@@ -79,7 +102,7 @@ export const CONTINUIDADE = {
     },
   ],
   limites:
-    "O contrato define prazo de resposta, canais, limite de horas ou capacidade, exclusões e o preço de demandas adicionais. A mensalidade não cobre desenvolvimento ilimitado, plantão irrestrito, nova integração sem orçamento, API ou fornecedor sem discriminação nem garantia de resultado comercial. Novos gargalos, integrações, automações ou produtos são orçados à parte.",
+    "O contrato define prazo de resposta, canais, limite de horas ou capacidade, exclusões e o preço de demandas adicionais. A faixa mensal paga a gestão: nuvem, IA e demais custos de terceiros ficam por fora, discriminados. Ela não cobre desenvolvimento ilimitado, plantão irrestrito, nova integração sem orçamento nem garantia de resultado comercial. Novos gargalos, integrações, automações ou produtos são orçados à parte.",
 };
 
 export const CONDICOES = {

@@ -12,7 +12,6 @@ import Construcao from "@/components/marca/Construcao";
 import { COR_DA_ROTA, ComMarcas, Parada, TEXTO_DA_ETAPA, Trecho } from "@/components/rota/Rota";
 import { VISAO_360 } from "@/conteudo/home";
 import { metadataDa } from "@/conteudo/paginas";
-import { REGRAS } from "@/conteudo/precos";
 import { SOBRE } from "@/conteudo/sobre";
 import { linkEmail } from "@/lib/email";
 import { EMPRESA, EMAIL, WHATSAPP } from "@/conteudo/home";
@@ -33,7 +32,7 @@ const ETAPAS: { nome: string; etapa: Etapa }[] = [
 ];
 
 /** O que decide na regra: o prazo do diagnóstico e o da saída. */
-const PRAZOS = ["45 minutos", `${REGRAS.diasParaEntregarNaSaida} dias`];
+const PRAZOS = ["45 minutos"];
 
 /** Célula de ficha: fio em cima e à esquerda; o invólucro corta o fio da borda de fora. */
 const CELULA = "border-l border-t border-linha";

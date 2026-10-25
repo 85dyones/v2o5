@@ -45,8 +45,9 @@ describe("página Sobre", () => {
     expect(SOBRE.motors.href).toBe("/cases/motors-store");
   });
 
-  it("a equipe é o fundador com uma equipe completa de IA, e a fundação é dezembro de 2019 (Dyones, 13/10)", () => {
-    expect(SOBRE.equipe.texto).toMatch(/equipe completa de IA/);
+  it("o fundador responde por cada projeto e usa agentes de IA como apoio, sem \"equipe completa de IA\" (25/10), e a fundação é dezembro de 2019 (Dyones, 13/10)", () => {
+    expect(SOBRE.equipe.texto).toMatch(/fundador conduz o diagnóstico e responde por cada projeto/);
+    expect(SOBRE.equipe.texto).not.toMatch(/equipe completa de IA/);
     expect(SOBRE.empresa.fundacao).toBe("dezembro de 2019");
     expect(EMPRESA.fundacao).toBe("2019-12");
     expect(organizacao().foundingDate).toBe("2019-12");

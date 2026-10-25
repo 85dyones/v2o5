@@ -1,14 +1,14 @@
 ---
 rota: "/cases/motors-store"
-url: "https://www.v2o5.com.br/cases/motors-store"
+url: "http://localhost:3100/cases/motors-store"
 status: 200
 title: "Case Motors Store | V2O5 Vendas e Tecnologia"
 description: "O que a V2O5 montou para a Motors Store, revenda de seminovos em Curitiba, e os números do sistema rodando, lidos no banco de dados da loja."
 canonical: "https://www.v2o5.com.br/cases/motors-store"
 robots: null
 h1: "Motors Store: o sistema inteiro numa revenda de seminovos."
-extraido_em: "2026-10-25T19:09:34.547Z"
-fonte: "build local da branch claude/keen-ptolemy-vnfnfu (25/10/2026), extraída com design/baseline/ferramentas; as demais rotas seguem como em 19/10"
+extraido_em: "2026-10-25T23:16:55.066Z"
+fonte: "produção (www.v2o5.com.br), main em 74ff989"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 # Motors Store: o sistema inteiro numa revenda de seminovos.
@@ -200,7 +200,7 @@ Quem assina os 26 guias da Motors Store é o fundador da V2O5, [Dyones Oliveira]
 
 ## Quer o mesmo sistema na sua revenda?
 
-O pacote automotivo da V2O5 é este sistema, com preço publicado. O diagnóstico gratuito diz por onde começar.
+Os pacotes da V2O5 para revendas partem deste sistema. O diagnóstico gratuito diz por onde começar.
 
 [Pedir diagnóstico gratuito](/diagnostico)
 
