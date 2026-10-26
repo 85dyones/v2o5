@@ -47,7 +47,8 @@ describe("página Sobre", () => {
 
   it("o fundador responde por cada projeto e usa agentes de IA como apoio, sem \"equipe completa de IA\" (25/10), e a fundação é dezembro de 2019 (Dyones, 13/10)", () => {
     expect(SOBRE.equipe.texto).toMatch(/fundador conduz o diagnóstico e responde por cada projeto/);
-    expect(SOBRE.equipe.texto).not.toMatch(/equipe completa de IA/);
+    expect(SOBRE.equipe.texto).not.toMatch(/equipe completa de IA|agentes de IA para pesquisar/);
+    expect(SOBRE.equipe.texto).toMatch(/a IA e as automações entram como ferramenta/);
     expect(SOBRE.empresa.fundacao).toBe("dezembro de 2019");
     expect(EMPRESA.fundacao).toBe("2019-12");
     expect(organizacao().foundingDate).toBe("2019-12");
@@ -72,6 +73,16 @@ describe("página Sobre", () => {
     expect(SOBRE.metodo.saida.itens).toEqual(["Algo funcionando", "Evidência do que melhorou", "Uma decisão sobre o próximo passo"]);
     expect(pagina).toContain('id="titulo-proposito"');
     expect(pagina).toContain('id="titulo-metodo"');
+  });
+
+  it("as ferramentas vêm agrupadas por função, sem nome de cliente e sem integração que não roda", () => {
+    const todas = SOBRE.ferramentas.grupos.flatMap((g) => g.itens);
+    expect(SOBRE.ferramentas.grupos.map((g) => g.titulo)).toEqual(["Sites e dados", "Atendimento e mensagens", "Automação e IA", "Medição e busca", "Sistemas de gestão"]);
+    expect(todas.length).toBeGreaterThan(20);
+    expect(new Set(todas).size).toBe(todas.length);
+    expect(todas).toEqual(expect.arrayContaining(["Next.js", "n8n", "Chatwoot", "Evolution API", "Typebot", "OpenAI", "GA4"]));
+    expect(SOBRE.ferramentas.grupos[4].itens).toEqual(["Revenda Mais"]);
+    expect(JSON.stringify(SOBRE.ferramentas)).not.toMatch(/Autoconf|BNDV|Boom|Altimus|Syonet|Motors|16VC|Vara/);
   });
 
   it("não publica o que é estratégia interna ou pessoal do fundador", () => {

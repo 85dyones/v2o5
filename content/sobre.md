@@ -7,8 +7,8 @@ description: "Quem é a V2O5 Vendas e Tecnologia, o método em cinco perguntas, 
 canonical: "https://www.v2o5.com.br/sobre"
 robots: null
 h1: "Simplificar o que é complexo."
-extraido_em: "2026-10-26T00:04:18.406Z"
-fonte: "produção (www.v2o5.com.br), main em e256ec1"
+extraido_em: "2026-10-26T00:12:14.480Z"
+fonte: "produção (www.v2o5.com.br), main em ebc4d90"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 # Simplificar o que é complexo.
@@ -61,9 +61,9 @@ Formado em Administração pela FAE Business School, está na tecnologia desde 1
 
 Até os sete anos o mundo dele era de livros. Em 1992, um concurso da escola rendeu um curso de informática, e os computadores 386 e os disquetes viraram o começo de tudo.
 
-### A equipe
+### Quem faz o trabalho
 
-O fundador conduz o diagnóstico e responde por cada projeto. Na execução, usa agentes de IA para pesquisar, escrever, programar, testar e medir, sob a direção dele: o mesmo tipo de apoio que a V2O5 aplica nos projetos, usado primeiro na própria empresa.
+O fundador conduz o diagnóstico e responde por cada projeto, do mapeamento da operação à entrega. O que muda no processo e o que medir são decisões dele; a IA e as automações entram como ferramenta, onde ajudam. Quando o projeto pede, a V2O5 indica parceiros especializados, como fotografia, contratados à parte.
 
 Marca
 
@@ -205,16 +205,43 @@ A Motors Store, revenda de seminovos em Curitiba, é cliente da V2O5 e o case pr
 
 ## Com o que a V2O5 constrói
 
-A mesma base em todo projeto: o que entra por uma linha aparece nas outras. Automação, atendimento e WhatsApp rodam no servidor da V2O5.
+As ferramentas, agrupadas pelo que fazem. Cada projeto usa só as que o gargalo pede. Automação, atendimento e WhatsApp rodam no servidor da V2O5.
+
+### Sites e dados
 
 - Next.js
+- React
+- TypeScript
+- Tailwind
 - Vercel
 - Supabase
-- n8n
-- Evolution API
+- PostgreSQL
+- Redis
+
+### Atendimento e mensagens
+
+- WhatsApp
 - Chatwoot
+- Evolution API
+- Typebot
+- E-mail (SMTP)
+
+### Automação e IA
+
+- n8n
+- OpenAI
+- Google Gemini
+- Google Sheets
+
+### Medição e busca
+
+- GA4
+- Google Tag Manager
 - Meta Pixel e API de Conversões
-- GA4 e GTM
+- Google Search Console
+
+### Sistemas de gestão
+
 - Revenda Mais
 
 ## A empresa

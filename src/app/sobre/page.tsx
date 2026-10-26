@@ -292,14 +292,19 @@ export default function Pagina() {
             </h2>
             <p className="col-span-12 text-[1.0625rem] leading-relaxed text-texto-secundario lg:col-span-7">{s.ferramentas.texto}</p>
           </div>
-          <div className="mt-10 overflow-hidden border-y-2 border-texto">
-            <ul className="-ml-px -mt-px grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5">
-              {s.ferramentas.itens.map((item) => (
-                <li key={item} className={`${CELULA} flex min-h-14 items-center px-4 py-3 font-mono text-[0.8125rem] font-medium leading-snug`}>
-                  {item}
-                </li>
-              ))}
-            </ul>
+          <div className="mt-10 border-t-2 border-texto">
+            {s.ferramentas.grupos.map((g) => (
+              <div key={g.titulo} className="grid grid-cols-12 gap-x-6 border-b border-linha py-5">
+                <h3 className="rotulo col-span-12 pb-3 text-texto-secundario md:col-span-3 md:pb-0 md:pt-3">{g.titulo}</h3>
+                <ul className="col-span-12 flex flex-wrap gap-2 md:col-span-9">
+                  {g.itens.map((item) => (
+                    <li key={item} className="contorno-forte px-3 py-2 font-mono text-[0.8125rem] font-medium leading-snug">
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
         </Trecho>
 
