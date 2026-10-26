@@ -923,6 +923,21 @@
     color: var(--color-texto);
   }
 
+  /* Tecnologias e ecossistemas (/sobre): o + gira para × ao abrir, sem JavaScript. */
+  .grupo-tecnologia > summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .grupo-tecnologia .seta-grupo {
+    font-size: 1.5rem;
+    line-height: 1;
+    transition: transform var(--duracao-abre) var(--curva-abre);
+  }
+
+  .grupo-tecnologia[open] .seta-grupo {
+    transform: rotate(45deg);
+  }
+
   /* ---------------------------------------------------------------------
      Formulário do diagnóstico: campo no tom do cartão, borda de controle
      (3:1) e foco no âmbar de texto. Sem raio.

@@ -79,14 +79,40 @@ describe("página Sobre", () => {
     expect(pagina).toContain('id="titulo-metodo"');
   });
 
-  it("as ferramentas vêm agrupadas por função, sem nome de cliente e sem integração que não roda", () => {
-    const todas = SOBRE.ferramentas.grupos.flatMap((g) => g.itens);
-    expect(SOBRE.ferramentas.grupos.map((g) => g.titulo)).toEqual(["Sites e dados", "Atendimento e mensagens", "Automação e IA", "Medição e busca", "Sistemas de gestão"]);
-    expect(todas.length).toBeGreaterThan(20);
-    expect(new Set(todas).size).toBe(todas.length);
-    expect(todas).toEqual(expect.arrayContaining(["Next.js", "n8n", "Chatwoot", "Evolution API", "Typebot", "OpenAI", "GA4"]));
-    expect(SOBRE.ferramentas.grupos[4].itens).toEqual(["Revenda Mais"]);
+  it("as tecnologias vêm em nove categorias, separam o que uso do que é compatível e não citam cliente (26/10/2026)", () => {
+    const cats = SOBRE.ferramentas.categorias;
+    expect(SOBRE.ferramentas.titulo).toBe("Tecnologias e ecossistemas");
+    expect(cats.map((c) => c.titulo)).toEqual([
+      "Sites, aplicações e dados",
+      "Infraestrutura, hospedagem e DevOps",
+      "Branding, design e comunicação",
+      "Inteligência artificial e agentes",
+      "Automação, integrações e processos",
+      "Atendimento, comunicação e relacionamento",
+      "CRM, vendas e sistemas de gestão",
+      "Marketing, aquisição e conversão",
+      "Dados, inteligência e mensuração",
+    ]);
+    for (const c of cats) {
+      const itens = c.grupos.flatMap((g) => g.itens);
+      expect(new Set(itens).size, c.titulo).toBe(itens.length);
+      expect(c.grupos.length, c.titulo).toBeGreaterThan(0);
+    }
+    const todos = cats.flatMap((c) => c.grupos.flatMap((g) => g.itens));
+    expect(todos).toEqual(expect.arrayContaining(["Next.js", "n8n", "Chatwoot", "Evolution API", "Typebot", "OpenAI", "GA4", "Revenda Mais"]));
     expect(JSON.stringify(SOBRE.ferramentas)).not.toMatch(/Autoconf|BNDV|Boom|Altimus|Syonet|Motors|16VC|Vara/);
+  });
+
+  it("só as plataformas com experiência prática contam como implantadas; as outras são compatibilidade sob avaliação", () => {
+    const crm = SOBRE.ferramentas.categorias.find((c) => c.titulo.startsWith("CRM"))!;
+    expect(crm.grupos[0].rotulo).toBe("Plataformas com experiência prática");
+    expect(crm.grupos[0].itens).toEqual(["Revenda Mais", "Kenlo"]);
+    for (const g of crm.grupos.slice(1)) expect(g.rotulo, g.rotulo).toMatch(/compatíveis|conforme a operação/);
+    const ia = SOBRE.ferramentas.categorias.find((c) => c.titulo.startsWith("Inteligência"))!;
+    expect(ia.grupos[1].rotulo).toBe("Compatível, sob avaliação técnica");
+    expect(ia.grupos[1].itens).toEqual(expect.arrayContaining(["Microsoft Copilot", "Meta Llama", "Mistral", "xAI Grok", "Perplexity"]));
+    const branding = SOBRE.ferramentas.categorias.find((c) => c.titulo.startsWith("Branding"))!;
+    expect(branding.nota).toMatch(/não é um pacote à parte/);
   });
 
   it("a página inteira fala em primeira pessoa, sem o fundador em terceira (26/10/2026)", () => {

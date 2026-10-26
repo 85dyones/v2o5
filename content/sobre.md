@@ -7,8 +7,8 @@ description: "Quem é a V2O5 Vendas e Tecnologia, o método em cinco perguntas, 
 canonical: "https://www.v2o5.com.br/sobre"
 robots: null
 h1: "Simplificar o que é complexo."
-extraido_em: "2026-10-26T14:09:49.228Z"
-fonte: "produção (www.v2o5.com.br), main em 397830f"
+extraido_em: "2026-10-26T14:58:51.785Z"
+fonte: "produção (www.v2o5.com.br), main em abe7ebd"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 # Simplificar o que é complexo.
@@ -209,46 +209,238 @@ A Motors Store, revenda de seminovos em Curitiba, é cliente da V2O5 e o case pr
 
 [Ler o case da Motors Store](/cases/motors-store)
 
-## Com o que a V2O5 constrói
+## Tecnologias e ecossistemas
 
-As ferramentas que eu uso, agrupadas pelo que fazem. Cada projeto usa só as que o gargalo pede. Automação, atendimento e WhatsApp rodam no servidor da V2O5.
+Eu escolho a combinação para cada operação. A ferramenta vem do problema, das integrações e do resultado esperado, e cada projeto usa só o que o gargalo pede. Automação, atendimento e WhatsApp rodam no meu servidor.
 
-### Sites e dados
+01
+
+Sites, aplicações e dados
+
++ <!-- decorativo, aria-hidden -->
+
+Desenvolvimento, interfaces, bancos de dados e publicação.
+
+Nos meus projetos
 
 - Next.js
 - React
 - TypeScript
-- Tailwind
-- Vercel
+- Tailwind CSS
+- Node.js
 - Supabase
 - PostgreSQL
 - Redis
+- Vercel
+- GitHub
 
-### Atendimento e mensagens
+02
+
+Infraestrutura, hospedagem e DevOps
+
++ <!-- decorativo, aria-hidden -->
+
+Onde as soluções rodam, como são publicadas e mantidas.
+
+Nos meus projetos
+
+- VPS
+- Docker
+- Easypanel
+- Traefik
+- Portainer
+- GitHub Container Registry
+- MinIO
+- Hostinger
+- DNS
+- SSL/TLS
+- Backups
+- Monitoramento
+- Gestão de domínios e hospedagem
+
+Compatível, sob avaliação técnica
+
+- Cloudflare
+- AWS
+- Google Cloud
+- Microsoft Azure
+- Hetzner
+
+VPS é uma modalidade de infraestrutura, não uma ferramenta; Docker é a tecnologia, Easypanel a plataforma de gestão e Hostinger o provedor.
+
+03
+
+Branding, design e comunicação
+
++ <!-- decorativo, aria-hidden -->
+
+Da estratégia de marca aos materiais aplicados no negócio.
+
+O que eu entrego
+
+- Estratégia e posicionamento
+- Naming
+- Identidade visual e logotipo
+- Sistema e manual de marca
+- Comunicação visual
+- Aplicação da marca no site, nas redes e nos materiais
+
+Nos meus projetos
+
+- Canva
+
+Compatível, sob avaliação técnica
+
+- Adobe Creative Cloud
+- Adobe Express
+- Figma
+
+Branding entra num Sprint como capacidade, sob medida: não é um pacote à parte.
+
+04
+
+Inteligência artificial e agentes
+
++ <!-- decorativo, aria-hidden -->
+
+Assistentes, modelos, agentes especializados e desenvolvimento assistido por IA.
+
+Nos meus projetos
+
+- OpenAI
+- Anthropic Claude
+- Claude Code
+- Google Gemini
+
+Compatível, sob avaliação técnica
+
+- DeepSeek
+- Microsoft Copilot
+- Meta Llama
+- Mistral
+- xAI Grok
+- Perplexity
+- NotebookLM
+- GitHub Copilot
+
+Modelos de linguagem, assistentes de produtividade, pesquisa e ferramentas de desenvolvimento não são a mesma coisa. Custo, privacidade e adequação técnica decidem o que entra em cada projeto.
+
+05
+
+Automação, integrações e processos
+
++ <!-- decorativo, aria-hidden -->
+
+Conectar sistemas, eliminar tarefas manuais e estruturar fluxos.
+
+Nos meus projetos
+
+- n8n
+- Typebot
+- APIs REST
+- Webhooks
+
+Compatível, sob avaliação técnica
+
+- Flowise
+- Supabase Edge Functions
+- Make
+- Zapier
+- Microsoft Power Automate
+
+06
+
+Atendimento, comunicação e relacionamento
+
++ <!-- decorativo, aria-hidden -->
+
+WhatsApp, centralização de canais, triagem e atendimento com IA.
+
+Nos meus projetos
 
 - WhatsApp
-- Chatwoot
 - Evolution API
+- Chatwoot
 - Typebot
 - E-mail (SMTP)
 
-### Automação e IA
+Compatível, sob avaliação técnica
 
-- n8n
-- OpenAI
-- Google Gemini
-- Google Sheets
+- WhatsApp Business Platform
+- Instagram e outros canais digitais
 
-### Medição e busca
+07
 
-- GA4
-- Google Tag Manager
-- Meta Pixel e API de Conversões
-- Google Search Console
+CRM, vendas e sistemas de gestão
 
-### Sistemas de gestão
++ <!-- decorativo, aria-hidden -->
+
+Gestão comercial, funil de vendas, operação e relacionamento.
+
+Plataformas com experiência prática
 
 - Revenda Mais
+- Kenlo
+
+CRMs e automação comercial, compatíveis
+
+- RD Station CRM
+- RD Station Marketing
+- HubSpot
+- Pipedrive
+
+Sistemas corporativos, conforme a operação do cliente
+
+- Salesforce
+- Microsoft Dynamics 365
+- Outros ERPs
+
+Só as plataformas com experiência prática são implantações que eu fiz; as demais são compatibilidade técnica, avaliada caso a caso.
+
+08
+
+Marketing, aquisição e conversão
+
++ <!-- decorativo, aria-hidden -->
+
+Atrair demanda, acompanhar campanhas e medir resultados.
+
+Nos meus projetos
+
+- Meta Ads
+- Google Ads
+- Google Analytics 4
+- Google Tag Manager
+- Meta Pixel
+- API de Conversões
+- Google Search Console
+
+Compatível, sob avaliação técnica
+
+- Looker Studio
+- Mailchimp
+
+09
+
+Dados, inteligência e mensuração
+
++ <!-- decorativo, aria-hidden -->
+
+Transformar informações dispersas em indicadores para decidir e melhorar processos.
+
+Nos meus projetos
+
+- SQL
+- PostgreSQL
+- Google Sheets
+- GA4
+- Dashboards operacionais
+- Indicadores de eficiência
+- Análise antes e depois
+
+Compatível, sob avaliação técnica
+
+- Looker Studio
 
 ## A empresa
 

@@ -138,22 +138,100 @@ export const SOBRE = {
     botao: "Ler o case da Motors Store",
   },
   /**
-   * 26/10/2026 (Dyones: "tem muito mais aqui"): a lista deixa de ser a pilha do
-   * case e vira o que a V2O5 usa para construir, por função. Montada do que
-   * está em `memory/context/infra.md` e das credenciais do n8n; Gemini, Google
-   * Sheets, Redis, Postgres e SMTP vêm só das credenciais e aguardam a
-   * confirmação do Dyones (pendência 30). Sem nome de cliente.
+   * 26/10/2026 (Dyones, referência "Organizar ferramentas V2O5"): a lista vira
+   * "Tecnologias e ecossistemas", em nove categorias que mostram entregas e não
+   * marcas. Cada categoria separa o que eu uso nos meus projetos do que posso
+   * integrar sob avaliação técnica: nada aqui sugere implantação que ainda não
+   * aconteceu. Itens só de credencial do n8n (Gemini, Google Sheets, Redis) e
+   * os de infraestrutura, Kenlo e Canva vêm do documento do Dyones e aguardam a
+   * confirmação dele (pendência 30). Sem nome de cliente.
    */
   ferramentas: {
-    titulo: "Com o que a V2O5 constrói",
+    titulo: "Tecnologias e ecossistemas",
     texto:
-      "As ferramentas que eu uso, agrupadas pelo que fazem. Cada projeto usa só as que o gargalo pede. Automação, atendimento e WhatsApp rodam no servidor da V2O5.",
-    grupos: [
-      { titulo: "Sites e dados", itens: ["Next.js", "React", "TypeScript", "Tailwind", "Vercel", "Supabase", "PostgreSQL", "Redis"] },
-      { titulo: "Atendimento e mensagens", itens: ["WhatsApp", "Chatwoot", "Evolution API", "Typebot", "E-mail (SMTP)"] },
-      { titulo: "Automação e IA", itens: ["n8n", "OpenAI", "Google Gemini", "Google Sheets"] },
-      { titulo: "Medição e busca", itens: ["GA4", "Google Tag Manager", "Meta Pixel e API de Conversões", "Google Search Console"] },
-      { titulo: "Sistemas de gestão", itens: ["Revenda Mais"] },
+      "Eu escolho a combinação para cada operação. A ferramenta vem do problema, das integrações e do resultado esperado, e cada projeto usa só o que o gargalo pede. Automação, atendimento e WhatsApp rodam no meu servidor.",
+    categorias: [
+      {
+        titulo: "Sites, aplicações e dados",
+        descricao: "Desenvolvimento, interfaces, bancos de dados e publicação.",
+        grupos: [{ rotulo: "Nos meus projetos", itens: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Node.js", "Supabase", "PostgreSQL", "Redis", "Vercel", "GitHub"] }],
+      },
+      {
+        titulo: "Infraestrutura, hospedagem e DevOps",
+        descricao: "Onde as soluções rodam, como são publicadas e mantidas.",
+        grupos: [
+          {
+            rotulo: "Nos meus projetos",
+            itens: ["VPS", "Docker", "Easypanel", "Traefik", "Portainer", "GitHub Container Registry", "MinIO", "Hostinger", "DNS", "SSL/TLS", "Backups", "Monitoramento", "Gestão de domínios e hospedagem"],
+          },
+          { rotulo: "Compatível, sob avaliação técnica", itens: ["Cloudflare", "AWS", "Google Cloud", "Microsoft Azure", "Hetzner"] },
+        ],
+        nota: "VPS é uma modalidade de infraestrutura, não uma ferramenta; Docker é a tecnologia, Easypanel a plataforma de gestão e Hostinger o provedor.",
+      },
+      {
+        titulo: "Branding, design e comunicação",
+        descricao: "Da estratégia de marca aos materiais aplicados no negócio.",
+        grupos: [
+          {
+            rotulo: "O que eu entrego",
+            itens: ["Estratégia e posicionamento", "Naming", "Identidade visual e logotipo", "Sistema e manual de marca", "Comunicação visual", "Aplicação da marca no site, nas redes e nos materiais"],
+          },
+          { rotulo: "Nos meus projetos", itens: ["Canva"] },
+          { rotulo: "Compatível, sob avaliação técnica", itens: ["Adobe Creative Cloud", "Adobe Express", "Figma"] },
+        ],
+        nota: "Branding entra num Sprint como capacidade, sob medida: não é um pacote à parte.",
+      },
+      {
+        titulo: "Inteligência artificial e agentes",
+        descricao: "Assistentes, modelos, agentes especializados e desenvolvimento assistido por IA.",
+        grupos: [
+          { rotulo: "Nos meus projetos", itens: ["OpenAI", "Anthropic Claude", "Claude Code", "Google Gemini"] },
+          { rotulo: "Compatível, sob avaliação técnica", itens: ["DeepSeek", "Microsoft Copilot", "Meta Llama", "Mistral", "xAI Grok", "Perplexity", "NotebookLM", "GitHub Copilot"] },
+        ],
+        nota: "Modelos de linguagem, assistentes de produtividade, pesquisa e ferramentas de desenvolvimento não são a mesma coisa. Custo, privacidade e adequação técnica decidem o que entra em cada projeto.",
+      },
+      {
+        titulo: "Automação, integrações e processos",
+        descricao: "Conectar sistemas, eliminar tarefas manuais e estruturar fluxos.",
+        grupos: [
+          { rotulo: "Nos meus projetos", itens: ["n8n", "Typebot", "APIs REST", "Webhooks"] },
+          { rotulo: "Compatível, sob avaliação técnica", itens: ["Flowise", "Supabase Edge Functions", "Make", "Zapier", "Microsoft Power Automate"] },
+        ],
+      },
+      {
+        titulo: "Atendimento, comunicação e relacionamento",
+        descricao: "WhatsApp, centralização de canais, triagem e atendimento com IA.",
+        grupos: [
+          { rotulo: "Nos meus projetos", itens: ["WhatsApp", "Evolution API", "Chatwoot", "Typebot", "E-mail (SMTP)"] },
+          { rotulo: "Compatível, sob avaliação técnica", itens: ["WhatsApp Business Platform", "Instagram e outros canais digitais"] },
+        ],
+      },
+      {
+        titulo: "CRM, vendas e sistemas de gestão",
+        descricao: "Gestão comercial, funil de vendas, operação e relacionamento.",
+        grupos: [
+          { rotulo: "Plataformas com experiência prática", itens: ["Revenda Mais", "Kenlo"] },
+          { rotulo: "CRMs e automação comercial, compatíveis", itens: ["RD Station CRM", "RD Station Marketing", "HubSpot", "Pipedrive"] },
+          { rotulo: "Sistemas corporativos, conforme a operação do cliente", itens: ["Salesforce", "Microsoft Dynamics 365", "Outros ERPs"] },
+        ],
+        nota: "Só as plataformas com experiência prática são implantações que eu fiz; as demais são compatibilidade técnica, avaliada caso a caso.",
+      },
+      {
+        titulo: "Marketing, aquisição e conversão",
+        descricao: "Atrair demanda, acompanhar campanhas e medir resultados.",
+        grupos: [
+          { rotulo: "Nos meus projetos", itens: ["Meta Ads", "Google Ads", "Google Analytics 4", "Google Tag Manager", "Meta Pixel", "API de Conversões", "Google Search Console"] },
+          { rotulo: "Compatível, sob avaliação técnica", itens: ["Looker Studio", "Mailchimp"] },
+        ],
+      },
+      {
+        titulo: "Dados, inteligência e mensuração",
+        descricao: "Transformar informações dispersas em indicadores para decidir e melhorar processos.",
+        grupos: [
+          { rotulo: "Nos meus projetos", itens: ["SQL", "PostgreSQL", "Google Sheets", "GA4", "Dashboards operacionais", "Indicadores de eficiência", "Análise antes e depois"] },
+          { rotulo: "Compatível, sob avaliação técnica", itens: ["Looker Studio"] },
+        ],
+      },
     ],
   },
   empresa: {

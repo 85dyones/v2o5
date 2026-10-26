@@ -366,3 +366,7 @@ Decisão do Dyones: "os preços dos planos de presença, atendimento e completo 
 
 - Os três Sprints mostram só o valor de partida (R$ 3.000, R$ 6.000, R$ 12.000), sem teto: home (`#tres-sprints`, escada, FAQ), `/precos#titulo-sprint`, `llms.txt`, vitrine e `description` de `/precos`. O `OfferCatalog` do JSON-LD traz só `minPrice` nos três Sprints; as duas ofertas mensais seguem com `minPrice` e `maxPrice`. Rótulos "Ver as faixas" viraram "Ver os valores".
 
+## Atualização de 26/10/2026 (/sobre: Tecnologias e ecossistemas)
+
+- `/sobre`: a seção `#titulo-ferramentas` virou "Tecnologias e ecossistemas", um acordeão de nove categorias com `<details name="tecnologias">` (sem JavaScript; a primeira abre por padrão). `#autor`, `#titulo-visao`, `#titulo-metodo` e o JSON-LD seguem.
+
