@@ -119,7 +119,7 @@ export const HUB_AUTOMOTIVO = {
     {
       pergunta: "O site e os dados são meus?",
       resposta:
-        "Sim. Domínio, hospedagem e código ficam no nome da loja desde o primeiro dia, e os dados ficam num banco do seu negócio, com exportação quando você pedir.",
+        "Sim. Domínio, hospedagem e código ficam no nome da loja, e os dados ficam num banco do seu negócio, com exportação quando você pedir, nos termos do contrato.",
     },
   ],
   chamada: {

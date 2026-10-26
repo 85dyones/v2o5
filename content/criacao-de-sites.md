@@ -7,8 +7,8 @@ description: "Site rápido no celular, achado no Google e nas respostas das IAs,
 canonical: "https://www.v2o5.com.br/criacao-de-sites"
 robots: null
 h1: "Criação de site profissional com SEO e rastreamento."
-extraido_em: "2026-10-26T00:26:54.458Z"
-fonte: "produção (www.v2o5.com.br), main em 10ce06d"
+extraido_em: "2026-10-26T00:41:41.536Z"
+fonte: "produção (www.v2o5.com.br), main em e3fd0ac"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 # Criação de site profissional com SEO e rastreamento.
@@ -25,7 +25,7 @@ Intervenção para quando o gargalo é ser encontrado e saber de onde vêm os co
 
 Entrega-base
 
-Nove itens iguais em todo site da V2O5, de páginas que o Google entende ao código no seu nome
+Onze itens iguais em todo site da V2O5, das páginas que o Google entende à entrega documentada
 
 O que entra
 
@@ -53,11 +53,11 @@ Next.js com o mínimo de JavaScript, imagens no tamanho certo e o título carreg
 
 ### SEO técnico
 
-Mapa do site, redirecionamentos do endereço antigo, robots e arquivo para assistentes de IA, configurados e conferidos no Search Console.
+Mapa do site, redirecionamentos do endereço antigo, robots e arquivo para assistentes de IA, enviados ao Search Console.
 
 ### Perfil da Empresa no Google
 
-O antigo Google Meu Negócio, completo, verificado e ligado ao site, para quem busca perto aparecer no Maps.
+O antigo Google Meu Negócio, criado ou ajustado e ligado ao site, para quem busca perto aparecer no Maps. A verificação depende do Google.
 
 ### Origem de cada contato
 
@@ -65,19 +65,27 @@ Cada botão de WhatsApp e cada formulário gravam a campanha, o anúncio e a pá
 
 ### Contato que chega à equipe
 
-O formulário e o WhatsApp levam a mensagem e a origem para quem atende, no CRM ou no canal que a empresa já usa.
+O formulário e o WhatsApp levam a mensagem e a origem para quem atende: no CRM, quando o Sprint o inclui, ou no canal que a empresa já usa.
 
-### Privacidade em dia
+### Privacidade e consentimento
 
-Página de privacidade e consentimento no modelo já usado em produção, com a oposição do visitante descrita.
+Página de privacidade e consentimento no modelo da V2O5, com a oposição do visitante descrita, para o cliente validar com o jurídico dele.
 
 ### Domínio, e-mail e hospedagem
 
-Domínio e e-mail profissional entram na fundação. Hospedagem, atualizações de segurança e monitoramento são definidos na proposta, ou na recorrência.
+Entram na fundação do projeto. O registro do domínio e a caixa de e-mail são custos de terceiros, na proposta. Hospedagem, atualizações de segurança e monitoramento são definidos na proposta ou na recorrência.
 
 ### O código é seu
 
-Domínio, hospedagem e código ficam no nome da sua empresa desde o primeiro dia.
+Domínio, hospedagem e código ficam no nome da sua empresa, nos termos do contrato.
+
+### Segurança básica
+
+HTTPS, cabeçalhos de segurança e limite de envios no formulário.
+
+### Entrega documentada
+
+O que foi feito, onde está e como mudar, em linguagem de quem vai operar.
 
 ## Do diagnóstico ao ar.
 
