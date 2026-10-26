@@ -18,9 +18,38 @@ import { EMPRESA, VISAO_360 } from "@/conteudo/home";
 export const SOBRE = {
   rota: "/sobre",
   sobretitulo: "Sobre a V2O5",
-  titulo: "Quem faz a V2O5, de onde vem o nome e como ela trabalha.",
+  titulo: "Simplificar o que é complexo.",
   /** Curto de propósito: o LCP é o H1 (medido em 13/10: com 131 caracteres o parágrafo roubava o posto). */
-  resumo: "Um método para achar o gargalo, simplificar o processo e medir o que mudou.",
+  resumo: "Entender como algo complexo funciona e desenhar o caminho mais simples entre o problema e o resultado.",
+  /** O propósito (25/10/2026, a partir do roast do Dyones, na voz da V2O5): a tecnologia é o meio. */
+  proposito: {
+    titulo: "A tecnologia é o meio. A melhoria é o trabalho. O resultado é a prova.",
+    texto:
+      "O gosto do fundador é pegar algo complexo, entender como funciona e desenhar o caminho mais simples entre o problema e o resultado. Esse caminho nem sempre passa por construir alguma coisa.",
+    decisao: [
+      "Às vezes a melhor solução é desenvolver um sistema.",
+      "Às vezes é integrar duas ferramentas que a empresa já tem.",
+      "Às vezes é eliminar uma etapa inútil do processo.",
+    ],
+    fecho:
+      "O valor está em descobrir qual delas resolve com menos desperdício. Automatizar com IA um processo que não precisava existir só gasta recurso em velocidade.",
+  },
+  /** O método em cinco perguntas, que cada Sprint responde por escrito. */
+  metodo: {
+    titulo: "O método em cinco perguntas.",
+    texto: "Cada projeto passa pelas mesmas cinco etapas, e cada uma tem uma pergunta que precisa de resposta antes de seguir.",
+    etapas: [
+      { etapa: "Diagnóstico", pergunta: "Qual problema estamos tentando resolver?" },
+      { etapa: "Linha de base", pergunta: "Como funciona hoje e quanto custa?" },
+      { etapa: "Intervenção", pergunta: "O que será alterado e por quê?" },
+      { etapa: "Medição", pergunta: "Qual indicador deve mudar?" },
+      { etapa: "Revisão", pergunta: "O resultado justificou o investimento?" },
+    ],
+    saida: {
+      titulo: "Todo projeto sai com três coisas.",
+      itens: ["Algo funcionando", "Evidência do que melhorou", "Uma decisão sobre o próximo passo"],
+    },
+  },
   fundador: {
     nome: VISAO_360.fundador.nome,
     papel: VISAO_360.fundador.papel,
@@ -48,7 +77,7 @@ export const SOBRE = {
   nome: {
     titulo: "O nome vem de um catalisador.",
     texto:
-      "V2O5 é o pentóxido de vanádio, o catalisador industrial da produção de ácido sulfúrico: acelera a reação e continua lá no fim. A V2O5 trabalha como catalisador: ajuda a mudança a acontecer com menos esforço, sem ocupar o centro da operação. Tecnologia, automação e IA entram quando resolvem parte relevante do problema melhor do que uma alternativa mais simples.",
+      "V2O5 é o pentóxido de vanádio, o catalisador industrial da produção de ácido sulfúrico: acelera a reação e continua lá no fim, sem virar o produto final. A V2O5 trabalha como catalisador: ajuda a mudança a acontecer com menos esforço, sem ocupar o centro da operação. Tecnologia, automação e IA entram quando resolvem parte relevante do problema melhor do que uma alternativa mais simples.",
     cores:
       "O vanádio muda de cor conforme o estado de oxidação. As quatro cores do site são as quatro etapas do caminho do cliente: violeta na atração, verde no atendimento, azul na gestão e âmbar na venda.",
     assinatura: ASSINATURA,

@@ -352,3 +352,8 @@ Decisão do Dyones: "os preços dos planos de presença, atendimento e completo 
 - `/criacao-de-sites`: as entregas são a entrega-base do site (`SITE_PADRAO`, nove itens).
 - `/precos`: link para o catálogo acima das três faixas. `llms.txt` descreve os três Sprints e o catálogo, sem valor de modelo.
 
+## Atualização de 26/10/2026 (/sobre e Como tudo se liga)
+
+- `/sobre`: o H1 virou "Simplificar o que é complexo."; novas âncoras `#titulo-proposito` e `#titulo-metodo` (método em cinco perguntas e as três saídas de todo projeto). `#autor` (alvo do `@id` do fundador no JSON-LD), o retrato, os dados da empresa e o JSON-LD seguem iguais; `<title>` e `description` mudaram, `atualizadaEm` 2026-10-26.
+- Home: a âncora `#como-se-liga` e o diagrama seguem; só o título e o texto de apoio mudaram (exemplo de um Sprint Integrada).
+

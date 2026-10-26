@@ -65,6 +65,19 @@ describe("página Sobre", () => {
     expect(SOBRE.resumo.length).toBeLessThanOrEqual(140);
   });
 
+  it("abre com o propósito e o método em cinco perguntas, na voz da V2O5 (25/10, a partir do roast do Dyones)", () => {
+    expect(SOBRE.titulo).toBe("Simplificar o que é complexo.");
+    expect(SOBRE.proposito.decisao).toHaveLength(3);
+    expect(SOBRE.metodo.etapas.map((e) => e.etapa)).toEqual(["Diagnóstico", "Linha de base", "Intervenção", "Medição", "Revisão"]);
+    expect(SOBRE.metodo.saida.itens).toEqual(["Algo funcionando", "Evidência do que melhorou", "Uma decisão sobre o próximo passo"]);
+    expect(pagina).toContain('id="titulo-proposito"');
+    expect(pagina).toContain('id="titulo-metodo"');
+  });
+
+  it("não publica o que é estratégia interna ou pessoal do fundador", () => {
+    expect(texto).not.toMatch(/Repasse|16ª Vara|16VC|NOMU|CPU|ChatGPT|roast|família|receita/i);
+  });
+
   it("sem travessão, sem tríade de efeito, sem número sem fonte e sem citação inventada", () => {
     expect(texto).not.toMatch(/[—–]/);
     expect(texto).not.toMatch(/não é [^.]{3,40}, é /);

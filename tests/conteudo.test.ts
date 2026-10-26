@@ -202,3 +202,12 @@ describe("texto público", () => {
     }
   });
 });
+
+describe("Como tudo se liga (home)", () => {
+  it("o diagrama é apresentado como exemplo de um Sprint, não como pacote fechado (25/10/2026)", () => {
+    const fonte = ler("src/components/home/diagrama/ComoSeLiga.tsx");
+    expect(fonte).toMatch(/Um exemplo: o caminho de um contato num Sprint Integrada/);
+    expect(fonte).toMatch(/Cada Sprint liga só as peças que o gargalo pede/);
+    expect(fonte).toMatch(/id="como-se-liga"/);
+  });
+});

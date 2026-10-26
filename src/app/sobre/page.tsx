@@ -86,6 +86,27 @@ export default function Pagina() {
           </div>
         </Trecho>
 
+        {/* O propósito: a tecnologia é o meio; as três saídas possíveis em lista, com o fio fino da rota. */}
+        <Trecho aria-labelledby="titulo-proposito">
+          <div className="relative grid grid-cols-12 gap-x-6 gap-y-8">
+            <Parada />
+            <h2 id="titulo-proposito" className="titulo-secao col-span-12 lg:col-span-7">
+              {s.proposito.titulo}
+            </h2>
+            <div className="col-span-12 lg:col-span-5 lg:pt-2">
+              <p className="texto-guia">{s.proposito.texto}</p>
+              <ul className="mt-6 border-t-2 border-texto">
+                {s.proposito.decisao.map((d) => (
+                  <li key={d} className="border-b border-linha py-3 text-[0.9375rem] leading-relaxed">
+                    {d}
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-6 text-[1.0625rem] leading-relaxed text-texto-secundario">{s.proposito.fecho}</p>
+            </div>
+          </div>
+        </Trecho>
+
         {/* O fundador. No celular o título vem antes da ficha, para a parada ficar nele. */}
         <Trecho id="autor" aria-label="O fundador">
           <div className="relative grid grid-cols-12 gap-x-6 gap-y-10">
@@ -141,6 +162,36 @@ export default function Pagina() {
                 ))}
               </ul>
             </div>
+          </div>
+        </Trecho>
+
+        {/* O método em cinco perguntas e as três coisas que todo projeto entrega. */}
+        <Trecho aria-labelledby="titulo-metodo" etapa="verde">
+          <div className="relative grid grid-cols-12 gap-x-6 gap-y-6">
+            <Parada />
+            <h2 id="titulo-metodo" className="titulo-secao col-span-12 lg:col-span-7">
+              {s.metodo.titulo}
+            </h2>
+            <p className="texto-guia col-span-12 lg:col-span-5 lg:pt-2">{s.metodo.texto}</p>
+          </div>
+          <ol className="mt-12 border-y-2 border-texto md:mt-14">
+            {s.metodo.etapas.map((e, i) => (
+              <li key={e.etapa} className={`grid grid-cols-12 gap-x-6 gap-y-2 py-5 md:py-6 ${i > 0 ? "border-t border-linha" : ""}`}>
+                <span className="numero col-span-2 text-texto-secundario md:col-span-1">{String(i + 1).padStart(2, "0")}</span>
+                <h3 className="titulo-cartao col-span-10 md:col-span-4">{e.etapa}</h3>
+                <p className="col-span-10 col-start-3 text-[0.9375rem] leading-relaxed text-texto-secundario md:col-span-7 md:col-start-auto">{e.pergunta}</p>
+              </li>
+            ))}
+          </ol>
+          <div className="mt-10 grid grid-cols-12 gap-x-6 gap-y-4">
+            <h3 className="titulo-cartao col-span-12 lg:col-span-5">{s.metodo.saida.titulo}</h3>
+            <ul className="col-span-12 grid border-y border-linha sm:grid-cols-3 lg:col-span-7">
+              {s.metodo.saida.itens.map((item, i) => (
+                <li key={item} className={`border-linha px-4 py-4 text-[0.9375rem] font-medium leading-snug ${i > 0 ? "border-t sm:border-l sm:border-t-0" : ""}`}>
+                  {item}
+                </li>
+              ))}
+            </ul>
           </div>
         </Trecho>
 
