@@ -7,8 +7,8 @@ description: "A V2O5 acha o gargalo, simplifica o processo e implementa tecnolog
 canonical: "https://www.v2o5.com.br"
 robots: null
 h1: "Do problema ao resultado, pelo caminho mais simples."
-extraido_em: "2026-10-25T23:42:09.039Z"
-fonte: "produção (www.v2o5.com.br), main em 111d87c"
+extraido_em: "2026-10-26T00:04:18.406Z"
+fonte: "produção (www.v2o5.com.br), main em e256ec1"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 Estratégia, processos e tecnologia
@@ -264,9 +264,9 @@ Por isso esta parte vem depois da operação. Com o atendimento respondendo, est
 
 [Venda Avaliações no Google Depois da venda, o cliente recebe no WhatsApp o pedido de avaliação com o link certo, e o painel mostra quem respondeu. →](/diagnostico)
 
-## Como tudo se liga. Cada peça passa o contato adiante, com a origem junto.
+## Um exemplo: o caminho de um contato num Sprint Integrada. Cada Sprint liga só as peças que o gargalo pede.
 
-Escolha uma peça para ver o caminho que passa por ela.
+Um projeto comercial como o da Motors Store passa o contato de peça em peça, com a origem junto. Escolha uma peça para ver o caminho que passa por ela; outros Sprints ligam outras peças.
 
 Site
 

@@ -1,23 +1,33 @@
 ---
 rota: "/sobre"
-url: "https://www.v2o5.com.br/sobre"
+url: "http://localhost:3100/sobre"
 status: 200
-title: "Sobre a V2O5: quem faz e como trabalha | V2O5 Vendas e Tecnologia"
-description: "Quem é a V2O5 Vendas e Tecnologia, de onde vem o nome, o fundador que conduz o diagnóstico, a relação com a Motors Store e as regras de todo projeto."
+title: "Sobre a V2O5: quem faz, o método e a promessa de saída | V2O5 Vendas e Tecnologia"
+description: "Quem é a V2O5 Vendas e Tecnologia, o método em cinco perguntas, o fundador que conduz o diagnóstico, de onde vem o nome e a relação com a Motors Store."
 canonical: "https://www.v2o5.com.br/sobre"
 robots: null
-h1: "Quem faz a V2O5, de onde vem o nome e como ela trabalha."
-extraido_em: "2026-10-25T20:08:16.046Z"
-fonte: "build local da branch claude/keen-ptolemy-vnfnfu (só o Sprint com valor público, 25/10/2026), extraída com design/baseline/ferramentas; as demais rotas seguem como em 19/10"
+h1: "Simplificar o que é complexo."
+extraido_em: "2026-10-26T00:04:18.406Z"
+fonte: "produção (www.v2o5.com.br), main em e256ec1"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
-# Quem faz a V2O5, de onde vem o nome e como ela trabalha.
+# Simplificar o que é complexo.
 
-Um método para achar o gargalo, simplificar o processo e medir o que mudou.
+Entender como algo complexo funciona e desenhar o caminho mais simples entre o problema e o resultado.
 
 [Pedir diagnóstico gratuito](/diagnostico)
 
 [Conhecer o fundador](#autor)
+
+## A tecnologia é o meio. A melhoria é o trabalho. O resultado é a prova.
+
+O gosto do fundador é pegar algo complexo, entender como funciona e desenhar o caminho mais simples entre o problema e o resultado. Esse caminho nem sempre passa por construir alguma coisa.
+
+- Às vezes a melhor solução é desenvolver um sistema.
+- Às vezes é integrar duas ferramentas que a empresa já tem.
+- Às vezes é eliminar uma etapa inútil do processo.
+
+O valor está em descobrir qual delas resolve com menos desperdício. Automatizar com IA um processo que não precisava existir só gasta recurso em velocidade.
 
 ![Dyones Oliveira, fundador da V2O5, em Londres](/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fdyones-pb.2fmfx13-9ad2q.webp&w=3840&q=75)
 
@@ -71,9 +81,49 @@ Gestão
 
 Formação: Administração na FAE Business School
 
+## O método em cinco perguntas.
+
+Cada projeto passa pelas mesmas cinco etapas, e cada uma tem uma pergunta que precisa de resposta antes de seguir.
+
+01
+
+### Diagnóstico
+
+Qual problema estamos tentando resolver?
+
+02
+
+### Linha de base
+
+Como funciona hoje e quanto custa?
+
+03
+
+### Intervenção
+
+O que será alterado e por quê?
+
+04
+
+### Medição
+
+Qual indicador deve mudar?
+
+05
+
+### Revisão
+
+O resultado justificou o investimento?
+
+### Todo projeto sai com três coisas.
+
+- Algo funcionando
+- Evidência do que melhorou
+- Uma decisão sobre o próximo passo
+
 ## O nome vem de um catalisador.
 
-V2O5 é o pentóxido de vanádio, o catalisador industrial da produção de ácido sulfúrico: acelera a reação e continua lá no fim. A V2O5 trabalha como catalisador: ajuda a mudança a acontecer com menos esforço, sem ocupar o centro da operação. Tecnologia, automação e IA entram quando resolvem parte relevante do problema melhor do que uma alternativa mais simples.
+V2O5 é o pentóxido de vanádio, o catalisador industrial da produção de ácido sulfúrico: acelera a reação e continua lá no fim, sem virar o produto final. A V2O5 trabalha como catalisador: ajuda a mudança a acontecer com menos esforço, sem ocupar o centro da operação. Tecnologia, automação e IA entram quando resolvem parte relevante do problema melhor do que uma alternativa mais simples.
 
 O vanádio muda de cor conforme o estado de oxidação. As quatro cores do site são as quatro etapas do caminho do cliente: violeta na atração, verde no atendimento, azul na gestão e âmbar na venda.
 
