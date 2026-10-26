@@ -1,7 +1,7 @@
 import type { CSSProperties, ReactNode } from "react";
 import Link from "next/link";
 import LinkOuAncora from "@/components/LinkOuAncora";
-import CapturasDaMotors, { type Captura } from "@/components/case/CapturasDaMotors";
+import CapturasDaMotors, { TODAS_AS_CAPTURAS, type Captura } from "@/components/case/CapturasDaMotors";
 import Icone from "@/components/Icone";
 import JsonLd from "@/components/JsonLd";
 import Fechamento from "@/components/home/Fechamento";
@@ -278,6 +278,16 @@ function NaMotors({ m, etapa, captura }: { m: NonNullable<Solucao["naMotors"]>; 
             </dl>
           )}
           <p className="mt-4 text-sm text-texto-secundario">{CASE.fonte}</p>
+          {/* O site entregue em mais telas (26/10, Dyones: "coloque mais prints do site"): só em /criacao-de-sites. */}
+          {captura ? (
+            <div className="mt-14 md:mt-16">
+              <h3 className="titulo-cartao">O site entregue, tela por tela.</h3>
+              <p className="mt-2 max-w-[40rem] text-[0.9375rem] leading-relaxed text-texto-secundario">
+                Sete telas reais do site da Motors Store no celular: vitrine, estoque, ficha do veículo, guias, a consultoria de cinco perguntas, uma página de bairro e o simulador de financiamento.
+              </p>
+              <CapturasDaMotors galeria quais={TODAS_AS_CAPTURAS} sizes="(min-width: 64rem) 22vw, (min-width: 40rem) 30vw, 70vw" className="mt-8" />
+            </div>
+          ) : null}
           <Link href="/cases/motors-store" className="botao botao-secundario mt-8" data-evento="cta_click" data-local="na-motors">
             Ler o case completo
             <Icone nome="seta" className="seta size-4" />
