@@ -25,9 +25,13 @@ describe("página Sobre", () => {
     expect(grafo["@graph"][2]["@id"]).toBe(ID_DO_FUNDADOR);
   });
 
-  it("o fundador aparece com o mesmo texto e os mesmos fatos da Visão 360", () => {
-    expect(SOBRE.fundador.texto).toBe(VISAO_360.fundador.texto);
+  it("o fundador aparece em primeira pessoa, com os mesmos fatos da Visão 360 (que segue em terceira no JSON-LD e na home)", () => {
     expect(SOBRE.fundador.nome).toBe(VISAO_360.fundador.nome);
+    expect(SOBRE.fundador.texto).toMatch(/^Sou formado em Administração pela FAE Business School/);
+    for (const fato of ["desde 1992", "Top Imóveis para Top Soluções Imobiliárias", "até agosto de 2024", "26 guias"]) {
+      expect(SOBRE.fundador.texto, fato).toContain(fato);
+      expect(VISAO_360.fundador.texto, fato).toContain(fato);
+    }
     const fatos = SOBRE.fundador.fatos.map((f) => f.valor).join(" ");
     expect(fatos).toContain(VISAO_360.fundador.escola);
     expect(fatos).toMatch(/Top Imóveis para Top Soluções Imobiliárias/);
@@ -40,13 +44,13 @@ describe("página Sobre", () => {
     expect(SOBRE.motors.texto).toMatch(/cliente da V2O5/);
     expect(SOBRE.motors.texto).toMatch(/fornecedora/);
     expect(SOBRE.motors.texto).toMatch(/case principal/);
-    expect(SOBRE.motors.texto).toMatch(/autorizada/);
+    expect(SOBRE.motors.texto).toMatch(/autorizou a publicação/);
     expect(ler("memory/projects/case-motors.md")).toMatch(/Autorizado em 08\/10: nome, logo e números/);
     expect(SOBRE.motors.href).toBe("/cases/motors-store");
   });
 
   it("o fundador responde por cada projeto e usa agentes de IA como apoio, sem \"equipe completa de IA\" (25/10), e a fundação é dezembro de 2019 (Dyones, 13/10)", () => {
-    expect(SOBRE.equipe.texto).toMatch(/fundador conduz o diagnóstico e responde por cada projeto/);
+    expect(SOBRE.equipe.texto).toMatch(/Eu conduzo o diagnóstico e respondo por cada projeto/);
     expect(SOBRE.equipe.texto).not.toMatch(/equipe completa de IA|agentes de IA para pesquisar/);
     expect(SOBRE.equipe.texto).toMatch(/a IA e as automações entram como ferramenta/);
     expect(SOBRE.empresa.fundacao).toBe("dezembro de 2019");
@@ -83,6 +87,24 @@ describe("página Sobre", () => {
     expect(todas).toEqual(expect.arrayContaining(["Next.js", "n8n", "Chatwoot", "Evolution API", "Typebot", "OpenAI", "GA4"]));
     expect(SOBRE.ferramentas.grupos[4].itens).toEqual(["Revenda Mais"]);
     expect(JSON.stringify(SOBRE.ferramentas)).not.toMatch(/Autoconf|BNDV|Boom|Altimus|Syonet|Motors|16VC|Vara/);
+  });
+
+  it("a página inteira fala em primeira pessoa, sem o fundador em terceira (26/10/2026)", () => {
+    const visivel = JSON.stringify({ ...SOBRE, empresa: undefined });
+    expect(visivel).not.toMatch(/o fundador|do fundador|Dyones conduz|ele conduz|É ele quem|o meu mundo dele|dele\b/i);
+    expect(SOBRE.titulo).toBe("Simplificar o que é complexo.");
+    expect(SOBRE.resumo).toMatch(/^Eu gosto de entender/);
+    expect(SOBRE.fundador.titulo).toBe("Eu conduzo o diagnóstico");
+    expect(SOBRE.chamada.titulo).toBe("Quer conversar comigo?");
+    expect(SOBRE.jeito.titulo).toBe("Como eu trabalho.");
+    for (const r of SOBRE.jeito.regras) expect(r.titulo).not.toMatch(/^Começa|^Só número/);
+    expect(pagina).not.toMatch(/Conhecer o fundador/);
+  });
+
+  it("a visão é um rascunho em primeira pessoa, sem promessa de resultado e sem número", () => {
+    expect(SOBRE.visao.titulo).toBe("O que eu quero construir.");
+    expect(`${SOBRE.visao.texto} ${SOBRE.visao.sonho}`).toMatch(/Eu penso em sistemas/);
+    expect(pagina).toContain('id="titulo-visao"');
   });
 
   it("não publica o que é estratégia interna ou pessoal do fundador", () => {

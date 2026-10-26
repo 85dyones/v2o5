@@ -80,7 +80,7 @@ export default function Pagina() {
                 <Icone nome="seta" className="seta size-4" />
               </Link>
               <a href="#autor" className="link-sublinhado text-[0.9375rem] font-medium" data-evento="cta_click" data-local="hero">
-                Conhecer o fundador
+                Quem sou eu
               </a>
             </div>
           </div>
@@ -139,7 +139,7 @@ export default function Pagina() {
 
             <div className="order-1 col-span-12 lg:order-2 lg:col-span-7 lg:pl-6">
               <h2 id="titulo-fundador" className="titulo-secao">
-                {s.fundador.nome.split(" ")[0]} conduz o diagnóstico <span className="apagado">e a implantação.</span>
+                {s.fundador.titulo} <span className="apagado">{s.fundador.tituloApagado}</span>
               </h2>
               <p className="texto-guia mt-6">{s.fundador.texto}</p>
               <p className="mt-5 text-[1.0625rem] leading-relaxed text-texto-secundario">{s.fundador.origem}</p>
@@ -161,6 +161,20 @@ export default function Pagina() {
                   </li>
                 ))}
               </ul>
+            </div>
+          </div>
+        </Trecho>
+
+        {/* A visão em primeira pessoa: o que eu quero construir (rascunho do texto, pendência 32). */}
+        <Trecho aria-labelledby="titulo-visao">
+          <div className="relative grid grid-cols-12 gap-x-6 gap-y-6">
+            <Parada />
+            <h2 id="titulo-visao" className="titulo-secao col-span-12 lg:col-span-5">
+              {s.visao.titulo}
+            </h2>
+            <div className="col-span-12 lg:col-span-7 lg:border-l lg:border-linha lg:pl-8">
+              <p className="texto-guia">{s.visao.texto}</p>
+              <p className="mt-5 text-[1.0625rem] leading-relaxed text-texto-secundario">{s.visao.sonho}</p>
             </div>
           </div>
         </Trecho>

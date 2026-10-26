@@ -102,7 +102,7 @@ describe("os dois grupos do catálogo (operação primeiro, \"Trazer mais gente\
     expect(PILARES[1].titulo).toMatch(/De que adianta trazer mais gente se a operação não está pronta/);
   });
 
-  it("a operação traz o agente no bloco grande, diagnóstico, consultoria, indicadores e pós-venda, e as integrações por último; sem módulos", () => {
+  it("a operação traz o agente no bloco grande, diagnóstico, consultoria, indicadores e integrações, e o pós-venda por último; sem módulos", () => {
     const operacao = PILARES[0].servicos.map((s) => s.titulo);
     expect(operacao[0]).toBe("Agente de IA no WhatsApp");
     expect(operacao).toContain("Diagnóstico e análise de operação");
@@ -111,7 +111,8 @@ describe("os dois grupos do catálogo (operação primeiro, \"Trazer mais gente\
     expect(operacao).toContain("Pós-venda e recorrência");
     expect(operacao).not.toContain("Painel do dono");
     expect(operacao).not.toContain("Reativação de base");
-    expect(operacao[operacao.length - 1]).toBe("Integrações entre sistemas");
+    expect(operacao[operacao.length - 1]).toBe("Pós-venda e recorrência");
+    expect(operacao.indexOf("Integrações entre sistemas")).toBe(operacao.length - 2);
     expect(PILARES[0].servicos).toHaveLength(8);
   });
 
@@ -221,5 +222,46 @@ describe("telas da Motors", () => {
     expect((fonte.match(/em: "\d\d\/10\/2026"/g) ?? []).length).toBe(7);
     expect(ler("src/components/solucoes/PaginaDeSolucao.tsx")).toContain("TODAS_AS_CAPTURAS");
     expect(ler("src/app/cases/motors-store/page.tsx")).toContain("TODAS_AS_CAPTURAS");
+  });
+});
+
+describe("Como tudo se liga: a ordem do funil (26/10/2026)", () => {
+  it("as paradas seguem atração, atendimento, gestão e venda, sem etapa fora de ordem", async () => {
+    const { PARADAS, CAMADAS, PECAS } = await import("@/conteudo/home");
+    expect(PARADAS.map((p) => p.id)).toEqual(["site", "whatsapp", "agente", "crm", "venda"]);
+    const ordem = { violeta: 0, verde: 1, azul: 2, ambar: 3 } as const;
+    const etapas = PARADAS.map((p) => ordem[p.etapa]);
+    expect(etapas).toEqual([...etapas].sort((a, b) => a - b));
+    expect(PARADAS[PARADAS.length - 1].etapa).toBe("ambar");
+    expect(CAMADAS.map((c) => c.id)).toEqual(["n8n", "rastreamento"]);
+    expect(PECAS).toHaveLength(7);
+  });
+
+  it("o rastreamento é camada (origem na entrada, venda de volta ao anúncio) e não uma parada; nenhum caminho de parada o contém", async () => {
+    const { PARADAS, CAMADAS } = await import("@/conteudo/home");
+    const rastreio = CAMADAS.find((c) => c.id === "rastreamento")!;
+    expect(rastreio.camada).toMatch(/Origem na entrada, venda de volta ao anúncio/);
+    expect(rastreio.texto).toMatch(/na entrada/);
+    expect(rastreio.texto).toMatch(/devolve a conversão/);
+    for (const p of PARADAS) expect(p.caminho, p.nome).not.toContain("rastreamento");
+    for (const c of CAMADAS) for (const id of c.caminho) expect(PARADAS.map((p) => p.id)).toContain(id);
+  });
+
+  it("a home segue a lógica diagnóstico, Sprints, capacidades, exemplo, medição e prova", () => {
+    const home = ler("src/components/home/Home.tsx");
+    const ordem = ["<Sprint />", "<Escada />", "<TresSprints />", "<Solucoes />", "<ComoSeLiga />", "<Indicadores />", "<ProjetoReal />", "<Automotivo />"];
+    const posicoes = ordem.map((c) => home.indexOf(c));
+    expect(posicoes.every((p) => p > 0)).toBe(true);
+    expect(posicoes).toEqual([...posicoes].sort((a, b) => a - b));
+  });
+});
+
+describe("a rota do catálogo só sobe de etapa (26/10/2026)", () => {
+  it("em cada grupo, as etapas dos serviços aparecem em ordem: nenhuma volta atrás", () => {
+    const ordem = { violeta: 0, verde: 1, azul: 2, ambar: 3 } as const;
+    for (const g of PILARES) {
+      const etapas = g.servicos.map((s) => ordem[s.etapa]);
+      expect(etapas, g.sobretitulo).toEqual([...etapas].sort((a, b) => a - b));
+    }
   });
 });

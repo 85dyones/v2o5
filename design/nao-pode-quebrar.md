@@ -357,3 +357,8 @@ Decisão do Dyones: "os preços dos planos de presença, atendimento e completo 
 - `/sobre`: o H1 virou "Simplificar o que é complexo."; novas âncoras `#titulo-proposito` e `#titulo-metodo` (método em cinco perguntas e as três saídas de todo projeto). `#autor` (alvo do `@id` do fundador no JSON-LD), o retrato, os dados da empresa e o JSON-LD seguem iguais; `<title>` e `description` mudaram, `atualizadaEm` 2026-10-26.
 - Home: a âncora `#como-se-liga` e o diagrama seguem; só o título e o texto de apoio mudaram (exemplo de um Sprint Integrada).
 
+## Atualização de 26/10/2026 (diagrama, ordem da home e /sobre em primeira pessoa)
+
+- Home: `#como-se-liga` tem cinco paradas (Site, WhatsApp, Agente de IA, CRM, Venda) e duas camadas (n8n e Rastreamento); a ordem das seções agora é Dores, Método, Escada (porta de entrada), Três Sprints, Catálogo `#solucoes`, Como se liga, Indicadores, Projeto real, Automotivo. Âncoras e `data-local` seguem.
+- `/sobre`: texto em primeira pessoa; nova âncora `#titulo-visao`; `#autor`, o JSON-LD do fundador e o retrato seguem. O botão do hero passou a "Quem sou eu" (mesmo `#autor`).
+
