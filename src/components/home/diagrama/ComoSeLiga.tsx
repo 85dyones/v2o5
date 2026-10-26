@@ -10,7 +10,7 @@ export default function ComoSeLiga() {
         <h2 id="titulo-como-se-liga" className="titulo-secao col-span-12 lg:col-span-9">
           Um exemplo: o caminho de um contato num Sprint Integrada. <span className="apagado">Cada Sprint liga só as peças que o gargalo pede.</span>
         </h2>
-        <p className="texto-guia col-span-12 mt-6 lg:col-span-6">Um projeto comercial como o da Motors Store passa o contato de peça em peça, com a origem junto. Escolha uma peça para ver o caminho que passa por ela; outros Sprints ligam outras peças.</p>
+        <p className="texto-guia col-span-12 mt-6 lg:col-span-6">Cinco paradas, na ordem do funil: atração, atendimento, gestão e venda. Duas camadas acompanham o caminho inteiro: a automação, que liga as peças, e o rastreamento, que grava a origem na entrada e devolve a venda ao anúncio. Escolha uma peça para ver o caminho; outros Sprints ligam outras peças.</p>
       </div>
       <div className="mt-12 md:mt-14">
         <DiagramaPreguicoso>

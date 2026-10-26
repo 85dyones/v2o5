@@ -429,7 +429,6 @@ export const PILARES: { id: string; sobretitulo: string; titulo: string; frase: 
       linha("crm"),
       linha("dados"),
       linha("automacao"),
-      linha("posvenda"),
       {
         linha: "automacao",
         titulo: "Integrações entre sistemas",
@@ -438,6 +437,8 @@ export const PILARES: { id: string; sobretitulo: string; titulo: string; frase: 
         etapa: "azul",
         vinheta: "integracoes",
       },
+      // A venda e o pós-venda fecham o grupo: a rota da margem só sobe de etapa (26/10/2026).
+      linha("posvenda"),
     ],
   },
   {
@@ -836,12 +837,27 @@ export type IdDaPeca = "site" | "whatsapp" | "agente" | "n8n" | "crm" | "rastrea
 export interface Peca {
   id: IdDaPeca;
   nome: string;
+  /** A etapa do funil. Nas camadas, a mais próxima: ela não aparece, só o rótulo da camada. */
   etapa: Etapa;
+  /**
+   * Camada: acompanha o caminho inteiro em vez de ser uma parada nele. A
+   * ordem das paradas é a do funil (atração, atendimento, gestão, venda); o
+   * rastreamento não é uma parada: grava a origem na entrada e devolve a
+   * venda ao anúncio (atribuição em ciclo fechado), e a automação liga as peças.
+   */
+  camada?: string;
   texto: string;
-  /** O caminho que acende quando esta peça é escolhida. */
+  /** O caminho que acende quando esta peça é escolhida (só paradas). */
   caminho: IdDaPeca[];
 }
 
+/**
+ * Corrigido em 26/10/2026 (Dyones: "não pode haver atração na ponta final do
+ * funil"). As cinco paradas seguem a ordem do funil de mercado (consciência e
+ * consideração, qualificação, oportunidade, conversão); as duas camadas vêm
+ * depois, separadas. Referências: ciclo de vida do lead (lead, qualificado,
+ * oportunidade, cliente) e atribuição em ciclo fechado.
+ */
 export const PECAS: Peca[] = [
   {
     id: "site",
@@ -862,37 +878,44 @@ export const PECAS: Peca[] = [
     nome: "Agente de IA",
     etapa: "verde",
     texto: "Responde com as informações do seu negócio e qualifica o contato antes de passar para a equipe.",
-    caminho: ["whatsapp", "agente", "n8n", "crm"],
-  },
-  {
-    id: "n8n",
-    nome: "n8n",
-    etapa: "azul",
-    texto: "É a automação entre os sistemas. Atualiza o estoque no site e avisa a equipe quando entra um lead.",
-    caminho: ["agente", "n8n", "crm"],
+    caminho: ["whatsapp", "agente", "crm"],
   },
   {
     id: "crm",
     nome: "CRM",
     etapa: "azul",
-    texto: "O funil onde cada lead aparece com a origem e o próximo passo.",
+    texto: "O funil onde cada lead aparece com a origem e o próximo passo, de contato qualificado a oportunidade.",
     caminho: ["agente", "crm", "venda"],
-  },
-  {
-    id: "rastreamento",
-    nome: "Rastreamento",
-    etapa: "violeta",
-    texto: "Liga cada lead e cada venda ao anúncio de origem e devolve a conversão para Google e Meta.",
-    caminho: ["site", "rastreamento", "crm", "venda", "rastreamento"],
   },
   {
     id: "venda",
     nome: "Venda",
     etapa: "ambar",
-    texto: "O fechamento registrado no CRM, com a origem conhecida.",
-    caminho: ["crm", "venda", "rastreamento"],
+    texto: "O fechamento registrado no CRM, com a origem conhecida. É daqui que a conversão volta para o anúncio.",
+    caminho: ["crm", "venda"],
+  },
+  {
+    id: "n8n",
+    nome: "n8n",
+    etapa: "azul",
+    camada: "Liga as peças",
+    texto: "É a automação entre os sistemas. Atualiza o estoque no site e avisa a equipe quando entra um lead.",
+    caminho: ["site", "agente", "crm"],
+  },
+  {
+    id: "rastreamento",
+    nome: "Rastreamento",
+    etapa: "violeta",
+    camada: "Origem na entrada, venda de volta ao anúncio",
+    texto:
+      "Grava de onde veio cada contato na entrada e, quando a venda é registrada no CRM, devolve a conversão para Google e Meta. Fecha o ciclo: a verba aprende com o que virou venda.",
+    caminho: ["site", "whatsapp", "crm", "venda"],
   },
 ];
+
+/** As cinco paradas, na ordem do funil, e as duas camadas que acompanham o caminho inteiro. */
+export const PARADAS = PECAS.filter((p) => !p.camada);
+export const CAMADAS = PECAS.filter((p) => p.camada);
 
 // ---------------------------------------------------------------------------
 // Case Motors Store

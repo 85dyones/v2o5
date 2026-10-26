@@ -19,8 +19,11 @@ import { FECHO } from "@/conteudo/home";
 
 /**
  * A home inteira. O H1 vem de `TITULO_DA_HOME` (conteudo/home.ts). A ordem
- * segue `V2O5_CORE.md`: dor, Sprint, os três Sprints, indicadores, projeto, escada de oferta e
- * só então o cardápio de peças, que serve ao método e não o substitui.
+ * (26/10/2026) segue a lógica da oferta: o problema, o método, a porta de
+ * entrada (diagnóstico, depois o Sprint, depois a recorrência), os três
+ * Sprints, o catálogo de capacidades (operação primeiro, "Trazer mais gente"
+ * depois), um exemplo de como as peças se ligam, o que se mede, a prova (a
+ * Motors Store) e o segmento automotivo.
  */
 export default function Home({ titulo }: { titulo: string }) {
   return (
@@ -30,12 +33,12 @@ export default function Home({ titulo }: { titulo: string }) {
         <Hero titulo={titulo} />
         <Dores />
         <Sprint />
-        <TresSprints />
-        <Indicadores />
-        <ProjetoReal />
         <Escada />
+        <TresSprints />
         <Solucoes />
         <ComoSeLiga />
+        <Indicadores />
+        <ProjetoReal />
         <Automotivo />
         <Perguntas />
         <Nome />

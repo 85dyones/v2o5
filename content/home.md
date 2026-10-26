@@ -7,8 +7,8 @@ description: "A V2O5 acha o gargalo, simplifica o processo e implementa tecnolog
 canonical: "https://www.v2o5.com.br"
 robots: null
 h1: "Do problema ao resultado, pelo caminho mais simples."
-extraido_em: "2026-10-26T00:04:18.406Z"
-fonte: "produção (www.v2o5.com.br), main em e256ec1"
+extraido_em: "2026-10-26T10:48:57.632Z"
+fonte: "produção (www.v2o5.com.br), main em d8685bd"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 Estratégia, processos e tecnologia
@@ -98,6 +98,42 @@ Comparamos os indicadores disponíveis com a linha de base, registramos o que mu
 - Leitura de resultado
 - Próxima decisão
 
+Uma entrada clara, sem escopo infinito
+
+## Começamos pequeno e ampliamos com evidência.
+
+Escopo, valor e prazo se definem em proposta, depois que o gargalo é delimitado.
+
+Etapa inicial
+
+### Diagnóstico de Gargalo
+
+Sessão inicial gratuita de 45 minutos para entender o problema e priorizar um gargalo. Avalia se existe um projeto viável.
+
+Não inclui mapeamento completo do processo, implementação nem acompanhamento.
+
+Produto principal
+
+### Sprint de Eficiência
+
+Projeto fechado para um gargalo delimitado: mapeamento do fluxo, priorização, implementação acordada, testes e comparação dos indicadores disponíveis.
+
+Faixas de referência de R$ 3.000 a R$ 25.000 ou mais, conforme a complexidade. O preço fechado sai em proposta, com problema, entregáveis, exclusões, prazo, critérios de aceite e custos de terceiros. Mudança de escopo exige nova estimativa e aprovação.
+
+[Ver faixas e condições](/precos#titulo-sprint)
+
+Depois da entrega
+
+### Estabilidade e evolução contínua
+
+Mensalidade para manter as soluções, corrigir o que estiver previsto e evoluir o processo, dentro de limites de atendimento e escopo definidos em contrato.
+
+Referência de R$ 1.200 a R$ 5.000 por mês pela gestão, em contrato. Nuvem e IA ficam por fora, pelo valor do provedor, e a V2O5 gerencia. Não inclui desenvolvimento ilimitado, novas integrações sem orçamento nem garantia de resultado comercial.
+
+[Ver faixas e condições](/precos#titulo-sprint)
+
+Bônus por desempenho fica como opção futura, só com linha de base, regra de atribuição acordada e dados auditáveis. Não faz parte da oferta padrão.
+
 ## Todo serviço da V2O5 chega por um destes três.
 
 O diagnóstico acha o gargalo, o catálogo oferece as capacidades e o tamanho do problema decide o Sprint. Nada é vendido solto: cada projeto costura só o que o gargalo pede, e o preço fechado sai em proposta.
@@ -135,6 +171,112 @@ Vários sistemas, regras de negócio, migrações ou maior risco técnico.
 [Ver as faixas e as condições](/precos#titulo-sprint)
 
 [Ver o catálogo de capacidades](/#solucoes)
+
+## O catálogo de capacidades. Tudo chega por um dos três Sprints.
+
+Não vendemos módulos soltos. O diagnóstico acha o gargalo, o escopo escolhe as capacidades abaixo e o tamanho do problema decide o Sprint. Cada projeto costura só o que o gargalo pede, e o escopo sai em proposta.
+
+### Responder rápido e organizar a operação.
+
+O contato que chega fora do horário recebe resposta na hora e entra no funil com a origem. A equipe começa o dia com o próximo passo pronto, e o dono vê o mês numa tela.
+
+[Atendimento Agente de IA no WhatsApp Responde na hora, a qualquer hora, com as informações do seu negócio. Quando a conversa pede uma pessoa, chama alguém da equipe. →](/agente-de-ia-para-whatsapp)
+
+[Atendimento Diagnóstico e análise de operação Onde o contato se perde, quanto tempo cada etapa leva e o que pesa na rotina. O diagnóstico de presença e a análise do fluxo viram o mapa que decide o escopo do Sprint. →](/diagnostico)
+
+[Gestão Consultoria de processos Desenho do fluxo, regras de passagem entre equipes e rotina de acompanhamento, com o que a equipe já usa antes de comprar qualquer ferramenta. →](/diagnostico)
+
+[Gestão CRM e sistemas sob medida Nenhum contato esquecido numa conversa: cada um num funil, com a origem, a etapa e o próximo passo à vista. →](/crm-com-whatsapp)
+
+[Gestão Indicadores e painéis Funil, tempo de resposta, custo por contato e vendas por origem numa tela só, atualizada a partir do CRM, do rastreamento e das contas de anúncio. →](/diagnostico)
+
+[Gestão Automação de processos A tarefa que alguém faz à mão toda semana passa a rodar sozinha entre os sistemas que você já usa. →](/automacao-com-ia)
+
+[Gestão Integrações entre sistemas Site, CRM, ERP e os sistemas do seu setor trocando dados sozinhos. Em produção hoje: o estoque do Revenda Mais. →](/automacao-com-ia)
+
+[Venda Pós-venda e recorrência Revisão, troca, seguro ou recompra: a régua de retorno manda a mensagem na data certa e devolve o cliente ao funil. →](/diagnostico)
+
+### De que adianta trazer mais gente se a operação não está pronta?
+
+Por isso esta parte vem depois da operação. Com o atendimento respondendo, estas capacidades cuidam de ser você no Google, no Maps, nos anúncios, nas redes e nas respostas das IAs de busca, com a origem de cada contato registrada.
+
+[Atração Branding e gestão de marca Antes de anunciar, decida o que a marca promete. Posicionamento, identidade visual e tom de voz num guia que vale para o perfil, o site, os anúncios e o atendimento. →](/diagnostico)
+
+[Atração Perfil da Empresa no Google Quem busca perto de casa vê o Maps antes do site. O antigo Google Meu Negócio, completo e verificado, com a empresa aparecendo na sua região. →](/criacao-de-sites)
+
+[Atração SEO e busca por IA Para ranquear no Google e ser citado nas respostas das IAs: SEO técnico, conteúdo e dados estruturados no site. →](/criacao-de-sites)
+
+[Atração Sites e presença Carrega rápido no celular, aparece no Google e grava de onde veio cada contato, com SEO técnico. →](/criacao-de-sites)
+
+[Atração Tráfego pago no Google e na Meta Google Ads e Meta Ads por plataforma ou juntos, com anúncios que abrem conversa no WhatsApp e a verba ajustada pela venda registrada no CRM. Quem contrata os dois leva o feed de catálogo. Começa com o rastreamento ligado. →](/diagnostico)
+
+[Atração Rastreamento até a venda Cada venda com a origem: qual anúncio, qual busca, qual página. Sem isso, a verba vai para onde parece funcionar. →](/rastreamento-de-conversoes)
+
+[Atração Anúncios de catálogo O estoque ou os produtos viram anúncio no Google (anúncios de veículos e Shopping) e na Meta, e saem do ar quando o item é vendido. →](/diagnostico)
+
+[Atração Conteúdo e gestão de redes sociais Duas redes com perfis configurados e um calendário de 12 publicações por mês feitas do que a empresa já produz: o estoque, os guias, a novidade da semana. Cada post com link rastreado. →](/diagnostico)
+
+[Venda Avaliações no Google Depois da venda, o cliente recebe no WhatsApp o pedido de avaliação com o link certo, e o painel mostra quem respondeu. →](/diagnostico)
+
+## Um exemplo: o caminho de um contato num Sprint Integrada. Cada Sprint liga só as peças que o gargalo pede.
+
+Cinco paradas, na ordem do funil: atração, atendimento, gestão e venda. Duas camadas acompanham o caminho inteiro: a automação, que liga as peças, e o rastreamento, que grava a origem na entrada e devolve a venda ao anúncio. Escolha uma peça para ver o caminho; outros Sprints ligam outras peças.
+
+Site
+
+Atração
+
+WhatsApp
+
+Atendimento
+
+Agente de IA
+
+Atendimento
+
+CRM
+
+Gestão
+
+Venda
+
+Venda
+
+Em todo o caminho
+
+n8n
+
+Liga as peças
+
+Rastreamento
+
+Origem na entrada, venda de volta ao anúncio
+
+Atração
+
+### Site
+
+Recebe o visitante e guarda de onde ele veio antes de levá-lo ao WhatsApp ou ao formulário.
+
+Caminho que passa por aqui
+
+Site
+
+→ <!-- decorativo, aria-hidden -->
+
+WhatsApp
+
+→ <!-- decorativo, aria-hidden -->
+
+Agente de IA
+
+→ <!-- decorativo, aria-hidden -->
+
+CRM
+
+→ <!-- decorativo, aria-hidden -->
+
+Venda
 
 Resultado antes de vaidade técnica
 
@@ -181,146 +323,6 @@ Os projetos da V2O5 testam hipóteses em operações reais. Implementar é uma p
 - Separamos o que foi implementado do que já tem resultado comprovado.
 
 [Ler o case completo](/cases/motors-store)
-
-Uma entrada clara, sem escopo infinito
-
-## Começamos pequeno e ampliamos com evidência.
-
-Escopo, valor e prazo se definem em proposta, depois que o gargalo é delimitado.
-
-Etapa inicial
-
-### Diagnóstico de Gargalo
-
-Sessão inicial gratuita de 45 minutos para entender o problema e priorizar um gargalo. Avalia se existe um projeto viável.
-
-Não inclui mapeamento completo do processo, implementação nem acompanhamento.
-
-Produto principal
-
-### Sprint de Eficiência
-
-Projeto fechado para um gargalo delimitado: mapeamento do fluxo, priorização, implementação acordada, testes e comparação dos indicadores disponíveis.
-
-Faixas de referência de R$ 3.000 a R$ 25.000 ou mais, conforme a complexidade. O preço fechado sai em proposta, com problema, entregáveis, exclusões, prazo, critérios de aceite e custos de terceiros. Mudança de escopo exige nova estimativa e aprovação.
-
-[Ver faixas e condições](/precos#titulo-sprint)
-
-Depois da entrega
-
-### Estabilidade e evolução contínua
-
-Mensalidade para manter as soluções, corrigir o que estiver previsto e evoluir o processo, dentro de limites de atendimento e escopo definidos em contrato.
-
-Referência de R$ 1.200 a R$ 5.000 por mês pela gestão, em contrato. Nuvem e IA ficam por fora, pelo valor do provedor, e a V2O5 gerencia. Não inclui desenvolvimento ilimitado, novas integrações sem orçamento nem garantia de resultado comercial.
-
-[Ver faixas e condições](/precos#titulo-sprint)
-
-Bônus por desempenho fica como opção futura, só com linha de base, regra de atribuição acordada e dados auditáveis. Não faz parte da oferta padrão.
-
-## O catálogo de capacidades. Tudo chega por um dos três Sprints.
-
-Não vendemos módulos soltos. O diagnóstico acha o gargalo, o escopo escolhe as capacidades abaixo e o tamanho do problema decide o Sprint. Cada projeto costura só o que o gargalo pede, e o escopo sai em proposta.
-
-### Responder rápido e organizar a operação.
-
-O contato que chega fora do horário recebe resposta na hora e entra no funil com a origem. A equipe começa o dia com o próximo passo pronto, e o dono vê o mês numa tela.
-
-[Atendimento Agente de IA no WhatsApp Responde na hora, a qualquer hora, com as informações do seu negócio. Quando a conversa pede uma pessoa, chama alguém da equipe. →](/agente-de-ia-para-whatsapp)
-
-[Atendimento Diagnóstico e análise de operação Onde o contato se perde, quanto tempo cada etapa leva e o que pesa na rotina. O diagnóstico de presença e a análise do fluxo viram o mapa que decide o escopo do Sprint. →](/diagnostico)
-
-[Gestão Consultoria de processos Desenho do fluxo, regras de passagem entre equipes e rotina de acompanhamento, com o que a equipe já usa antes de comprar qualquer ferramenta. →](/diagnostico)
-
-[Gestão CRM e sistemas sob medida Nenhum contato esquecido numa conversa: cada um num funil, com a origem, a etapa e o próximo passo à vista. →](/crm-com-whatsapp)
-
-[Gestão Indicadores e painéis Funil, tempo de resposta, custo por contato e vendas por origem numa tela só, atualizada a partir do CRM, do rastreamento e das contas de anúncio. →](/diagnostico)
-
-[Gestão Automação de processos A tarefa que alguém faz à mão toda semana passa a rodar sozinha entre os sistemas que você já usa. →](/automacao-com-ia)
-
-[Venda Pós-venda e recorrência Revisão, troca, seguro ou recompra: a régua de retorno manda a mensagem na data certa e devolve o cliente ao funil. →](/diagnostico)
-
-[Gestão Integrações entre sistemas Site, CRM, ERP e os sistemas do seu setor trocando dados sozinhos. Em produção hoje: o estoque do Revenda Mais. →](/automacao-com-ia)
-
-### De que adianta trazer mais gente se a operação não está pronta?
-
-Por isso esta parte vem depois da operação. Com o atendimento respondendo, estas capacidades cuidam de ser você no Google, no Maps, nos anúncios, nas redes e nas respostas das IAs de busca, com a origem de cada contato registrada.
-
-[Atração Branding e gestão de marca Antes de anunciar, decida o que a marca promete. Posicionamento, identidade visual e tom de voz num guia que vale para o perfil, o site, os anúncios e o atendimento. →](/diagnostico)
-
-[Atração Perfil da Empresa no Google Quem busca perto de casa vê o Maps antes do site. O antigo Google Meu Negócio, completo e verificado, com a empresa aparecendo na sua região. →](/criacao-de-sites)
-
-[Atração SEO e busca por IA Para ranquear no Google e ser citado nas respostas das IAs: SEO técnico, conteúdo e dados estruturados no site. →](/criacao-de-sites)
-
-[Atração Sites e presença Carrega rápido no celular, aparece no Google e grava de onde veio cada contato, com SEO técnico. →](/criacao-de-sites)
-
-[Atração Tráfego pago no Google e na Meta Google Ads e Meta Ads por plataforma ou juntos, com anúncios que abrem conversa no WhatsApp e a verba ajustada pela venda registrada no CRM. Quem contrata os dois leva o feed de catálogo. Começa com o rastreamento ligado. →](/diagnostico)
-
-[Atração Rastreamento até a venda Cada venda com a origem: qual anúncio, qual busca, qual página. Sem isso, a verba vai para onde parece funcionar. →](/rastreamento-de-conversoes)
-
-[Atração Anúncios de catálogo O estoque ou os produtos viram anúncio no Google (anúncios de veículos e Shopping) e na Meta, e saem do ar quando o item é vendido. →](/diagnostico)
-
-[Atração Conteúdo e gestão de redes sociais Duas redes com perfis configurados e um calendário de 12 publicações por mês feitas do que a empresa já produz: o estoque, os guias, a novidade da semana. Cada post com link rastreado. →](/diagnostico)
-
-[Venda Avaliações no Google Depois da venda, o cliente recebe no WhatsApp o pedido de avaliação com o link certo, e o painel mostra quem respondeu. →](/diagnostico)
-
-## Um exemplo: o caminho de um contato num Sprint Integrada. Cada Sprint liga só as peças que o gargalo pede.
-
-Um projeto comercial como o da Motors Store passa o contato de peça em peça, com a origem junto. Escolha uma peça para ver o caminho que passa por ela; outros Sprints ligam outras peças.
-
-Site
-
-Atração
-
-WhatsApp
-
-Atendimento
-
-Agente de IA
-
-Atendimento
-
-n8n
-
-Gestão
-
-CRM
-
-Gestão
-
-Rastreamento
-
-Atração
-
-Venda
-
-Venda
-
-Atração
-
-### Site
-
-Recebe o visitante e guarda de onde ele veio antes de levá-lo ao WhatsApp ou ao formulário.
-
-Caminho que passa por aqui
-
-Site
-
-→ <!-- decorativo, aria-hidden -->
-
-WhatsApp
-
-→ <!-- decorativo, aria-hidden -->
-
-Agente de IA
-
-→ <!-- decorativo, aria-hidden -->
-
-CRM
-
-→ <!-- decorativo, aria-hidden -->
-
-Venda
 
 ## Para revendas de veículos
 

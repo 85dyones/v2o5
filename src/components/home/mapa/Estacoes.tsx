@@ -1,10 +1,11 @@
 import type { CSSProperties } from "react";
 import { COR_DA_ROTA } from "@/components/rota/Rota";
-import { NOME_DA_ETAPA, PECAS, type IdDaPeca } from "@/conteudo/home";
+import { CAMADAS, NOME_DA_ETAPA, PARADAS, PECAS, type IdDaPeca } from "@/conteudo/home";
 
 /**
- * O mapa das sete peças: uma faixa de células em que a linha das etapas
- * atravessa as estações. Sem estado: a abertura o usa com foco ao passar o
+ * O mapa das cinco paradas, na ordem do funil: uma faixa de células em que a
+ * linha das etapas atravessa as estações (as duas camadas, rastreamento e
+ * automação, ficam fora da faixa: `Camadas`). Sem estado: a abertura o usa com foco ao passar o
  * mouse, e o "Como tudo se liga" com a peça escolhida. Com `foco`, as
  * estações fora do caminho da peça apagam para 30% (CSS).
  */
@@ -32,7 +33,7 @@ export default function Estacoes({
       data-foco={foco ? "" : undefined}
       onMouseLeave={aoFocar ? () => aoFocar(null) : undefined}
     >
-      {PECAS.map((p, i) => {
+      {PARADAS.map((p, i) => {
         const estilo = { "--cor-da-rota": COR_DA_ROTA[p.etapa], "--i": i } as CSSProperties;
         const comum = {
           "data-etapa": p.etapa,
@@ -72,5 +73,55 @@ export default function Estacoes({
         );
       })}
     </ol>
+  );
+}
+
+/**
+ * As camadas que acompanham o caminho inteiro (automação e rastreamento),
+ * em chips abaixo da faixa. Clicar escolhe a camada e acende as paradas que
+ * ela toca.
+ */
+export function Camadas({
+  escolhida,
+  aoEscolher,
+  aoFocar,
+}: {
+  escolhida?: IdDaPeca;
+  aoEscolher?: (id: IdDaPeca) => void;
+  aoFocar?: (id: IdDaPeca | null) => void;
+}) {
+  return (
+    <div className="flex flex-wrap items-center gap-x-3 gap-y-3 border-b border-linha py-4">
+      <p className="rotulo text-texto-secundario">Em todo o caminho</p>
+      <ul className="flex flex-wrap gap-2">
+        {CAMADAS.map((c) => {
+          const miolo = (
+            <>
+              <span aria-hidden="true" className="size-2.5 rounded-full bg-texto" />
+              <span className="font-medium">{c.nome}</span>
+              <span className="text-texto-secundario">{c.camada}</span>
+            </>
+          );
+          return (
+            <li key={c.id}>
+              {aoEscolher ? (
+                <button
+                  type="button"
+                  className="chip min-h-11 gap-2 px-3 text-[0.8125rem]"
+                  aria-pressed={c.id === escolhida}
+                  onClick={() => aoEscolher(c.id)}
+                  onFocus={aoFocar ? () => aoFocar(c.id) : undefined}
+                  onMouseEnter={aoFocar ? () => aoFocar(c.id) : undefined}
+                >
+                  {miolo}
+                </button>
+              ) : (
+                <span className="chip min-h-11 gap-2 px-3 text-[0.8125rem]">{miolo}</span>
+              )}
+            </li>
+          );
+        })}
+      </ul>
+    </div>
   );
 }
