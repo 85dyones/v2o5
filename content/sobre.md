@@ -7,8 +7,8 @@ description: "Quem é a V2O5 Vendas e Tecnologia, o método em cinco perguntas, 
 canonical: "https://www.v2o5.com.br/sobre"
 robots: null
 h1: "Simplificar o que é complexo."
-extraido_em: "2026-10-26T14:58:51.785Z"
-fonte: "produção (www.v2o5.com.br), main em abe7ebd"
+extraido_em: "2026-10-26T15:07:13.606Z"
+fonte: "produção (www.v2o5.com.br), main em 243a164"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 # Simplificar o que é complexo.
@@ -221,8 +221,6 @@ Sites, aplicações e dados
 
 Desenvolvimento, interfaces, bancos de dados e publicação.
 
-Nos meus projetos
-
 - Next.js
 - React
 - TypeScript
@@ -242,8 +240,6 @@ Infraestrutura, hospedagem e DevOps
 
 Onde as soluções rodam, como são publicadas e mantidas.
 
-Nos meus projetos
-
 - VPS
 - Docker
 - Easypanel
@@ -258,14 +254,6 @@ Nos meus projetos
 - Monitoramento
 - Gestão de domínios e hospedagem
 
-Compatível, sob avaliação técnica
-
-- Cloudflare
-- AWS
-- Google Cloud
-- Microsoft Azure
-- Hetzner
-
 VPS é uma modalidade de infraestrutura, não uma ferramenta; Docker é a tecnologia, Easypanel a plataforma de gestão e Hostinger o provedor.
 
 03
@@ -276,24 +264,12 @@ Branding, design e comunicação
 
 Da estratégia de marca aos materiais aplicados no negócio.
 
-O que eu entrego
-
 - Estratégia e posicionamento
 - Naming
 - Identidade visual e logotipo
 - Sistema e manual de marca
 - Comunicação visual
 - Aplicação da marca no site, nas redes e nos materiais
-
-Nos meus projetos
-
-- Canva
-
-Compatível, sob avaliação técnica
-
-- Adobe Creative Cloud
-- Adobe Express
-- Figma
 
 Branding entra num Sprint como capacidade, sob medida: não é um pacote à parte.
 
@@ -305,23 +281,10 @@ Inteligência artificial e agentes
 
 Assistentes, modelos, agentes especializados e desenvolvimento assistido por IA.
 
-Nos meus projetos
-
 - OpenAI
 - Anthropic Claude
 - Claude Code
 - Google Gemini
-
-Compatível, sob avaliação técnica
-
-- DeepSeek
-- Microsoft Copilot
-- Meta Llama
-- Mistral
-- xAI Grok
-- Perplexity
-- NotebookLM
-- GitHub Copilot
 
 Modelos de linguagem, assistentes de produtividade, pesquisa e ferramentas de desenvolvimento não são a mesma coisa. Custo, privacidade e adequação técnica decidem o que entra em cada projeto.
 
@@ -333,20 +296,10 @@ Automação, integrações e processos
 
 Conectar sistemas, eliminar tarefas manuais e estruturar fluxos.
 
-Nos meus projetos
-
 - n8n
 - Typebot
 - APIs REST
 - Webhooks
-
-Compatível, sob avaliação técnica
-
-- Flowise
-- Supabase Edge Functions
-- Make
-- Zapier
-- Microsoft Power Automate
 
 06
 
@@ -356,18 +309,11 @@ Atendimento, comunicação e relacionamento
 
 WhatsApp, centralização de canais, triagem e atendimento com IA.
 
-Nos meus projetos
-
 - WhatsApp
 - Evolution API
 - Chatwoot
 - Typebot
 - E-mail (SMTP)
-
-Compatível, sob avaliação técnica
-
-- WhatsApp Business Platform
-- Instagram e outros canais digitais
 
 07
 
@@ -377,25 +323,9 @@ CRM, vendas e sistemas de gestão
 
 Gestão comercial, funil de vendas, operação e relacionamento.
 
-Plataformas com experiência prática
-
 - Revenda Mais
 - Kenlo
-
-CRMs e automação comercial, compatíveis
-
-- RD Station CRM
-- RD Station Marketing
-- HubSpot
-- Pipedrive
-
-Sistemas corporativos, conforme a operação do cliente
-
-- Salesforce
-- Microsoft Dynamics 365
-- Outros ERPs
-
-Só as plataformas com experiência prática são implantações que eu fiz; as demais são compatibilidade técnica, avaliada caso a caso.
+- CRM sob medida
 
 08
 
@@ -405,8 +335,6 @@ Marketing, aquisição e conversão
 
 Atrair demanda, acompanhar campanhas e medir resultados.
 
-Nos meus projetos
-
 - Meta Ads
 - Google Ads
 - Google Analytics 4
@@ -414,11 +342,6 @@ Nos meus projetos
 - Meta Pixel
 - API de Conversões
 - Google Search Console
-
-Compatível, sob avaliação técnica
-
-- Looker Studio
-- Mailchimp
 
 09
 
@@ -428,8 +351,6 @@ Dados, inteligência e mensuração
 
 Transformar informações dispersas em indicadores para decidir e melhorar processos.
 
-Nos meus projetos
-
 - SQL
 - PostgreSQL
 - Google Sheets
@@ -437,10 +358,6 @@ Nos meus projetos
 - Dashboards operacionais
 - Indicadores de eficiência
 - Análise antes e depois
-
-Compatível, sob avaliação técnica
-
-- Looker Studio
 
 ## A empresa
 

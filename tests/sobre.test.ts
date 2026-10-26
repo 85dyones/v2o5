@@ -79,7 +79,7 @@ describe("página Sobre", () => {
     expect(pagina).toContain('id="titulo-metodo"');
   });
 
-  it("as tecnologias vêm em nove categorias, separam o que uso do que é compatível e não citam cliente (26/10/2026)", () => {
+  it("as tecnologias vêm em nove categorias, só com o que uso ou tenho experiência, sem Canva e sem cliente (26/10/2026)", () => {
     const cats = SOBRE.ferramentas.categorias;
     expect(SOBRE.ferramentas.titulo).toBe("Tecnologias e ecossistemas");
     expect(cats.map((c) => c.titulo)).toEqual([
@@ -94,25 +94,22 @@ describe("página Sobre", () => {
       "Dados, inteligência e mensuração",
     ]);
     for (const c of cats) {
-      const itens = c.grupos.flatMap((g) => g.itens);
-      expect(new Set(itens).size, c.titulo).toBe(itens.length);
-      expect(c.grupos.length, c.titulo).toBeGreaterThan(0);
+      expect(new Set(c.itens).size, c.titulo).toBe(c.itens.length);
+      expect(c.itens.length, c.titulo).toBeGreaterThan(0);
     }
-    const todos = cats.flatMap((c) => c.grupos.flatMap((g) => g.itens));
-    expect(todos).toEqual(expect.arrayContaining(["Next.js", "n8n", "Chatwoot", "Evolution API", "Typebot", "OpenAI", "GA4", "Revenda Mais"]));
-    expect(JSON.stringify(SOBRE.ferramentas)).not.toMatch(/Autoconf|BNDV|Boom|Altimus|Syonet|Motors|16VC|Vara/);
+    const todos = cats.flatMap((c) => c.itens);
+    expect(todos).toEqual(expect.arrayContaining(["Next.js", "n8n", "Chatwoot", "Evolution API", "Typebot", "OpenAI", "GA4"]));
+    const texto = JSON.stringify(SOBRE.ferramentas);
+    expect(texto).not.toMatch(/sob avaliação|Compatível|compatíveis|Canva|Autoconf|BNDV|Boom|Altimus|Syonet|Motors|16VC|Vara/);
   });
 
-  it("só as plataformas com experiência prática contam como implantadas; as outras são compatibilidade sob avaliação", () => {
+  it("no CRM, Revenda Mais e Kenlo são a experiência do Dyones (26/10/2026), e o branding mostra entregas, sem ferramenta", () => {
     const crm = SOBRE.ferramentas.categorias.find((c) => c.titulo.startsWith("CRM"))!;
-    expect(crm.grupos[0].rotulo).toBe("Plataformas com experiência prática");
-    expect(crm.grupos[0].itens).toEqual(["Revenda Mais", "Kenlo"]);
-    for (const g of crm.grupos.slice(1)) expect(g.rotulo, g.rotulo).toMatch(/compatíveis|conforme a operação/);
-    const ia = SOBRE.ferramentas.categorias.find((c) => c.titulo.startsWith("Inteligência"))!;
-    expect(ia.grupos[1].rotulo).toBe("Compatível, sob avaliação técnica");
-    expect(ia.grupos[1].itens).toEqual(expect.arrayContaining(["Microsoft Copilot", "Meta Llama", "Mistral", "xAI Grok", "Perplexity"]));
+    expect(crm.itens).toEqual(["Revenda Mais", "Kenlo", "CRM sob medida"]);
     const branding = SOBRE.ferramentas.categorias.find((c) => c.titulo.startsWith("Branding"))!;
     expect(branding.nota).toMatch(/não é um pacote à parte/);
+    expect(branding.itens).toContain("Naming");
+    expect(branding.itens.join(" ")).not.toMatch(/Adobe|Figma|Canva/);
   });
 
   it("a página inteira fala em primeira pessoa, sem o fundador em terceira (26/10/2026)", () => {

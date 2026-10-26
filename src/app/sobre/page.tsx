@@ -316,18 +316,13 @@ export default function Pagina() {
                 </summary>
                 <div className="grid grid-cols-12 gap-x-6 gap-y-4 pb-6 pl-12">
                   <p className="col-span-12 max-w-[40rem] text-[0.9375rem] leading-relaxed text-texto-secundario">{c.descricao}</p>
-                  {c.grupos.map((g) => (
-                    <div key={g.rotulo} className="col-span-12 grid grid-cols-12 gap-x-6 gap-y-2">
-                      <p className="rotulo col-span-12 text-texto-secundario md:col-span-3 md:pt-2">{g.rotulo}</p>
-                      <ul className="col-span-12 flex flex-wrap gap-2 md:col-span-9">
-                        {g.itens.map((item) => (
-                          <li key={item} className="contorno-forte px-3 py-2 font-mono text-[0.8125rem] font-medium leading-snug">
-                            {item}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  ))}
+                  <ul className="col-span-12 flex flex-wrap gap-2">
+                    {c.itens.map((item) => (
+                      <li key={item} className="contorno-forte px-3 py-2 font-mono text-[0.8125rem] font-medium leading-snug">
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
                   {c.nota ? <p className="col-span-12 max-w-[40rem] text-sm leading-relaxed text-texto-secundario">{c.nota}</p> : null}
                 </div>
               </details>
