@@ -138,22 +138,68 @@ export const SOBRE = {
     botao: "Ler o case da Motors Store",
   },
   /**
-   * 26/10/2026 (Dyones: "tem muito mais aqui"): a lista deixa de ser a pilha do
-   * case e vira o que a V2O5 usa para construir, por função. Montada do que
-   * está em `memory/context/infra.md` e das credenciais do n8n; Gemini, Google
-   * Sheets, Redis, Postgres e SMTP vêm só das credenciais e aguardam a
-   * confirmação do Dyones (pendência 30). Sem nome de cliente.
+   * 26/10/2026 (Dyones, referência "Organizar ferramentas V2O5"): a lista vira
+   * "Tecnologias e ecossistemas", em nove categorias que mostram entregas e não
+   * marcas. Só entra o que o Dyones usa ou tem experiência: o grupo "compatível,
+   * sob avaliação técnica" do rascunho saiu (Dyones: "sobra"), e o Canva não
+   * aparece em branding (ferramenta de pós-criação). Kenlo e Revenda Mais são
+   * experiência dele (confirmado em 26/10). Itens só das credenciais do n8n
+   * (Gemini, Google Sheets, Redis, PostgreSQL, SMTP) aguardam confirmação
+   * (pendência 30). Sem nome de cliente.
    */
   ferramentas: {
-    titulo: "Com o que a V2O5 constrói",
+    titulo: "Tecnologias e ecossistemas",
     texto:
-      "As ferramentas que eu uso, agrupadas pelo que fazem. Cada projeto usa só as que o gargalo pede. Automação, atendimento e WhatsApp rodam no servidor da V2O5.",
-    grupos: [
-      { titulo: "Sites e dados", itens: ["Next.js", "React", "TypeScript", "Tailwind", "Vercel", "Supabase", "PostgreSQL", "Redis"] },
-      { titulo: "Atendimento e mensagens", itens: ["WhatsApp", "Chatwoot", "Evolution API", "Typebot", "E-mail (SMTP)"] },
-      { titulo: "Automação e IA", itens: ["n8n", "OpenAI", "Google Gemini", "Google Sheets"] },
-      { titulo: "Medição e busca", itens: ["GA4", "Google Tag Manager", "Meta Pixel e API de Conversões", "Google Search Console"] },
-      { titulo: "Sistemas de gestão", itens: ["Revenda Mais"] },
+      "Eu escolho a combinação para cada operação. A ferramenta vem do problema, das integrações e do resultado esperado, e cada projeto usa só o que o gargalo pede. Automação, atendimento e WhatsApp rodam no meu servidor.",
+    categorias: [
+      {
+        titulo: "Sites, aplicações e dados",
+        descricao: "Desenvolvimento, interfaces, bancos de dados e publicação.",
+        itens: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Node.js", "Supabase", "PostgreSQL", "Redis", "Vercel", "GitHub"],
+      },
+      {
+        titulo: "Infraestrutura, hospedagem e DevOps",
+        descricao: "Onde as soluções rodam, como são publicadas e mantidas.",
+        itens: ["VPS", "Docker", "Easypanel", "Traefik", "Portainer", "GitHub Container Registry", "MinIO", "Hostinger", "DNS", "SSL/TLS", "Backups", "Monitoramento", "Gestão de domínios e hospedagem"],
+        nota: "VPS é uma modalidade de infraestrutura, não uma ferramenta; Docker é a tecnologia, Easypanel a plataforma de gestão e Hostinger o provedor.",
+      },
+      {
+        titulo: "Branding, design e comunicação",
+        descricao: "Da estratégia de marca aos materiais aplicados no negócio.",
+        itens: ["Estratégia e posicionamento", "Naming", "Identidade visual e logotipo", "Sistema e manual de marca", "Comunicação visual", "Aplicação da marca no site, nas redes e nos materiais"],
+        nota: "Branding entra num Sprint como capacidade, sob medida: não é um pacote à parte.",
+      },
+      {
+        titulo: "Inteligência artificial e agentes",
+        descricao: "Assistentes, modelos, agentes especializados e desenvolvimento assistido por IA.",
+        itens: ["OpenAI", "Anthropic Claude", "Claude Code", "Google Gemini"],
+        nota: "Modelos de linguagem, assistentes de produtividade, pesquisa e ferramentas de desenvolvimento não são a mesma coisa. Custo, privacidade e adequação técnica decidem o que entra em cada projeto.",
+      },
+      {
+        titulo: "Automação, integrações e processos",
+        descricao: "Conectar sistemas, eliminar tarefas manuais e estruturar fluxos.",
+        itens: ["n8n", "Typebot", "APIs REST", "Webhooks"],
+      },
+      {
+        titulo: "Atendimento, comunicação e relacionamento",
+        descricao: "WhatsApp, centralização de canais, triagem e atendimento com IA.",
+        itens: ["WhatsApp", "Evolution API", "Chatwoot", "Typebot", "E-mail (SMTP)"],
+      },
+      {
+        titulo: "CRM, vendas e sistemas de gestão",
+        descricao: "Gestão comercial, funil de vendas, operação e relacionamento.",
+        itens: ["Revenda Mais", "Kenlo", "CRM sob medida"],
+      },
+      {
+        titulo: "Marketing, aquisição e conversão",
+        descricao: "Atrair demanda, acompanhar campanhas e medir resultados.",
+        itens: ["Meta Ads", "Google Ads", "Google Analytics 4", "Google Tag Manager", "Meta Pixel", "API de Conversões", "Google Search Console"],
+      },
+      {
+        titulo: "Dados, inteligência e mensuração",
+        descricao: "Transformar informações dispersas em indicadores para decidir e melhorar processos.",
+        itens: ["SQL", "PostgreSQL", "Google Sheets", "GA4", "Dashboards operacionais", "Indicadores de eficiência", "Análise antes e depois"],
+      },
     ],
   },
   empresa: {

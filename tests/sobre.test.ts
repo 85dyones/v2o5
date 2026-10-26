@@ -79,14 +79,37 @@ describe("página Sobre", () => {
     expect(pagina).toContain('id="titulo-metodo"');
   });
 
-  it("as ferramentas vêm agrupadas por função, sem nome de cliente e sem integração que não roda", () => {
-    const todas = SOBRE.ferramentas.grupos.flatMap((g) => g.itens);
-    expect(SOBRE.ferramentas.grupos.map((g) => g.titulo)).toEqual(["Sites e dados", "Atendimento e mensagens", "Automação e IA", "Medição e busca", "Sistemas de gestão"]);
-    expect(todas.length).toBeGreaterThan(20);
-    expect(new Set(todas).size).toBe(todas.length);
-    expect(todas).toEqual(expect.arrayContaining(["Next.js", "n8n", "Chatwoot", "Evolution API", "Typebot", "OpenAI", "GA4"]));
-    expect(SOBRE.ferramentas.grupos[4].itens).toEqual(["Revenda Mais"]);
-    expect(JSON.stringify(SOBRE.ferramentas)).not.toMatch(/Autoconf|BNDV|Boom|Altimus|Syonet|Motors|16VC|Vara/);
+  it("as tecnologias vêm em nove categorias, só com o que uso ou tenho experiência, sem Canva e sem cliente (26/10/2026)", () => {
+    const cats = SOBRE.ferramentas.categorias;
+    expect(SOBRE.ferramentas.titulo).toBe("Tecnologias e ecossistemas");
+    expect(cats.map((c) => c.titulo)).toEqual([
+      "Sites, aplicações e dados",
+      "Infraestrutura, hospedagem e DevOps",
+      "Branding, design e comunicação",
+      "Inteligência artificial e agentes",
+      "Automação, integrações e processos",
+      "Atendimento, comunicação e relacionamento",
+      "CRM, vendas e sistemas de gestão",
+      "Marketing, aquisição e conversão",
+      "Dados, inteligência e mensuração",
+    ]);
+    for (const c of cats) {
+      expect(new Set(c.itens).size, c.titulo).toBe(c.itens.length);
+      expect(c.itens.length, c.titulo).toBeGreaterThan(0);
+    }
+    const todos = cats.flatMap((c) => c.itens);
+    expect(todos).toEqual(expect.arrayContaining(["Next.js", "n8n", "Chatwoot", "Evolution API", "Typebot", "OpenAI", "GA4"]));
+    const texto = JSON.stringify(SOBRE.ferramentas);
+    expect(texto).not.toMatch(/sob avaliação|Compatível|compatíveis|Canva|Autoconf|BNDV|Boom|Altimus|Syonet|Motors|16VC|Vara/);
+  });
+
+  it("no CRM, Revenda Mais e Kenlo são a experiência do Dyones (26/10/2026), e o branding mostra entregas, sem ferramenta", () => {
+    const crm = SOBRE.ferramentas.categorias.find((c) => c.titulo.startsWith("CRM"))!;
+    expect(crm.itens).toEqual(["Revenda Mais", "Kenlo", "CRM sob medida"]);
+    const branding = SOBRE.ferramentas.categorias.find((c) => c.titulo.startsWith("Branding"))!;
+    expect(branding.nota).toMatch(/não é um pacote à parte/);
+    expect(branding.itens).toContain("Naming");
+    expect(branding.itens.join(" ")).not.toMatch(/Adobe|Figma|Canva/);
   });
 
   it("a página inteira fala em primeira pessoa, sem o fundador em terceira (26/10/2026)", () => {
