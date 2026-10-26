@@ -64,7 +64,7 @@ export const SOLUCOES: Solucao[] = [
       "Site que carrega rápido no celular, aparece no Google e grava de onde veio cada contato. Entra num Sprint quando o gargalo é a presença.",
     fatos: [
       { rotulo: "No Sprint", valor: "Intervenção para quando o gargalo é ser encontrado e saber de onde vêm os contatos" },
-      { rotulo: "Entrega-base", valor: "Nove itens iguais em todo site da V2O5, de páginas que o Google entende ao código no seu nome" },
+      { rotulo: "Entrega-base", valor: "Onze itens iguais em todo site da V2O5, das páginas que o Google entende à entrega documentada" },
       {
         rotulo: "O que entra",
         valor: "Páginas que o Google entende, SEO técnico, Perfil da Empresa no Google e rastreamento até a venda, conforme o escopo do Sprint",

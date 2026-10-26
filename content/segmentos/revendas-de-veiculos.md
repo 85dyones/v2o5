@@ -7,8 +7,8 @@ description: "Site de estoque ligado ao sistema da loja (Revenda Mais, Autoconf 
 canonical: "https://www.v2o5.com.br/segmentos/revendas-de-veiculos"
 robots: null
 h1: "O sistema da Motors Store, pronto para a sua revenda."
-extraido_em: "2026-10-25T23:42:09.039Z"
-fonte: "produção (www.v2o5.com.br), main em 111d87c"
+extraido_em: "2026-10-26T00:41:41.536Z"
+fonte: "produção (www.v2o5.com.br), main em e3fd0ac"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 # O sistema da Motors Store, pronto para a sua revenda.
@@ -182,7 +182,7 @@ Pode. Um Sprint resolve um gargalo de cada vez: se o gargalo for o estoque no si
 
 O site e os dados são meus?
 
-Sim. Domínio, hospedagem e código ficam no nome da loja desde o primeiro dia, e os dados ficam num banco do seu negócio, com exportação quando você pedir.
+Sim. Domínio, hospedagem e código ficam no nome da loja, e os dados ficam num banco do seu negócio, com exportação quando você pedir, nos termos do contrato.
 
 ## Quer ver o sistema rodando na sua revenda?
 
