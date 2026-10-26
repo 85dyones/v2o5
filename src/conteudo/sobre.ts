@@ -69,10 +69,11 @@ export const SOBRE = {
       { rotulo: "Na V2O5", valor: "Conduz o diagnóstico gratuito e a implantação de cada projeto" },
     ],
   },
+  /** 26/10/2026 (Dyones): o texto anterior dava a impressão de mais uma empresa de IA; a IA é ferramenta de apoio. */
   equipe: {
-    titulo: "A equipe",
+    titulo: "Quem faz o trabalho",
     texto:
-      "O fundador conduz o diagnóstico e responde por cada projeto. Na execução, usa agentes de IA para pesquisar, escrever, programar, testar e medir, sob a direção dele: o mesmo tipo de apoio que a V2O5 aplica nos projetos, usado primeiro na própria empresa.",
+      "O fundador conduz o diagnóstico e responde por cada projeto, do mapeamento da operação à entrega. O que muda no processo e o que medir são decisões dele; a IA e as automações entram como ferramenta, onde ajudam. Quando o projeto pede, a V2O5 indica parceiros especializados, como fotografia, contratados à parte.",
   },
   nome: {
     titulo: "O nome vem de um catalisador.",
@@ -115,10 +116,24 @@ export const SOBRE = {
     href: CASE_MOTORS.rota,
     botao: "Ler o case da Motors Store",
   },
+  /**
+   * 26/10/2026 (Dyones: "tem muito mais aqui"): a lista deixa de ser a pilha do
+   * case e vira o que a V2O5 usa para construir, por função. Montada do que
+   * está em `memory/context/infra.md` e das credenciais do n8n; Gemini, Google
+   * Sheets, Redis, Postgres e SMTP vêm só das credenciais e aguardam a
+   * confirmação do Dyones (pendência 30). Sem nome de cliente.
+   */
   ferramentas: {
     titulo: "Com o que a V2O5 constrói",
-    texto: "A mesma base em todo projeto: o que entra por uma linha aparece nas outras. Automação, atendimento e WhatsApp rodam no servidor da V2O5.",
-    itens: CASE_MOTORS.stack.itens,
+    texto:
+      "As ferramentas, agrupadas pelo que fazem. Cada projeto usa só as que o gargalo pede. Automação, atendimento e WhatsApp rodam no servidor da V2O5.",
+    grupos: [
+      { titulo: "Sites e dados", itens: ["Next.js", "React", "TypeScript", "Tailwind", "Vercel", "Supabase", "PostgreSQL", "Redis"] },
+      { titulo: "Atendimento e mensagens", itens: ["WhatsApp", "Chatwoot", "Evolution API", "Typebot", "E-mail (SMTP)"] },
+      { titulo: "Automação e IA", itens: ["n8n", "OpenAI", "Google Gemini", "Google Sheets"] },
+      { titulo: "Medição e busca", itens: ["GA4", "Google Tag Manager", "Meta Pixel e API de Conversões", "Google Search Console"] },
+      { titulo: "Sistemas de gestão", itens: ["Revenda Mais"] },
+    ],
   },
   empresa: {
     titulo: "A empresa",
