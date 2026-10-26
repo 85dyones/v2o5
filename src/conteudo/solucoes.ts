@@ -110,7 +110,7 @@ export const SOLUCOES: Solucao[] = [
       {
         pergunta: "Quanto custa um site profissional?",
         resposta:
-          "O site entra num Sprint de Eficiência, com preço fechado em proposta depois de delimitar o gargalo, o escopo e os entregáveis. As faixas de referência do Sprint estão em /precos. O diagnóstico inicial, de 45 minutos, é gratuito.",
+          "O site entra num Sprint de Eficiência, com preço fechado em proposta depois de delimitar o gargalo, o escopo e os entregáveis. Os valores de partida do Sprint estão em /precos. O diagnóstico inicial, de 45 minutos, é gratuito.",
       },
       {
         pergunta: "Posso aproveitar o site que já tenho?",

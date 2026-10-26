@@ -114,7 +114,7 @@ export const SOBRE = {
       },
       {
         titulo: "Preço fechado em proposta",
-        texto: "O Sprint tem preço fechado em proposta, depois que eu delimito o gargalo, o escopo e os entregáveis. As faixas de referência estão na página de preços.",
+        texto: "O Sprint tem preço fechado em proposta, depois que eu delimito o gargalo, o escopo e os entregáveis. Os valores de partida estão na página de preços.",
       },
       {
         titulo: "Só publico número medido",

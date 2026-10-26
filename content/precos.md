@@ -3,12 +3,12 @@ rota: "/precos"
 url: "http://localhost:3100/precos"
 status: 200
 title: "Preços do Sprint de Eficiência | V2O5 Vendas e Tecnologia"
-description: "Sprint de Eficiência com preço fechado em proposta, faixas de R$ 3.000 a R$ 25.000 ou mais e recorrência mensal de R$ 1.200 a R$ 5.000. Diagnóstico gratuito."
+description: "Sprint de Eficiência com preço fechado em proposta, a partir de R$ 3.000, e recorrência mensal de R$ 1.200 a R$ 5.000. Diagnóstico gratuito."
 canonical: "https://www.v2o5.com.br/precos"
 robots: null
 h1: "Sprint de Eficiência: preço fechado em proposta."
-extraido_em: "2026-10-25T23:42:09.039Z"
-fonte: "produção (www.v2o5.com.br), main em 111d87c"
+extraido_em: "2026-10-26T14:09:49.228Z"
+fonte: "produção (www.v2o5.com.br), main em 397830f"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 # Sprint de Eficiência: preço fechado em proposta.
@@ -21,7 +21,7 @@ O diagnóstico inicial é gratuito. O Sprint tem preço fechado em proposta, e o
 
 ## Um projeto fechado para um gargalo, com preço em proposta.
 
-As faixas abaixo são de referência e mudam com a complexidade, o risco e os custos diretos. O valor fechado sai depois de delimitar o gargalo. A duração é referência, não promessa automática.
+Os valores abaixo são o ponto de partida e mudam com a complexidade, o risco e os custos diretos. O valor fechado sai depois de delimitar o gargalo. A duração é referência, não promessa automática.
 
 São três Sprints, e todo serviço da V2O5 chega por um deles. O diagnóstico acha o gargalo e o escopo costura só as capacidades que ele pede. [Ver o catálogo de capacidades](/#solucoes).
 
@@ -29,7 +29,7 @@ São três Sprints, e todo serviço da V2O5 chega por um deles. O diagnóstico a
 
 ### Sprint Essencial
 
-R$ 3.000 a R$ 5.000
+a partir de R$ 3.000
 
 Faixa de referência
 
@@ -41,7 +41,7 @@ Oferta principal
 
 ### Sprint Integrada
 
-R$ 6.000 a R$ 12.000
+a partir de R$ 6.000
 
 Referência: 2 a 4 semanas
 
@@ -53,7 +53,7 @@ Estruturar captação, qualificação e distribuição de leads, integrar CRM, W
 
 ### Sprint Avançada
 
-R$ 12.000 a R$ 25.000 ou mais
+a partir de R$ 12.000
 
 Faixa de referência
 
@@ -125,7 +125,7 @@ Preço, pagamento, o que o Sprint entrega e o que vem depois. Se a sua pergunta 
 
 Quanto custa?
 
-O Diagnóstico de Gargalo, a sessão inicial de 45 minutos, é gratuito. O Sprint de Eficiência tem preço fechado em proposta, depois de delimitar o gargalo. As faixas de referência são Sprint Essencial de R$ 3.000 a R$ 5.000, Sprint Integrada de R$ 6.000 a R$ 12.000, Sprint Avançada de R$ 12.000 a R$ 25.000 ou mais, conforme a complexidade, o risco e os custos diretos. A duração é referência, não promessa.
+O Diagnóstico de Gargalo, a sessão inicial de 45 minutos, é gratuito. O Sprint de Eficiência tem preço fechado em proposta, depois de delimitar o gargalo. Os valores de partida são Sprint Essencial a partir de R$ 3.000, Sprint Integrada a partir de R$ 6.000, Sprint Avançada a partir de R$ 12.000, conforme a complexidade, o risco e os custos diretos. A duração é referência, não promessa.
 
 O que um Sprint entrega?
 

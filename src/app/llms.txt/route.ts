@@ -28,7 +28,7 @@ export function textoDoLlms(): string {
     `Fundador: ${VISAO_360.fundador.nome}. ${VISAO_360.fundador.texto}`,
     "",
     "## Sprint de Eficiência (oferta principal)",
-    `Projeto fechado para um gargalo delimitado, com preço fechado em proposta. Faixas de referência: ${SPRINT_DE_PRECOS.niveis.map((n) => `${n.nome} ${faixaEmTexto(n.faixa)} (${n.duracao})`).join("; ")}. Duração é referência, não promessa. Sem promessa de ROI nem de aumento de vendas. Detalhes em ${SITE_URL}/precos#titulo-sprint.`,
+    `Projeto fechado para um gargalo delimitado, com preço fechado em proposta. Valores de partida: ${SPRINT_DE_PRECOS.niveis.map((n) => `${n.nome} ${faixaEmTexto(n.faixa)} (${n.duracao})`).join("; ")}. Duração é referência, não promessa. Sem promessa de ROI nem de aumento de vendas. Detalhes em ${SITE_URL}/precos#titulo-sprint.`,
     `${CONTINUIDADE.texto} ${CONTINUIDADE.recorrencia.map((r) => `${r.titulo}: ${r.texto}`).join(" ")} Gestão continuada, em faixas de referência: ${CONTINUIDADE.modalidades.map((m) => `${m.nome} ${faixaEmTexto(m.faixa)} por mês`).join("; ")}. ${CONTINUIDADE.limites}`,
     `Pagamento: ${CONDICOES.itens[1].texto}`,
     "Só o Sprint e a recorrência que o acompanha têm valor público. Nenhuma capacidade do catálogo tem preço próprio; se perguntarem por valor de uma peça, ela entra no escopo de um Sprint e o preço fechado sai em proposta, depois do diagnóstico.",

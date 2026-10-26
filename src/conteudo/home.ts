@@ -101,7 +101,7 @@ export const TRES_SPRINTS = {
   titulo: "Todo serviço da V2O5 chega por um destes três.",
   texto:
     "O diagnóstico acha o gargalo, o catálogo oferece as capacidades e o tamanho do problema decide o Sprint. Nada é vendido solto: cada projeto costura só o que o gargalo pede, e o preço fechado sai em proposta.",
-  link: "Ver as faixas e as condições",
+  link: "Ver os valores e as condições",
   catalogo: "Ver o catálogo de capacidades",
 };
 
@@ -173,7 +173,7 @@ export const ESCADA = {
       titulo: "Sprint de Eficiência",
       texto:
         "Projeto fechado para um gargalo delimitado: mapeamento do fluxo, priorização, implementação acordada, testes e comparação dos indicadores disponíveis.",
-      saida: `Faixas de referência de ${BRL(SPRINT_DE_PRECOS.niveis[0].faixa.de)} a ${faixaEmTexto(SPRINT_DE_PRECOS.niveis[2].faixa).split(" a ")[1]}, conforme a complexidade. O preço fechado sai em proposta, com problema, entregáveis, exclusões, prazo, critérios de aceite e custos de terceiros. Mudança de escopo exige nova estimativa e aprovação.`,
+      saida: `${faixaEmTexto(SPRINT_DE_PRECOS.niveis[0].faixa).replace(/^a/, "A")}, conforme a complexidade. O preço fechado sai em proposta, com problema, entregáveis, exclusões, prazo, critérios de aceite e custos de terceiros. Mudança de escopo exige nova estimativa e aprovação.`,
       href: "/precos#titulo-sprint",
       destaque: true,
     },
@@ -182,7 +182,7 @@ export const ESCADA = {
       titulo: "Estabilidade e evolução contínua",
       texto:
         "Mensalidade para manter as soluções, corrigir o que estiver previsto e evoluir o processo, dentro de limites de atendimento e escopo definidos em contrato.",
-      saida: `Referência de ${BRL(Math.min(...CONTINUIDADE.modalidades.map((m) => m.faixa.de)))} a ${BRL(Math.max(...CONTINUIDADE.modalidades.map((m) => m.faixa.ate)))} por mês pela gestão, em contrato. Nuvem e IA ficam por fora, pelo valor do provedor, e a V2O5 gerencia. Não inclui desenvolvimento ilimitado, novas integrações sem orçamento nem garantia de resultado comercial.`,
+      saida: `Referência de ${BRL(Math.min(...CONTINUIDADE.modalidades.map((m) => m.faixa.de)))} a ${BRL(Math.max(...CONTINUIDADE.modalidades.map((m) => m.faixa.ate ?? m.faixa.de)))} por mês pela gestão, em contrato. Nuvem e IA ficam por fora, pelo valor do provedor, e a V2O5 gerencia. Não inclui desenvolvimento ilimitado, novas integrações sem orçamento nem garantia de resultado comercial.`,
       href: "/precos#titulo-sprint",
     },
   ],
@@ -1043,7 +1043,7 @@ export const CHAMADA = {
 export const PERGUNTAS = [
   {
     pergunta: "Quanto custa?",
-    resposta: `O Diagnóstico de Gargalo, a sessão inicial de 45 minutos, é gratuito. O Sprint de Eficiência tem preço fechado em proposta, depois de delimitar o gargalo. As faixas de referência são ${SPRINT_DE_PRECOS.niveis.map((n) => `${n.nome} de ${faixaEmTexto(n.faixa)}`).join(", ")}, conforme a complexidade, o risco e os custos diretos. A duração é referência, não promessa.`,
+    resposta: `O Diagnóstico de Gargalo, a sessão inicial de 45 minutos, é gratuito. O Sprint de Eficiência tem preço fechado em proposta, depois de delimitar o gargalo. Os valores de partida são ${SPRINT_DE_PRECOS.niveis.map((n) => `${n.nome} ${faixaEmTexto(n.faixa)}`).join(", ")}, conforme a complexidade, o risco e os custos diretos. A duração é referência, não promessa.`,
   },
   {
     pergunta: "O que um Sprint entrega?",

@@ -1,14 +1,14 @@
 ---
 rota: "/agente-de-ia-para-whatsapp"
-url: "https://www.v2o5.com.br/agente-de-ia-para-whatsapp"
+url: "http://localhost:3100/agente-de-ia-para-whatsapp"
 status: 200
 title: "Agente de IA para WhatsApp | V2O5 Vendas e Tecnologia"
 description: "Agente de IA no WhatsApp que responde na hora com as informações do seu negócio, qualifica, agenda e passa para a equipe. Entra num Sprint de Eficiência."
 canonical: "https://www.v2o5.com.br/agente-de-ia-para-whatsapp"
 robots: null
 h1: "Agente de IA para WhatsApp que responde, qualifica e agenda."
-extraido_em: "2026-10-25T20:08:16.046Z"
-fonte: "build local da branch claude/keen-ptolemy-vnfnfu (só o Sprint com valor público, 25/10/2026), extraída com design/baseline/ferramentas; as demais rotas seguem como em 19/10"
+extraido_em: "2026-10-26T14:09:49.228Z"
+fonte: "produção (www.v2o5.com.br), main em 397830f"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 # Agente de IA para WhatsApp que responde, qualifica e agenda.
@@ -150,7 +150,7 @@ Responsável
 
 O agente entra num Sprint quando o gargalo é a resposta lenta ou o contato que se perde fora do horário. O Sprint mapeia o atendimento de hoje, define o que o agente responde e quando chama uma pessoa, implementa e compara o tempo de resposta e os contatos acompanhados antes e depois.
 
-[Ver o Sprint e suas faixas](/precos#titulo-sprint)
+[Ver os Sprints e os valores de partida](/precos#titulo-sprint)
 
 O preço final
 

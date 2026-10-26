@@ -7,8 +7,8 @@ description: "A V2O5 acha o gargalo, simplifica o processo e implementa tecnolog
 canonical: "https://www.v2o5.com.br"
 robots: null
 h1: "Do problema ao resultado, pelo caminho mais simples."
-extraido_em: "2026-10-26T10:48:57.632Z"
-fonte: "produção (www.v2o5.com.br), main em d8685bd"
+extraido_em: "2026-10-26T14:09:49.228Z"
+fonte: "produção (www.v2o5.com.br), main em 397830f"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 Estratégia, processos e tecnologia
@@ -118,9 +118,9 @@ Produto principal
 
 Projeto fechado para um gargalo delimitado: mapeamento do fluxo, priorização, implementação acordada, testes e comparação dos indicadores disponíveis.
 
-Faixas de referência de R$ 3.000 a R$ 25.000 ou mais, conforme a complexidade. O preço fechado sai em proposta, com problema, entregáveis, exclusões, prazo, critérios de aceite e custos de terceiros. Mudança de escopo exige nova estimativa e aprovação.
+A partir de R$ 3.000, conforme a complexidade. O preço fechado sai em proposta, com problema, entregáveis, exclusões, prazo, critérios de aceite e custos de terceiros. Mudança de escopo exige nova estimativa e aprovação.
 
-[Ver faixas e condições](/precos#titulo-sprint)
+[Ver valores e condições](/precos#titulo-sprint)
 
 Depois da entrega
 
@@ -130,7 +130,7 @@ Mensalidade para manter as soluções, corrigir o que estiver previsto e evoluir
 
 Referência de R$ 1.200 a R$ 5.000 por mês pela gestão, em contrato. Nuvem e IA ficam por fora, pelo valor do provedor, e a V2O5 gerencia. Não inclui desenvolvimento ilimitado, novas integrações sem orçamento nem garantia de resultado comercial.
 
-[Ver faixas e condições](/precos#titulo-sprint)
+[Ver valores e condições](/precos#titulo-sprint)
 
 Bônus por desempenho fica como opção futura, só com linha de base, regra de atribuição acordada e dados auditáveis. Não faz parte da oferta padrão.
 
@@ -142,7 +142,7 @@ O diagnóstico acha o gargalo, o catálogo oferece as capacidades e o tamanho do
 
 ### Sprint Essencial
 
-R$ 3.000 a R$ 5.000
+a partir de R$ 3.000
 
 Um problema específico, resolvido por uma intervenção pequena.
 
@@ -152,7 +152,7 @@ Oferta principal
 
 ### Sprint Integrada
 
-R$ 6.000 a R$ 12.000
+a partir de R$ 6.000
 
 Um gargalo que pede mudanças ligadas em processo, tecnologia e operação.
 
@@ -162,13 +162,13 @@ Um gargalo que pede mudanças ligadas em processo, tecnologia e operação.
 
 ### Sprint Avançada
 
-R$ 12.000 a R$ 25.000 ou mais
+a partir de R$ 12.000
 
 Vários sistemas, regras de negócio, migrações ou maior risco técnico.
 
 4 a 8 semanas ou mais, como referência.
 
-[Ver as faixas e as condições](/precos#titulo-sprint)
+[Ver os valores e as condições](/precos#titulo-sprint)
 
 [Ver o catálogo de capacidades](/#solucoes)
 
@@ -374,7 +374,7 @@ Preço, pagamento, o que o Sprint entrega e o que vem depois. Se a sua pergunta 
 
 Quanto custa?
 
-O Diagnóstico de Gargalo, a sessão inicial de 45 minutos, é gratuito. O Sprint de Eficiência tem preço fechado em proposta, depois de delimitar o gargalo. As faixas de referência são Sprint Essencial de R$ 3.000 a R$ 5.000, Sprint Integrada de R$ 6.000 a R$ 12.000, Sprint Avançada de R$ 12.000 a R$ 25.000 ou mais, conforme a complexidade, o risco e os custos diretos. A duração é referência, não promessa.
+O Diagnóstico de Gargalo, a sessão inicial de 45 minutos, é gratuito. O Sprint de Eficiência tem preço fechado em proposta, depois de delimitar o gargalo. Os valores de partida são Sprint Essencial a partir de R$ 3.000, Sprint Integrada a partir de R$ 6.000, Sprint Avançada a partir de R$ 12.000, conforme a complexidade, o risco e os custos diretos. A duração é referência, não promessa.
 
 O que um Sprint entrega?
 

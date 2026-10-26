@@ -1,14 +1,14 @@
 ---
 rota: "/automacao-com-ia"
-url: "https://www.v2o5.com.br/automacao-com-ia"
+url: "http://localhost:3100/automacao-com-ia"
 status: 200
 title: "Automação de processos com IA e n8n | V2O5 Vendas e Tecnologia"
 description: "Fluxos no n8n que ligam os sistemas que a sua empresa já usa, com IA validada contra invenção de dado e registro de cada execução. Entra num Sprint."
 canonical: "https://www.v2o5.com.br/automacao-com-ia"
 robots: null
 h1: "Automação de processos com IA e n8n."
-extraido_em: "2026-10-25T20:08:16.046Z"
-fonte: "build local da branch claude/keen-ptolemy-vnfnfu (só o Sprint com valor público, 25/10/2026), extraída com design/baseline/ferramentas; as demais rotas seguem como em 19/10"
+extraido_em: "2026-10-26T14:09:49.228Z"
+fonte: "produção (www.v2o5.com.br), main em 397830f"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 # Automação de processos com IA e n8n.
@@ -91,9 +91,9 @@ Manutenção
 
 Ajustes e correções dentro do período e do escopo definidos na proposta.
 
-## Como tudo se liga. Cada peça passa o contato adiante, com a origem junto.
+## Um exemplo: o caminho de um contato num Sprint Integrada. Cada Sprint liga só as peças que o gargalo pede.
 
-Escolha uma peça para ver o caminho que passa por ela.
+Cinco paradas, na ordem do funil: atração, atendimento, gestão e venda. Duas camadas acompanham o caminho inteiro: a automação, que liga as peças, e o rastreamento, que grava a origem na entrada e devolve a venda ao anúncio. Escolha uma peça para ver o caminho; outros Sprints ligam outras peças.
 
 Site
 
@@ -107,21 +107,23 @@ Agente de IA
 
 Atendimento
 
-n8n
-
-Gestão
-
 CRM
 
 Gestão
 
+Venda
+
+Venda
+
+Em todo o caminho
+
+n8n
+
+Liga as peças
+
 Rastreamento
 
-Atração
-
-Venda
-
-Venda
+Origem na entrada, venda de volta ao anúncio
 
 Atração
 
@@ -165,7 +167,7 @@ Banco de dados da Motors Store, lido em 08/10/2026. Leads contados de 05/09 a 08
 
 A automação entra num Sprint quando o gargalo é uma tarefa repetida entre sistemas. O Sprint mapeia o processo real, tira as etapas desnecessárias antes de automatizar e mede o tempo e o retrabalho antes e depois.
 
-[Ver o Sprint e suas faixas](/precos#titulo-sprint)
+[Ver os Sprints e os valores de partida](/precos#titulo-sprint)
 
 O preço final
 

@@ -28,7 +28,7 @@ export default function Escada() {
             <p className="mt-6 border-t border-linha pt-4 text-[0.875rem] font-medium leading-relaxed">{d.saida}</p>
             {"href" in d && d.href ? (
               <LinkOuAncora href={d.href} className="link-sublinhado mt-4 text-[0.875rem] font-medium" data-evento="cta_click" data-local="escada">
-                Ver faixas e condições
+                Ver valores e condições
               </LinkOuAncora>
             ) : null}
           </li>

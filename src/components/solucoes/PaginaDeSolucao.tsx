@@ -341,7 +341,7 @@ function NoSprint({ s }: { s: Solucao }) {
         <div className="col-span-12 p-6 md:p-7 lg:col-span-7">
           <p className="max-w-[40rem] text-[1.0625rem] leading-relaxed">{s.noSprint}</p>
           <LinkOuAncora href="/precos#titulo-sprint" className="botao botao-secundario mt-7" data-evento="cta_click" data-local="preco">
-            Ver o Sprint e suas faixas
+            Ver os Sprints e os valores de partida
             <Icone nome="seta" className="seta size-4" />
           </LinkOuAncora>
         </div>

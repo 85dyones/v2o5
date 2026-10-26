@@ -7,8 +7,8 @@ description: "Site rápido no celular, achado no Google e nas respostas das IAs,
 canonical: "https://www.v2o5.com.br/criacao-de-sites"
 robots: null
 h1: "Criação de site profissional com SEO e rastreamento."
-extraido_em: "2026-10-26T00:41:41.536Z"
-fonte: "produção (www.v2o5.com.br), main em e3fd0ac"
+extraido_em: "2026-10-26T14:09:49.228Z"
+fonte: "produção (www.v2o5.com.br), main em 397830f"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 # Criação de site profissional com SEO e rastreamento.
@@ -171,7 +171,7 @@ motorsstore.com.br/financiamento, capturado em 26/10/2026
 
 O site entra num Sprint quando o gargalo é ser encontrado: páginas que o Google entende, Perfil da Empresa, SEO técnico e a origem de cada contato gravada. O Sprint começa pelo mapeamento do fluxo atual e termina com os indicadores disponíveis comparados antes e depois.
 
-[Ver o Sprint e suas faixas](/precos#titulo-sprint)
+[Ver os Sprints e os valores de partida](/precos#titulo-sprint)
 
 O preço final
 
@@ -185,7 +185,7 @@ O que entra, onde encaixa num Sprint e o que fica de fora. O resto cabe no diagn
 
 Quanto custa um site profissional?
 
-O site entra num Sprint de Eficiência, com preço fechado em proposta depois de delimitar o gargalo, o escopo e os entregáveis. As faixas de referência do Sprint estão em /precos. O diagnóstico inicial, de 45 minutos, é gratuito.
+O site entra num Sprint de Eficiência, com preço fechado em proposta depois de delimitar o gargalo, o escopo e os entregáveis. Os valores de partida do Sprint estão em /precos. O diagnóstico inicial, de 45 minutos, é gratuito.
 
 Posso aproveitar o site que já tenho?
 
