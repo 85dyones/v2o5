@@ -7,8 +7,8 @@ description: "Site rápido no celular, achado no Google e nas respostas das IAs,
 canonical: "https://www.v2o5.com.br/criacao-de-sites"
 robots: null
 h1: "Criação de site profissional com SEO e rastreamento."
-extraido_em: "2026-10-25T23:42:09.039Z"
-fonte: "produção (www.v2o5.com.br), main em 111d87c"
+extraido_em: "2026-10-26T00:26:54.458Z"
+fonte: "produção (www.v2o5.com.br), main em 10ce06d"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 # Criação de site profissional com SEO e rastreamento.
@@ -124,6 +124,38 @@ guias publicados, assinados pelo fundador da V2O5
 motorsstore.com.br, capturado em 19/10/2026
 
 Banco de dados da Motors Store, lido em 08/10/2026. Leads contados de 05/09 a 08/10/2026.
+
+### O site entregue, tela por tela.
+
+Sete telas reais do site da Motors Store no celular: vitrine, estoque, ficha do veículo, guias, a consultoria de cinco perguntas, uma página de bairro e o simulador de financiamento.
+
+![Vitrine do site da Motors Store no celular: veículo em destaque, preço e a busca por marca e modelo.](/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fvitrine.2s6-vxquanhzs.webp&w=3840&q=75)
+
+motorsstore.com.br, capturado em 19/10/2026
+
+![Página de estoque do site da Motors Store no celular: título, ordenação, busca e o primeiro veículo da lista.](/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Festoque.3-jymr6pppbhf.webp&w=3840&q=75)
+
+motorsstore.com.br/estoque, capturado em 19/10/2026
+
+![Ficha de um veículo no site da Motors Store no celular: galeria de fotos, modelo, ano, preço e os botões de contato.](/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fveiculo.0m3bnf55vhsfs.webp&w=3840&q=75)
+
+motorsstore.com.br/carros/volkswagen/t-cross, capturado em 19/10/2026
+
+![Página de guias do site da Motors Store no celular: busca por dúvida, a contagem de guias publicados e o guia em destaque sobre a perícia cautelar.](/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fguias.1jfu70mj0lz1d.webp&w=3840&q=75)
+
+motorsstore.com.br/guias, capturado em 26/10/2026
+
+![Ferramenta Garagem Profiler no site da Motors Store no celular: cinco perguntas até o carro certo, com o perfil se formando ao vivo.](/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fperfil.2p6d_m9_-87h5.webp&w=3840&q=75)
+
+motorsstore.com.br/carro-perfeito, capturado em 26/10/2026
+
+![Página local do bairro Bacacheri no site da Motors Store no celular: endereço da loja, quantidade de veículos à venda e o resumo da seleção.](/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fbairro.1eahgzdb_0x5z.webp&w=3840&q=75)
+
+motorsstore.com.br/seminovos-bacacheri, capturado em 26/10/2026
+
+![Página de financiamento do site da Motors Store no celular: explicação, resumo da seleção e o simulador de parcela com o estoque real.](/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Ffinanciamento.2q6jd1_nbkg_t.webp&w=3840&q=75)
+
+motorsstore.com.br/financiamento, capturado em 26/10/2026
 
 [Ler o case completo](/cases/motors-store)
 

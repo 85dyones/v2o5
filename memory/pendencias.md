@@ -45,4 +45,5 @@ Atualize ao resolver: mova a decisão para `decisoes.md` e apague daqui.
 28. Revisar a entrega-base do site (`src/conteudo/sitePadrao.ts`, nove itens, aparece em `/criacao-de-sites`): o Dyones corrige o que não vale para todo site ou o que falta. (25/10)
 29. 16ª Vara Cível como segundo segmento: quando fechar, repetir a estrutura hub + case do automotivo (modelos de Sprint no hub, prova no case, sem repetir números). (25/10)
 30. Confirmar a lista de ferramentas de `/sobre` (`src/conteudo/sobre.ts`, `ferramentas.grupos`): Google Gemini, Google Sheets, Redis, PostgreSQL e E-mail (SMTP) foram incluídos só porque há credencial no n8n; tirar o que não roda em produção e acrescentar o que falta. (26/10)
+31. Objeto próprio por página de solução (continuação da 24): `docs/entregaveis-e-possibilidades.md`, seção 5, propõe um por página; telas do `/admin` da Motors só com autorização da loja e dados mascarados. `/criacao-de-sites` e o case já mostram sete telas reais (26/10).
 

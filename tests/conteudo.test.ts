@@ -211,3 +211,15 @@ describe("Como tudo se liga (home)", () => {
     expect(fonte).toMatch(/id="como-se-liga"/);
   });
 });
+
+describe("telas da Motors", () => {
+  it("a galeria tem sete telas, cada uma com data de captura e texto alternativo, e entra em /criacao-de-sites e no case (26/10/2026)", () => {
+    const fonte = ler("src/components/case/CapturasDaMotors.tsx");
+    const lista = fonte.match(/TODAS_AS_CAPTURAS = \[([^\]]*)\]/)?.[1].match(/"[a-z]+"/g) ?? [];
+    expect(lista).toHaveLength(7);
+    expect((fonte.match(/alt: "/g) ?? []).length).toBe(7);
+    expect((fonte.match(/em: "\d\d\/10\/2026"/g) ?? []).length).toBe(7);
+    expect(ler("src/components/solucoes/PaginaDeSolucao.tsx")).toContain("TODAS_AS_CAPTURAS");
+    expect(ler("src/app/cases/motors-store/page.tsx")).toContain("TODAS_AS_CAPTURAS");
+  });
+});
