@@ -1,14 +1,14 @@
 ---
 rota: "/rastreamento-de-conversoes"
-url: "https://www.v2o5.com.br/rastreamento-de-conversoes"
+url: "http://localhost:3100/rastreamento-de-conversoes"
 status: 200
 title: "Rastreamento de conversões até a venda | V2O5 Vendas e Tecnologia"
 description: "GA4, API de Conversões da Meta e conversões offline do Google Ads: cada lead e cada venda ligados ao anúncio que trouxe o cliente. Entra num Sprint."
 canonical: "https://www.v2o5.com.br/rastreamento-de-conversoes"
 robots: null
 h1: "Rastreamento de conversões até a venda."
-extraido_em: "2026-10-25T20:08:16.046Z"
-fonte: "build local da branch claude/keen-ptolemy-vnfnfu (só o Sprint com valor público, 25/10/2026), extraída com design/baseline/ferramentas; as demais rotas seguem como em 19/10"
+extraido_em: "2026-10-26T14:09:49.228Z"
+fonte: "produção (www.v2o5.com.br), main em 397830f"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 # Rastreamento de conversões até a venda.
@@ -131,7 +131,7 @@ Banco de dados da Motors Store, lido em 08/10/2026. Leads contados de 05/09 a 08
 
 O rastreamento entra num Sprint quando o gargalo é não saber de onde vem cada venda. O Sprint audita o que já existe, implementa a camada de dados e compara a cobertura da origem nas vendas antes e depois.
 
-[Ver o Sprint e suas faixas](/precos#titulo-sprint)
+[Ver os Sprints e os valores de partida](/precos#titulo-sprint)
 
 O preço final
 

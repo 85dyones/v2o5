@@ -2,7 +2,7 @@
  * Sprint de Eficiência e continuidade: a política comercial do apêndice de
  * `CLAUDE_SITE_IMPLEMENTATION_AJUSTADO.md`, que o Dyones aprovou por inteiro
  * em 25/10/2026 ("todo o apêndice pode ser tratado como aprovado"). As
- * faixas do Sprint e da continuidade mensal são de referência: o preço
+ * valores do Sprint (a partir de, sem teto, desde 26/10/2026: "o teto máximo pode afugentar", Dyones; os tetos internos de referência estão em `memory/context/oferta.md`) e as faixas da continuidade mensal são de referência: o preço
  * fechado de cada projeto sai em proposta. Em 25/10/2026 o Dyones decidiu
  * que só o Sprint e a recorrência que acompanha o Sprint têm valor público
  * (o resto do cardápio de 15/10 é dado interno). A faixa mensal paga a gestão
@@ -17,22 +17,22 @@ import { BRL } from "@/conteudo/precos";
 
 export interface Faixa {
   de: number;
-  ate: number;
-  /** A faixa é "a partir de" no teto (Sprint Avançada: 12.000 a 25.000 ou mais). */
-  ouMais?: boolean;
+  /** Sem `ate`, o valor é "a partir de": é o caso dos três Sprints desde 26/10/2026. */
+  ate?: number;
 }
 
-export const faixaEmTexto = (f: Faixa) => `${BRL(f.de)} a ${BRL(f.ate)}${f.ouMais ? " ou mais" : ""}`;
+/** "a partir de R$ 3.000" (Sprint) ou "R$ 1.200 a R$ 2.500" (recorrência, que mantém a faixa). */
+export const faixaEmTexto = (f: Faixa) => (f.ate === undefined ? `a partir de ${BRL(f.de)}` : `${BRL(f.de)} a ${BRL(f.ate)}`);
 
 export const SPRINT_DE_PRECOS = {
   sobretitulo: "Sprint de Eficiência",
   titulo: "Um projeto fechado para um gargalo, com preço em proposta.",
   texto:
-    "As faixas abaixo são de referência e mudam com a complexidade, o risco e os custos diretos. O valor fechado sai depois de delimitar o gargalo. A duração é referência, não promessa automática.",
+    "Os valores abaixo são o ponto de partida e mudam com a complexidade, o risco e os custos diretos. O valor fechado sai depois de delimitar o gargalo. A duração é referência, não promessa automática.",
   niveis: [
     {
       nome: "Sprint Essencial",
-      faixa: { de: 3000, ate: 5000 } as Faixa,
+      faixa: { de: 3000 } as Faixa,
       duracao: "1 a 2 semanas",
       para: "Um problema específico, resolvido por uma intervenção pequena.",
       exemplos:
@@ -40,7 +40,7 @@ export const SPRINT_DE_PRECOS = {
     },
     {
       nome: "Sprint Integrada",
-      faixa: { de: 6000, ate: 12000 } as Faixa,
+      faixa: { de: 6000 } as Faixa,
       duracao: "2 a 4 semanas",
       para: "Um gargalo que pede mudanças ligadas em processo, tecnologia e operação.",
       exemplos:
@@ -49,7 +49,7 @@ export const SPRINT_DE_PRECOS = {
     },
     {
       nome: "Sprint Avançada",
-      faixa: { de: 12000, ate: 25000, ouMais: true } as Faixa,
+      faixa: { de: 12000 } as Faixa,
       duracao: "4 a 8 semanas ou mais",
       para: "Vários sistemas, regras de negócio, migrações ou maior risco técnico.",
       exemplos:

@@ -7,8 +7,8 @@ description: "Quem é a V2O5 Vendas e Tecnologia, o método em cinco perguntas, 
 canonical: "https://www.v2o5.com.br/sobre"
 robots: null
 h1: "Simplificar o que é complexo."
-extraido_em: "2026-10-26T10:48:57.632Z"
-fonte: "produção (www.v2o5.com.br), main em d8685bd"
+extraido_em: "2026-10-26T14:09:49.228Z"
+fonte: "produção (www.v2o5.com.br), main em 397830f"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 # Simplificar o que é complexo.
@@ -181,7 +181,7 @@ Cinco regras que valem para todo projeto.
 
 ### Preço fechado em proposta
 
-O Sprint tem preço fechado em proposta, depois que eu delimito o gargalo, o escopo e os entregáveis. As faixas de referência estão na página de preços.
+O Sprint tem preço fechado em proposta, depois que eu delimito o gargalo, o escopo e os entregáveis. Os valores de partida estão na página de preços.
 
 03
 

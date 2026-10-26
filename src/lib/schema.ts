@@ -102,15 +102,14 @@ export function perguntas(rota: string, lista: { pergunta: string; resposta: str
   };
 }
 
-/** Uma faixa de referência do Sprint como oferta: o preço fechado sai em proposta. */
+/** O valor de partida do Sprint como oferta: o preço fechado sai em proposta. */
 const ofertaDoSprint = (n: (typeof SPRINT_DE_PRECOS.niveis)[number]): No => ({
   "@type": "Offer",
   name: n.nome,
-  description: `Faixa de referência${n.faixa.ouMais ? ", ou mais" : ""}, conforme a complexidade. Duração de referência: ${n.duracao}. O preço fechado sai em proposta.`,
+  description: `A partir de ${n.faixa.de.toLocaleString("pt-BR")} reais, conforme a complexidade. Duração de referência: ${n.duracao}. O preço fechado sai em proposta.`,
   priceSpecification: {
     "@type": "PriceSpecification",
     minPrice: n.faixa.de,
-    maxPrice: n.faixa.ate,
     priceCurrency: "BRL",
   },
   availability: "https://schema.org/InStock",

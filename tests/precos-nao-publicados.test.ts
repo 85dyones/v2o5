@@ -33,7 +33,7 @@ import { arquivos, ler } from "./fonte";
  * falha se algum desses valores aparecer fora do lugar permitido.
  */
 
-const permitidos = new Set([...SPRINT_DE_PRECOS.niveis, ...CONTINUIDADE.modalidades].flatMap((n) => [n.faixa.de, n.faixa.ate]));
+const permitidos = new Set([...SPRINT_DE_PRECOS.niveis, ...CONTINUIDADE.modalidades].flatMap((n) => [n.faixa.de, n.faixa.ate]).filter((v): v is number => v !== undefined));
 
 const internos = (() => {
   const v = new Set<number>();

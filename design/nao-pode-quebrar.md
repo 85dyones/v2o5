@@ -362,3 +362,7 @@ Decisão do Dyones: "os preços dos planos de presença, atendimento e completo 
 - Home: `#como-se-liga` tem cinco paradas (Site, WhatsApp, Agente de IA, CRM, Venda) e duas camadas (n8n e Rastreamento); a ordem das seções agora é Dores, Método, Escada (porta de entrada), Três Sprints, Catálogo `#solucoes`, Como se liga, Indicadores, Projeto real, Automotivo. Âncoras e `data-local` seguem.
 - `/sobre`: texto em primeira pessoa; nova âncora `#titulo-visao`; `#autor`, o JSON-LD do fundador e o retrato seguem. O botão do hero passou a "Quem sou eu" (mesmo `#autor`).
 
+## Atualização de 26/10/2026 (Sprints "a partir de")
+
+- Os três Sprints mostram só o valor de partida (R$ 3.000, R$ 6.000, R$ 12.000), sem teto: home (`#tres-sprints`, escada, FAQ), `/precos#titulo-sprint`, `llms.txt`, vitrine e `description` de `/precos`. O `OfferCatalog` do JSON-LD traz só `minPrice` nos três Sprints; as duas ofertas mensais seguem com `minPrice` e `maxPrice`. Rótulos "Ver as faixas" viraram "Ver os valores".
+

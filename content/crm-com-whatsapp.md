@@ -1,14 +1,14 @@
 ---
 rota: "/crm-com-whatsapp"
-url: "https://www.v2o5.com.br/crm-com-whatsapp"
+url: "http://localhost:3100/crm-com-whatsapp"
 status: 200
 title: "CRM com WhatsApp integrado | V2O5 Vendas e Tecnologia"
 description: "CRM sob medida com WhatsApp dentro do funil: cada contato com origem, etapa e próximo passo. Intervenção de um Sprint de Eficiência."
 canonical: "https://www.v2o5.com.br/crm-com-whatsapp"
 robots: null
 h1: "CRM com WhatsApp integrado e IA."
-extraido_em: "2026-10-25T20:08:16.046Z"
-fonte: "build local da branch claude/keen-ptolemy-vnfnfu (só o Sprint com valor público, 25/10/2026), extraída com design/baseline/ferramentas; as demais rotas seguem como em 19/10"
+extraido_em: "2026-10-26T14:09:49.228Z"
+fonte: "produção (www.v2o5.com.br), main em 397830f"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 # CRM com WhatsApp integrado e IA.
@@ -131,7 +131,7 @@ Banco de dados da Motors Store, lido em 08/10/2026. Leads contados de 05/09 a 08
 
 O CRM entra num Sprint quando o gargalo é o funil espalhado entre conversas e planilhas. O Sprint mapeia como a venda acontece, desenha as etapas e os campos com a equipe, implanta e compara a proporção de contatos acompanhados e a conversão de etapa.
 
-[Ver o Sprint e suas faixas](/precos#titulo-sprint)
+[Ver os Sprints e os valores de partida](/precos#titulo-sprint)
 
 O preço final
 
@@ -167,7 +167,7 @@ Serve. Os campos e as etapas são desenhados com você. O automotivo é o primei
 
 [Atendimento Agente de IA no WhatsApp Responde na hora, a qualquer hora, com as informações do seu negócio. Quando a conversa pede uma pessoa, chama alguém da equipe.](/agente-de-ia-para-whatsapp)
 
-[Gestão Painel do dono Funil, verba, custo por lead e vendas por origem numa tela, atualizada todo dia a partir do CRM, do rastreamento e das contas de anúncio. Sem licença por usuário.](/diagnostico)
+[Gestão Indicadores e painéis Funil, tempo de resposta, custo por contato e vendas por origem numa tela só, atualizada a partir do CRM, do rastreamento e das contas de anúncio.](/diagnostico)
 
 [Gestão Automação de processos A tarefa que alguém faz à mão toda semana passa a rodar sozinha entre os sistemas que você já usa.](/automacao-com-ia)
 

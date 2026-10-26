@@ -126,17 +126,18 @@ describe("raiz de diagnostico.v2o5.com.br", () => {
   it("a seção do Sprint repete as faixas e o escopo do diagnóstico do site, sem mapa nem 24 horas", () => {
     const sprint = texto(raiz.getElementById("sprint"));
     const niveis = SPRINT_DE_PRECOS.niveis;
-    expect(sprint).toContain(`${BRL(niveis[0].faixa.de)} a ${BRL(niveis[2].faixa.ate)} ou mais`);
-    expect(sprint).toContain(`${BRL(CONTINUIDADE.modalidades[0].faixa.de)} a ${BRL(CONTINUIDADE.modalidades[1].faixa.ate)} por mês`);
+    expect(sprint).toContain(`A partir de ${BRL(niveis[0].faixa.de)}`);
+    expect(sprint).not.toMatch(/25\.000|ou mais/);
+    expect(sprint).toContain(`${BRL(CONTINUIDADE.modalidades[0].faixa.de)} a ${BRL(CONTINUIDADE.modalidades[1].faixa.ate!)} por mês`);
     expect(sprint).toContain(ESCADA.degraus[0].saida);
-    expect(faixaEmTexto(niveis[1].faixa)).toBe("R$ 6.000 a R$ 12.000");
+    expect(faixaEmTexto(niveis[1].faixa)).toBe("a partir de R$ 6.000");
     expect(texto(raiz)).not.toMatch(/24 horas|Catalisador de vendas/);
   });
 
   it("a vitrine não publica os planos nem valor nenhum além das faixas do Sprint", () => {
     expect(raiz.getElementById("planos")).toBeNull();
     expect(raiz.querySelector('[data-plano]')).toBeNull();
-    const permitidos = [...SPRINT_DE_PRECOS.niveis, ...CONTINUIDADE.modalidades].flatMap((n) => [n.faixa.de, n.faixa.ate].map((v) => BRL(v)));
+    const permitidos = [...SPRINT_DE_PRECOS.niveis, ...CONTINUIDADE.modalidades].flatMap((n) => [n.faixa.de, n.faixa.ate].filter((v): v is number => v !== undefined).map((v) => BRL(v)));
     for (const v of texto(raiz).match(/R\$ \d{1,3}(?:\.\d{3})*/g) ?? []) expect(permitidos, v).toContain(v);
   });
 

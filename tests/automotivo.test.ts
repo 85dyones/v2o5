@@ -35,16 +35,15 @@ describe("hub automotivo", () => {
     }
     expect(HUB_AUTOMOTIVO.planos.itens.map((p) => p.sprint)).toEqual(["Sprint Integrada", "Sprint Integrada", "Sprint Avançada"]);
     expect(HUB_AUTOMOTIVO.planos.titulo).toMatch(/modelos de Sprint/);
-    // A implantação de cada modelo cabe na faixa do Sprint a que ele pertence.
+    // A implantação de cada modelo parte do valor do Sprint a que ele pertence (sem teto público, 26/10/2026).
     for (const p of HUB_AUTOMOTIVO.planos.itens) {
       const faixa = SPRINT_DE_PRECOS.niveis.find((n) => n.nome === p.sprint.replace("Sprint ", "Sprint "))!.faixa;
       const valor = plano(p.id).implantacao;
       expect(valor, p.nome).toBeGreaterThanOrEqual(faixa.de);
-      if (!faixa.ouMais) expect(valor, p.nome).toBeLessThanOrEqual(faixa.ate);
     }
     // A recorrência de cada modelo cabe na faixa de continuidade pública.
     const minimo = Math.min(...CONTINUIDADE.modalidades.map((m) => m.faixa.de));
-    const maximo = Math.max(...CONTINUIDADE.modalidades.map((m) => m.faixa.ate));
+    const maximo = Math.max(...CONTINUIDADE.modalidades.map((m) => m.faixa.ate ?? m.faixa.de));
     for (const p of PLANOS) {
       expect(p.mensalidade, p.nome).toBeGreaterThanOrEqual(minimo);
       expect(p.mensalidade, p.nome).toBeLessThanOrEqual(maximo);

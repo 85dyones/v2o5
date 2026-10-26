@@ -167,9 +167,10 @@ Revenda Mais: gerencial R$ 600 + CRM R$ 500 + NF-e R$ 400 por mês. Autoconf: R$
 
 ## Sprint de Eficiência e continuidade (aprovado em 25/10/2026)
 Fonte: apêndice de `CLAUDE_SITE_IMPLEMENTATION_AJUSTADO.md`, aprovado por inteiro pelo Dyones em 25/10. Código em `src/conteudo/sprint.ts`; página `/precos#titulo-sprint`. Preço fechado em proposta; as faixas são de referência e a duração não é promessa.
-- Sprint Essencial: R$ 3.000 a R$ 5.000, 1 a 2 semanas.
-- Sprint Integrada (oferta principal): R$ 6.000 a R$ 12.000, 2 a 4 semanas.
-- Sprint Avançada: R$ 12.000 a R$ 25.000 ou mais, 4 a 8 semanas ou mais.
+- Sprint Essencial: a partir de R$ 3.000, 1 a 2 semanas. Faixa interna de referência: R$ 3.000 a R$ 5.000.
+- Sprint Integrada (oferta principal): a partir de R$ 6.000, 2 a 4 semanas. Faixa interna de referência: R$ 6.000 a R$ 12.000.
+- Sprint Avançada: a partir de R$ 12.000, 4 a 8 semanas ou mais. Faixa interna de referência: R$ 12.000 a R$ 25.000 ou mais.
+- Decisão de 26/10/2026 (Dyones): o público vê só o "a partir de" de cada Sprint, "o teto máximo pode afugentar"; as faixas com teto ficam como referência interna para montar proposta. A recorrência mensal segue em faixa (R$ 1.200 a R$ 2.500 e R$ 2.500 a R$ 5.000).
 - Estabilidade e suporte: R$ 1.200 a R$ 2.500 por mês.
 - Evolução contínua: R$ 2.500 a R$ 5.000 por mês.
 - Recorrência: na maioria dos projetos há uma parte recorrente, e pode haver em todos; é contrato à parte, opcional, com limites de atendimento e escopo escritos. Faixas de referência, valor em contrato (Dyones, 25/10).

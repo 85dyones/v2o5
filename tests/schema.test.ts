@@ -84,7 +84,7 @@ describe("página de preços", () => {
       const { faixa } = SPRINT_DE_PRECOS.niveis[i];
       expect(o["@type"]).toBe("Offer");
       expect(o.priceSpecification).toEqual({ "@type": "PriceSpecification", minPrice: faixa.de, maxPrice: faixa.ate, priceCurrency: "BRL" });
-      expect(String(o.description)).toMatch(/faixa de referência/i);
+      expect(String(o.description)).toMatch(/a partir de .* reais/i);
       expect(o).not.toHaveProperty("price");
     });
     expect(JSON.stringify(catalogo)).not.toMatch(/Plano (Presença|Atendimento|Completo)/);

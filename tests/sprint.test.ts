@@ -7,12 +7,15 @@ import { ler } from "./fonte";
 const oferta = ler("memory/context/oferta.md");
 
 describe("Sprint de Eficiência", () => {
-  it("as faixas do site são as do apêndice aprovado e as da memória", () => {
+  it("os Sprints mostram só o valor de partida, sem teto (Dyones, 26/10/2026), e a recorrência segue em faixa", () => {
     expect(SPRINT_DE_PRECOS.niveis.map((n) => faixaEmTexto(n.faixa))).toEqual([
-      "R$ 3.000 a R$ 5.000",
-      "R$ 6.000 a R$ 12.000",
-      "R$ 12.000 a R$ 25.000 ou mais",
+      "a partir de R$ 3.000",
+      "a partir de R$ 6.000",
+      "a partir de R$ 12.000",
     ]);
+    for (const n of SPRINT_DE_PRECOS.niveis) expect(n.faixa, n.nome).not.toHaveProperty("ate");
+    // Os tetos de referência ficam só na memória interna.
+    for (const teto of ["R$ 3.000 a R$ 5.000", "R$ 6.000 a R$ 12.000", "R$ 12.000 a R$ 25.000 ou mais"]) expect(oferta).toContain(teto);
     for (const n of SPRINT_DE_PRECOS.niveis) expect(oferta).toContain(`${n.nome}${n.principal ? " (oferta principal)" : ""}: ${faixaEmTexto(n.faixa)}`);
     expect(CONTINUIDADE.modalidades.map((m) => faixaEmTexto(m.faixa))).toEqual(["R$ 1.200 a R$ 2.500", "R$ 2.500 a R$ 5.000"]);
     for (const m of CONTINUIDADE.modalidades) expect(oferta).toContain(`${m.nome}: ${faixaEmTexto(m.faixa)} por mês`);
