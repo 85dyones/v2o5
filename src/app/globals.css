@@ -623,6 +623,21 @@
     border-bottom: 2px solid var(--color-texto);
   }
 
+  /* Os grupos do menu (Soluções, Continuidade): `<details>` nativo, sem o
+     triângulo do navegador; a seta vira quando o painel abre. */
+  .submenu > summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .submenu[open] > summary {
+    background-color: var(--color-fundo-cartao);
+    color: var(--color-texto);
+  }
+
+  .submenu[open] .submenu-seta {
+    transform: rotate(180deg);
+  }
+
   /* ---------------------------------------------------------------------
      O mapa das peças: as estações numa faixa de células, com a linha das
      etapas atravessando. Na abertura se desenha uma vez ao carregar, por

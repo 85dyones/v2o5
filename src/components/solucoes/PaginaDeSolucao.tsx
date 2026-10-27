@@ -15,6 +15,8 @@ import Entradas from "@/components/layout/Entradas";
 import { COR_DA_ROTA, Parada, TEXTO_DA_ETAPA, Trecho } from "@/components/rota/Rota";
 import { CASE, LINHAS, type Linha } from "@/conteudo/home";
 import { capacidade } from "@/conteudo/precos";
+import { ofertaDa } from "@/conteudo/ofertas";
+import Pacotes from "@/components/ofertas/Pacotes";
 import { mensagemDaSolucao, solucaoDa, type Solucao } from "@/conteudo/solucoes";
 import { grafoDaSolucao } from "@/lib/schema";
 import type { Etapa } from "@/lib/tokens";
@@ -24,8 +26,11 @@ import type { Etapa } from "@/lib/tokens";
  * toma a cor da etapa da solução (`etapa` em `conteudo/solucoes.ts`) da
  * abertura a "como entra num Sprint"; perguntas e as linhas que combinam
  * ligam as paradas com o fio fino, e o fecho leva a rota em âmbar até o botão.
- * Desde 25/10/2026 a página não publica valor: a linha é uma intervenção que
- * pode fazer parte de um Sprint, e o preço do Sprint mora em `/precos`.
+ * Página de recurso (agente, CRM, automação, rastreamento): não publica
+ * valor; a linha entra num Sprint e o preço é o do Sprint. Página de solução
+ * (desde 27/10/2026: Branding, Presença, Sites e o próprio Sprint, com
+ * `oferta`): no lugar de "como entra num Sprint", os pacotes com o preço de
+ * referência de `ofertas.ts`.
  * Os sobretítulos saíram da tela e viraram o nome acessível de cada seção.
  * Texto todo de `conteudo/solucoes.ts`.
  */
@@ -47,14 +52,18 @@ export default function PaginaDeSolucao({ rota, demonstracao }: { rota: string; 
         <ComoFunciona s={s} />
         {demonstracao}
         {s.naMotors ? <NaMotors m={s.naMotors} etapa={s.etapa} captura={s.linha === "sites" ? "vitrine" : undefined} /> : null}
-        <NoSprint s={s} />
+        {s.oferta ? <Pacotes oferta={ofertaDa(s.oferta)} /> : <NoSprint s={s} />}
         <Perguntas
           lista={s.perguntas}
           sobretitulo="Antes de contratar"
-          titulo={`O que perguntam sobre ${nomeDaLinha.toLowerCase()}`}
-          texto="O que entra, onde encaixa num Sprint e o que fica de fora. O resto cabe no diagnóstico."
+          titulo={`O que perguntam sobre ${s.oferta ? nomeDaLinha : nomeDaLinha.toLowerCase()}`}
+          texto={
+            s.oferta
+              ? "O que entra, quanto custa e o que fica de fora. O resto cabe no diagnóstico."
+              : "O que entra, onde encaixa num Sprint e o que fica de fora. O resto cabe no diagnóstico."
+          }
         />
-        <Relacionadas linhas={relacionadas} />
+        <Relacionadas linhas={relacionadas} titulo={s.oferta ? "Recursos que combinam com esta solução." : undefined} />
         <Fechamento />
       </main>
       <Rodape />
@@ -94,8 +103,13 @@ function Abertura({ s }: { s: Solucao }) {
               Pedir diagnóstico gratuito
               <Icone nome="seta" className="seta size-4" />
             </Link>
-            <a href="#titulo-no-sprint" className="link-sublinhado text-[0.9375rem] font-medium" data-evento="cta_click" data-local="hero">
-              Ver como entra num Sprint
+            <a
+              href={s.oferta ? "#titulo-pacotes" : "#titulo-no-sprint"}
+              className="link-sublinhado text-[0.9375rem] font-medium"
+              data-evento="cta_click"
+              data-local="hero"
+            >
+              {s.oferta ? "Ver os pacotes" : "Ver como entra num Sprint"}
             </a>
           </div>
         </div>
@@ -202,10 +216,10 @@ function ComoFunciona({ s }: { s: Solucao }) {
         <div className="relative col-span-12 lg:col-span-5">
           <Parada />
           <h2 id="titulo-como" className="titulo-secao">
-            Do diagnóstico <span className="apagado">ao ar.</span>
+            {s.como?.titulo ?? "Do diagnóstico"} <span className="apagado">{s.como?.apagado ?? "ao ar."}</span>
           </h2>
           <p className="texto-guia mt-6 max-w-[30rem]">
-            Começa pelo diagnóstico gratuito, com o escopo fechado antes da implantação. Sem fidelidade.
+            {s.como?.texto ?? "Começa pelo diagnóstico gratuito, com o escopo fechado antes da implantação. Sem fidelidade."}
           </p>
         </div>
         <ol className="col-span-12 border-t-2 border-texto lg:col-span-7">
@@ -324,7 +338,7 @@ function CelulasDoCase({ numeros }: { numeros: NonNullable<Solucao["naMotors"]>[
 /**
  * Como a linha entra num Sprint, numa ficha fechada por fio de 2 px: o texto
  * da própria solução à esquerda e, ao lado, de onde sai o preço (proposta do
- * Sprint, com as faixas de referência em `/precos`). O `id="titulo-no-sprint"`
+ * Sprint, com os valores em `/sprint-de-eficiencia`). O `id="titulo-no-sprint"`
  * é a âncora do botão "Ver como entra num Sprint".
  */
 function NoSprint({ s }: { s: Solucao }) {
@@ -340,8 +354,8 @@ function NoSprint({ s }: { s: Solucao }) {
       <div className="mt-12 grid grid-cols-12 border-2 border-texto md:mt-14">
         <div className="col-span-12 p-6 md:p-7 lg:col-span-7">
           <p className="max-w-[40rem] text-[1.0625rem] leading-relaxed">{s.noSprint}</p>
-          <LinkOuAncora href="/precos#titulo-sprint" className="botao botao-secundario mt-7" data-evento="cta_click" data-local="preco">
-            Ver os Sprints e os valores de partida
+          <LinkOuAncora href="/sprint-de-eficiencia#titulo-pacotes" className="botao botao-secundario mt-7" data-evento="cta_click" data-local="preco">
+            Ver os Sprints e os valores
             <Icone nome="seta" className="seta size-4" />
           </LinkOuAncora>
         </div>
@@ -364,13 +378,13 @@ function NoSprint({ s }: { s: Solucao }) {
  * o link, a linha pinta a rota na cor da etapa dela e leva a parada, que se
  * acende no hover.
  */
-function Relacionadas({ linhas }: { linhas: Linha[] }) {
+function Relacionadas({ linhas, titulo = "Intervenções que combinam com esta." }: { linhas: Linha[]; titulo?: string }) {
   return (
     <Trecho aria-labelledby="titulo-relacionadas">
       <div className="relative grid grid-cols-12 gap-x-6">
         <Parada />
         <h2 id="titulo-relacionadas" className="col-span-12 text-titulo-3 lg:col-span-8">
-          Intervenções que combinam com esta.
+          {titulo}
         </h2>
       </div>
       <ul className="mt-10 border-t-2 border-texto">

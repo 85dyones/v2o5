@@ -5,7 +5,7 @@ import { HERO } from "@/conteudo/home";
 /**
  * A abertura. O H1 é o LCP: texto do servidor, sem animação de entrada e sem
  * nada por cima. À direita, separada por fio, a coluna com o subtítulo, os
- * botões e a nota do método. Embaixo, a faixa do que a V2O5 conecta.
+ * botões e a nota do método. Embaixo, a faixa com as quatro soluções.
  */
 export default function Hero({ titulo }: { titulo: string }) {
   return (
@@ -28,7 +28,7 @@ export default function Hero({ titulo }: { titulo: string }) {
               {HERO.cta}
               <Icone nome="seta" className="seta size-4" />
             </Link>
-            <a href="#metodo" className="link-sublinhado text-[0.9375rem] font-medium" data-evento="cta_click" data-local="hero-metodo">
+            <a href="#solucoes" className="link-sublinhado text-[0.9375rem] font-medium" data-evento="cta_click" data-local="hero-solucoes">
               {HERO.ctaSecundario}
             </a>
           </div>

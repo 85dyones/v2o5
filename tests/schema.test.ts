@@ -11,7 +11,7 @@ import {
   organizacao,
 } from "@/lib/schema";
 import { PERGUNTAS } from "@/conteudo/home";
-import { CONTINUIDADE, SPRINT_DE_PRECOS } from "@/conteudo/sprint";
+import { OFERTAS, PLANOS_DE_CONTINUIDADE } from "@/conteudo/ofertas";
 
 /** Seção 4.5 do plano e `marca.md`: um grafo por página, contado por teste. */
 
@@ -66,26 +66,32 @@ describe("grafo da home", () => {
 });
 
 describe("página de preços", () => {
-  it("tem a trilha, o catálogo do Sprint e as perguntas, sem plano nenhum", () => {
+  it("tem a trilha, o catálogo das quatro soluções e da continuidade e as perguntas", () => {
     const [org, trilha, catalogo, faq] = nos(grafoDosPrecos());
     expect(org).toEqual({ "@id": ID_DA_ORGANIZACAO });
     expect(trilha["@type"]).toBe("BreadcrumbList");
     expect(catalogo["@type"]).toBe("OfferCatalog");
     expect(faq["@type"]).toBe("FAQPage");
-    const ofertas = catalogo.itemListElement as No[];
-    expect(ofertas).toHaveLength(SPRINT_DE_PRECOS.niveis.length + CONTINUIDADE.modalidades.length);
-    const mensais = ofertas.slice(SPRINT_DE_PRECOS.niveis.length);
-    mensais.forEach((o, i) => {
-      const { faixa } = CONTINUIDADE.modalidades[i];
-      expect(o.priceSpecification).toEqual({ "@type": "UnitPriceSpecification", minPrice: faixa.de, maxPrice: faixa.ate, priceCurrency: "BRL", unitCode: "MON" });
-      expect(String(o.name)).toMatch(/por mês/);
+    const grupos = catalogo.itemListElement as No[];
+    expect(grupos.map((g) => g.name)).toEqual([...OFERTAS.map((o) => o.nome), "Continuidade"]);
+    OFERTAS.forEach((o, i) => {
+      const ofertas = (grupos[i].itemListElement as No[]).filter((x) => !String(x.name).includes("(por mês)"));
+      expect(ofertas.map((x) => x.name)).toEqual(o.pacotes.map((p) => p.nome));
+      ofertas.forEach((x, k) => {
+        const p = o.pacotes[k];
+        expect(x["@type"]).toBe("Offer");
+        expect(x.priceSpecification).toEqual(
+          p.preco.aPartirDe
+            ? { "@type": "PriceSpecification", minPrice: p.preco.valor, priceCurrency: "BRL" }
+            : { "@type": "PriceSpecification", price: p.preco.valor, priceCurrency: "BRL" },
+        );
+        expect(String(x.description)).toMatch(/valor fechado sai em proposta/);
+      });
     });
-    ofertas.slice(0, SPRINT_DE_PRECOS.niveis.length).forEach((o, i) => {
-      const { faixa } = SPRINT_DE_PRECOS.niveis[i];
-      expect(o["@type"]).toBe("Offer");
-      expect(o.priceSpecification).toEqual({ "@type": "PriceSpecification", minPrice: faixa.de, maxPrice: faixa.ate, priceCurrency: "BRL" });
-      expect(String(o.description)).toMatch(/a partir de .* reais/i);
-      expect(o).not.toHaveProperty("price");
+    const mensais = grupos[OFERTAS.length].itemListElement as No[];
+    mensais.forEach((x, i) => {
+      expect(x.priceSpecification).toEqual({ "@type": "UnitPriceSpecification", price: PLANOS_DE_CONTINUIDADE[i].mensal, priceCurrency: "BRL", unitCode: "MON" });
+      expect(String(x.name)).toMatch(/por mês/);
     });
     expect(JSON.stringify(catalogo)).not.toMatch(/Plano (Presença|Atendimento|Completo)/);
   });

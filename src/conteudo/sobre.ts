@@ -11,7 +11,7 @@ import { EMPRESA, VISAO_360 } from "@/conteudo/home";
  * 13/10: a relação com a Motors é de fornecedora; a empresa foi fundada em
  * dezembro de 2019. Em 25/10/2026 a narrativa passou ao posicionamento do
  * Sprint de Eficiência: a IA é um meio, não o centro, e não há mais "equipe
- * completa de IA" nem preço publicado de plano. Sem
+ * completa de IA". Os preços moram nas páginas das soluções (27/10). Sem
  * foto até ela chegar (pendência 1) e sem citação inventada.
  * `tests/sobre.test.ts` confere.
  */
@@ -113,8 +113,8 @@ export const SOBRE = {
         texto: "45 minutos comigo para identificar e priorizar um gargalo, sem compromisso. O que vem depois só proponho se houver um bom caso.",
       },
       {
-        titulo: "Preço fechado em proposta",
-        texto: "O Sprint tem preço fechado em proposta, depois que eu delimito o gargalo, o escopo e os entregáveis. Os valores de partida estão na página de preços.",
+        titulo: "Preço de referência, valor em proposta",
+        texto: "Cada solução tem pacotes com preço de referência publicado. O valor fechado sai em proposta, depois que eu delimito o problema, o escopo e os entregáveis.",
       },
       {
         titulo: "Só publico número medido",
@@ -167,7 +167,7 @@ export const SOBRE = {
         titulo: "Branding, design e comunicação",
         descricao: "Da estratégia de marca aos materiais aplicados no negócio.",
         itens: ["Estratégia e posicionamento", "Naming", "Identidade visual e logotipo", "Sistema e manual de marca", "Comunicação visual", "Aplicação da marca no site, nas redes e nos materiais"],
-        nota: "Branding entra num Sprint como capacidade, sob medida: não é um pacote à parte.",
+        nota: "Branding & Identidade é uma das quatro soluções, com pacotes próprios.",
       },
       {
         titulo: "Inteligência artificial e agentes",

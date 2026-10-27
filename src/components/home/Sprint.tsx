@@ -4,7 +4,7 @@ import { Parada, Trecho } from "@/components/rota/Rota";
 import { SPRINT } from "@/conteudo/home";
 
 /**
- * O produto principal e as quatro etapas. A apresentação fica à esquerda e
+ * O método do Sprint, em seis passos (`METODO` em `sprint.ts`). A apresentação fica à esquerda e
  * acompanha a leitura no desktop; as etapas descem em lista ordenada.
  */
 export default function Sprint() {
@@ -20,10 +20,15 @@ export default function Sprint() {
             </h2>
             <p className="texto-guia mt-6 max-w-[30rem]">{SPRINT.texto}</p>
             <p className="mt-6 max-w-[30rem] border-l-2 border-texto pl-4 text-[0.9375rem] leading-relaxed">{SPRINT.principio}</p>
-            <Link href="/diagnostico" className="botao botao-primario mt-8" data-evento="cta_click" data-local="sprint">
-              {SPRINT.cta}
-              <Icone nome="seta" className="seta size-4" />
-            </Link>
+            <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-4">
+              <Link href="/diagnostico" className="botao botao-primario" data-evento="cta_click" data-local="sprint">
+                {SPRINT.cta}
+                <Icone nome="seta" className="seta size-4" />
+              </Link>
+              <Link href="/sprint-de-eficiencia" className="link-sublinhado text-[0.9375rem] font-medium" data-evento="cta_click" data-local="sprint">
+                {SPRINT.link}
+              </Link>
+            </div>
           </div>
         </div>
         <ol className="col-span-12 border-t-2 border-texto lg:col-span-7">

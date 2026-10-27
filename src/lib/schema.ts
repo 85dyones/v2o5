@@ -4,8 +4,8 @@ import { SOBRE } from "@/conteudo/sobre";
 import { solucaoDa } from "@/conteudo/solucoes";
 import { ASSINATURA, EMPRESA, PERGUNTAS, PILARES, VISAO_360 } from "@/conteudo/home";
 import { paginaDa } from "@/conteudo/paginas";
-import { ofertaDaCapacidade } from "@/conteudo/precos";
-import { CONTINUIDADE, SPRINT_DE_PRECOS } from "@/conteudo/sprint";
+import { capacidade } from "@/conteudo/precos";
+import { OFERTAS, ofertaDa, PERGUNTAS_DA_CONTINUIDADE, PLANOS_DE_CONTINUIDADE, type Oferta, type Pacote, type PlanoDeContinuidade } from "@/conteudo/ofertas";
 import { SITE_URL } from "@/lib/site";
 import { whatsappInternacional } from "@/lib/whatsapp";
 
@@ -50,7 +50,7 @@ export function organizacao(): No {
       areaServed: "BR",
     },
     areaServed: { "@type": "Country", name: "Brasil" },
-    knowsAbout: PILARES.flatMap((p) => p.servicos.map((s) => s.titulo)),
+    knowsAbout: [...OFERTAS.map((o) => o.nome), ...PILARES.flatMap((p) => p.servicos.map((s) => s.titulo))],
   };
 }
 
@@ -102,56 +102,68 @@ export function perguntas(rota: string, lista: { pergunta: string; resposta: str
   };
 }
 
-/** O valor de partida do Sprint como oferta: o preço fechado sai em proposta. */
-const ofertaDoSprint = (n: (typeof SPRINT_DE_PRECOS.niveis)[number]): No => ({
+const reais = (n: number) => `${n.toLocaleString("pt-BR")} reais`;
+
+/** Um pacote como oferta: preço fixo (`price`) ou "a partir de" (`minPrice`). O valor fechado sai em proposta. */
+const ofertaDoPacote = (o: Oferta, p: Pacote): No => ({
   "@type": "Offer",
-  name: n.nome,
-  description: `A partir de ${n.faixa.de.toLocaleString("pt-BR")} reais, conforme a complexidade. Duração de referência: ${n.duracao}. O preço fechado sai em proposta.`,
+  name: p.nome,
+  description: `${p.para} ${p.preco.aPartirDe ? `A partir de ${reais(p.preco.valor)}` : `Preço de referência: ${reais(p.preco.valor)}`}${p.duracao ? `. Duração de referência: ${p.duracao}` : ""}. O valor fechado sai em proposta.`,
   priceSpecification: {
     "@type": "PriceSpecification",
-    minPrice: n.faixa.de,
+    ...(p.preco.aPartirDe ? { minPrice: p.preco.valor } : { price: p.preco.valor }),
     priceCurrency: "BRL",
   },
+  url: `${SITE_URL}${o.rota}#titulo-pacotes`,
   availability: "https://schema.org/InStock",
   areaServed: { "@type": "Country", name: "Brasil" },
   seller: ref(ID_DA_ORGANIZACAO),
 });
 
+/** Uma mensalidade (da Presença ou da continuidade) como oferta por mês. */
+const ofertaMensal = (nome: string, descricao: string, valor: number, url: string): No => ({
+  "@type": "Offer",
+  name: `${nome} (por mês)`,
+  description: `${descricao} Opcional. Preço de referência por mês: ${reais(valor)}.`,
+  priceSpecification: { "@type": "UnitPriceSpecification", price: valor, priceCurrency: "BRL", unitCode: "MON" },
+  url,
+  availability: "https://schema.org/InStock",
+  areaServed: { "@type": "Country", name: "Brasil" },
+  seller: ref(ID_DA_ORGANIZACAO),
+});
+
+/** As ofertas de uma solução: os pacotes e, na Presença, as mensalidades opcionais. */
+const ofertasDa = (o: Oferta): No[] => [
+  ...o.pacotes.map((p) => ofertaDoPacote(o, p)),
+  ...o.pacotes.flatMap((p) => (p.mensal ? [ofertaMensal(p.nome, p.mensal.cobre, p.mensal.valor, `${SITE_URL}${o.rota}#titulo-pacotes`)] : [])),
+];
+
+const ofertaDoPlano = (p: PlanoDeContinuidade): No =>
+  ofertaMensal(p.nome, `${p.para} ${p.inclui.join("; ")}.`, p.mensal, `${SITE_URL}/continuidade#${p.frente}`);
+
 /**
- * O catálogo de `/precos` desde 25/10/2026: o Sprint de Eficiência, nas três
- * faixas de referência de `sprint.ts`, e as duas faixas mensais da
- * continuidade que o acompanha. Os planos de `precos.ts` não são
- * publicados, então não entram no schema.
+ * O catálogo de `/precos` desde 27/10/2026: os pacotes das quatro soluções
+ * (`ofertas.ts` e `sprint.ts`) e os planos de continuidade, com os mesmos
+ * valores da página.
  */
 export function catalogo(): No {
-  const servico = {
-    "@type": "Service",
-    name: "Sprint de Eficiência V2O5",
-    url: `${SITE_URL}/precos#titulo-sprint`,
-    provider: ref(ID_DA_ORGANIZACAO),
-  };
   return {
     "@type": "OfferCatalog",
     "@id": `${SITE_URL}/precos#catalogo`,
-    name: "Sprint de Eficiência V2O5",
+    name: "Soluções da V2O5",
     itemListElement: [
-      ...SPRINT_DE_PRECOS.niveis.map((n) => ({ ...ofertaDoSprint(n), itemOffered: servico })),
-      ...CONTINUIDADE.modalidades.map((m) => ({
-        "@type": "Offer",
-        name: `${m.nome} (por mês)`,
-        description: `Faixa de referência por mês pela gestão continuada, depois do Sprint. ${m.texto} Nuvem e IA ficam por fora, pelo valor do provedor. Valor e limites em contrato.`,
-        priceSpecification: {
-          "@type": "UnitPriceSpecification",
-          minPrice: m.faixa.de,
-          maxPrice: m.faixa.ate,
-          priceCurrency: "BRL",
-          unitCode: "MON",
-        },
-        availability: "https://schema.org/InStock",
-        areaServed: { "@type": "Country", name: "Brasil" },
-        seller: ref(ID_DA_ORGANIZACAO),
-        itemOffered: servico,
+      ...OFERTAS.map((o) => ({
+        "@type": "OfferCatalog",
+        name: o.nome,
+        url: `${SITE_URL}${o.rota}`,
+        itemListElement: ofertasDa(o),
       })),
+      {
+        "@type": "OfferCatalog",
+        name: "Continuidade",
+        url: `${SITE_URL}/continuidade`,
+        itemListElement: PLANOS_DE_CONTINUIDADE.map(ofertaDoPlano),
+      },
     ],
   };
 }
@@ -194,13 +206,13 @@ export function grafoDoCase(): No {
   };
 }
 
-/** O hub de revendas como serviço (sem valor público desde 25/10/2026). */
+/** O hub de revendas como serviço; os valores ficam na página e no catálogo de `/precos`. */
 export function servicoAutomotivo(): No {
   const rota = HUB_AUTOMOTIVO.rota;
   return {
     "@type": "Service",
     "@id": `${SITE_URL}${rota}#servico`,
-    name: "Sprint de Eficiência para revendas de veículos",
+    name: "Site Automotivo Integrado e Operação com IA para revendas de veículos",
     description: HUB_AUTOMOTIVO.resumo,
     url: `${SITE_URL}${rota}`,
     provider: ref(ID_DA_ORGANIZACAO),
@@ -210,19 +222,25 @@ export function servicoAutomotivo(): No {
   };
 }
 
-/** A linha de uma página de solução como serviço, com as ofertas da tabela. */
+/**
+ * A página como serviço. Nas quatro soluções (`oferta`), com o catálogo dos
+ * pacotes; nas páginas de recurso, sem oferta de preço.
+ */
 export function servicoDaSolucao(rota: string): No {
   const s = solucaoDa(rota);
-  const l = ofertaDaCapacidade(s.linha);
+  const o = s.oferta ? ofertaDa(s.oferta) : undefined;
   return {
     "@type": "Service",
     "@id": `${SITE_URL}${rota}#servico`,
-    name: l.nome,
+    name: capacidade(s.linha).nome,
     description: s.resumo,
     url: `${SITE_URL}${rota}`,
     provider: ref(ID_DA_ORGANIZACAO),
     serviceType: s.titulo.replace(/\.$/, ""),
     areaServed: { "@type": "Country", name: "Brasil" },
+    ...(o
+      ? { hasOfferCatalog: { "@type": "OfferCatalog", "@id": `${SITE_URL}${rota}#catalogo`, name: o.nome, itemListElement: ofertasDa(o) } }
+      : {}),
   };
 }
 
@@ -259,6 +277,34 @@ export function grafoDoSobre(): No {
   return {
     "@context": "https://schema.org",
     "@graph": [ref(ID_DA_ORGANIZACAO), trilha(SOBRE.rota), fundador(), paginaSobre()],
+  };
+}
+
+/** `/continuidade`: os três planos como serviço com catálogo mensal, e as perguntas da página. */
+export function grafoDaContinuidade(): No {
+  const rota = "/continuidade";
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      ref(ID_DA_ORGANIZACAO),
+      trilha(rota),
+      {
+        "@type": "Service",
+        "@id": `${SITE_URL}${rota}#servico`,
+        name: "Continuidade",
+        description: paginaDa(rota).descricao,
+        url: `${SITE_URL}${rota}`,
+        provider: ref(ID_DA_ORGANIZACAO),
+        areaServed: { "@type": "Country", name: "Brasil" },
+        hasOfferCatalog: {
+          "@type": "OfferCatalog",
+          "@id": `${SITE_URL}${rota}#catalogo`,
+          name: "Planos de continuidade",
+          itemListElement: PLANOS_DE_CONTINUIDADE.map(ofertaDoPlano),
+        },
+      },
+      perguntas(rota, PERGUNTAS_DA_CONTINUIDADE),
+    ],
   };
 }
 

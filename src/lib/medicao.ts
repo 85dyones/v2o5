@@ -181,6 +181,7 @@ export type TipoDePagina =
   | "segmento"
   | "case"
   | "precos"
+  | "continuidade"
   | "diagnostico"
   | "recebido"
   | "sobre"
@@ -189,8 +190,15 @@ export type TipoDePagina =
   | "nao-encontrada"
   | "outra";
 
-/** Linha de preço (`conteudo/precos.ts`) de cada página de solução. `tests/medicao.test.ts` confere com `conteudo/solucoes.ts`. */
+/**
+ * A linha de cada página de solução e de recurso (`linha` em `conteudo/solucoes.ts`;
+ * `tests/medicao.test.ts` confere). As quatro soluções de 27/10/2026 entram
+ * com `branding`, `presenca`, `sites` e `sprint`.
+ */
 export const LINHA_DA_ROTA: Record<string, string> = {
+  "/branding-e-identidade": "branding",
+  "/presenca-digital-local": "presenca",
+  "/sprint-de-eficiencia": "sprint",
   "/criacao-de-sites": "sites",
   "/agente-de-ia-para-whatsapp": "agente",
   "/automacao-com-ia": "automacao",
@@ -211,6 +219,7 @@ export function contextoDaPagina(pathname: string): ContextoDaPagina {
   if (rota.startsWith("/segmentos/")) return { page_type: "segmento", segment: rota.slice("/segmentos/".length) };
   if (rota.startsWith("/cases/")) return { page_type: "case" };
   if (rota === "/precos") return { page_type: "precos" };
+  if (rota === "/continuidade") return { page_type: "continuidade" };
   if (rota === "/diagnostico") return { page_type: "diagnostico" };
   if (rota === "/diagnostico/recebido") return { page_type: "recebido" };
   if (rota === "/sobre") return { page_type: "sobre" };

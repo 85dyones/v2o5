@@ -1,4 +1,5 @@
-import { CONDICOES, CONTINUIDADE, faixaEmTexto, SPRINT_DE_PRECOS } from "@/conteudo/sprint";
+import { CONDICOES, METODO } from "@/conteudo/sprint";
+import { CONTINUIDADE, mensalEmTexto, OFERTAS, PLANOS_DE_CONTINUIDADE, precoEmTexto, REGRAS_DE_PRECO } from "@/conteudo/ofertas";
 import { ASSINATURA, AUTOMOTIVO, CASE, EMPRESA, HERO, PILARES, VISAO_360 } from "@/conteudo/home";
 import { SITE_URL } from "@/lib/site";
 import { whatsappParaLer } from "@/lib/whatsapp";
@@ -27,17 +28,31 @@ export function textoDoLlms(): string {
     "",
     `Fundador: ${VISAO_360.fundador.nome}. ${VISAO_360.fundador.texto}`,
     "",
-    "## Sprint de Eficiência (oferta principal)",
-    `Projeto fechado para um gargalo delimitado, com preço fechado em proposta. Valores de partida: ${SPRINT_DE_PRECOS.niveis.map((n) => `${n.nome} ${faixaEmTexto(n.faixa)} (${n.duracao})`).join("; ")}. Duração é referência, não promessa. Sem promessa de ROI nem de aumento de vendas. Detalhes em ${SITE_URL}/precos#titulo-sprint.`,
-    `${CONTINUIDADE.texto} ${CONTINUIDADE.recorrencia.map((r) => `${r.titulo}: ${r.texto}`).join(" ")} Gestão continuada, em faixas de referência: ${CONTINUIDADE.modalidades.map((m) => `${m.nome} ${faixaEmTexto(m.faixa)} por mês`).join("; ")}. ${CONTINUIDADE.limites}`,
-    `Pagamento: ${CONDICOES.itens[1].texto}`,
-    "Só o Sprint e a recorrência que o acompanha têm valor público. Nenhuma capacidade do catálogo tem preço próprio; se perguntarem por valor de uma peça, ela entra no escopo de um Sprint e o preço fechado sai em proposta, depois do diagnóstico.",
+    "## Soluções e preços de referência",
+    `A V2O5 vende quatro soluções, cada uma com pacotes de escopo claro, e a continuidade, opcional. ${REGRAS_DE_PRECO.join(" ")}`,
     "",
-    "## Catálogo de capacidades (tudo chega por um dos três Sprints)",
-    "A V2O5 vende três Sprints: Essencial, Integrada e Avançada. Não há módulos nem serviços vendidos soltos: o diagnóstico acha o gargalo e o Sprint costura só as capacidades abaixo que ele pede. O agrupamento começa pela operação; \"Trazer mais gente\" vem depois, porque de pouco adianta trazer mais gente se a operação não está pronta.",
+    ...OFERTAS.flatMap((o) => [
+      `### [${o.nome}](${SITE_URL}${o.rota})`,
+      `${o.resolve} ${o.recebe}`,
+      ...o.pacotes.map(
+        (p) =>
+          `- ${p.nome}: ${precoEmTexto(p.preco)}${p.mensal ? `; mensalidade opcional de ${mensalEmTexto(p.mensal.valor)} (${p.mensal.cobre})` : ""}${p.duracao ? `; duração de referência ${p.duracao}` : ""}. ${p.para}`,
+      ),
+      `Fora dos pacotes: ${o.fora.join("; ")}.`,
+      "",
+    ]),
+    `Método do Sprint: ${METODO.map((m, i) => `${i + 1}. ${m.titulo}`).join("; ")}. Pagamento do Sprint: ${CONDICOES.itens[1].texto}`,
+    "",
+    `### [Continuidade](${SITE_URL}/continuidade)`,
+    CONTINUIDADE.texto,
+    ...PLANOS_DE_CONTINUIDADE.map((p) => `- ${p.nome}: ${mensalEmTexto(p.mensal)}. ${p.para} ${p.inclui.join("; ")}.`),
+    ...CONTINUIDADE.limites.map((l) => `- ${l.titulo}: ${l.texto}`),
+    "",
+    "## Recursos que um projeto pode usar",
+    "Automação, IA, dados, painéis e integrações entram como recursos de uma solução, quase sempre de um Sprint, sem preço próprio.",
     "",
     ...pilares,
-    "## Segmento automotivo (modelos de Sprint para revendas)",
+    "## Segmento automotivo",
     `- [${AUTOMOTIVO.titulo}](${SITE_URL}${AUTOMOTIVO.href}): ${AUTOMOTIVO.texto}`,
     "",
     "## Case Motors Store",
@@ -45,10 +60,10 @@ export function textoDoLlms(): string {
     ...numeros,
     "",
     "## Como começar",
-    `- [Diagnóstico de Gargalo, gratuito](${SITE_URL}/diagnostico): ${HERO.nota}`,
+    `- [Diagnóstico gratuito](${SITE_URL}/diagnostico): ${HERO.nota}`,
     `- WhatsApp: ${whatsappParaLer()}`,
     `- E-mail: ${EMPRESA.email}`,
-    `- [Preços do Sprint](${SITE_URL}/precos) e [privacidade](${SITE_URL}/privacidade).`,
+    `- [Preços](${SITE_URL}/precos) e [privacidade](${SITE_URL}/privacidade).`,
     "",
   ].join("\n");
 }

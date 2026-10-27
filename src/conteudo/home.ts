@@ -2,14 +2,15 @@
  * Textos e dados da home, num lugar só para revisar o texto (humanizer) e os
  * números (fonte e período) sem caçar pelos componentes.
  *
- * Regras: português, frases curtas, sem travessão; preço sempre "a partir
- * de" (`memory/context/oferta.md`); número do case só com fonte e período
+ * Regras: português, frases curtas, sem travessão; preço só de `ofertas.ts`
+ * e `sprint.ts`, nunca digitado; número do case só com fonte e período
  * (`memory/projects/case-motors.md`), travado por `tests/conteudo.test.ts`.
  */
 import { listaDeSistemasIntegraveis } from "@/conteudo/diagnostico";
 import type { Etapa } from "@/lib/tokens";
-import { CONDICOES, CONTINUIDADE, faixaEmTexto, SPRINT_DE_PRECOS } from "@/conteudo/sprint";
-import { BRL } from "@/conteudo/precos";
+import { CONDICOES, METODO } from "@/conteudo/sprint";
+import { mensalEmTexto, precoEmTexto } from "@/conteudo/precos";
+import { continuidadeAPartirDe, OFERTAS, precoDeEntrada } from "@/conteudo/ofertas";
 
 /**
  * O H1 da home, desde 25/10/2026 (reposicionamento em torno do Sprint de
@@ -20,14 +21,15 @@ export const TITULO_DA_HOME = "Do problema ao resultado, pelo caminho mais simpl
 
 export const HERO = {
   eyebrow: "Estratégia, processos e tecnologia",
+  /** A mensagem central do handoff de 27/10/2026, na voz do site. */
   subtitulo:
-    "Achamos o gargalo, simplificamos o processo e implementamos tecnologia para reduzir atrito e medir o resultado. IA entra onde faz diferença.",
+    "A V2O5 ajuda empresas a melhorar a marca, a presença digital e a operação, ligando processos e tecnologia ao que o negócio precisa de verdade.",
   /** A vitrine de diagnostico.v2o5.com.br repete esta nota (`tests/subdominio-diagnostico.test.ts`). */
   nota: "Diagnóstico gratuito: 45 minutos de conversa com o fundador para identificar e priorizar um gargalo.",
   principio: "Começamos pelo processo e pelo resultado desejado. A ferramenta vem depois.",
-  cta: "Mapear um gargalo",
-  ctaSecundario: "Conhecer o método",
-  conectamos: { rotulo: "O que conectamos", itens: ["Processos", "Atendimento", "Dados", "Integrações", "Automação", "IA aplicada"] },
+  cta: "Pedir diagnóstico gratuito",
+  ctaSecundario: "Ver as quatro soluções",
+  conectamos: { rotulo: "Quatro soluções", itens: OFERTAS.map((o) => o.nome) },
 };
 
 /** O problema, antes da ferramenta (`V2O5_CORE.md`, seção 4). */
@@ -54,55 +56,26 @@ export const DORES = {
   ],
 };
 
-/** O produto principal. Sem preço e sem prazo: o escopo se define depois da conversa. */
+/** O método do Sprint na home, em seis passos (`METODO` em `sprint.ts`), com o que cada passo deixa. */
+const ENTREGAS_DO_METODO = [
+  ["Mapa do fluxo", "Linha de base"],
+  ["Fluxo proposto"],
+  ["Escopo acordado", "Critérios de aceite"],
+  ["Integrações", "Automação", "Testes"],
+  ["Indicadores"],
+  ["Documentação", "Próxima decisão"],
+];
+
 export const SPRINT = {
-  rotulo: "Produto principal",
-  titulo: "Sprint de Eficiência V2O5",
+  rotulo: "Sprint de Eficiência",
+  titulo: "O método: do processo real à próxima decisão.",
   texto:
-    "Uma intervenção com escopo definido: diagnosticar um gargalo específico, mapear o fluxo atual, priorizar uma intervenção, implementar uma solução proporcional e comparar os indicadores disponíveis antes e depois. Processo, integração, automação e IA entram como meios, conforme o problema.",
+    "Um projeto com escopo definido para um gargalo específico. Processo, integração, automação e IA entram como meios, conforme o problema.",
   principio:
     "Comprar, integrar, automatizar ou desenvolver: a decisão depende do problema, não da preferência por uma ferramenta.",
   cta: "Escolher um processo",
-  etapas: [
-    {
-      titulo: "Mapear o processo real",
-      texto:
-        "Entendemos o fluxo atual, as pessoas envolvidas, as falhas, os tempos e o custo do problema. Definimos uma linha de base antes de mexer.",
-      entregas: ["Mapa do fluxo", "Gargalo prioritário", "Indicador inicial"],
-    },
-    {
-      titulo: "Simplificar antes de automatizar",
-      texto:
-        "Tiramos as etapas desnecessárias e desenhamos uma solução proporcional. Nem todo problema pede um agente de IA ou um software novo.",
-      entregas: ["Fluxo proposto", "Escopo acordado", "Plano de implementação"],
-    },
-    {
-      titulo: "Implementar a solução",
-      texto:
-        "Conectamos as ferramentas que já existem e, quando faz sentido, desenvolvemos integrações, automações ou agentes de IA para rodar o novo fluxo.",
-      entregas: ["Integrações", "Automação", "Documentação essencial"],
-    },
-    {
-      titulo: "Medir e decidir o próximo passo",
-      texto:
-        "Comparamos os indicadores disponíveis com a linha de base, registramos o que mudou e decidimos a próxima melhoria, ou encerramos.",
-      entregas: ["Indicadores", "Leitura de resultado", "Próxima decisão"],
-    },
-  ],
-};
-
-/**
- * Os três entregáveis (Dyones, 25/10/2026: "o caminho é ter 3 entregáveis
- * apenas"). Todo serviço da V2O5 chega por um deles; as faixas e a duração
- * vêm de `sprint.ts`.
- */
-export const TRES_SPRINTS = {
-  sobretitulo: "Três Sprints",
-  titulo: "Todo serviço da V2O5 chega por um destes três.",
-  texto:
-    "O diagnóstico acha o gargalo, o catálogo oferece as capacidades e o tamanho do problema decide o Sprint. Nada é vendido solto: cada projeto costura só o que o gargalo pede, e o preço fechado sai em proposta.",
-  link: "Ver os valores e as condições",
-  catalogo: "Ver o catálogo de capacidades",
+  link: "Ver os Sprints e os preços",
+  etapas: METODO.map((m, i) => ({ ...m, entregas: ENTREGAS_DO_METODO[i] })),
 };
 
 /** Indicadores possíveis. Nenhum percentual: `V2O5_CORE.md`, seção 2. */
@@ -150,43 +123,42 @@ export const PROJETO = {
   link: "Ler o case completo",
 };
 
+const entradas = OFERTAS.map(precoDeEntrada);
+
 /**
- * A arquitetura comercial (roteiro ajustado de 25/10/2026). Nenhum valor:
- * o preço do Sprint sai em proposta, e as faixas internas do roteiro são
- * hipóteses não validadas, que não entram no site. O bônus por desempenho é
- * só uma nota, nunca oferta.
+ * Como começar (27/10/2026): o diagnóstico gratuito, uma das quatro
+ * soluções e, se fizer sentido, a continuidade. Valores de `ofertas.ts`.
  */
 export const ESCADA = {
-  sobretitulo: "Uma entrada clara, sem escopo infinito",
-  titulo: "Começamos pequeno e ampliamos com evidência.",
-  texto: "Escopo, valor e prazo se definem em proposta, depois que o gargalo é delimitado.",
+  sobretitulo: "Como começar",
+  titulo: "Uma conversa, uma solução e, se precisar, a continuidade.",
+  texto: "Escopo, valor e prazo ficam por escrito antes de começar.",
   degraus: [
     {
       tipo: "Etapa inicial",
-      titulo: "Diagnóstico de Gargalo",
+      titulo: "Diagnóstico gratuito",
       texto:
-        "Sessão inicial gratuita de 45 minutos para entender o problema e priorizar um gargalo. Avalia se existe um projeto viável.",
+        "Sessão inicial gratuita de 45 minutos para entender o problema e escolher por onde começar. Avalia se existe um projeto viável.",
       saida: "Não inclui mapeamento completo do processo, implementação nem acompanhamento.",
     },
     {
-      tipo: "Produto principal",
-      titulo: "Sprint de Eficiência",
+      tipo: "A solução",
+      titulo: "Uma das quatro soluções",
       texto:
-        "Projeto fechado para um gargalo delimitado: mapeamento do fluxo, priorização, implementação acordada, testes e comparação dos indicadores disponíveis.",
-      saida: `${faixaEmTexto(SPRINT_DE_PRECOS.niveis[0].faixa).replace(/^a/, "A")}, conforme a complexidade. O preço fechado sai em proposta, com problema, entregáveis, exclusões, prazo, critérios de aceite e custos de terceiros. Mudança de escopo exige nova estimativa e aprovação.`,
-      href: "/precos#titulo-sprint",
+        "Branding, Presença, Sites ou Sprint, com pacotes de escopo claro. O valor fechado sai em proposta, com entregáveis, exclusões, prazo e custos de terceiros.",
+      saida: `Preços de entrada de ${precoEmTexto({ valor: Math.min(...entradas) })} a ${precoEmTexto({ valor: Math.max(...entradas) })}. Nenhuma solução obriga a comprar a seguinte.`,
+      href: "/precos",
       destaque: true,
     },
     {
       tipo: "Depois da entrega",
-      titulo: "Estabilidade e evolução contínua",
-      texto:
-        "Mensalidade para manter as soluções, corrigir o que estiver previsto e evoluir o processo, dentro de limites de atendimento e escopo definidos em contrato.",
-      saida: `Referência de ${BRL(Math.min(...CONTINUIDADE.modalidades.map((m) => m.faixa.de)))} a ${BRL(Math.max(...CONTINUIDADE.modalidades.map((m) => m.faixa.ate ?? m.faixa.de)))} por mês pela gestão, em contrato. Nuvem e IA ficam por fora, pelo valor do provedor, e a V2O5 gerencia. Não inclui desenvolvimento ilimitado, novas integrações sem orçamento nem garantia de resultado comercial.`,
-      href: "/precos#titulo-sprint",
+      titulo: "Continuidade, se precisar",
+      texto: "Planos opcionais para manter e evoluir o que foi entregue, com horas e prazo de resposta escritos.",
+      saida: `Planos a partir de ${mensalEmTexto(continuidadeAPartirDe())}. Não inclui desenvolvimento ilimitado nem novas integrações sem orçamento.`,
+      href: "/continuidade",
     },
   ],
-  nota: "Bônus por desempenho fica como opção futura, só com linha de base, regra de atribuição acordada e dados auditáveis. Não faz parte da oferta padrão.",
+  nota: "Bônus por desempenho fica como opção futura do Sprint, só com linha de base, regra de atribuição acordada e dados auditáveis. Não faz parte da oferta padrão.",
 };
 
 /** De onde vem o nome (também em `/sobre`). */
@@ -201,10 +173,10 @@ export const NOME = {
 
 /** O fecho da home: o CTA leva ao formulário de `/diagnostico`. */
 export const FECHO = {
-  titulo: "Qual processo está fazendo a sua operação perder tempo?",
+  titulo: "Por onde a sua empresa precisa começar?",
   texto:
-    "Não precisa chegar com um briefing grande nem saber qual ferramenta usar. Traga o problema, como ele acontece hoje e o que deveria melhorar. A primeira conversa serve para avaliar se existe um bom caso para trabalhar.",
-  botao: "Mapear um gargalo",
+    "Não precisa chegar com um briefing grande nem saber qual solução escolher. Traga o problema, como ele acontece hoje e o que deveria melhorar. A primeira conversa serve para avaliar se existe um bom caso para trabalhar.",
+  botao: "Pedir diagnóstico gratuito",
 };
 
 /**
@@ -217,13 +189,40 @@ export const FERRAMENTAS = {
   nomes: ["WhatsApp", "Meta Ads", "GA4", "n8n", "Revenda Mais"],
 } as const;
 
-export const NAVEGACAO = [
-  { rotulo: "Soluções", href: "/#solucoes" },
-  { rotulo: "Automotivo", href: "/segmentos/revendas-de-veiculos" },
-  { rotulo: "Case", href: "/cases/motors-store" },
+export interface ItemDaNavegacao {
+  rotulo: string;
+  href: string;
+  /** Os grupos (Soluções e Continuidade) abrem um painel com estes links. */
+  itens?: { rotulo: string; href: string }[];
+  /** O último link do painel, para a página do grupo. */
+  todos?: string;
+}
+
+/** O menu de 27/10/2026: as quatro soluções e a continuidade em grupos, depois preços, case e sobre. */
+export const NAVEGACAO: ItemDaNavegacao[] = [
+  {
+    rotulo: "Soluções",
+    href: "/#solucoes",
+    todos: "Ver as quatro soluções",
+    itens: [
+      ...OFERTAS.map((o) => ({ rotulo: o.nome, href: o.rota })),
+      { rotulo: "Revendas de veículos", href: "/segmentos/revendas-de-veiculos" },
+    ],
+  },
+  {
+    rotulo: "Continuidade",
+    href: "/continuidade",
+    todos: "Ver a continuidade",
+    itens: [
+      { rotulo: "Manutenção técnica", href: "/continuidade#manutencao-tecnica" },
+      { rotulo: "Conteúdo e campanhas recorrentes", href: "/continuidade#conteudo-e-campanhas" },
+      { rotulo: "Monitoramento e otimização", href: "/continuidade#monitoramento-e-otimizacao" },
+    ],
+  },
   { rotulo: "Preços", href: "/precos" },
+  { rotulo: "Case", href: "/cases/motors-store" },
   { rotulo: "Sobre", href: "/sobre" },
-] as const;
+];
 
 export const NOME_DA_ETAPA: Record<Etapa, string> = {
   violeta: "Atração",
@@ -269,9 +268,9 @@ export interface Linha {
 export const LINHAS: Linha[] = [
   {
     linha: "sites",
-    titulo: "Sites e presença",
+    titulo: "Sites & Integrações",
     frase:
-      "Carrega rápido no celular, aparece no Google e grava de onde veio cada contato, com SEO técnico.",
+      "Site próprio, rápido no celular e achado no Google, que grava de onde veio cada contato e se liga ao sistema que você já usa.",
     href: "/criacao-de-sites",
     etapa: "violeta",
     vinheta: "site",
@@ -288,7 +287,7 @@ export const LINHAS: Linha[] = [
     linha: "googleAds",
     titulo: "Tráfego pago no Google e na Meta",
     frase:
-      "Google Ads e Meta Ads por plataforma ou juntos, com anúncios que abrem conversa no WhatsApp e a verba ajustada pela venda registrada no CRM. Quem contrata os dois leva o feed de catálogo. Começa com o rastreamento ligado.",
+      "Google Ads e Meta Ads com anúncios que abrem conversa no WhatsApp e a verba ajustada pela venda registrada no CRM. Começa com o rastreamento ligado, e a verba é paga direto às plataformas.",
     href: "/diagnostico",
     etapa: "violeta",
     vinheta: "campanhas",
@@ -304,10 +303,10 @@ export const LINHAS: Linha[] = [
   },
   {
     linha: "redes",
-    titulo: "Conteúdo e gestão de redes sociais",
+    titulo: "Conteúdo e redes sociais",
     frase:
-      "Duas redes com perfis configurados e um calendário de 12 publicações por mês feitas do que a empresa já produz: o estoque, os guias, a novidade da semana. Cada post com link rastreado.",
-    href: "/diagnostico",
+      "Perfis organizados, modelos com a identidade da empresa e, se quiser, a rotina mensal de conteúdo e campanhas, na Presença Digital Local.",
+    href: "/presenca-digital-local",
     etapa: "violeta",
     vinheta: "redes",
   },
@@ -398,12 +397,16 @@ const linha = (id: string): Servico => {
   return l;
 };
 
-/** Cabeçalho da seção de soluções. */
+/** A seção `#solucoes` da home (27/10/2026): as quatro soluções, de `ofertas.ts`. */
 export const SOLUCOES = {
-  titulo: "O catálogo de capacidades.",
-  apagado: "Tudo chega por um dos três Sprints.",
+  titulo: "Quatro soluções.",
+  apagado: "Escolha pelo problema que você tem.",
   texto:
-    "Não vendemos módulos soltos. O diagnóstico acha o gargalo, o escopo escolhe as capacidades abaixo e o tamanho do problema decide o Sprint. Cada projeto costura só o que o gargalo pede, e o escopo sai em proposta.",
+    "Cada uma resolve um tipo de problema e tem pacotes com preço de referência. Elas se completam, mas nenhuma obriga a comprar a seguinte.",
+  continuidade: {
+    titulo: "Continuidade",
+    texto: "Depois da entrega, planos opcionais para manter e evoluir o que foi entregue, com limites escritos.",
+  },
 };
 
 /**
@@ -1036,14 +1039,18 @@ export const CHAMADA = {
 
 /**
  * As perguntas que o dono faz antes de contratar. Viram FAQPage no schema.
- * Desde 25/10/2026 só o Sprint tem valor público (faixas de `sprint.ts`);
- * os planos de `precos.ts` são dado interno e nenhuma resposta cita valor
- * deles (`tests/conteudo.test.ts`).
+ * Desde 27/10/2026 os valores saem de `ofertas.ts` e `sprint.ts`; nenhuma
+ * resposta digita preço (`tests/precos-publicos.test.ts`).
  */
 export const PERGUNTAS = [
   {
     pergunta: "Quanto custa?",
-    resposta: `O Diagnóstico de Gargalo, a sessão inicial de 45 minutos, é gratuito. O Sprint de Eficiência tem preço fechado em proposta, depois de delimitar o gargalo. Os valores de partida são ${SPRINT_DE_PRECOS.niveis.map((n) => `${n.nome} ${faixaEmTexto(n.faixa)}`).join(", ")}, conforme a complexidade, o risco e os custos diretos. A duração é referência, não promessa.`,
+    resposta: `O diagnóstico inicial, de 45 minutos, é gratuito. Os preços de entrada são ${OFERTAS.map((o) => `${o.nome} ${precoEmTexto({ valor: precoDeEntrada(o), aPartirDe: true })}`).join(", ")}, e a continuidade tem planos a partir de ${mensalEmTexto(continuidadeAPartirDe())}. São preços de referência: o valor fechado sai em proposta, para um escopo conhecido.`,
+  },
+  {
+    pergunta: "Preciso contratar tudo?",
+    resposta:
+      "Não. Cada solução resolve um tipo de problema e funciona sozinha. Elas se completam, e o diagnóstico ajuda a escolher por onde começar. A continuidade também é opcional.",
   },
   {
     pergunta: "O que um Sprint entrega?",
@@ -1052,15 +1059,15 @@ export const PERGUNTAS = [
   },
   {
     pergunta: "Como funciona o pagamento?",
-    resposta: CONDICOES.itens[1].texto,
+    resposta: `No Sprint: ${CONDICOES.itens[1].texto.replace(/^E/, "e")} Nas outras soluções, as condições saem na proposta.`,
   },
   {
-    pergunta: "E depois que o Sprint termina?",
-    resposta: `O Sprint termina na entrega. Se a solução continua rodando, há uma parte recorrente, em contrato à parte e com limites escritos. A gestão continuada é ${CONTINUIDADE.modalidades.map((m) => `${m.nome.toLowerCase()}, de ${faixaEmTexto(m.faixa)} por mês`).join(", ou ")}. Nuvem e IA ficam por fora da faixa, pelo valor do provedor e discriminadas, e a V2O5 gerencia as duas. A faixa não cobre desenvolvimento ilimitado nem novas integrações sem orçamento.`,
+    pergunta: "E depois da entrega?",
+    resposta: `A implantação termina na entrega. Se o que foi entregue continua rodando, a continuidade cuida dele, em contrato à parte e com horas e prazo de resposta escritos, com planos a partir de ${mensalEmTexto(continuidadeAPartirDe())}. Banco de dados, servidor dedicado, IA e mensagens ficam por fora, pelo valor do provedor, e a V2O5 gerencia. Nenhum plano cobre desenvolvimento ilimitado.`,
   },
   {
     pergunta: "Preciso trocar o sistema de gestão que já uso?",
-    resposta: `Não. A V2O5 liga o que você já usa. Em produção hoje: o estoque do Revenda Mais sincronizado com o site e o agente da Motors Store. ${listaDeSistemasIntegraveis()} e outros sistemas entram como integração dentro de um Sprint, quando o gargalo pede.`,
+    resposta: `Não. A V2O5 liga o que você já usa. Em produção hoje: o estoque do Revenda Mais sincronizado com o site e o agente da Motors Store. ${listaDeSistemasIntegraveis()}, entre outros, entram como integração, depois de verificar a documentação e o acesso de cada um.`,
   },
   {
     pergunta: "O agente de IA atende sozinho?",
@@ -1070,22 +1077,12 @@ export const PERGUNTAS = [
   {
     pergunta: "Vocês fazem tráfego pago sem rastreamento?",
     resposta:
-      "Não. Sem rastreamento até a venda, a campanha otimiza pelo formulário preenchido, e verba vai para o anúncio que gera contato barato, mesmo quando ele vende pouco. A gestão de tráfego começa com o rastreamento ligado.",
-  },
-  {
-    pergunta: "Vocês disparam para listas compradas?",
-    resposta:
-      "Não. A reativação de base usa a base própria da empresa, com registro de origem e saída fácil em toda mensagem. Lista comprada ou raspada fere a LGPD e derruba o número no WhatsApp.",
-  },
-  {
-    pergunta: "Por onde sai a campanha de reativação?",
-    resposta:
-      "Por SMS, com link rastreado e saída fácil, disparado do painel; ou por WhatsApp, numa campanha operada pela V2O5, pela API oficial ou por um número dedicado à campanha, nunca o principal da empresa. A API oficial cobra por mensagem e limita o volume diário, por isso o canal sai do diagnóstico, pelo tamanho da base. Os custos do provedor ficam discriminados na proposta.",
+      "Não. Sem rastreamento até a venda, a campanha otimiza pelo formulário preenchido, e verba vai para o anúncio que gera contato barato, mesmo quando ele vende pouco. A gestão de tráfego entra num projeto só com o rastreamento ligado, e a verba é paga direto às plataformas.",
   },
   {
     pergunta: "Como funciona o diagnóstico gratuito?",
     resposta:
-      "São 45 minutos de conversa com o fundador sobre presença, atendimento, operação e funil, para identificar e priorizar um gargalo e avaliar se existe um projeto viável. A sessão não inclui mapeamento completo do processo, implementação nem acompanhamento de resultados. Havendo um bom caso, o próximo passo é o Sprint de Eficiência, com escopo, entregáveis, prazo e investimento definidos em proposta.",
+      "São 45 minutos de conversa com o fundador sobre marca, presença, atendimento, operação e funil, para identificar e priorizar o problema e avaliar se existe um projeto viável. A sessão não inclui mapeamento completo do processo, implementação nem acompanhamento de resultados. Havendo um bom caso, o próximo passo é a proposta da solução que cabe no problema, com escopo, entregáveis, prazo e investimento.",
   },
   {
     pergunta: "A V2O5 atende fora de Curitiba?",

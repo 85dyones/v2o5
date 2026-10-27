@@ -1,8 +1,8 @@
 // @vitest-environment jsdom
 import { describe, expect, it } from "vitest";
 import { CASE_MOTORS } from "@/conteudo/case";
-import { CASE, EMPRESA, ESCADA, HERO, LINHAS, MARCA_DO_SITE } from "@/conteudo/home";
-import { CONTINUIDADE, faixaEmTexto, SPRINT_DE_PRECOS } from "@/conteudo/sprint";
+import { CASE, EMPRESA, HERO, LINHAS, MARCA_DO_SITE } from "@/conteudo/home";
+import { continuidadeAPartirDe, mensalEmTexto, OFERTAS, precoDeEntrada, VALORES_PUBLICOS } from "@/conteudo/ofertas";
 import { PAGINAS } from "@/conteudo/paginas";
 import { BRL } from "@/conteudo/precos";
 import { whatsappParaLer } from "@/lib/whatsapp";
@@ -123,21 +123,18 @@ describe("raiz de diagnostico.v2o5.com.br", () => {
     expect(texto(naoEncontrado)).not.toMatch(/[—–]/);
   });
 
-  it("a seção do Sprint repete as faixas e o escopo do diagnóstico do site, sem mapa nem 24 horas", () => {
-    const sprint = texto(raiz.getElementById("sprint"));
-    const niveis = SPRINT_DE_PRECOS.niveis;
-    expect(sprint).toContain(`A partir de ${BRL(niveis[0].faixa.de)}`);
-    expect(sprint).not.toMatch(/25\.000|ou mais/);
-    expect(sprint).toContain(`${BRL(CONTINUIDADE.modalidades[0].faixa.de)} a ${BRL(CONTINUIDADE.modalidades[1].faixa.ate!)} por mês`);
-    expect(sprint).toContain(ESCADA.degraus[0].saida);
-    expect(faixaEmTexto(niveis[1].faixa)).toBe("a partir de R$ 6.000");
-    expect(texto(raiz)).not.toMatch(/24 horas|Catalisador de vendas/);
+  it("a seção 'Como começar' repete os preços de entrada e o escopo do diagnóstico do site, sem mapa nem 24 horas", () => {
+    const comeco = texto(raiz.getElementById("sprint"));
+    for (const o of OFERTAS) expect(comeco, o.nome).toContain(`${o.nome} a partir de ${BRL(precoDeEntrada(o))}`);
+    expect(comeco).toContain(`a partir de ${mensalEmTexto(continuidadeAPartirDe())}`);
+    expect(comeco).not.toMatch(/16\.900|ou mais/);
+    expect(texto(raiz)).not.toMatch(/24 horas|Catalisador de vendas|Sprint Integrada|R\$ 3\.000|R\$ 1\.200/);
   });
 
-  it("a vitrine não publica os planos nem valor nenhum além das faixas do Sprint", () => {
+  it("a vitrine não publica os planos antigos nem valor fora da tabela de 27/10/2026", () => {
     expect(raiz.getElementById("planos")).toBeNull();
     expect(raiz.querySelector('[data-plano]')).toBeNull();
-    const permitidos = [...SPRINT_DE_PRECOS.niveis, ...CONTINUIDADE.modalidades].flatMap((n) => [n.faixa.de, n.faixa.ate].filter((v): v is number => v !== undefined).map((v) => BRL(v)));
+    const permitidos = VALORES_PUBLICOS.map(BRL);
     for (const v of texto(raiz).match(/R\$ \d{1,3}(?:\.\d{3})*/g) ?? []) expect(permitidos, v).toContain(v);
   });
 
@@ -151,11 +148,13 @@ describe("raiz de diagnostico.v2o5.com.br", () => {
 
   it("os cartões de solução repetem a frase do site e levam a páginas que existem", () => {
     const t = texto(raiz);
-    for (const linha of ["sites", "rastreamento", "agente", "crm", "automacao", "avaliacoes"]) {
+    for (const linha of ["sites", "rastreamento", "agente", "crm", "automacao"]) {
       const l = LINHAS.find((x) => x.linha === linha);
       expect(l, linha).toBeDefined();
       expect(t, linha).toContain(l!.frase);
     }
+    // Branding e Presença entram como soluções, com a frase do problema que resolvem (27/10/2026).
+    for (const o of OFERTAS.filter((x) => x.id === "branding" || x.id === "presenca")) expect(t, o.nome).toContain(o.resolve);
     // A vitrine é publicada por outro projeto; um link para rota que hoje redireciona
     // (REDIRECIONAMENTOS_PROVISORIOS, 307) continua chegando a uma página.
     const rotas = new Set([...PAGINAS.map((p) => p.rota), ...REDIRECIONAMENTOS_PROVISORIOS.map((r) => r.source)]);

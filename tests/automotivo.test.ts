@@ -1,15 +1,16 @@
 import { describe, expect, it } from "vitest";
 import { HUB_AUTOMOTIVO } from "@/conteudo/automotivo";
-import { BRL, OFERTA_DO_COMPLETO, plano, PLANOS } from "@/conteudo/precos";
-import { CONTINUIDADE, SPRINT_DE_PRECOS } from "@/conteudo/sprint";
+import { BRL } from "@/conteudo/precos";
+import { ofertaDa, PLANOS_DE_CONTINUIDADE } from "@/conteudo/ofertas";
+import { SPRINT_DE_PRECOS } from "@/conteudo/sprint";
 import { paginaDa } from "@/conteudo/paginas";
 import { grafoDoHubAutomotivo, servicoAutomotivo } from "@/lib/schema";
 import { ler, semComentarios } from "./fonte";
 
 /**
- * O hub automotivo é o único lugar com o valor dos três planos (Dyones,
- * 25/10/2026); não repete os números nem o caminho do lead do case, só aponta
- * para ele. Sobre o agente, não afirma que roda na Motors (pendência 13). A
+ * O hub automotivo mostra os dois caminhos para revendas com os valores da
+ * tabela de 27/10/2026; não repete os números nem o caminho do lead do case,
+ * só aponta para ele. Sobre o agente, não afirma que roda na Motors (pendência 13). A
  * área de repasse não é produto da V2O5 (`V2O5_CORE.md`).
  */
 
@@ -27,34 +28,26 @@ describe("hub automotivo", () => {
     expect(faq.mainEntity.map((p) => p.name)).toEqual(HUB_AUTOMOTIVO.perguntas.map((p) => p.pergunta));
   });
 
-  it("mostra os três planos com o valor de plano e nenhum módulo avulso, tráfego ou repasse", () => {
-    expect(HUB_AUTOMOTIVO.planos.itens.map((p) => p.nome)).toEqual(["Mapa", "Operação com IA", "Completo"]);
+  it("mostra os dois caminhos de 27/10/2026 com os valores da tabela, sem plano antigo, módulo ou repasse", () => {
+    expect(HUB_AUTOMOTIVO.planos.itens.map((p) => [p.nome, p.sprint])).toEqual([
+      ["Site Automotivo Integrado", "Sites & Integrações"],
+      ["Operação com IA", "Sprint Integrado"],
+    ]);
+    const site = ofertaDa("sites").pacotes.find((p) => p.nome === "Site Automotivo Integrado")!;
+    expect(HUB_AUTOMOTIVO.planos.itens[0].preco).toBe(`A partir de ${BRL(site.preco.valor)}`);
+    expect(HUB_AUTOMOTIVO.planos.itens[0].inclui).toEqual(site.inclui);
+    const integrado = SPRINT_DE_PRECOS.niveis.find((n) => n.nome === "Sprint Integrado")!;
+    expect(HUB_AUTOMOTIVO.planos.itens[1].preco).toBe(BRL(integrado.preco.valor));
+    // A continuidade é opcional e sai da tabela.
     for (const p of HUB_AUTOMOTIVO.planos.itens) {
-      expect(p.implantacao).toBe(BRL(plano(p.id).implantacao));
-      expect(texto).toContain(p.implantacao);
+      expect(p.rotuloDaContinuidade).toMatch(/opcional/);
+      expect(PLANOS_DE_CONTINUIDADE.some((c) => p.continuidade.includes(c.nome))).toBe(true);
     }
-    expect(HUB_AUTOMOTIVO.planos.itens.map((p) => p.sprint)).toEqual(["Sprint Integrada", "Sprint Integrada", "Sprint Avançada"]);
-    expect(HUB_AUTOMOTIVO.planos.titulo).toMatch(/modelos de Sprint/);
-    // A implantação de cada modelo parte do valor do Sprint a que ele pertence (sem teto público, 26/10/2026).
-    for (const p of HUB_AUTOMOTIVO.planos.itens) {
-      const faixa = SPRINT_DE_PRECOS.niveis.find((n) => n.nome === p.sprint.replace("Sprint ", "Sprint "))!.faixa;
-      const valor = plano(p.id).implantacao;
-      expect(valor, p.nome).toBeGreaterThanOrEqual(faixa.de);
-    }
-    // A recorrência de cada modelo cabe na faixa de continuidade pública.
-    const minimo = Math.min(...CONTINUIDADE.modalidades.map((m) => m.faixa.de));
-    const maximo = Math.max(...CONTINUIDADE.modalidades.map((m) => m.faixa.ate ?? m.faixa.de));
-    for (const p of PLANOS) {
-      expect(p.mensalidade, p.nome).toBeGreaterThanOrEqual(minimo);
-      expect(p.mensalidade, p.nome).toBeLessThanOrEqual(maximo);
-    }
-    const completo = HUB_AUTOMOTIVO.planos.itens[2];
-    expect(completo.mensalidade).toBe(BRL(OFERTA_DO_COMPLETO.mensalidade));
-    expect(completo.condicao).toContain(BRL(plano("completo").mensalidade));
-    expect(texto).not.toMatch(/Google Ads|Meta Ads|R\$ 1\.300/);
+    // O teto interno do Site Automotivo Integrado (R$ 16.900) não aparece.
+    expect(texto).not.toMatch(/16\.900/);
+    expect(texto).not.toMatch(/Mapa|Completo|31\/12\/2026|Painel do dono|R\$ 1\.300/);
     expect(HUB_AUTOMOTIVO).not.toHaveProperty("extras");
     expect(texto).not.toMatch(/repasse|consulta veicular|por placa/i);
-    expect(HUB_AUTOMOTIVO.fatos[0].rotulo).toBe("No Sprint");
     expect(pagina).not.toContain("ParceiroDeFotografia");
   });
 

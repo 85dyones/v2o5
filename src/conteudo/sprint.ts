@@ -1,56 +1,45 @@
 /**
- * Sprint de Eficiência e continuidade: a política comercial do apêndice de
- * `CLAUDE_SITE_IMPLEMENTATION_AJUSTADO.md`, que o Dyones aprovou por inteiro
- * em 25/10/2026 ("todo o apêndice pode ser tratado como aprovado"). As
- * valores do Sprint (a partir de, sem teto, desde 26/10/2026: "o teto máximo pode afugentar", Dyones; os tetos internos de referência estão em `memory/context/oferta.md`) e as faixas da continuidade mensal são de referência: o preço
- * fechado de cada projeto sai em proposta. Em 25/10/2026 o Dyones decidiu
- * que só o Sprint e a recorrência que acompanha o Sprint têm valor público
- * (o resto do cardápio de 15/10 é dado interno). A faixa mensal paga a gestão
- * continuada; nuvem e IA ficam por fora, pelo valor do provedor e discriminadas,
- * e a V2O5 gerencia as duas (Dyones, 25/10). Não se detalha quem é dono das
- * contas: o texto só fala em recorrência.
- * Duração é referência, nunca promessa. Sem percentual, ROI nem garantia de
- * resultado. O repetido em `memory/context/oferta.md` é conferido por
- * `tests/sprint.test.ts`.
+ * Sprint de Eficiência: o produto e o método aprovados em 25/10/2026, com os
+ * valores do handoff de 27/10/2026 (Dyones: "manter o produto e o método";
+ * R$ 3.900, R$ 6.900 e a partir de R$ 12.900, nomes no masculino). São preços
+ * de referência: o valor fechado de cada projeto sai em proposta, depois de
+ * delimitar o gargalo. Duração é referência, nunca promessa. Sem percentual,
+ * ROI nem garantia de resultado. A continuidade que pode vir depois mora em
+ * `ofertas.ts`, à parte e opcional. O repetido em `memory/context/oferta.md`
+ * é conferido por `tests/sprint.test.ts`.
  */
-import { BRL } from "@/conteudo/precos";
-
-export interface Faixa {
-  de: number;
-  /** Sem `ate`, o valor é "a partir de": é o caso dos três Sprints desde 26/10/2026. */
-  ate?: number;
-}
-
-/** "a partir de R$ 3.000" (Sprint) ou "R$ 1.200 a R$ 2.500" (recorrência, que mantém a faixa). */
-export const faixaEmTexto = (f: Faixa) => (f.ate === undefined ? `a partir de ${BRL(f.de)}` : `${BRL(f.de)} a ${BRL(f.ate)}`);
+import type { Preco } from "@/conteudo/precos";
 
 export const SPRINT_DE_PRECOS = {
   sobretitulo: "Sprint de Eficiência",
   titulo: "Um projeto fechado para um gargalo, com preço em proposta.",
   texto:
-    "Os valores abaixo são o ponto de partida e mudam com a complexidade, o risco e os custos diretos. O valor fechado sai depois de delimitar o gargalo. A duração é referência, não promessa automática.",
+    "Os valores são de referência e mudam com a complexidade, o risco e os custos diretos. O valor fechado sai depois de delimitar o gargalo. A duração é referência, não promessa automática.",
   niveis: [
     {
       nome: "Sprint Essencial",
-      faixa: { de: 3000 } as Faixa,
+      preco: { valor: 3900 } as Preco,
       duracao: "1 a 2 semanas",
+      escopo: "Um gargalo delimitado, com a intervenção principal e a validação.",
       para: "Um problema específico, resolvido por uma intervenção pequena.",
       exemplos:
         "Corrigir o fluxo de captação de leads, automatizar uma tarefa repetitiva, integrar duas ferramentas que já existem ou melhorar um processo com gargalo claro.",
     },
     {
-      nome: "Sprint Integrada",
-      faixa: { de: 6000 } as Faixa,
+      nome: "Sprint Integrado",
+      preco: { valor: 6900 } as Preco,
       duracao: "2 a 4 semanas",
+      escopo: "Um fluxo que envolve sistemas, com validação, documentação e indicadores.",
       para: "Um gargalo que pede mudanças ligadas em processo, tecnologia e operação.",
       exemplos:
         "Estruturar captação, qualificação e distribuição de leads, integrar CRM, WhatsApp e automações, redesenhar o atendimento com indicadores ou melhorar a jornada entre aquisição e conversão.",
       principal: true,
     },
     {
-      nome: "Sprint Avançada",
-      faixa: { de: 12000 } as Faixa,
+      nome: "Sprint Avançado",
+      preco: { valor: 12900, aPartirDe: true } as Preco,
       duracao: "4 a 8 semanas ou mais",
+      escopo: "Integrações complexas, desenvolvimento específico, regras de negócio ou IA.",
       para: "Vários sistemas, regras de negócio, migrações ou maior risco técnico.",
       exemplos:
         "Orquestração entre sistemas, IA com fluxos de exceção ou reestruturação comercial com várias equipes. Pede escopo técnico e critérios de aceite mais rigorosos.",
@@ -58,6 +47,8 @@ export const SPRINT_DE_PRECOS = {
   ],
   revisao:
     "Uma solução que parecia simples pode revelar sistemas antigos ou dependências a mais. Nesse caso, escopo, prazo e proposta são revistos antes de seguir.",
+  descoberta:
+    "Quando o projeto pede levantamento técnico detalhado, ele pode começar por uma etapa de descoberta paga, com preço acordado antes da execução.",
   formacao: {
     titulo: "Do que o preço é feito",
     itens: [
@@ -68,42 +59,37 @@ export const SPRINT_DE_PRECOS = {
   },
 };
 
-export const CONTINUIDADE = {
-  titulo: "O que continua depois da entrega.",
-  texto:
-    "O Sprint termina na entrega. Se a solução continua rodando, há uma parte recorrente, em contrato à parte, com limites de atendimento e escopo escritos. A proposta separa cada custo:",
-  recorrencia: [
-    {
-      titulo: "Gestão continuada",
-      texto: "Monitoramento, correções e ajustes, com capacidade reservada. É a faixa mensal abaixo.",
-    },
-    {
-      titulo: "Nuvem",
-      texto: "Servidor, banco de dados e backups, pelo valor do provedor e discriminados. A V2O5 gerencia.",
-    },
-    {
-      titulo: "IA e mensagens",
-      texto:
-        "O consumo de IA e as mensagens do WhatsApp variam com o volume e vêm pelo valor do provedor, discriminados na fatura, com teto mensal combinado e aviso antes de ultrapassá-lo. A V2O5 gerencia.",
-    },
-  ],
-  porque:
-    "Modelos de IA, APIs e regras do negócio mudam, e o que funciona na entrega precisa de ajuste para continuar funcionando.",
-  modalidades: [
-    {
-      nome: "Estabilidade e suporte",
-      faixa: { de: 1200, ate: 2500 } as Faixa,
-      texto: "Monitoramento acordado, correções dentro do escopo, manutenção e acompanhamento técnico.",
-    },
-    {
-      nome: "Evolução contínua",
-      faixa: { de: 2500, ate: 5000 } as Faixa,
-      texto: "Suporte, revisão de indicadores e capacidade mensal reservada para melhorias priorizadas.",
-    },
-  ],
-  limites:
-    "O contrato define prazo de resposta, canais, limite de horas ou capacidade, exclusões e o preço de demandas adicionais. A faixa mensal paga a gestão: nuvem, IA e demais custos de terceiros ficam por fora, discriminados. Ela não cobre desenvolvimento ilimitado, plantão irrestrito, nova integração sem orçamento nem garantia de resultado comercial. Novos gargalos, integrações, automações ou produtos são orçados à parte.",
-};
+/**
+ * O método obrigatório do Sprint, em seis passos (handoff de 27/10/2026).
+ * Automação, IA, dados, painéis e copilotos são recursos da solução, não
+ * produtos do menu.
+ */
+export const METODO = [
+  {
+    titulo: "Mapear o processo real",
+    texto: "Como o fluxo acontece hoje, quem participa, onde trava e quanto custa. Registramos a situação inicial antes de mexer.",
+  },
+  {
+    titulo: "Simplificar antes de automatizar",
+    texto: "Tiramos as etapas que não precisam existir. Nem todo problema pede um agente de IA ou um software novo.",
+  },
+  {
+    titulo: "Escolher a intervenção proporcional",
+    texto: "Comprar, integrar, automatizar ou desenvolver, conforme o problema. A proposta fecha o escopo e os critérios de aceite.",
+  },
+  {
+    titulo: "Implementar a solução acordada",
+    texto: "Ligamos as ferramentas que já existem e, quando faz sentido, construímos integrações, automações ou agentes, com testes.",
+  },
+  {
+    titulo: "Comparar antes e depois",
+    texto: "Os indicadores disponíveis voltam a ser medidos e comparados com a situação inicial.",
+  },
+  {
+    titulo: "Registrar e decidir o próximo passo",
+    texto: "Documentamos o que mudou e decidimos a próxima melhoria, ou encerramos.",
+  },
+];
 
 export const CONDICOES = {
   titulo: "Como o projeto é combinado",
@@ -116,7 +102,7 @@ export const CONDICOES = {
     {
       titulo: "Pagamento",
       texto:
-        "Em projetos, 50% na contratação, 30% na validação intermediária e 20% no aceite final. Em Sprints pequenas, 50% na contratação e 50% na entrega.",
+        "Em projetos, 50% na contratação, 30% na validação intermediária e 20% no aceite final. Em Sprints pequenos, 50% na contratação e 50% na entrega.",
     },
     {
       titulo: "Prazos e dependências",

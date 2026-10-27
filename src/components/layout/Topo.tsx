@@ -3,6 +3,7 @@ import LinkOuAncora from "@/components/LinkOuAncora";
 import Icone from "@/components/Icone";
 import Simbolo from "@/components/marca/Simbolo";
 import MenuCelular from "@/components/layout/MenuCelular";
+import SubmenuDoTopo from "@/components/layout/SubmenuDoTopo";
 import { NAVEGACAO } from "@/conteudo/home";
 
 export function Marca() {
@@ -17,7 +18,8 @@ export function Marca() {
 /**
  * Topo fixo em células (da ITSUA e da CROX): a marca, os links e o
  * diagnóstico separados por fio, papel liso e fio de 2 px em tinta embaixo
- * (`.topo` no globals.css). Sem vidro fosco.
+ * (`.topo` no globals.css). Sem vidro fosco. Soluções e Continuidade abrem
+ * um painel (`SubmenuDoTopo`, `<details>` nativo).
  */
 export default function Topo() {
   return (
@@ -30,12 +32,16 @@ export default function Topo() {
           <ul className="flex">
             {NAVEGACAO.map((item) => (
               <li key={item.href} className="flex border-r border-linha">
-                <LinkOuAncora
-                  href={item.href}
-                  className="flex items-center px-4 text-sm font-medium text-texto-secundario transition-colors hover:bg-fundo-cartao hover:text-texto lg:px-5"
-                >
-                  {item.rotulo}
-                </LinkOuAncora>
+                {item.itens ? (
+                  <SubmenuDoTopo item={{ ...item, itens: item.itens }} />
+                ) : (
+                  <LinkOuAncora
+                    href={item.href}
+                    className="flex items-center px-4 text-sm font-medium text-texto-secundario transition-colors hover:bg-fundo-cartao hover:text-texto lg:px-5"
+                  >
+                    {item.rotulo}
+                  </LinkOuAncora>
+                )}
               </li>
             ))}
           </ul>
@@ -45,7 +51,7 @@ export default function Topo() {
             Pedir diagnóstico
             <Icone nome="seta" className="seta size-3.5" />
           </Link>
-          <MenuCelular itens={NAVEGACAO.map(({ rotulo, href }) => ({ rotulo, href }))} />
+          <MenuCelular itens={NAVEGACAO} />
         </div>
       </div>
     </header>

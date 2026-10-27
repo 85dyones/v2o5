@@ -133,8 +133,8 @@ export const CASE_MOTORS = {
     "Quem assina os 26 guias da Motors Store é o fundador da V2O5, Dyones Oliveira. É ele quem conduz o diagnóstico gratuito.",
   chamada: {
     titulo: "Quer o mesmo sistema na sua revenda?",
-    texto: "Os modelos de Sprint da V2O5 para revendas partem deste sistema. O diagnóstico gratuito diz por onde começar.",
+    texto: "Os caminhos da V2O5 para revendas partem deste sistema. O diagnóstico gratuito diz por onde começar.",
     botao: "Pedir diagnóstico gratuito",
-    secundario: "Ver os modelos para revendas",
+    secundario: "Ver os caminhos para revendas",
   },
 };
