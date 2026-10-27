@@ -13,8 +13,8 @@
  * `memory/context/oferta.md` repete os mesmos números (`tests/ofertas.test.ts`).
  *
  * As quantidades de revisões, peças, canais, páginas, horas e prazos de
- * resposta são o rascunho de 27/10 que o Dyones aprova no preview
- * (`oferta.md`, "Rascunhos que esperam aprovação").
+ * resposta foram redigidas em 27/10 e aprovadas pelo Dyones no mesmo dia
+ * (`oferta.md`, "Quantidades redigidas em 27/10").
  */
 import { mensalEmTexto, type Preco } from "@/conteudo/precos";
 import { SPRINT_DE_PRECOS } from "@/conteudo/sprint";

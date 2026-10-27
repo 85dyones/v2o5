@@ -100,8 +100,8 @@ O hub `/segmentos/revendas-de-veiculos` vende dois caminhos: o Site Automotivo I
 - Propostas já enviadas (os diagnósticos de 15 a 19/10 em diagnostico.v2o5.com.br) passam à tabela nova: "faça tudo, mesmo as propostas enviadas, podem virar upsell com o preço" (Dyones, 27/10). Contrato assinado não muda.
 - **Desconto fidelidade (interno, fora do site):** clientes antigos pagam a tabela com 27,5% de desconto, arredondado (Dyones, 14/10/2026, na renovação do atendimento da 16ª Vara Cível).
 
-## Rascunhos que esperam aprovação no preview (27/10)
-O handoff deixou estas quantidades para definir antes de publicar; o Dyones pediu um rascunho ("você aprova antes de publicar"). Cada uma está no código e muda num lugar só:
+## Quantidades redigidas em 27/10 (aprovadas pelo Dyones no mesmo dia)
+O handoff deixou estas quantidades para definir antes de publicar; o Dyones pediu um rascunho ("você aprova antes de publicar") e, depois do preview, aprovou como está ("siga sua recomendação, faça o merge na ordem"). Cada uma está no código e muda num lugar só:
 - Branding: duas rodadas de revisão na Identidade Essencial e duas por etapa na Marca em Uso; aplicações essenciais = perfil das redes, assinatura de e-mail e cartão digital; aplicações comerciais = apresentação, proposta e cartão de visita.
 - Presença: Essencial com Perfil da Empresa no Google, uma rede social, WhatsApp Business e três modelos; Estruturada com até duas redes, oito modelos, calendário de três meses e uma campanha de lançamento; Assistida com ferramenta de agendamento, fluxo de aprovação e oito peças de referência por mês. Uma rodada de revisão por entrega.
 - Sites: Site Personalizado com até seis páginas; duas rodadas de revisão na Landing Page e no Site Personalizado.

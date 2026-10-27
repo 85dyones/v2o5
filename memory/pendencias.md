@@ -33,7 +33,7 @@ Atualize ao resolver: mova a decisão para `decisoes.md` e apague daqui.
 - ~~27. Só o Sprint e a recorrência com valor público (25/10).~~ Substituída em 27/10 pelas quatro soluções com preço de entrada (`decisoes.md`).
 - ~~26. Reposicionamento do Sprint de Eficiência (25/10, PR #28).~~ Publicado; preços e guarda-chuva revistos em 27/10.
 
-33. Aprovar no preview os rascunhos de escopo de 27/10 (`memory/context/oferta.md`, "Rascunhos que esperam aprovação"): revisões e aplicações do Branding; canais, peças e revisões da Presença; páginas e revisões dos sites; horas, prazo de resposta e canal da continuidade. Nada vai ao ar antes.
+33. ~~Aprovar no preview os rascunhos de escopo de 27/10.~~ Aprovados pelo Dyones em 27/10 ("siga sua recomendação"); `oferta.md`, "Quantidades redigidas em 27/10".
 34. Skill `diagnostico-presenca` com a tabela de 27/10 (continuação da 25): o item G da coleta procura o sinal "Três planos" em `/precos` e o `intake.md` manda usar Presença, Atendimento e Completo. Trocar em `config/agency.yaml` o `sinal` para "Quatro soluções" e, em `referencias/intake.md`, os caminhos pelos pacotes de `/precos` (roteiro em `docs/2026-10-27-portfolio-no-site.md`, seção 6). Enquanto não trocar, a skill para no item G, sem gerar proposta com preço velho.
 35. Agente do n8n: na publicação, levar ao n8n ativo o texto novo do nó `Montar pedido` do fluxo "V2O5 · Agente de IA" (`docs/n8n/agente-da-v2o5.json`), no mesmo dia do site, com autorização do Dyones.
 36. Next.js 16.4.0 com vulnerabilidade crítica (`npm audit`, 27/10): subir para 16.4.3 num PR à parte (tarefa sugerida na sessão de 27/10).

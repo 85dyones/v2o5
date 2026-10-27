@@ -28,17 +28,17 @@ Capturas e saídas dos scripts ficaram no scratchpad da sessão. Para refazer, r
 | Preços sem conflito | `tests/precos-publicos.test.ts` e a varredura do build |
 | Start Digital reposicionado | Presença Digital Local, com página e pacotes |
 | Sprint com o método | seis passos na home e em `/sprint-de-eficiencia` |
-| Fronteiras dos pacotes | "para quem", "inclui" e "fora dos pacotes" em cada solução; **quantidades em rascunho, aprovar no preview** |
+| Fronteiras dos pacotes | "para quem", "inclui" e "fora dos pacotes" em cada solução; quantidades aprovadas pelo Dyones em 27/10 |
 | CTAs com destino real | todos os links internos 200; diagnóstico como CTA principal |
 | Formulário e contato | testado localmente com webhook falso |
-| Sem resultado, garantia, preço ou escopo inventado | sem percentual ou ROI; escopos são rascunho marcado para aprovação |
+| Sem resultado, garantia, preço ou escopo inventado | sem percentual ou ROI; as quantidades redigidas foram aprovadas pelo Dyones |
 | Desktop e celular | capturas a 1440 e 390 px |
 | Documentação atualizada | `memory/decisoes.md`, `memory/context/oferta.md`, `memory/pendencias.md`, `CLAUDE.md`, `docs/2026-10-27-portfolio-no-site.md`, `design/nao-pode-quebrar.md` |
 | Preview e checklist | preview da Vercel do PR #39; checklist abaixo |
 
 ## Checklist antes de publicar (Dyones)
 1. Abrir o preview do PR #39 (`v2o5-git-claude-kind-tesla-eefroe-dyones-projects-a2f07575.vercel.app`, atrás do login da Vercel) no celular e no computador.
-2. Aprovar ou corrigir os rascunhos de escopo (`memory/context/oferta.md`, "Rascunhos que esperam aprovação"): revisões, peças, canais, páginas, horas e prazos de resposta.
+2. ~~Aprovar ou corrigir os rascunhos de escopo.~~ Aprovados em 27/10 ("siga sua recomendação, faça o merge na ordem"), com a publicação autorizada.
 3. Revisão independente (Antigravity): responsividade, links, fluxo de contato, coerência de preço entre páginas.
 4. Merge do 85dyones/v2o5#39 (a Vercel publica a produção pelo `main`).
 5. No mesmo dia: levar ao n8n ativo o nó `Montar pedido` de "V2O5 · Agente de IA" (`docs/n8n/agente-da-v2o5.json`; pendência 35) e fazer o merge do 85dyones/v2o5-diagnosticos#5.
@@ -51,7 +51,6 @@ Capturas e saídas dos scripts ficaram no scratchpad da sessão. Para refazer, r
 - Nenhuma etapa mexe em banco, leads, contratos ou propostas assinadas.
 
 ## Pendências e riscos
-- Os escopos (quantidades) são rascunho até a aprovação; não publicar antes.
 - A skill `diagnostico-presenca` ainda gera proposta pela tabela antiga e, se gerar de novo um diagnóstico, sobrescreve as propostas atualizadas.
 - O agente do n8n só muda no n8n ativo na publicação; até lá, o conhecimento dele (`/llms.txt` de produção) continua com a tabela antiga, coerente com o site no ar.
 - Next.js 16.4.0 tem três vulnerabilidades críticas (`npm audit`); a correção (16.4.3) fica num PR à parte (pendência 36).
