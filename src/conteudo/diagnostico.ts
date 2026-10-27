@@ -20,14 +20,14 @@ export const DIAGNOSTICO = {
     },
     {
       titulo: "O próximo passo, se houver",
-      texto: "Havendo um bom caso, a V2O5 propõe um Sprint de Eficiência, com escopo, entregáveis, prazo e investimento definidos depois de delimitar o gargalo. Se não houver, a conversa termina ali.",
+      texto: "Havendo um bom caso, a V2O5 propõe a solução que cabe no problema (Branding, Presença, Sites ou Sprint), com escopo, entregáveis, prazo e investimento por escrito. Se não houver, a conversa termina ali.",
     },
   ],
   paraQuem:
     "Para quem tem uma empresa que vende pelo WhatsApp, pela internet ou pela loja, e quer saber onde o cliente se perde antes de gastar em anúncio, site ou sistema.",
   /** O que a sessão inicial não inclui (decisão de 25/10/2026). */
   escopo:
-    "O Diagnóstico de Gargalo é a sessão inicial, gratuita, de 45 minutos. Ele identifica e prioriza um gargalo, mas não inclui mapeamento completo do processo, implementação nem acompanhamento ou mensuração de resultados. Esses passos vêm depois, no Sprint de Eficiência e no acompanhamento contínuo, com escopo, valor e prazo definidos em proposta.",
+    "O Diagnóstico de Gargalo é a sessão inicial, gratuita, de 45 minutos. Ele identifica e prioriza um gargalo, mas não inclui mapeamento completo do processo, implementação nem acompanhamento ou mensuração de resultados. Esses passos vêm depois, na solução contratada e, se fizer sentido, na continuidade, com escopo, valor e prazo definidos em proposta.",
   formulario: {
     titulo: "Pedir o diagnóstico",
     enviar: "Pedir diagnóstico gratuito",

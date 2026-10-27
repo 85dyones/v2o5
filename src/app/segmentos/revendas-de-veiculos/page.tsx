@@ -24,7 +24,7 @@ export const metadata = metadataDa(ROTA);
 const ETAPA_DA_PECA: Etapa[] = ["violeta", "verde", "azul", "violeta"];
 
 /** A etapa de cada modelo: Mapa é atração, Operação com IA é atendimento, Completo é gestão. */
-const ETAPA_DO_PLANO: Etapa[] = ["violeta", "verde", "azul"];
+const ETAPA_DO_PLANO: Etapa[] = ["azul", "ambar"];
 
 /**
  * O fio de cada célula da ficha do hero: uma por linha no celular, duas por
@@ -168,7 +168,7 @@ export default function Pagina() {
           </ul>
         </Trecho>
 
-        {/* Os três modelos de Sprint para revendas, únicos valores de modelo do site (25/10/2026): cada um na cor da sua etapa. */}
+        {/* Os dois caminhos para revendas (27/10/2026), com os valores de `ofertas.ts` e `sprint.ts`: cada um na cor da sua etapa. */}
         <Trecho aria-labelledby="titulo-planos" etapa="verde">
           <Cabeca id="titulo-planos" titulo={h.planos.titulo} texto={h.planos.texto} />
           <ul className="mt-titulo-conteudo border-t-2 border-texto">
@@ -187,12 +187,10 @@ export default function Pagina() {
                   ))}
                 </ul>
                 <dl className="col-span-12 md:col-span-3">
-                  <dt className="rotulo text-texto-secundario">Implantação</dt>
-                  <dd className="numero text-[1.125rem] font-semibold">{p.implantacao}</dd>
-                  <dt className="rotulo mt-3 text-texto-secundario">Recorrência mensal</dt>
-                  <dd className="numero text-[1.125rem] font-semibold">{p.mensalidade}</dd>
-                  {p.condicao ? <dd className="mt-1 text-sm text-texto-secundario">{p.condicao}</dd> : null}
-                  {p.bonus ? <dd className="mt-2 text-sm leading-snug">{p.bonus}</dd> : null}
+                  <dt className="rotulo text-texto-secundario">{p.rotuloDoPreco}</dt>
+                  <dd className="numero text-[1.125rem] font-semibold">{p.preco}</dd>
+                  <dt className="rotulo mt-3 text-texto-secundario">{p.rotuloDaContinuidade}</dt>
+                  <dd className="mt-1 text-[0.9375rem] leading-snug">{p.continuidade}</dd>
                 </dl>
               </Linha>
             ))}
@@ -235,7 +233,7 @@ export default function Pagina() {
                   {h.chamada.botao}
                   <Icone nome="seta" className="seta size-4" />
                 </Link>
-                <LinkOuAncora href="/precos#titulo-sprint" className="botao botao-secundario botao-claro" data-evento="cta_click" data-local="chamada">
+                <LinkOuAncora href="/precos" className="botao botao-secundario botao-claro" data-evento="cta_click" data-local="chamada">
                   {h.chamada.secundario}
                 </LinkOuAncora>
               </div>

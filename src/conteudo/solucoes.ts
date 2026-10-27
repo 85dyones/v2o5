@@ -2,7 +2,9 @@ import { SITE_PADRAO } from "@/conteudo/sitePadrao";
 import { listaDeSistemasIntegraveis } from "@/conteudo/diagnostico";
 import { CASE_MOTORS } from "@/conteudo/case";
 import { CASE, MARCA_DO_SITE, VISAO_360, type Vinheta } from "@/conteudo/home";
-import { capacidade, type Pilar } from "@/conteudo/precos";
+import { capacidade, mensalEmTexto, precoEmTexto, type Pilar } from "@/conteudo/precos";
+import { ofertaDa, PLANOS_DE_CONTINUIDADE, precoDeEntrada, type IdOferta } from "@/conteudo/ofertas";
+import { CONDICOES, METODO, SPRINT_DE_PRECOS } from "@/conteudo/sprint";
 import type { Etapa } from "@/lib/tokens";
 
 /**
@@ -10,9 +12,12 @@ import type { Etapa } from "@/lib/tokens";
  * cardápio, com o H1 igual à busca-alvo, a resposta em duas frases no
  * primeiro parágrafo, o problema, o que entra, como funciona, o que roda na
  * Motors Store (só o que roda, com número do case), como a linha entra num
- * Sprint e as perguntas, que viram FAQPage. Desde 25/10/2026 nenhuma página
- * publica valor: a linha é uma intervenção que pode fazer parte de um Sprint,
- * e só o Sprint tem preço público (`conteudo/sprint.ts`). Tudo que é número
+ * Sprint e as perguntas, que viram FAQPage. Desde 27/10/2026 há dois tipos:
+ * as páginas das quatro soluções (`oferta`: Branding, Presença, Sites e o
+ * Sprint), com os pacotes e o preço de referência de `ofertas.ts`; e as
+ * páginas de recurso (agente, CRM, automação, rastreamento), sem valor, que
+ * dizem como a linha entra num Sprint. Todo preço citado aqui sai de
+ * `ofertas.ts` ou `sprint.ts`, nunca digitado. Tudo que é número
  * sai de `CASE`, `CASE_MOTORS` ou da evidência da Visão 360, com fonte. `tests/solucoes.test.ts` confere.
  *
  * Sobre o agente: a memória do case não registra agente de IA na Motors,
@@ -44,31 +49,48 @@ export interface Solucao {
   comoFunciona: { titulo: string; texto: string }[];
   /** Só quando a linha roda na Motors Store; os números são os do case, por referência. */
   naMotors?: { titulo: string; texto: string; numeros: Numero[] };
-  /** Como a linha entra num Sprint de Eficiência: a ficha "No Sprint" da página (sem valor). */
-  noSprint: string;
+  /** Página de recurso: como a linha entra num Sprint de Eficiência, a ficha "No Sprint" (sem valor). */
+  noSprint?: string;
+  /** Página de solução (27/10/2026): os pacotes de `ofertas.ts` no lugar da ficha "No Sprint". */
+  oferta?: IdOferta;
+  /** Título e texto da seção "como funciona", quando não é "Do diagnóstico ao ar.". */
+  como?: { titulo: string; apagado: string; texto: string };
   perguntas: { pergunta: string; resposta: string }[];
   /** Ids de `LINHAS` (home.ts) que combinam com esta. */
   relacionadas: string[];
 }
 
+const SITES = ofertaDa("sites");
+const BRANDING = ofertaDa("branding");
+const PRESENCA = ofertaDa("presenca");
+const SPRINT = ofertaDa("sprint");
+const continuidade = (i: number) => PLANOS_DE_CONTINUIDADE[i];
+
+/** "a partir de R$ 2.900": o preço de entrada da solução. */
+const entrada = (o: typeof SITES) => precoEmTexto({ valor: precoDeEntrada(o), aPartirDe: true });
+
+/** "Os pacotes: Landing Page, R$ 2.900; ...": a resposta de preço do FAQ, sempre da tabela. */
+const listaDePrecos = (o: typeof SITES) =>
+  `Os pacotes: ${o.pacotes
+    .map((p) => `${p.nome}, ${precoEmTexto(p.preco)}${p.mensal ? `, com mensalidade opcional de ${mensalEmTexto(p.mensal.valor)}` : ""}`)
+    .join("; ")}`;
+
 export const SOLUCOES: Solucao[] = [
   {
     rota: "/criacao-de-sites",
     linha: "sites",
+    oferta: "sites",
     pilar: "mapa",
-    etapa: "violeta",
+    etapa: "azul",
     vinheta: "site",
-    sobretitulo: "Sites e presença",
-    titulo: "Criação de site profissional com SEO e rastreamento.",
+    sobretitulo: "Sites & Integrações",
+    titulo: "Criação de sites profissionais, ligados ao sistema que você já usa.",
     resumo:
-      "Site que carrega rápido no celular, aparece no Google e grava de onde veio cada contato. Entra num Sprint quando o gargalo é a presença.",
+      "Site próprio que carrega rápido no celular, aparece no Google e grava a origem de cada contato. Com integração quando o escopo pede.",
     fatos: [
-      { rotulo: "No Sprint", valor: "Intervenção para quando o gargalo é ser encontrado e saber de onde vêm os contatos" },
+      { rotulo: "Resolve", valor: SITES.resolve },
+      { rotulo: "Preço de entrada", valor: `${entrada(SITES)}, da landing page ao site automotivo integrado` },
       { rotulo: "Entrega-base", valor: "Onze itens iguais em todo site da V2O5, das páginas que o Google entende à entrega documentada" },
-      {
-        rotulo: "O que entra",
-        valor: "Páginas que o Google entende, SEO técnico, Perfil da Empresa no Google e rastreamento até a venda, conforme o escopo do Sprint",
-      },
       {
         rotulo: "Em produção",
         valor: `Motors Store: site de estoque com ${CASE.numeros[2].valor} veículos sincronizados e ${CASE.numeros[1].valor} guias`,
@@ -77,25 +99,25 @@ export const SOLUCOES: Solucao[] = [
     problema: {
       titulo: "O site de template aparece bonito e some na busca.",
       texto:
-        "Carrega devagar no celular, tem uma página só para todos os modelos ou serviços, e quem chega por um anúncio vira um contato sem origem. O Google só acha o que existe como página, e a verba de mídia não aprende com o que virou venda.",
+        "Carrega devagar no celular, tem uma página só para todos os modelos ou serviços, e quem chega por um anúncio vira um contato sem origem. O Google só acha o que existe como página, e o contato que chega pelo site não aparece no sistema da empresa.",
     },
     entregas: SITE_PADRAO.itens,
     comoFunciona: [
       {
         titulo: "Diagnóstico",
-        texto: "45 minutos com o fundador sobre presença, busca e o que a empresa vende, para priorizar o que entra no site.",
+        texto: "45 minutos com o fundador sobre presença, busca, o que a empresa vende e os sistemas que ela já usa.",
       },
       {
-        titulo: "Estrutura e textos",
-        texto: "Mapa de páginas pela busca real e textos escritos para o cliente, revisados com você antes de ir ao ar.",
+        titulo: "Proposta e estrutura",
+        texto: "O pacote, as páginas e as integrações fechados por escrito. O mapa de páginas sai da busca real.",
       },
       {
         titulo: "Construção e medição",
-        texto: "O site fica num endereço de teste e é medido no celular antes de publicar.",
+        texto: "O site fica num endereço de teste, com as integrações conferidas e medido no celular antes de publicar.",
       },
       {
-        titulo: "Publicação e rotina",
-        texto: "Troca de DNS, Search Console, Perfil da Empresa e o relatório mensal do que a busca trouxe.",
+        titulo: "Publicação",
+        texto: "Troca de DNS, Search Console e Perfil da Empresa. Depois, a continuidade, se você quiser.",
       },
     ],
     naMotors: {
@@ -104,13 +126,10 @@ export const SOLUCOES: Solucao[] = [
         "Site de estoque com vitrine, ficha de veículo, páginas por marca e modelo e seis páginas locais. O estoque entra sozinho do Revenda Mais.",
       numeros: [CASE.numeros[2], CASE.numeros[1]],
     },
-    noSprint:
-      "O site entra num Sprint quando o gargalo é ser encontrado: páginas que o Google entende, Perfil da Empresa, SEO técnico e a origem de cada contato gravada. O Sprint começa pelo mapeamento do fluxo atual e termina com os indicadores disponíveis comparados antes e depois.",
     perguntas: [
       {
         pergunta: "Quanto custa um site profissional?",
-        resposta:
-          "O site entra num Sprint de Eficiência, com preço fechado em proposta depois de delimitar o gargalo, o escopo e os entregáveis. Os valores de partida do Sprint estão em /precos. O diagnóstico inicial, de 45 minutos, é gratuito.",
+        resposta: `${listaDePrecos(SITES)}. São preços de referência: o valor fechado sai em proposta, depois de conhecer o escopo e o sistema que o site precisa ligar. O diagnóstico inicial, de 45 minutos, é gratuito.`,
       },
       {
         pergunta: "Posso aproveitar o site que já tenho?",
@@ -118,8 +137,18 @@ export const SOLUCOES: Solucao[] = [
           "O diagnóstico começa pelo site atual: velocidade, páginas, tags. Se a base for boa, a V2O5 trabalha em cima dela; se não, migra o conteúdo que vale e refaz o resto.",
       },
       {
+        pergunta: "O site se liga ao meu CRM ou ao meu sistema de gestão?",
+        resposta:
+          "No Site Conectado e no Site Automotivo Integrado, sim. A integração entra na proposta depois de verificar a documentação, o acesso, os limites e os custos do sistema. Compatibilidade com qualquer sistema não é prometida.",
+      },
+      {
+        pergunta: "E depois que o site vai ao ar?",
+        resposta: `A continuidade é opcional. O ${continuidade(0).nome} (${mensalEmTexto(continuidade(0).mensal)}) cuida da hospedagem, do SSL, do backup e de até 1 hora de suporte por mês. Site com integração costuma seguir com as ${continuidade(1).nome} (${mensalEmTexto(continuidade(1).mensal)}).`,
+      },
+      {
         pergunta: "O site fica no meu nome?",
-        resposta: "Sim. Domínio, hospedagem e código no nome da sua empresa desde o primeiro dia.",
+        resposta:
+          "O domínio fica no nome da sua empresa, e o código e os dados são entregues nos termos do contrato. Com o Cuidado Técnico, a V2O5 cuida da hospedagem.",
       },
       {
         pergunta: "Preciso ter fotos e textos prontos?",
@@ -128,10 +157,10 @@ export const SOLUCOES: Solucao[] = [
       {
         pergunta: "O site vem com loja virtual?",
         resposta:
-          "Não. Loja com pagamento está fora do cardápio. O site vende por WhatsApp, formulário e telefone, com a origem de cada contato gravada.",
+          "Não. Loja com pagamento fica fora dos pacotes. O site vende por WhatsApp, formulário e telefone, com a origem de cada contato gravada.",
       },
     ],
-    relacionadas: ["rastreamento", "agente", "redes"],
+    relacionadas: ["rastreamento", "crm", "agente"],
   },
   {
     rota: "/agente-de-ia-para-whatsapp",
@@ -301,7 +330,7 @@ export const SOLUCOES: Solucao[] = [
       {
         pergunta: "Preciso trocar o sistema de gestão que já uso?",
         resposta:
-          `Não. A V2O5 liga o que você já usa. Em produção hoje: o estoque do Revenda Mais sincronizado com o site da Motors Store. ${listaDeSistemasIntegraveis()} e outros sistemas entram como fluxo de integração.`,
+          `Não. A V2O5 liga o que você já usa. Em produção hoje: o estoque do Revenda Mais sincronizado com o site da Motors Store. ${listaDeSistemasIntegraveis()}, entre outros, entram como fluxo de integração.`,
       },
       {
         pergunta: "E quando o fluxo quebra?",
@@ -499,6 +528,245 @@ export const SOLUCOES: Solucao[] = [
       },
     ],
     relacionadas: ["googleAds", "crm", "sites"],
+  },
+  {
+    rota: "/branding-e-identidade",
+    linha: "branding",
+    oferta: "branding",
+    pilar: "mapa",
+    etapa: "violeta",
+    vinheta: "marca",
+    sobretitulo: "Branding & Identidade",
+    titulo: "Branding e identidade visual que funcionam em todos os canais.",
+    resumo: "Identidade visual com variações, cores, tipografia e guia de uso. Nos pacotes maiores, comunicação e posicionamento.",
+    fatos: [
+      { rotulo: "Resolve", valor: BRANDING.resolve },
+      { rotulo: "Preço de entrada", valor: `${entrada(BRANDING)}, da identidade essencial ao reposicionamento` },
+      { rotulo: "Entrega", valor: "Arquivos finais, guia de uso e as rodadas de revisão escritas no contrato" },
+    ],
+    problema: {
+      titulo: "Um logotipo usado de cinco jeitos diferentes.",
+      texto:
+        "Cada canal mostra uma cor, uma fonte e um tom. O cliente não reconhece a empresa de um lugar para o outro, e a percepção fica abaixo do que ela entrega. A marca precisa de regras de uso, além do desenho.",
+    },
+    entregas: [
+      {
+        titulo: "Identidade visual",
+        texto: "Logotipo e variações, paleta de cores e tipografia, desenhados para funcionar no celular, no papel e na fachada.",
+      },
+      {
+        titulo: "Guia de uso",
+        texto: "As regras para aplicar a marca sem depender de quem desenhou: tamanhos, cores, combinações e o que evitar.",
+      },
+      {
+        titulo: "Aplicações",
+        texto: "Do perfil das redes à proposta comercial, conforme o pacote.",
+      },
+      {
+        titulo: "Comunicação e posicionamento",
+        texto: "Tom de voz e mensagens principais na Marca em Uso; proposta de valor e plano de aplicação no Reposicionamento.",
+      },
+      {
+        titulo: "Arquivos finais",
+        texto: "Em vetor e em imagem, organizados para a equipe e para os fornecedores.",
+      },
+    ],
+    comoFunciona: [
+      {
+        titulo: "Diagnóstico",
+        texto: "45 minutos com o fundador sobre o que a marca precisa resolver e onde ela aparece hoje.",
+      },
+      {
+        titulo: "Proposta",
+        texto: "O pacote, os entregáveis, os arquivos finais e as rodadas de revisão por escrito.",
+      },
+      {
+        titulo: "Criação e revisões",
+        texto: "As propostas visuais e as rodadas de revisão previstas no pacote.",
+      },
+      {
+        titulo: "Entrega",
+        texto: "Arquivos finais e guia de uso. Nos pacotes maiores, a marca aplicada nos materiais combinados.",
+      },
+    ],
+    perguntas: [
+      {
+        pergunta: "Quanto custa uma identidade visual?",
+        resposta: `${listaDePrecos(BRANDING)}. São preços de referência: o valor fechado sai em proposta.`,
+      },
+      {
+        pergunta: "Vocês fazem só o logotipo?",
+        resposta:
+          "O logotipo sozinho não é vendido como projeto de branding. O pacote menor já entrega as variações, as cores, a tipografia e o guia de uso, para a marca funcionar em todos os canais.",
+      },
+      {
+        pergunta: "Qual a diferença entre identidade e reposicionamento?",
+        resposta:
+          "A identidade trata de como a marca aparece. O reposicionamento começa antes: diagnóstico, posicionamento e proposta de valor, e só depois a identidade nova ou revisada.",
+      },
+      {
+        pergunta: "Quantas revisões estão incluídas?",
+        resposta: "Duas rodadas na Identidade Essencial e duas por etapa na Marca em Uso. O número fica escrito no contrato.",
+      },
+      {
+        pergunta: "O registro no INPI está incluído?",
+        resposta: "Não. O registro da marca, a impressão e a produção de fotos e vídeos ficam fora dos pacotes.",
+      },
+    ],
+    relacionadas: ["sites", "redes", "avaliacoes"],
+  },
+  {
+    rota: "/presenca-digital-local",
+    linha: "presenca",
+    oferta: "presenca",
+    pilar: "mapa",
+    etapa: "verde",
+    vinheta: "perfil",
+    sobretitulo: "Presença Digital Local",
+    titulo: "Presença digital para negócios locais: Google, redes e WhatsApp.",
+    resumo: "Perfil no Google, redes e WhatsApp organizados, com modelos de conteúdo e, se quiser, a rotina mensal de publicações.",
+    fatos: [
+      { rotulo: "Resolve", valor: PRESENCA.resolve },
+      {
+        rotulo: "Preço de entrada",
+        valor: `${entrada(PRESENCA)}, com mensalidade opcional a partir de ${mensalEmTexto(Math.min(...PRESENCA.pacotes.map((p) => p.mensal?.valor ?? Infinity)))}`,
+      },
+      { rotulo: "Para quem", valor: "Padaria, oficina, distribuidora, comércio de bairro e outros negócios locais" },
+    ],
+    problema: {
+      titulo: "O cliente procura e encontra o horário errado.",
+      texto:
+        "Perfil no Google sem foto nem horário, rede social parada há meses e um WhatsApp que ninguém sabe se atende. Quem procura desiste antes de chamar, e a empresa nem fica sabendo.",
+    },
+    entregas: [
+      {
+        titulo: "Perfil da Empresa no Google",
+        texto: "Configurado ou otimizado, com categorias, horário, fotos e chamada. A verificação depende do Google.",
+      },
+      {
+        titulo: "Redes sociais",
+        texto: "Uma ou duas redes organizadas, com descrição, destaques e link de contato.",
+      },
+      {
+        titulo: "WhatsApp Business",
+        texto: "Perfil, horário e mensagens de saudação e ausência, para quem chama saber que vai ser atendido.",
+      },
+      {
+        titulo: "Modelos de conteúdo",
+        texto: "Modelos com a identidade da empresa, para publicar sem começar do zero.",
+      },
+      {
+        titulo: "Calendário e campanhas",
+        texto: "As datas e as épocas do ramo, com campanhas prontas, na Presença Estruturada e na Assistida.",
+      },
+    ],
+    comoFunciona: [
+      {
+        titulo: "Diagnóstico",
+        texto: "45 minutos com o fundador sobre os canais que pesam no seu ramo e o que está desatualizado.",
+      },
+      {
+        titulo: "Organização",
+        texto: "Perfis, informações, contatos e botões de chamada revisados em todos os canais.",
+      },
+      {
+        titulo: "Modelos e calendário",
+        texto: "Os modelos de publicação e, conforme o pacote, o calendário e a campanha de lançamento.",
+      },
+      {
+        titulo: "Rotina, se quiser",
+        texto: "A mensalidade opcional: atualizações, o kit mensal de conteúdo ou a operação assistida.",
+      },
+    ],
+    perguntas: [
+      {
+        pergunta: "Quanto custa?",
+        resposta: `${listaDePrecos(PRESENCA)}. São preços de referência: o valor fechado sai em proposta.`,
+      },
+      {
+        pergunta: "A mensalidade é obrigatória?",
+        resposta:
+          "Não. Dá para contratar só a implantação. A mensalidade entra quando você quer que a V2O5 mantenha os canais ou produza o conteúdo do mês.",
+      },
+      {
+        pergunta: "Quantas publicações por mês?",
+        resposta:
+          "No kit da Presença Estruturada, quatro peças e uma campanha por mês. Na Assistida, oito peças de referência, com o volume final na proposta. Nenhum pacote tem publicação ilimitada.",
+      },
+      {
+        pergunta: "Vocês respondem os comentários e as mensagens?",
+        resposta:
+          "A resposta a comentários e mensagens fica com a sua equipe. A V2O5 organiza os canais e, na Presença Assistida, orienta o atendimento.",
+      },
+      {
+        pergunta: "A verba de anúncio está incluída?",
+        resposta: "Não. Verba de anúncio, gravação presencial de fotos e vídeos e ferramentas pagas ficam fora dos pacotes.",
+      },
+      {
+        pergunta: "E se eu precisar de um site?",
+        resposta: "A Presença cuida dos canais que já existem. O site próprio entra em Sites & Integrações, contratado à parte.",
+      },
+    ],
+    relacionadas: ["avaliacoes", "redes", "sites"],
+  },
+  {
+    rota: "/sprint-de-eficiencia",
+    linha: "sprint",
+    oferta: "sprint",
+    pilar: "operacao",
+    etapa: "ambar",
+    vinheta: "jornada",
+    sobretitulo: "Sprint de Eficiência",
+    titulo: "Sprint de Eficiência: um gargalo da operação resolvido e medido.",
+    resumo: "Um projeto fechado para um gargalo: mapear, simplificar, implementar e comparar os indicadores antes e depois.",
+    fatos: [
+      { rotulo: "Resolve", valor: SPRINT.resolve },
+      { rotulo: "Preço de entrada", valor: `${entrada(SPRINT)}, do Sprint Essencial ao Avançado` },
+      { rotulo: "Método", valor: `${METODO.length} passos, do processo real à próxima decisão` },
+    ],
+    problema: {
+      titulo: "A operação trava entre as ferramentas que já existem.",
+      texto:
+        "Dados copiados de um sistema para outro, contato que espera resposta, tarefa repetida todo dia. O Sprint começa pelo processo e só automatiza o que sobra depois de simplificar.",
+    },
+    entregas: [
+      { titulo: "Mapa do fluxo e linha de base", texto: "Como o processo acontece hoje, onde trava e os indicadores do ponto de partida." },
+      { titulo: "Fluxo simplificado", texto: "As etapas que sobram depois de tirar o que não precisa existir." },
+      { titulo: "Solução implantada", texto: "Integrações, automações ou agentes que o gargalo pede, testados e documentados." },
+      { titulo: "Antes e depois", texto: "Os indicadores disponíveis comparados com a linha de base." },
+      { titulo: "Próxima decisão", texto: "O registro do que mudou e o próximo passo, ou o encerramento." },
+    ],
+    como: {
+      titulo: "O método,",
+      apagado: "em seis passos.",
+      texto: "Vale para os três Sprints. Muda o tamanho do gargalo e o número de sistemas envolvidos.",
+    },
+    comoFunciona: METODO,
+    perguntas: [
+      {
+        pergunta: "Quanto custa um Sprint?",
+        resposta: `${listaDePrecos(SPRINT)}. ${SPRINT_DE_PRECOS.texto}`,
+      },
+      {
+        pergunta: "O que um Sprint entrega?",
+        resposta:
+          "Um projeto fechado para um gargalo delimitado: mapeamento do fluxo atual, priorização, implementação da solução acordada, testes e comparação dos indicadores disponíveis antes e depois. A proposta define o problema, os entregáveis, as exclusões, o prazo, as responsabilidades do cliente e os critérios de aceite.",
+      },
+      {
+        pergunta: "Como funciona o pagamento?",
+        resposta: CONDICOES.itens[1].texto,
+      },
+      {
+        pergunta: "E depois que o Sprint termina?",
+        resposta: `O Sprint termina na entrega. Se a solução continua rodando, ela pode seguir com as ${continuidade(1).nome} (${mensalEmTexto(continuidade(1).mensal)}) ou a ${continuidade(2).nome} (${mensalEmTexto(continuidade(2).mensal)}), opcionais. IA, mensagens e nuvem de sistemas ficam por fora, pelo valor do provedor.`,
+      },
+      {
+        pergunta: "Vocês prometem aumento de vendas?",
+        resposta:
+          "Não. O preço remunera a entrega acordada. O que se mede é o indicador combinado antes de começar, comparado com a linha de base.",
+      },
+    ],
+    relacionadas: ["agente", "crm", "automacao"],
   },
 ];
 

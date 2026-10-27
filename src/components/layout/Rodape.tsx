@@ -3,7 +3,8 @@ import LinkOuAncora from "@/components/LinkOuAncora";
 import Icone from "@/components/Icone";
 import Construcao from "@/components/marca/Construcao";
 import Simbolo from "@/components/marca/Simbolo";
-import { ASSINATURA, EMAIL, EMPRESA, PILARES, WHATSAPP } from "@/conteudo/home";
+import { ASSINATURA, EMAIL, EMPRESA, WHATSAPP } from "@/conteudo/home";
+import { OFERTAS } from "@/conteudo/ofertas";
 import { linkWhatsApp, whatsappParaLer } from "@/lib/whatsapp";
 import { linkEmail } from "@/lib/email";
 
@@ -13,6 +14,14 @@ const EMPRESA_LINKS = [
   { rotulo: "Preços", href: "/precos" },
   { rotulo: "Sobre", href: "/sobre" },
   { rotulo: "Privacidade", href: "/privacidade" },
+];
+
+/** As páginas de recurso do Sprint: sem preço, fora do menu, ligadas daqui (27/10/2026). */
+const RECURSOS = [
+  { rotulo: "Agente de IA no WhatsApp", href: "/agente-de-ia-para-whatsapp" },
+  { rotulo: "CRM com WhatsApp", href: "/crm-com-whatsapp" },
+  { rotulo: "Automação com IA", href: "/automacao-com-ia" },
+  { rotulo: "Rastreamento até a venda", href: "/rastreamento-de-conversoes" },
 ];
 
 const LINK = "inline-flex min-h-9 items-center transition-colors hover:text-texto";
@@ -40,10 +49,20 @@ export default function Rodape() {
             Soluções
           </h2>
           <ul className="mt-4 space-y-0.5 text-[0.9375rem] text-texto-secundario">
-            {PILARES.flatMap((p) => p.servicos).map((s) => (
-              <li key={s.titulo}>
+            {[...OFERTAS.map((o) => ({ rotulo: o.nome, href: o.rota })), { rotulo: "Continuidade", href: "/continuidade" }].map((s) => (
+              <li key={s.href}>
                 <LinkOuAncora href={s.href} className={LINK}>
-                  {s.titulo}
+                  {s.rotulo}
+                </LinkOuAncora>
+              </li>
+            ))}
+          </ul>
+          <h3 className="rotulo mt-8 text-texto">Recursos</h3>
+          <ul className="mt-4 space-y-0.5 text-[0.9375rem] text-texto-secundario">
+            {RECURSOS.map((s) => (
+              <li key={s.href}>
+                <LinkOuAncora href={s.href} className={LINK}>
+                  {s.rotulo}
                 </LinkOuAncora>
               </li>
             ))}

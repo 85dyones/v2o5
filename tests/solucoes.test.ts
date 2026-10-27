@@ -4,32 +4,28 @@ import { CASE, LINHAS, VISAO_360 } from "@/conteudo/home";
 import { paginaDa } from "@/conteudo/paginas";
 import { SOLUCOES, solucaoDa } from "@/conteudo/solucoes";
 import { grafoDaSolucao, servicoDaSolucao } from "@/lib/schema";
-import { PLANOS } from "@/conteudo/precos";
+import { ofertaDa, precoEmTexto } from "@/conteudo/ofertas";
 import { ler, semComentarios } from "./fonte";
 
 /**
- * As cinco páginas de solução: prontas e indexáveis, sem valor público
- * (só o Sprint tem preço, desde 25/10/2026), número só do case (por
- * referência) ou da evidência citada com fonte, resumo curto (o LCP é o H1),
- * FAQ igual ao schema e texto sem marcas de IA.
+ * As páginas montadas pelo molde (27/10/2026): as quatro soluções, com os
+ * pacotes de `ofertas.ts`, e as quatro de recurso, sem valor público. Número
+ * só do case (por referência) ou da evidência citada com fonte, resumo curto
+ * (o LCP é o H1), FAQ igual ao schema e texto sem marcas de IA.
  */
 
-const ROTAS = [
-  "/criacao-de-sites",
-  "/agente-de-ia-para-whatsapp",
-  "/automacao-com-ia",
-  "/crm-com-whatsapp",
-  "/rastreamento-de-conversoes",
-];
+const DAS_SOLUCOES = ["/branding-e-identidade", "/presenca-digital-local", "/criacao-de-sites", "/sprint-de-eficiencia"];
+const DE_RECURSO = ["/agente-de-ia-para-whatsapp", "/automacao-com-ia", "/crm-com-whatsapp", "/rastreamento-de-conversoes"];
+const ROTAS = [...DAS_SOLUCOES, ...DE_RECURSO];
 const numerosDoCase = [...CASE.numeros, ...CASE_MOTORS.numeros.itens];
 
 describe("páginas de solução", () => {
-  it("são as cinco da fase 1, prontas, indexáveis e montadas pelo molde", () => {
+  it("são as quatro soluções e as quatro de recurso, prontas, indexáveis e montadas pelo molde", () => {
     expect(SOLUCOES.map((s) => s.rota).sort()).toEqual([...ROTAS].sort());
     for (const rota of ROTAS) {
       expect(paginaDa(rota).pronta, rota).toBe(true);
-      // As cinco mudaram em 25/10/2026: sem promessa de mapa em 24 horas e sem valor de plano.
-      expect(paginaDa(rota).atualizadaEm, rota).toBe("2026-10-25");
+      // As de recurso mudaram em 25/10/2026 (sem mapa em 24 horas, sem valor); as soluções, em 27/10/2026.
+      expect(paginaDa(rota).atualizadaEm, rota).toBe(DAS_SOLUCOES.includes(rota) ? "2026-10-27" : "2026-10-25");
       const pagina = semComentarios(ler(`src/app${rota}/page.tsx`));
       expect(pagina, rota).toContain("<PaginaDeSolucao rota={ROTA}");
       expect(pagina, rota).not.toContain("PaginaProvisoria");
@@ -37,18 +33,32 @@ describe("páginas de solução", () => {
     expect(semComentarios(ler("src/app/agente-de-ia-para-whatsapp/page.tsx"))).toContain("<Orquestrador />");
     expect(semComentarios(ler("src/app/automacao-com-ia/page.tsx"))).toContain("<ComoSeLiga />");
     expect(semComentarios(ler("src/app/rastreamento-de-conversoes/page.tsx"))).toContain("<OQueRegistramosSecao />");
+    expect(semComentarios(ler("src/app/sprint-de-eficiencia/page.tsx"))).toContain("<ComoSeLiga />");
   });
 
-  it("nenhuma página publica valor: cada uma diz como a linha entra num Sprint", () => {
-    for (const s of SOLUCOES) {
+  it("cada solução mostra os pacotes de ofertas.ts e cita preço só da tabela", () => {
+    for (const rota of DAS_SOLUCOES) {
+      const s = solucaoDa(rota);
+      expect(s.oferta, rota).toBeDefined();
+      const o = ofertaDa(s.oferta!);
+      expect(o.rota, rota).toBe(rota);
+      expect(s.noSprint, rota).toBeUndefined();
+      // A resposta de preço do FAQ lista todos os pacotes com o preço da tabela.
+      const custo = s.perguntas.find((p) => /Quanto custa/.test(p.pergunta))?.resposta ?? "";
+      for (const p of o.pacotes) expect(custo, `${rota}: ${p.nome}`).toContain(`${p.nome}, ${precoEmTexto(p.preco)}`);
+      expect(JSON.stringify(s), rota).not.toMatch(/fidelidade|plano Presença|plano Completo/i);
+    }
+  });
+
+  it("nenhuma página de recurso publica valor: cada uma diz como a linha entra num Sprint", () => {
+    for (const s of SOLUCOES.filter((x) => DE_RECURSO.includes(x.rota))) {
       const texto = JSON.stringify(s);
       expect(texto, s.rota).not.toMatch(/R\$|mensalidade|a partir de|fidelidade|plano /i);
       expect(s.fatos[0].rotulo, s.rota).toBe("No Sprint");
-      expect(s.noSprint.length, s.rota).toBeGreaterThan(80);
+      expect(s.noSprint?.length ?? 0, s.rota).toBeGreaterThan(80);
       expect(s.noSprint, s.rota).toMatch(/Sprint/);
+      expect(s.oferta, s.rota).toBeUndefined();
     }
-    const todos = PLANOS.flatMap((p) => [p.implantacao, p.mensalidade]).map((v) => `R$ ${v.toLocaleString("pt-BR")}`);
-    for (const v of todos) expect(JSON.stringify(SOLUCOES)).not.toContain(v);
   });
 
   it("número do case só por referência, e número de estudo só com fonte e link", () => {
@@ -71,13 +81,15 @@ describe("páginas de solução", () => {
     }
   });
 
-  it("cada página tem pelo menos quatro perguntas, e o schema traz serviço (sem oferta de preço) e as mesmas perguntas", () => {
+  it("cada página tem pelo menos quatro perguntas, e o schema traz serviço (com o catálogo só nas soluções) e as mesmas perguntas", () => {
     for (const s of SOLUCOES) {
       expect(s.perguntas.length, s.rota).toBeGreaterThanOrEqual(4);
       const grafo = grafoDaSolucao(s.rota) as { "@graph": ({ "@type"?: string; mainEntity?: { name: string }[] })[] };
       expect(grafo["@graph"].slice(1).map((n) => n["@type"])).toEqual(["BreadcrumbList", "Service", "FAQPage"]);
       expect(grafo["@graph"][3].mainEntity?.map((p) => p.name)).toEqual(s.perguntas.map((p) => p.pergunta));
       expect(servicoDaSolucao(s.rota)).not.toHaveProperty("offers");
+      if (s.oferta) expect(servicoDaSolucao(s.rota)).toHaveProperty("hasOfferCatalog");
+      else expect(servicoDaSolucao(s.rota)).not.toHaveProperty("hasOfferCatalog");
     }
   });
 

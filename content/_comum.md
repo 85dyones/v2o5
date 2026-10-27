@@ -1,7 +1,7 @@
 ---
 conteudo: "Topo, rodapé e peças presentes em todas as rotas"
-extraido_em: "2026-10-19T00:26:22.723Z"
-fonte: "produção (www.v2o5.com.br), main em 46c4103"
+extraido_em: "2026-10-27T14:34:01.868Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 27/10/2026 (portfólio das quatro soluções), antes da publicação"
 ---
 
 <!-- Topo e rodapé são idênticos nas 16 rotas extraídas (conferido no script). -->
@@ -14,13 +14,33 @@ fonte: "produção (www.v2o5.com.br), main em 46c4103"
 
 [V2O5](/)
 
-[Soluções](/#solucoes)
+Soluções
 
-[Automotivo](/segmentos/revendas-de-veiculos)
+[Branding & Identidade](/branding-e-identidade)
 
-[Case](/cases/motors-store)
+[Presença Digital Local](/presenca-digital-local)
+
+[Sites & Integrações](/criacao-de-sites)
+
+[Sprint de Eficiência](/sprint-de-eficiencia)
+
+[Revendas de veículos](/segmentos/revendas-de-veiculos)
+
+[Ver as quatro soluções](/#solucoes)
+
+Continuidade
+
+[Manutenção técnica](/continuidade#manutencao-tecnica)
+
+[Conteúdo e campanhas recorrentes](/continuidade#conteudo-e-campanhas)
+
+[Monitoramento e otimização](/continuidade#monitoramento-e-otimizacao)
+
+[Ver a continuidade](/continuidade)
 
 [Preços](/precos)
+
+[Case](/cases/motors-store)
 
 [Sobre](/sobre)
 
@@ -30,11 +50,27 @@ Menu <!-- oculto no desktop 1440 -->
 
 [Soluções](/#solucoes) <!-- oculto no desktop 1440 -->
 
-[Automotivo](/segmentos/revendas-de-veiculos) <!-- oculto no desktop 1440 -->
+[Branding & Identidade](/branding-e-identidade) <!-- oculto no desktop 1440 -->
 
-[Case](/cases/motors-store) <!-- oculto no desktop 1440 -->
+[Presença Digital Local](/presenca-digital-local) <!-- oculto no desktop 1440 -->
+
+[Sites & Integrações](/criacao-de-sites) <!-- oculto no desktop 1440 -->
+
+[Sprint de Eficiência](/sprint-de-eficiencia) <!-- oculto no desktop 1440 -->
+
+[Revendas de veículos](/segmentos/revendas-de-veiculos) <!-- oculto no desktop 1440 -->
+
+[Continuidade](/continuidade) <!-- oculto no desktop 1440 -->
+
+[Manutenção técnica](/continuidade#manutencao-tecnica) <!-- oculto no desktop 1440 -->
+
+[Conteúdo e campanhas recorrentes](/continuidade#conteudo-e-campanhas) <!-- oculto no desktop 1440 -->
+
+[Monitoramento e otimização](/continuidade#monitoramento-e-otimizacao) <!-- oculto no desktop 1440 -->
 
 [Preços](/precos) <!-- oculto no desktop 1440 -->
+
+[Case](/cases/motors-store) <!-- oculto no desktop 1440 -->
 
 [Sobre](/sobre) <!-- oculto no desktop 1440 -->
 
@@ -50,22 +86,18 @@ V2O5 | Eficiência comercial e operacional com tecnologia.
 
 ## Soluções
 
-- [Branding e gestão de marca](/diagnostico)
-- [Perfil da Empresa no Google](/criacao-de-sites)
-- [SEO e busca por IA](/criacao-de-sites)
-- [Sites e presença](/criacao-de-sites)
-- [Tráfego pago no Google e na Meta](/precos#titulo-trafego)
-- [Rastreamento até a venda](/rastreamento-de-conversoes)
-- [Anúncios de catálogo](/precos#titulo-trafego)
-- [Conteúdo e gestão de redes sociais](/diagnostico)
-- [Avaliações no Google](/diagnostico)
+- [Branding & Identidade](/branding-e-identidade)
+- [Presença Digital Local](/presenca-digital-local)
+- [Sites & Integrações](/criacao-de-sites)
+- [Sprint de Eficiência](/sprint-de-eficiencia)
+- [Continuidade](/continuidade)
+
+### Recursos
+
 - [Agente de IA no WhatsApp](/agente-de-ia-para-whatsapp)
-- [CRM e sistemas sob medida](/crm-com-whatsapp)
-- [Painel do dono](/diagnostico)
-- [Automação de processos](/automacao-com-ia)
-- [Reativação de base](/diagnostico)
-- [Pós-venda e recorrência](/diagnostico)
-- [Integrações entre sistemas](/automacao-com-ia)
+- [CRM com WhatsApp](/crm-com-whatsapp)
+- [Automação com IA](/automacao-com-ia)
+- [Rastreamento até a venda](/rastreamento-de-conversoes)
 
 ## Empresa
 
@@ -83,9 +115,19 @@ V2O5 | Eficiência comercial e operacional com tecnologia.
 
 V2O5 Tecnologia da Informação Ltda. · CNPJ 68.490.470/0001-14
 
-Atendimento em todo o Brasil <!-- 19/10 (Dyones): sem Almirante Tamandaré, "é digital, não precisa ter uma âncora física" -->
+Atendimento em todo o Brasil
 
-<!-- 19/10: a marca "V2O5" grande e apagada saiu; no lugar, a planta do símbolo (desenho decorativo, aria-hidden, sem texto) -->
+r 18 <!-- texto em SVG; decorativo, aria-hidden -->
+
+r 24 <!-- texto em SVG; decorativo, aria-hidden -->
+
+r 20 <!-- texto em SVG; decorativo, aria-hidden -->
+
+r 18 <!-- texto em SVG; decorativo, aria-hidden -->
+
+V · 6,8 <!-- texto em SVG; decorativo, aria-hidden -->
+
+O · 4,8 <!-- texto em SVG; decorativo, aria-hidden -->
 
 <!-- ===== botão fixo do WhatsApp (fora do main, só abaixo de 768 px). O texto é o mesmo em toda rota que o tem;
      a mensagem pronta muda por rota e está em design/nao-pode-quebrar.md ===== -->

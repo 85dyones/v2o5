@@ -1,14 +1,14 @@
 ---
 rota: "/sobre"
-url: "http://localhost:3100/sobre"
+url: "https://www.v2o5.com.br/sobre"
 status: 200
 title: "Sobre a V2O5: quem faz, o método e a promessa de saída | V2O5 Vendas e Tecnologia"
 description: "Quem é a V2O5 Vendas e Tecnologia, o método em cinco perguntas, o fundador que conduz o diagnóstico, de onde vem o nome e a relação com a Motors Store."
 canonical: "https://www.v2o5.com.br/sobre"
 robots: null
 h1: "Simplificar o que é complexo."
-extraido_em: "2026-10-26T15:07:13.606Z"
-fonte: "produção (www.v2o5.com.br), main em 243a164"
+extraido_em: "2026-10-27T14:34:01.868Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 27/10/2026 (portfólio das quatro soluções), antes da publicação"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 # Simplificar o que é complexo.
@@ -179,9 +179,9 @@ Cinco regras que valem para todo projeto.
 
 02
 
-### Preço fechado em proposta
+### Preço de referência, valor em proposta
 
-O Sprint tem preço fechado em proposta, depois que eu delimito o gargalo, o escopo e os entregáveis. Os valores de partida estão na página de preços.
+Cada solução tem pacotes com preço de referência publicado. O valor fechado sai em proposta, depois que eu delimito o problema, o escopo e os entregáveis.
 
 03
 
@@ -271,7 +271,7 @@ Da estratégia de marca aos materiais aplicados no negócio.
 - Comunicação visual
 - Aplicação da marca no site, nas redes e nos materiais
 
-Branding entra num Sprint como capacidade, sob medida: não é um pacote à parte.
+Branding & Identidade é uma das quatro soluções, com pacotes próprios.
 
 04
 

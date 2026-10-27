@@ -25,7 +25,7 @@ describe("entrega-base do site", () => {
     expect(SITE_PADRAO.itens.map((i) => i.titulo)).toEqual(expect.arrayContaining(["Segurança básica", "Entrega documentada"]));
   });
 
-  it("o que passa da base é capacidade do catálogo, em proposta", () => {
-    expect(SITE_PADRAO.alem).toMatch(/capacidade do catálogo/);
+  it("o que passa da base entra pelo pacote ou pela solução que cobre, em proposta (27/10/2026)", () => {
+    expect(SITE_PADRAO.alem).toMatch(/pelo pacote ou pela solução que cobre, em proposta/);
   });
 });

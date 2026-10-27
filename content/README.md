@@ -1,6 +1,6 @@
 # Texto do site: a fonte da verdade do redesign
 
-O texto de cada rota de `https://www.v2o5.com.br`, como estava no ar em 19/10/2026 (`main` em `46c4103`). Exceções de 25/10/2026, com a home do Sprint de Eficiência: `home.md` reextraído do build da branch `claude/keen-ptolemy-vnfnfu`; a assinatura em `_comum.md`, `sobre.md` e `llms.txt.md`; o escopo do Diagnóstico de Gargalo em `diagnostico.md`. As demais rotas seguem como em 19/10. O que o app lê destes arquivos: nada. São o registro do texto para o redesign e para `design/nao-pode-quebrar.md`, gerados por `design/baseline/ferramentas/gerar_conteudo.py`. O redesign muda a forma; estas palavras ficam. Mudança de texto é decisão à parte, feita aqui primeiro e depois no código.
+O texto de cada rota de `https://www.v2o5.com.br`. Desde 27/10/2026 todas as rotas foram reextraídas do build local da branch `claude/kind-tesla-eefroe` (portfólio das quatro soluções, `docs/2026-10-27-portfolio-no-site.md`), antes da publicação; isso também trouxe para cá mudanças de 25/10 e 26/10 que só estavam no código. Até então, o registro era de 19/10/2026 (`main` em `46c4103`). Exceções de 25/10/2026, com a home do Sprint de Eficiência: `home.md` reextraído do build da branch `claude/keen-ptolemy-vnfnfu`; a assinatura em `_comum.md`, `sobre.md` e `llms.txt.md`; o escopo do Diagnóstico de Gargalo em `diagnostico.md`. As demais rotas seguem como em 19/10. O que o app lê destes arquivos: nada. São o registro do texto para o redesign e para `design/nao-pode-quebrar.md`, gerados por `design/baseline/ferramentas/gerar_conteudo.py`. O redesign muda a forma; estas palavras ficam. Mudança de texto é decisão à parte, feita aqui primeiro e depois no código.
 
 Nenhuma palavra foi digitada à mão. O texto saiu do DOM de produção por script (`design/baseline/ferramentas/extrair.cjs` e `gerar_conteudo.py`), e os estados que só aparecem com interação foram capturados clicando ou copiados dos literais do código, com o arquivo indicado.
 
@@ -14,6 +14,8 @@ Nenhuma palavra foi digitada à mão. O texto saiu do DOM de produção por scri
 | `gestao-de-trafego.md`, `guias.md` | as duas provisórias |
 | `segmentos/revendas-de-veiculos.md` | hub automotivo |
 | `cases/motors-store.md` | case |
+| `branding-e-identidade.md`, `presenca-digital-local.md`, `sprint-de-eficiencia.md` | as páginas das soluções (27/10/2026); Sites & Integrações segue em `criacao-de-sites.md` |
+| `continuidade.md` | os planos de continuidade (27/10/2026) |
 | `precos.md`, `sobre.md`, `privacidade.md` | |
 | `diagnostico.md` | `/diagnostico`, com os campos do segmento automotivo e as mensagens do formulário |
 | `diagnostico/recebido.md` | depois do envio |

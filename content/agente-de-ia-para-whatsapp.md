@@ -1,14 +1,14 @@
 ---
 rota: "/agente-de-ia-para-whatsapp"
-url: "http://localhost:3100/agente-de-ia-para-whatsapp"
+url: "https://www.v2o5.com.br/agente-de-ia-para-whatsapp"
 status: 200
 title: "Agente de IA para WhatsApp | V2O5 Vendas e Tecnologia"
 description: "Agente de IA no WhatsApp que responde na hora com as informações do seu negócio, qualifica, agenda e passa para a equipe. Entra num Sprint de Eficiência."
 canonical: "https://www.v2o5.com.br/agente-de-ia-para-whatsapp"
 robots: null
 h1: "Agente de IA para WhatsApp que responde, qualifica e agenda."
-extraido_em: "2026-10-26T14:09:49.228Z"
-fonte: "produção (www.v2o5.com.br), main em 397830f"
+extraido_em: "2026-10-27T14:34:01.868Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 27/10/2026 (portfólio das quatro soluções), antes da publicação"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 # Agente de IA para WhatsApp que responde, qualifica e agenda.
@@ -150,7 +150,7 @@ Responsável
 
 O agente entra num Sprint quando o gargalo é a resposta lenta ou o contato que se perde fora do horário. O Sprint mapeia o atendimento de hoje, define o que o agente responde e quando chama uma pessoa, implementa e compara o tempo de resposta e os contatos acompanhados antes e depois.
 
-[Ver os Sprints e os valores de partida](/precos#titulo-sprint)
+[Ver os Sprints e os valores](/sprint-de-eficiencia#titulo-pacotes)
 
 O preço final
 
@@ -188,7 +188,7 @@ O agente registra cada conversa no CRM da V2O5 ou, por integração, no sistema 
 
 [Gestão Automação de processos A tarefa que alguém faz à mão toda semana passa a rodar sozinha entre os sistemas que você já usa.](/automacao-com-ia)
 
-[Atração Sites e presença Carrega rápido no celular, aparece no Google e grava de onde veio cada contato, com SEO técnico.](/criacao-de-sites)
+[Atração Sites & Integrações Site próprio, rápido no celular e achado no Google, que grava de onde veio cada contato e se liga ao sistema que você já usa.](/criacao-de-sites)
 
 ## Comece pelo diagnóstico, que é gratuito.
 
@@ -196,7 +196,7 @@ Em 45 minutos de conversa com o fundador, a gente entende como a sua empresa ven
 
 [Pedir diagnóstico](/diagnostico)
 
-[Ver os preços do Sprint](/precos#titulo-sprint)
+[Ver os preços](/precos)
 
 r 18 <!-- texto em SVG; decorativo, aria-hidden -->
 

@@ -1,6 +1,6 @@
 /**
- * A entrega-base do site: o que todo site da V2O5 leva, em qualquer Sprint
- * que inclua um site (Dyones, 25/10/2026: "vamos padronizar a entrega do
+ * A entrega-base do site: o que todo site da V2O5 leva, em qualquer pacote
+ * de Sites & Integrações ou projeto que inclua um site (Dyones, 25/10/2026: "vamos padronizar a entrega do
  * site e desenvolver valor percebido"). Montada a partir do que o site da
  * V2O5 e o da Motors Store já entregam; sem número, só o que existe.
  * `tests/site-padrao.test.ts` confere. Revisada em 26/10/2026 (onze itens; privacidade para o cliente validar com o jurídico; código nos termos do contrato).
@@ -8,7 +8,7 @@
 export const SITE_PADRAO = {
   titulo: "O que todo site da V2O5 entrega.",
   texto:
-    "A base é a mesma em qualquer Sprint. O que muda de um projeto para outro é o que o diagnóstico encontrou: quais páginas, que integrações, que conteúdo.",
+    "A base é a mesma em qualquer pacote. O que muda de um projeto para outro é o que o diagnóstico encontrou: quais páginas, que integrações, que conteúdo.",
   itens: [
     {
       titulo: "Páginas que o Google entende",
@@ -35,7 +35,7 @@ export const SITE_PADRAO = {
     },
     {
       titulo: "Contato que chega à equipe",
-      texto: "O formulário e o WhatsApp levam a mensagem e a origem para quem atende: no CRM, quando o Sprint o inclui, ou no canal que a empresa já usa.",
+      texto: "O formulário e o WhatsApp levam a mensagem e a origem para quem atende: no CRM, quando o projeto o inclui, ou no canal que a empresa já usa.",
     },
     {
       titulo: "Privacidade e consentimento",
@@ -59,5 +59,5 @@ export const SITE_PADRAO = {
     },
   ],
   alem:
-    "O que passa da base (estoque integrado ao sistema da loja, catálogo de anúncios, conteúdo, branding) é capacidade do catálogo e entra no escopo do Sprint, em proposta.",
+    "O que passa da base (estoque integrado ao sistema da loja, integração com outro sistema, conteúdo, branding) entra pelo pacote ou pela solução que cobre, em proposta.",
 };

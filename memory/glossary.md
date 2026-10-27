@@ -33,7 +33,7 @@ Tudo que aparece abreviado nas conversas do projeto. O que é usado toda hora ta
 ## Oferta
 | Termo | Significado |
 |---|---|
-| Start Digital | Redes, Perfil de Empresa, domínio, e-mail; saiu do cardápio, é fundação dos sites |
+| Start Digital | Redes, Perfil de Empresa, domínio, e-mail; desde 27/10 é a Presença Digital Local |
 | Diagnóstico | Gratuito; 45 min + mapa em 24 h com 3 mudanças de maior retorno |
 | Pacote completo | Nome até 14/10 do que virou o plano Completo |
 | Presença, Atendimento, Completo | Os três planos do cardápio de 15/10: ser encontrado (site, Google, rastreamento); responder (agente e CRM); os dois mais integração e um fluxo, o sistema da Motors |

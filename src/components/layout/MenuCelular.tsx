@@ -4,9 +4,10 @@ import Link from "next/link";
 import Icone from "@/components/Icone";
 import LinkOuAncora from "@/components/LinkOuAncora";
 import { useEffect, useId, useRef, useState } from "react";
+import type { ItemDaNavegacao } from "@/conteudo/home";
 
-/** Menu do celular: abaixo de 768 px a navegação vira este painel. */
-export default function MenuCelular({ itens }: { itens: { rotulo: string; href: string }[] }) {
+/** Menu do celular: abaixo de 768 px a navegação vira este painel; os grupos mostram os links embaixo do rótulo. */
+export default function MenuCelular({ itens }: { itens: ItemDaNavegacao[] }) {
   const [aberto, setAberto] = useState(false);
   const id = useId();
   const botao = useRef<HTMLButtonElement>(null);
@@ -57,6 +58,21 @@ export default function MenuCelular({ itens }: { itens: { rotulo: string; href: 
                 >
                   {item.rotulo}
                 </LinkOuAncora>
+                {item.itens ? (
+                  <ul className="-mt-1 pb-3">
+                    {item.itens.map((sub) => (
+                      <li key={sub.href}>
+                        <LinkOuAncora
+                          href={sub.href}
+                          onClick={() => setAberto(false)}
+                          className="flex min-h-11 items-center pl-4 text-[0.9375rem] font-medium text-texto-secundario"
+                        >
+                          {sub.rotulo}
+                        </LinkOuAncora>
+                      </li>
+                    ))}
+                  </ul>
+                ) : null}
               </li>
             ))}
           </ul>

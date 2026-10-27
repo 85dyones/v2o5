@@ -8,16 +8,17 @@ import {
   PERGUNTAS,
   PILARES,
   SOLUCOES,
-  TRES_SPRINTS,
   TITULO_DA_HOME,
   VISAO_360,
 } from "@/conteudo/home";
-import { CONTINUIDADE, faixaEmTexto, SPRINT_DE_PRECOS } from "@/conteudo/sprint";
+import { continuidadeAPartirDe, mensalEmTexto, OFERTAS, precoDeEntrada, VALORES_PUBLICOS } from "@/conteudo/ofertas";
+import { BRL } from "@/conteudo/precos";
 import { arquivos, ler, semComentarios } from "./fonte";
 
 /**
  * Regras de texto do CLAUDE.md: número só com fonte e período, demonstração
- * rotulada, preço "a partir de", sem travessão no texto público.
+ * rotulada, preço só da tabela (`ofertas.ts` e `sprint.ts`), sem travessão
+ * no texto público.
  */
 
 describe("números do case", () => {
@@ -61,11 +62,11 @@ describe("demonstrações rotuladas", () => {
 });
 
 describe("oferta", () => {
-  it("os cartões do catálogo da home não publicam valor nem falam de plano ou mensalidade", () => {
+  it("os cartões de recurso não publicam valor nem falam de plano ou mensalidade", () => {
     expect(LINHAS).toHaveLength(13);
     for (const linha of LINHAS) {
       expect(linha, linha.titulo).not.toHaveProperty("preco");
-      expect(`${linha.titulo} ${linha.frase}`, linha.titulo).not.toMatch(/R\$|mensalidade|plano |Completo|Presença/);
+      expect(`${linha.titulo} ${linha.frase}`, linha.titulo).not.toMatch(/R\$|mensalidade|plano |Completo/);
       expect(linha.href, linha.titulo).toMatch(/^\//);
     }
   });
@@ -82,14 +83,18 @@ describe("os dois grupos do catálogo (operação primeiro, \"Trazer mais gente\
   it("nenhum serviço do catálogo publica valor", () => {
     for (const s of servicos) {
       expect(s, s.titulo).not.toHaveProperty("preco");
-      expect(`${s.titulo} ${s.frase}`, s.titulo).not.toMatch(/R\$|mensalidade|plano |Completo|Presença/);
+      expect(`${s.titulo} ${s.frase}`, s.titulo).not.toMatch(/R\$|mensalidade|plano |Completo/);
     }
   });
 
-  it("o cabeçalho do catálogo subordina as peças ao Sprint e não fala de contratação avulsa", () => {
-    const cabecalho = `${SOLUCOES.titulo} ${SOLUCOES.apagado} ${SOLUCOES.texto}`;
-    expect(cabecalho).toMatch(/Sprint/);
-    expect(cabecalho).not.toMatch(/avuls|em três planos|preço publicado/i);
+  it("a seção #solucoes da home mostra as quatro soluções e a continuidade, sem obrigar a comprar a seguinte (27/10/2026)", () => {
+    expect(`${SOLUCOES.titulo} ${SOLUCOES.apagado}`).toMatch(/Quatro soluções/);
+    expect(SOLUCOES.texto).toMatch(/nenhuma obriga a comprar a seguinte/);
+    const fonte = ler("src/components/home/Solucoes.tsx");
+    expect(fonte).toContain('id="solucoes"');
+    expect(fonte).toContain("OFERTAS.map");
+    expect(fonte).toContain('href="/continuidade"');
+    expect(fonte).not.toContain("PILARES");
   });
 
   it("o mapa traz branding, Perfil da Empresa no Google, SEO e tráfego no Google e na Meta", () => {
@@ -116,22 +121,21 @@ describe("os dois grupos do catálogo (operação primeiro, \"Trazer mais gente\
     expect(PILARES[0].servicos).toHaveLength(8);
   });
 
-  it("o cabeçalho do catálogo diz que tudo chega por um dos três Sprints", () => {
-    expect(`${SOLUCOES.titulo} ${SOLUCOES.apagado}`).toMatch(/três Sprints/);
-    expect(TRES_SPRINTS.titulo).toMatch(/três/);
+  it("a home não volta ao catálogo genérico: as capacidades ficam como recursos, fora da home", () => {
+    const home = ler("src/components/home/Home.tsx");
+    expect(home).not.toMatch(/TresSprints|PILARES|LINHAS/);
+    expect(HERO.conectamos.itens).toEqual(OFERTAS.map((o) => o.nome));
   });
 
-  it("as perguntas respondem preço do Sprint, pagamento, continuidade e lista comprada", () => {
+  it("as perguntas respondem preço das quatro soluções, se precisa contratar tudo, pagamento e continuidade", () => {
     const perguntas = PERGUNTAS.map((p) => p.pergunta);
-    expect(perguntas).toContain("Quanto custa?");
-    expect(perguntas).toContain("Como funciona o pagamento?");
-    expect(perguntas).toContain("E depois que o Sprint termina?");
-    expect(perguntas).toContain("Vocês disparam para listas compradas?");
+    for (const p of ["Quanto custa?", "Preciso contratar tudo?", "Como funciona o pagamento?", "E depois da entrega?"]) expect(perguntas).toContain(p);
     expect(perguntas).not.toContain("Tem cobrança por usuário?");
     expect(perguntas).not.toContain("Os preços sobem com o dólar?");
     const custo = PERGUNTAS.find((p) => p.pergunta === "Quanto custa?")?.resposta ?? "";
-    for (const n of SPRINT_DE_PRECOS.niveis) expect(custo).toContain(faixaEmTexto(n.faixa));
-    expect(PERGUNTAS.find((p) => p.pergunta === "Vocês disparam para listas compradas?")?.resposta).toMatch(/^Não\./);
+    for (const o of OFERTAS) expect(custo).toContain(`${o.nome} a partir de ${BRL(precoDeEntrada(o))}`);
+    expect(custo).toContain(mensalEmTexto(continuidadeAPartirDe()));
+    expect(PERGUNTAS.find((p) => p.pergunta === "Preciso contratar tudo?")?.resposta).toMatch(/^Não\./);
   });
 
   // Medido no Lighthouse mobile: com 279 caracteres o subtítulo ocupava mais
@@ -174,8 +178,8 @@ describe("Visão 360", () => {
 });
 
 describe("perguntas e chamadas", () => {
-  it("todo valor em real das perguntas é uma faixa do Sprint ou da recorrência", () => {
-    const permitidos = [...SPRINT_DE_PRECOS.niveis, ...CONTINUIDADE.modalidades].flatMap((n) => [n.faixa.de, n.faixa.ate].filter((v): v is number => v !== undefined).map((v) => `R$ ${v.toLocaleString("pt-BR")}`));
+  it("todo valor em real das perguntas é da tabela de 27/10/2026", () => {
+    const permitidos = VALORES_PUBLICOS.map(BRL);
     const tudo = PERGUNTAS.map((p) => p.resposta).join(" ");
     const valores = tudo.match(/R\$ \d{1,3}(?:\.\d{3})*/g) ?? [];
     expect(valores.length).toBeGreaterThan(0);
@@ -191,7 +195,7 @@ describe("perguntas e chamadas", () => {
 });
 
 describe("texto público", () => {
-  it("o H1 da home é o de 25/10 (Sprint de Eficiência) e a decisão está registrada", () => {
+  it("o H1 da home é o de 25/10, mantido em 27/10, e a decisão está registrada", () => {
     expect(TITULO_DA_HOME).toBe("Do problema ao resultado, pelo caminho mais simples.");
     expect(ler("memory/decisoes.md")).toContain(TITULO_DA_HOME);
   });
@@ -207,7 +211,7 @@ describe("texto público", () => {
 describe("Como tudo se liga (home)", () => {
   it("o diagrama é apresentado como exemplo de um Sprint, não como pacote fechado (25/10/2026)", () => {
     const fonte = ler("src/components/home/diagrama/ComoSeLiga.tsx");
-    expect(fonte).toMatch(/Um exemplo: o caminho de um contato num Sprint Integrada/);
+    expect(fonte).toMatch(/Um exemplo: o caminho de um contato num Sprint Integrado/);
     expect(fonte).toMatch(/Cada Sprint liga só as peças que o gargalo pede/);
     expect(fonte).toMatch(/id="como-se-liga"/);
   });
@@ -247,9 +251,9 @@ describe("Como tudo se liga: a ordem do funil (26/10/2026)", () => {
     for (const c of CAMADAS) for (const id of c.caminho) expect(PARADAS.map((p) => p.id)).toContain(id);
   });
 
-  it("a home segue a lógica diagnóstico, Sprints, capacidades, exemplo, medição e prova", () => {
+  it("a home segue a lógica soluções, como começar, problema, método, exemplo, medição e prova (27/10/2026)", () => {
     const home = ler("src/components/home/Home.tsx");
-    const ordem = ["<Sprint />", "<Escada />", "<TresSprints />", "<Solucoes />", "<ComoSeLiga />", "<Indicadores />", "<ProjetoReal />", "<Automotivo />"];
+    const ordem = ["<Hero ", "<Solucoes />", "<Escada />", "<Dores />", "<Sprint />", "<ComoSeLiga />", "<Indicadores />", "<ProjetoReal />", "<Automotivo />"];
     const posicoes = ordem.map((c) => home.indexOf(c));
     expect(posicoes.every((p) => p > 0)).toBe(true);
     expect(posicoes).toEqual([...posicoes].sort((a, b) => a - b));

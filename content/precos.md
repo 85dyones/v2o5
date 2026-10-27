@@ -1,131 +1,150 @@
 ---
 rota: "/precos"
-url: "http://localhost:3100/precos"
+url: "https://www.v2o5.com.br/precos"
 status: 200
-title: "Preços do Sprint de Eficiência | V2O5 Vendas e Tecnologia"
-description: "Sprint de Eficiência com preço fechado em proposta, a partir de R$ 3.000, e recorrência mensal de R$ 1.200 a R$ 5.000. Diagnóstico gratuito."
+title: "Preços: quatro soluções e a continuidade | V2O5 Vendas e Tecnologia"
+description: "Preços de referência de Branding, Presença Digital Local, Sites & Integrações, Sprint de Eficiência e dos planos de continuidade. Diagnóstico gratuito."
 canonical: "https://www.v2o5.com.br/precos"
 robots: null
-h1: "Sprint de Eficiência: preço fechado em proposta."
-extraido_em: "2026-10-26T14:09:49.228Z"
-fonte: "produção (www.v2o5.com.br), main em 397830f"
+h1: "Quatro soluções, com preço de referência."
+extraido_em: "2026-10-27T14:34:01.868Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 27/10/2026 (portfólio das quatro soluções), antes da publicação"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
-# Sprint de Eficiência: preço fechado em proposta.
+# Quatro soluções, com preço de referência.
 
-O diagnóstico inicial é gratuito. O Sprint tem preço fechado em proposta, e o que continua rodando depois dele tem uma parte recorrente.
+O diagnóstico inicial é gratuito. Cada solução tem pacotes com escopo claro, e a continuidade é opcional.
 
 [Pedir diagnóstico gratuito](/diagnostico)
 
-[Ver as perguntas](#perguntas)
+[Ver todos os pacotes](#titulo-pacotes)
 
-## Um projeto fechado para um gargalo, com preço em proposta.
+## Quatro soluções e a continuidade. Nenhuma obriga a seguinte.
 
-Os valores abaixo são o ponto de partida e mudam com a complexidade, o risco e os custos diretos. O valor fechado sai depois de delimitar o gargalo. A duração é referência, não promessa automática.
+[Branding & Identidade Quando a empresa é percebida abaixo do que entrega, ou cada canal mostra uma marca diferente. A partir de R$ 2.400](/branding-e-identidade)
 
-São três Sprints, e todo serviço da V2O5 chega por um deles. O diagnóstico acha o gargalo e o escopo costura só as capacidades que ele pede. [Ver o catálogo de capacidades](/#solucoes).
+[Presença Digital Local Quando o cliente procura e encontra informação errada, perfil parado ou nenhum jeito fácil de chamar. A partir de R$ 790](/presenca-digital-local)
 
-1 a 2 semanas
+[Sites & Integrações Quando a empresa depende de perfil de terceiros, ou o site não conversa com o sistema que ela já usa. A partir de R$ 2.900](/criacao-de-sites)
 
-### Sprint Essencial
+[Sprint de Eficiência Quando um processo trava a operação: retrabalho, contato perdido, sistemas que não conversam. A partir de R$ 3.900](/sprint-de-eficiencia)
 
-a partir de R$ 3.000
+[Continuidade Manter funcionando e evoluindo o que foi entregue, com limites escritos. Opcional. Planos a partir de R$ 249/mês](/continuidade)
 
-Faixa de referência
+## Todos os pacotes. O detalhe de cada um está na página da solução.
 
-Um problema específico, resolvido por uma intervenção pequena.
+São preços de referência. O valor fechado sai em proposta, para um escopo conhecido.
 
-Corrigir o fluxo de captação de leads, automatizar uma tarefa repetitiva, integrar duas ferramentas que já existem ou melhorar um processo com gargalo claro.
+### Branding & Identidade
 
-Oferta principal
+Identidade Essencial
 
-### Sprint Integrada
+R$ 2.400
 
-a partir de R$ 6.000
+Marca em Uso
 
-Referência: 2 a 4 semanas
+R$ 4.900
 
-Um gargalo que pede mudanças ligadas em processo, tecnologia e operação.
+Reposicionamento
 
-Estruturar captação, qualificação e distribuição de leads, integrar CRM, WhatsApp e automações, redesenhar o atendimento com indicadores ou melhorar a jornada entre aquisição e conversão.
+A partir de R$ 7.900
 
-4 a 8 semanas ou mais
+[Ver Branding & Identidade](/branding-e-identidade)
 
-### Sprint Avançada
+### Presença Digital Local
 
-a partir de R$ 12.000
+Presença Essencial
 
-Faixa de referência
+Mensalidade opcional: R$ 290/mês
 
-Vários sistemas, regras de negócio, migrações ou maior risco técnico.
+R$ 790
 
-Orquestração entre sistemas, IA com fluxos de exceção ou reestruturação comercial com várias equipes. Pede escopo técnico e critérios de aceite mais rigorosos.
+Presença Estruturada
 
-Uma solução que parecia simples pode revelar sistemas antigos ou dependências a mais. Nesse caso, escopo, prazo e proposta são revistos antes de seguir.
+Mensalidade opcional: R$ 490/mês
 
-### Do que o preço é feito
+R$ 1.490
 
-- Execução: diagnóstico aprofundado, desenvolvimento, configuração, testes e implantação.
-- Complexidade e risco: integrações frágeis, dados ruins, dependência de terceiros e incerteza técnica.
-- Custos diretos: APIs, infraestrutura, licenças e fornecedores do projeto, discriminados na proposta.
+Presença Assistida
 
-### O que continua depois da entrega.
+Mensalidade opcional: R$ 890/mês
 
-O Sprint termina na entrega. Se a solução continua rodando, há uma parte recorrente, em contrato à parte, com limites de atendimento e escopo escritos. A proposta separa cada custo:
+R$ 1.990
 
-- Gestão continuada. Monitoramento, correções e ajustes, com capacidade reservada. É a faixa mensal abaixo.
-- Nuvem. Servidor, banco de dados e backups, pelo valor do provedor e discriminados. A V2O5 gerencia.
-- IA e mensagens. O consumo de IA e as mensagens do WhatsApp variam com o volume e vêm pelo valor do provedor, discriminados na fatura, com teto mensal combinado e aviso antes de ultrapassá-lo. A V2O5 gerencia.
+[Ver Presença Digital Local](/presenca-digital-local)
 
-Modelos de IA, APIs e regras do negócio mudam, e o que funciona na entrega precisa de ajuste para continuar funcionando.
+### Sites & Integrações
 
-Estabilidade e suporte
+Landing Page
 
-R$ 1.200 a R$ 2.500 por mês
+R$ 2.900
 
-Monitoramento acordado, correções dentro do escopo, manutenção e acompanhamento técnico.
+Site Personalizado
 
-Faixa de referência. Valor e limites em contrato.
+R$ 5.900
 
-Evolução contínua
+Site Conectado
 
-R$ 2.500 a R$ 5.000 por mês
+A partir de R$ 9.900
 
-Suporte, revisão de indicadores e capacidade mensal reservada para melhorias priorizadas.
+Site Automotivo Integrado
 
-Faixa de referência. Valor e limites em contrato.
+A partir de R$ 11.900
 
-O contrato define prazo de resposta, canais, limite de horas ou capacidade, exclusões e o preço de demandas adicionais. A faixa mensal paga a gestão: nuvem, IA e demais custos de terceiros ficam por fora, discriminados. Ela não cobre desenvolvimento ilimitado, plantão irrestrito, nova integração sem orçamento nem garantia de resultado comercial. Novos gargalos, integrações, automações ou produtos são orçados à parte.
+[Ver Sites & Integrações](/criacao-de-sites)
 
-### Como o projeto é combinado
+### Sprint de Eficiência
 
-Escopo e aceite
+Sprint Essencial
 
-Toda proposta define o problema, os entregáveis, as exclusões, o prazo, as responsabilidades do cliente, os critérios de aceite e os custos recorrentes. Mudança de escopo exige nova estimativa e aprovação.
+R$ 3.900
 
-Pagamento
+Sprint Integrado
 
-Em projetos, 50% na contratação, 30% na validação intermediária e 20% no aceite final. Em Sprints pequenas, 50% na contratação e 50% na entrega.
+R$ 6.900
 
-Prazos e dependências
+Sprint Avançado
 
-O cronograma depende de acessos, dados e aprovações do cliente. Bloqueios relevantes podem suspender ou reprogramar etapas, conforme o contrato.
+A partir de R$ 12.900
 
-Defeitos e novas necessidades
+[Ver Sprint de Eficiência](/sprint-de-eficiencia)
 
-Defeitos da implementação são corrigidos num período definido na proposta. Novas funcionalidades, mudanças externas e novas necessidades são tratadas à parte.
+### Continuidade
 
-Resultado
+Cuidado Técnico
 
-O preço remunera a entrega acordada. Aumento de vendas não é prometido antes de conhecer o cenário. Bônus por desempenho é complementar e excepcional, só com métrica objetiva, linha de base confiável, acesso aos dados e regra de atribuição acordada. Participação no resultado pede contrato específico e não substitui a remuneração mínima.
+R$ 249/mês
+
+Integrações Monitoradas
+
+R$ 490/mês
+
+Evolução Contínua
+
+R$ 990/mês
+
+[Ver a continuidade e os limites](/continuidade)
+
+## Como o preço funciona. O mesmo em todas as soluções.
+
+- São preços de referência para começar a conversa. O valor fechado sai em proposta e vale para um escopo conhecido.
+- Cada pacote diz o que inclui e o que fica de fora. Nenhum tem escopo ilimitado.
+- Custos de terceiros, como domínio, licenças, APIs, mídia paga, IA e mensagens, ficam por fora e aparecem discriminados na proposta.
+- Nenhuma solução obriga a comprar outra, e a continuidade é opcional.
+- Aumento de vendas não é prometido. O que se mede é combinado antes de começar, com uma linha de base.
+- O diagnóstico inicial, de 45 minutos, é gratuito e serve para escolher a solução que cabe no problema.
 
 ## O que todo mundo pergunta antes de fechar.
 
-Preço, pagamento, o que o Sprint entrega e o que vem depois. Se a sua pergunta não está aqui, ela cabe no diagnóstico.
+Preço, pagamento, o que cada solução entrega e o que vem depois. Se a sua pergunta não está aqui, ela cabe no diagnóstico.
 
 Quanto custa?
 
-O Diagnóstico de Gargalo, a sessão inicial de 45 minutos, é gratuito. O Sprint de Eficiência tem preço fechado em proposta, depois de delimitar o gargalo. Os valores de partida são Sprint Essencial a partir de R$ 3.000, Sprint Integrada a partir de R$ 6.000, Sprint Avançada a partir de R$ 12.000, conforme a complexidade, o risco e os custos diretos. A duração é referência, não promessa.
+O diagnóstico inicial, de 45 minutos, é gratuito. Os preços de entrada são Branding & Identidade a partir de R$ 2.400, Presença Digital Local a partir de R$ 790, Sites & Integrações a partir de R$ 2.900, Sprint de Eficiência a partir de R$ 3.900, e a continuidade tem planos a partir de R$ 249/mês. São preços de referência: o valor fechado sai em proposta, para um escopo conhecido.
+
+Preciso contratar tudo?
+
+Não. Cada solução resolve um tipo de problema e funciona sozinha. Elas se completam, e o diagnóstico ajuda a escolher por onde começar. A continuidade também é opcional.
 
 O que um Sprint entrega?
 
@@ -133,15 +152,15 @@ Um projeto fechado para um gargalo delimitado: mapeamento do fluxo atual, priori
 
 Como funciona o pagamento?
 
-Em projetos, 50% na contratação, 30% na validação intermediária e 20% no aceite final. Em Sprints pequenas, 50% na contratação e 50% na entrega.
+No Sprint: em projetos, 50% na contratação, 30% na validação intermediária e 20% no aceite final. Em Sprints pequenos, 50% na contratação e 50% na entrega. Nas outras soluções, as condições saem na proposta.
 
-E depois que o Sprint termina?
+E depois da entrega?
 
-O Sprint termina na entrega. Se a solução continua rodando, há uma parte recorrente, em contrato à parte e com limites escritos. A gestão continuada é estabilidade e suporte, de R$ 1.200 a R$ 2.500 por mês, ou evolução contínua, de R$ 2.500 a R$ 5.000 por mês. Nuvem e IA ficam por fora da faixa, pelo valor do provedor e discriminadas, e a V2O5 gerencia as duas. A faixa não cobre desenvolvimento ilimitado nem novas integrações sem orçamento.
+A implantação termina na entrega. Se o que foi entregue continua rodando, a continuidade cuida dele, em contrato à parte e com horas e prazo de resposta escritos, com planos a partir de R$ 249/mês. Banco de dados, servidor dedicado, IA e mensagens ficam por fora, pelo valor do provedor, e a V2O5 gerencia. Nenhum plano cobre desenvolvimento ilimitado.
 
 Preciso trocar o sistema de gestão que já uso?
 
-Não. A V2O5 liga o que você já usa. Em produção hoje: o estoque do Revenda Mais sincronizado com o site e o agente da Motors Store. Autoconf, BNDV, Boom, Altimus e Syonet e outros sistemas entram como integração dentro de um Sprint, quando o gargalo pede.
+Não. A V2O5 liga o que você já usa. Em produção hoje: o estoque do Revenda Mais sincronizado com o site e o agente da Motors Store. Autoconf, BNDV, Boom, Altimus e Syonet, entre outros, entram como integração, depois de verificar a documentação e o acesso de cada um.
 
 O agente de IA atende sozinho?
 
@@ -149,19 +168,11 @@ Responde na hora com as informações do seu negócio e, quando a conversa pede 
 
 Vocês fazem tráfego pago sem rastreamento?
 
-Não. Sem rastreamento até a venda, a campanha otimiza pelo formulário preenchido, e verba vai para o anúncio que gera contato barato, mesmo quando ele vende pouco. A gestão de tráfego começa com o rastreamento ligado.
-
-Vocês disparam para listas compradas?
-
-Não. A reativação de base usa a base própria da empresa, com registro de origem e saída fácil em toda mensagem. Lista comprada ou raspada fere a LGPD e derruba o número no WhatsApp.
-
-Por onde sai a campanha de reativação?
-
-Por SMS, com link rastreado e saída fácil, disparado do painel; ou por WhatsApp, numa campanha operada pela V2O5, pela API oficial ou por um número dedicado à campanha, nunca o principal da empresa. A API oficial cobra por mensagem e limita o volume diário, por isso o canal sai do diagnóstico, pelo tamanho da base. Os custos do provedor ficam discriminados na proposta.
+Não. Sem rastreamento até a venda, a campanha otimiza pelo formulário preenchido, e verba vai para o anúncio que gera contato barato, mesmo quando ele vende pouco. A gestão de tráfego entra num projeto só com o rastreamento ligado, e a verba é paga direto às plataformas.
 
 Como funciona o diagnóstico gratuito?
 
-São 45 minutos de conversa com o fundador sobre presença, atendimento, operação e funil, para identificar e priorizar um gargalo e avaliar se existe um projeto viável. A sessão não inclui mapeamento completo do processo, implementação nem acompanhamento de resultados. Havendo um bom caso, o próximo passo é o Sprint de Eficiência, com escopo, entregáveis, prazo e investimento definidos em proposta.
+São 45 minutos de conversa com o fundador sobre marca, presença, atendimento, operação e funil, para identificar e priorizar o problema e avaliar se existe um projeto viável. A sessão não inclui mapeamento completo do processo, implementação nem acompanhamento de resultados. Havendo um bom caso, o próximo passo é a proposta da solução que cabe no problema, com escopo, entregáveis, prazo e investimento.
 
 A V2O5 atende fora de Curitiba?
 

@@ -7,8 +7,8 @@ description: "Quais dados a V2O5 Vendas e Tecnologia coleta neste site, para qu�
 canonical: "https://www.v2o5.com.br/privacidade"
 robots: null
 h1: "Política de privacidade"
-extraido_em: "2026-10-19T00:26:22.723Z"
-fonte: "produção (www.v2o5.com.br), main em 46c4103"
+extraido_em: "2026-10-27T14:34:01.868Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 27/10/2026 (portfólio das quatro soluções), antes da publicação"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 Privacidade e LGPD

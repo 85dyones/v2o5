@@ -1,35 +1,35 @@
 ---
 rota: "/criacao-de-sites"
-url: "http://localhost:3100/criacao-de-sites"
+url: "https://www.v2o5.com.br/criacao-de-sites"
 status: 200
-title: "Criação de site profissional com SEO | V2O5 Vendas e Tecnologia"
-description: "Site rápido no celular, achado no Google e nas respostas das IAs, que grava de onde veio cada contato. Intervenção de um Sprint de Eficiência."
+title: "Criação de sites profissionais e integrações | V2O5 Vendas e Tecnologia"
+description: "Landing page, site personalizado, site conectado ao seu sistema e site automotivo com estoque integrado. Rápido no celular, achado no Google e medido."
 canonical: "https://www.v2o5.com.br/criacao-de-sites"
 robots: null
-h1: "Criação de site profissional com SEO e rastreamento."
-extraido_em: "2026-10-26T14:09:49.228Z"
-fonte: "produção (www.v2o5.com.br), main em 397830f"
+h1: "Criação de sites profissionais, ligados ao sistema que você já usa."
+extraido_em: "2026-10-27T14:34:01.868Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 27/10/2026 (portfólio das quatro soluções), antes da publicação"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
-# Criação de site profissional com SEO e rastreamento.
+# Criação de sites profissionais, ligados ao sistema que você já usa.
 
-Site que carrega rápido no celular, aparece no Google e grava de onde veio cada contato. Entra num Sprint quando o gargalo é a presença.
+Site próprio que carrega rápido no celular, aparece no Google e grava a origem de cada contato. Com integração quando o escopo pede.
 
 [Pedir diagnóstico gratuito](/diagnostico)
 
-[Ver como entra num Sprint](#titulo-no-sprint)
+[Ver os pacotes](#titulo-pacotes)
 
-No Sprint
+Resolve
 
-Intervenção para quando o gargalo é ser encontrado e saber de onde vêm os contatos
+Quando a empresa depende de perfil de terceiros, ou o site não conversa com o sistema que ela já usa.
+
+Preço de entrada
+
+a partir de R$ 2.900, da landing page ao site automotivo integrado
 
 Entrega-base
 
 Onze itens iguais em todo site da V2O5, das páginas que o Google entende à entrega documentada
-
-O que entra
-
-Páginas que o Google entende, SEO técnico, Perfil da Empresa no Google e rastreamento até a venda, conforme o escopo do Sprint
 
 Em produção
 
@@ -37,9 +37,9 @@ Motors Store: site de estoque com 132 veículos sincronizados e 26 guias
 
 ## O site de template aparece bonito e some na busca.
 
-Carrega devagar no celular, tem uma página só para todos os modelos ou serviços, e quem chega por um anúncio vira um contato sem origem. O Google só acha o que existe como página, e a verba de mídia não aprende com o que virou venda.
+Carrega devagar no celular, tem uma página só para todos os modelos ou serviços, e quem chega por um anúncio vira um contato sem origem. O Google só acha o que existe como página, e o contato que chega pelo site não aparece no sistema da empresa.
 
-Atração
+Gestão
 
 ## O que a V2O5 entrega nesta linha.
 
@@ -65,7 +65,7 @@ Cada botão de WhatsApp e cada formulário gravam a campanha, o anúncio e a pá
 
 ### Contato que chega à equipe
 
-O formulário e o WhatsApp levam a mensagem e a origem para quem atende: no CRM, quando o Sprint o inclui, ou no canal que a empresa já usa.
+O formulário e o WhatsApp levam a mensagem e a origem para quem atende: no CRM, quando o projeto o inclui, ou no canal que a empresa já usa.
 
 ### Privacidade e consentimento
 
@@ -95,25 +95,25 @@ Começa pelo diagnóstico gratuito, com o escopo fechado antes da implantação.
 
 Diagnóstico
 
-45 minutos com o fundador sobre presença, busca e o que a empresa vende, para priorizar o que entra no site.
+45 minutos com o fundador sobre presença, busca, o que a empresa vende e os sistemas que ela já usa.
 
 02
 
-Estrutura e textos
+Proposta e estrutura
 
-Mapa de páginas pela busca real e textos escritos para o cliente, revisados com você antes de ir ao ar.
+O pacote, as páginas e as integrações fechados por escrito. O mapa de páginas sai da busca real.
 
 03
 
 Construção e medição
 
-O site fica num endereço de teste e é medido no celular antes de publicar.
+O site fica num endereço de teste, com as integrações conferidas e medido no celular antes de publicar.
 
 04
 
-Publicação e rotina
+Publicação
 
-Troca de DNS, Search Console, Perfil da Empresa e o relatório mensal do que a busca trouxe.
+Troca de DNS, Search Console e Perfil da Empresa. Depois, a continuidade, se você quiser.
 
 ## No ar na Motors Store.
 
@@ -167,33 +167,114 @@ motorsstore.com.br/financiamento, capturado em 26/10/2026
 
 [Ler o case completo](/cases/motors-store)
 
-## Sites e presença num Sprint de Eficiência.
+## Os pacotes. Preço de referência, com o valor fechado em proposta.
 
-O site entra num Sprint quando o gargalo é ser encontrado: páginas que o Google entende, Perfil da Empresa, SEO técnico e a origem de cada contato gravada. O Sprint começa pelo mapeamento do fluxo atual e termina com os indicadores disponíveis comparados antes e depois.
+Sites & Integrações
 
-[Ver os Sprints e os valores de partida](/precos#titulo-sprint)
+### Landing Page
 
-O preço final
+R$ 2.900
 
-Sai da proposta do Sprint, depois de delimitar o gargalo, o escopo, os entregáveis e o prazo.
+Preço de referência da implantação.
 
-O diagnóstico inicial, de 45 minutos, é gratuito.
+Para uma oferta, campanha ou serviço que precisa de uma página que leve ao contato.
 
-## O que perguntam sobre sites e presença antes de fechar.
+- Uma página comercial com textos escritos pela V2O5
+- Formulário ou botão de WhatsApp funcionando, com o contato chegando a quem atende
+- Rastreamento básico: de onde veio cada contato
+- SEO técnico da página e publicação no domínio da empresa
+- Duas rodadas de revisão
 
-O que entra, onde encaixa num Sprint e o que fica de fora. O resto cabe no diagnóstico.
+Sites & Integrações
+
+### Site Personalizado
+
+R$ 5.900
+
+Preço de referência da implantação.
+
+Para a empresa que precisa de um site próprio, com estrutura comercial.
+
+- Site institucional personalizado, com até seis páginas
+- A entrega-base de todo site da V2O5, descrita nesta página
+- SEO técnico básico e envio ao Search Console
+- Contatos funcionando: WhatsApp, formulário e telefone
+- Duas rodadas de revisão
+
+Sites & Integrações
+
+### Site Conectado
+
+A partir de R$ 9.900
+
+Preço de referência da implantação.
+
+Para quem precisa do site ligado ao sistema que já usa.
+
+- Tudo do Site Personalizado
+- Integração com um sistema que a empresa já usa (CRM, agenda, catálogo ou ERP), depois de verificar a documentação e o acesso
+- Contatos medidos até o sistema, com a origem gravada
+- Aviso quando a integração falha
+
+Sites & Integrações
+
+### Site Automotivo Integrado
+
+A partir de R$ 11.900
+
+Preço de referência da implantação.
+
+Para a revenda que quer site próprio com o estoque do gestor e os contatos no CRM.
+
+- Site da revenda com identidade própria
+- Estoque alimentado pelo gestor atual, por feed, API ou outro meio autorizado (Revenda Mais em produção)
+- Página de cada veículo e tratamento dos vendidos
+- Contatos encaminhados ao CRM que a loja já usa, com a origem registrada
+- Monitoramento de falhas da integração
+
+### Fora dos pacotes
+
+- Domínio, e-mail, APIs pagas e licenças de terceiros
+- Mídia paga
+- Loja virtual com pagamento
+- Fotos e vídeos
+- Integrações novas depois da entrega
+
+### Como o preço funciona
+
+- O preço fechado vale para um escopo conhecido.
+- Integração só entra na proposta depois de verificar documentação, credenciais, limites e custos do sistema. Integração padrão e desenvolvimento específico têm preços diferentes.
+- O site não substitui o CRM nem o sistema de gestão: ele se liga ao que a empresa já usa.
+
+Site e página costumam seguir com o Cuidado Técnico; site com integração, com as Integrações Monitoradas. [Ver a continuidade](/continuidade).
+
+[Pedir diagnóstico gratuito](/diagnostico)
+
+[Ver todos os preços](/precos)
+
+## O que perguntam sobre Sites & Integrações antes de fechar.
+
+O que entra, quanto custa e o que fica de fora. O resto cabe no diagnóstico.
 
 Quanto custa um site profissional?
 
-O site entra num Sprint de Eficiência, com preço fechado em proposta depois de delimitar o gargalo, o escopo e os entregáveis. Os valores de partida do Sprint estão em /precos. O diagnóstico inicial, de 45 minutos, é gratuito.
+Os pacotes: Landing Page, R$ 2.900; Site Personalizado, R$ 5.900; Site Conectado, a partir de R$ 9.900; Site Automotivo Integrado, a partir de R$ 11.900. São preços de referência: o valor fechado sai em proposta, depois de conhecer o escopo e o sistema que o site precisa ligar. O diagnóstico inicial, de 45 minutos, é gratuito.
 
 Posso aproveitar o site que já tenho?
 
 O diagnóstico começa pelo site atual: velocidade, páginas, tags. Se a base for boa, a V2O5 trabalha em cima dela; se não, migra o conteúdo que vale e refaz o resto.
 
+O site se liga ao meu CRM ou ao meu sistema de gestão?
+
+No Site Conectado e no Site Automotivo Integrado, sim. A integração entra na proposta depois de verificar a documentação, o acesso, os limites e os custos do sistema. Compatibilidade com qualquer sistema não é prometida.
+
+E depois que o site vai ao ar?
+
+A continuidade é opcional. O Cuidado Técnico (R$ 249/mês) cuida da hospedagem, do SSL, do backup e de até 1 hora de suporte por mês. Site com integração costuma seguir com as Integrações Monitoradas (R$ 490/mês).
+
 O site fica no meu nome?
 
-Sim. Domínio, hospedagem e código no nome da sua empresa desde o primeiro dia.
+O domínio fica no nome da sua empresa, e o código e os dados são entregues nos termos do contrato. Com o Cuidado Técnico, a V2O5 cuida da hospedagem.
 
 Preciso ter fotos e textos prontos?
 
@@ -201,15 +282,15 @@ Os textos a V2O5 escreve e revisa com você. Fotos e vídeos ficam com a sua equ
 
 O site vem com loja virtual?
 
-Não. Loja com pagamento está fora do cardápio. O site vende por WhatsApp, formulário e telefone, com a origem de cada contato gravada.
+Não. Loja com pagamento fica fora dos pacotes. O site vende por WhatsApp, formulário e telefone, com a origem de cada contato gravada.
 
-## Intervenções que combinam com esta.
+## Recursos que combinam com esta solução.
 
 [Atração Rastreamento até a venda Cada venda com a origem: qual anúncio, qual busca, qual página. Sem isso, a verba vai para onde parece funcionar.](/rastreamento-de-conversoes)
 
-[Atendimento Agente de IA no WhatsApp Responde na hora, a qualquer hora, com as informações do seu negócio. Quando a conversa pede uma pessoa, chama alguém da equipe.](/agente-de-ia-para-whatsapp)
+[Gestão CRM e sistemas sob medida Nenhum contato esquecido numa conversa: cada um num funil, com a origem, a etapa e o próximo passo à vista.](/crm-com-whatsapp)
 
-[Atração Conteúdo e gestão de redes sociais Duas redes com perfis configurados e um calendário de 12 publicações por mês feitas do que a empresa já produz: o estoque, os guias, a novidade da semana. Cada post com link rastreado.](/diagnostico)
+[Atendimento Agente de IA no WhatsApp Responde na hora, a qualquer hora, com as informações do seu negócio. Quando a conversa pede uma pessoa, chama alguém da equipe.](/agente-de-ia-para-whatsapp)
 
 ## Comece pelo diagnóstico, que é gratuito.
 
@@ -217,7 +298,7 @@ Em 45 minutos de conversa com o fundador, a gente entende como a sua empresa ven
 
 [Pedir diagnóstico](/diagnostico)
 
-[Ver os preços do Sprint](/precos#titulo-sprint)
+[Ver os preços](/precos)
 
 r 18 <!-- texto em SVG; decorativo, aria-hidden -->
 
@@ -232,15 +313,14 @@ V · 6,8 <!-- texto em SVG; decorativo, aria-hidden -->
 O · 4,8 <!-- texto em SVG; decorativo, aria-hidden -->
 
 <!-- fora do <main>: botão fixo do WhatsApp (só abaixo de 768 px) -->
-[WhatsApp](https://wa.me/5541998089550?text=Ol%C3%A1!%20Vi%20a%20p%C3%A1gina%20de%20Sites%20e%20presen%C3%A7a%20no%20site%20da%20V2O5%20e%20quero%20conversar%20sobre%20a%20minha%20empresa.)
+[WhatsApp](https://wa.me/5541998089550?text=Ol%C3%A1!%20Vi%20a%20p%C3%A1gina%20de%20Sites%20%26%20Integra%C3%A7%C3%B5es%20no%20site%20da%20V2O5%20e%20quero%20conversar%20sobre%20a%20minha%20empresa.)
 
 <!-- rótulos de acessibilidade (aria-label) desta rota, fora topo e rodapé:
-- "Sites e presença" (section)
+- "Sites & Integrações" (section)
 - "O problema" (section)
 - "O que entra" (section)
 - "Como funciona" (section)
 - "Case" (section)
-- "No Sprint" (section)
 - "Antes de contratar" (section)
 - "Conversa no WhatsApp" (aside)
 -->

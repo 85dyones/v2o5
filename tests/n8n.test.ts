@@ -1,7 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { ESTOQUES, OBJETIVOS, PORTES, SEGMENTOS, SISTEMAS } from "@/conteudo/diagnostico";
 import { EMPRESA, MARCA_DO_SITE, WHATSAPP } from "@/conteudo/home";
-import { FOTOGRAFIA_PARCEIRA } from "@/conteudo/precos";
 import { mensagemDaSolucao, SOLUCOES } from "@/conteudo/solucoes";
 import { arquivos, ler, semComentarios } from "./fonte";
 
@@ -139,7 +138,7 @@ describe("os três fluxos", () => {
 
 describe("mensagens prontas do WhatsApp", () => {
   it("toda mensagem pronta do site traz o trecho que o n8n reconhece", () => {
-    const mensagens = [...Object.values(WHATSAPP.mensagens), ...SOLUCOES.map(mensagemDaSolucao), FOTOGRAFIA_PARCEIRA.mensagem];
+    const mensagens = [...Object.values(WHATSAPP.mensagens), ...SOLUCOES.map(mensagemDaSolucao)];
     for (const m of mensagens) expect(m, m).toContain(MARCA_DO_SITE);
   });
 
@@ -459,7 +458,7 @@ describe("fluxo do agente", () => {
   it("as instruções do agente seguem as regras do texto público e levam ao diagnóstico", () => {
     const instrucoes = js(agente, "Montar pedido");
     expect(instrucoes).not.toMatch(/[—–]/);
-    for (const trecho of ["45 minutos", "Sprint de Eficiência", "Só o Sprint de Eficiência e a recorrência que o acompanha", "se a solução continua rodando", "Não invente número"]) expect(instrucoes).toContain(trecho);
+    for (const trecho of ["45 minutos", "Sprint de Eficiência", "As quatro soluções e a continuidade têm preço de referência público", "o valor fechado sai em proposta", "Tráfego pago não tem preço público", "Não invente número"]) expect(instrucoes).toContain(trecho);
     expect(instrucoes).not.toContain("24 horas");
     expect(campo(agente, "conhecimentoUrl")).toBe("https://v2o5.vercel.app/llms.txt");
   });

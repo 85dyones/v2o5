@@ -26,8 +26,8 @@ export const PAGINAS: Pagina[] = [
     rota: "/",
     titulo: TITULO_PADRAO,
     descricao:
-      "A V2O5 acha o gargalo, simplifica o processo e implementa tecnologia, automação e IA para a operação render mais e ser medida. Comece pelo Sprint de Eficiência.",
-    atualizadaEm: "2026-10-25",
+      "Branding, presença digital local, sites com integração e o Sprint de Eficiência: a V2O5 melhora marca, presença e operação, com preço de referência.",
+    atualizadaEm: "2026-10-27",
     pronta: true,
   },
   {
@@ -48,10 +48,10 @@ export const PAGINAS: Pagina[] = [
   },
   {
     rota: "/criacao-de-sites",
-    titulo: "Criação de site profissional com SEO",
+    titulo: "Criação de sites profissionais e integrações",
     descricao:
-      "Site rápido no celular, achado no Google e nas respostas das IAs, que grava de onde veio cada contato. Intervenção de um Sprint de Eficiência.",
-    atualizadaEm: "2026-10-25",
+      "Landing page, site personalizado, site conectado ao seu sistema e site automotivo com estoque integrado. Rápido no celular, achado no Google e medido.",
+    atualizadaEm: "2026-10-27",
     pronta: true,
   },
   {
@@ -87,11 +87,43 @@ export const PAGINAS: Pagina[] = [
     pronta: true,
   },
   {
-    rota: "/precos",
-    titulo: "Preços do Sprint de Eficiência",
+    rota: "/branding-e-identidade",
+    titulo: "Branding e identidade visual",
     descricao:
-      "Sprint de Eficiência com preço fechado em proposta, a partir de R$ 3.000, e recorrência mensal de R$ 1.200 a R$ 5.000. Diagnóstico gratuito.",
-    atualizadaEm: "2026-10-25",
+      "Identidade visual com variações, cores, tipografia e guia de uso, aplicada no dia a dia comercial, e reposicionamento de marca. Preços de referência.",
+    atualizadaEm: "2026-10-27",
+    pronta: true,
+  },
+  {
+    rota: "/presenca-digital-local",
+    titulo: "Presença digital para negócios locais",
+    descricao:
+      "Perfil da Empresa no Google, redes sociais e WhatsApp Business organizados, com modelos de conteúdo, calendário e rotina mensal opcional.",
+    atualizadaEm: "2026-10-27",
+    pronta: true,
+  },
+  {
+    rota: "/sprint-de-eficiencia",
+    titulo: "Sprint de Eficiência: um gargalo resolvido e medido",
+    descricao:
+      "Projeto fechado para um gargalo da operação: mapear, simplificar, implementar e comparar os indicadores antes e depois. Três Sprints com preço de referência.",
+    atualizadaEm: "2026-10-27",
+    pronta: true,
+  },
+  {
+    rota: "/continuidade",
+    titulo: "Continuidade: manutenção, conteúdo e monitoramento",
+    descricao:
+      "Planos opcionais para manter e evoluir o que foi entregue: Cuidado Técnico, Integrações Monitoradas e Evolução Contínua, com horas e prazos escritos.",
+    atualizadaEm: "2026-10-27",
+    pronta: true,
+  },
+  {
+    rota: "/precos",
+    titulo: "Preços: quatro soluções e a continuidade",
+    descricao:
+      "Preços de referência de Branding, Presença Digital Local, Sites & Integrações, Sprint de Eficiência e dos planos de continuidade. Diagnóstico gratuito.",
+    atualizadaEm: "2026-10-27",
     pronta: true,
   },
   {

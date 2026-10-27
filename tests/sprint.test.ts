@@ -1,41 +1,50 @@
 import { describe, expect, it } from "vitest";
-import { CONDICOES, CONTINUIDADE, faixaEmTexto, SPRINT_DE_PRECOS } from "@/conteudo/sprint";
-import { ESCADA } from "@/conteudo/home";
+import { CONDICOES, METODO, SPRINT_DE_PRECOS } from "@/conteudo/sprint";
+import { precoEmTexto } from "@/conteudo/precos";
+import { CONTINUIDADE } from "@/conteudo/ofertas";
+import { ESCADA, SPRINT } from "@/conteudo/home";
 import { ler } from "./fonte";
 
-/** `sprint.ts` é a fonte; `memory/context/oferta.md` repete os números aprovados em 25/10/2026. */
+/** `sprint.ts` é a fonte; `memory/context/oferta.md` repete os valores do handoff de 27/10/2026. */
 const oferta = ler("memory/context/oferta.md");
 
 describe("Sprint de Eficiência", () => {
-  it("os Sprints mostram só o valor de partida, sem teto (Dyones, 26/10/2026), e a recorrência segue em faixa", () => {
-    expect(SPRINT_DE_PRECOS.niveis.map((n) => faixaEmTexto(n.faixa))).toEqual([
-      "a partir de R$ 3.000",
-      "a partir de R$ 6.000",
-      "a partir de R$ 12.000",
+  it("os três Sprints têm os valores e os nomes do handoff de 27/10/2026", () => {
+    expect(SPRINT_DE_PRECOS.niveis.map((n) => [n.nome, precoEmTexto(n.preco)])).toEqual([
+      ["Sprint Essencial", "R$ 3.900"],
+      ["Sprint Integrado", "R$ 6.900"],
+      ["Sprint Avançado", "a partir de R$ 12.900"],
     ]);
-    for (const n of SPRINT_DE_PRECOS.niveis) expect(n.faixa, n.nome).not.toHaveProperty("ate");
-    // Os tetos de referência ficam só na memória interna.
-    for (const teto of ["R$ 3.000 a R$ 5.000", "R$ 6.000 a R$ 12.000", "R$ 12.000 a R$ 25.000 ou mais"]) expect(oferta).toContain(teto);
-    for (const n of SPRINT_DE_PRECOS.niveis) expect(oferta).toContain(`${n.nome}${n.principal ? " (oferta principal)" : ""}: ${faixaEmTexto(n.faixa)}`);
-    expect(CONTINUIDADE.modalidades.map((m) => faixaEmTexto(m.faixa))).toEqual(["R$ 1.200 a R$ 2.500", "R$ 2.500 a R$ 5.000"]);
-    for (const m of CONTINUIDADE.modalidades) expect(oferta).toContain(`${m.nome}: ${faixaEmTexto(m.faixa)} por mês`);
-    expect(CONTINUIDADE.texto).toMatch(/Se a solução continua rodando, há uma parte recorrente/);
-    expect(CONTINUIDADE.recorrencia.map((r) => r.titulo)).toEqual(["Gestão continuada", "Nuvem", "IA e mensagens"]);
-    expect(JSON.stringify(CONTINUIDADE)).toMatch(/A V2O5 gerencia/);
-    // Repasse pelo valor do provedor, sem margem anunciada, com teto mensal combinado e aviso (Dyones, 25/10).
-    expect(CONTINUIDADE.recorrencia[2].texto).toMatch(/teto mensal combinado e aviso antes de ultrapassá-lo/);
-    expect(JSON.stringify(CONTINUIDADE)).not.toMatch(/margem|markup/i);
-    // Não detalha de quem são as contas de nuvem e de IA: só fala em recorrência (Dyones, 25/10).
-    expect(JSON.stringify(CONTINUIDADE)).not.toMatch(/suas contas|conta do cliente|paga os provedores/i);
+    for (const n of SPRINT_DE_PRECOS.niveis) {
+      expect(oferta).toContain(`| ${n.nome} | ${precoEmTexto(n.preco)} | ${n.duracao} |`);
+      expect(n.escopo.length, n.nome).toBeGreaterThan(30);
+    }
+    // Os nomes de 25/10 saíram do texto vigente.
+    expect(JSON.stringify(SPRINT_DE_PRECOS)).not.toMatch(/Sprint Integrada|Sprint Avançada/);
   });
 
-  it("a oferta principal é uma só e a duração é referência", () => {
+  it("o método tem os seis passos do handoff, na home e na página do Sprint", () => {
+    expect(METODO.map((m) => m.titulo)).toEqual([
+      "Mapear o processo real",
+      "Simplificar antes de automatizar",
+      "Escolher a intervenção proporcional",
+      "Implementar a solução acordada",
+      "Comparar antes e depois",
+      "Registrar e decidir o próximo passo",
+    ]);
+    expect(SPRINT.etapas.map((e) => e.titulo)).toEqual(METODO.map((m) => m.titulo));
+    for (const e of SPRINT.etapas) expect(e.entregas.length, e.titulo).toBeGreaterThan(0);
+  });
+
+  it("a oferta principal é uma só, a duração é referência e a descoberta paga não tem valor", () => {
     expect(SPRINT_DE_PRECOS.niveis.filter((n) => "principal" in n && n.principal)).toHaveLength(1);
     expect(SPRINT_DE_PRECOS.texto).toMatch(/não promessa/);
+    expect(SPRINT_DE_PRECOS.descoberta).toMatch(/preço acordado antes da execução/);
+    expect(SPRINT_DE_PRECOS.descoberta).not.toMatch(/R\$/);
   });
 
   it("sem promessa de resultado, percentual nem travessão", () => {
-    const tudo = JSON.stringify({ SPRINT_DE_PRECOS, CONTINUIDADE, CONDICOES, ESCADA });
+    const tudo = JSON.stringify({ SPRINT_DE_PRECOS, METODO, CONDICOES, ESCADA, CONTINUIDADE });
     expect(tudo).not.toMatch(/[—–]/);
     expect(tudo).not.toMatch(/ROI garantido|garantimos|aumento garantido/i);
     expect(JSON.stringify(SPRINT_DE_PRECOS)).not.toMatch(/\d+ ?%/);
@@ -45,8 +54,11 @@ describe("Sprint de Eficiência", () => {
     expect(CONDICOES.itens[1].texto).toContain("50% na contratação, 30% na validação intermediária e 20% no aceite final");
   });
 
-  it("a página de preços e a home levam à seção", () => {
-    expect(ler("src/app/precos/page.tsx")).toContain("<SprintDeEficiencia />");
-    expect(ESCADA.degraus.some((d) => "href" in d && d.href === "/precos#titulo-sprint")).toBe(true);
+  it("a página do Sprint, /precos e a home levam aos valores", () => {
+    expect(ler("src/app/sprint-de-eficiencia/page.tsx")).toContain("<CondicoesDoSprint />");
+    // `#titulo-sprint` segue pousando no Sprint em /precos (vitrine antiga, schema e links de fora).
+    expect(ler("src/app/precos/page.tsx")).toContain('"titulo-sprint"');
+    expect(ESCADA.degraus.map((d) => ("href" in d ? d.href : undefined))).toEqual([undefined, "/precos", "/continuidade"]);
+    expect(ler("src/components/home/Sprint.tsx")).toContain('href="/sprint-de-eficiencia"');
   });
 });

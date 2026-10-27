@@ -1,14 +1,14 @@
 ---
 rota: "/crm-com-whatsapp"
-url: "http://localhost:3100/crm-com-whatsapp"
+url: "https://www.v2o5.com.br/crm-com-whatsapp"
 status: 200
 title: "CRM com WhatsApp integrado | V2O5 Vendas e Tecnologia"
 description: "CRM sob medida com WhatsApp dentro do funil: cada contato com origem, etapa e próximo passo. Intervenção de um Sprint de Eficiência."
 canonical: "https://www.v2o5.com.br/crm-com-whatsapp"
 robots: null
 h1: "CRM com WhatsApp integrado e IA."
-extraido_em: "2026-10-26T14:09:49.228Z"
-fonte: "produção (www.v2o5.com.br), main em 397830f"
+extraido_em: "2026-10-27T14:34:01.868Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 27/10/2026 (portfólio das quatro soluções), antes da publicação"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 # CRM com WhatsApp integrado e IA.
@@ -131,7 +131,7 @@ Banco de dados da Motors Store, lido em 08/10/2026. Leads contados de 05/09 a 08
 
 O CRM entra num Sprint quando o gargalo é o funil espalhado entre conversas e planilhas. O Sprint mapeia como a venda acontece, desenha as etapas e os campos com a equipe, implanta e compara a proporção de contatos acompanhados e a conversão de etapa.
 
-[Ver os Sprints e os valores de partida](/precos#titulo-sprint)
+[Ver os Sprints e os valores](/sprint-de-eficiencia#titulo-pacotes)
 
 O preço final
 
@@ -177,7 +177,7 @@ Em 45 minutos de conversa com o fundador, a gente entende como a sua empresa ven
 
 [Pedir diagnóstico](/diagnostico)
 
-[Ver os preços do Sprint](/precos#titulo-sprint)
+[Ver os preços](/precos)
 
 r 18 <!-- texto em SVG; decorativo, aria-hidden -->
 

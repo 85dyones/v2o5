@@ -1,14 +1,14 @@
 ---
 rota: "/automacao-com-ia"
-url: "http://localhost:3100/automacao-com-ia"
+url: "https://www.v2o5.com.br/automacao-com-ia"
 status: 200
 title: "Automação de processos com IA e n8n | V2O5 Vendas e Tecnologia"
 description: "Fluxos no n8n que ligam os sistemas que a sua empresa já usa, com IA validada contra invenção de dado e registro de cada execução. Entra num Sprint."
 canonical: "https://www.v2o5.com.br/automacao-com-ia"
 robots: null
 h1: "Automação de processos com IA e n8n."
-extraido_em: "2026-10-26T14:09:49.228Z"
-fonte: "produção (www.v2o5.com.br), main em 397830f"
+extraido_em: "2026-10-27T14:34:01.868Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 27/10/2026 (portfólio das quatro soluções), antes da publicação"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 # Automação de processos com IA e n8n.
@@ -91,7 +91,7 @@ Manutenção
 
 Ajustes e correções dentro do período e do escopo definidos na proposta.
 
-## Um exemplo: o caminho de um contato num Sprint Integrada. Cada Sprint liga só as peças que o gargalo pede.
+## Um exemplo: o caminho de um contato num Sprint Integrado. Cada Sprint liga só as peças que o gargalo pede.
 
 Cinco paradas, na ordem do funil: atração, atendimento, gestão e venda. Duas camadas acompanham o caminho inteiro: a automação, que liga as peças, e o rastreamento, que grava a origem na entrada e devolve a venda ao anúncio. Escolha uma peça para ver o caminho; outros Sprints ligam outras peças.
 
@@ -167,7 +167,7 @@ Banco de dados da Motors Store, lido em 08/10/2026. Leads contados de 05/09 a 08
 
 A automação entra num Sprint quando o gargalo é uma tarefa repetida entre sistemas. O Sprint mapeia o processo real, tira as etapas desnecessárias antes de automatizar e mede o tempo e o retrabalho antes e depois.
 
-[Ver os Sprints e os valores de partida](/precos#titulo-sprint)
+[Ver os Sprints e os valores](/sprint-de-eficiencia#titulo-pacotes)
 
 O preço final
 
@@ -185,7 +185,7 @@ Uma rotina do começo ao fim. A venda marcada no CRM que tira o carro do site, a
 
 Preciso trocar o sistema de gestão que já uso?
 
-Não. A V2O5 liga o que você já usa. Em produção hoje: o estoque do Revenda Mais sincronizado com o site da Motors Store. Autoconf, BNDV, Boom, Altimus e Syonet e outros sistemas entram como fluxo de integração.
+Não. A V2O5 liga o que você já usa. Em produção hoje: o estoque do Revenda Mais sincronizado com o site da Motors Store. Autoconf, BNDV, Boom, Altimus e Syonet, entre outros, entram como fluxo de integração.
 
 E quando o fluxo quebra?
 
@@ -213,7 +213,7 @@ Em 45 minutos de conversa com o fundador, a gente entende como a sua empresa ven
 
 [Pedir diagnóstico](/diagnostico)
 
-[Ver os preços do Sprint](/precos#titulo-sprint)
+[Ver os preços](/precos)
 
 r 18 <!-- texto em SVG; decorativo, aria-hidden -->
 

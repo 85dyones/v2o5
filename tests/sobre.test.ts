@@ -107,7 +107,7 @@ describe("página Sobre", () => {
     const crm = SOBRE.ferramentas.categorias.find((c) => c.titulo.startsWith("CRM"))!;
     expect(crm.itens).toEqual(["Revenda Mais", "Kenlo", "CRM sob medida"]);
     const branding = SOBRE.ferramentas.categorias.find((c) => c.titulo.startsWith("Branding"))!;
-    expect(branding.nota).toMatch(/não é um pacote à parte/);
+    expect(branding.nota).toMatch(/uma das quatro soluções/);
     expect(branding.itens).toContain("Naming");
     expect(branding.itens.join(" ")).not.toMatch(/Adobe|Figma|Canva/);
   });

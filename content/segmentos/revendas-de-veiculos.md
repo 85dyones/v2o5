@@ -1,19 +1,19 @@
 ---
 rota: "/segmentos/revendas-de-veiculos"
-url: "http://localhost:3100/segmentos/revendas-de-veiculos"
+url: "https://www.v2o5.com.br/segmentos/revendas-de-veiculos"
 status: 200
 title: "Sistema de vendas para revendas de veículos | V2O5 Vendas e Tecnologia"
 description: "Site de estoque ligado ao sistema da loja (Revenda Mais, Autoconf e outros), agente de IA no WhatsApp, CRM e rastreamento até a venda, num Sprint."
 canonical: "https://www.v2o5.com.br/segmentos/revendas-de-veiculos"
 robots: null
 h1: "O sistema da Motors Store, pronto para a sua revenda."
-extraido_em: "2026-10-26T00:41:41.536Z"
-fonte: "produção (www.v2o5.com.br), main em e3fd0ac"
+extraido_em: "2026-10-27T14:34:01.868Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 27/10/2026 (portfólio das quatro soluções), antes da publicação"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 # O sistema da Motors Store, pronto para a sua revenda.
 
-Site de estoque ligado ao sistema que a loja já usa, agente de IA no WhatsApp, CRM e rastreamento até a venda, dentro de um Sprint.
+Site de estoque ligado ao sistema que a loja já usa, agente de IA no WhatsApp, CRM e rastreamento até a venda, com preço de referência.
 
 [Pedir diagnóstico gratuito](/diagnostico)
 
@@ -30,9 +30,9 @@ Revenda Mais · em produção
 - Syonet
 - outro sistema, por fluxo
 
-No Sprint
+Dois caminhos
 
-Intervenções para revendas, escolhidas pelo gargalo da loja
+O Site Automotivo Integrado e a Operação com IA, juntos ou um de cada vez
 
 Integração em produção
 
@@ -46,7 +46,7 @@ Referência
 
 Motors Store, revenda de seminovos em Curitiba, com números lidos do banco
 
-## O que um Sprint para revendas costuma juntar.
+## O que a V2O5 monta para revendas.
 
 Quatro peças na mesma base: o que entra por uma aparece nas outras. Site, rastreamento, painel e automações rodam na Motors Store; o agente de IA no WhatsApp completa o sistema. O escopo de cada projeto sai em proposta.
 
@@ -86,73 +86,50 @@ Rastreamento até a venda
 
 Pixel, API de Conversões e GA4 com um identificador único por lead. A campanha passa a otimizar pelo carro vendido.
 
-## Três modelos de Sprint para revendas.
+## Dois caminhos para revendas.
 
-São Sprints com o escopo da revenda já desenhado: mudam o gargalo que atacam e o tamanho do projeto. O preço fechado de cada projeto sai em proposta; os valores abaixo são o ponto de partida do modelo.
+Um cuida do site e do estoque; o outro, do atendimento. Dá para começar por qualquer um e somar o outro depois, na mesma base. Os valores são de referência, e o preço fechado sai em proposta.
 
-Sprint Integrada
+Sites & Integrações
 
-### Mapa
+### Site Automotivo Integrado
 
-Ser encontrado no Google e saber de onde vem cada contato.
+Para a revenda que quer site próprio com o estoque do gestor e os contatos no CRM.
 
-- Site institucional ou de estoque, com hospedagem e manutenção
-- Perfil da Empresa no Google e SEO técnico
-- Rastreamento até a venda, com API de Conversões
-- Pedido de avaliação no WhatsApp depois da venda
-- Relatório mensal da origem dos contatos
+- Site da revenda com identidade própria
+- Estoque alimentado pelo gestor atual, por feed, API ou outro meio autorizado (Revenda Mais em produção)
+- Página de cada veículo e tratamento dos vendidos
+- Contatos encaminhados ao CRM que a loja já usa, com a origem registrada
+- Monitoramento de falhas da integração
 
 Implantação
 
-R$ 8.900
+A partir de R$ 11.900
 
-Recorrência mensal
+Continuidade opcional
 
-R$ 1.200
+Integrações Monitoradas, R$ 490/mês
 
-Sprint Integrada
+Sprint Integrado
 
 ### Operação com IA
 
 Responder na hora, a qualquer hora, sem perder o contato que chegou.
 
-- Agente de IA no WhatsApp, 500 conversas por mês
-- CRM com funil, aviso de lead parado e 5 usuários
-- Passagem do agente para a equipe na mesma conversa
+- Agente de IA no WhatsApp com o estoque real
+- CRM com funil, origem do contato e aviso de lead parado
+- Passagem do agente para o vendedor na mesma conversa
 - Treinamento da equipe
-- Banco próprio, backups e suporte
 
-Implantação
+Preço de referência
 
-R$ 7.900
+R$ 6.900
 
-Recorrência mensal
+Continuidade opcional
 
-R$ 1.590
+Integrações Monitoradas, R$ 490/mês, ou Evolução Contínua, R$ 990/mês
 
-Sprint Avançada
-
-### Completo
-
-Do anúncio à venda, tudo ligado e medido.
-
-- Tudo da Presença e do Atendimento
-- Integração com o sistema de gestão (Revenda Mais em produção)
-- Um fluxo de automação à escolha: pós-venda ou integração entre sistemas
-
-Implantação
-
-R$ 14.900
-
-Recorrência mensal
-
-R$ 1.990
-
-Recorrência até 31/12/2026; depois, R$ 2.290.
-
-Bônus de fechamento: a implantação do Painel do dono fica por conta da V2O5.
-
-A recorrência paga a gestão continuada e cobre hospedagem e manutenção. Nuvem, IA e mensagens ficam por fora, pelo valor do provedor, discriminados na fatura, com teto mensal combinado e aviso antes de ultrapassá-lo; a V2O5 gerencia. Tráfego pago e outras capacidades do catálogo entram no escopo do Sprint, em proposta.
+Uso da IA e mensagens do WhatsApp ficam por fora, pelo valor do provedor, discriminados na fatura, com teto mensal combinado e aviso antes de ultrapassá-lo; a V2O5 gerencia. Tráfego pago entra no escopo do projeto, com a verba paga direto às plataformas.
 
 ## A prova está no case.
 
@@ -164,9 +141,9 @@ O que foi construído na Motors Store, os números lidos no banco da loja e o ca
 
 Sistema de gestão, fotos, estoque no agente e de quem é o site. O resto cabe no diagnóstico.
 
-Minha loja usa outro sistema de gestão. O Sprint funciona?
+Minha loja usa outro sistema de gestão. Funciona?
 
-Funciona. O Sprint lê o estoque do sistema que a loja já usa. Com o Revenda Mais a integração está em produção. Autoconf, BNDV, Boom, Altimus e Syonet entram como integração definida na proposta, depois de ver a API ou a exportação que cada um oferece; o mesmo vale para outro sistema.
+O site lê o estoque do sistema que a loja já usa. Com o Revenda Mais a integração está em produção. Autoconf, BNDV, Boom, Altimus e Syonet entram como integração definida na proposta, depois de ver a API ou a exportação que cada um oferece; o mesmo vale para outro sistema.
 
 O agente responde com o estoque de verdade?
 
@@ -178,7 +155,7 @@ Se a loja já tem equipe ou fotógrafo, o site, o feed de anúncios e o agente u
 
 Posso começar só pelo site de estoque?
 
-Pode. Um Sprint resolve um gargalo de cada vez: se o gargalo for o estoque no site e a origem dos contatos, o Sprint começa por aí e o atendimento entra depois, na mesma base.
+Pode. O Site Automotivo Integrado funciona sozinho: o estoque no site e a origem dos contatos primeiro, e a Operação com IA entra depois, na mesma base.
 
 O site e os dados são meus?
 
@@ -190,7 +167,7 @@ O diagnóstico é gratuito: 45 minutos com o fundador, que montou o sistema da M
 
 [Pedir diagnóstico gratuito](/diagnostico)
 
-[Ver os preços do Sprint](/precos#titulo-sprint)
+[Ver todos os preços](/precos)
 
 r 18 <!-- texto em SVG; decorativo, aria-hidden -->
 

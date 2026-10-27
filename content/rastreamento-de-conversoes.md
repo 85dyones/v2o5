@@ -1,14 +1,14 @@
 ---
 rota: "/rastreamento-de-conversoes"
-url: "http://localhost:3100/rastreamento-de-conversoes"
+url: "https://www.v2o5.com.br/rastreamento-de-conversoes"
 status: 200
 title: "Rastreamento de conversões até a venda | V2O5 Vendas e Tecnologia"
 description: "GA4, API de Conversões da Meta e conversões offline do Google Ads: cada lead e cada venda ligados ao anúncio que trouxe o cliente. Entra num Sprint."
 canonical: "https://www.v2o5.com.br/rastreamento-de-conversoes"
 robots: null
 h1: "Rastreamento de conversões até a venda."
-extraido_em: "2026-10-26T14:09:49.228Z"
-fonte: "produção (www.v2o5.com.br), main em 397830f"
+extraido_em: "2026-10-27T14:34:01.868Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 27/10/2026 (portfólio das quatro soluções), antes da publicação"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 # Rastreamento de conversões até a venda.
@@ -131,7 +131,7 @@ Banco de dados da Motors Store, lido em 08/10/2026. Leads contados de 05/09 a 08
 
 O rastreamento entra num Sprint quando o gargalo é não saber de onde vem cada venda. O Sprint audita o que já existe, implementa a camada de dados e compara a cobertura da origem nas vendas antes e depois.
 
-[Ver os Sprints e os valores de partida](/precos#titulo-sprint)
+[Ver os Sprints e os valores](/sprint-de-eficiencia#titulo-pacotes)
 
 O preço final
 
@@ -165,11 +165,11 @@ Funciona se o site aceitar tags e o formulário puder gravar a origem. O diagnó
 
 ## Intervenções que combinam com esta.
 
-[Atração Tráfego pago no Google e na Meta Google Ads e Meta Ads por plataforma ou juntos, com anúncios que abrem conversa no WhatsApp e a verba ajustada pela venda registrada no CRM. Quem contrata os dois leva o feed de catálogo. Começa com o rastreamento ligado.](/diagnostico)
+[Atração Tráfego pago no Google e na Meta Google Ads e Meta Ads com anúncios que abrem conversa no WhatsApp e a verba ajustada pela venda registrada no CRM. Começa com o rastreamento ligado, e a verba é paga direto às plataformas.](/diagnostico)
 
 [Gestão CRM e sistemas sob medida Nenhum contato esquecido numa conversa: cada um num funil, com a origem, a etapa e o próximo passo à vista.](/crm-com-whatsapp)
 
-[Atração Sites e presença Carrega rápido no celular, aparece no Google e grava de onde veio cada contato, com SEO técnico.](/criacao-de-sites)
+[Atração Sites & Integrações Site próprio, rápido no celular e achado no Google, que grava de onde veio cada contato e se liga ao sistema que você já usa.](/criacao-de-sites)
 
 ## Comece pelo diagnóstico, que é gratuito.
 
@@ -177,7 +177,7 @@ Em 45 minutos de conversa com o fundador, a gente entende como a sua empresa ven
 
 [Pedir diagnóstico](/diagnostico)
 
-[Ver os preços do Sprint](/precos#titulo-sprint)
+[Ver os preços](/precos)
 
 r 18 <!-- texto em SVG; decorativo, aria-hidden -->
 

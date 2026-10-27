@@ -10,7 +10,6 @@ import Automotivo from "@/components/home/Automotivo";
 import Fechamento from "@/components/home/Fechamento";
 import Dores from "@/components/home/Dores";
 import Sprint from "@/components/home/Sprint";
-import TresSprints from "@/components/home/TresSprints";
 import Indicadores from "@/components/home/Indicadores";
 import ProjetoReal from "@/components/home/ProjetoReal";
 import Escada from "@/components/home/Escada";
@@ -19,10 +18,10 @@ import { FECHO } from "@/conteudo/home";
 
 /**
  * A home inteira. O H1 vem de `TITULO_DA_HOME` (conteudo/home.ts). A ordem
- * (26/10/2026) segue a lógica da oferta: o problema, o método, a porta de
- * entrada (diagnóstico, depois o Sprint, depois a recorrência), os três
- * Sprints, o catálogo de capacidades (operação primeiro, "Trazer mais gente"
- * depois), um exemplo de como as peças se ligam, o que se mede, a prova (a
+ * (27/10/2026) responde em poucos segundos o que a V2O5 faz e como começar:
+ * a abertura, as quatro soluções e a continuidade, o caminho de entrada
+ * (diagnóstico, solução, continuidade), os problemas da operação e o método
+ * do Sprint, um exemplo de como as peças se ligam, o que se mede, a prova (a
  * Motors Store) e o segmento automotivo.
  */
 export default function Home({ titulo }: { titulo: string }) {
@@ -31,11 +30,10 @@ export default function Home({ titulo }: { titulo: string }) {
       <Topo />
       <main id="conteudo">
         <Hero titulo={titulo} />
+        <Solucoes />
+        <Escada />
         <Dores />
         <Sprint />
-        <Escada />
-        <TresSprints />
-        <Solucoes />
         <ComoSeLiga />
         <Indicadores />
         <ProjetoReal />

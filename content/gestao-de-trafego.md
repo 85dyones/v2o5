@@ -1,36 +1,84 @@
 ---
 rota: "/gestao-de-trafego"
-url: "http://localhost:3100/#solucoes"
+url: "https://www.v2o5.com.br/#solucoes"
 status: 200
 title: "V2O5 Vendas e Tecnologia | Menos atrito entre problema e resultado"
-description: "A V2O5 acha o gargalo, simplifica o processo e implementa tecnologia, automação e IA para a operação render mais e ser medida. Comece pelo Sprint de Eficiência."
+description: "Branding, presença digital local, sites com integração e o Sprint de Eficiência: a V2O5 melhora marca, presença e operação, com preço de referência."
 canonical: "https://www.v2o5.com.br"
 robots: null
 h1: "Do problema ao resultado, pelo caminho mais simples."
-extraido_em: "2026-10-26T14:09:49.228Z"
-fonte: "produção (www.v2o5.com.br), main em 397830f"
+extraido_em: "2026-10-27T14:34:01.868Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 27/10/2026 (portfólio das quatro soluções), antes da publicação"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 Estratégia, processos e tecnologia
 
 # Do problema ao resultado, pelo caminho mais simples.
 
-Achamos o gargalo, simplificamos o processo e implementamos tecnologia para reduzir atrito e medir o resultado. IA entra onde faz diferença.
+A V2O5 ajuda empresas a melhorar a marca, a presença digital e a operação, ligando processos e tecnologia ao que o negócio precisa de verdade.
 
-[Mapear um gargalo](/diagnostico)
+[Pedir diagnóstico gratuito](/diagnostico)
 
-[Conhecer o método](#metodo)
+[Ver as quatro soluções](#solucoes)
 
 Começamos pelo processo e pelo resultado desejado. A ferramenta vem depois.
 
-O que conectamos
+Quatro soluções
 
-- Processos
-- Atendimento
-- Dados
-- Integrações
-- Automação
-- IA aplicada
+- Branding & Identidade
+- Presença Digital Local
+- Sites & Integrações
+- Sprint de Eficiência
+
+## Quatro soluções. Escolha pelo problema que você tem.
+
+Cada uma resolve um tipo de problema e tem pacotes com preço de referência. Elas se completam, mas nenhuma obriga a comprar a seguinte.
+
+[Branding & Identidade → Quando a empresa é percebida abaixo do que entrega, ou cada canal mostra uma marca diferente. Identidade visual com regras de uso e, nos pacotes maiores, posicionamento e comunicação. A partir de R$ 2.400](/branding-e-identidade)
+
+[Presença Digital Local → Quando o cliente procura e encontra informação errada, perfil parado ou nenhum jeito fácil de chamar. Perfil no Google, redes e WhatsApp organizados, com modelos de conteúdo e, se quiser, a rotina mensal. A partir de R$ 790](/presenca-digital-local)
+
+[Sites & Integrações → Quando a empresa depende de perfil de terceiros, ou o site não conversa com o sistema que ela já usa. Site próprio, rápido e medido, ligado ao CRM, ao estoque ou ao sistema de gestão quando o escopo pede. A partir de R$ 2.900](/criacao-de-sites)
+
+[Sprint de Eficiência → Quando um processo trava a operação: retrabalho, contato perdido, sistemas que não conversam. Um gargalo resolvido, com a solução implantada e os indicadores comparados antes e depois. A partir de R$ 3.900](/sprint-de-eficiencia)
+
+[Continuidade Depois da entrega, planos opcionais para manter e evoluir o que foi entregue, com limites escritos. Planos a partir de R$ 249/mês](/continuidade)
+
+Como começar
+
+## Uma conversa, uma solução e, se precisar, a continuidade.
+
+Escopo, valor e prazo ficam por escrito antes de começar.
+
+Etapa inicial
+
+### Diagnóstico gratuito
+
+Sessão inicial gratuita de 45 minutos para entender o problema e escolher por onde começar. Avalia se existe um projeto viável.
+
+Não inclui mapeamento completo do processo, implementação nem acompanhamento.
+
+A solução
+
+### Uma das quatro soluções
+
+Branding, Presença, Sites ou Sprint, com pacotes de escopo claro. O valor fechado sai em proposta, com entregáveis, exclusões, prazo e custos de terceiros.
+
+Preços de entrada de R$ 790 a R$ 3.900. Nenhuma solução obriga a comprar a seguinte.
+
+[Ver valores e condições](/precos)
+
+Depois da entrega
+
+### Continuidade, se precisar
+
+Planos opcionais para manter e evoluir o que foi entregue, com horas e prazo de resposta escritos.
+
+Planos a partir de R$ 249/mês. Não inclui desenvolvimento ilimitado nem novas integrações sem orçamento.
+
+[Ver valores e condições](/continuidade)
+
+Bônus por desempenho fica como opção futura do Sprint, só com linha de base, regra de atribuição acordada e dados auditáveis. Não faz parte da oferta padrão.
 
 ## O problema raramente é falta de ferramenta. Quase sempre é atrito entre as que já existem.
 
@@ -48,177 +96,72 @@ Gente copiando dados, cobrando retorno e repetindo etapas que poderiam ser elimi
 
 A operação funciona, mas ninguém mede com clareza o tempo gasto, onde trava e o que de fato melhorou.
 
-Produto principal
+Sprint de Eficiência
 
-## Sprint de Eficiência V2O5
+## O método: do processo real à próxima decisão.
 
-Uma intervenção com escopo definido: diagnosticar um gargalo específico, mapear o fluxo atual, priorizar uma intervenção, implementar uma solução proporcional e comparar os indicadores disponíveis antes e depois. Processo, integração, automação e IA entram como meios, conforme o problema.
+Um projeto com escopo definido para um gargalo específico. Processo, integração, automação e IA entram como meios, conforme o problema.
 
 Comprar, integrar, automatizar ou desenvolver: a decisão depende do problema, não da preferência por uma ferramenta.
 
 [Escolher um processo](/diagnostico)
 
+[Ver os Sprints e os preços](/sprint-de-eficiencia)
+
 01 <!-- decorativo, aria-hidden -->
 
 ### Mapear o processo real
 
-Entendemos o fluxo atual, as pessoas envolvidas, as falhas, os tempos e o custo do problema. Definimos uma linha de base antes de mexer.
+Como o fluxo acontece hoje, quem participa, onde trava e quanto custa. Registramos a situação inicial antes de mexer.
 
 - Mapa do fluxo
-- Gargalo prioritário
-- Indicador inicial
+- Linha de base
 
 02 <!-- decorativo, aria-hidden -->
 
 ### Simplificar antes de automatizar
 
-Tiramos as etapas desnecessárias e desenhamos uma solução proporcional. Nem todo problema pede um agente de IA ou um software novo.
+Tiramos as etapas que não precisam existir. Nem todo problema pede um agente de IA ou um software novo.
 
 - Fluxo proposto
-- Escopo acordado
-- Plano de implementação
 
 03 <!-- decorativo, aria-hidden -->
 
-### Implementar a solução
+### Escolher a intervenção proporcional
 
-Conectamos as ferramentas que já existem e, quando faz sentido, desenvolvemos integrações, automações ou agentes de IA para rodar o novo fluxo.
+Comprar, integrar, automatizar ou desenvolver, conforme o problema. A proposta fecha o escopo e os critérios de aceite.
 
-- Integrações
-- Automação
-- Documentação essencial
+- Escopo acordado
+- Critérios de aceite
 
 04 <!-- decorativo, aria-hidden -->
 
-### Medir e decidir o próximo passo
+### Implementar a solução acordada
 
-Comparamos os indicadores disponíveis com a linha de base, registramos o que mudou e decidimos a próxima melhoria, ou encerramos.
+Ligamos as ferramentas que já existem e, quando faz sentido, construímos integrações, automações ou agentes, com testes.
+
+- Integrações
+- Automação
+- Testes
+
+05 <!-- decorativo, aria-hidden -->
+
+### Comparar antes e depois
+
+Os indicadores disponíveis voltam a ser medidos e comparados com a situação inicial.
 
 - Indicadores
-- Leitura de resultado
+
+06 <!-- decorativo, aria-hidden -->
+
+### Registrar e decidir o próximo passo
+
+Documentamos o que mudou e decidimos a próxima melhoria, ou encerramos.
+
+- Documentação
 - Próxima decisão
 
-Uma entrada clara, sem escopo infinito
-
-## Começamos pequeno e ampliamos com evidência.
-
-Escopo, valor e prazo se definem em proposta, depois que o gargalo é delimitado.
-
-Etapa inicial
-
-### Diagnóstico de Gargalo
-
-Sessão inicial gratuita de 45 minutos para entender o problema e priorizar um gargalo. Avalia se existe um projeto viável.
-
-Não inclui mapeamento completo do processo, implementação nem acompanhamento.
-
-Produto principal
-
-### Sprint de Eficiência
-
-Projeto fechado para um gargalo delimitado: mapeamento do fluxo, priorização, implementação acordada, testes e comparação dos indicadores disponíveis.
-
-A partir de R$ 3.000, conforme a complexidade. O preço fechado sai em proposta, com problema, entregáveis, exclusões, prazo, critérios de aceite e custos de terceiros. Mudança de escopo exige nova estimativa e aprovação.
-
-[Ver valores e condições](/precos#titulo-sprint)
-
-Depois da entrega
-
-### Estabilidade e evolução contínua
-
-Mensalidade para manter as soluções, corrigir o que estiver previsto e evoluir o processo, dentro de limites de atendimento e escopo definidos em contrato.
-
-Referência de R$ 1.200 a R$ 5.000 por mês pela gestão, em contrato. Nuvem e IA ficam por fora, pelo valor do provedor, e a V2O5 gerencia. Não inclui desenvolvimento ilimitado, novas integrações sem orçamento nem garantia de resultado comercial.
-
-[Ver valores e condições](/precos#titulo-sprint)
-
-Bônus por desempenho fica como opção futura, só com linha de base, regra de atribuição acordada e dados auditáveis. Não faz parte da oferta padrão.
-
-## Todo serviço da V2O5 chega por um destes três.
-
-O diagnóstico acha o gargalo, o catálogo oferece as capacidades e o tamanho do problema decide o Sprint. Nada é vendido solto: cada projeto costura só o que o gargalo pede, e o preço fechado sai em proposta.
-
-1 a 2 semanas
-
-### Sprint Essencial
-
-a partir de R$ 3.000
-
-Um problema específico, resolvido por uma intervenção pequena.
-
-1 a 2 semanas, como referência.
-
-Oferta principal
-
-### Sprint Integrada
-
-a partir de R$ 6.000
-
-Um gargalo que pede mudanças ligadas em processo, tecnologia e operação.
-
-2 a 4 semanas, como referência.
-
-4 a 8 semanas ou mais
-
-### Sprint Avançada
-
-a partir de R$ 12.000
-
-Vários sistemas, regras de negócio, migrações ou maior risco técnico.
-
-4 a 8 semanas ou mais, como referência.
-
-[Ver os valores e as condições](/precos#titulo-sprint)
-
-[Ver o catálogo de capacidades](/#solucoes)
-
-## O catálogo de capacidades. Tudo chega por um dos três Sprints.
-
-Não vendemos módulos soltos. O diagnóstico acha o gargalo, o escopo escolhe as capacidades abaixo e o tamanho do problema decide o Sprint. Cada projeto costura só o que o gargalo pede, e o escopo sai em proposta.
-
-### Responder rápido e organizar a operação.
-
-O contato que chega fora do horário recebe resposta na hora e entra no funil com a origem. A equipe começa o dia com o próximo passo pronto, e o dono vê o mês numa tela.
-
-[Atendimento Agente de IA no WhatsApp Responde na hora, a qualquer hora, com as informações do seu negócio. Quando a conversa pede uma pessoa, chama alguém da equipe. →](/agente-de-ia-para-whatsapp)
-
-[Atendimento Diagnóstico e análise de operação Onde o contato se perde, quanto tempo cada etapa leva e o que pesa na rotina. O diagnóstico de presença e a análise do fluxo viram o mapa que decide o escopo do Sprint. →](/diagnostico)
-
-[Gestão Consultoria de processos Desenho do fluxo, regras de passagem entre equipes e rotina de acompanhamento, com o que a equipe já usa antes de comprar qualquer ferramenta. →](/diagnostico)
-
-[Gestão CRM e sistemas sob medida Nenhum contato esquecido numa conversa: cada um num funil, com a origem, a etapa e o próximo passo à vista. →](/crm-com-whatsapp)
-
-[Gestão Indicadores e painéis Funil, tempo de resposta, custo por contato e vendas por origem numa tela só, atualizada a partir do CRM, do rastreamento e das contas de anúncio. →](/diagnostico)
-
-[Gestão Automação de processos A tarefa que alguém faz à mão toda semana passa a rodar sozinha entre os sistemas que você já usa. →](/automacao-com-ia)
-
-[Gestão Integrações entre sistemas Site, CRM, ERP e os sistemas do seu setor trocando dados sozinhos. Em produção hoje: o estoque do Revenda Mais. →](/automacao-com-ia)
-
-[Venda Pós-venda e recorrência Revisão, troca, seguro ou recompra: a régua de retorno manda a mensagem na data certa e devolve o cliente ao funil. →](/diagnostico)
-
-### De que adianta trazer mais gente se a operação não está pronta?
-
-Por isso esta parte vem depois da operação. Com o atendimento respondendo, estas capacidades cuidam de ser você no Google, no Maps, nos anúncios, nas redes e nas respostas das IAs de busca, com a origem de cada contato registrada.
-
-[Atração Branding e gestão de marca Antes de anunciar, decida o que a marca promete. Posicionamento, identidade visual e tom de voz num guia que vale para o perfil, o site, os anúncios e o atendimento. →](/diagnostico)
-
-[Atração Perfil da Empresa no Google Quem busca perto de casa vê o Maps antes do site. O antigo Google Meu Negócio, completo e verificado, com a empresa aparecendo na sua região. →](/criacao-de-sites)
-
-[Atração SEO e busca por IA Para ranquear no Google e ser citado nas respostas das IAs: SEO técnico, conteúdo e dados estruturados no site. →](/criacao-de-sites)
-
-[Atração Sites e presença Carrega rápido no celular, aparece no Google e grava de onde veio cada contato, com SEO técnico. →](/criacao-de-sites)
-
-[Atração Tráfego pago no Google e na Meta Google Ads e Meta Ads por plataforma ou juntos, com anúncios que abrem conversa no WhatsApp e a verba ajustada pela venda registrada no CRM. Quem contrata os dois leva o feed de catálogo. Começa com o rastreamento ligado. →](/diagnostico)
-
-[Atração Rastreamento até a venda Cada venda com a origem: qual anúncio, qual busca, qual página. Sem isso, a verba vai para onde parece funcionar. →](/rastreamento-de-conversoes)
-
-[Atração Anúncios de catálogo O estoque ou os produtos viram anúncio no Google (anúncios de veículos e Shopping) e na Meta, e saem do ar quando o item é vendido. →](/diagnostico)
-
-[Atração Conteúdo e gestão de redes sociais Duas redes com perfis configurados e um calendário de 12 publicações por mês feitas do que a empresa já produz: o estoque, os guias, a novidade da semana. Cada post com link rastreado. →](/diagnostico)
-
-[Venda Avaliações no Google Depois da venda, o cliente recebe no WhatsApp o pedido de avaliação com o link certo, e o painel mostra quem respondeu. →](/diagnostico)
-
-## Um exemplo: o caminho de um contato num Sprint Integrada. Cada Sprint liga só as peças que o gargalo pede.
+## Um exemplo: o caminho de um contato num Sprint Integrado. Cada Sprint liga só as peças que o gargalo pede.
 
 Cinco paradas, na ordem do funil: atração, atendimento, gestão e venda. Duas camadas acompanham o caminho inteiro: a automação, que liga as peças, e o rastreamento, que grava a origem na entrada e devolve a venda ao anúncio. Escolha uma peça para ver o caminho; outros Sprints ligam outras peças.
 
@@ -370,11 +313,15 @@ no agente <!-- decorativo, aria-hidden -->
 
 ## O que todo mundo pergunta antes de fechar.
 
-Preço, pagamento, o que o Sprint entrega e o que vem depois. Se a sua pergunta não está aqui, ela cabe no diagnóstico.
+Preço, pagamento, o que cada solução entrega e o que vem depois. Se a sua pergunta não está aqui, ela cabe no diagnóstico.
 
 Quanto custa?
 
-O Diagnóstico de Gargalo, a sessão inicial de 45 minutos, é gratuito. O Sprint de Eficiência tem preço fechado em proposta, depois de delimitar o gargalo. Os valores de partida são Sprint Essencial a partir de R$ 3.000, Sprint Integrada a partir de R$ 6.000, Sprint Avançada a partir de R$ 12.000, conforme a complexidade, o risco e os custos diretos. A duração é referência, não promessa.
+O diagnóstico inicial, de 45 minutos, é gratuito. Os preços de entrada são Branding & Identidade a partir de R$ 2.400, Presença Digital Local a partir de R$ 790, Sites & Integrações a partir de R$ 2.900, Sprint de Eficiência a partir de R$ 3.900, e a continuidade tem planos a partir de R$ 249/mês. São preços de referência: o valor fechado sai em proposta, para um escopo conhecido.
+
+Preciso contratar tudo?
+
+Não. Cada solução resolve um tipo de problema e funciona sozinha. Elas se completam, e o diagnóstico ajuda a escolher por onde começar. A continuidade também é opcional.
 
 O que um Sprint entrega?
 
@@ -382,15 +329,15 @@ Um projeto fechado para um gargalo delimitado: mapeamento do fluxo atual, priori
 
 Como funciona o pagamento?
 
-Em projetos, 50% na contratação, 30% na validação intermediária e 20% no aceite final. Em Sprints pequenas, 50% na contratação e 50% na entrega.
+No Sprint: em projetos, 50% na contratação, 30% na validação intermediária e 20% no aceite final. Em Sprints pequenos, 50% na contratação e 50% na entrega. Nas outras soluções, as condições saem na proposta.
 
-E depois que o Sprint termina?
+E depois da entrega?
 
-O Sprint termina na entrega. Se a solução continua rodando, há uma parte recorrente, em contrato à parte e com limites escritos. A gestão continuada é estabilidade e suporte, de R$ 1.200 a R$ 2.500 por mês, ou evolução contínua, de R$ 2.500 a R$ 5.000 por mês. Nuvem e IA ficam por fora da faixa, pelo valor do provedor e discriminadas, e a V2O5 gerencia as duas. A faixa não cobre desenvolvimento ilimitado nem novas integrações sem orçamento.
+A implantação termina na entrega. Se o que foi entregue continua rodando, a continuidade cuida dele, em contrato à parte e com horas e prazo de resposta escritos, com planos a partir de R$ 249/mês. Banco de dados, servidor dedicado, IA e mensagens ficam por fora, pelo valor do provedor, e a V2O5 gerencia. Nenhum plano cobre desenvolvimento ilimitado.
 
 Preciso trocar o sistema de gestão que já uso?
 
-Não. A V2O5 liga o que você já usa. Em produção hoje: o estoque do Revenda Mais sincronizado com o site e o agente da Motors Store. Autoconf, BNDV, Boom, Altimus e Syonet e outros sistemas entram como integração dentro de um Sprint, quando o gargalo pede.
+Não. A V2O5 liga o que você já usa. Em produção hoje: o estoque do Revenda Mais sincronizado com o site e o agente da Motors Store. Autoconf, BNDV, Boom, Altimus e Syonet, entre outros, entram como integração, depois de verificar a documentação e o acesso de cada um.
 
 O agente de IA atende sozinho?
 
@@ -398,19 +345,11 @@ Responde na hora com as informações do seu negócio e, quando a conversa pede 
 
 Vocês fazem tráfego pago sem rastreamento?
 
-Não. Sem rastreamento até a venda, a campanha otimiza pelo formulário preenchido, e verba vai para o anúncio que gera contato barato, mesmo quando ele vende pouco. A gestão de tráfego começa com o rastreamento ligado.
-
-Vocês disparam para listas compradas?
-
-Não. A reativação de base usa a base própria da empresa, com registro de origem e saída fácil em toda mensagem. Lista comprada ou raspada fere a LGPD e derruba o número no WhatsApp.
-
-Por onde sai a campanha de reativação?
-
-Por SMS, com link rastreado e saída fácil, disparado do painel; ou por WhatsApp, numa campanha operada pela V2O5, pela API oficial ou por um número dedicado à campanha, nunca o principal da empresa. A API oficial cobra por mensagem e limita o volume diário, por isso o canal sai do diagnóstico, pelo tamanho da base. Os custos do provedor ficam discriminados na proposta.
+Não. Sem rastreamento até a venda, a campanha otimiza pelo formulário preenchido, e verba vai para o anúncio que gera contato barato, mesmo quando ele vende pouco. A gestão de tráfego entra num projeto só com o rastreamento ligado, e a verba é paga direto às plataformas.
 
 Como funciona o diagnóstico gratuito?
 
-São 45 minutos de conversa com o fundador sobre presença, atendimento, operação e funil, para identificar e priorizar um gargalo e avaliar se existe um projeto viável. A sessão não inclui mapeamento completo do processo, implementação nem acompanhamento de resultados. Havendo um bom caso, o próximo passo é o Sprint de Eficiência, com escopo, entregáveis, prazo e investimento definidos em proposta.
+São 45 minutos de conversa com o fundador sobre marca, presença, atendimento, operação e funil, para identificar e priorizar o problema e avaliar se existe um projeto viável. A sessão não inclui mapeamento completo do processo, implementação nem acompanhamento de resultados. Havendo um bom caso, o próximo passo é a proposta da solução que cabe no problema, com escopo, entregáveis, prazo e investimento.
 
 A V2O5 atende fora de Curitiba?
 
@@ -424,13 +363,13 @@ O nome vem do pentóxido de vanádio, usado como catalisador em processos quími
 
 O trabalho começa entendendo como o negócio funciona de fato. Depois a gente liga estratégia, processos e tecnologia para achar o caminho mais simples entre o problema e o resultado.
 
-## Qual processo está fazendo a sua operação perder tempo?
+## Por onde a sua empresa precisa começar?
 
-Não precisa chegar com um briefing grande nem saber qual ferramenta usar. Traga o problema, como ele acontece hoje e o que deveria melhorar. A primeira conversa serve para avaliar se existe um bom caso para trabalhar.
+Não precisa chegar com um briefing grande nem saber qual solução escolher. Traga o problema, como ele acontece hoje e o que deveria melhorar. A primeira conversa serve para avaliar se existe um bom caso para trabalhar.
 
-[Mapear um gargalo](/diagnostico)
+[Pedir diagnóstico gratuito](/diagnostico)
 
-[Ver os preços do Sprint](/precos#titulo-sprint)
+[Ver os preços](/precos)
 
 r 18 <!-- texto em SVG; decorativo, aria-hidden -->
 
@@ -448,8 +387,6 @@ O · 4,8 <!-- texto em SVG; decorativo, aria-hidden -->
 [WhatsApp](https://wa.me/5541998089550?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20V2O5%20e%20quero%20pedir%20o%20diagn%C3%B3stico%20gratuito.)
 
 <!-- rótulos de acessibilidade (aria-label) desta rota, fora topo e rodapé:
-- "Organizar a operação" (section)
-- "Trazer mais gente" (section)
 - "Diagrama: como as peças do sistema se ligam" (ol)
 - "Segmento" (section)
 - "Antes de contratar" (section)
