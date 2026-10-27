@@ -97,8 +97,8 @@ export function Camadas({
         {CAMADAS.map((c) => {
           const miolo = (
             <>
-              <span aria-hidden="true" className="size-2.5 rounded-full bg-texto" />
-              <span className="font-medium">{c.nome}</span>
+              <span aria-hidden="true" className="size-2.5 shrink-0 rounded-full bg-texto" />
+              <span className="shrink-0 font-medium">{c.nome}</span>
               <span className="text-texto-secundario">{c.camada}</span>
             </>
           );
@@ -107,7 +107,7 @@ export function Camadas({
               {aoEscolher ? (
                 <button
                   type="button"
-                  className="chip min-h-11 gap-2 px-3 text-[0.8125rem]"
+                  className="chip min-h-11 gap-2 px-3 py-2 text-left text-[0.8125rem] leading-snug whitespace-normal"
                   aria-pressed={c.id === escolhida}
                   onClick={() => aoEscolher(c.id)}
                   onFocus={aoFocar ? () => aoFocar(c.id) : undefined}
@@ -116,7 +116,7 @@ export function Camadas({
                   {miolo}
                 </button>
               ) : (
-                <span className="chip min-h-11 gap-2 px-3 text-[0.8125rem]">{miolo}</span>
+                <span className="chip min-h-11 gap-2 px-3 py-2 text-left text-[0.8125rem] leading-snug whitespace-normal">{miolo}</span>
               )}
             </li>
           );
