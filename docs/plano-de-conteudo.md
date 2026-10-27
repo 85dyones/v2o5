@@ -1,11 +1,11 @@
 # Plano de conteúdo da V2O5: guias, cases e blog
 
-Avaliação de 26/10/2026, a pedido do Dyones ("avaliar o desenvolvimento de conteúdo, guias da V2O5 e também blog, para trabalharmos a indexação da marca nos buscadores, como fizemos para a Motors, ainda mais relevante, pois somos o case de clientes, somos o nosso portfólio"). É uma proposta para decidir, não uma obra em andamento. Base: o plano do site (`docs/2026-10-08-plano-novo-site.md`, seções 1, 4 e 7), o método da Motors (`motors-site-oficial/conteudo-seo/pacote/00-guia-normativo.md`) e duas buscas de mercado de 26/10.
+Avaliação de 26/10/2026, a pedido do Dyones ("avaliar o desenvolvimento de conteúdo, guias da V2O5 e também blog, para trabalharmos a indexação da marca nos buscadores, como fizemos para a Motors, ainda mais relevante, pois somos o case de clientes, somos o nosso portfólio"). **Atualizado em 27/10/2026 com as respostas do Dyones:** Search Console e Planejador serão criados com `v2o5consultoria@gmail.com`; o case V2O5 **não** será publicado por ora; o blog fica para depois da onda 1; LinkedIn e Instagram/Facebook existem, mas estão desatualizados e sem gestão, e o Perfil de Empresa no Google será criado; a fila de guias começa pelo que a V2O5 faz hoje (seção 5). O roteiro dos perfis e buscadores está em `docs/perfis-e-buscadores.md`. Base: o plano do site (`docs/2026-10-08-plano-novo-site.md`, seções 1, 4 e 7), o método da Motors (`motors-site-oficial/conteudo-seo/pacote/00-guia-normativo.md`) e duas buscas de mercado de 26/10.
 
 ## 1. Recomendação em cinco linhas
 
 1. **Guias primeiro, em ondas**, com a régua da Motors (pergunta real, cadeira vazia, uma saída comercial, sem canibalizar, sobrevive doze meses). O `/guias` está `noindex` e "em construção".
-2. **A V2O5 como cliente zero é o conteúdo mais forte que temos:** um case com o antes medido do WordPress (Lighthouse 51, LCP 13,5 s, 2.074 KiB, sem JSON-LD, sem rastreamento) e o depois medido do site novo.
+2. **O case V2O5 como cliente zero fica de fora por ora** (decisão de 27/10). O antes medido do WordPress continua guardado como referência interna; a prova pública segue sendo a Motors, e o segundo segmento entra quando a 16ª Vara fechar.
 3. **Blog separado só depois da primeira onda**, e com outra função (notas datadas do fundador com dado de operação), nunca misturado com os guias.
 4. **Indexar a marca é mais do que publicar texto:** "V2O5" hoje só traz o composto químico. A V2O5 precisa existir como entidade (Perfil de Empresa, LinkedIn, Instagram, `sameAs`, menções e o crédito "Desenvolvido por V2O5" nos clientes).
 5. **Medir com o que já temos:** Search Console e Bing, os scripts da Motors (`gsc.js`, `planejador.js`) e a linha de base de citações em IA (`BASELINE_IA.md`).
@@ -16,11 +16,11 @@ Avaliação de 26/10/2026, a pedido do Dyones ("avaliar o desenvolvimento de con
 |---|---|
 | `/guias` | `noindex`, "Em construção" (provisória); `/blog/` do WordPress já redireciona para `/guias` (301) |
 | Páginas de busca da V2O5 | Home, 5 soluções, hub de revendas, case Motors, preços, sobre, diagnóstico: prontas e indexáveis |
-| Dados próprios | Motors (26 guias, 132 veículos sincronizados, 42 de 44 leads com identificador, lidos em 08/10/2026) e o antes/depois do próprio site da V2O5 |
+| Dados próprios | Motors (26 guias, 132 veículos sincronizados, 42 de 44 leads com identificador, lidos em 08/10/2026) o método e as regras do agente da V2O5 (sem case público do próprio site) |
 | Método de conteúdo | Existe e funciona na Motors: régua de cinco critérios, anatomia do guia, ondas, linkagem interna, trava de marcas de IA, humanizer |
 | Infraestrutura da V2O5 | Falta: carregador de guias, rota `/guias/[slug]`, schema `Article` e `FAQPage`, entrada no sitemap, lista de relacionados |
-| Search Console da V2O5 | Sem confirmação nesta sessão; sem ela não há critério 1 |
-| Perfil de Empresa, LinkedIn, Instagram | Não confirmados; o plano (4.7) os põe antes do lançamento |
+| Search Console e Planejador da V2O5 | Serão criados com `v2o5consultoria@gmail.com`; até lá a demanda dos temas não está verificada |
+| Perfil de Empresa, LinkedIn, Instagram, Facebook | LinkedIn e Instagram/Facebook existem, desatualizados e sem gestão; o Perfil de Empresa será criado (roteiro em `docs/perfis-e-buscadores.md`) |
 
 ## 3. O que a Motors ensinou e o que muda aqui
 
@@ -36,36 +36,36 @@ Entrar com o mesmo texto genérico perde. A cadeira vazia da V2O5 é **o que só
 | Peça | Função | Formato | Regra |
 |---|---|---|---|
 | **Guias** (`/guias`) | Responder uma pergunta real e levar a uma única saída | Evergreen, 1.500 a 2.000 palavras, H1 igual à busca, resposta em duas frases, FAQ igual ao schema | Uma saída: `/diagnostico` ou uma página de capacidade. Post datado não entra aqui |
-| **Cases** (`/cases`) | Provar | Antes diagnosticado, depois implementado, medido, com fonte e período | Só número medido. Motors (feito), **V2O5 (novo)**, e o segundo segmento quando a 16ª Vara fechar |
+| **Cases** (`/cases`) | Provar | Antes diagnosticado, depois implementado, medido, com fonte e período | Só número medido. Motors (feito) e o segundo segmento quando a 16ª Vara fechar. O case do próprio site da V2O5 não será publicado por ora |
 | **Blog / diário** (rota a definir) | Autoridade e frescor | Notas curtas e datadas do fundador, com um dado ou uma lição de projeto, espelhadas no LinkedIn | Só depois da onda 1; nenhuma nota sem dado próprio |
 
-### 4.1 O case V2O5 como cliente zero
+### 4.1 O case V2O5 como cliente zero: adiado
 
-O mesmo método que vendemos, aplicado ao nosso site, com a estrutura do case da Motors:
+Decisão do Dyones em 27/10: o case do próprio site não será publicado agora. O antes medido em 08/10 (WordPress, Lighthouse mobile 51, LCP 13,5 s, 2.074 KiB, sem JSON-LD) fica no plano do site como registro interno, e os guias que dependiam dele usam só a entrega-base do site e o método. Se mudar de ideia, o formato é o do case da Motors (antes, depois, medido).
 
-- **Antes (diagnosticado, 08/10/2026):** WordPress 6.8, Lighthouse mobile 51, LCP 13,5 s, TBT 600 ms, 2.074 KiB para 2.142 caracteres, `lang="en-US"`, nenhuma meta description, nenhum JSON-LD, listagem de usuários exposta, nenhuma página mirando busca com demanda.
-- **Depois (implementado):** Next.js na Vercel, SEO técnico, schema, rastreamento por variável com API de Conversões, formulário até o n8n, agente no WhatsApp, redesign direção B.
-- **Medido:** Lighthouse e LCP do site novo (a refazer com a mesma ferramenta e o mesmo perfil, para comparar), Search Console depois de 90 dias, leads com origem.
+## 5. Fila inicial de guias (a partir do que a V2O5 faz hoje)
 
-É também a prova de que o método de cinco perguntas funciona em quem o vende. Rota sugerida: `/cases/v2o5`.
+Lista de trabalho, não de publicação: cada tema ainda precisa passar no critério 1 (pergunta real, pelo Search Console e pelo Planejador, depois que existirem). Os critérios 2 a 5 já foram olhados. H1 com até 60 caracteres, igual à busca; uma saída por guia; "Dado" diz o que falta ter em mãos para escrever. Os guias de dado próprio só entram com número lido com fonte e período.
 
-## 5. Primeira onda de guias (candidatas, ainda sem verificação de demanda)
+| # | Cluster | H1 (e busca-alvo) | Cadeira vazia | Saída | Dado necessário | Onda |
+|---|---|---|---|---|---|---|
+| 1 | Atendimento | Quanto custa manter um agente de IA no WhatsApp | Decomposição real: gestão, nuvem, IA e mensagens, com teto combinado e aviso; sem tabela de plano | `/agente-de-ia-para-whatsapp` | Valores públicos da recorrência e o custo de provedor (fontes oficiais) | 1 |
+| 2 | Atendimento | Quando o agente de IA deve passar para uma pessoa | As regras de passagem do agente da V2O5 (pedido de horário, negociação, reclamação, áudio) | `/agente-de-ia-para-whatsapp` | As regras (já escritas no agente) | 1 |
+| 3 | Atendimento | WhatsApp API oficial ou Evolution: qual escolher | Quem usa os dois no servidor próprio e conhece o risco de bloqueio | `/agente-de-ia-para-whatsapp` | Política oficial da Meta (fonte) | 2 |
+| 4 | Atendimento | Tempo de resposta no WhatsApp e venda | O estudo da HBR (já citado na home) com a leitura de operação | `/diagnostico` | Estudo e, se houver, dado da Motors | 2 |
+| 5 | Rastreamento | Como a venda volta para o anúncio do Google e da Meta | O fluxo real: `event_id` por lead, servidor e navegador, venda no CRM | `/rastreamento-de-conversoes` | Fluxo do site; o dado da Motors (42 de 44 leads com identificador) | 1 |
+| 6 | Rastreamento | Pixel e API de Conversões sem contar a venda duas vezes | Deduplicação por `event_id` explicada com o nosso caso | `/rastreamento-de-conversoes` | Documentação da Meta (fonte) | 1 |
+| 7 | Rastreamento | API de Conversões da Meta: quando a configuração simples basta | Onde o clique da Meta resolve e onde falta a venda do CRM | `/rastreamento-de-conversoes` | Anúncio da Meta de abril/2026 (fonte) | 2 |
+| 8 | Processo | Simplificar antes de automatizar: as cinco perguntas | O método do `/sobre`, em exemplo | `/diagnostico` | O método (já escrito) | 1 |
+| 9 | Processo | Como achar o gargalo da sua operação em 45 minutos | O roteiro do Diagnóstico de Gargalo, sem prometer mapa | `/diagnostico` | O roteiro (já escrito) | 1 |
+| 10 | Processo | Integrar CRM e WhatsApp sem trocar de sistema | Revenda Mais e Kenlo, onde há experiência | `/crm-com-whatsapp` | A experiência do Dyones (entrevista curta) | 2 |
+| 11 | Processo | O que vale automatizar no n8n e o que não vale | Critérios de quem automatiza e também recusa automação | `/automacao-com-ia` | Critérios do Dyones | 2 |
+| 12 | Sites | O que um site profissional precisa ter para ser achado | A entrega-base de onze itens, explicada | `/criacao-de-sites` | A entrega-base (já escrita) | 1 |
+| 13 | Sites | Como o seu site aparece nas respostas de IA | O que o Google diz (sem otimização especial) e o que fazemos mesmo assim (`llms.txt`, dados estruturados) | `/criacao-de-sites` | Documentação do Google (fonte) | 2 |
+| 14 | Revendas | Site de estoque integrado ao sistema da loja | Revenda Mais em produção, o resto por fluxo | `/segmentos/revendas-de-veiculos` | O que roda hoje (já no site) | 2 |
+| 15 | Revendas | Portal ou site próprio: custo por venda na revenda | Só com número lido na Motors, com fonte e período | `/segmentos/revendas-de-veiculos` | **Falta o dado**; fica bloqueado até lê-lo | 3 |
 
-Cada tema precisa passar nos cinco critérios; o critério 1 (pergunta real) exige o Search Console ou o Planejador do Google Ads, que não consegui consultar nesta sessão. A coluna "cadeira vazia" é o que impede o guia de parecer o de um blog genérico.
-
-| Cluster | Guia candidato | Cadeira vazia (dado ou experiência própria) | Saída |
-|---|---|---|---|
-| Atendimento | Quanto custa manter um agente de IA no WhatsApp | A decomposição real: gestão, nuvem, IA e mensagens, com teto combinado e aviso (nosso modelo de recorrência) | `/agente-de-ia-para-whatsapp` |
-| Atendimento | Quando o agente de IA deve passar para uma pessoa | As nossas regras de passagem (pedido de horário, preço, reclamação, áudio) | `/agente-de-ia-para-whatsapp` |
-| Atendimento | Tempo de resposta no WhatsApp e venda | O estudo da HBR (citado na home) mais o dado da Motors, se houver | `/diagnostico` |
-| Rastreamento | Como a venda volta para o anúncio | O fluxo real: `event_id` por lead, Pixel e API de Conversões sem contar duas vezes (Motors: 42 de 44 leads com identificador) | `/rastreamento-de-conversoes` |
-| Rastreamento | API de Conversões do Meta para pequenas empresas | Onde a configuração de um clique da Meta basta e onde não basta | `/rastreamento-de-conversoes` |
-| Processo | Simplificar antes de automatizar: as cinco perguntas | O método do `/sobre`, com um exemplo medido | `/diagnostico` |
-| Processo | Integrar CRM e WhatsApp sem trocar de sistema | Revenda Mais e Kenlo, sem citar o que não implantamos | `/crm-com-whatsapp` |
-| Sites | O que um site precisa ter para ser achado no Google e nas respostas de IA | A entrega-base do site (onze itens) e o antes/depois do nosso próprio site | `/criacao-de-sites` |
-| Revendas | Portal ou site próprio: custo por venda em uma revenda | Só com dado da Motors, com fonte e período | `/segmentos/revendas-de-veiculos` |
-
-Regra de ouro herdada: nada de percentual ou resultado sem fonte. A estatística de "17,8% menor custo por resultado" que a Meta divulga é dado do fornecedor e só entra citada como tal.
+A primeira onda (1, 2, 5, 6, 8, 9 e 12) usa material que já existe, sem depender de dado novo. Ela é a que dá para escrever assim que a estrutura de guias estiver no ar e o Search Console confirmar a demanda. Depois da lista, os guias que pedem a voz do Dyones (10, 11) levam uma conversa curta de entrevista, e os temas mais pessoais entram na segunda rodada, como combinado.
 
 ## 6. Indexar a marca, não só as páginas
 
@@ -97,15 +97,16 @@ Search Console é a fonte da verdade. Mensal: impressões nas queries do cluster
 
 | Onda | Conteúdo | Pré-requisito |
 |---|---|---|
-| 0 | Estrutura de guias no site, testes, Search Console e Bing ligados, entidade (Perfil, LinkedIn, Instagram) | Acesso ao Search Console e ao Planejador; contas sociais |
-| 1 | Case V2O5 + 6 a 8 guias de atendimento e rastreamento | Medição do site novo; critério 1 verificado |
+| 0 | Estrutura de guias no site e testes; Search Console, Bing e Planejador criados; perfis (Perfil de Empresa, LinkedIn, Instagram, Facebook) atualizados | Roteiro de `docs/perfis-e-buscadores.md` feito pelo Dyones |
+| 1 | Sete guias (1, 2, 5, 6, 8, 9 e 12) | Estrutura de guias no ar; critério 1 verificado no Search Console e no Planejador |
 | 2 | Guias de processo e sites, e o hub de revendas com os dados da Motors | Onda 1 publicada e lida no Search Console |
 | 3 | Blog ou diário do fundador; segundo segmento (16ª Vara) quando fechar | Dado próprio e autorização |
 
-## 10. O que preciso do Dyones
+## 10. Decisões de 27/10 e o que falta
 
-1. **Search Console e Planejador de Palavras-chave da V2O5:** existem e posso usar? Sem eles, os temas ficam sem critério 1.
-2. **Case V2O5:** autoriza publicar o antes (WordPress, medido em 08/10) e o depois, com os números medidos?
-3. **Blog:** concorda em esperar a onda 1, e em chamá-lo de diário ou notas do fundador, e não de blog?
-4. **Perfil de Empresa, LinkedIn e Instagram:** quais já existem e quais crio o roteiro?
-5. **Temas:** a lista da seção 5 é a que você quer ver passar pela régua, ou há assuntos seus (dado de projeto) que valem mais?
+1. **Search Console e Planejador:** criar com `v2o5consultoria@gmail.com`, seguindo `docs/perfis-e-buscadores.md`. Sem conector de navegador nesta sessão, quem clica é o Dyones.
+2. **Case V2O5:** não será publicado por ora (decidido).
+3. **Blog:** depois da onda 1, como diário ou notas do fundador (decidido).
+4. **Perfis:** LinkedIn e Instagram/Facebook existem e serão atualizados e geridos; o Perfil de Empresa será criado. Falta o Dyones passar as URLs para o `sameAs`.
+5. **Temas:** a seção 5 é a fila inicial; os assuntos mais pessoais entram depois de ajuste (decidido).
+6. **Próximo passo técnico (aguarda "siga"):** estrutura de guias no site (`/guias`, `/guias/[slug]`, schema, sitemap, testes), ainda com `noindex` até a onda 1.

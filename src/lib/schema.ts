@@ -7,14 +7,15 @@ import { paginaDa } from "@/conteudo/paginas";
 import { ofertaDaCapacidade } from "@/conteudo/precos";
 import { CONTINUIDADE, SPRINT_DE_PRECOS } from "@/conteudo/sprint";
 import { SITE_URL } from "@/lib/site";
+import { perfisConfirmados } from "@/conteudo/perfis";
 import { whatsappInternacional } from "@/lib/whatsapp";
 
 /**
  * O grafo JSON-LD do site, montado por funções puras (molde da Motors) e
  * travado por `tests/schema.test.ts`. Seção 4.5 do plano e `marca.md`.
  *
- * Sem `sameAs` por enquanto: Perfil de Empresa, Instagram e LinkedIn ainda
- * não existem, e perfil inventado é pior que nenhum. Sem `AggregateRating`
+ * O `sameAs` só aparece com perfil confirmado (`conteudo/perfis.ts`): perfil
+ * inventado é pior que nenhum. Sem `AggregateRating`
  * próprio. Endereço só com cidade e estado: a sede é residencial.
  */
 
@@ -51,6 +52,7 @@ export function organizacao(): No {
     },
     areaServed: { "@type": "Country", name: "Brasil" },
     knowsAbout: PILARES.flatMap((p) => p.servicos.map((s) => s.titulo)),
+    ...(perfisConfirmados().length ? { sameAs: perfisConfirmados() } : {}),
   };
 }
 

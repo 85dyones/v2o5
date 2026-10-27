@@ -1,3 +1,4 @@
+import { PERFIS } from "@/conteudo/perfis";
 import { describe, expect, it } from "vitest";
 import { EMPRESA } from "@/conteudo/home";
 import { PAGINAS } from "@/conteudo/paginas";
@@ -61,6 +62,7 @@ describe("grafo da home", () => {
   it("sem perfil inventado e sem nota própria", () => {
     const o = organizacao();
     expect(o).not.toHaveProperty("sameAs");
+    expect(PERFIS.every((p) => p.url === null)).toBe(true);
     expect(o).not.toHaveProperty("aggregateRating");
   });
 });
@@ -106,5 +108,19 @@ describe("bloco de JSON-LD", () => {
   it("não deixa < cru (não fecha o script por acidente)", () => {
     expect(blocoJsonLd({ texto: "</script><b>" })).not.toContain("<");
     expect(JSON.parse(blocoJsonLd({ texto: "</script>" }))).toEqual({ texto: "</script>" });
+  });
+});
+
+describe("sameAs da organização", () => {
+  it("só entra com URL https confirmada em conteudo/perfis.ts", () => {
+    const antes = PERFIS.map((p) => p.url);
+    PERFIS[0].url = "https://www.linkedin.com/company/exemplo";
+    PERFIS[1].url = "http://sem-https.example";
+    try {
+      expect(organizacao()).toHaveProperty("sameAs", ["https://www.linkedin.com/company/exemplo"]);
+    } finally {
+      PERFIS.forEach((p, i) => (p.url = antes[i]));
+    }
+    expect(organizacao()).not.toHaveProperty("sameAs");
   });
 });
