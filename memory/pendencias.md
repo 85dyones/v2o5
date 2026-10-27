@@ -35,7 +35,7 @@ Atualize ao resolver: mova a decisão para `decisoes.md` e apague daqui.
 
 33. ~~Aprovar no preview os rascunhos de escopo de 27/10.~~ Aprovados pelo Dyones em 27/10 ("siga sua recomendação"); `oferta.md`, "Quantidades redigidas em 27/10".
 34. Skill `diagnostico-presenca` com a tabela de 27/10 (continuação da 25): o item G da coleta procura o sinal "Três planos" em `/precos` e o `intake.md` manda usar Presença, Atendimento e Completo. Trocar em `config/agency.yaml` o `sinal` para "Quatro soluções" e, em `referencias/intake.md`, os caminhos pelos pacotes de `/precos` (roteiro em `docs/2026-10-27-portfolio-no-site.md`, seção 6). Enquanto não trocar, a skill para no item G, sem gerar proposta com preço velho.
-35. Agente do n8n: na publicação, levar ao n8n ativo o texto novo do nó `Montar pedido` do fluxo "V2O5 · Agente de IA" (`docs/n8n/agente-da-v2o5.json`), no mesmo dia do site, com autorização do Dyones.
+35. ~~Agente do n8n: publicar o rascunho `fd17c4fd` do fluxo "V2O5 · Agente de IA".~~ Publicado pelo Dyones em 27/10; versão ativa conferida.
 36. Next.js 16.4.0 com vulnerabilidade crítica (`npm audit`, 27/10): subir para 16.4.3 num PR à parte (tarefa sugerida na sessão de 27/10).
 
 ## Técnicas
