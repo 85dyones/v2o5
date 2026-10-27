@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { guiasPublicados } from "@/conteudo/guias";
 
 /**
  * O mapa de páginas do site (`memory/context/seo.md`), num lugar só.
@@ -122,7 +123,8 @@ export const PAGINAS: Pagina[] = [
     titulo: "Guias",
     descricao: "Guias com dados de operação real para quem vende pelo WhatsApp e pela internet.",
     atualizadaEm: "2026-10-09",
-    pronta: false,
+    /** Só sai do `noindex` quando existe pelo menos um guia publicado. */
+    pronta: guiasPublicados().length > 0,
   },
   {
     rota: "/privacidade",

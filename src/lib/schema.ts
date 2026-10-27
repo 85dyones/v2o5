@@ -7,6 +7,7 @@ import { paginaDa } from "@/conteudo/paginas";
 import { ofertaDaCapacidade } from "@/conteudo/precos";
 import { CONTINUIDADE, SPRINT_DE_PRECOS } from "@/conteudo/sprint";
 import { SITE_URL } from "@/lib/site";
+import type { Guia } from "@/conteudo/guias/tipos";
 import { perfisConfirmados } from "@/conteudo/perfis";
 import { whatsappInternacional } from "@/lib/whatsapp";
 
@@ -274,4 +275,44 @@ export function grafoDosPrecos(): No {
 /** JSON pronto para `<script type="application/ld+json">`, sem `<` cru. */
 export function blocoJsonLd(grafo: No): string {
   return JSON.stringify(grafo).replace(/</g, "\\u003c");
+}
+
+const dataIso = (d: string) => `${d}T12:00:00-03:00`;
+
+/** O grafo de um guia: artigo do fundador, trilha e as perguntas do FAQ (as mesmas do texto). */
+export function grafoDoGuia(g: Guia): No {
+  const rota = `/guias/${g.slug}`;
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      ref(ID_DA_ORGANIZACAO),
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${SITE_URL}${rota}#trilha`,
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Início", item: `${SITE_URL}/` },
+          { "@type": "ListItem", position: 2, name: "Guias", item: `${SITE_URL}/guias` },
+          { "@type": "ListItem", position: 3, name: g.titulo, item: `${SITE_URL}${rota}` },
+        ],
+      },
+      {
+        "@type": "Article",
+        "@id": `${SITE_URL}${rota}#artigo`,
+        headline: g.titulo,
+        description: g.descricao,
+        mainEntityOfPage: `${SITE_URL}${rota}`,
+        datePublished: dataIso(g.publicadoEm),
+        dateModified: dataIso(g.atualizadaEm),
+        inLanguage: "pt-BR",
+        author: ref(ID_DO_FUNDADOR),
+        publisher: ref(ID_DA_ORGANIZACAO),
+      },
+      perguntas(rota, g.faq),
+    ],
+  };
+}
+
+/** O grafo do índice de guias. */
+export function grafoDoIndiceDeGuias(): No {
+  return { "@context": "https://schema.org", "@graph": [ref(ID_DA_ORGANIZACAO), trilha("/guias")] };
 }

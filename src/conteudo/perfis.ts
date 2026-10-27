@@ -7,8 +7,8 @@
  * o Dyones os passar (`docs/perfis-e-buscadores.md`).
  */
 export const PERFIS: { rede: "LinkedIn" | "Instagram" | "Facebook" | "Google"; url: string | null }[] = [
-  { rede: "LinkedIn", url: null },
-  { rede: "Instagram", url: null },
+  { rede: "LinkedIn", url: "https://www.linkedin.com/company/108175607/" },
+  { rede: "Instagram", url: "https://www.instagram.com/v2o5_consultoria/" },
   { rede: "Facebook", url: null },
   { rede: "Google", url: null },
 ];

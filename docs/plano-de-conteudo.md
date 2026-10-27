@@ -64,8 +64,33 @@ Lista de trabalho, não de publicação: cada tema ainda precisa passar no crit�
 | 13 | Sites | Como o seu site aparece nas respostas de IA | O que o Google diz (sem otimização especial) e o que fazemos mesmo assim (`llms.txt`, dados estruturados) | `/criacao-de-sites` | Documentação do Google (fonte) | 2 |
 | 14 | Revendas | Site de estoque integrado ao sistema da loja | Revenda Mais em produção, o resto por fluxo | `/segmentos/revendas-de-veiculos` | O que roda hoje (já no site) | 2 |
 | 15 | Revendas | Portal ou site próprio: custo por venda na revenda | Só com número lido na Motors, com fonte e período | `/segmentos/revendas-de-veiculos` | **Falta o dado**; fica bloqueado até lê-lo | 3 |
+| 16 | Atendimento | Chatbot ou agente de IA no WhatsApp: qual a diferença | A distinção de quem implanta os dois e o vocabulário do mercado (`chatbot whatsapp`, 100 a 1 mil em Curitiba) | `/agente-de-ia-para-whatsapp` | Definições e o que o nosso agente faz de diferente (já no site) | 1 |
 
-A primeira onda (1, 2, 5, 6, 8, 9 e 12) usa material que já existe, sem depender de dado novo. Ela é a que dá para escrever assim que a estrutura de guias estiver no ar e o Search Console confirmar a demanda. Depois da lista, os guias que pedem a voz do Dyones (10, 11) levam uma conversa curta de entrevista, e os temas mais pessoais entram na segunda rodada, como combinado.
+A primeira onda (1, 2, 5, 6, 8, 9, 12 e 16) usa material que já existe, sem depender de dado novo. Ela é a que dá para escrever assim que a estrutura de guias estiver no ar e o Search Console confirmar a demanda. Depois da lista, os guias que pedem a voz do Dyones (10, 11) levam uma conversa curta de entrevista, e os temas mais pessoais entram na segunda rodada, como combinado.
+
+### 5.1 O que o Planejador mostrou (planilha de 26/10/2026)
+
+Fonte: Planejador de Palavras-chave do Google Ads, plano salvo "V2O5 - Serviços - Curitiba (out/2026)"; local Curitiba, português, rede Google, período out/2025 a set/2026, extraído em 26/10/2026. A conta não tem campanha ativa, então os volumes saem em faixas. A cópia dos dados está em `docs/dados/palavras-chave-curitiba-2026-10-26.csv` (30 termos).
+
+**O que ela é e o que não é.** São termos de serviço, de intenção comercial. Não há nenhuma pergunta de guia ("quanto custa", "como", "quando"), então o critério 1 dos 15 guias **continua aberto**. A planilha serve às páginas de serviço e confirma onde há demanda:
+
+| Faixa em Curitiba | Termos | O que apareceu |
+|---|---|---|
+| 100 a 1 mil por mês | 8 | `chatbot whatsapp`; `consultoria empresarial`; `criação de site` e `criação de sites`; `agência de marketing` (três grafias) e `marketing digital`, que são de agência |
+| 10 a 100 | 21 | CRM com WhatsApp (3), automação de WhatsApp (6), chatbot para WhatsApp e bot (3), criação de sites (4), tráfego pago (2), site de venda de carros, consultoria de marketing |
+| 0 a 10 | 1 | `site para revenda de carros` |
+| Sem dado | 3 buscas do plano | `agente de ia para whatsapp`, `automação com ia` e `rastreamento de conversões` não retornaram volume em Curitiba |
+
+**Leituras que mudam a fila:**
+
+1. **O vocabulário do mercado é "chatbot" e "automação de WhatsApp", não "agente de IA".** O termo com mais busca da página do agente é `chatbot whatsapp` (100 a 1 mil), e "agente de IA para WhatsApp" não retornou volume. Isso pede um guia novo que ligue as duas palavras: **"Chatbot ou agente de IA no WhatsApp: qual a diferença"** (entra na fila como 16, saída `/agente-de-ia-para-whatsapp`), e a palavra "chatbot" no texto da página, sem trocar o nome do produto.
+2. **Curitiba é o recorte errado para o restante da fila.** A V2O5 atende o Brasil todo, e três temas centrais vieram sem volume só porque o filtro era Curitiba. A próxima extração precisa ser **Brasil**.
+3. **Os lances são altos** (de R$ 3 a R$ 60 no topo da página, médias entre R$ 8 e R$ 45 nos termos de CRM e automação, com concorrência alta). Pagar por esses termos é caro para quem começa; o orgânico e os guias fazem sentido justamente por isso.
+4. **`consultoria empresarial`** (100 a 1 mil, concorrência média, sem página) é o único termo de volume que combina com o posicionamento de Sprint de Eficiência. É um candidato a texto de página ou a guia, a decidir depois de ver o recorte Brasil.
+5. **Não perseguir "agência de marketing" nem "marketing digital":** têm volume, mas a V2O5 não se apresenta como agência, e entrar nessa busca atrairia o público errado. `tráfego pago` (2 termos, sem página desde que `/gestao-de-trafego` virou redirecionamento) fica como capacidade dentro do Sprint.
+6. **Revendas:** `site de venda de carros` (10 a 100, lance baixo, de R$ 0,57 a R$ 4,93) e `site para revenda de carros` (0 a 10) mostram um nicho pequeno e barato, coerente com a Motors como prova; reforça o hub e o guia 14, não pede página nova agora.
+
+**Segunda extração pedida (Brasil e perguntas).** Para destravar o critério 1 dos guias: local **Brasil**, e as sementes abaixo, que são perguntas e não serviços: `quanto custa agente de ia whatsapp`, `custo chatbot whatsapp`, `chatbot ou agente de ia`, `quando passar atendimento para humano`, `api oficial whatsapp ou evolution`, `api de conversões meta`, `pixel e api de conversões duplicado`, `conversões offline google ads`, `como automatizar atendimento whatsapp`, `como achar gargalo da empresa`, `automatizar ou simplificar processo`, `integrar crm e whatsapp`, `o que automatizar no n8n`, `o que um site profissional precisa ter`, `site aparece no chatgpt`, `site para revenda de carros integrado ao estoque`.
 
 ## 6. Indexar a marca, não só as páginas
 
@@ -98,7 +123,7 @@ Search Console é a fonte da verdade. Mensal: impressões nas queries do cluster
 | Onda | Conteúdo | Pré-requisito |
 |---|---|---|
 | 0 | Estrutura de guias no site e testes; Search Console, Bing e Planejador criados; perfis (Perfil de Empresa, LinkedIn, Instagram, Facebook) atualizados | Roteiro de `docs/perfis-e-buscadores.md` feito pelo Dyones |
-| 1 | Sete guias (1, 2, 5, 6, 8, 9 e 12) | Estrutura de guias no ar; critério 1 verificado no Search Console e no Planejador |
+| 1 | Oito guias (1, 2, 5, 6, 8, 9, 12 e 16) | Estrutura de guias no ar; critério 1 verificado no Search Console e no Planejador |
 | 2 | Guias de processo e sites, e o hub de revendas com os dados da Motors | Onda 1 publicada e lida no Search Console |
 | 3 | Blog ou diário do fundador; segundo segmento (16ª Vara) quando fechar | Dado próprio e autorização |
 

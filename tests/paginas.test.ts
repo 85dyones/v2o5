@@ -28,7 +28,8 @@ describe("mapa de páginas", () => {
   });
 
   it("cada page.tsx é uma rota do mapa e usa a metadata dele", () => {
-    const paginas = arquivos("src/app", /^page\.tsx$/);
+    // As rotas dinâmicas (guias) têm metadata própria e o teste de `guias.test.ts`.
+    const paginas = arquivos("src/app", /^page\.tsx$/).filter((a) => !a.includes("["));
     const rotas = new Set(PAGINAS.map((p) => p.rota));
     for (const arquivo of paginas) {
       const rota = rotaDoArquivo(arquivo);

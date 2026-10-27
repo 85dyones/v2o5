@@ -370,3 +370,9 @@ Decisão do Dyones: "os preços dos planos de presença, atendimento e completo 
 
 - `/sobre`: a seção `#titulo-ferramentas` virou "Tecnologias e ecossistemas", um acordeão de nove categorias com `<details name="tecnologias">` (sem JavaScript; a primeira abre por padrão). `#autor`, `#titulo-visao`, `#titulo-metodo` e o JSON-LD seguem.
 
+## Atualização de 27/10/2026 (guias)
+
+- Novas rotas: `/guias` (índice; provisória e `noindex` até haver guia publicado) e `/guias/<slug>` (um por guia; rascunho não é servido em produção). Sitemap e `llms.txt` só listam guias publicados. O `/blog/` do WordPress segue redirecionando para `/guias`.
+- `sameAs` da organização: LinkedIn (`/company/108175607/`) e Instagram (`v2o5_consultoria`). Variáveis novas: `GOOGLE_SITE_VERIFICATION`, `BING_SITE_VERIFICATION`, `PREVIA_DE_GUIAS`.
+- Evento novo: `cta_click` com `data-local="guia-saida"` (a saída do guia) e `data-local="indice-de-guias"`.
+

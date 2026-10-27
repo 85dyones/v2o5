@@ -61,8 +61,9 @@ describe("grafo da home", () => {
 
   it("sem perfil inventado e sem nota própria", () => {
     const o = organizacao();
-    expect(o).not.toHaveProperty("sameAs");
-    expect(PERFIS.every((p) => p.url === null)).toBe(true);
+    // Só os perfis que o Dyones confirmou em 27/10/2026 (LinkedIn e Instagram); Facebook e Google ainda não.
+    expect(o).toHaveProperty("sameAs", ["https://www.linkedin.com/company/108175607/", "https://www.instagram.com/v2o5_consultoria/"]);
+    expect(PERFIS.filter((p) => p.url === null).map((p) => p.rede)).toEqual(["Facebook", "Google"]);
     expect(o).not.toHaveProperty("aggregateRating");
   });
 });
@@ -116,11 +117,12 @@ describe("sameAs da organização", () => {
     const antes = PERFIS.map((p) => p.url);
     PERFIS[0].url = "https://www.linkedin.com/company/exemplo";
     PERFIS[1].url = "http://sem-https.example";
+    PERFIS[2].url = null;
     try {
       expect(organizacao()).toHaveProperty("sameAs", ["https://www.linkedin.com/company/exemplo"]);
     } finally {
       PERFIS.forEach((p, i) => (p.url = antes[i]));
     }
-    expect(organizacao()).not.toHaveProperty("sameAs");
+    expect(organizacao()).toHaveProperty("sameAs", ["https://www.linkedin.com/company/108175607/", "https://www.instagram.com/v2o5_consultoria/"]);
   });
 });
