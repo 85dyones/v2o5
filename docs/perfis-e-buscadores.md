@@ -4,6 +4,17 @@ Roteiro de 27/10/2026. Decisões do Dyones: o Search Console e o Planejador de P
 
 **O que eu faço e o que depende de você.** Eu não consigo entrar em contas Google, LinkedIn, Instagram ou Facebook a partir daqui (não há conector de navegador nesta sessão, e senha ou código de verificação nunca passam por mim). O que eu entrego é o roteiro, os textos prontos e o código do site já preparado para receber a verificação e os endereços. Quem clica é você, ou uma sessão sua com o conector do Chrome ligado, seguindo os passos abaixo.
 
+## 0. Como a V2O5 se apresenta nos buscadores (análise do site, 27/10/2026)
+
+O Dyones apontou que a V2O5 é cada vez menos uma consultoria de TI. O site confirma. Contando os textos públicos (home, sobre, preços, diagnóstico e as páginas de capacidade): **gargalo** aparece 69 vezes, **processo** 41, **eficiência** 24, **operação** 23, **automação** 20, **tecnologia** 28; **consultoria** aparece 3 vezes e **TI** e **agência** nenhuma. O que o site vende é achar o gargalo de uma operação comercial ou administrativa, simplificar o processo e implementar a solução (automação, IA, integração, site, rastreamento, CRM, marca) dentro de um Sprint, com o resultado medido. A assinatura da marca já diz isso: "Eficiência comercial e operacional com tecnologia."
+
+Duas armadilhas de classificação:
+
+- **"Consultoria de TI"** pega só o meio (a tecnologia) e atrai quem procura suporte, infraestrutura e help desk.
+- **"Agência de marketing"** (volume alto na planilha do Planejador) atrai quem procura anúncio e post, e a V2O5 não se apresenta como agência.
+
+**O descritor único**, a repetir em todos os perfis, é a assinatura do site: **eficiência comercial e operacional com tecnologia**. A categoria (que é uma lista fixa de cada plataforma) só classifica; quem explica é a descrição. A classificação mais próxima é a de **consultoria de negócios e gestão**, que também combina com o termo `consultoria empresarial` (100 a 1 mil buscas por mês em Curitiba, sem página hoje) da planilha. O nome antigo "V2O5 ConsultorIA" continua como `alternateName` no schema, para quem ainda procura por ele (o Instagram e o e-mail do Google ainda o usam).
+
 ## 1. Search Console (primeiro, porque dá o critério 1 dos guias)
 
 Conta: `v2o5consultoria@gmail.com`.
@@ -34,7 +45,8 @@ Tipo: **empresa de área de serviço**, com o endereço oculto (a sede é reside
 | Campo | Texto sugerido |
 |---|---|
 | Nome | V2O5 Vendas e Tecnologia |
-| Categoria principal | A mais próxima de "consultoria de TI" que o Google oferecer; secundárias, "desenvolvedor de software" e "consultor de negócios" (confirmar no assistente) |
+| Categoria principal | A de **consultoria de negócios ou de gestão** que o Google oferecer (buscar "consultor" no assistente e conferir os nomes exatos em português; a lista tem mais de quatro mil categorias e muda). Não usar "consultoria de TI" nem "agência de marketing" |
+| Categorias secundárias | No máximo duas ou três, só se o assistente as oferecer e descreverem de fato o que fazemos: por exemplo, empresa de desenvolvimento de software e consultor de marketing. O Google desaconselha encher de categorias |
 | Área de atendimento | Curitiba e região metropolitana, e atendimento remoto para todo o Brasil na descrição |
 | Site | `https://www.v2o5.com.br/?utm_source=google&utm_medium=organic&utm_campaign=perfil-empresa` |
 | Telefone | O WhatsApp do site (o mesmo do rodapé) |
@@ -51,6 +63,7 @@ Serviços para cadastrar: Diagnóstico de Gargalo (gratuito), Sprint Essencial, 
 Objetivo: voltar a existir com o posicionamento novo.
 
 - **Nome:** V2O5 Vendas e Tecnologia.
+- **Setor (o campo de indústria do LinkedIn):** consultoria de gestão ("Business Consulting and Services" no menu em inglês); evitar "Serviços e consultoria de TI".
 - **Slogan (até 120 caracteres):** Eficiência comercial e operacional com tecnologia.
 - **Sobre:** "Eu acho o gargalo da sua operação, simplifico o processo e implemento tecnologia, automação e IA para reduzir atrito e medir o resultado. Começo por um diagnóstico gratuito de 45 minutos. Projetos em Sprints de Eficiência, com preço fechado em proposta." (a página é pessoal desde o `/sobre`; se preferir voz de empresa, trocar "eu" por "a V2O5")
 - **Especialidades:** automação de processos, agente de IA para WhatsApp, CRM, rastreamento de conversões, sites com SEO.
@@ -60,6 +73,7 @@ Objetivo: voltar a existir com o posicionamento novo.
 
 ## 6. Instagram e Facebook
 
+- **Categoria do Instagram:** a de consultor ou consultoria de negócios, e não de tecnologia ou de marketing. **Nome de usuário:** `v2o5_consultoria` vem do nome antigo; quando for retomar a gestão, vale trocar por algo ligado ao nome atual (por exemplo `v2o5vendasetecnologia`, se estiver livre) e me passar o endereço novo para o `sameAs`.
 - **Bio do Instagram (até 150 caracteres):** "Eficiência comercial e operacional com tecnologia. Diagnóstico gratuito de 45 min. Automação, IA e CRM para a sua operação."
 - **Link da bio:** `https://www.v2o5.com.br/diagnostico?utm_source=instagram&utm_medium=social&utm_campaign=bio`.
 - **Facebook, "Sobre":** a mesma descrição do Perfil de Empresa; categoria "Serviços de tecnologia da informação" ou a mais próxima; botão "Enviar mensagem" no WhatsApp.

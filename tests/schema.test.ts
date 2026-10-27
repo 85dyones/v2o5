@@ -59,6 +59,14 @@ describe("grafo da home", () => {
     });
   });
 
+  it("a organização se descreve pela assinatura e pelo subtítulo da home, não como consultoria de TI nem agência (27/10/2026)", () => {
+    const o = organizacao() as { slogan: string; description: string; alternateName: string[] };
+    expect(o.slogan).toBe("V2O5 | Eficiência comercial e operacional com tecnologia.");
+    expect(o.description).toMatch(/gargalo/);
+    expect(JSON.stringify(o)).not.toMatch(/consultoria de TI|agência de marketing/i);
+    expect(o.alternateName).toContain("V2O5 ConsultorIA");
+  });
+
   it("sem perfil inventado e sem nota própria", () => {
     const o = organizacao();
     // Só os perfis que o Dyones confirmou em 27/10/2026 (LinkedIn e Instagram); Facebook e Google ainda não.

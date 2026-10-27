@@ -2,7 +2,7 @@ import { HUB_AUTOMOTIVO } from "@/conteudo/automotivo";
 import { CASE_MOTORS } from "@/conteudo/case";
 import { SOBRE } from "@/conteudo/sobre";
 import { solucaoDa } from "@/conteudo/solucoes";
-import { ASSINATURA, EMPRESA, PERGUNTAS, PILARES, VISAO_360 } from "@/conteudo/home";
+import { ASSINATURA, EMPRESA, HERO, PERGUNTAS, PILARES, VISAO_360 } from "@/conteudo/home";
 import { paginaDa } from "@/conteudo/paginas";
 import { ofertaDaCapacidade } from "@/conteudo/precos";
 import { CONTINUIDADE, SPRINT_DE_PRECOS } from "@/conteudo/sprint";
@@ -39,6 +39,7 @@ export function organizacao(): No {
     url: `${SITE_URL}/`,
     logo: `${SITE_URL}/icon.svg`,
     slogan: ASSINATURA,
+    description: HERO.subtitulo,
     foundingDate: EMPRESA.fundacao,
     founder: ref(ID_DO_FUNDADOR),
     telephone: whatsappInternacional(),
