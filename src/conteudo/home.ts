@@ -1014,6 +1014,7 @@ export const WHATSAPP = {
     recebido: `Olá! Acabei de pedir o diagnóstico no ${MARCA_DO_SITE} e quero adiantar a conversa.`,
     revendas: `Olá! Vi a página de revendas no ${MARCA_DO_SITE} e quero conversar sobre a minha loja.`,
     sobre: `Olá! Vi a página Sobre no ${MARCA_DO_SITE} e quero conversar sobre a minha empresa.`,
+    guias: `Olá! Li um guia no ${MARCA_DO_SITE} e quero conversar sobre a minha empresa.`,
   },
 };
 

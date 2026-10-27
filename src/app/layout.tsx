@@ -16,6 +16,11 @@ export const metadata: Metadata = {
   description:
     "A V2O5 acha o gargalo, simplifica o processo e implementa tecnologia, automação e IA para a operação render mais e ser medida. Comece pelo Sprint de Eficiência.",
   applicationName: "V2O5 Vendas e Tecnologia",
+  // Verificação do Search Console e do Bing por meta tag (só quando a variável existe; `.env.example`).
+  verification: {
+    ...(process.env.GOOGLE_SITE_VERIFICATION ? { google: process.env.GOOGLE_SITE_VERIFICATION } : {}),
+    ...(process.env.BING_SITE_VERIFICATION ? { other: { "msvalidate.01": process.env.BING_SITE_VERIFICATION } } : {}),
+  },
 };
 
 export const viewport: Viewport = {

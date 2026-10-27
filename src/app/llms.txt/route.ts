@@ -1,5 +1,6 @@
 import { CONDICOES, CONTINUIDADE, faixaEmTexto, SPRINT_DE_PRECOS } from "@/conteudo/sprint";
 import { ASSINATURA, AUTOMOTIVO, CASE, EMPRESA, HERO, PILARES, VISAO_360 } from "@/conteudo/home";
+import { guiasPublicados } from "@/conteudo/guias";
 import { SITE_URL } from "@/lib/site";
 import { whatsappParaLer } from "@/lib/whatsapp";
 
@@ -37,6 +38,9 @@ export function textoDoLlms(): string {
     "A V2O5 vende três Sprints: Essencial, Integrada e Avançada. Não há módulos nem serviços vendidos soltos: o diagnóstico acha o gargalo e o Sprint costura só as capacidades abaixo que ele pede. O agrupamento começa pela operação; \"Trazer mais gente\" vem depois, porque de pouco adianta trazer mais gente se a operação não está pronta.",
     "",
     ...pilares,
+    ...(guiasPublicados().length
+      ? ["## Guias", ...guiasPublicados().map((g) => `- [${g.titulo}](${SITE_URL}/guias/${g.slug}): ${g.resposta}`), ""]
+      : []),
     "## Segmento automotivo (modelos de Sprint para revendas)",
     `- [${AUTOMOTIVO.titulo}](${SITE_URL}${AUTOMOTIVO.href}): ${AUTOMOTIVO.texto}`,
     "",

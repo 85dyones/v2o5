@@ -14,12 +14,15 @@ export default function Fechamento({
   texto = "Em 45 minutos de conversa com o fundador, a gente entende como a sua empresa vende hoje e identifica o gargalo que vale priorizar. A sessão é gratuita e sem compromisso.",
   botao = "Pedir diagnóstico",
   secundario = { href: "/precos#titulo-sprint", texto: "Ver os preços do Sprint" },
+  href = "/diagnostico",
 }: {
   titulo?: string;
   texto?: string;
   botao?: string;
   /** O segundo botão do fecho; `null` quando a própria página já é o destino. */
   secundario?: { href: string; texto: string } | null;
+  /** Para onde vai o botão principal (um guia leva à página da sua saída). */
+  href?: string;
 }) {
   return (
     <section
@@ -38,10 +41,17 @@ export default function Fechamento({
           </p>
           <div className="fecho-acoes relative mt-10 flex flex-wrap gap-3">
             <Parada final />
-            <Link href="/diagnostico" className="botao botao-primario botao-claro" data-evento="cta_click" data-local="fechamento">
-              {botao}
-              <Icone nome="seta" className="seta size-4" />
-            </Link>
+            {href === "/diagnostico" ? (
+              <Link href="/diagnostico" className="botao botao-primario botao-claro" data-evento="cta_click" data-local="fechamento">
+                {botao}
+                <Icone nome="seta" className="seta size-4" />
+              </Link>
+            ) : (
+              <Link href={href} className="botao botao-primario botao-claro" data-evento="cta_click" data-local="guia-saida">
+                {botao}
+                <Icone nome="seta" className="seta size-4" />
+              </Link>
+            )}
             {secundario ? (
               <LinkOuAncora href={secundario.href} className="botao botao-secundario botao-claro" data-evento="cta_click" data-local="fechamento">
                 {secundario.texto}

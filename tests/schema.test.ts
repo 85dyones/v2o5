@@ -1,3 +1,4 @@
+import { PERFIS } from "@/conteudo/perfis";
 import { describe, expect, it } from "vitest";
 import { EMPRESA } from "@/conteudo/home";
 import { PAGINAS } from "@/conteudo/paginas";
@@ -58,9 +59,19 @@ describe("grafo da home", () => {
     });
   });
 
+  it("a organização se descreve pela assinatura e pelo subtítulo da home, não como consultoria de TI nem agência (27/10/2026)", () => {
+    const o = organizacao() as { slogan: string; description: string; alternateName: string[] };
+    expect(o.slogan).toBe("V2O5 | Eficiência comercial e operacional com tecnologia.");
+    expect(o.description).toMatch(/gargalo/);
+    expect(JSON.stringify(o)).not.toMatch(/consultoria de TI|agência de marketing/i);
+    expect(o.alternateName).toContain("V2O5 ConsultorIA");
+  });
+
   it("sem perfil inventado e sem nota própria", () => {
     const o = organizacao();
-    expect(o).not.toHaveProperty("sameAs");
+    // Só os perfis que o Dyones confirmou em 27/10/2026 (LinkedIn e Instagram); Facebook e Google ainda não.
+    expect(o).toHaveProperty("sameAs", ["https://www.linkedin.com/company/108175607/", "https://www.instagram.com/v2o5_consultoria/"]);
+    expect(PERFIS.filter((p) => p.url === null).map((p) => p.rede)).toEqual(["Facebook", "Google"]);
     expect(o).not.toHaveProperty("aggregateRating");
   });
 });
@@ -106,5 +117,20 @@ describe("bloco de JSON-LD", () => {
   it("não deixa < cru (não fecha o script por acidente)", () => {
     expect(blocoJsonLd({ texto: "</script><b>" })).not.toContain("<");
     expect(JSON.parse(blocoJsonLd({ texto: "</script>" }))).toEqual({ texto: "</script>" });
+  });
+});
+
+describe("sameAs da organização", () => {
+  it("só entra com URL https confirmada em conteudo/perfis.ts", () => {
+    const antes = PERFIS.map((p) => p.url);
+    PERFIS[0].url = "https://www.linkedin.com/company/exemplo";
+    PERFIS[1].url = "http://sem-https.example";
+    PERFIS[2].url = null;
+    try {
+      expect(organizacao()).toHaveProperty("sameAs", ["https://www.linkedin.com/company/exemplo"]);
+    } finally {
+      PERFIS.forEach((p, i) => (p.url = antes[i]));
+    }
+    expect(organizacao()).toHaveProperty("sameAs", ["https://www.linkedin.com/company/108175607/", "https://www.instagram.com/v2o5_consultoria/"]);
   });
 });
