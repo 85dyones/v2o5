@@ -3,8 +3,8 @@ rota: "/llms.txt"
 url: "https://www.v2o5.com.br/llms.txt"
 status: 200
 content_type: "text/plain; charset=utf-8"
-extraido_em: "2026-10-27T14:34:01.868Z"
-fonte: "build local da branch claude/kind-tesla-eefroe em 27/10/2026 (portfólio das quatro soluções), antes da publicação"
+extraido_em: "2026-10-27T18:10:55.133Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 27/10/2026 (mensalidades de entrada da tarde de 27/10), antes da publicação"
 ---
 
 <!-- Corpo de /llms.txt exatamente como servido (gerado por src/app/llms.txt/route.ts). -->
@@ -29,7 +29,7 @@ Fora dos pacotes: Registro da marca no INPI; Impressão e produção gráfica; F
 
 ### [Presença Digital Local](https://www.v2o5.com.br/presenca-digital-local)
 Quando o cliente procura e encontra informação errada, perfil parado ou nenhum jeito fácil de chamar. Perfil no Google, redes e WhatsApp organizados, com modelos de conteúdo e, se quiser, a rotina mensal.
-- Presença Essencial: R$ 790; mensalidade opcional de R$ 290/mês (Suporte e até quatro pequenas atualizações por mês nos canais: horário, contato, foto ou informação.). Para o negócio local que precisa ser encontrado com as informações certas.
+- Presença Essencial: R$ 790; mensalidade opcional de R$ 390/mês (Suporte e até quatro pequenas atualizações por mês nos canais: horário, contato, foto ou informação.). Para o negócio local que precisa ser encontrado com as informações certas.
 - Presença Estruturada: R$ 1.490; mensalidade opcional de R$ 490/mês (Kit mensal com quatro peças de conteúdo e uma campanha, prontas para publicar.). Para quem quer usar os canais para vender, com calendário e campanhas.
 - Presença Assistida: R$ 1.990; mensalidade opcional de R$ 890/mês (Operação assistida: calendário do mês, oito peças de referência, programação nas redes e uma campanha. O volume final sai na proposta.). Para quem quer a rotina de conteúdo feita junto, com programação e acompanhamento.
 Fora dos pacotes: Verba de anúncios; Gravação presencial de fotos e vídeos; Resposta a comentários e mensagens; Ferramentas pagas e serviços externos sem contratação específica; Publicações ilimitadas.
@@ -53,8 +53,8 @@ Método do Sprint: 1. Mapear o processo real; 2. Simplificar antes de automatiza
 
 ### [Continuidade](https://www.v2o5.com.br/continuidade)
 A implantação termina na entrega. Se o que foi entregue continua rodando, a continuidade cuida dele, com limites que cabem no contrato. Nenhum plano é obrigatório: a necessidade e o escopo decidem.
-- Cuidado Técnico: R$ 249/mês. Para manter no ar o site ou a página entregue. Hospedagem gerenciada e certificado SSL; Backup do código e do conteúdo, com restauração da última versão publicada; Monitoramento de disponibilidade do site e do formulário; Até 1 hora de suporte técnico por mês: correções e pequenas trocas de texto ou imagem; Resposta em até 2 dias úteis, por WhatsApp ou e-mail, em horário comercial.
-- Integrações Monitoradas: R$ 490/mês. Para site ou fluxo ligado a outros sistemas. Tudo do Cuidado Técnico; Monitoramento das integrações entregues: estoque, envio de contatos e automações; Registro de erros e aviso quando algo para; Correção de falhas nas integrações entregues; Até 2 horas de suporte técnico por mês, com resposta a falha de integração em até 1 dia útil.
+- Cuidado Técnico: R$ 349/mês. Para manter no ar o site ou a página entregue. Hospedagem gerenciada e certificado SSL; Backup do código e do conteúdo, com restauração da última versão publicada; Monitoramento de disponibilidade do site e do formulário; Até 1 hora de suporte técnico por mês: correções e pequenas trocas de texto ou imagem; Resposta em até 2 dias úteis, por WhatsApp ou e-mail, em horário comercial.
+- Integrações Monitoradas: R$ 590/mês. Para site ou fluxo ligado a outros sistemas. Tudo do Cuidado Técnico; Monitoramento das integrações entregues: estoque, envio de contatos e automações; Registro de erros e aviso quando algo para; Correção de falhas nas integrações entregues; Até 2 horas de suporte técnico por mês, com resposta a falha de integração em até 1 dia útil.
 - Evolução Contínua: R$ 990/mês. Para quem quer melhorar o que foi entregue, mês a mês. Tudo das Integrações Monitoradas; Uma conversa mensal de 30 minutos para priorizar as melhorias; Até 2 horas por mês reservadas para pequenas intervenções, além do suporte; Registro do que mudou e da próxima prioridade.
 - As horas: As horas de cada plano valem no mês e não acumulam para o seguinte.
 - Correção ou novidade: Correção é fazer voltar a funcionar o que foi entregue e parou. Nova funcionalidade muda ou acrescenta algo, e é orçada à parte.

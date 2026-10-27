@@ -19,7 +19,7 @@ Fonte em código: `src/conteudo/ofertas.ts` (Branding, Presença, Sites e contin
 | Presença Digital Local | a partir de R$ 790 | `/presenca-digital-local` |
 | Sites & Integrações | a partir de R$ 2.900 | `/criacao-de-sites` |
 | Sprint de Eficiência | a partir de R$ 3.900 | `/sprint-de-eficiencia` |
-| Continuidade | planos a partir de R$ 249/mês | `/continuidade` |
+| Continuidade | planos a partir de R$ 349/mês | `/continuidade` |
 
 O que cada uma resolve (nenhuma obriga a comprar a seguinte):
 - Branding resolve percepção, identidade e posicionamento.
@@ -40,7 +40,7 @@ Regras: identidade visual é diferente de projeto de posicionamento; entregávei
 ## Presença Digital Local
 | Pacote | Implantação | Continuidade opcional | O que a mensalidade cobre |
 |---|---|---|---|
-| Presença Essencial | R$ 790 | R$ 290/mês | suporte e até quatro pequenas atualizações por mês nos canais |
+| Presença Essencial | R$ 790 | R$ 390/mês | suporte e até quatro pequenas atualizações por mês nos canais |
 | Presença Estruturada | R$ 1.490 | R$ 490/mês | kit mensal com quatro peças de conteúdo e uma campanha |
 | Presença Assistida | R$ 1.990 | R$ 890/mês | operação assistida de conteúdo, calendário e programação, com oito peças de referência e volume final na proposta |
 
@@ -70,8 +70,8 @@ Nomes no masculino desde 27/10 ("o Sprint"); antes, Sprint Integrada e Sprint Av
 ## Continuidade
 | Plano | Mensalidade | Entrega |
 |---|---|---|
-| Cuidado Técnico | R$ 249/mês | Hospedagem gerenciada, SSL, backups, monitoramento básico e suporte técnico delimitado |
-| Integrações Monitoradas | R$ 490/mês | Monitoramento das integrações, registro de erros e suporte técnico com limites definidos |
+| Cuidado Técnico | R$ 349/mês | Hospedagem gerenciada, SSL, backups, monitoramento básico e suporte técnico delimitado |
+| Integrações Monitoradas | R$ 590/mês | Monitoramento das integrações, registro de erros e suporte técnico com limites definidos |
 | Evolução Contínua | R$ 990/mês | Acompanhamento, priorização de melhorias e capacidade reservada para pequenas intervenções |
 
 Os três são opcionais; a necessidade e o escopo decidem. Publicados os três por decisão do Dyones (27/10: "implemente a evolução contínua, vamos adotar o handoff"), com os limites abaixo.
@@ -87,8 +87,19 @@ As horas não acumulam de um mês para o outro. Correção é fazer voltar a fun
 
 As três frentes do menu: Manutenção técnica (Cuidado Técnico), Conteúdo e campanhas recorrentes (as mensalidades da Presença) e Monitoramento e otimização (Integrações Monitoradas e Evolução Contínua).
 
+### Política de preço das mensalidades (27/10, tarde)
+O plano de entrada de cada frente custa perto do degrau seguinte, para que o mais barato pareça pouco pela entrega e o cliente suba um degrau, como os tamanhos de bebida nas redes de fast food (Dyones: "na continuidade, use a política de preços que o macdonalds e outras redes usam, onde contratar o mais barato parece não valer a pena, pela entrega recebida"). Os pontos de partida são dele: Cuidado Técnico de R$ 249 para R$ 349/mês, a mensalidade da Presença Essencial de R$ 290 para R$ 390/mês e Integrações Monitoradas de R$ 490 para R$ 590/mês. Os degraus de cima ficam: Presença Estruturada R$ 490/mês, Presença Assistida R$ 890/mês e Evolução Contínua R$ 990/mês.
+
+| Frente | Entrada | Degrau seguinte | Diferença | O que a diferença compra |
+|---|---|---|---|---|
+| Conteúdo e campanhas | Presença Essencial, R$ 390/mês | Presença Estruturada, R$ 490/mês | R$ 100 | o kit mensal com quatro peças e uma campanha, no lugar de só suporte e quatro pequenas atualizações |
+| Manutenção e monitoramento | Cuidado Técnico, R$ 349/mês | Integrações Monitoradas, R$ 590/mês | R$ 241 | integrações vigiadas, correção de falha, 2 horas de suporte no lugar de 1 e resposta em 1 dia útil |
+| Monitoramento e otimização | Integrações Monitoradas, R$ 590/mês | Evolução Contínua, R$ 990/mês | R$ 400 | a conversa mensal e mais 2 horas para pequenas intervenções |
+
+Regras: o escopo de cada plano não muda para criar a isca, só o preço; o efeito vem dos números lado a lado em `/precos`, `/continuidade` e nas páginas, sem frase de comparação no texto público. A isca é mais forte na Presença (R$ 100 de distância). No Cuidado Técnico ela depende de o site ter integração: site sem integração não usa as Integrações Monitoradas, e o degrau seguinte para ele é a Evolução Contínua.
+
 ## Segmento automotivo
-O hub `/segmentos/revendas-de-veiculos` vende dois caminhos: o Site Automotivo Integrado (a partir de R$ 11.900, com Integrações Monitoradas a R$ 490/mês, opcional) e a Operação com IA, um Sprint Integrado para revendas (R$ 6.900 de referência: agente de IA no WhatsApp, CRM com funil, passagem para a equipe e treinamento; IA e mensagens pelo valor do provedor). Os modelos Mapa e Completo saíram com a tabela de 15/10. Revenda Mais em produção; Autoconf, BNDV, Boom, Altimus e Syonet integráveis depois de verificar a API ou a exportação de cada um.
+O hub `/segmentos/revendas-de-veiculos` vende dois caminhos: o Site Automotivo Integrado (a partir de R$ 11.900, com Integrações Monitoradas a R$ 590/mês, opcional) e a Operação com IA, um Sprint Integrado para revendas (R$ 6.900 de referência: agente de IA no WhatsApp, CRM com funil, passagem para a equipe e treinamento; IA e mensagens pelo valor do provedor). Os modelos Mapa e Completo saíram com a tabela de 15/10. Revenda Mais em produção; Autoconf, BNDV, Boom, Altimus e Syonet integráveis depois de verificar a API ou a exportação de cada um.
 
 ## Regras comerciais
 - Os quatro preços de entrada correspondem a uma entrega que pode ser contratada por aquele valor. Se as propostas reais passarem sempre do preço de entrada, ele sai da chamada.
@@ -108,7 +119,7 @@ O handoff deixou estas quantidades para definir antes de publicar; o Dyones pedi
 - Continuidade: as horas, os prazos de resposta e o canal da tabela acima.
 
 ## Viabilidade (estimativa, 27/10)
-Hora do fundador valorada em R$ 150 e infra por cliente da tabela de 12/10 (horas estimadas, não medidas): o Cuidado Técnico paga cerca de 1 hora e a infra de um site estático (~R$ 40); as Integrações Monitoradas, cerca de 2,5 horas; a Evolução Contínua, cerca de 6 horas brutas para 4,5 horas de compromisso (4 horas e a conversa mensal). A Presença Essencial (R$ 790) equivale a cerca de 5 horas e o kit de R$ 490 a cerca de 2 horas com ferramentas. Fecha se a entrega for padronizada e o limite estiver no contrato.
+Hora do fundador valorada em R$ 150 e infra por cliente da tabela de 12/10 (horas estimadas, não medidas): o Cuidado Técnico paga cerca de 1 hora e a infra de um site estático (~R$ 40); as Integrações Monitoradas, cerca de 2,5 horas; a Evolução Contínua, cerca de 6 horas brutas para 4,5 horas de compromisso (4 horas e a conversa mensal). A Presença Essencial (R$ 790) equivale a cerca de 5 horas e o kit de R$ 490 a cerca de 2 horas com ferramentas. Fecha se a entrega for padronizada e o limite estiver no contrato. Com a política da tarde de 27/10, os três planos de entrada pagam R$ 100 a mais por mês, cerca de 40 minutos da hora do fundador: o Cuidado Técnico (R$ 349) passa a cobrir cerca de 2 horas além da infra, para 1 hora de compromisso.
 
 ## Histórico: cardápio de 15/10 a 26/10/2026 (aposentado em 27/10)
 

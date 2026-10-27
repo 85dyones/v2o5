@@ -7,8 +7,8 @@ description: "Site de estoque ligado ao sistema da loja (Revenda Mais, Autoconf 
 canonical: "https://www.v2o5.com.br/segmentos/revendas-de-veiculos"
 robots: null
 h1: "O sistema da Motors Store, pronto para a sua revenda."
-extraido_em: "2026-10-27T14:34:01.868Z"
-fonte: "build local da branch claude/kind-tesla-eefroe em 27/10/2026 (portfólio das quatro soluções), antes da publicação"
+extraido_em: "2026-10-27T18:10:55.133Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 27/10/2026 (mensalidades de entrada da tarde de 27/10), antes da publicação"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 # O sistema da Motors Store, pronto para a sua revenda.
@@ -108,7 +108,7 @@ A partir de R$ 11.900
 
 Continuidade opcional
 
-Integrações Monitoradas, R$ 490/mês
+Integrações Monitoradas, R$ 590/mês
 
 Sprint Integrado
 
@@ -127,7 +127,7 @@ R$ 6.900
 
 Continuidade opcional
 
-Integrações Monitoradas, R$ 490/mês, ou Evolução Contínua, R$ 990/mês
+Integrações Monitoradas, R$ 590/mês, ou Evolução Contínua, R$ 990/mês
 
 Uso da IA e mensagens do WhatsApp ficam por fora, pelo valor do provedor, discriminados na fatura, com teto mensal combinado e aviso antes de ultrapassá-lo; a V2O5 gerencia. Tráfego pago entra no escopo do projeto, com a verba paga direto às plataformas.
 

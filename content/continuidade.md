@@ -7,8 +7,8 @@ description: "Planos opcionais para manter e evoluir o que foi entregue: Cuidado
 canonical: "https://www.v2o5.com.br/continuidade"
 robots: null
 h1: "Continuidade: o que segue depois da entrega."
-extraido_em: "2026-10-27T14:34:01.868Z"
-fonte: "build local da branch claude/kind-tesla-eefroe em 27/10/2026 (portfólio das quatro soluções), antes da publicação"
+extraido_em: "2026-10-27T18:10:55.133Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 27/10/2026 (mensalidades de entrada da tarde de 27/10), antes da publicação"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 # Continuidade: o que segue depois da entrega.
@@ -27,7 +27,7 @@ Hospedagem, segurança, backup e suporte para o site ou a página continuarem no
 
 ### Cuidado Técnico
 
-R$ 249/mês
+R$ 349/mês
 
 Preço de referência. Opcional, sem obrigação de contratar.
 
@@ -45,7 +45,7 @@ As mensalidades da Presença Digital Local: atualizações, kit mensal de conte�
 
 ### Presença Essencial
 
-R$ 290/mês
+R$ 390/mês
 
 Suporte e até quatro pequenas atualizações por mês nos canais: horário, contato, foto ou informação.
 
@@ -69,7 +69,7 @@ Integrações vigiadas, erros registrados e, se quiser, horas reservadas para me
 
 ### Integrações Monitoradas
 
-R$ 490/mês
+R$ 590/mês
 
 Preço de referência. Opcional, sem obrigação de contratar.
 
@@ -130,7 +130,7 @@ Não. Ela é contratada à parte, quando o que foi entregue continua rodando e p
 
 Quanto custa?
 
-Cuidado Técnico, R$ 249/mês; Integrações Monitoradas, R$ 490/mês; Evolução Contínua, R$ 990/mês. As mensalidades de conteúdo da Presença Digital Local vão de R$ 290/mês a R$ 890/mês.
+Cuidado Técnico, R$ 349/mês; Integrações Monitoradas, R$ 590/mês; Evolução Contínua, R$ 990/mês. As mensalidades de conteúdo da Presença Digital Local vão de R$ 390/mês a R$ 890/mês.
 
 O que acontece se eu usar mais horas do que o plano tem?
 

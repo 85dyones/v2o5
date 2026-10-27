@@ -7,8 +7,8 @@ description: "Perfil da Empresa no Google, redes sociais e WhatsApp Business org
 canonical: "https://www.v2o5.com.br/presenca-digital-local"
 robots: null
 h1: "Presença digital para negócios locais: Google, redes e WhatsApp."
-extraido_em: "2026-10-27T14:34:01.868Z"
-fonte: "build local da branch claude/kind-tesla-eefroe em 27/10/2026 (portfólio das quatro soluções), antes da publicação"
+extraido_em: "2026-10-27T18:10:55.133Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 27/10/2026 (mensalidades de entrada da tarde de 27/10), antes da publicação"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 # Presença digital para negócios locais: Google, redes e WhatsApp.
@@ -25,7 +25,7 @@ Quando o cliente procura e encontra informação errada, perfil parado ou nenhum
 
 Preço de entrada
 
-a partir de R$ 790, com mensalidade opcional a partir de R$ 290/mês
+a partir de R$ 790, com mensalidade opcional a partir de R$ 390/mês
 
 Para quem
 
@@ -108,7 +108,7 @@ Para o negócio local que precisa ser encontrado com as informações certas.
 
 Continuidade opcional
 
-R$ 290/mês
+R$ 390/mês
 
 Suporte e até quatro pequenas atualizações por mês nos canais: horário, contato, foto ou informação.
 
@@ -181,7 +181,7 @@ O que entra, quanto custa e o que fica de fora. O resto cabe no diagnóstico.
 
 Quanto custa?
 
-Os pacotes: Presença Essencial, R$ 790, com mensalidade opcional de R$ 290/mês; Presença Estruturada, R$ 1.490, com mensalidade opcional de R$ 490/mês; Presença Assistida, R$ 1.990, com mensalidade opcional de R$ 890/mês. São preços de referência: o valor fechado sai em proposta.
+Os pacotes: Presença Essencial, R$ 790, com mensalidade opcional de R$ 390/mês; Presença Estruturada, R$ 1.490, com mensalidade opcional de R$ 490/mês; Presença Assistida, R$ 1.990, com mensalidade opcional de R$ 890/mês. São preços de referência: o valor fechado sai em proposta.
 
 A mensalidade é obrigatória?
 

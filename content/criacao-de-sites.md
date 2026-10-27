@@ -7,8 +7,8 @@ description: "Landing page, site personalizado, site conectado ao seu sistema e 
 canonical: "https://www.v2o5.com.br/criacao-de-sites"
 robots: null
 h1: "Criação de sites profissionais, ligados ao sistema que você já usa."
-extraido_em: "2026-10-27T14:34:01.868Z"
-fonte: "build local da branch claude/kind-tesla-eefroe em 27/10/2026 (portfólio das quatro soluções), antes da publicação"
+extraido_em: "2026-10-27T18:10:55.133Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 27/10/2026 (mensalidades de entrada da tarde de 27/10), antes da publicação"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 # Criação de sites profissionais, ligados ao sistema que você já usa.
@@ -270,7 +270,7 @@ No Site Conectado e no Site Automotivo Integrado, sim. A integração entra na p
 
 E depois que o site vai ao ar?
 
-A continuidade é opcional. O Cuidado Técnico (R$ 249/mês) cuida da hospedagem, do SSL, do backup e de até 1 hora de suporte por mês. Site com integração costuma seguir com as Integrações Monitoradas (R$ 490/mês).
+A continuidade é opcional. O Cuidado Técnico (R$ 349/mês) cuida da hospedagem, do SSL, do backup e de até 1 hora de suporte por mês. Site com integração costuma seguir com as Integrações Monitoradas (R$ 590/mês).
 
 O site fica no meu nome?
 

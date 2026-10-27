@@ -7,8 +7,8 @@ description: "Projeto fechado para um gargalo da operação: mapear, simplificar
 canonical: "https://www.v2o5.com.br/sprint-de-eficiencia"
 robots: null
 h1: "Sprint de Eficiência: um gargalo da operação resolvido e medido."
-extraido_em: "2026-10-27T14:34:01.868Z"
-fonte: "build local da branch claude/kind-tesla-eefroe em 27/10/2026 (portfólio das quatro soluções), antes da publicação"
+extraido_em: "2026-10-27T18:10:55.133Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 27/10/2026 (mensalidades de entrada da tarde de 27/10), antes da publicação"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 # Sprint de Eficiência: um gargalo da operação resolvido e medido.
@@ -253,7 +253,7 @@ Em projetos, 50% na contratação, 30% na validação intermediária e 20% no ac
 
 E depois que o Sprint termina?
 
-O Sprint termina na entrega. Se a solução continua rodando, ela pode seguir com as Integrações Monitoradas (R$ 490/mês) ou a Evolução Contínua (R$ 990/mês), opcionais. IA, mensagens e nuvem de sistemas ficam por fora, pelo valor do provedor.
+O Sprint termina na entrega. Se a solução continua rodando, ela pode seguir com as Integrações Monitoradas (R$ 590/mês) ou a Evolução Contínua (R$ 990/mês), opcionais. IA, mensagens e nuvem de sistemas ficam por fora, pelo valor do provedor.
 
 Vocês prometem aumento de vendas?
 

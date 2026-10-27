@@ -128,7 +128,7 @@ const PRESENCA: Oferta = {
     {
       nome: "Presença Essencial",
       preco: { valor: 790 },
-      mensal: { valor: 290, cobre: "Suporte e até quatro pequenas atualizações por mês nos canais: horário, contato, foto ou informação." },
+      mensal: { valor: 390, cobre: "Suporte e até quatro pequenas atualizações por mês nos canais: horário, contato, foto ou informação." },
       para: "Para o negócio local que precisa ser encontrado com as informações certas.",
       inclui: [
         "Perfil da Empresa no Google configurado ou otimizado (a verificação depende do Google)",
@@ -319,7 +319,7 @@ export interface PlanoDeContinuidade {
 export const PLANOS_DE_CONTINUIDADE: PlanoDeContinuidade[] = [
   {
     nome: "Cuidado Técnico",
-    mensal: 249,
+    mensal: 349,
     frente: "manutencao-tecnica",
     para: "Para manter no ar o site ou a página entregue.",
     inclui: [
@@ -332,7 +332,7 @@ export const PLANOS_DE_CONTINUIDADE: PlanoDeContinuidade[] = [
   },
   {
     nome: "Integrações Monitoradas",
-    mensal: 490,
+    mensal: 590,
     frente: "monitoramento-e-otimizacao",
     para: "Para site ou fluxo ligado a outros sistemas.",
     inclui: [

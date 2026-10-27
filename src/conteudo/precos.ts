@@ -25,7 +25,7 @@ export interface Preco {
 /** "R$ 2.400" ou "a partir de R$ 7.900". */
 export const precoEmTexto = (p: Preco) => (p.aPartirDe ? `a partir de ${BRL(p.valor)}` : BRL(p.valor));
 
-/** "R$ 290/mês". */
+/** "R$ 390/mês". */
 export const mensalEmTexto = (valor: number) => `${BRL(valor)}/mês`;
 
 /** As duas metades do H1 de 09/10, que ainda agrupam as páginas de recurso. */

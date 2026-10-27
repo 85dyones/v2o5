@@ -7,8 +7,8 @@ description: "Branding, presença digital local, sites com integração e o Spri
 canonical: "https://www.v2o5.com.br"
 robots: null
 h1: "Do problema ao resultado, pelo caminho mais simples."
-extraido_em: "2026-10-27T14:34:01.868Z"
-fonte: "build local da branch claude/kind-tesla-eefroe em 27/10/2026 (portfólio das quatro soluções), antes da publicação"
+extraido_em: "2026-10-27T18:10:55.133Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 27/10/2026 (mensalidades de entrada da tarde de 27/10), antes da publicação"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 Estratégia, processos e tecnologia
@@ -42,7 +42,7 @@ Cada uma resolve um tipo de problema e tem pacotes com preço de referência. El
 
 [Sprint de Eficiência → Quando um processo trava a operação: retrabalho, contato perdido, sistemas que não conversam. Um gargalo resolvido, com a solução implantada e os indicadores comparados antes e depois. A partir de R$ 3.900](/sprint-de-eficiencia)
 
-[Continuidade Depois da entrega, planos opcionais para manter e evoluir o que foi entregue, com limites escritos. Planos a partir de R$ 249/mês](/continuidade)
+[Continuidade Depois da entrega, planos opcionais para manter e evoluir o que foi entregue, com limites escritos. Planos a partir de R$ 349/mês](/continuidade)
 
 Como começar
 
@@ -74,7 +74,7 @@ Depois da entrega
 
 Planos opcionais para manter e evoluir o que foi entregue, com horas e prazo de resposta escritos.
 
-Planos a partir de R$ 249/mês. Não inclui desenvolvimento ilimitado nem novas integrações sem orçamento.
+Planos a partir de R$ 349/mês. Não inclui desenvolvimento ilimitado nem novas integrações sem orçamento.
 
 [Ver valores e condições](/continuidade)
 
@@ -305,7 +305,7 @@ Preço, pagamento, o que cada solução entrega e o que vem depois. Se a sua per
 
 Quanto custa?
 
-O diagnóstico inicial, de 45 minutos, é gratuito. Os preços de entrada são Branding & Identidade a partir de R$ 2.400, Presença Digital Local a partir de R$ 790, Sites & Integrações a partir de R$ 2.900, Sprint de Eficiência a partir de R$ 3.900, e a continuidade tem planos a partir de R$ 249/mês. São preços de referência: o valor fechado sai em proposta, para um escopo conhecido.
+O diagnóstico inicial, de 45 minutos, é gratuito. Os preços de entrada são Branding & Identidade a partir de R$ 2.400, Presença Digital Local a partir de R$ 790, Sites & Integrações a partir de R$ 2.900, Sprint de Eficiência a partir de R$ 3.900, e a continuidade tem planos a partir de R$ 349/mês. São preços de referência: o valor fechado sai em proposta, para um escopo conhecido.
 
 Preciso contratar tudo?
 
@@ -321,7 +321,7 @@ No Sprint: em projetos, 50% na contratação, 30% na validação intermediária 
 
 E depois da entrega?
 
-A implantação termina na entrega. Se o que foi entregue continua rodando, a continuidade cuida dele, em contrato à parte e com horas e prazo de resposta escritos, com planos a partir de R$ 249/mês. Banco de dados, servidor dedicado, IA e mensagens ficam por fora, pelo valor do provedor, e a V2O5 gerencia. Nenhum plano cobre desenvolvimento ilimitado.
+A implantação termina na entrega. Se o que foi entregue continua rodando, a continuidade cuida dele, em contrato à parte e com horas e prazo de resposta escritos, com planos a partir de R$ 349/mês. Banco de dados, servidor dedicado, IA e mensagens ficam por fora, pelo valor do provedor, e a V2O5 gerencia. Nenhum plano cobre desenvolvimento ilimitado.
 
 Preciso trocar o sistema de gestão que já uso?
 

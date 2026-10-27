@@ -54,7 +54,7 @@ for (const f of [...arquivos("src/app"), ...arquivos("src/components"), ...arqui
 
 describe("preços públicos", () => {
   it("a lista de permitidos é a tabela de 27/10/2026", () => {
-    expect(VALORES_PUBLICOS).toEqual([249, 290, 490, 790, 890, 990, 1490, 1990, 2400, 2900, 3900, 4900, 5900, 6900, 7900, 9900, 11900, 12900]);
+    expect(VALORES_PUBLICOS).toEqual([349, 390, 490, 590, 790, 890, 990, 1490, 1990, 2400, 2900, 3900, 4900, 5900, 6900, 7900, 9900, 11900, 12900]);
   });
 
   it("nenhum texto público, código de página, vitrine, llms.txt ou fluxo do n8n traz valor fora da tabela", () => {
@@ -76,9 +76,9 @@ describe("preços públicos", () => {
     for (const n of numeros) expect(VALORES_PUBLICOS, n).toContain(Number(n.split(":")[1]));
   });
 
-  it("o cardápio de 15/10 e as faixas de 25/10 saíram de tudo que é público", () => {
+  it("o cardápio de 15/10, as faixas de 25/10 e as mensalidades de entrada da manhã de 27/10 saíram de tudo que é público", () => {
     const todos = Object.values(publicos).join("\n");
-    for (const velho of ["R$ 8.900", "R$ 14.900", "R$ 1.590", "R$ 2.290", "R$ 1.699", "R$ 3.000", "R$ 6.000", "R$ 12.000", "R$ 1.200", "R$ 5.000", "R$ 49,90", "R$ 690"]) {
+    for (const velho of ["R$ 8.900", "R$ 14.900", "R$ 1.590", "R$ 2.290", "R$ 1.699", "R$ 3.000", "R$ 6.000", "R$ 12.000", "R$ 1.200", "R$ 5.000", "R$ 49,90", "R$ 690", "R$ 249", "R$ 290"]) {
       expect(todos, velho).not.toContain(velho);
     }
     expect(todos).not.toMatch(/sob consulta|por tempo limitado/i);
