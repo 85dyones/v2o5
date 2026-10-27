@@ -27,13 +27,13 @@ const vigente = oferta.slice(0, oferta.indexOf("## Histórico"));
 
 describe("formato do preço", () => {
   it("real com ponto de milhar, centavos só quando há, e 'a partir de' só quando pedido", () => {
-    expect(BRL(249)).toBe("R$ 249");
+    expect(BRL(349)).toBe("R$ 349");
     expect(BRL(11900)).toBe("R$ 11.900");
     expect(BRL(49.9)).toBe("R$ 49,90");
     expect(dataBR("2026-11-11")).toBe("11/11/2026");
     expect(precoEmTexto({ valor: 2400 })).toBe("R$ 2.400");
     expect(precoEmTexto({ valor: 7900, aPartirDe: true })).toBe("a partir de R$ 7.900");
-    expect(mensalEmTexto(290)).toBe("R$ 290/mês");
+    expect(mensalEmTexto(390)).toBe("R$ 390/mês");
   });
 });
 
@@ -49,7 +49,7 @@ describe("as quatro soluções (27/10/2026)", () => {
 
   it("o preço de entrada é o da tabela do handoff", () => {
     expect(OFERTAS.map(precoDeEntrada)).toEqual([2400, 790, 2900, 3900]);
-    expect(continuidadeAPartirDe()).toBe(249);
+    expect(continuidadeAPartirDe()).toBe(349);
   });
 
   it("pacotes e preços batem com o handoff", () => {
@@ -61,7 +61,7 @@ describe("as quatro soluções (27/10/2026)", () => {
         ["Reposicionamento", 7900, true, null],
       ],
       presenca: [
-        ["Presença Essencial", 790, false, 290],
+        ["Presença Essencial", 790, false, 390],
         ["Presença Estruturada", 1490, false, 490],
         ["Presença Assistida", 1990, false, 890],
       ],
@@ -112,8 +112,8 @@ describe("as quatro soluções (27/10/2026)", () => {
 describe("continuidade", () => {
   it("três planos opcionais, nas três frentes do menu", () => {
     expect(PLANOS_DE_CONTINUIDADE.map((p) => [p.nome, p.mensal])).toEqual([
-      ["Cuidado Técnico", 249],
-      ["Integrações Monitoradas", 490],
+      ["Cuidado Técnico", 349],
+      ["Integrações Monitoradas", 590],
       ["Evolução Contínua", 990],
     ]);
     expect(CONTINUIDADE.frentes.map((f) => f.id)).toEqual(["manutencao-tecnica", "conteudo-e-campanhas", "monitoramento-e-otimizacao"]);
