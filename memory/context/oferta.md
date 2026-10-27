@@ -1,5 +1,119 @@
 # Oferta e preços
 
+> **Desde 27/10/2026 a V2O5 vende quatro soluções e a continuidade, todas com preço de referência público** (Dyones, "Handoff mestre: reposicionamento comercial, portfólio e política inicial de preços", aprovado em 27/10 com "sim" às substituições). Substitui o guarda-chuva dos três Sprints (25/10), a regra "só o Sprint tem valor público" (25/10), os valores do Sprint de 26/10, a recorrência de R$ 1.200 a R$ 5.000 (25/10), os planos do hub automotivo e a oferta do Completo até 31/12/2026 (15/10 e 25/10), o piso de mensalidade de R$ 690 (12/10) e o Start Digital fora do cardápio. O que ficou para trás está em "Histórico", no fim.
+
+Fonte em código: `src/conteudo/ofertas.ts` (Branding, Presença, Sites e continuidade) e `src/conteudo/sprint.ts` (Sprint). Esta página repete os mesmos números e `tests/ofertas.test.ts` confere os dois lados. Todo "R$" público sai dessas duas fontes: `tests/precos-publicos.test.ts` recusa qualquer outro valor no site, no `llms.txt`, no schema, na vitrine e no agente do n8n.
+
+## Princípios (não mudam)
+- Processo antes da ferramenta; resultado antes da complexidade.
+- Comprar, integrar, automatizar ou desenvolver conforme a necessidade. Não construir outro sistema de gestão quando o cliente já tem um adequado.
+- Não vender funcionalidade sem dizer o problema que ela resolve. Não prometer resultado comercial sem evidência (ROI, percentual de vendas ou economia só com linha de base).
+- Personalizar onde agrega valor; padronizar a infraestrutura sempre que der.
+- Nenhum serviço com escopo ilimitado. A implantação tem escopo e preço claros; a continuidade corresponde a trabalho recorrente real, com limites escritos.
+- Os valores são preços de referência para testar comercialmente. O preço fechado vale para um escopo conhecido e depende da compatibilidade técnica e dos custos diretos.
+
+## Resumo público (home e `/precos`)
+| Solução | Preço público de entrada | Página |
+|---|---|---|
+| Branding & Identidade | a partir de R$ 2.400 | `/branding-e-identidade` |
+| Presença Digital Local | a partir de R$ 790 | `/presenca-digital-local` |
+| Sites & Integrações | a partir de R$ 2.900 | `/criacao-de-sites` |
+| Sprint de Eficiência | a partir de R$ 3.900 | `/sprint-de-eficiencia` |
+| Continuidade | planos a partir de R$ 249/mês | `/continuidade` |
+
+O que cada uma resolve (nenhuma obriga a comprar a seguinte):
+- Branding resolve percepção, identidade e posicionamento.
+- Presença Digital Local estrutura os canais e a comunicação digital. Substitui o antigo Start Digital.
+- Sites & Integrações constrói canais próprios ligados à operação que já existe. Não é outro ERP nem outro CRM.
+- Sprint de Eficiência resolve um gargalo específico com processo, tecnologia e medição.
+- Continuidade mantém funcionando e evoluindo o que foi contratado, dentro de limites definidos. É opcional.
+
+## Branding & Identidade
+| Pacote | Implantação | Escopo de referência |
+|---|---|---|
+| Identidade Essencial | R$ 2.400 | Identidade visual funcional, variações de marca, cores, tipografia, aplicações essenciais e guia básico |
+| Marca em Uso | R$ 4.900 | Sistema visual mais completo, diretrizes de comunicação, aplicações comerciais e kit digital |
+| Reposicionamento | a partir de R$ 7.900 | Diagnóstico, posicionamento, proposta de valor, identidade e plano de aplicação |
+
+Regras: identidade visual é diferente de projeto de posicionamento; entregáveis, arquivos finais e revisões vão no contrato; logotipo sozinho não é vendido como projeto completo de branding; produção de materiais nunca é ilimitada. Fora: registro da marca no INPI, impressão e produção gráfica, fotos e vídeos, criação de nome (só em proposta específica).
+
+## Presença Digital Local
+| Pacote | Implantação | Continuidade opcional | O que a mensalidade cobre |
+|---|---|---|---|
+| Presença Essencial | R$ 790 | R$ 290/mês | suporte e até quatro pequenas atualizações por mês nos canais |
+| Presença Estruturada | R$ 1.490 | R$ 490/mês | kit mensal com quatro peças de conteúdo e uma campanha |
+| Presença Assistida | R$ 1.990 | R$ 890/mês | operação assistida de conteúdo, calendário e programação, com oito peças de referência e volume final na proposta |
+
+Para pequenos e médios negócios usarem melhor os canais digitais, com investimento inicial baixo (padaria com o pão saindo do forno, distribuidora com oferta sazonal, oficina com serviço e campanha, comércio local organizando perfis e relacionamento). Fora: verba de anúncios, gravação presencial, gestão de comentários e mensagens, serviços externos sem contratação específica, publicações ilimitadas. Responsabilidades do cliente: enviar fotos, informações e ofertas; aprovar as peças no prazo combinado; dar acesso aos perfis. Campanhas respeitam consentimento, privacidade e as regras de cada plataforma.
+
+Substitui, como oferta, o "Conteúdo e gestão de redes sociais" (R$ 1.500 + R$ 1.699/mês, 12 publicações), aposentado em 27/10 para as duas não concorrerem (Dyones).
+
+## Sites & Integrações
+| Pacote | Implantação | Escopo de referência |
+|---|---|---|
+| Landing Page | R$ 2.900 | Uma página comercial, formulário ou botão funcional e rastreamento básico |
+| Site Personalizado | R$ 5.900 | Site institucional personalizado, estrutura comercial, SEO técnico básico e contatos funcionais |
+| Site Conectado | a partir de R$ 9.900 | Site personalizado, integração com um sistema existente e medição dos contatos |
+| Site Automotivo Integrado | a partir de R$ 11.900 | Site próprio da revenda, estoque sincronizado com o gestor e contatos no CRM, conforme compatibilidade e escopo |
+
+O Site Automotivo Integrado tem faixa interna de R$ 11.900 a R$ 16.900; o público vê só o "a partir de" (Dyones, 27/10, coerente com a regra de 26/10 sobre teto). Entrega-base de todo site em `src/conteudo/sitePadrao.ts`. Regras: preço fechado só para escopo conhecido; integração só depois de verificar documentação, credenciais, limites e custos do sistema; integração padrão é diferente de desenvolvimento específico; sem promessa de compatibilidade universal; prever veículo vendido, atualização, falha e contato que não chega ao CRM. Fora: domínio, e-mail, APIs pagas e licenças de terceiros, mídia paga, loja com pagamento, fotos e vídeos.
+
+## Sprint de Eficiência
+| Pacote | Preço de referência | Duração de referência | Escopo |
+|---|---|---|---|
+| Sprint Essencial | R$ 3.900 | 1 a 2 semanas | Um gargalo delimitado, intervenção principal e validação |
+| Sprint Integrado | R$ 6.900 | 2 a 4 semanas | Um fluxo envolvendo sistemas, validação, documentação e indicadores |
+| Sprint Avançado | a partir de R$ 12.900 | 4 a 8 semanas ou mais | Integrações complexas, desenvolvimento específico, regras de negócio ou IA |
+
+Nomes no masculino desde 27/10 ("o Sprint"); antes, Sprint Integrada e Sprint Avançada. Método obrigatório, em seis passos: mapear o processo real e a situação inicial; simplificar o fluxo antes de automatizar; escolher a intervenção proporcional; implementar a solução acordada; comparar os indicadores disponíveis antes e depois; registrar o que mudou e definir a próxima decisão. Automação, IA, dados, painéis e copilotos são recursos da solução, não produtos do menu. O diagnóstico gratuito de 45 minutos continua a porta de entrada (`/diagnostico`). Levantamento técnico detalhado pode virar etapa de descoberta paga, com preço acordado antes (sem valor público). Pagamento: 50% na contratação, 30% na validação intermediária e 20% no aceite final; Sprints pequenos, 50% e 50%.
+
+## Continuidade
+| Plano | Mensalidade | Entrega |
+|---|---|---|
+| Cuidado Técnico | R$ 249/mês | Hospedagem gerenciada, SSL, backups, monitoramento básico e suporte técnico delimitado |
+| Integrações Monitoradas | R$ 490/mês | Monitoramento das integrações, registro de erros e suporte técnico com limites definidos |
+| Evolução Contínua | R$ 990/mês | Acompanhamento, priorização de melhorias e capacidade reservada para pequenas intervenções |
+
+Os três são opcionais; a necessidade e o escopo decidem. Publicados os três por decisão do Dyones (27/10: "implemente a evolução contínua, vamos adotar o handoff"), com os limites abaixo.
+
+| Limite | Cuidado Técnico | Integrações Monitoradas | Evolução Contínua |
+|---|---|---|---|
+| Inclui o plano anterior | | sim | sim |
+| Suporte técnico por mês | até 1 hora | até 2 horas | até 2 horas, mais 2 horas para pequenas intervenções |
+| Prazo de resposta | até 2 dias úteis | até 1 dia útil para falha de integração | até 1 dia útil |
+| Canal | WhatsApp ou e-mail, em horário comercial | idem | idem, com uma conversa mensal de 30 minutos |
+
+As horas não acumulam de um mês para o outro. Correção é fazer voltar a funcionar o que foi entregue e parou; nova funcionalidade muda ou acrescenta algo, e é orçada à parte. Fora de todos: desenvolvimento ilimitado, novas funcionalidades e integrações, plantão fora do horário comercial, nuvem de sistemas (banco de dados, servidor dedicado), consumo de IA e mensagens (pelo valor do provedor, discriminados, com teto mensal combinado e aviso antes de ultrapassá-lo; a V2O5 gerencia), domínio e e-mail. Responsabilidades do cliente: manter em dia os acessos e os pagamentos dos serviços de terceiros e avisar quando mudar o sistema dele. Backup: código versionado e cópia do conteúdo, com restauração da última versão publicada. Encerramento: aviso prévio, com código, dados e acessos entregues nos termos do contrato.
+
+As três frentes do menu: Manutenção técnica (Cuidado Técnico), Conteúdo e campanhas recorrentes (as mensalidades da Presença) e Monitoramento e otimização (Integrações Monitoradas e Evolução Contínua).
+
+## Segmento automotivo
+O hub `/segmentos/revendas-de-veiculos` vende dois caminhos: o Site Automotivo Integrado (a partir de R$ 11.900, com Integrações Monitoradas a R$ 490/mês, opcional) e a Operação com IA, um Sprint Integrado para revendas (R$ 6.900 de referência: agente de IA no WhatsApp, CRM com funil, passagem para a equipe e treinamento; IA e mensagens pelo valor do provedor). Os modelos Mapa e Completo saíram com a tabela de 15/10. Revenda Mais em produção; Autoconf, BNDV, Boom, Altimus e Syonet integráveis depois de verificar a API ou a exportação de cada um.
+
+## Regras comerciais
+- Os quatro preços de entrada correspondem a uma entrega que pode ser contratada por aquele valor. Se as propostas reais passarem sempre do preço de entrada, ele sai da chamada.
+- Coerência entre home, páginas das soluções, formulário, propostas e materiais. Sem comparação depreciativa com concorrentes e sem "mais por menos" sem evidência.
+- Custos de terceiros, mídia paga e serviços externos só com previsão no contrato.
+- Integração só é anunciada como "em produção" quando existe (hoje: Revenda Mais).
+- Tráfego pago: fica fora do preço público (Dyones, 27/10); entra como capacidade dentro de um Sprint ou da Presença, com a verba paga direto às plataformas e só com o rastreamento ligado.
+- Reativação só com base própria, com registro de origem e saída fácil; lista comprada ou raspada não entra.
+- Propostas já enviadas (os diagnósticos de 15 a 19/10 em diagnostico.v2o5.com.br) passam à tabela nova: "faça tudo, mesmo as propostas enviadas, podem virar upsell com o preço" (Dyones, 27/10). Contrato assinado não muda.
+- **Desconto fidelidade (interno, fora do site):** clientes antigos pagam a tabela com 27,5% de desconto, arredondado (Dyones, 14/10/2026, na renovação do atendimento da 16ª Vara Cível).
+
+## Rascunhos que esperam aprovação no preview (27/10)
+O handoff deixou estas quantidades para definir antes de publicar; o Dyones pediu um rascunho ("você aprova antes de publicar"). Cada uma está no código e muda num lugar só:
+- Branding: duas rodadas de revisão na Identidade Essencial e duas por etapa na Marca em Uso; aplicações essenciais = perfil das redes, assinatura de e-mail e cartão digital; aplicações comerciais = apresentação, proposta e cartão de visita.
+- Presença: Essencial com Perfil da Empresa no Google, uma rede social, WhatsApp Business e três modelos; Estruturada com até duas redes, oito modelos, calendário de três meses e uma campanha de lançamento; Assistida com ferramenta de agendamento, fluxo de aprovação e oito peças de referência por mês. Uma rodada de revisão por entrega.
+- Sites: Site Personalizado com até seis páginas; duas rodadas de revisão na Landing Page e no Site Personalizado.
+- Continuidade: as horas, os prazos de resposta e o canal da tabela acima.
+
+## Viabilidade (estimativa, 27/10)
+Hora do fundador valorada em R$ 150 e infra por cliente da tabela de 12/10 (horas estimadas, não medidas): o Cuidado Técnico paga cerca de 1 hora e a infra de um site estático (~R$ 40); as Integrações Monitoradas, cerca de 2,5 horas; a Evolução Contínua, cerca de 6 horas brutas para 4,5 horas de compromisso (4 horas e a conversa mensal). A Presença Essencial (R$ 790) equivale a cerca de 5 horas e o kit de R$ 490 a cerca de 2 horas com ferramentas. Fecha se a entrega for padronizada e o limite estiver no contrato.
+
+## Histórico: cardápio de 15/10 a 26/10/2026 (aposentado em 27/10)
+
+Guardado como registro. Nada daqui vale para proposta nova.
+
 > **Em 25/10/2026 o Dyones decidiu que só o Sprint de Eficiência e a recorrência que o acompanha têm valor público** ("preços só dos sprints", "manter apenas o descrito no plano atualizado no apêndice"). Os planos, o tráfego, os módulos, os serviços e o fotógrafo parceiro abaixo são **dado interno de referência: não aparecem no site, na vitrine, no `llms.txt`, no schema nem no agente do n8n**. `tests/precos-nao-publicados.test.ts` trava isso. A seção "Sprint de Eficiência e continuidade", no fim, é a única oferta pública.
 
 > **Três Sprints, um guarda-chuva (25/10/2026, Dyones).** A partir de hoje a V2O5 vende três Sprints (Essencial, Integrada e Avançada, faixas em `sprint.ts`). Todo serviço vem de dentro deles, identificado a partir de um Sprint e costurado sob medida: os módulos (painel, reativação e campanhas, funil sob medida, consulta veicular, área de repasse) saem de cena como oferta, e os serviços (redes, comentários e Direct, branding, fotógrafo, tráfego) viram capacidades do catálogo da home. Os pacotes do segmento automotivo (Mapa = Presença, Operação com IA = Atendimento, Completo) são modelos de Sprint para revendas: Mapa e Operação com IA na Sprint Integrada, Completo na Sprint Avançada. A mensalidade da Presença subiu de R$ 990 para R$ 1.200, o piso da faixa de continuidade. O tráfego é capacidade dentro do Sprint e a gestão mensal é recorrência. A tabela abaixo segue como referência interna para compor propostas. Entrega-base do site em `src/conteudo/sitePadrao.ts`.
@@ -8,7 +122,7 @@ Fonte em código: `src/conteudo/precos.ts` (home, `/precos`, hub automotivo, pá
 
 **Cardápio de 15/10/2026 (Dyones).** Três planos com preço fechado no lugar das quinze linhas avulsas, o tráfego como serviço à parte, módulos para quem já tem o sistema e serviços. Quem chega escolhe pelo problema que tem; a venda adicional mora nos módulos. Proposta e margens no artefato "Cardápio enxuto" (https://claude.ai/artifact/HqR5Q1rwjJ7Enbx1JtpoxY). Respostas do Dyones em 15/10: planos "concordo"; painel do dono como extra e, no site, bônus de fechamento do Completo; módulos "concordo"; placa a R$ 49,90 ("precisamos de um lucro"); SMS "foi testado, está funcional"; branding fora da tabela, anunciado como serviço sob consulta; manutenção do Completo "passa de 7 horas, ajuste", com "bônus temporário pelo preço de R$ 1.990".
 
-## Planos
+### Planos
 | Plano | Para quê | Inclui | Implantação a partir de | Mensalidade a partir de |
 |---|---|---|---|---|
 | Presença | Ser encontrado no Google e saber de onde vem cada contato | site institucional ou de estoque, Perfil da Empresa no Google, SEO técnico, rastreamento até a venda, pedido de avaliação no WhatsApp, relatório mensal | R$ 8.900 | R$ 1.200 |
@@ -20,7 +134,7 @@ Fonte em código: `src/conteudo/precos.ts` (home, `/precos`, hub automotivo, pá
 - O preço temporário vale até 31/12/2026 (confirmado pelo Dyones em 15/10); `tests/precos.test.ts` falha quando a data passa, para a oferta não ficar no ar vencida.
 - Piso da mensalidade: R$ 690 (rastreamento sozinho). Nenhuma mensalidade que mantém sistema no ar fica abaixo dele; os módulos rodam em cima da mensalidade do plano.
 
-## Tráfego
+### Tráfego
 | Linha | Implantação | Mensalidade a partir de |
 |---|---|---|
 | Google Ads ou Meta Ads (cada plataforma) | sem implantação, com o rastreamento ativo | R$ 1.200 + verba |
@@ -30,7 +144,7 @@ Fonte em código: `src/conteudo/precos.ts` (home, `/precos`, hub automotivo, pá
 
 Meta Ads inclui anúncios de clique para o WhatsApp (Dyones, 14/10: "tráfego pago meta envolve WhatsApp também"). Completo com as duas plataformas: R$ 3.290/mês + verba durante a oferta.
 
-## Módulos (para quem tem Atendimento ou Completo)
+### Módulos (para quem tem Atendimento ou Completo)
 | Módulo | Onde aparece | Implantação a partir de | Mensalidade a partir de | Uso e degraus |
 |---|---|---|---|---|
 | Painel do dono | `/precos` | R$ 3.900 (bônus no Completo) | R$ 490 | 3 usuários e 3 fontes inclusos; usuário extra R$ 89/mês; fonte extra e infra acima do incluso na proposta comercial |
@@ -41,7 +155,7 @@ Meta Ads inclui anúncios de clique para o WhatsApp (Dyones, 14/10: "tráfego pa
 
 Antes de vender repasse e consulta para outra loja: tirar o que é da Motors (nome "Repasse Motors", assistente Ney, textos de Curitiba, fotos pelo feed do Revenda Mais). As tabelas novas já separam os dados por loja; as do funil ainda não.
 
-## Serviços
+### Serviços
 | Serviço | Implantação a partir de | Mensalidade a partir de |
 |---|---|---|
 | Conteúdo e gestão de redes sociais | R$ 1.500 | R$ 1.699 (2 redes, 12 publicações por mês; produção de foto, vídeo e peças à parte; resposta a comentários e mensagens à parte) |
@@ -49,14 +163,14 @@ Antes de vender repasse e consulta para outra loja: tirar o que é da Motors (no
 | Fluxo de automação | R$ 1.900 por fluxo | sem (manutenção na mensalidade do plano) |
 | Branding e gestão de marca | sob consulta | sob consulta |
 
-## O que cresce e o que fica fora
+### O que cresce e o que fica fora
 - Usuário extra R$ 89/mês. Cada 500 conversas a mais do agente R$ 190/mês. Acima de 20 mil contatos ou 8 GB de dados no CRM, R$ 190/mês.
 - Reajuste: IPCA ao ano e repasse de variação cambial acima de 10% só nos itens em dólar (Vercel, Supabase, modelos de IA).
 - Fora da mensalidade, pelo valor real e na mesma fatura: uso do modelo de IA, mensagens da API oficial do WhatsApp e SMS. Verba de mídia paga direto ao Google e à Meta.
 - Fotógrafo parceiro indicado, a partir de R$ 890 por mês (Dyones, 13/10). Preço do parceiro; sem nome no site.
 - **Desconto fidelidade (interno, fora do site):** clientes antigos pagam a tabela com 27,5% de desconto, arredondado; R$ 690 vira R$ 500 por mês (Dyones, 14/10/2026, na renovação do atendimento da 16ª Vara Cível).
 
-## Onde cada cartão da home aponta
+### Onde cada cartão da home aponta
 O preço de cada cartão sai de `precoDa` (`CAPACIDADES` em `precos.ts`): o plano em que a peça mora ou a linha própria.
 
 | Cartão | Mora em | Página |
@@ -69,10 +183,10 @@ O preço de cada cartão sai de `precoDa` (`CAPACIDADES` em `precos.ts`): o plan
 | Automação de processos, Pós-venda, Integrações | fluxo de automação | `/automacao-com-ia`, `/diagnostico` |
 | Conteúdo e gestão de redes sociais, Branding (Gestão de comentários e Direct só na tabela) | serviços | `/diagnostico` |
 
-## Segmento automotivo
+### Segmento automotivo
 O hub `/segmentos/revendas-de-veiculos` vende o plano Completo com o site de estoque (R$ 14.900 + R$ 1.990/mês até 31/12/2026; depois R$ 2.290), os módulos de revenda (consulta veicular, área de repasse) e o tráfego no Completo (R$ 1.300). Argumento: com margem de R$ 7.000 por carro (referência do plano de mídia da Motors), uma venda a mais a cada 3 meses paga a mensalidade do Completo. Revenda Mais em produção; Autoconf, BNDV, Boom, Altimus e Syonet integráveis por fluxo.
 
-## Regras comerciais
+### Regras comerciais
 - Sem fidelidade. Implantação 50% na assinatura + 50% na entrega, ou até 6x.
 - A mensalidade inclui hospedagem, banco, manutenção, atualizações de segurança, monitoramento e relatório mensal.
 - Cláusula de saída: código, dados e domínio entregues em até 15 dias.
@@ -81,7 +195,7 @@ O hub `/segmentos/revendas-de-veiculos` vende o plano Completo com o site de est
 - Tráfego pago só com o rastreamento até a venda ligado.
 - Reativação só com base própria, com registro de origem e saída fácil; lista comprada ou raspada não entra.
 
-## Margem da mensalidade por plano (15/10/2026, estimativa)
+### Margem da mensalidade por plano (15/10/2026, estimativa)
 Custo pela tabela de 12/10 (abaixo): infra por cliente e hora do fundador a R$ 150. A coluna integrada supõe um relatório e um suporte por cliente; horas estimadas, não medidas.
 
 | Item | Mensalidade | Custo integrado | Margem |
@@ -97,12 +211,12 @@ Custo pela tabela de 12/10 (abaixo): infra por cliente e hora do fundador a R$ 1
 | Conteúdo e gestão de redes sociais | R$ 1.699 | R$ 850 (4 h e ferramentas) | 50% |
 | Gestão de comentários e Direct | R$ 590 | R$ 330 (2 h e VPS) | 44% |
 
-## Histórico
+### Histórico
 - 15/10/2026: entra Gestão de comentários e Direct, R$ 1.900 + R$ 590/mês, separada do conteúdo (Dyones: "gestão é um valor a parte, vamos fazer com automação").
 - 15/10/2026: "Conteúdo e redes com IA" (R$ 1.500 + R$ 1.290/mês) vira "Conteúdo e gestão de redes sociais" a R$ 1.500 + R$ 1.699/mês (sobe só a mensalidade), sem "IA" no nome; escopo igual (2 redes, 12 publicações, produção à parte). Referência de mercado: TagX Crescimento R$ 1.590 (até 2 redes, até 12 posts).
 - 10/10 a 14/10/2026: tabela de quinze linhas em dois pilares (site R$ 7.900 + R$ 690, rastreamento R$ 2.900 + R$ 690, agente R$ 3.900 + R$ 790, CRM e painel R$ 4.900 + R$ 790, reativação R$ 950 por campanha, branding R$ 1.500), piso de R$ 690 e teto de R$ 1.990 para as linhas de sistema, pacote automotivo R$ 14.900 + R$ 1.990. Substituída pelo cardápio de 15/10.
 
-## Custo da mensalidade e pisos revisados (12/10/2026; base da tabela de margem acima)
+### Custo da mensalidade e pisos revisados (12/10/2026; base da tabela de margem acima)
 Custos de infra por cliente (páginas de preço lidas em 12/10/2026; dólar de referência R$ 5,40): Vercel Pro US$ 20/mês por assento de desenvolvedor, 1 TB de banda, compartilhado entre todos os clientes (vercel.com/pricing); Supabase Pro US$ 25/mês na organização e US$ 10/mês por projeto extra (Micro), 8 GB de disco por projeto, excedente US$ 0,125/GB (supabase.com/pricing); VPS Hostinger KVM 2 R$ 43,99 e KVM 4 R$ 59,99 por mês, compartilhada (n8n, Chatwoot, Evolution; hostinger.com/br). Hora do fundador valorada em R$ 150 (mercado de consultoria: R$ 70 a R$ 150).
 
 | Linha | Infra/mês por cliente | Horas/mês | Custo | Piso atual | Margem | Piso proposto |
@@ -124,6 +238,20 @@ Cláusula: reajuste anual pelo IPCA e repasse de variação cambial acima de 10%
 - WhatsApp oficial (Cloud API, sem BSP): R$ 0,3217 por mensagem de marketing (tabela de fornecedor vigente desde 07/2026; confirmar no painel da Meta). Limites por qualidade: 250/dia sem verificação, depois 1.000, 10.000 e 100.000 por dia conforme o tier; bloqueios acima de 2% reduzem o limite e acima de 5% suspendem; suspensão de 24 a 72 h na primeira infração (clickmassa.com.br, 2026). Opt-out em toda mensagem ("responda PARAR"), template aprovado, 1 a 2 mensagens promocionais por semana.
 - WhatsApp não oficial (Evolution): sem tarifa por mensagem; custo do número dedicado (chip) e R$ 290 por número/mês de operação (instância, aquecimento de 7 a 14 dias com volume crescente, monitoramento). Risco: banimento do número, permanente na primeira ocorrência grave, e sem suporte da Meta; só com termo de aceite do cliente, número exclusivo da campanha (nunca o número principal da loja) e volume de centenas de mensagens por dia, no máximo.
 - SMS: R$ 0,05 a R$ 0,10 por mensagem, pré-pago sem mensalidade (Comtele R$ 0,10 no pacote de 500; SMS Barato R$ 0,079 por 1.000; Zenvia de R$ 0,10 a R$ 0,052 por faixa de volume; páginas lidas em 12/10/2026).
+
+
+## Histórico: Sprint e continuidade de 25/10 a 26/10/2026 (substituídos em 27/10)
+
+Fonte: apêndice de `CLAUDE_SITE_IMPLEMENTATION_AJUSTADO.md`, aprovado por inteiro pelo Dyones em 25/10. Código em `src/conteudo/sprint.ts`; página `/precos#titulo-sprint`. Preço fechado em proposta; as faixas são de referência e a duração não é promessa.
+- Sprint Essencial: a partir de R$ 3.000, 1 a 2 semanas. Faixa interna de referência: R$ 3.000 a R$ 5.000.
+- Sprint Integrada (oferta principal): a partir de R$ 6.000, 2 a 4 semanas. Faixa interna de referência: R$ 6.000 a R$ 12.000.
+- Sprint Avançada: a partir de R$ 12.000, 4 a 8 semanas ou mais. Faixa interna de referência: R$ 12.000 a R$ 25.000 ou mais.
+- Decisão de 26/10/2026 (Dyones): o público vê só o "a partir de" de cada Sprint, "o teto máximo pode afugentar"; as faixas com teto ficam como referência interna para montar proposta. A recorrência mensal segue em faixa (R$ 1.200 a R$ 2.500 e R$ 2.500 a R$ 5.000).
+- Estabilidade e suporte: R$ 1.200 a R$ 2.500 por mês.
+- Evolução contínua: R$ 2.500 a R$ 5.000 por mês.
+- Recorrência: na maioria dos projetos há uma parte recorrente, e pode haver em todos; é contrato à parte, opcional, com limites de atendimento e escopo escritos. Faixas de referência, valor em contrato (Dyones, 25/10).
+- Pagamento: 50% na contratação, 30% na validação intermediária e 20% no aceite final; Sprints pequenas, 50% e 50%.
+- Fora da política pública: descontos (só com contrapartida), margem e horas internas. Período de correção de defeitos: definido na proposta, sem prazo publicado. Termos contratuais a validar com assessoria antes de contratar.
 
 ## Referência de mercado das linhas novas (pesquisa de 12/10/2026, páginas públicas brasileiras)
 Fontes comerciais (blogs de agências, tabelas de fornecedores); nenhuma é levantamento oficial. Cada número abaixo tem a fonte e a data ao lado.
@@ -165,14 +293,3 @@ Fontes comerciais (blogs de agências, tabelas de fornecedores); nenhuma é leva
 Revenda Mais: gerencial R$ 600 + CRM R$ 500 + NF-e R$ 400 por mês. Autoconf: R$ 299 a 899; IA R$ 1.199. AutoSDR: R$ 387 / 777 / 1.297. IAEO: chatbot R$ 2 a 5 mil/mês, automação R$ 5 a 15 mil, sistema R$ 15 a 50 mil.
 
 
-## Sprint de Eficiência e continuidade (aprovado em 25/10/2026)
-Fonte: apêndice de `CLAUDE_SITE_IMPLEMENTATION_AJUSTADO.md`, aprovado por inteiro pelo Dyones em 25/10. Código em `src/conteudo/sprint.ts`; página `/precos#titulo-sprint`. Preço fechado em proposta; as faixas são de referência e a duração não é promessa.
-- Sprint Essencial: a partir de R$ 3.000, 1 a 2 semanas. Faixa interna de referência: R$ 3.000 a R$ 5.000.
-- Sprint Integrada (oferta principal): a partir de R$ 6.000, 2 a 4 semanas. Faixa interna de referência: R$ 6.000 a R$ 12.000.
-- Sprint Avançada: a partir de R$ 12.000, 4 a 8 semanas ou mais. Faixa interna de referência: R$ 12.000 a R$ 25.000 ou mais.
-- Decisão de 26/10/2026 (Dyones): o público vê só o "a partir de" de cada Sprint, "o teto máximo pode afugentar"; as faixas com teto ficam como referência interna para montar proposta. A recorrência mensal segue em faixa (R$ 1.200 a R$ 2.500 e R$ 2.500 a R$ 5.000).
-- Estabilidade e suporte: R$ 1.200 a R$ 2.500 por mês.
-- Evolução contínua: R$ 2.500 a R$ 5.000 por mês.
-- Recorrência: na maioria dos projetos há uma parte recorrente, e pode haver em todos; é contrato à parte, opcional, com limites de atendimento e escopo escritos. Faixas de referência, valor em contrato (Dyones, 25/10).
-- Pagamento: 50% na contratação, 30% na validação intermediária e 20% no aceite final; Sprints pequenas, 50% e 50%.
-- Fora da política pública: descontos (só com contrapartida), margem e horas internas. Período de correção de defeitos: definido na proposta, sem prazo publicado. Termos contratuais a validar com assessoria antes de contratar.
