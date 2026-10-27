@@ -392,3 +392,9 @@ Decisão do Dyones (`memory/decisoes.md`, 27/10; arquitetura em `docs/2026-10-27
 - Medição: `continuidade` entrou em `TipoDePagina`; `LINHA_DA_ROTA` ganhou `branding`, `presenca` e `sprint`. Nenhum evento mudou de nome.
 - Formulário, `/api/leads`, WhatsApp e eventos: sem mudança.
 - `content/` reextraído do build local da branch para todas as rotas (inclui o que mudou em 25/10 e 26/10 e não tinha sido reextraído).
+
+## Atualização de 27/10/2026 (Como tudo se liga sem a faixa repetida)
+
+- `#como-se-liga`: o painel da peça perdeu a faixa visível "Caminho que passa por aqui" / "Paradas que ela toca", que repetia o mapa logo acima (as estações fora do caminho já apagam). A lista segue no DOM só para leitor de tela (`sr-only`), sem as setas; o texto da peça ocupa o painel.
+- Chips das camadas: no celular, "Origem na entrada, venda de volta ao anúncio" quebra linha em vez de passar da tela (o chip tinha 413 px em 390).
+- Texto, âncoras, `data-local` e eventos: sem mudança. `content/home.md`, `sprint-de-eficiencia.md`, `automacao-com-ia.md` e `gestao-de-trafego.md` anotam a lista como só para leitor de tela.

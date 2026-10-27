@@ -42,7 +42,7 @@ Capturas e saídas dos scripts ficaram no scratchpad da sessão. Para refazer, r
 3. Revisão independente (Antigravity): responsividade, links, fluxo de contato, coerência de preço entre páginas.
 4. ~~Merge do 85dyones/v2o5#39 (a Vercel publica a produção pelo `main`).~~ Feito em 27/10.
 5. ~~No mesmo dia: levar ao n8n ativo o nó `Montar pedido` de "V2O5 · Agente de IA" (`docs/n8n/agente-da-v2o5.json`; pendência 35) e fazer o merge do 85dyones/v2o5-diagnosticos#5.~~ Feito em 27/10.
-6. Depois: trocar a skill `diagnostico-presenca` (pendência 34) antes do próximo diagnóstico.
+6. Depois: trocar a skill `diagnostico-presenca` (pendência 34) antes do próximo diagnóstico. Versão nova pronta em 27/10, em zip; falta subir no claude.ai.
 
 ## Rollback
 - Site: revert do merge do PR #39 no GitHub, ou voltar o deployment de produção anterior na Vercel.
@@ -51,7 +51,7 @@ Capturas e saídas dos scripts ficaram no scratchpad da sessão. Para refazer, r
 - Nenhuma etapa mexe em banco, leads, contratos ou propostas assinadas.
 
 ## Pendências e riscos
-- A skill `diagnostico-presenca` ainda gera proposta pela tabela antiga e, se gerar de novo um diagnóstico, sobrescreve as propostas atualizadas.
+- Até o zip novo subir no claude.ai, a skill `diagnostico-presenca` para no item G (não acha "Três planos" em `/precos`) e não gera proposta. Republicar um diagnóstico antigo pela skill sobrescreve a proposta atualizada à mão na pasta do cliente.
 - Next.js 16.4.0 tem três vulnerabilidades críticas (`npm audit`); a correção (16.4.3) fica num PR à parte (pendência 36).
 - Os preços são de referência para testar comercialmente. Se as propostas reais passarem sempre do preço de entrada, ele sai da chamada (regra do handoff).
 

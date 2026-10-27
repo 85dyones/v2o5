@@ -476,13 +476,13 @@ details.fontes li span { font-family: var(--mono); font-size: 12px; white-space:
         {% if c.precos %}
         <div class="precos">
           {% for v in c.precos %}
-          <div class="preco-linha{{ ' principal' if loop.first }}"><span class="rotulo">{{ v.rotulo }}</span><span class="valor num">{% if v.valor != "sob consulta" %}<small class="apartir">a partir de</small>{% endif %}{{ v.valor }}{% if v.sufixo %}<small>{{ v.sufixo }}</small>{% endif %}</span>{% if v.nota %}<span class="nota">{{ v.nota }}</span>{% endif %}</div>
+          <div class="preco-linha{{ ' principal' if loop.first }}"><span class="rotulo">{{ v.rotulo }}</span><span class="valor num">{% if v.a_partir_de %}<small class="apartir">a partir de</small>{% endif %}{{ v.valor }}{% if v.sufixo %}<small>{{ v.sufixo }}</small>{% endif %}</span>{% if v.nota %}<span class="nota">{{ v.nota }}</span>{% endif %}</div>
           {% endfor %}
         </div>
         {% endif %}
         {% if c.inclui %}<ul class="inclui">{% for i in c.inclui %}<li>{{ i }}</li>{% endfor %}</ul>{% endif %}
         {% if c.observacao %}<p class="obs">{{ c.observacao }}</p>{% endif %}
-        <a class="botao" href="https://wa.me/{{ agency.whatsapp_link }}?text={{ ('Olá, ' ~ agency.responsavel.split(' ')[0] ~ '. Vi o diagnóstico da ' ~ client.fantasia ~ ' (código ' ~ codigo ~ ') e quero seguir pelo caminho ' ~ c.nome ~ '.') | urlencode }}" target="_blank" rel="noopener">Seguir pelo {{ c.nome }}</a>
+        <a class="botao" href="https://wa.me/{{ agency.whatsapp_link }}?text={{ ('Olá, ' ~ agency.responsavel.split(' ')[0] ~ '. Vi o diagnóstico da ' ~ client.fantasia ~ ' (código ' ~ codigo ~ ') e quero seguir pelo caminho ' ~ c.nome ~ '.') | urlencode }}" target="_blank" rel="noopener">Seguir {{ c.artigo or "pelo" }} {{ c.nome }}</a>
       </article>
       {% endfor %}
     </div>
@@ -501,7 +501,7 @@ details.fontes li span { font-family: var(--mono); font-size: 12px; white-space:
       })();
     </script>
     {% endif %}
-    <p class="fonte">{% if proposta.fonte %}Todo valor é a partir de, como na tabela vigente em <a href="{{ proposta.fonte.url }}" target="_blank" rel="noopener">{{ proposta.fonte.url_curta }}</a> (consultada em {{ proposta.fonte.data }}), e o preço final sai do diagnóstico. {% endif %}{% if proposta.validade %}Proposta válida até {{ proposta.validade }}.{% endif %}</p>
+    <p class="fonte">{% if proposta.fonte %}Todo valor é preço de referência, como na tabela vigente em <a href="{{ proposta.fonte.url }}" target="_blank" rel="noopener">{{ proposta.fonte.url_curta }}</a> (consultada em {{ proposta.fonte.data }}), e o valor fechado sai em proposta. {% endif %}{% if proposta.validade %}Proposta válida até {{ proposta.validade }}.{% endif %}</p>
   </section>
   {% endif %}
 

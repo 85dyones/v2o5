@@ -1,6 +1,5 @@
-import type { CSSProperties } from "react";
 import Estacoes, { Camadas } from "@/components/home/mapa/Estacoes";
-import { COR_DA_ROTA, TEXTO_DA_ETAPA } from "@/components/rota/Rota";
+import { TEXTO_DA_ETAPA } from "@/components/rota/Rota";
 import { NOME_DA_ETAPA, PECAS, type IdDaPeca } from "@/conteudo/home";
 
 /**
@@ -8,7 +7,7 @@ import { NOME_DA_ETAPA, PECAS, type IdDaPeca } from "@/conteudo/home";
  * (zero JavaScript); a versão interativa usa este mesmo componente e
  * acrescenta clique, teclado e o foco ao passar o mouse. É o mapa da
  * abertura em tamanho grande: as estações fora do caminho da peça apagam, e
- * o painel diz o que ela faz e por onde o contato passa.
+ * o painel diz o que ela faz (o caminho, só para o leitor de tela).
  */
 
 export interface PropsDoDiagrama {
@@ -35,33 +34,19 @@ export default function DiagramaVisao({ selecionada, foco, aoEscolher, aoFocar }
       </div>
       <Camadas escolhida={selecionada} aoEscolher={aoEscolher} aoFocar={aoFocar} />
 
-      <div aria-live="polite" className="grid grid-cols-12 gap-x-6 gap-y-8 py-8 md:py-10">
-        <div className="col-span-12 md:col-span-5">
-          <p className="rotulo" style={{ color: peca.camada ? undefined : TEXTO_DA_ETAPA[peca.etapa] }}>
-            {peca.camada ? `Camada: ${peca.camada.toLowerCase()}` : NOME_DA_ETAPA[peca.etapa]}
-          </p>
-          <h3 className="mt-3 text-titulo-3">{peca.nome}</h3>
-          <p className="mt-3 max-w-[30rem] text-texto-secundario">{peca.texto}</p>
-        </div>
-        <div className="col-span-12 md:col-span-7 md:border-l md:border-linha md:pl-8">
-          <p className="text-sm font-medium">{peca.camada ? "Paradas que ela toca" : "Caminho que passa por aqui"}</p>
-          <ol className="mt-4 flex flex-wrap items-center gap-x-1 gap-y-2 text-sm">
+      <div aria-live="polite" className="py-8 md:py-10">
+        <p className="rotulo" style={{ color: peca.camada ? undefined : TEXTO_DA_ETAPA[peca.etapa] }}>
+          {peca.camada ? `Camada: ${peca.camada.toLowerCase()}` : NOME_DA_ETAPA[peca.etapa]}
+        </p>
+        <h3 className="mt-3 text-titulo-3">{peca.nome}</h3>
+        <p className="mt-3 max-w-[36rem] text-texto-secundario">{peca.texto}</p>
+        {/* O mapa acima já mostra o caminho apagando as outras estações; isso
+            é só visual, então o caminho fica dito para o leitor de tela. */}
+        <div className="sr-only">
+          <p>{peca.camada ? "Paradas que ela toca" : "Caminho que passa por aqui"}</p>
+          <ol>
             {passos.map((p, i) => (
-              <li key={`${p.id}-${i}`} className="flex items-center gap-1">
-                {i > 0 ? (
-                  <span aria-hidden="true" className="px-1 text-texto-secundario">
-                    →
-                  </span>
-                ) : null}
-                <span className="chip min-h-8 px-2.5 text-[0.8125rem]">
-                  <span
-                    aria-hidden="true"
-                    className="size-2.5 rounded-full bg-(--cor)"
-                    style={{ "--cor": COR_DA_ROTA[p.etapa] } as CSSProperties}
-                  />
-                  {p.nome}
-                </span>
-              </li>
+              <li key={`${p.id}-${i}`}>{p.nome}</li>
             ))}
           </ol>
         </div>
