@@ -7,8 +7,8 @@ description: "Sessão inicial gratuita de 45 minutos com o fundador para identif
 canonical: "https://www.v2o5.com.br/diagnostico"
 robots: null
 h1: "Em 45 minutos, qual gargalo atacar primeiro. Sessão inicial gratuita, sem compromisso."
-extraido_em: "2026-10-25T20:08:16.046Z"
-fonte: "build local da branch claude/keen-ptolemy-vnfnfu (só o Sprint com valor público, 25/10/2026), extraída com design/baseline/ferramentas; as demais rotas seguem como em 19/10"
+extraido_em: "2026-10-27T14:34:01.868Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 27/10/2026 (portfólio das quatro soluções), antes da publicação"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 # Em 45 minutos, qual gargalo atacar primeiro. Sessão inicial gratuita, sem compromisso.
@@ -90,11 +90,11 @@ Por chamada de vídeo ou WhatsApp. Olhamos presença, atendimento, operação e 
 
 O próximo passo, se houver
 
-Havendo um bom caso, a V2O5 propõe um Sprint de Eficiência, com escopo, entregáveis, prazo e investimento definidos depois de delimitar o gargalo. Se não houver, a conversa termina ali.
+Havendo um bom caso, a V2O5 propõe a solução que cabe no problema (Branding, Presença, Sites ou Sprint), com escopo, entregáveis, prazo e investimento por escrito. Se não houver, a conversa termina ali.
 
 Para quem tem uma empresa que vende pelo WhatsApp, pela internet ou pela loja, e quer saber onde o cliente se perde antes de gastar em anúncio, site ou sistema.
 
-O Diagnóstico de Gargalo é a sessão inicial, gratuita, de 45 minutos. Ele identifica e prioriza um gargalo, mas não inclui mapeamento completo do processo, implementação nem acompanhamento ou mensuração de resultados. Esses passos vêm depois, no Sprint de Eficiência e no acompanhamento contínuo, com escopo, valor e prazo definidos em proposta.
+O Diagnóstico de Gargalo é a sessão inicial, gratuita, de 45 minutos. Ele identifica e prioriza um gargalo, mas não inclui mapeamento completo do processo, implementação nem acompanhamento ou mensuração de resultados. Esses passos vêm depois, na solução contratada e, se fizer sentido, na continuidade, com escopo, valor e prazo definidos em proposta.
 
 <!-- ===== Campos que aparecem quando o segmento escolhido é "Revenda de veículos" (entram depois de "Quantas pessoas trabalham na empresa") ===== -->
 Tamanho do estoque

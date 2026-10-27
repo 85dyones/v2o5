@@ -11,6 +11,7 @@ const ROTAS = [
   "/", "/agente-de-ia-para-whatsapp", "/automacao-com-ia", "/criacao-de-sites", "/crm-com-whatsapp",
   "/rastreamento-de-conversoes", "/gestao-de-trafego", "/segmentos/revendas-de-veiculos", "/cases/motors-store",
   "/precos", "/sobre", "/diagnostico", "/diagnostico/recebido", "/guias", "/privacidade",
+  "/branding-e-identidade", "/presenca-digital-local", "/sprint-de-eficiencia", "/continuidade",
   "/esta-rota-nao-existe-baseline",
 ];
 

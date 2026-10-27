@@ -370,3 +370,25 @@ Decisão do Dyones: "os preços dos planos de presença, atendimento e completo 
 
 - `/sobre`: a seção `#titulo-ferramentas` virou "Tecnologias e ecossistemas", um acordeão de nove categorias com `<details name="tecnologias">` (sem JavaScript; a primeira abre por padrão). `#autor`, `#titulo-visao`, `#titulo-metodo` e o JSON-LD seguem.
 
+
+## Atualização de 27/10/2026 (quatro soluções e a continuidade)
+
+Decisão do Dyones (`memory/decisoes.md`, 27/10; arquitetura em `docs/2026-10-27-portfolio-no-site.md`). Nenhuma rota saiu e nenhum redirecionamento mudou.
+
+- Rotas novas, prontas e no sitemap:
+
+  | Rota | Status | Indexa | No sitemap | `page_type` na medição | Texto |
+  |---|---|---|---|---|---|
+  | `/branding-e-identidade` | 200 | sim | sim | `solucao · service_line=branding` | `content/branding-e-identidade.md` |
+  | `/presenca-digital-local` | 200 | sim | sim | `solucao · service_line=presenca` | `content/presenca-digital-local.md` |
+  | `/sprint-de-eficiencia` | 200 | sim | sim | `solucao · service_line=sprint` | `content/sprint-de-eficiencia.md` |
+  | `/continuidade` | 200 | sim | sim | `continuidade` | `content/continuidade.md` |
+
+- `/criacao-de-sites` mantém o endereço e o `service_line=sites`; o H1, o título e a descrição passam a Sites & Integrações, com os quatro pacotes em `#titulo-pacotes`.
+- Âncoras novas: `#titulo-pacotes` nas quatro soluções (botão "Ver os pacotes" da abertura e `url` das ofertas no JSON-LD); `/continuidade#manutencao-tecnica`, `#conteudo-e-campanhas` e `#monitoramento-e-otimizacao` (submenu do topo); `/continuidade#titulo-limites`; `/precos#titulo-pacotes`.
+- Âncoras que continuam: `/#solucoes` passa a ser a seção das quatro soluções (404, `/gestao-de-trafego` e a vitrine apontam para ela); `/#como-se-liga` e `/#metodo` seguem na home; `/precos#titulo-sprint` pousa no grupo do Sprint em "Todos os pacotes". As páginas de recurso (agente, CRM, automação, rastreamento) levam "Ver os Sprints e os valores" a `/sprint-de-eficiencia#titulo-pacotes`.
+- Topo: Soluções e Continuidade abrem um painel em `<details>` nativo (`SubmenuDoTopo`); Esc e clique fora fecham, e o foco volta ao rótulo. Preços, Case e Sobre seguem como link. O menu do celular mostra os grupos com os links embaixo. Rodapé: Soluções (as quatro e a Continuidade), Recursos (as quatro páginas de recurso) e Empresa.
+- JSON-LD: as quatro soluções publicam `Service` com `hasOfferCatalog` (pacotes com `price` ou `minPrice`); `/precos` publica o catálogo inteiro; `/continuidade` os três planos com `unitCode: MON`. Valores só de `ofertas.ts` e `sprint.ts` (`tests/precos-publicos.test.ts`).
+- Medição: `continuidade` entrou em `TipoDePagina`; `LINHA_DA_ROTA` ganhou `branding`, `presenca` e `sprint`. Nenhum evento mudou de nome.
+- Formulário, `/api/leads`, WhatsApp e eventos: sem mudança.
+- `content/` reextraído do build local da branch para todas as rotas (inclui o que mudou em 25/10 e 26/10 e não tinha sido reextraído).
