@@ -1,6 +1,6 @@
 # Validação do portfólio de 27/10/2026
 
-Evidências da fase 4 do handoff e o checklist de publicação. Branch `claude/kind-tesla-eefroe` dos dois repositórios: PR 85dyones/v2o5#39 (site) e 85dyones/v2o5-diagnosticos#5 (vitrine e propostas). Nada foi publicado em produção.
+Evidências da fase 4 do handoff e o checklist de publicação. Branch `claude/kind-tesla-eefroe` dos dois repositórios: PR 85dyones/v2o5#39 (site) e 85dyones/v2o5-diagnosticos#5 (vitrine e propostas). Publicado em 27/10 com autorização do Dyones (seção "Publicação", no fim).
 
 ## O que rodou (27/10/2026, nesta sessão)
 | Checagem | Resultado |
@@ -40,8 +40,8 @@ Capturas e saídas dos scripts ficaram no scratchpad da sessão. Para refazer, r
 1. Abrir o preview do PR #39 (`v2o5-git-claude-kind-tesla-eefroe-dyones-projects-a2f07575.vercel.app`, atrás do login da Vercel) no celular e no computador.
 2. ~~Aprovar ou corrigir os rascunhos de escopo.~~ Aprovados em 27/10 ("siga sua recomendação, faça o merge na ordem"), com a publicação autorizada.
 3. Revisão independente (Antigravity): responsividade, links, fluxo de contato, coerência de preço entre páginas.
-4. Merge do 85dyones/v2o5#39 (a Vercel publica a produção pelo `main`).
-5. No mesmo dia: levar ao n8n ativo o nó `Montar pedido` de "V2O5 · Agente de IA" (`docs/n8n/agente-da-v2o5.json`; pendência 35) e fazer o merge do 85dyones/v2o5-diagnosticos#5.
+4. ~~Merge do 85dyones/v2o5#39 (a Vercel publica a produção pelo `main`).~~ Feito em 27/10.
+5. ~~No mesmo dia: levar ao n8n ativo o nó `Montar pedido` de "V2O5 · Agente de IA" (`docs/n8n/agente-da-v2o5.json`; pendência 35) e fazer o merge do 85dyones/v2o5-diagnosticos#5.~~ Feito em 27/10.
 6. Depois: trocar a skill `diagnostico-presenca` (pendência 34) antes do próximo diagnóstico.
 
 ## Rollback
@@ -52,7 +52,6 @@ Capturas e saídas dos scripts ficaram no scratchpad da sessão. Para refazer, r
 
 ## Pendências e riscos
 - A skill `diagnostico-presenca` ainda gera proposta pela tabela antiga e, se gerar de novo um diagnóstico, sobrescreve as propostas atualizadas.
-- O agente do n8n só muda no n8n ativo na publicação; até lá, o conhecimento dele (`/llms.txt` de produção) continua com a tabela antiga, coerente com o site no ar.
 - Next.js 16.4.0 tem três vulnerabilidades críticas (`npm audit`); a correção (16.4.3) fica num PR à parte (pendência 36).
 - Os preços são de referência para testar comercialmente. Se as propostas reais passarem sempre do preço de entrada, ele sai da chamada (regra do handoff).
 
@@ -60,5 +59,5 @@ Capturas e saídas dos scripts ficaram no scratchpad da sessão. Para refazer, r
 | Passo | Situação |
 |---|---|
 | Merge do 85dyones/v2o5#39 | feito (`ce1045b`); produção conferida: 18 rotas com 200, 120 preços visíveis, nenhum fora da tabela, JSON-LD com os mesmos valores; `/llms.txt` de `www.v2o5.com.br` e de `v2o5.vercel.app` com a tabela nova |
-| Agente do n8n | rascunho `fd17c4fd` salvo e conferido pelo diff contra a versão ativa `d19489c3`; **falta publicar no editor do n8n** (pendência 35) |
+| Agente do n8n | rascunho `fd17c4fd` salvo e conferido pelo diff contra a versão de 26/10 (`d19489c3`); publicado pelo Dyones no editor do n8n e conferido como versão ativa |
 | Merge do 85dyones/v2o5-diagnosticos#5 | feito (`9c66e92`); vitrine e nove propostas conferidas no ar, com validade 11/11/2026 |
