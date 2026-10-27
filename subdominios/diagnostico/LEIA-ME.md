@@ -4,7 +4,7 @@ Os arquivos fixos da raiz do subdomínio dos diagnósticos de presença:
 
 | Arquivo | O que é |
 |---|---|
-| `index.html` | A vitrine: o que o diagnóstico verifica (37 verificações em quatro etapas), como mede, o que o cliente recebe, a solução da V2O5 para cada etapa, os três planos, o case Motors Store e o pedido de diagnóstico. |
+| `index.html` | A vitrine: o que o diagnóstico verifica (37 verificações em quatro etapas), como mede, o que o cliente recebe, a solução da V2O5 para cada etapa, as quatro soluções com a continuidade, o case Motors Store e o pedido de diagnóstico. |
 | `404.html` | Link de diagnóstico incompleto ou errado: pede o link certo no WhatsApp e leva à vitrine. |
 | `og.jpg` | A imagem de prévia da raiz (1200×630) no WhatsApp e nas redes, gerada de `og.html`. Também é a reserva dos diagnósticos: o `vercel.json` de lá serve `/og.jpg` quando a pasta de um cliente não tem a dela. |
 
