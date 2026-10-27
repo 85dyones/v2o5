@@ -4,16 +4,24 @@ Roteiro de 27/10/2026. Decisões do Dyones: o Search Console e o Planejador de P
 
 **O que eu faço e o que depende de você.** Eu não consigo entrar em contas Google, LinkedIn, Instagram ou Facebook a partir daqui (não há conector de navegador nesta sessão, e senha ou código de verificação nunca passam por mim). O que eu entrego é o roteiro, os textos prontos e o código do site já preparado para receber a verificação e os endereços. Quem clica é você, ou uma sessão sua com o conector do Chrome ligado, seguindo os passos abaixo.
 
-## 0. Como a V2O5 se apresenta nos buscadores (análise do site, 27/10/2026)
+## 0. Como a V2O5 se apresenta nos buscadores (análise do site e correção do Dyones, 27/10/2026)
 
-O Dyones apontou que a V2O5 é cada vez menos uma consultoria de TI. O site confirma. Contando os textos públicos (home, sobre, preços, diagnóstico e as páginas de capacidade): **gargalo** aparece 69 vezes, **processo** 41, **eficiência** 24, **operação** 23, **automação** 20, **tecnologia** 28; **consultoria** aparece 3 vezes e **TI** e **agência** nenhuma. O que o site vende é achar o gargalo de uma operação comercial ou administrativa, simplificar o processo e implementar a solução (automação, IA, integração, site, rastreamento, CRM, marca) dentro de um Sprint, com o resultado medido. A assinatura da marca já diz isso: "Eficiência comercial e operacional com tecnologia."
+**O que o site diz.** Contando os textos públicos (home, sobre, preços, diagnóstico e as páginas de capacidade): **gargalo** aparece 69 vezes, **processo** 41, **tecnologia** 28, **eficiência** 24, **operação** 23, **automação** 20; **consultoria** 3 vezes, **TI** e **agência** nenhuma. O site descreve o trabalho (olhar a operação, achar o gargalo, propor a solução e medir) e quase nunca dá nome à profissão.
 
-Duas armadilhas de classificação:
+**A correção do Dyones.** O nome "V2O5 ConsultorIA" nasceu justamente para esse limbo: **consultoria de IA no sentido de olhar um processo, entender como melhorá-lo e propor a solução que traga resultado, geralmente com tecnologia e às vezes sem.** Ele não quer se apresentar como **consultor de negócios** (sem negócio próprio nem formação ou subsídio para isso), nem como **desenvolvedor** ou outra área técnica. A primeira versão desta seção recomendava "consultoria de negócios e gestão"; ela estava errada e foi trocada.
 
-- **"Consultoria de TI"** pega só o meio (a tecnologia) e atrai quem procura suporte, infraestrutura e help desk.
-- **"Agência de marketing"** (volume alto na planilha do Planejador) atrai quem procura anúncio e post, e a V2O5 não se apresenta como agência.
+**O que isso muda na classificação.** Nenhuma lista fixa de categorias (Google, LinkedIn, Instagram) tem uma entrada para "analista de processos que propõe a melhor solução". A categoria só classifica e vai ser aproximada; quem explica é o descritor. A regra:
 
-**O descritor único**, a repetir em todos os perfis, é a assinatura do site: **eficiência comercial e operacional com tecnologia**. A categoria (que é uma lista fixa de cada plataforma) só classifica; quem explica é a descrição. A classificação mais próxima é a de **consultoria de negócios e gestão**, que também combina com o termo `consultoria empresarial` (100 a 1 mil buscas por mês em Curitiba, sem página hoje) da planilha. O nome antigo "V2O5 ConsultorIA" continua como `alternateName` no schema, para quem ainda procura por ele (o Instagram e o e-mail do Google ainda o usam).
+- **Categoria genérica de consultoria**, e não "consultor de negócios", "consultor de TI", "desenvolvedor de software" nem "agência de marketing". Quanto mais genérica, menos promete o que o Dyones não quer prometer.
+- **O descritor carrega o posicionamento**, sempre com as mesmas palavras.
+
+**Descritor (opções, recomendação em A):**
+
+- **A (recomendada):** "Consultoria de processos e eficiência: olhamos a operação, achamos o gargalo e propomos a solução que traz resultado, com tecnologia e IA quando fazem sentido."
+- **B:** "ConsultorIA: eu olho o processo, entendo onde ele trava e proponho a solução que traz resultado, com tecnologia ou sem."
+- **C:** a assinatura atual do site, "Eficiência comercial e operacional com tecnologia" (não diz "às vezes sem tecnologia", mas é a que já está em todas as páginas).
+
+O nome antigo continua como `alternateName` no schema ("V2O5 ConsultorIA"), e o Instagram e o e-mail do Google ainda o usam. **Pergunta aberta para o Dyones:** trazer "ConsultorIA" de volta como parte do descritor público (opção B) ou manter só "V2O5 Vendas e Tecnologia" no nome e usar a ideia na descrição (opção A)? A decisão de 25/10 foi trocar o nome público; esta seção só reabre se você quiser.
 
 ## 1. Search Console (primeiro, porque dá o critério 1 dos guias)
 
@@ -45,8 +53,8 @@ Tipo: **empresa de área de serviço**, com o endereço oculto (a sede é reside
 | Campo | Texto sugerido |
 |---|---|
 | Nome | V2O5 Vendas e Tecnologia |
-| Categoria principal | A de **consultoria de negócios ou de gestão** que o Google oferecer (buscar "consultor" no assistente e conferir os nomes exatos em português; a lista tem mais de quatro mil categorias e muda). Não usar "consultoria de TI" nem "agência de marketing" |
-| Categorias secundárias | No máximo duas ou três, só se o assistente as oferecer e descreverem de fato o que fazemos: por exemplo, empresa de desenvolvimento de software e consultor de marketing. O Google desaconselha encher de categorias |
+| Categoria principal | A mais genérica de **consultoria** que o Google oferecer no assistente (buscar "consultor" e conferir os nomes em português; a lista tem mais de quatro mil categorias e muda). Não escolher "consultor de negócios", "consultor de TI", "desenvolvedor de software" nem "agência de marketing" |
+| Categorias secundárias | Nenhuma no início. Rever em 90 dias com o Search Console; o Google desaconselha encher de categorias |
 | Área de atendimento | Curitiba e região metropolitana, e atendimento remoto para todo o Brasil na descrição |
 | Site | `https://www.v2o5.com.br/?utm_source=google&utm_medium=organic&utm_campaign=perfil-empresa` |
 | Telefone | O WhatsApp do site (o mesmo do rodapé) |
@@ -54,7 +62,7 @@ Tipo: **empresa de área de serviço**, com o endereço oculto (a sede é reside
 
 Descrição (até 750 caracteres):
 
-> A V2O5 Vendas e Tecnologia ajuda empresas a achar o gargalo da operação, simplificar o processo e implementar tecnologia, automação e IA para reduzir atrito e medir o resultado. O trabalho começa por um diagnóstico gratuito de 45 minutos e segue em Sprints de Eficiência, projetos fechados para um gargalo de cada vez. Entre os projetos estão site integrado ao sistema da loja, agente de IA no WhatsApp, CRM, automação e rastreamento da venda até o anúncio. Atendimento remoto para todo o Brasil.
+> A V2O5 Vendas e Tecnologia olha para o processo da empresa, entende onde ele trava e propõe a solução que traz resultado, com tecnologia e IA quando fazem sentido e sem elas quando não fazem. O trabalho começa por um diagnóstico gratuito de 45 minutos e segue em Sprints de Eficiência, projetos fechados para um gargalo de cada vez. Entre os projetos estão site integrado ao sistema da loja, agente de IA no WhatsApp, CRM, automação e rastreamento da venda até o anúncio. Atendimento remoto para todo o Brasil.
 
 Serviços para cadastrar: Diagnóstico de Gargalo (gratuito), Sprint Essencial, Sprint Integrada, Sprint Avançada. Sem preço no perfil (o valor sai em proposta). A verificação do Google (vídeo, telefone ou e-mail, conforme ele oferecer) é feita por quem controla a conta.
 
@@ -63,9 +71,9 @@ Serviços para cadastrar: Diagnóstico de Gargalo (gratuito), Sprint Essencial, 
 Objetivo: voltar a existir com o posicionamento novo.
 
 - **Nome:** V2O5 Vendas e Tecnologia.
-- **Setor (o campo de indústria do LinkedIn):** consultoria de gestão ("Business Consulting and Services" no menu em inglês); evitar "Serviços e consultoria de TI".
+- **Setor (o campo de indústria do LinkedIn):** o LinkedIn exige um setor e não tem "melhoria de processos". O mais próximo é **consultoria de gestão** ("Business Consulting and Services" no menu em inglês); é só taxonomia, e o slogan e o "Sobre" dizem o que a V2O5 faz. Evitar "Serviços e consultoria de TI". Decisão do Dyones.
 - **Slogan (até 120 caracteres):** Eficiência comercial e operacional com tecnologia.
-- **Sobre:** "Eu acho o gargalo da sua operação, simplifico o processo e implemento tecnologia, automação e IA para reduzir atrito e medir o resultado. Começo por um diagnóstico gratuito de 45 minutos. Projetos em Sprints de Eficiência, com preço fechado em proposta." (a página é pessoal desde o `/sobre`; se preferir voz de empresa, trocar "eu" por "a V2O5")
+- **Sobre:** "Eu olho para o processo da sua operação, entendo onde ele trava e proponho a solução que traz resultado, com tecnologia e IA quando fazem sentido. Começo por um diagnóstico gratuito de 45 minutos. Projetos em Sprints de Eficiência, com preço fechado em proposta." (a página é pessoal desde o `/sobre`; se preferir voz de empresa, trocar "eu" por "a V2O5")
 - **Especialidades:** automação de processos, agente de IA para WhatsApp, CRM, rastreamento de conversões, sites com SEO.
 - **Botão:** "Fale conosco" para `https://www.v2o5.com.br/diagnostico?utm_source=linkedin&utm_medium=social&utm_campaign=pagina`.
 - **Imagens:** logo C1d e capa na direção B do site (papel, rota na margem); o canvas de marca tem as geometrias.
@@ -73,7 +81,7 @@ Objetivo: voltar a existir com o posicionamento novo.
 
 ## 6. Instagram e Facebook
 
-- **Categoria do Instagram:** a de consultor ou consultoria de negócios, e não de tecnologia ou de marketing. **Nome de usuário:** `v2o5_consultoria` vem do nome antigo; quando for retomar a gestão, vale trocar por algo ligado ao nome atual (por exemplo `v2o5vendasetecnologia`, se estiver livre) e me passar o endereço novo para o `sameAs`.
+- **Categoria do Instagram:** a mais genérica de consultoria que aparecer (e não tecnologia nem marketing). **Nome de usuário:** `v2o5_consultoria` vem do nome antigo; quando for retomar a gestão, vale trocar por algo ligado ao nome atual (por exemplo `v2o5vendasetecnologia`, se estiver livre) e me passar o endereço novo para o `sameAs`.
 - **Bio do Instagram (até 150 caracteres):** "Eficiência comercial e operacional com tecnologia. Diagnóstico gratuito de 45 min. Automação, IA e CRM para a sua operação."
 - **Link da bio:** `https://www.v2o5.com.br/diagnostico?utm_source=instagram&utm_medium=social&utm_campaign=bio`.
 - **Facebook, "Sobre":** a mesma descrição do Perfil de Empresa; categoria "Serviços de tecnologia da informação" ou a mais próxima; botão "Enviar mensagem" no WhatsApp.
