@@ -34,7 +34,7 @@ Atualize ao resolver: mova a decisão para `decisoes.md` e apague daqui.
 - ~~26. Reposicionamento do Sprint de Eficiência (25/10, PR #28).~~ Publicado; preços e guarda-chuva revistos em 27/10.
 
 33. ~~Aprovar no preview os rascunhos de escopo de 27/10.~~ Aprovados pelo Dyones em 27/10 ("siga sua recomendação"); `oferta.md`, "Quantidades redigidas em 27/10".
-34. Skill `diagnostico-presenca` com a tabela de 27/10: versão nova pronta em 27/10 (zip entregue na sessão; o que mudou está em `memory/decisoes.md`, 27/10). Falta o Dyones substituir a skill no claude.ai pelo zip e levar os mesmos arquivos ao repositório presenca-digital. Até lá, a versão antiga procura o sinal "Três planos" em `/precos`, não acha e para no item G, sem gerar proposta com preço velho.
+34. Skill `diagnostico-presenca` com a tabela de 27/10: versão nova pronta em 27/10 (zip para baixar na página privada https://claude.ai/artifact/15CopuaSnw5F4G6vE4n2uW, com as mensalidades da tarde de 27/10; o que mudou está em `memory/decisoes.md`, 27/10). Falta o Dyones substituir a skill no claude.ai pelo zip e levar os mesmos arquivos ao repositório presenca-digital. Até lá, a versão antiga procura o sinal "Três planos" em `/precos`, não acha e para no item G, sem gerar proposta com preço velho.
 35. ~~Agente do n8n: publicar o rascunho `fd17c4fd` do fluxo "V2O5 · Agente de IA".~~ Publicado pelo Dyones em 27/10; versão ativa conferida.
 36. Next.js 16.4.0 com vulnerabilidade crítica (`npm audit`, 27/10): subir para 16.4.3 num PR à parte (tarefa sugerida na sessão de 27/10).
 
