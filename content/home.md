@@ -201,25 +201,13 @@ Atração
 
 Recebe o visitante e guarda de onde ele veio antes de levá-lo ao WhatsApp ou ao formulário.
 
-Caminho que passa por aqui
+Caminho que passa por aqui <!-- só para leitor de tela -->
 
-Site
-
-→ <!-- decorativo, aria-hidden -->
-
-WhatsApp
-
-→ <!-- decorativo, aria-hidden -->
-
-Agente de IA
-
-→ <!-- decorativo, aria-hidden -->
-
-CRM
-
-→ <!-- decorativo, aria-hidden -->
-
-Venda
+- Site
+- WhatsApp
+- Agente de IA
+- CRM
+- Venda
 
 Resultado antes de vaidade técnica
 
