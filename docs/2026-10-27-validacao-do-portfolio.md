@@ -55,3 +55,10 @@ Capturas e saídas dos scripts ficaram no scratchpad da sessão. Para refazer, r
 - O agente do n8n só muda no n8n ativo na publicação; até lá, o conhecimento dele (`/llms.txt` de produção) continua com a tabela antiga, coerente com o site no ar.
 - Next.js 16.4.0 tem três vulnerabilidades críticas (`npm audit`); a correção (16.4.3) fica num PR à parte (pendência 36).
 - Os preços são de referência para testar comercialmente. Se as propostas reais passarem sempre do preço de entrada, ele sai da chamada (regra do handoff).
+
+## Publicação (27/10/2026)
+| Passo | Situação |
+|---|---|
+| Merge do 85dyones/v2o5#39 | feito (`ce1045b`); produção conferida: 18 rotas com 200, 120 preços visíveis, nenhum fora da tabela, JSON-LD com os mesmos valores; `/llms.txt` de `www.v2o5.com.br` e de `v2o5.vercel.app` com a tabela nova |
+| Agente do n8n | rascunho `fd17c4fd` salvo e conferido pelo diff contra a versão ativa `d19489c3`; **falta publicar no editor do n8n** (pendência 35) |
+| Merge do 85dyones/v2o5-diagnosticos#5 | feito (`9c66e92`); vitrine e nove propostas conferidas no ar, com validade 11/11/2026 |
