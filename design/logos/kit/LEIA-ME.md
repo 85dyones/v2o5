@@ -18,7 +18,7 @@ Gerado em 28/10/2026 por `scripts/exportar-logos.py`, a partir do símbolo C1d o
 
 ## Cores e fundos
 
-Cada peça sai em quatro versões de cor, só nas combinações com contraste bom:
+Cada peça sai em versões de cor, só nas combinações com contraste bom. O átomo é **âmbar** sobre fundo tinta, papel ou branco, e **da cor do símbolo** (tinta ou papel) quando o âmbar não aparece, como sobre fundo âmbar, foto ou impressão em uma cor. Todas têm opção `transparente`.
 
 | Versão | Cores | Fundos gerados |
 |---|---|---|
@@ -26,8 +26,14 @@ Cada peça sai em quatro versões de cor, só nas combinações com contraste bo
 | `negativo` | papel `#F2F1EC` e átomo âmbar `#F2A516` | transparente, `fundo-tinta` (`#121418`) |
 | `preto` | preto `#000000`, uma cor só | transparente, `fundo-papel`, `fundo-branco` |
 | `branco` | branco `#FFFFFF`, uma cor só | transparente, `fundo-tinta` |
+| `tinta` (só símbolo) | tinta `#121418`, átomo também em tinta | transparente, `fundo-papel`, `fundo-branco`, `fundo-ambar` (`#F2A516`) |
+| `papel` (só símbolo) | papel `#F2F1EC`, átomo também em papel | transparente, `fundo-tinta` |
 
 `transparente` serve para pôr o logo sobre o seu próprio fundo; as versões `fundo-*` já trazem o fundo sólido. As versões `preto` e `branco` são para impressão em uma cor, carimbo, gravação e fundos que não permitem o âmbar.
+
+## Símbolo solo
+
+Arquivos `v2o5-simbolo-<cor>-<fundo>`, com a margem de respiro do site (112 x 70). Os `v2o5-simbolo-recorte-justo-<cor>-transparente` são os mesmos desenhos cortados rente à borda, sem margem, só em fundo transparente: servem para alinhar o símbolo com precisão em layouts.
 
 ## Tamanhos mínimos e cuidados
 

@@ -42,16 +42,22 @@ def simbolo_vetor():
 
 # Variantes de cor: (nome, tinta do símbolo e do texto, cor do átomo, fundo ou None)
 POS = ("positivo", TINTA, AMBAR)
+# Cores da marca em uma cor só (átomo da mesma cor do símbolo): para fundo âmbar, foto ou impressão em tinta.
+MONO_TINTA = ("tinta", TINTA, TINTA)
+MONO_PAPEL = ("papel", PAPEL, PAPEL)
 NEG = ("negativo", PAPEL, AMBAR)
 MONO_PRETO = ("preto", PRETO, PRETO)
 MONO_BRANCO = ("branco", BRANCO, BRANCO)
-FUNDOS = {"transparente": None, "fundo-papel": PAPEL, "fundo-branco": BRANCO, "fundo-tinta": TINTA}
+FUNDOS = {"transparente": None, "fundo-papel": PAPEL, "fundo-branco": BRANCO, "fundo-tinta": TINTA, "fundo-ambar": AMBAR}
 # Qual cor combina com qual fundo (a combinação ruim nem é gerada).
 COMBINA = {
     "positivo": ["transparente", "fundo-papel", "fundo-branco"],
     "negativo": ["transparente", "fundo-tinta"],
     "preto": ["transparente", "fundo-papel", "fundo-branco"],
     "branco": ["transparente", "fundo-tinta"],
+    # Átomo da cor do símbolo: sobre âmbar o átomo âmbar sumiria, então ele vai em tinta.
+    "tinta": ["transparente", "fundo-papel", "fundo-branco", "fundo-ambar"],
+    "papel": ["transparente", "fundo-tinta"],
 }
 
 
@@ -92,6 +98,19 @@ def contorno_do_texto(texto, tamanho, espaco_em):
     return pen.getCommands(), largura, cap * k
 
 
+def recorte_justo(v):
+    """O retângulo mínimo do desenho (nuvem com o traço, rede e átomo), em unidades do viewBox do símbolo."""
+    from io import BytesIO
+    from PIL import Image
+
+    k = 40  # pixels por unidade, para achar a borda com folga de 1/40
+    corpo = grupo_simbolo(v, "#000000", "#000000")
+    png = cairosvg.svg2png(bytestring=svg(VB, corpo).encode("utf-8"), output_width=VB[2] * k)
+    caixa = Image.open(BytesIO(png)).getchannel("A").point(lambda a: 255 if a > 8 else 0).getbbox()
+    x0, y0, x1, y1 = caixa
+    return (VB[0] + x0 / k, VB[1] + y0 / k, (x1 - x0) / k, (y1 - y0) / k)
+
+
 def svg(vb, corpo, fundo=None):
     x, y, w, h = vb
     f = f'<rect x="{x}" y="{y}" width="{w}" height="{h}" fill="{fundo}"/>' if fundo else ""
@@ -108,16 +127,27 @@ def gravar(nome, conteudo, larguras):
 
 
 def main():
+    leia_me = SAIDA / "LEIA-ME.md"
+    texto_leia_me = leia_me.read_text(encoding="utf-8") if leia_me.exists() else None
     if SAIDA.exists():
         shutil.rmtree(SAIDA)
     v = simbolo_vetor()
     x0, y0, w0, h0 = VB
+    if texto_leia_me is not None:
+        SAIDA.mkdir(parents=True, exist_ok=True)
+        leia_me.write_text(texto_leia_me, encoding="utf-8")
 
-    # --- 1. Símbolo isolado (viewBox do site, 112 x 70) ---
-    for cor, tinta, atomo in (POS, NEG, MONO_PRETO, MONO_BRANCO):
+    # --- 1. Símbolo isolado (viewBox do site, 112 x 70, com a margem de respiro) ---
+    for cor, tinta, atomo in (POS, NEG, MONO_TINTA, MONO_PAPEL, MONO_PRETO, MONO_BRANCO):
         for fundo in COMBINA[cor]:
             corpo = grupo_simbolo(v, tinta, atomo)
             gravar(f"v2o5-simbolo-{cor}-{fundo}", svg(VB, corpo, FUNDOS[fundo]), [512, 1024, 2048])
+
+    # --- 1b. Símbolo em recorte justo (sem margem), só transparente: o desenho encosta nas bordas do arquivo ---
+    justo = recorte_justo(v)
+    for cor, tinta, atomo in (POS, NEG, MONO_TINTA, MONO_PAPEL, MONO_PRETO, MONO_BRANCO):
+        corpo = grupo_simbolo(v, tinta, atomo)
+        gravar(f"v2o5-simbolo-recorte-justo-{cor}-transparente", svg(justo, corpo), [512, 1024, 2048])
 
     # --- 2. Horizontal: símbolo + "V2O5", nas proporções do topo do site ---
     # No site: símbolo 26 de altura (viewBox 70) => 1 unidade do site = 70/26 do viewBox.
