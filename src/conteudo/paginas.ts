@@ -172,6 +172,9 @@ export function paginaDa(rota: string): Pagina {
   return pagina;
 }
 
+/** Bloco da marca (`design/marca/bloco-1080.png`), igual ao avatar das redes. */
+const IMAGEM_SOCIAL = { url: "/opengraph-image.png", width: 1080, height: 1080, alt: "V2O5 Vendas e Tecnologia" };
+
 /** `metadata` de uma página do mapa: título, descrição, canonical e robôs. */
 export function metadataDa(rota: string): Metadata {
   const p = paginaDa(rota);
@@ -180,6 +183,17 @@ export function metadataDa(rota: string): Metadata {
     title: rota === "/" ? { absolute: p.titulo } : p.titulo,
     description: p.descricao,
     alternates: { canonical: rota },
+    // O Next não herda `openGraph` do layout: cada página repete o bloco.
+    openGraph: {
+      type: "website",
+      siteName: "V2O5 Vendas e Tecnologia",
+      locale: "pt_BR",
+      url: rota,
+      title: p.titulo,
+      description: p.descricao,
+      images: [IMAGEM_SOCIAL],
+    },
+    twitter: { card: "summary", title: p.titulo, description: p.descricao, images: [IMAGEM_SOCIAL.url] },
     robots: p.pronta ? undefined : { index: false, follow: true },
   };
 }

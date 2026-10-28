@@ -2,6 +2,17 @@
 
 Rascunho de 28/10/2026 para decisão do Dyones. Nada aqui está publicado: `/guias` segue provisória e com `noindex`. Método: `memory/context/seo.md` (guia normativo da Motors: 5 critérios eliminatórios, H1 igual à busca, resposta em 2 frases, FAQ igual ao schema, uma saída comercial por guia).
 
+## Revisão do site no ar (28/10)
+
+Conferido em `www.v2o5.com.br`: as 16 URLs do sitemap respondem 200, com um H1, descrição e canonical próprios; `robots.txt`, 404 e os redirecionamentos do WordPress estão certos (`/hello-world` 410, `/feed` e `/gestao-de-trafego` redirecionam). O que importa para os guias:
+
+- **`/guias` é "Em construção" com `noindex` e fora do sitemap.** Está coerente, mas é o destino do `/blog` do WordPress: quem chega por link antigo cai numa página vazia. Enquanto não houver guia, vale redirecionar o `/blog` para a home, ou publicar o primeiro guia logo.
+- **Nenhuma página do site linka para `/guias`** (home, `/sobre`, case e hub conferidos). Quando o primeiro guia sair, entram links no hub automotivo, no case e no rodapé.
+- **Os 26 guias da Motors são a prova de autoria** (`/sobre`, `llms.txt` e o schema do fundador já dizem isso), mas o site não leva a eles. Linkar o hub de guias da Motors a partir de `/sobre` e do case é ganho imediato de autoridade, sem escrever nada novo (conferir a URL e a autorização da loja).
+- **Faltava Open Graph e Twitter Card em todas as páginas** (corrigido neste PR: título, descrição, URL e o bloco da marca como imagem). Guias compartilhados no LinkedIn e no WhatsApp dependem disso. A imagem atual é o bloco quadrado de 1080 px; um cartão 1200x630 por guia é o próximo passo.
+- **Sem GA4 nem Pixel no HTML** (IDs ainda não estão na Vercel, pendência 16): sem eles não dá para medir leitura nem clique dos guias.
+- **Sem marcação de verificação do Search Console no HTML.** Pode estar verificado por DNS (TXT); sem login não consigo conferir.
+
 ## O que ainda não foi medido
 
 - **Volumes e dificuldade: não medidos.** Sem Search Console (Windsor.ai e AdCopilot sem login) nem Planejador de Palavras-chave. As colunas de volume ficam vazias de propósito; ninguém publica estimativa sem fonte (regra do projeto).
