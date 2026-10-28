@@ -13,9 +13,9 @@ import { whatsappInternacional } from "@/lib/whatsapp";
  * O grafo JSON-LD do site, montado por funções puras (molde da Motors) e
  * travado por `tests/schema.test.ts`. Seção 4.5 do plano e `marca.md`.
  *
- * Sem `sameAs` por enquanto: Perfil de Empresa, Instagram e LinkedIn ainda
- * não existem, e perfil inventado é pior que nenhum. Sem `AggregateRating`
- * próprio. Endereço só com cidade e estado: a sede é residencial.
+ * `sameAs` com Instagram e LinkedIn (28/10); o Perfil de Empresa entra
+ * quando o Google verificar, e perfil inventado é pior que nenhum. Sem
+ * `AggregateRating` próprio. Endereço só com cidade e estado: a sede é residencial.
  */
 
 type No = Record<string, unknown>;
@@ -49,6 +49,7 @@ export function organizacao(): No {
       availableLanguage: "pt-BR",
       areaServed: "BR",
     },
+    sameAs: [EMPRESA.redes.instagram, EMPRESA.redes.linkedin],
     areaServed: { "@type": "Country", name: "Brasil" },
     knowsAbout: [...OFERTAS.map((o) => o.nome), ...PILARES.flatMap((p) => p.servicos.map((s) => s.titulo))],
   };
