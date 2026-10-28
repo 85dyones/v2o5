@@ -53,3 +53,7 @@ Ot1 (40,65) · Ot2 (42,42) · V1 (53,55) · Ob (64,68) · V2 (75,55) · Ot3 (88,
 
 Pequenos tamanhos: 32 px fica só nuvem + V1, V2 e Ot3; 16 px nuvem + ponto âmbar.
 No site o símbolo sai vetorizado (`src/lib/marca-vetor.ts`, gerado por `scripts/vetorizar-logo.mjs`): a rede é uma forma só e o âmbar tem respiro. Tamanho `pequeno` (topo, rodapé, favicon) mostra só a cadeia em V (Ot2, V1, Ob, V2, Ot4) com traço mais grosso. Versões completas nos quadros do canvas (link no `CLAUDE.md`).
+
+## Kit de logos (28/10/2026)
+Exportação em `design/logos/kit` (SVG e PNG; símbolo, horizontal, ícone âmbar e avatares de rede social; positivo, negativo, preto e branco, com e sem fundo), gerada por `scripts/exportar-logos.py` a partir de `src/lib/marca-vetor.ts` e da Geist SemiBold em contorno. Regerar sempre que o símbolo mudar. Leia o `LEIA-ME.md` do kit para o uso de cada peça.
+
