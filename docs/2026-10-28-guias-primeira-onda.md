@@ -1,5 +1,7 @@
 # Guias: primeira onda (briefs e clusters)
 
+> **Prioridade revista em `docs/2026-10-28-plano-guias-e-perfis.md`** (planilha do Planejador de Palavras-chave de Curitiba). O guia de chatbot para WhatsApp passa a ser o primeiro.
+
 Rascunho de 28/10/2026 para decisão do Dyones. Nada aqui está publicado: `/guias` segue provisória e com `noindex`. Método: `memory/context/seo.md` (guia normativo da Motors: 5 critérios eliminatórios, H1 igual à busca, resposta em 2 frases, FAQ igual ao schema, uma saída comercial por guia).
 
 ## Revisão do site no ar (28/10)
