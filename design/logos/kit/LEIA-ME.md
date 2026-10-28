@@ -35,6 +35,10 @@ Cada peça sai em versões de cor, só nas combinações com contraste bom. O á
 
 Arquivos `v2o5-simbolo-<cor>-<fundo>`, com a margem de respiro do site (112 x 70). Os `v2o5-simbolo-recorte-justo-<cor>-transparente` são os mesmos desenhos cortados rente à borda, sem margem, só em fundo transparente: servem para alinhar o símbolo com precisão em layouts.
 
+## Símbolo com construção
+
+Arquivos `v2o5-simbolo-construcao-<cor>-<fundo>`: o símbolo com as hachuras do desenho (grade, círculos da nuvem, ligações, cotas em Geist Mono convertidas em contorno), nas mesmas cores e fundos do símbolo solo. As hachuras usam a cor do símbolo com transparência, então funcionam em qualquer fundo. Peça de apresentação, capa e material de marca, não de uso pequeno.
+
 ## Tamanhos mínimos e cuidados
 
 - O símbolo completo (nuvem e molécula inteira) funciona de 64 px de largura em diante. **Abaixo disso, use o ícone âmbar**, que tem o desenho óptico para tamanho pequeno (traço mais grosso, só a cadeia em V).

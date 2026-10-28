@@ -72,13 +72,17 @@ def grupo_simbolo(v, tinta, atomo, tx=0.0, ty=0.0, escala=1.0):
     )
 
 
-def contorno_do_texto(texto, tamanho, espaco_em):
+FONTE_MONO = RAIZ / "node_modules" / "geist" / "dist" / "fonts" / "geist-mono" / "GeistMono-Regular.ttf"
+
+
+def contorno_do_texto(texto, tamanho, espaco_em, caminho=None):
     """Devolve (d do caminho com y para baixo, largura, altura das maiúsculas), origem na linha de base."""
-    fonte = TTFont(str(FONTE))
+    caminho = caminho or FONTE
+    fonte = TTFont(str(caminho))
     gs = fonte.getGlyphSet()
     upem = fonte["head"].unitsPerEm
     cap = fonte["OS/2"].sCapHeight
-    blob = hb.Blob.from_file_path(str(FONTE))
+    blob = hb.Blob.from_file_path(str(caminho))
     face = hb.Face(blob)
     font = hb.Font(face)
     buf = hb.Buffer()
@@ -109,6 +113,48 @@ def recorte_justo(v):
     caixa = Image.open(BytesIO(png)).getchannel("A").point(lambda a: 255 if a > 8 else 0).getbbox()
     x0, y0, x1, y1 = caixa
     return (VB[0] + x0 / k, VB[1] + y0 / k, (x1 - x0) / k, (y1 - y0) / k)
+
+
+CIRCULOS_DA_NUVEM = [(30, 62, 18), (52, 42, 24), (80, 40, 20), (98, 62, 18)]  # src/lib/construcao.ts
+LIGACOES = [("Ot1", "V1"), ("Ot2", "V1"), ("V1", "Ob"), ("Ob", "V2"), ("V2", "Ot3"), ("V2", "Ot4")]  # src/lib/marca.ts
+COTAS_DOS_ATOMOS = {"V": "6,8", "O": "4,8"}
+
+
+def construcao(v, tinta, atomo):
+    """O símbolo com a construção (src/components/marca/Construcao.tsx) em SVG estático.
+    As hachuras usam a cor do símbolo com opacidade, então servem em qualquer fundo."""
+    g = v["grande"]
+    nos = g["nos"]
+    xs = sorted({n["x"] for n in nos.values()} | {c[0] for c in CIRCULOS_DA_NUVEM})
+    ys = sorted({n["y"] for n in nos.values()} | {c[1] for c in CIRCULOS_DA_NUVEM})
+    ambar_id = next(i for i, n in nos.items() if n["x"] == g["ambar"]["cx"] and n["y"] == g["ambar"]["cy"])
+
+    def texto(s, x, y):
+        d, _, _ = contorno_do_texto(s, 2.4, 0, FONTE_MONO)
+        return f'<g transform="translate({x:.3f} {y:.3f})"><path d="{d}"/></g>'
+
+    o = [f'<g stroke="{tinta}" stroke-opacity="0.16" stroke-width="0.25">']
+    o += [f'<line x1="{x}" y1="0" x2="{x}" y2="100"/>' for x in xs]
+    o += [f'<line x1="-10" y1="{y}" x2="140" y2="{y}"/>' for y in ys]
+    o.append("</g>")
+    o.append(f'<g fill="none" stroke="{tinta}" stroke-opacity="0.45" stroke-width="0.35">')
+    for cx, cy, r in CIRCULOS_DA_NUVEM:
+        o.append(f'<circle cx="{cx}" cy="{cy}" r="{r}" stroke-dasharray="1.2 1.2"/>')
+        o.append(f'<rect x="{cx - 0.9}" y="{cy - 0.9}" width="1.8" height="1.8" fill="{tinta}" fill-opacity="0.45" stroke="none"/>')
+    for a, b in LIGACOES:
+        o.append(f'<line x1="{nos[a]["x"]}" y1="{nos[a]["y"]}" x2="{nos[b]["x"]}" y2="{nos[b]["y"]}"/>')
+    for i, n in nos.items():
+        cor = f'stroke="{atomo}" stroke-opacity="1"' if i == ambar_id else ""
+        o.append(f'<circle cx="{n["x"]}" cy="{n["y"]}" r="{n["r"] + 1.6}" stroke-width="0.4" {cor}/>')
+    o.append("</g>")
+    o.append(f'<g fill="{tinta}" fill-opacity="0.6">')
+    for cx, cy, r in CIRCULOS_DA_NUVEM:
+        o.append(f'<line x1="{cx}" y1="{cy}" x2="{cx + r * 0.707:.3f}" y2="{cy - r * 0.707:.3f}" stroke="{tinta}" stroke-opacity="0.6" stroke-width="0.25"/>')
+        o.append(texto(f"r {r}", cx + r * 0.36 + 1, cy - r * 0.36 - 1))
+    o.append(texto(f"V · {COTAS_DOS_ATOMOS['V']}", nos["V1"]["x"] - 4, nos["V1"]["y"] + 11.5))
+    o.append(texto(f"O · {COTAS_DOS_ATOMOS['O']}", nos["Ob"]["x"] + 6.5, nos["Ob"]["y"] + 1))
+    o.append("</g>")
+    return "".join(o)
 
 
 def svg(vb, corpo, fundo=None):
@@ -148,6 +194,13 @@ def main():
     for cor, tinta, atomo in (POS, NEG, MONO_TINTA, MONO_PAPEL, MONO_PRETO, MONO_BRANCO):
         corpo = grupo_simbolo(v, tinta, atomo)
         gravar(f"v2o5-simbolo-recorte-justo-{cor}-transparente", svg(justo, corpo), [512, 1024, 2048])
+
+    # --- 1c. Símbolo com a construção (grade, círculos da nuvem, cotas), viewBox 2 10 124 78 ---
+    vb_c = (2, 10, 124, 78)
+    for cor, tinta, atomo in (POS, NEG, MONO_TINTA, MONO_PAPEL, MONO_PRETO, MONO_BRANCO):
+        for fundo in COMBINA[cor]:
+            corpo = construcao(v, tinta, atomo) + grupo_simbolo(v, tinta, atomo)
+            gravar(f"v2o5-simbolo-construcao-{cor}-{fundo}", svg(vb_c, corpo, FUNDOS[fundo]), [512, 1024, 2048])
 
     # --- 2. Horizontal: símbolo + "V2O5", nas proporções do topo do site ---
     # No site: símbolo 26 de altura (viewBox 70) => 1 unidade do site = 70/26 do viewBox.
