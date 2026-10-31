@@ -24,8 +24,10 @@ describe("páginas de solução", () => {
     expect(SOLUCOES.map((s) => s.rota).sort()).toEqual([...ROTAS].sort());
     for (const rota of ROTAS) {
       expect(paginaDa(rota).pronta, rota).toBe(true);
-      // As de recurso mudaram em 25/10/2026 (sem mapa em 24 horas, sem valor); as soluções, em 27/10/2026.
-      expect(paginaDa(rota).atualizadaEm, rota).toBe(DAS_SOLUCOES.includes(rota) ? "2026-10-27" : "2026-10-25");
+      // As de recurso mudaram em 25/10/2026 (sem mapa em 24 horas, sem valor); as soluções, em 27/10/2026;
+      // o agente no WhatsApp ganhou "chatbot" no título em 31/10/2026.
+      const data = DAS_SOLUCOES.includes(rota) ? "2026-10-27" : rota === "/agente-de-ia-para-whatsapp" ? "2026-10-31" : "2026-10-25";
+      expect(paginaDa(rota).atualizadaEm, rota).toBe(data);
       const pagina = semComentarios(ler(`src/app${rota}/page.tsx`));
       expect(pagina, rota).toContain("<PaginaDeSolucao rota={ROTA}");
       expect(pagina, rota).not.toContain("PaginaProvisoria");

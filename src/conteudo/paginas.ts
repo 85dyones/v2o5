@@ -32,10 +32,10 @@ export const PAGINAS: Pagina[] = [
   },
   {
     rota: "/agente-de-ia-para-whatsapp",
-    titulo: "Agente de IA para WhatsApp",
+    titulo: "Chatbot com IA para WhatsApp: agente que atende",
     descricao:
-      "Agente de IA no WhatsApp que responde na hora com as informações do seu negócio, qualifica, agenda e passa para a equipe. Entra num Sprint de Eficiência.",
-    atualizadaEm: "2026-10-25",
+      "Chatbot com IA no WhatsApp: um agente que responde na hora com as informações do negócio, qualifica, agenda e chama a equipe. Entra num Sprint de Eficiência.",
+    atualizadaEm: "2026-10-31",
     pronta: true,
   },
   {

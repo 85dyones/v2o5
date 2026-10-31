@@ -169,7 +169,7 @@ export const SOLUCOES: Solucao[] = [
     etapa: "verde",
     vinheta: "agente",
     sobretitulo: "Agente de IA no WhatsApp",
-    titulo: "Agente de IA para WhatsApp que responde, qualifica e agenda.",
+    titulo: "Chatbot com IA para WhatsApp que responde, qualifica e agenda.",
     resumo:
       "Responde na hora, a qualquer hora, com as informações do seu negócio. Quando a conversa pede uma pessoa, chama alguém da equipe.",
     fatos: [
