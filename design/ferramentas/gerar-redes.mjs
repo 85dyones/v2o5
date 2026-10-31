@@ -68,6 +68,14 @@ for (const d of destaques) {
     <circle cx="540" cy="960" r="430" fill="none" stroke="${COR.regua}" stroke-width="3" stroke-dasharray="4 14"/></svg>`) });
 }
 
+// Perfil da Empresa no Google: logo 720 x 720 e foto de capa 1024 x 576 (16:9, texto no centro; o Google corta as bordas em alguns formatos).
+PEÇAS.push({ arquivo: "google-logo-720.png", w: 720, h: 720, html: `<div class="bloco abs" style="inset:0">${bloco}</div>` });
+PEÇAS.push({ arquivo: "google-capa-1024x576.png", w: 1024, h: 576, html: base(1024, 576, `
+  ${rota(112, 400, 800, 9)}
+  <div class="abs" style="left:112px;top:128px;font-weight:700;font-size:52px;letter-spacing:-0.02em;line-height:1.1">V2O5 | Eficiência comercial<br>e operacional com tecnologia.</div>
+  <div class="abs" style="left:112px;top:290px;font-weight:500;font-size:24px;color:${COR.secundario};line-height:1.45">Diagnóstico gratuito de 45 minutos. On-line, em todo o Brasil.<br><span style="color:${COR.tinta};font-weight:700">www.v2o5.com.br</span></div>
+  <div class="bloco abs" style="width:72px;height:72px;left:112px;top:36px">${bloco}</div>`) });
+
 // Modelos de peça: post 1080 x 1350 e story 1080 x 1920 (fundo papel, rota na margem, marca no canto).
 const marca = `<div class="bloco abs" style="width:96px;height:96px;left:80px;bottom:80px">${bloco}</div><div class="abs" style="left:200px;bottom:98px;font-weight:700;font-size:30px">V2O5 Vendas e Tecnologia</div>`;
 PEÇAS.push({ arquivo: "instagram-modelo-post-1080x1350.png", w: 1080, h: 1350, html: base(1080, 1350, `

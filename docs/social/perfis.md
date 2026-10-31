@@ -15,6 +15,7 @@ Gerados por `node design/ferramentas/gerar-redes.mjs` (Geist, papel, tinta e as 
 | LinkedIn | Banner pessoal, 1584 x 396 | `linkedin-banner-pessoal-1584x396.png` | Perfil do Dyones |
 | Facebook | Capa 1640 x 624 (2x de 820 x 312) | `facebook-capa-1640x624.png` | Capa da página; o avatar cobre o canto inferior esquerdo e o celular corta as laterais, por isso o texto fica no centro |
 | Instagram | Capas dos destaques, 1080 x 1920 (5) | `instagram-destaque-{metodo,solucoes,precos,case,diagnostico}-1080x1920.png` | Destaques: Método, Soluções, Preços, Case, Diagnóstico |
+| Google | Logo 720 x 720 e foto de capa 1024 x 576 | `google-logo-720.png`, `google-capa-1024x576.png` | Perfil da Empresa (logo e foto de capa) |
 | Instagram | Modelo de post 1080 x 1350 e de story 1080 x 1920 | `instagram-modelo-post-1080x1350.png`, `instagram-modelo-story-1080x1920.png` | Base visual da rotina semanal |
 
 Pendentes: banner do LinkedIn com o seu retrato (falta a foto, pendência 24b), arte de capa para vídeo e o conjunto de peças do primeiro mês, que a rotina semanal produz.
