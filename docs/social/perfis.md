@@ -11,7 +11,7 @@ Gerados por `node design/ferramentas/gerar-redes.mjs` (Geist, papel, tinta e as 
 | Rede | Peça | Arquivo | Onde usar |
 |---|---|---|---|
 | Todas | Avatar 1080 x 1080 (o bloco âmbar da marca; a rede corta em círculo) | `avatar-1080.png` | Foto do perfil no Instagram, LinkedIn e Facebook |
-| LinkedIn | Banner da página, 1128 x 191 | `linkedin-banner-empresa-1128x191.png` | Capa da página da empresa (o logo cobre o canto inferior esquerdo; o texto começa à direita dele) |
+| LinkedIn | Banner da página, 1128 x 191 (arquivo em 2x) | `linkedin-banner-empresa-1128x191.png` | Capa da página da empresa (o logo cobre o canto inferior esquerdo; o texto começa à direita dele) |
 | LinkedIn | Banner pessoal, 1584 x 396 | `linkedin-banner-pessoal-1584x396.png` | Perfil do Dyones |
 | Facebook | Capa 1640 x 624 (2x de 820 x 312) | `facebook-capa-1640x624.png` | Capa da página; o avatar cobre o canto inferior esquerdo e o celular corta as laterais, por isso o texto fica no centro |
 | Instagram | Capas dos destaques, 1080 x 1920 (5) | `instagram-destaque-{metodo,solucoes,precos,case,diagnostico}-1080x1920.png` | Destaques: Método, Soluções, Preços, Case, Diagnóstico |

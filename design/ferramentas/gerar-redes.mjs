@@ -14,22 +14,45 @@ mkdirSync(saida, { recursive: true });
 // Embutida em base64: o Chromium não abre file:// a partir de uma página em memória.
 const fonte = `data:font/woff2;base64,${readFileSync(join(raiz, "src", "app", "fonts", "geist-latin.woff2")).toString("base64")}`;
 const bloco = readFileSync(join(raiz, "design", "marca", "bloco.svg"), "utf8");
-const COR = { tinta: "#121418", papel: "#F2F1EC", regua: "#D6D4CC", ambar: "#F2A516", violeta: "#6B46C8", verde: "#17773F", azul: "#2457C5", grafite: "#2A2D34", secundario: "#5A5D66" };
+const COR = { linhaGrade: "#E4E2DA", tintaViolet: "#E0D9F0", tintaVerde: "#D3E6D9", tintaAzul: "#D5E0F3", tintaAmbar: "#F7E2B5", cartao: "#FAF9F5", tinta: "#121418", papel: "#F2F1EC", regua: "#D6D4CC", ambar: "#F2A516", violeta: "#6B46C8", verde: "#17773F", azul: "#2457C5", grafite: "#2A2D34", secundario: "#5A5D66" };
 const ETAPAS = [COR.violeta, COR.verde, COR.azul, COR.ambar];
+
 
 const base = (w, h, corpo) => `<!doctype html><html><head><meta charset="utf-8"><style>
 @font-face{font-family:Geist;src:url("${fonte}");font-weight:100 900}
 *{box-sizing:border-box;margin:0;padding:0}
-html,body{width:${w}px;height:${h}px;background:${COR.papel};font-family:Geist,system-ui,sans-serif;color:${COR.tinta};overflow:hidden}
+html,body{width:${w}px;height:${h}px;background:${COR.papel};font-family:Geist,system-ui,sans-serif;color:${COR.tinta};overflow:hidden;position:relative}
 .abs{position:absolute}
 .bloco svg{width:100%;height:100%;display:block}
+.rot{font-weight:500;text-transform:uppercase;letter-spacing:.14em;color:${COR.secundario}}
+.h{font-weight:600;letter-spacing:-0.045em;line-height:1}
 </style></head><body>${corpo}</body></html>`;
 
-/** A rota: fio de tinta com as quatro paradas nas cores do vanádio. */
-const rota = (x, y, largura, raio) => {
-  const passo = largura / 3;
-  const paradas = ETAPAS.map((c, i) => `<circle cx="${x + i * passo}" cy="${y}" r="${raio}" fill="${c}"/>`).join("");
-  return `<svg class="abs" style="left:0;top:0" width="100%" height="100%"><line x1="${x}" y1="${y}" x2="${x + largura}" y2="${y}" stroke="${COR.tinta}" stroke-width="${Math.max(2, raio / 2.5)}"/>${paradas}</svg>`;
+/** Colunas finas, como no fundo do site. */
+const grade = (w, h, passo, inicio = 0) => {
+  let l = "";
+  for (let x = inicio; x < w; x += passo) l += `<line x1="${x + 0.5}" y1="0" x2="${x + 0.5}" y2="${h}" stroke="${COR.linhaGrade}" stroke-width="1"/>`;
+  return `<svg class="abs" style="left:0;top:0" width="${w}" height="${h}">${l}</svg>`;
+};
+
+/** Faixa de quatro células com fio no topo na cor da etapa (a tira de soluções do site). */
+const CELULAS = [["Branding", COR.violeta], ["Presença", COR.verde], ["Sites", COR.azul], ["Sprint", COR.ambar]];
+const faixa = (x, y, larg, alt, fonte_) => {
+  const c = larg / 4;
+  return CELULAS.map(([t, cor], i) => `<div class="abs" style="left:${x + i * c}px;top:${y}px;width:${c}px;height:${alt}px;border:1px solid ${COR.regua};${i ? "border-left:none;" : ""}background:${COR.cartao}">
+    <div class="abs" style="left:${fonte_ * 1.1}px;top:-1px;width:${fonte_ * 2.2}px;height:${Math.max(3, fonte_ * 0.28)}px;background:${cor}"></div>
+    <div class="abs rot" style="left:${fonte_ * 1.1}px;top:${alt / 2 - fonte_ * 0.3}px;font-size:${fonte_}px">${t}</div></div>`).join("");
+};
+
+/** Botão do site: quadrado âmbar com seta e bloco tinta com o texto. */
+const botao = (x, y, alt, texto, fonte_) => `<div class="abs" style="left:${x}px;top:${y}px;height:${alt}px;display:flex"><div style="width:${alt}px;height:${alt}px;background:${COR.ambar};display:flex;align-items:center;justify-content:center"><svg width="${alt * 0.4}" height="${alt * 0.4}" viewBox="0 0 16 16" fill="none" stroke="${COR.tinta}" stroke-width="1.8"><path d="M2 8h11M9 4l4 4-4 4"/></svg></div><div style="background:${COR.tinta};color:${COR.papel};font-weight:600;font-size:${fonte_}px;padding:0 ${alt * 0.5}px;display:flex;align-items:center">${texto}</div></div>`;
+
+/** Rota na margem: barra vertical em quatro trechos, com o nó oco no topo. */
+const margem = (x, y, alt, larg) => {
+  const t = alt / 4;
+  const barras = ETAPAS.map((c, i) => `<div class="abs" style="left:${x}px;top:${y + i * t}px;width:${larg}px;height:${t}px;background:${c}"></div>`).join("");
+  const no = `<div class="abs" style="left:${x + larg / 2 - larg * 1.1}px;top:${y - larg * 1.1}px;width:${larg * 2.2}px;height:${larg * 2.2}px;border-radius:50%;background:${COR.papel};border:${larg * 0.4}px solid ${COR.tinta}"></div>`;
+  return barras + no;
 };
 
 const PEÇAS = [];
@@ -37,63 +60,86 @@ const PEÇAS = [];
 // Avatar (todas as redes): o bloco da marca, quadrado, a rede corta em círculo.
 PEÇAS.push({ arquivo: "avatar-1080.png", w: 1080, h: 1080, html: `<div class="bloco abs" style="inset:0">${bloco}</div>` });
 
-// LinkedIn: banner da página da empresa (1128 x 191). A logo da página cobre o canto inferior esquerdo.
-const banner = (w, h, k) => base(w, h, `
-  ${rota(260 * k, h - 38 * k, w - 260 * k - 60 * k, 7 * k)}
-  <div class="abs" style="left:${260 * k}px;top:${34 * k}px;font-weight:700;font-size:${34 * k}px;letter-spacing:-0.02em;line-height:1.1">V2O5 | Eficiência comercial e<br>operacional com tecnologia.</div>
-  <div class="abs" style="right:${60 * k}px;top:${40 * k}px;text-align:right;font-weight:500;font-size:${15 * k}px;color:${COR.secundario};line-height:1.4">Diagnóstico gratuito de 45 minutos<br>On-line, em todo o Brasil<br><span style="color:${COR.tinta};font-weight:700">www.v2o5.com.br</span></div>`);
-PEÇAS.push({ arquivo: "linkedin-banner-empresa-1128x191.png", w: 1128, h: 191, html: banner(1128, 191, 1), escala: 1 });
+// LinkedIn, página da empresa (1128 x 191, arquivo em 2x). A logo cobre x 0 a 260 e y de 70 para baixo.
+PEÇAS.push({ arquivo: "linkedin-banner-empresa-1128x191.png", w: 1128, h: 191, escala: 2, html: base(1128, 191, `
+  ${grade(1128, 191, 96, 48)}
+  <div class="abs" style="left:0;bottom:0;width:100%;height:3px;background:${COR.tinta}"></div>
+  <div class="abs rot" style="left:296px;top:22px;font-size:11px">Estratégia, processos e tecnologia</div>
+  <div class="abs h" style="left:296px;top:44px;font-size:36px">Do problema ao resultado,<br>pelo caminho mais simples.</div>
+  ${faixa(296, 132, 440, 40, 10)}
+  <div class="abs rot" style="right:48px;top:22px;font-size:11px;text-align:right">Diagnóstico gratuito · on-line · Brasil todo</div>
+  ${botao(792, 126, 46, "www.v2o5.com.br", 15)}`) });
+
+// LinkedIn, perfil do fundador (1584 x 396). A foto do perfil cobre o canto inferior esquerdo.
 PEÇAS.push({ arquivo: "linkedin-banner-pessoal-1584x396.png", w: 1584, h: 396, escala: 1, html: base(1584, 396, `
-  ${rota(560, 330, 900, 9)}
-  <div class="abs" style="left:560px;top:90px;font-weight:700;font-size:56px;letter-spacing:-0.02em;line-height:1.1">Do problema ao resultado,<br>pelo caminho mais simples.</div>
-  <div class="abs" style="left:560px;top:250px;font-weight:500;font-size:22px;color:${COR.secundario}">Dyones Oliveira · Fundador, V2O5 Vendas e Tecnologia · www.v2o5.com.br</div>`) });
+  ${grade(1584, 396, 132, 66)}
+  <div class="abs" style="left:0;bottom:0;width:100%;height:4px;background:${COR.tinta}"></div>
+  <div class="abs rot" style="left:560px;top:52px;font-size:15px">Dyones Oliveira · Fundador</div>
+  <div class="abs h" style="left:560px;top:90px;font-size:68px">Do problema ao resultado,<br>pelo caminho mais simples.</div>
+  ${faixa(560, 266, 600, 64, 14)}
+  ${botao(1212, 258, 80, "www.v2o5.com.br", 20)}`) });
 
-// Facebook: capa 820 x 312 (arquivo em 2x). O avatar cobre o canto inferior esquerdo; no celular a rede corta as laterais.
+// Facebook, capa 820 x 312 (arquivo em 2x). O avatar cobre o canto inferior esquerdo; o celular corta as laterais.
 PEÇAS.push({ arquivo: "facebook-capa-1640x624.png", w: 820, h: 312, escala: 2, html: base(820, 312, `
-  ${rota(250, 262, 430, 6)}
-  <div class="abs" style="left:250px;top:62px;font-weight:700;font-size:30px;letter-spacing:-0.02em;line-height:1.12">V2O5 | Eficiência comercial<br>e operacional com tecnologia.</div>
-  <div class="abs" style="left:250px;top:150px;font-weight:500;font-size:15px;color:${COR.secundario};line-height:1.45">Diagnóstico gratuito de 45 minutos.<br>On-line, em todo o Brasil. <span style="color:${COR.tinta};font-weight:700">www.v2o5.com.br</span></div>`) });
+  ${grade(820, 312, 82, 41)}
+  <div class="abs" style="left:0;bottom:0;width:100%;height:3px;background:${COR.tinta}"></div>
+  <div class="abs rot" style="left:215px;top:36px;font-size:10px">Estratégia, processos e tecnologia</div>
+  <div class="abs h" style="left:215px;top:58px;font-size:41px">Do problema ao resultado,<br>pelo caminho mais simples.</div>
+  ${faixa(215, 186, 360, 38, 9)}
+  ${botao(215, 242, 38, "www.v2o5.com.br", 13)}
+  <div class="abs rot" style="left:445px;top:254px;font-size:10px">Diagnóstico gratuito · on-line</div>`) });
 
-// Instagram: capas dos destaques (1080 x 1920; o app mostra só um círculo no centro, por isso o símbolo fica grande e central).
+// Google, logo e foto de capa (16:9).
+PEÇAS.push({ arquivo: "google-logo-720.png", w: 720, h: 720, html: `<div class="bloco abs" style="inset:0">${bloco}</div>` });
+PEÇAS.push({ arquivo: "google-capa-1024x576.png", w: 1024, h: 576, escala: 2, html: base(1024, 576, `
+  ${grade(1024, 576, 96, 64)}
+  <div class="abs" style="left:0;bottom:0;width:100%;height:4px;background:${COR.tinta}"></div>
+  ${margem(64, 88, 400, 8)}
+  <div class="abs rot" style="left:128px;top:76px;font-size:15px">Estratégia, processos e tecnologia</div>
+  <div class="abs h" style="left:128px;top:112px;font-size:70px">Do problema ao<br>resultado, pelo<br>caminho mais simples.</div>
+  ${faixa(128, 396, 600, 62, 13)}
+  ${botao(128, 484, 56, "www.v2o5.com.br", 18)}
+  <div class="abs rot" style="left:440px;top:502px;font-size:14px">Diagnóstico gratuito · on-line · Brasil todo</div>`) });
+
+// Instagram: capas dos destaques (1080 x 1920). O app mostra só um círculo no centro; o disco em tinta da etapa dá corpo ao ícone.
 const destaques = [
-  { nome: "Método", cy: 560, cor: COR.violeta, glifo: `<path d="M150 560 L400 560 L400 380 L650 380 L650 560 L890 560" fill="none" stroke="${COR.tinta}" stroke-width="22" stroke-linejoin="round"/><circle cx="150" cy="560" r="34" fill="${COR.violeta}"/><circle cx="400" cy="380" r="34" fill="${COR.verde}"/><circle cx="650" cy="560" r="34" fill="${COR.azul}"/><circle cx="890" cy="560" r="34" fill="${COR.ambar}"/>` },
-  { nome: "Soluções", cy: 500, cor: COR.verde, glifo: [[300, 400, COR.violeta], [580, 400, COR.verde], [300, 680, COR.azul], [580, 680, COR.ambar]].map(([x, y, c]) => `<rect x="${x}" y="${y - 140}" width="200" height="200" rx="18" fill="${c}"/>`).join("") },
-  { nome: "Preços", cy: 530, cor: COR.ambar, glifo: `<text x="540" y="650" text-anchor="middle" font-family="Geist" font-weight="800" font-size="330" fill="${COR.tinta}" letter-spacing="-12">R$</text>` },
-  { nome: "Case", cy: 505, cor: COR.azul, glifo: `<text x="540" y="650" text-anchor="middle" font-family="Geist" font-weight="800" font-size="400" fill="${COR.tinta}" letter-spacing="-12">M</text>` },
-  { nome: "Diagnóstico", cy: 500, cor: COR.ambar, glifo: `<text x="540" y="620" text-anchor="middle" font-family="Geist" font-weight="800" font-size="330" fill="${COR.tinta}" letter-spacing="-10">45'</text>` },
+  { nome: "Método", cy: 560, fundo: COR.tintaViolet, glifo: `<path d="M150 560 L400 560 L400 380 L650 380 L650 560 L890 560" fill="none" stroke="${COR.tinta}" stroke-width="22" stroke-linejoin="round"/><circle cx="150" cy="560" r="34" fill="${COR.violeta}"/><circle cx="400" cy="380" r="34" fill="${COR.verde}"/><circle cx="650" cy="560" r="34" fill="${COR.azul}"/><circle cx="890" cy="560" r="34" fill="${COR.ambar}"/>` },
+  { nome: "Soluções", cy: 500, fundo: COR.tintaVerde, glifo: [[300, 400, COR.violeta], [580, 400, COR.verde], [300, 680, COR.azul], [580, 680, COR.ambar]].map(([x, y, c]) => `<rect x="${x}" y="${y - 140}" width="200" height="200" rx="18" fill="${c}"/>`).join("") },
+  { nome: "Preços", cy: 530, fundo: COR.tintaAmbar, glifo: `<text x="540" y="650" text-anchor="middle" font-family="Geist" font-weight="700" font-size="330" fill="${COR.tinta}" letter-spacing="-14">R$</text>` },
+  { nome: "Case", cy: 505, fundo: COR.tintaAzul, glifo: `<text x="540" y="650" text-anchor="middle" font-family="Geist" font-weight="700" font-size="400" fill="${COR.tinta}" letter-spacing="-14">M</text>` },
+  { nome: "Diagnóstico", cy: 500, fundo: COR.tintaAmbar, glifo: `<text x="540" y="620" text-anchor="middle" font-family="Geist" font-weight="700" font-size="330" fill="${COR.tinta}" letter-spacing="-12">45'</text>` },
 ];
 for (const d of destaques) {
   PEÇAS.push({ arquivo: `instagram-destaque-${d.nome.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "")}-1080x1920.png`, w: 1080, h: 1920, html: base(1080, 1920, `
-    <svg class="abs" style="left:0;top:0" width="1080" height="1920" viewBox="0 0 1080 1920"><g transform="translate(540 960) scale(0.85) translate(-540 -${d.cy})">${d.glifo}</g>
-    <circle cx="540" cy="960" r="430" fill="none" stroke="${COR.regua}" stroke-width="3" stroke-dasharray="4 14"/></svg>`) });
+    ${grade(1080, 1920, 120, 60)}
+    <svg class="abs" style="left:0;top:0" width="1080" height="1920" viewBox="0 0 1080 1920"><circle cx="540" cy="960" r="430" fill="${d.fundo}" stroke="${COR.tinta}" stroke-width="6"/><g transform="translate(540 960) scale(0.82) translate(-540 -${d.cy})">${d.glifo}</g></svg>`) });
 }
 
-// Perfil da Empresa no Google: logo 720 x 720 e foto de capa 1024 x 576 (16:9, texto no centro; o Google corta as bordas em alguns formatos).
-PEÇAS.push({ arquivo: "google-logo-720.png", w: 720, h: 720, html: `<div class="bloco abs" style="inset:0">${bloco}</div>` });
-PEÇAS.push({ arquivo: "google-capa-1024x576.png", w: 1024, h: 576, html: base(1024, 576, `
-  ${rota(112, 400, 800, 9)}
-  <div class="abs" style="left:112px;top:128px;font-weight:700;font-size:52px;letter-spacing:-0.02em;line-height:1.1">V2O5 | Eficiência comercial<br>e operacional com tecnologia.</div>
-  <div class="abs" style="left:112px;top:290px;font-weight:500;font-size:24px;color:${COR.secundario};line-height:1.45">Diagnóstico gratuito de 45 minutos. On-line, em todo o Brasil.<br><span style="color:${COR.tinta};font-weight:700">www.v2o5.com.br</span></div>
-  <div class="bloco abs" style="width:72px;height:72px;left:112px;top:36px">${bloco}</div>`) });
-
-// Modelos de peça: post 1080 x 1350 e story 1080 x 1920 (fundo papel, rota na margem, marca no canto).
-const marca = `<div class="bloco abs" style="width:96px;height:96px;left:80px;bottom:80px">${bloco}</div><div class="abs" style="left:200px;bottom:98px;font-weight:700;font-size:30px">V2O5 Vendas e Tecnologia</div>`;
+// Modelos de peça: post 1080 x 1350 e story 1080 x 1920 (grade, rota na margem, marca embaixo).
+const marcaPe = (x, y) => `<div class="bloco abs" style="width:96px;height:96px;left:${x}px;top:${y}px">${bloco}</div><div class="abs" style="left:${x + 120}px;top:${y + 14}px;font-weight:600;font-size:30px;letter-spacing:-0.02em">V2O5 Vendas e Tecnologia</div><div class="abs rot" style="left:${x + 120}px;top:${y + 56}px;font-size:18px">www.v2o5.com.br</div>`;
 PEÇAS.push({ arquivo: "instagram-modelo-post-1080x1350.png", w: 1080, h: 1350, html: base(1080, 1350, `
-  ${rota(80, 110, 920, 12)}
-  <div class="abs" style="left:80px;top:230px;width:920px;font-weight:700;font-size:96px;letter-spacing:-0.03em;line-height:1.05">Título da peça em até três linhas.</div>
-  <div class="abs" style="left:80px;top:700px;width:760px;font-weight:500;font-size:40px;line-height:1.4;color:${COR.secundario}">Texto de apoio curto. Um número só entra com fonte e período.</div>
-  ${marca}`) });
+  ${grade(1080, 1350, 120, 60)}
+  <div class="abs" style="left:0;top:0;width:100%;height:6px;background:${COR.tinta}"></div>
+  ${margem(60, 150, 900, 14)}
+  <div class="abs rot" style="left:150px;top:118px;font-size:24px">Pilar da semana</div>
+  <div class="abs h" style="left:150px;top:180px;width:840px;font-size:118px">Título da peça em até três linhas.</div>
+  <div class="abs" style="left:150px;top:760px;width:760px;font-size:40px;line-height:1.4;color:${COR.secundario}">Texto de apoio curto. Um número só entra com fonte e período.</div>
+  <div class="abs" style="left:150px;top:1010px;width:840px;height:2px;background:${COR.tinta}"></div>
+  ${marcaPe(150, 1080)}`) });
 PEÇAS.push({ arquivo: "instagram-modelo-story-1080x1920.png", w: 1080, h: 1920, html: base(1080, 1920, `
-  ${rota(80, 280, 920, 12)}
-  <div class="abs" style="left:80px;top:420px;width:920px;font-weight:700;font-size:104px;letter-spacing:-0.03em;line-height:1.05">Pergunta ou ideia do story.</div>
-  <div class="abs" style="left:80px;top:900px;width:800px;font-weight:500;font-size:44px;line-height:1.4;color:${COR.secundario}">Deixe o centro livre para o adesivo de enquete ou de link.</div>
-  <div class="bloco abs" style="width:96px;height:96px;left:80px;bottom:320px">${bloco}</div><div class="abs" style="left:200px;bottom:338px;font-weight:700;font-size:30px">V2O5 Vendas e Tecnologia</div>`) });
+  ${grade(1080, 1920, 120, 60)}
+  <div class="abs" style="left:0;top:0;width:100%;height:6px;background:${COR.tinta}"></div>
+  ${margem(60, 330, 1000, 14)}
+  <div class="abs rot" style="left:150px;top:300px;font-size:26px">Pilar da semana</div>
+  <div class="abs h" style="left:150px;top:370px;width:840px;font-size:132px">Pergunta ou ideia do story.</div>
+  <div class="abs" style="left:150px;top:1000px;width:760px;font-size:44px;line-height:1.4;color:${COR.secundario}">Deixe o centro livre para o adesivo de enquete ou de link.</div>
+  ${marcaPe(150, 1500)}`) });
 
 const nav = await chromium.launch();
 for (const p of PEÇAS) {
   const pag = await nav.newPage({ viewport: { width: p.w, height: p.h }, deviceScaleFactor: p.escala ?? 1 });
   await pag.setContent(p.html, { waitUntil: "load" });
-  await pag.evaluate(async () => { await document.fonts.load("800 100px Geist"); await document.fonts.load("700 100px Geist"); await document.fonts.load("500 100px Geist"); await document.fonts.ready; });
+  await pag.evaluate(async () => { await document.fonts.load("600 100px Geist"); await document.fonts.load("500 100px Geist"); await document.fonts.load("700 100px Geist"); await document.fonts.ready; });
   await pag.screenshot({ path: join(saida, p.arquivo) });
   await pag.close();
   console.log(p.arquivo);
