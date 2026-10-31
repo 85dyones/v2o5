@@ -58,9 +58,12 @@ describe("grafo da home", () => {
     });
   });
 
-  it("sem perfil inventado e sem nota própria", () => {
+  it("só os perfis oficiais no sameAs e sem nota própria", () => {
     const o = organizacao();
-    expect(o).not.toHaveProperty("sameAs");
+    expect(o.sameAs).toEqual([
+      "https://www.instagram.com/v2o5_consultoria/",
+      "https://www.linkedin.com/company/v2o5-consutoria/",
+    ]);
     expect(o).not.toHaveProperty("aggregateRating");
   });
 });

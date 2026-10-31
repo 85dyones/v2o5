@@ -984,6 +984,11 @@ export const EMPRESA = {
    */
   email: "diagnostico@v2o5.com.br",
   emailPrivacidade: "privacidade@v2o5.com.br",
+  /** Perfis oficiais (Dyones, 28/10). Entram no `sameAs` do schema. */
+  redes: {
+    instagram: "https://www.instagram.com/v2o5_consultoria/",
+    linkedin: "https://www.linkedin.com/company/v2o5-consutoria/",
+  },
   /** Fundação da V2O5, pelo Dyones (13/10): dezembro de 2019. Vai para o schema (`foundingDate`) e para `/sobre`. */
   fundacao: "2019-12",
   fundacaoPorExtenso: "dezembro de 2019",
