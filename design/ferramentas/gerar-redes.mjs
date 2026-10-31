@@ -135,6 +135,49 @@ PEÇAS.push({ arquivo: "instagram-modelo-story-1080x1920.png", w: 1080, h: 1920,
   <div class="abs" style="left:150px;top:1000px;width:760px;font-size:44px;line-height:1.4;color:${COR.secundario}">Deixe o centro livre para o adesivo de enquete ou de link.</div>
   ${marcaPe(150, 1500)}`) });
 
+
+// LinkedIn, Service Page: cartões de exemplo (1200 x 627) com os pacotes e preços de referência de `src/conteudo/ofertas.ts` e `sprint.ts`.
+const dataUri = (arq, mime) => `data:${mime};base64,${readFileSync(join(raiz, "src", "assets", "motors", arq)).toString("base64")}`;
+const cartao = ({ arquivo, etiqueta, cor, titulo, linhas, rodape, lateral = "" }) => PEÇAS.push({ arquivo, w: 1200, h: 627, escala: 1, html: base(1200, 627, `
+  ${grade(1200, 627, 100, 50)}
+  <div class="abs" style="left:0;top:0;width:12px;height:100%;background:${cor}"></div>
+  <div class="abs" style="left:0;bottom:0;width:100%;height:4px;background:${COR.tinta}"></div>
+  <div class="bloco abs" style="width:56px;height:56px;left:64px;top:44px">${bloco}</div>
+  <div class="abs rot" style="left:138px;top:62px;font-size:16px">${etiqueta}</div>
+  <div class="abs h" style="left:64px;top:128px;width:${lateral ? 560 : 1000}px;font-size:${lateral ? 54 : 62}px">${titulo}</div>
+  <div class="abs" style="left:64px;top:${lateral ? 300 : 280}px;width:${lateral ? 600 : 1070}px">${linhas.map(([n, d, v]) => `<div style="display:flex;align-items:baseline;gap:20px;padding:14px 0;border-top:1px solid ${COR.regua}"><div style="font-weight:600;font-size:26px;letter-spacing:-0.02em;min-width:${lateral ? 250 : 330}px">${n}</div><div style="font-weight:500;font-size:18px;color:${COR.secundario};flex:1">${d}</div><div style="font-weight:700;font-size:24px;background:${COR.tintaAmbar};padding:0 8px;white-space:nowrap">${v}</div></div>`).join("")}</div>
+  ${lateral}
+  <div class="abs rot" style="left:64px;bottom:34px;font-size:15px">${rodape}</div>
+  <div class="abs" style="right:64px;bottom:26px;font-weight:700;font-size:20px">www.v2o5.com.br</div>`) });
+
+cartao({ arquivo: "linkedin-servico-sprint-1200x627.png", etiqueta: "Sprint de Eficiência", cor: COR.ambar, titulo: "Um gargalo resolvido, com antes e depois medidos.",
+  linhas: [["Sprint Essencial", "1 a 2 semanas · um gargalo delimitado", "R$ 3.900"], ["Sprint Integrado", "2 a 4 semanas · um fluxo entre sistemas", "R$ 6.900"], ["Sprint Avançado", "Escopo sob medida, em proposta", "a partir de R$ 12.900"]],
+  rodape: "Preços de referência. O valor fechado sai em proposta." });
+cartao({ arquivo: "linkedin-servico-sites-1200x627.png", etiqueta: "Sites & Integrações", cor: COR.azul, titulo: "Site próprio, rápido e ligado ao seu sistema.",
+  linhas: [["Landing Page", "Uma oferta, uma página", "R$ 2.900"], ["Site Personalizado", "Estrutura comercial", "R$ 5.900"], ["Site Conectado", "CRM ou estoque", "a partir de R$ 9.900"]],
+  rodape: "Case: Motors Store · capturas de 26/10/2026",
+  lateral: `<div class="abs" style="right:64px;top:44px;display:flex;gap:18px"><img src="${dataUri("vitrine.webp", "image/webp")}" style="width:190px;height:411px;object-fit:cover;object-position:top;border:2px solid ${COR.tinta}"><img src="${dataUri("veiculo.webp", "image/webp")}" style="width:190px;height:411px;object-fit:cover;object-position:top;border:2px solid ${COR.tinta};margin-top:56px"></div>` });
+cartao({ arquivo: "linkedin-servico-presenca-1200x627.png", etiqueta: "Presença Digital Local", cor: COR.verde, titulo: "Ser encontrado com a informação certa.",
+  linhas: [["Presença Essencial", "Mensalidade opcional de R$ 390", "R$ 790"], ["Presença Estruturada", "Mensalidade opcional de R$ 490", "R$ 1.490"], ["Presença Assistida", "Mensalidade opcional de R$ 890", "R$ 1.990"]],
+  rodape: "Perfil no Google, redes e WhatsApp organizados" });
+cartao({ arquivo: "linkedin-servico-branding-1200x627.png", etiqueta: "Branding & Identidade", cor: COR.violeta, titulo: "Uma marca que mostra o que a empresa entrega.",
+  linhas: [["Identidade Essencial", "Identidade visual funcional e guia básico", "R$ 2.400"], ["Marca em Uso", "Aplicada no dia a dia comercial", "R$ 4.900"], ["Reposicionamento", "Muda como o mercado percebe a empresa", "a partir de R$ 7.900"]],
+  rodape: "Preços de referência. Escopo fechado em proposta." });
+cartao({ arquivo: "linkedin-servico-continuidade-1200x627.png", etiqueta: "Continuidade", cor: COR.grafite, titulo: "Manter e evoluir o que foi entregue, com limites escritos.",
+  linhas: [["Cuidado Técnico", "Hospedagem, backup e suporte", "R$ 349/mês"], ["Integrações Monitoradas", "Monitora e corrige as integrações", "R$ 590/mês"], ["Evolução Contínua", "Melhorias mensais priorizadas", "R$ 990/mês"]],
+  rodape: "Opcional. Nenhuma solução obriga a comprar outra." });
+const passos = [["1", "Responde na hora", COR.violeta], ["2", "Qualifica", COR.verde], ["3", "Agenda", COR.azul], ["4", "Chama a equipe", COR.ambar]];
+PEÇAS.push({ arquivo: "linkedin-servico-chatbot-whatsapp-1200x627.png", w: 1200, h: 627, html: base(1200, 627, `
+  ${grade(1200, 627, 100, 50)}
+  <div class="abs" style="left:0;top:0;width:12px;height:100%;background:${COR.verde}"></div>
+  <div class="abs" style="left:0;bottom:0;width:100%;height:4px;background:${COR.tinta}"></div>
+  <div class="bloco abs" style="width:56px;height:56px;left:64px;top:44px">${bloco}</div>
+  <div class="abs rot" style="left:138px;top:62px;font-size:16px">Chatbot com IA para WhatsApp</div>
+  <div class="abs h" style="left:64px;top:128px;width:1000px;font-size:62px">Um agente que atende com o que a empresa sabe.</div>
+  ${passos.map(([n, t, c], i) => `<div class="abs" style="left:${64 + i * 275}px;top:330px;width:255px;height:130px;border:1px solid ${COR.regua};background:${COR.cartao}"><div class="abs" style="left:20px;top:-1px;width:44px;height:5px;background:${c}"></div><div class="abs rot" style="left:20px;top:26px;font-size:14px">Passo ${n}</div><div class="abs" style="left:20px;top:64px;font-weight:600;font-size:26px;letter-spacing:-0.02em">${t}</div></div>`).join("")}
+  <div class="abs rot" style="left:64px;bottom:34px;font-size:15px">Entra num Sprint de Eficiência</div>
+  <div class="abs" style="right:64px;bottom:26px;font-weight:700;font-size:20px">www.v2o5.com.br</div>`) });
+
 const nav = await chromium.launch();
 for (const p of PEÇAS) {
   const pag = await nav.newPage({ viewport: { width: p.w, height: p.h }, deviceScaleFactor: p.escala ?? 1 });
