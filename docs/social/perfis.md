@@ -4,6 +4,21 @@ Posicionamento único, para repetir em todo lugar: **"V2O5 | Eficiência comerci
 
 Eu não consigo editar esses perfis: o Windsor só tem Meta Ads e Perfil da Empresa conectados, e a Meta recusou o acesso da conta de anúncios ao conector de IA. Tudo abaixo está pronto para colar.
 
+## Criativos prontos (`design/marca/redes/`)
+
+Gerados por `node design/ferramentas/gerar-redes.mjs` (Geist, papel, tinta e as quatro cores do vanádio; a rota com quatro paradas é o motivo da marca).
+
+| Rede | Peça | Arquivo | Onde usar |
+|---|---|---|---|
+| Todas | Avatar 1080 x 1080 (o bloco âmbar da marca; a rede corta em círculo) | `avatar-1080.png` | Foto do perfil no Instagram, LinkedIn e Facebook |
+| LinkedIn | Banner da página, 1128 x 191 | `linkedin-banner-empresa-1128x191.png` | Capa da página da empresa (o logo cobre o canto inferior esquerdo; o texto começa à direita dele) |
+| LinkedIn | Banner pessoal, 1584 x 396 | `linkedin-banner-pessoal-1584x396.png` | Perfil do Dyones |
+| Facebook | Capa 1640 x 624 (2x de 820 x 312) | `facebook-capa-1640x624.png` | Capa da página; o avatar cobre o canto inferior esquerdo e o celular corta as laterais, por isso o texto fica no centro |
+| Instagram | Capas dos destaques, 1080 x 1920 (5) | `instagram-destaque-{metodo,solucoes,precos,case,diagnostico}-1080x1920.png` | Destaques: Método, Soluções, Preços, Case, Diagnóstico |
+| Instagram | Modelo de post 1080 x 1350 e de story 1080 x 1920 | `instagram-modelo-post-1080x1350.png`, `instagram-modelo-story-1080x1920.png` | Base visual da rotina semanal |
+
+Pendentes: banner do LinkedIn com o seu retrato (falta a foto, pendência 24b), arte de capa para vídeo e o conjunto de peças do primeiro mês, que a rotina semanal produz.
+
 ## O que está errado hoje
 
 | Perfil | Hoje | Problema |
