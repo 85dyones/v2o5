@@ -59,5 +59,5 @@ export const SITE_PADRAO = {
     },
   ],
   alem:
-    "O que passa da base (estoque integrado ao sistema da loja, integração com outro sistema, conteúdo, branding) entra pelo pacote ou pela solução que cobre, em proposta.",
+    "O que passa da base (estoque integrado ao sistema da loja, integração com outro sistema, conteúdo) entra pelo pacote ou pela solução que cobre, em proposta.",
 };

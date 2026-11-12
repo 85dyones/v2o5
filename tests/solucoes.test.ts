@@ -14,13 +14,13 @@ import { ler, semComentarios } from "./fonte";
  * (o LCP é o H1), FAQ igual ao schema e texto sem marcas de IA.
  */
 
-const DAS_SOLUCOES = ["/branding-e-identidade", "/presenca-digital-local", "/criacao-de-sites", "/sprint-de-eficiencia"];
+const DAS_SOLUCOES = ["/presenca-digital-local", "/criacao-de-sites", "/sprint-de-eficiencia"];
 const DE_RECURSO = ["/agente-de-ia-para-whatsapp", "/automacao-com-ia", "/crm-com-whatsapp", "/rastreamento-de-conversoes"];
 const ROTAS = [...DAS_SOLUCOES, ...DE_RECURSO];
 const numerosDoCase = [...CASE.numeros, ...CASE_MOTORS.numeros.itens];
 
 describe("páginas de solução", () => {
-  it("são as quatro soluções e as quatro de recurso, prontas, indexáveis e montadas pelo molde", () => {
+  it("são as três soluções e as quatro de recurso, prontas, indexáveis e montadas pelo molde", () => {
     expect(SOLUCOES.map((s) => s.rota).sort()).toEqual([...ROTAS].sort());
     for (const rota of ROTAS) {
       expect(paginaDa(rota).pronta, rota).toBe(true);

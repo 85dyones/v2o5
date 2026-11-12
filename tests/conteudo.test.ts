@@ -63,7 +63,9 @@ describe("demonstrações rotuladas", () => {
 
 describe("oferta", () => {
   it("os cartões de recurso não publicam valor nem falam de plano ou mensalidade", () => {
-    expect(LINHAS).toHaveLength(13);
+    // O cartão de tráfego pago saiu em 12/11/2026.
+    expect(LINHAS).toHaveLength(12);
+    expect(LINHAS.map((l) => l.linha)).not.toContain("googleAds");
     for (const linha of LINHAS) {
       expect(linha, linha.titulo).not.toHaveProperty("preco");
       expect(`${linha.titulo} ${linha.frase}`, linha.titulo).not.toMatch(/R\$|mensalidade|plano |Completo/);
@@ -87,8 +89,8 @@ describe("os dois grupos do catálogo (operação primeiro, \"Trazer mais gente\
     }
   });
 
-  it("a seção #solucoes da home mostra as quatro soluções e a continuidade, sem obrigar a comprar a seguinte (27/10/2026)", () => {
-    expect(`${SOLUCOES.titulo} ${SOLUCOES.apagado}`).toMatch(/Quatro soluções/);
+  it("a seção #solucoes da home mostra as três soluções e a continuidade, sem obrigar a comprar a seguinte (12/11/2026)", () => {
+    expect(`${SOLUCOES.titulo} ${SOLUCOES.apagado}`).toMatch(/Três soluções/);
     expect(SOLUCOES.texto).toMatch(/nenhuma obriga a comprar a seguinte/);
     const fonte = ler("src/components/home/Solucoes.tsx");
     expect(fonte).toContain('id="solucoes"');
@@ -97,13 +99,13 @@ describe("os dois grupos do catálogo (operação primeiro, \"Trazer mais gente\
     expect(fonte).not.toContain("PILARES");
   });
 
-  it("o mapa traz branding, Perfil da Empresa no Google, SEO e tráfego no Google e na Meta", () => {
+  it("o mapa traz Perfil da Empresa no Google, SEO e o catálogo ligado ao estoque, sem branding nem tráfego pago (12/11/2026)", () => {
     const mapa = PILARES[1].servicos.map((s) => s.titulo).join(" | ");
-    expect(mapa).toMatch(/Branding e gestão de marca/);
     expect(mapa).toMatch(/Perfil da Empresa no Google/);
     expect(mapa).toMatch(/SEO/);
-    expect(mapa).toMatch(/Google e na Meta/);
-    expect(PILARES[1].servicos).toHaveLength(9);
+    expect(mapa).toMatch(/Catálogo de anúncios ligado ao estoque/);
+    expect(mapa).not.toMatch(/Branding|Tráfego pago/i);
+    expect(PILARES[1].servicos).toHaveLength(7);
     expect(PILARES[1].titulo).toMatch(/De que adianta trazer mais gente se a operação não está pronta/);
   });
 
@@ -127,7 +129,7 @@ describe("os dois grupos do catálogo (operação primeiro, \"Trazer mais gente\
     expect(HERO.conectamos.itens).toEqual(OFERTAS.map((o) => o.nome));
   });
 
-  it("as perguntas respondem preço das quatro soluções, se precisa contratar tudo, pagamento e continuidade", () => {
+  it("as perguntas respondem preço das soluções, se precisa contratar tudo, pagamento e continuidade", () => {
     const perguntas = PERGUNTAS.map((p) => p.pergunta);
     for (const p of ["Quanto custa?", "Preciso contratar tudo?", "Como funciona o pagamento?", "E depois da entrega?"]) expect(perguntas).toContain(p);
     expect(perguntas).not.toContain("Tem cobrança por usuário?");

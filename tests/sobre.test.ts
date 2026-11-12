@@ -103,11 +103,11 @@ describe("página Sobre", () => {
     expect(texto).not.toMatch(/sob avaliação|Compatível|compatíveis|Canva|Autoconf|BNDV|Boom|Altimus|Syonet|Motors|16VC|Vara/);
   });
 
-  it("no CRM, Revenda Mais e Kenlo são a experiência do Dyones (26/10/2026), e o branding mostra entregas, sem ferramenta", () => {
+  it("no CRM, Revenda Mais e Kenlo são a experiência do Dyones (26/10/2026), e o branding mostra entregas, sem ferramenta e sem se vender como solução (12/11/2026)", () => {
     const crm = SOBRE.ferramentas.categorias.find((c) => c.titulo.startsWith("CRM"))!;
     expect(crm.itens).toEqual(["Revenda Mais", "Kenlo", "CRM sob medida"]);
     const branding = SOBRE.ferramentas.categorias.find((c) => c.titulo.startsWith("Branding"))!;
-    expect(branding.nota).toMatch(/uma das quatro soluções/);
+    expect(branding.nota ?? "").not.toMatch(/soluç/);
     expect(branding.itens).toContain("Naming");
     expect(branding.itens.join(" ")).not.toMatch(/Adobe|Figma|Canva/);
   });

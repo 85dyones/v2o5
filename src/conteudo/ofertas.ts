@@ -1,9 +1,11 @@
 /**
  * O portfólio da V2O5 desde 27/10/2026 (Dyones, "Handoff mestre:
  * reposicionamento comercial, portfólio e política inicial de preços"):
- * quatro soluções com preço de referência público e a continuidade, à parte
- * e opcional. Este arquivo tem Branding, Presença, Sites e a continuidade; o
- * Sprint mora em `sprint.ts` e entra aqui pela mesma interface.
+ * soluções com preço de referência público e a continuidade, à parte e
+ * opcional. Desde 12/11/2026 são três (Dyones: "vamos focar nos serviços
+ * ainda mais"; Branding & Identidade e o tráfego pago saíram). Este arquivo
+ * tem Presença, Sites e a continuidade; o Sprint mora em `sprint.ts` e entra
+ * aqui pela mesma interface.
  *
  * Regras que valem para tudo: preço de referência para testar
  * comercialmente, com o valor fechado em proposta para um escopo conhecido;
@@ -35,7 +37,7 @@ export interface Pacote {
   principal?: boolean;
 }
 
-export type IdOferta = "branding" | "presenca" | "sites" | "sprint";
+export type IdOferta = "presenca" | "sites" | "sprint";
 
 export interface Oferta {
   id: IdOferta;
@@ -55,67 +57,6 @@ export interface Oferta {
   /** A continuidade que costuma acompanhar a solução. */
   continuidade?: string;
 }
-
-const BRANDING: Oferta = {
-  id: "branding",
-  nome: "Branding & Identidade",
-  rota: "/branding-e-identidade",
-  etapa: "violeta",
-  resolve: "Quando a empresa é percebida abaixo do que entrega, ou cada canal mostra uma marca diferente.",
-  recebe: "Identidade visual com regras de uso e, nos pacotes maiores, posicionamento e comunicação.",
-  pacotes: [
-    {
-      nome: "Identidade Essencial",
-      preco: { valor: 2400 },
-      para: "Para quem precisa de uma identidade visual que funcione em todos os canais, sem projeto de posicionamento.",
-      inclui: [
-        "Logotipo com as variações de uso: horizontal, vertical, símbolo e versão em uma cor",
-        "Paleta de cores e tipografia",
-        "Aplicações essenciais: perfil das redes, assinatura de e-mail e cartão digital",
-        "Guia básico de uso da marca, em PDF",
-        "Arquivos finais em vetor e em imagem",
-        "Duas rodadas de revisão",
-      ],
-    },
-    {
-      nome: "Marca em Uso",
-      preco: { valor: 4900 },
-      para: "Para quem quer a marca aplicada no dia a dia comercial, com regras de comunicação.",
-      inclui: [
-        "Tudo da Identidade Essencial",
-        "Sistema visual completo: grafismos, uso de fotos e composição",
-        "Diretrizes de comunicação: tom de voz e mensagens principais",
-        "Aplicações comerciais: apresentação, proposta e cartão de visita",
-        "Kit digital com modelos editáveis para posts, stories e capas",
-        "Duas rodadas de revisão por etapa",
-      ],
-    },
-    {
-      nome: "Reposicionamento",
-      preco: { valor: 7900, aPartirDe: true },
-      para: "Para quem precisa mudar como o mercado percebe a empresa antes de mudar o visual.",
-      inclui: [
-        "Diagnóstico da marca atual, dos concorrentes e de como os clientes percebem a empresa",
-        "Posicionamento e proposta de valor",
-        "Identidade visual nova ou revisada",
-        "Plano de aplicação nos canais e materiais",
-        "Valor final na proposta, conforme o tamanho do diagnóstico",
-      ],
-    },
-  ],
-  fora: [
-    "Registro da marca no INPI",
-    "Impressão e produção gráfica",
-    "Fotos e vídeos",
-    "Criação de nome, só em proposta específica",
-    "Produção contínua de materiais",
-  ],
-  regras: [
-    "Logotipo sozinho não é vendido como projeto de branding: todo pacote entrega as regras para usar a marca.",
-    "Entregáveis, arquivos finais e rodadas de revisão ficam escritos no contrato.",
-    "Identidade visual e posicionamento são trabalhos diferentes. O posicionamento só entra no Reposicionamento.",
-  ],
-};
 
 const PRESENCA: Oferta = {
   id: "presenca",
@@ -280,7 +221,7 @@ const SPRINT: Oferta = {
   continuidade: "O que continua rodando depois do Sprint pode seguir com as Integrações Monitoradas ou a Evolução Contínua.",
 };
 
-/** As regras de preço que valem para as quatro soluções (`/precos`, `llms.txt`). */
+/** As regras de preço que valem para as três soluções (`/precos`, `llms.txt`). */
 export const REGRAS_DE_PRECO = [
   "São preços de referência para começar a conversa. O valor fechado sai em proposta e vale para um escopo conhecido.",
   "Cada pacote diz o que inclui e o que fica de fora. Nenhum tem escopo ilimitado.",
@@ -291,7 +232,7 @@ export const REGRAS_DE_PRECO = [
 ];
 
 /** A ordem da home, do menu e de `/precos`. */
-export const OFERTAS: Oferta[] = [BRANDING, PRESENCA, SITES, SPRINT];
+export const OFERTAS: Oferta[] = [PRESENCA, SITES, SPRINT];
 
 export function ofertaDa(id: IdOferta): Oferta {
   const o = OFERTAS.find((x) => x.id === id);

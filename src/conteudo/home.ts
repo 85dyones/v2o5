@@ -23,13 +23,13 @@ export const HERO = {
   eyebrow: "Estratégia, processos e tecnologia",
   /** A mensagem central do handoff de 27/10/2026, na voz do site. */
   subtitulo:
-    "A V2O5 ajuda empresas a melhorar a marca, a presença digital e a operação, ligando processos e tecnologia ao que o negócio precisa de verdade.",
+    "A V2O5 ajuda empresas a melhorar a presença digital e a operação, ligando processos e tecnologia ao que o negócio precisa de verdade.",
   /** A vitrine de diagnostico.v2o5.com.br repete esta nota (`tests/subdominio-diagnostico.test.ts`). */
   nota: "Diagnóstico gratuito: 45 minutos de conversa com o fundador para identificar e priorizar um gargalo.",
   principio: "Começamos pelo processo e pelo resultado desejado. A ferramenta vem depois.",
   cta: "Pedir diagnóstico gratuito",
-  ctaSecundario: "Ver as quatro soluções",
-  conectamos: { rotulo: "Quatro soluções", itens: OFERTAS.map((o) => o.nome) },
+  ctaSecundario: "Ver as três soluções",
+  conectamos: { rotulo: "Três soluções", itens: OFERTAS.map((o) => o.nome) },
 };
 
 /** O problema, antes da ferramenta (`V2O5_CORE.md`, seção 4). */
@@ -126,7 +126,7 @@ export const PROJETO = {
 const entradas = OFERTAS.map(precoDeEntrada);
 
 /**
- * Como começar (27/10/2026): o diagnóstico gratuito, uma das quatro
+ * Como começar (27/10/2026): o diagnóstico gratuito, uma das
  * soluções e, se fizer sentido, a continuidade. Valores de `ofertas.ts`.
  */
 export const ESCADA = {
@@ -143,9 +143,9 @@ export const ESCADA = {
     },
     {
       tipo: "A solução",
-      titulo: "Uma das quatro soluções",
+      titulo: "Uma das três soluções",
       texto:
-        "Branding, Presença, Sites ou Sprint, com pacotes de escopo claro. O valor fechado sai em proposta, com entregáveis, exclusões, prazo e custos de terceiros.",
+        "Presença, Sites ou Sprint, com pacotes de escopo claro. O valor fechado sai em proposta, com entregáveis, exclusões, prazo e custos de terceiros.",
       saida: `Preços de entrada de ${precoEmTexto({ valor: Math.min(...entradas) })} a ${precoEmTexto({ valor: Math.max(...entradas) })}. Nenhuma solução obriga a comprar a seguinte.`,
       href: "/precos",
       destaque: true,
@@ -198,12 +198,12 @@ export interface ItemDaNavegacao {
   todos?: string;
 }
 
-/** O menu de 27/10/2026: as quatro soluções e a continuidade em grupos, depois preços, case e sobre. */
+/** O menu de 27/10/2026 (três soluções desde 12/11): as soluções e a continuidade em grupos, depois preços, case e sobre. */
 export const NAVEGACAO: ItemDaNavegacao[] = [
   {
     rotulo: "Soluções",
     href: "/#solucoes",
-    todos: "Ver as quatro soluções",
+    todos: "Ver as três soluções",
     itens: [
       ...OFERTAS.map((o) => ({ rotulo: o.nome, href: o.rota })),
       { rotulo: "Revendas de veículos", href: "/segmentos/revendas-de-veiculos" },
@@ -284,19 +284,10 @@ export const LINHAS: Linha[] = [
     vinheta: "jornada",
   },
   {
-    linha: "googleAds",
-    titulo: "Tráfego pago no Google e na Meta",
-    frase:
-      "Google Ads e Meta Ads com anúncios que abrem conversa no WhatsApp e a verba ajustada pela venda registrada no CRM. Começa com o rastreamento ligado, e a verba é paga direto às plataformas.",
-    href: "/diagnostico",
-    etapa: "violeta",
-    vinheta: "campanhas",
-  },
-  {
     linha: "catalogo",
-    titulo: "Anúncios de catálogo",
+    titulo: "Catálogo de anúncios ligado ao estoque",
     frase:
-      "O estoque ou os produtos viram anúncio no Google (anúncios de veículos e Shopping) e na Meta, e saem do ar quando o item é vendido.",
+      "O estoque ou os produtos viram catálogo no Google (anúncios de veículos e Shopping) e na Meta, e saem quando o item é vendido. A V2O5 faz a integração, e a campanha fica com você ou com a sua agência.",
     href: "/diagnostico",
     etapa: "violeta",
     vinheta: "catalogo",
@@ -397,9 +388,9 @@ const linha = (id: string): Servico => {
   return l;
 };
 
-/** A seção `#solucoes` da home (27/10/2026): as quatro soluções, de `ofertas.ts`. */
+/** A seção `#solucoes` da home (27/10/2026; três desde 12/11): as soluções de `ofertas.ts`. */
 export const SOLUCOES = {
-  titulo: "Quatro soluções.",
+  titulo: "Três soluções.",
   apagado: "Escolha pelo problema que você tem.",
   texto:
     "Cada uma resolve um tipo de problema e tem pacotes com preço de referência. Elas se completam, mas nenhuma obriga a comprar a seguinte.",
@@ -413,8 +404,8 @@ export const SOLUCOES = {
  * As duas metades do H1, cada uma com os serviços que a cumprem. Serviço sem
  * preço próprio na tabela diz em qual linha vem incluso (plano, seção 3.2: o
  * Perfil de Empresa e o SEO técnico estão na fundação dos sites).
- * `tests/conteudo.test.ts` confere. A ordem é a da grade (`Solucoes.tsx`):
- * no mapa, três fileiras de três; na operação, o agente no bloco grande com
+ * `tests/conteudo.test.ts` confere. Desde 12/11/2026 o mapa não tem
+ * branding nem tráfego pago (saíram do portfólio). Na operação, o agente no bloco grande com
  * CRM e painel ao lado, depois automação, reativação e pós-venda, e as
  * integrações numa faixa inteira.
  */
@@ -449,17 +440,8 @@ export const PILARES: { id: string; sobretitulo: string; titulo: string; frase: 
     sobretitulo: "Trazer mais gente",
     titulo: "De que adianta trazer mais gente se a operação não está pronta?",
     frase:
-      "Por isso esta parte vem depois da operação. Com o atendimento respondendo, estas capacidades cuidam de ser você no Google, no Maps, nos anúncios, nas redes e nas respostas das IAs de busca, com a origem de cada contato registrada.",
+      "Por isso esta parte vem depois da operação. Com o atendimento respondendo, estas capacidades cuidam de ser você no Google, no Maps, nas redes e nas respostas das IAs de busca, com a origem de cada contato registrada, inclusive a dos anúncios.",
     servicos: [
-      {
-        linha: "branding",
-        titulo: "Branding e gestão de marca",
-        frase:
-          "Antes de anunciar, decida o que a marca promete. Posicionamento, identidade visual e tom de voz num guia que vale para o perfil, o site, os anúncios e o atendimento.",
-        href: "/diagnostico",
-        etapa: "violeta",
-        vinheta: "marca",
-      },
       {
         titulo: "Perfil da Empresa no Google",
         frase:
@@ -476,7 +458,6 @@ export const PILARES: { id: string; sobretitulo: string; titulo: string; frase: 
         vinheta: "busca",
       },
       linha("sites"),
-      linha("googleAds"),
       linha("rastreamento"),
       linha("catalogo"),
       linha("redes"),
@@ -1080,9 +1061,9 @@ export const PERGUNTAS = [
       "Responde na hora com as informações do seu negócio e, quando a conversa pede uma pessoa, chama alguém da equipe. A conversa fica registrada no CRM, com a origem do contato.",
   },
   {
-    pergunta: "Vocês fazem tráfego pago sem rastreamento?",
+    pergunta: "Vocês fazem tráfego pago?",
     resposta:
-      "Não. Sem rastreamento até a venda, a campanha otimiza pelo formulário preenchido, e verba vai para o anúncio que gera contato barato, mesmo quando ele vende pouco. A gestão de tráfego entra num projeto só com o rastreamento ligado, e a verba é paga direto às plataformas.",
+      "Não. A V2O5 liga cada venda ao anúncio que trouxe o cliente, e quem roda a campanha é você ou a sua agência. Com a venda registrada no CRM voltando para o Google e a Meta, a campanha otimiza pelo que vende.",
   },
   {
     pergunta: "Como funciona o diagnóstico gratuito?",

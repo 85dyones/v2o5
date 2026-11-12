@@ -63,11 +63,15 @@ export const REDIRECIONAMENTOS_DO_WORDPRESS = [
 ];
 
 /**
- * Provisórios (307): a rota volta quando ganhar texto. `/gestao-de-trafego`
- * leva à seção de tráfego de `/precos` (Dyones, 19/10); a vitrine de
- * diagnostico.v2o5.com.br linka para ela.
+ * O que saiu do portfólio em 12/11/2026 (Dyones: "vamos focar nos serviços
+ * ainda mais"; tráfego pago e Branding & Identidade fora). 301 porque não
+ * volta: o tráfego leva ao rastreamento até a venda, que a V2O5 entrega para
+ * quem anuncia, e o Branding à seção de soluções da home.
  */
-export const REDIRECIONAMENTOS_PROVISORIOS = [{ source: "/gestao-de-trafego", destination: "/#solucoes" }];
+export const REDIRECIONAMENTOS_DO_PORTFOLIO = [
+  { source: "/gestao-de-trafego", destination: "/rastreamento-de-conversoes" },
+  { source: "/branding-e-identidade", destination: "/#solucoes" },
+];
 
 const nextConfig: NextConfig = {
   cacheComponents: true,
@@ -87,7 +91,7 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       ...REDIRECIONAMENTOS_DO_WORDPRESS.map((r) => ({ ...r, statusCode: 301 as const })),
-      ...REDIRECIONAMENTOS_PROVISORIOS.map((r) => ({ ...r, statusCode: 307 as const })),
+      ...REDIRECIONAMENTOS_DO_PORTFOLIO.map((r) => ({ ...r, statusCode: 301 as const })),
     ];
   },
 };

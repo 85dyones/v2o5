@@ -9,9 +9,9 @@ const SAIDA = process.argv[2];
 const BASE = process.env.BASE_URL || "https://www.v2o5.com.br";
 const ROTAS = [
   "/", "/agente-de-ia-para-whatsapp", "/automacao-com-ia", "/criacao-de-sites", "/crm-com-whatsapp",
-  "/rastreamento-de-conversoes", "/gestao-de-trafego", "/segmentos/revendas-de-veiculos", "/cases/motors-store",
+  "/rastreamento-de-conversoes", "/segmentos/revendas-de-veiculos", "/cases/motors-store",
   "/precos", "/sobre", "/diagnostico", "/diagnostico/recebido", "/guias", "/privacidade",
-  "/branding-e-identidade", "/presenca-digital-local", "/sprint-de-eficiencia", "/continuidade",
+  "/presenca-digital-local", "/sprint-de-eficiencia", "/continuidade",
   "/esta-rota-nao-existe-baseline",
 ];
 

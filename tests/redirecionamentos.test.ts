@@ -1,7 +1,7 @@
 import { existsSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
-import config, { REDIRECIONAMENTOS_DO_WORDPRESS, REDIRECIONAMENTOS_PROVISORIOS } from "../next.config";
+import config, { REDIRECIONAMENTOS_DO_PORTFOLIO, REDIRECIONAMENTOS_DO_WORDPRESS } from "../next.config";
 import { ler, RAIZ } from "./fonte";
 
 /**
@@ -14,13 +14,16 @@ const linha = seo.split("\n").find((l) => l.includes("`/jornada/`→`/sobre`"))!
 const pares = [...linha.matchAll(/`([^`]+)`→`([^`]+)`/g)].map((m) => [m[1], m[2]]);
 const tira = (r: string) => (r.length > 1 ? r.replace(/\/$/, "") : r);
 
-describe("redirecionamentos provisórios", () => {
-  it("/gestao-de-trafego vai, por 307, à seção de tráfego de /precos até ganhar texto", async () => {
+describe("o que saiu do portfólio em 12/11/2026", () => {
+  it("tráfego pago leva ao rastreamento e Branding à seção de soluções, por 301, e as rotas não existem mais", async () => {
     const regras = await config.redirects!();
-    const trafego = regras.find((r) => r.source === "/gestao-de-trafego");
-    expect(trafego?.destination).toBe("/#solucoes");
-    expect(trafego?.statusCode).toBe(307);
-    expect(REDIRECIONAMENTOS_PROVISORIOS.map((r) => r.source)).toContain("/gestao-de-trafego");
+    const destino = (de: string) => regras.find((r) => r.source === de);
+    expect(destino("/gestao-de-trafego")?.destination).toBe("/rastreamento-de-conversoes");
+    expect(destino("/branding-e-identidade")?.destination).toBe("/#solucoes");
+    for (const r of REDIRECIONAMENTOS_DO_PORTFOLIO) {
+      expect(destino(r.source)?.statusCode, r.source).toBe(301);
+      expect(existsSync(join(RAIZ, "src/app", r.source.slice(1))), r.source).toBe(false);
+    }
   });
 });
 

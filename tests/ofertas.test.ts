@@ -37,10 +37,9 @@ describe("formato do preço", () => {
   });
 });
 
-describe("as quatro soluções (27/10/2026)", () => {
-  it("são Branding, Presença, Sites e Sprint, nessa ordem, cada uma com a sua rota", () => {
+describe("as três soluções (27/10/2026; Branding saiu em 12/11/2026)", () => {
+  it("são Presença, Sites e Sprint, nessa ordem, cada uma com a sua rota", () => {
     expect(OFERTAS.map((o) => [o.nome, o.rota])).toEqual([
-      ["Branding & Identidade", "/branding-e-identidade"],
       ["Presença Digital Local", "/presenca-digital-local"],
       ["Sites & Integrações", "/criacao-de-sites"],
       ["Sprint de Eficiência", "/sprint-de-eficiencia"],
@@ -48,18 +47,13 @@ describe("as quatro soluções (27/10/2026)", () => {
   });
 
   it("o preço de entrada é o da tabela do handoff", () => {
-    expect(OFERTAS.map(precoDeEntrada)).toEqual([2400, 790, 2900, 3900]);
+    expect(OFERTAS.map(precoDeEntrada)).toEqual([790, 2900, 3900]);
     expect(continuidadeAPartirDe()).toBe(349);
   });
 
   it("pacotes e preços batem com o handoff", () => {
     const tabela = Object.fromEntries(OFERTAS.map((o) => [o.id, o.pacotes.map((p) => [p.nome, p.preco.valor, !!p.preco.aPartirDe, p.mensal?.valor ?? null])]));
     expect(tabela).toEqual({
-      branding: [
-        ["Identidade Essencial", 2400, false, null],
-        ["Marca em Uso", 4900, false, null],
-        ["Reposicionamento", 7900, true, null],
-      ],
       presenca: [
         ["Presença Essencial", 790, false, 390],
         ["Presença Estruturada", 1490, false, 490],
@@ -97,7 +91,6 @@ describe("as quatro soluções (27/10/2026)", () => {
     expect(ofertaDa("presenca").fora.join(" ")).toMatch(/Publicações ilimitadas/);
     expect(ofertaDa("presenca").fora.join(" ")).toMatch(/Verba de anúncios/);
     expect(ofertaDa("presenca").pacotes[1].mensal?.cobre).toMatch(/quatro peças/);
-    expect(ofertaDa("branding").regras.join(" ")).toMatch(/Logotipo sozinho não é vendido/);
     expect(ofertaDa("sites").regras.join(" ")).toMatch(/não substitui o CRM/);
   });
 

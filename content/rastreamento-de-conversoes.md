@@ -7,8 +7,8 @@ description: "GA4, API de Conversões da Meta e conversões offline do Google Ad
 canonical: "https://www.v2o5.com.br/rastreamento-de-conversoes"
 robots: null
 h1: "Rastreamento de conversões até a venda."
-extraido_em: "2026-10-27T14:34:01.868Z"
-fonte: "build local da branch claude/kind-tesla-eefroe em 27/10/2026 (portfólio das quatro soluções), antes da publicação"
+extraido_em: "2026-11-12T15:26:32.532Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 12/11/2026 (sem Branding e sem tráfego pago), antes da publicação"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 # Rastreamento de conversões até a venda.
@@ -143,9 +143,9 @@ O diagnóstico inicial, de 45 minutos, é gratuito.
 
 O que entra, onde encaixa num Sprint e o que fica de fora. O resto cabe no diagnóstico.
 
-Vocês fazem tráfego pago sem rastreamento?
+Vocês fazem tráfego pago?
 
-Não. Sem rastreamento até a venda, a campanha otimiza pelo formulário preenchido, e a verba vai para o anúncio que gera contato barato, mesmo quando ele vende pouco. A gestão de tráfego começa com o rastreamento ligado.
+Não. A V2O5 liga cada venda ao anúncio que trouxe o cliente, e a campanha fica com você ou com a sua agência, que passa a otimizar pela venda registrada no CRM.
 
 Isso está de acordo com a LGPD?
 
@@ -165,11 +165,11 @@ Funciona se o site aceitar tags e o formulário puder gravar a origem. O diagnó
 
 ## Intervenções que combinam com esta.
 
-[Atração Tráfego pago no Google e na Meta Google Ads e Meta Ads com anúncios que abrem conversa no WhatsApp e a verba ajustada pela venda registrada no CRM. Começa com o rastreamento ligado, e a verba é paga direto às plataformas.](/diagnostico)
+[Atração Sites & Integrações Site próprio, rápido no celular e achado no Google, que grava de onde veio cada contato e se liga ao sistema que você já usa.](/criacao-de-sites)
 
 [Gestão CRM e sistemas sob medida Nenhum contato esquecido numa conversa: cada um num funil, com a origem, a etapa e o próximo passo à vista.](/crm-com-whatsapp)
 
-[Atração Sites & Integrações Site próprio, rápido no celular e achado no Google, que grava de onde veio cada contato e se liga ao sistema que você já usa.](/criacao-de-sites)
+[Gestão Indicadores e painéis Funil, tempo de resposta, custo por contato e vendas por origem numa tela só, atualizada a partir do CRM, do rastreamento e das contas de anúncio.](/diagnostico)
 
 ## Comece pelo diagnóstico, que é gratuito.
 

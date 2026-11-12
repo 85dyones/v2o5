@@ -3,38 +3,35 @@ rota: "/"
 url: "https://www.v2o5.com.br/"
 status: 200
 title: "V2O5 Vendas e Tecnologia | Menos atrito entre problema e resultado"
-description: "Branding, presença digital local, sites com integração e o Sprint de Eficiência: a V2O5 melhora marca, presença e operação, com preço de referência."
+description: "Presença digital local, sites com integração e o Sprint de Eficiência: a V2O5 melhora a presença e a operação, com preço de referência."
 canonical: "https://www.v2o5.com.br"
 robots: null
 h1: "Do problema ao resultado, pelo caminho mais simples."
-extraido_em: "2026-10-27T18:10:55.133Z"
-fonte: "build local da branch claude/kind-tesla-eefroe em 27/10/2026 (mensalidades de entrada da tarde de 27/10), antes da publicação"
+extraido_em: "2026-11-12T15:26:32.532Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 12/11/2026 (sem Branding e sem tráfego pago), antes da publicação"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 Estratégia, processos e tecnologia
 
 # Do problema ao resultado, pelo caminho mais simples.
 
-A V2O5 ajuda empresas a melhorar a marca, a presença digital e a operação, ligando processos e tecnologia ao que o negócio precisa de verdade.
+A V2O5 ajuda empresas a melhorar a presença digital e a operação, ligando processos e tecnologia ao que o negócio precisa de verdade.
 
 [Pedir diagnóstico gratuito](/diagnostico)
 
-[Ver as quatro soluções](#solucoes)
+[Ver as três soluções](#solucoes)
 
 Começamos pelo processo e pelo resultado desejado. A ferramenta vem depois.
 
-Quatro soluções
+Três soluções
 
-- Branding & Identidade
 - Presença Digital Local
 - Sites & Integrações
 - Sprint de Eficiência
 
-## Quatro soluções. Escolha pelo problema que você tem.
+## Três soluções. Escolha pelo problema que você tem.
 
 Cada uma resolve um tipo de problema e tem pacotes com preço de referência. Elas se completam, mas nenhuma obriga a comprar a seguinte.
-
-[Branding & Identidade → Quando a empresa é percebida abaixo do que entrega, ou cada canal mostra uma marca diferente. Identidade visual com regras de uso e, nos pacotes maiores, posicionamento e comunicação. A partir de R$ 2.400](/branding-e-identidade)
 
 [Presença Digital Local → Quando o cliente procura e encontra informação errada, perfil parado ou nenhum jeito fácil de chamar. Perfil no Google, redes e WhatsApp organizados, com modelos de conteúdo e, se quiser, a rotina mensal. A partir de R$ 790](/presenca-digital-local)
 
@@ -60,9 +57,9 @@ Não inclui mapeamento completo do processo, implementação nem acompanhamento.
 
 A solução
 
-### Uma das quatro soluções
+### Uma das três soluções
 
-Branding, Presença, Sites ou Sprint, com pacotes de escopo claro. O valor fechado sai em proposta, com entregáveis, exclusões, prazo e custos de terceiros.
+Presença, Sites ou Sprint, com pacotes de escopo claro. O valor fechado sai em proposta, com entregáveis, exclusões, prazo e custos de terceiros.
 
 Preços de entrada de R$ 790 a R$ 3.900. Nenhuma solução obriga a comprar a seguinte.
 
@@ -305,7 +302,7 @@ Preço, pagamento, o que cada solução entrega e o que vem depois. Se a sua per
 
 Quanto custa?
 
-O diagnóstico inicial, de 45 minutos, é gratuito. Os preços de entrada são Branding & Identidade a partir de R$ 2.400, Presença Digital Local a partir de R$ 790, Sites & Integrações a partir de R$ 2.900, Sprint de Eficiência a partir de R$ 3.900, e a continuidade tem planos a partir de R$ 349/mês. São preços de referência: o valor fechado sai em proposta, para um escopo conhecido.
+O diagnóstico inicial, de 45 minutos, é gratuito. Os preços de entrada são Presença Digital Local a partir de R$ 790, Sites & Integrações a partir de R$ 2.900, Sprint de Eficiência a partir de R$ 3.900, e a continuidade tem planos a partir de R$ 349/mês. São preços de referência: o valor fechado sai em proposta, para um escopo conhecido.
 
 Preciso contratar tudo?
 
@@ -331,9 +328,9 @@ O agente de IA atende sozinho?
 
 Responde na hora com as informações do seu negócio e, quando a conversa pede uma pessoa, chama alguém da equipe. A conversa fica registrada no CRM, com a origem do contato.
 
-Vocês fazem tráfego pago sem rastreamento?
+Vocês fazem tráfego pago?
 
-Não. Sem rastreamento até a venda, a campanha otimiza pelo formulário preenchido, e verba vai para o anúncio que gera contato barato, mesmo quando ele vende pouco. A gestão de tráfego entra num projeto só com o rastreamento ligado, e a verba é paga direto às plataformas.
+Não. A V2O5 liga cada venda ao anúncio que trouxe o cliente, e quem roda a campanha é você ou a sua agência. Com a venda registrada no CRM voltando para o Google e a Meta, a campanha otimiza pelo que vende.
 
 Como funciona o diagnóstico gratuito?
 

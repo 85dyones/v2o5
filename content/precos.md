@@ -2,16 +2,16 @@
 rota: "/precos"
 url: "https://www.v2o5.com.br/precos"
 status: 200
-title: "Preços: quatro soluções e a continuidade | V2O5 Vendas e Tecnologia"
-description: "Preços de referência de Branding, Presença Digital Local, Sites & Integrações, Sprint de Eficiência e dos planos de continuidade. Diagnóstico gratuito."
+title: "Preços: três soluções e a continuidade | V2O5 Vendas e Tecnologia"
+description: "Preços de referência de Presença Digital Local, Sites & Integrações, Sprint de Eficiência e dos planos de continuidade. Diagnóstico gratuito."
 canonical: "https://www.v2o5.com.br/precos"
 robots: null
-h1: "Quatro soluções, com preço de referência."
-extraido_em: "2026-10-27T18:10:55.133Z"
-fonte: "build local da branch claude/kind-tesla-eefroe em 27/10/2026 (mensalidades de entrada da tarde de 27/10), antes da publicação"
+h1: "Três soluções, com preço de referência."
+extraido_em: "2026-11-12T15:26:32.532Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 12/11/2026 (sem Branding e sem tráfego pago), antes da publicação"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
-# Quatro soluções, com preço de referência.
+# Três soluções, com preço de referência.
 
 O diagnóstico inicial é gratuito. Cada solução tem pacotes com escopo claro, e a continuidade é opcional.
 
@@ -19,9 +19,7 @@ O diagnóstico inicial é gratuito. Cada solução tem pacotes com escopo claro,
 
 [Ver todos os pacotes](#titulo-pacotes)
 
-## Quatro soluções e a continuidade. Nenhuma obriga a seguinte.
-
-[Branding & Identidade Quando a empresa é percebida abaixo do que entrega, ou cada canal mostra uma marca diferente. A partir de R$ 2.400](/branding-e-identidade)
+## Três soluções e a continuidade. Nenhuma obriga a seguinte.
 
 [Presença Digital Local Quando o cliente procura e encontra informação errada, perfil parado ou nenhum jeito fácil de chamar. A partir de R$ 790](/presenca-digital-local)
 
@@ -34,22 +32,6 @@ O diagnóstico inicial é gratuito. Cada solução tem pacotes com escopo claro,
 ## Todos os pacotes. O detalhe de cada um está na página da solução.
 
 São preços de referência. O valor fechado sai em proposta, para um escopo conhecido.
-
-### Branding & Identidade
-
-Identidade Essencial
-
-R$ 2.400
-
-Marca em Uso
-
-R$ 4.900
-
-Reposicionamento
-
-A partir de R$ 7.900
-
-[Ver Branding & Identidade](/branding-e-identidade)
 
 ### Presença Digital Local
 
@@ -140,7 +122,7 @@ Preço, pagamento, o que cada solução entrega e o que vem depois. Se a sua per
 
 Quanto custa?
 
-O diagnóstico inicial, de 45 minutos, é gratuito. Os preços de entrada são Branding & Identidade a partir de R$ 2.400, Presença Digital Local a partir de R$ 790, Sites & Integrações a partir de R$ 2.900, Sprint de Eficiência a partir de R$ 3.900, e a continuidade tem planos a partir de R$ 349/mês. São preços de referência: o valor fechado sai em proposta, para um escopo conhecido.
+O diagnóstico inicial, de 45 minutos, é gratuito. Os preços de entrada são Presença Digital Local a partir de R$ 790, Sites & Integrações a partir de R$ 2.900, Sprint de Eficiência a partir de R$ 3.900, e a continuidade tem planos a partir de R$ 349/mês. São preços de referência: o valor fechado sai em proposta, para um escopo conhecido.
 
 Preciso contratar tudo?
 
@@ -166,9 +148,9 @@ O agente de IA atende sozinho?
 
 Responde na hora com as informações do seu negócio e, quando a conversa pede uma pessoa, chama alguém da equipe. A conversa fica registrada no CRM, com a origem do contato.
 
-Vocês fazem tráfego pago sem rastreamento?
+Vocês fazem tráfego pago?
 
-Não. Sem rastreamento até a venda, a campanha otimiza pelo formulário preenchido, e verba vai para o anúncio que gera contato barato, mesmo quando ele vende pouco. A gestão de tráfego entra num projeto só com o rastreamento ligado, e a verba é paga direto às plataformas.
+Não. A V2O5 liga cada venda ao anúncio que trouxe o cliente, e quem roda a campanha é você ou a sua agência. Com a venda registrada no CRM voltando para o Google e a Meta, a campanha otimiza pelo que vende.
 
 Como funciona o diagnóstico gratuito?
 

@@ -20,7 +20,7 @@ export const DIAGNOSTICO = {
     },
     {
       titulo: "O próximo passo, se houver",
-      texto: "Havendo um bom caso, a V2O5 propõe a solução que cabe no problema (Branding, Presença, Sites ou Sprint), com escopo, entregáveis, prazo e investimento por escrito. Se não houver, a conversa termina ali.",
+      texto: "Havendo um bom caso, a V2O5 propõe a solução que cabe no problema (Presença, Sites ou Sprint), com escopo, entregáveis, prazo e investimento por escrito. Se não houver, a conversa termina ali.",
     },
   ],
   paraQuem:

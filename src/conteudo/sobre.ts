@@ -167,7 +167,6 @@ export const SOBRE = {
         titulo: "Branding, design e comunicação",
         descricao: "Da estratégia de marca aos materiais aplicados no negócio.",
         itens: ["Estratégia e posicionamento", "Naming", "Identidade visual e logotipo", "Sistema e manual de marca", "Comunicação visual", "Aplicação da marca no site, nas redes e nos materiais"],
-        nota: "Branding & Identidade é uma das quatro soluções, com pacotes próprios.",
       },
       {
         titulo: "Inteligência artificial e agentes",

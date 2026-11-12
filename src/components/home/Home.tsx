@@ -19,7 +19,7 @@ import { FECHO } from "@/conteudo/home";
 /**
  * A home inteira. O H1 vem de `TITULO_DA_HOME` (conteudo/home.ts). A ordem
  * (27/10/2026) responde em poucos segundos o que a V2O5 faz e como começar:
- * a abertura, as quatro soluções e a continuidade, o caminho de entrada
+ * a abertura, as soluções e a continuidade, o caminho de entrada
  * (diagnóstico, solução, continuidade), os problemas da operação e o método
  * do Sprint, um exemplo de como as peças se ligam, o que se mede, a prova (a
  * Motors Store) e o segmento automotivo.

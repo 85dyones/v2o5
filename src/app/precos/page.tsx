@@ -58,7 +58,7 @@ function LinhaDePreco({ nome, preco, mensal }: { nome: string; preco: string; me
 }
 
 /**
- * A página de preços desde 27/10/2026: o resumo das quatro soluções e da
+ * A página de preços desde 27/10/2026 (três soluções desde 12/11): o resumo das soluções e da
  * continuidade (preço de entrada) e a lista curta de todos os pacotes, com o
  * preço exato de cada um. A lista inteira fica aqui de propósito: é a tabela
  * que a skill `diagnostico-presenca` lê para montar a proposta e conferir
@@ -79,7 +79,7 @@ export default function Pagina() {
               <div className="relative">
                 <Parada />
                 <h1 id="titulo-precos" className="titulo-hero max-w-[18ch]">
-                  Quatro soluções, com preço de referência.
+                  Três soluções, com preço de referência.
                 </h1>
               </div>
             </div>
@@ -101,7 +101,7 @@ export default function Pagina() {
           </div>
         </section>
 
-        <Secao id="resumo" etapa="violeta" titulo={<>Quatro soluções e a continuidade. <span className="apagado">Nenhuma obriga a seguinte.</span></>}>
+        <Secao id="resumo" etapa="violeta" titulo={<>Três soluções e a continuidade. <span className="apagado">Nenhuma obriga a seguinte.</span></>}>
           <ul className="border-t-2 border-texto">
             {OFERTAS.map((o) => (
               <li key={o.id} className="servico" style={{ "--cor-da-rota": COR_DA_ROTA[o.etapa] } as CSSProperties}>

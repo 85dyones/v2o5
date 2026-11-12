@@ -458,7 +458,9 @@ describe("fluxo do agente", () => {
   it("as instruções do agente seguem as regras do texto público e levam ao diagnóstico", () => {
     const instrucoes = js(agente, "Montar pedido");
     expect(instrucoes).not.toMatch(/[—–]/);
-    for (const trecho of ["45 minutos", "Sprint de Eficiência", "As quatro soluções e a continuidade têm preço de referência público", "o valor fechado sai em proposta", "Tráfego pago não tem preço público", "Não invente número"]) expect(instrucoes).toContain(trecho);
+    for (const trecho of ["45 minutos", "Sprint de Eficiência", "As três soluções e a continuidade têm preço de referência público", "o valor fechado sai em proposta", "A V2O5 não faz gestão de tráfego pago nem projeto de marca", "Não invente número"]) expect(instrucoes).toContain(trecho);
+    // Branding & Identidade e o tráfego pago saíram do portfólio em 12/11/2026.
+    expect(instrucoes).not.toMatch(/quatro soluções|Branding/);
     expect(instrucoes).not.toContain("24 horas");
     expect(campo(agente, "conhecimentoUrl")).toBe("https://v2o5.vercel.app/llms.txt");
   });

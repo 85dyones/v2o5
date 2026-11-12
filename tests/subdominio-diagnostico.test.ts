@@ -10,7 +10,7 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { SIMBOLO_C1D } from "@/lib/marca-vetor";
 import { ler, RAIZ } from "./fonte";
-import { REDIRECIONAMENTOS_PROVISORIOS } from "../next.config";
+import { REDIRECIONAMENTOS_DO_PORTFOLIO } from "../next.config";
 
 /**
  * As páginas da raiz de diagnostico.v2o5.com.br (`subdominios/diagnostico/`)
@@ -153,16 +153,20 @@ describe("raiz de diagnostico.v2o5.com.br", () => {
       expect(l, linha).toBeDefined();
       expect(t, linha).toContain(l!.frase);
     }
-    // Branding e Presença entram como soluções, com a frase do problema que resolvem (27/10/2026).
-    for (const o of OFERTAS.filter((x) => x.id === "branding" || x.id === "presenca")) expect(t, o.nome).toContain(o.resolve);
-    // A vitrine é publicada por outro projeto; um link para rota que hoje redireciona
-    // (REDIRECIONAMENTOS_PROVISORIOS, 307) continua chegando a uma página.
-    const rotas = new Set([...PAGINAS.map((p) => p.rota), ...REDIRECIONAMENTOS_PROVISORIOS.map((r) => r.source)]);
+    // A Presença entra como solução, com a frase do problema que resolve (27/10/2026).
+    expect(t).toContain(OFERTAS.find((x) => x.id === "presenca")!.resolve);
+    // Sem Branding nem tráfego pago, que saíram do portfólio em 12/11/2026.
+    expect(t).not.toMatch(/Branding|Tráfego pago/i);
+    // A vitrine é publicada por outro projeto; nenhum link vai para rota que saiu
+    // (REDIRECIONAMENTOS_DO_PORTFOLIO), mesmo que ela ainda redirecione.
+    const saiu = new Set(REDIRECIONAMENTOS_DO_PORTFOLIO.map((r) => r.source));
+    const rotas = new Set(PAGINAS.map((p) => p.rota));
     const links = [...raiz.querySelectorAll<HTMLAnchorElement>("a[href^='https://www.v2o5.com.br']")].map((a) => new URL(a.href));
     expect(links.length).toBeGreaterThan(10);
     for (const url of links) {
       expect(url.hostname, url.href).toBe("www.v2o5.com.br");
       expect(rotas.has(url.pathname === "" ? "/" : url.pathname), url.href).toBe(true);
+      expect(saiu.has(url.pathname), url.href).toBe(false);
       if (url.pathname !== "/privacidade") expect(url.searchParams.get("utm_source"), url.href).toBe("diagnostico.v2o5.com.br");
     }
   });

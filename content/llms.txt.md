@@ -3,29 +3,22 @@ rota: "/llms.txt"
 url: "https://www.v2o5.com.br/llms.txt"
 status: 200
 content_type: "text/plain; charset=utf-8"
-extraido_em: "2026-10-27T18:10:55.133Z"
-fonte: "build local da branch claude/kind-tesla-eefroe em 27/10/2026 (mensalidades de entrada da tarde de 27/10), antes da publicação"
+extraido_em: "2026-11-12T15:26:32.532Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 12/11/2026 (sem Branding e sem tráfego pago), antes da publicação"
 ---
 
 <!-- Corpo de /llms.txt exatamente como servido (gerado por src/app/llms.txt/route.ts). -->
 
 # V2O5 Vendas e Tecnologia
 
-> V2O5 | Eficiência comercial e operacional com tecnologia. A V2O5 ajuda empresas a melhorar a marca, a presença digital e a operação, ligando processos e tecnologia ao que o negócio precisa de verdade.
+> V2O5 | Eficiência comercial e operacional com tecnologia. A V2O5 ajuda empresas a melhorar a presença digital e a operação, ligando processos e tecnologia ao que o negócio precisa de verdade.
 
 V2O5 Tecnologia da Informação Ltda., CNPJ 68.490.470/0001-14. Atende empresas em todo o Brasil.
 
 Fundador: Dyones Oliveira. Formado em Administração pela FAE Business School, está na tecnologia desde 1992, quando ganhou um curso num concurso da escola. Em branding, fez a mudança da Top Imóveis para Top Soluções Imobiliárias e assinou o blog da Top até agosto de 2024; na Motors Store, assina os 26 guias do site. É ele quem conduz o diagnóstico gratuito.
 
 ## Soluções e preços de referência
-A V2O5 vende quatro soluções, cada uma com pacotes de escopo claro, e a continuidade, opcional. São preços de referência para começar a conversa. O valor fechado sai em proposta e vale para um escopo conhecido. Cada pacote diz o que inclui e o que fica de fora. Nenhum tem escopo ilimitado. Custos de terceiros, como domínio, licenças, APIs, mídia paga, IA e mensagens, ficam por fora e aparecem discriminados na proposta. Nenhuma solução obriga a comprar outra, e a continuidade é opcional. Aumento de vendas não é prometido. O que se mede é combinado antes de começar, com uma linha de base. O diagnóstico inicial, de 45 minutos, é gratuito e serve para escolher a solução que cabe no problema.
-
-### [Branding & Identidade](https://www.v2o5.com.br/branding-e-identidade)
-Quando a empresa é percebida abaixo do que entrega, ou cada canal mostra uma marca diferente. Identidade visual com regras de uso e, nos pacotes maiores, posicionamento e comunicação.
-- Identidade Essencial: R$ 2.400. Para quem precisa de uma identidade visual que funcione em todos os canais, sem projeto de posicionamento.
-- Marca em Uso: R$ 4.900. Para quem quer a marca aplicada no dia a dia comercial, com regras de comunicação.
-- Reposicionamento: a partir de R$ 7.900. Para quem precisa mudar como o mercado percebe a empresa antes de mudar o visual.
-Fora dos pacotes: Registro da marca no INPI; Impressão e produção gráfica; Fotos e vídeos; Criação de nome, só em proposta específica; Produção contínua de materiais.
+A V2O5 vende três soluções, cada uma com pacotes de escopo claro, e a continuidade, opcional. São preços de referência para começar a conversa. O valor fechado sai em proposta e vale para um escopo conhecido. Cada pacote diz o que inclui e o que fica de fora. Nenhum tem escopo ilimitado. Custos de terceiros, como domínio, licenças, APIs, mídia paga, IA e mensagens, ficam por fora e aparecem discriminados na proposta. Nenhuma solução obriga a comprar outra, e a continuidade é opcional. Aumento de vendas não é prometido. O que se mede é combinado antes de começar, com uma linha de base. O diagnóstico inicial, de 45 minutos, é gratuito e serve para escolher a solução que cabe no problema.
 
 ### [Presença Digital Local](https://www.v2o5.com.br/presenca-digital-local)
 Quando o cliente procura e encontra informação errada, perfil parado ou nenhum jeito fácil de chamar. Perfil no Google, redes e WhatsApp organizados, com modelos de conteúdo e, se quiser, a rotina mensal.
@@ -77,13 +70,11 @@ Automação, IA, dados, painéis e integrações entram como recursos de uma sol
 - [Pós-venda e recorrência](https://www.v2o5.com.br/diagnostico): Revisão, troca, seguro ou recompra: a régua de retorno manda a mensagem na data certa e devolve o cliente ao funil.
 
 ### De que adianta trazer mais gente se a operação não está pronta?
-- [Branding e gestão de marca](https://www.v2o5.com.br/diagnostico): Antes de anunciar, decida o que a marca promete. Posicionamento, identidade visual e tom de voz num guia que vale para o perfil, o site, os anúncios e o atendimento.
 - [Perfil da Empresa no Google](https://www.v2o5.com.br/criacao-de-sites): Quem busca perto de casa vê o Maps antes do site. O antigo Google Meu Negócio, completo e verificado, com a empresa aparecendo na sua região.
 - [SEO e busca por IA](https://www.v2o5.com.br/criacao-de-sites): Para ranquear no Google e ser citado nas respostas das IAs: SEO técnico, conteúdo e dados estruturados no site.
 - [Sites & Integrações](https://www.v2o5.com.br/criacao-de-sites): Site próprio, rápido no celular e achado no Google, que grava de onde veio cada contato e se liga ao sistema que você já usa.
-- [Tráfego pago no Google e na Meta](https://www.v2o5.com.br/diagnostico): Google Ads e Meta Ads com anúncios que abrem conversa no WhatsApp e a verba ajustada pela venda registrada no CRM. Começa com o rastreamento ligado, e a verba é paga direto às plataformas.
 - [Rastreamento até a venda](https://www.v2o5.com.br/rastreamento-de-conversoes): Cada venda com a origem: qual anúncio, qual busca, qual página. Sem isso, a verba vai para onde parece funcionar.
-- [Anúncios de catálogo](https://www.v2o5.com.br/diagnostico): O estoque ou os produtos viram anúncio no Google (anúncios de veículos e Shopping) e na Meta, e saem do ar quando o item é vendido.
+- [Catálogo de anúncios ligado ao estoque](https://www.v2o5.com.br/diagnostico): O estoque ou os produtos viram catálogo no Google (anúncios de veículos e Shopping) e na Meta, e saem quando o item é vendido. A V2O5 faz a integração, e a campanha fica com você ou com a sua agência.
 - [Conteúdo e redes sociais](https://www.v2o5.com.br/presenca-digital-local): Perfis organizados, modelos com a identidade da empresa e, se quiser, a rotina mensal de conteúdo e campanhas, na Presença Digital Local.
 - [Avaliações no Google](https://www.v2o5.com.br/diagnostico): Depois da venda, o cliente recebe no WhatsApp o pedido de avaliação com o link certo, e o painel mostra quem respondeu.
 
