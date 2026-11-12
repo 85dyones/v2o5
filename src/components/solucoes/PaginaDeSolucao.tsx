@@ -28,7 +28,7 @@ import type { Etapa } from "@/lib/tokens";
  * ligam as paradas com o fio fino, e o fecho leva a rota em âmbar até o botão.
  * Página de recurso (agente, CRM, automação, rastreamento): não publica
  * valor; a linha entra num Sprint e o preço é o do Sprint. Página de solução
- * (desde 27/10/2026: Branding, Presença, Sites e o próprio Sprint, com
+ * (desde 12/11/2026: Presença, Sites e o próprio Sprint, com
  * `oferta`): no lugar de "como entra num Sprint", os pacotes com o preço de
  * referência de `ofertas.ts`.
  * Os sobretítulos saíram da tela e viraram o nome acessível de cada seção.

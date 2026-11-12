@@ -56,7 +56,7 @@ function CartaoDoPlano({ plano }: { plano: PlanoDeContinuidade }) {
 }
 
 /**
- * A continuidade (27/10/2026): à parte das quatro soluções e opcional. Três
+ * A continuidade (27/10/2026): à parte das soluções e opcional. Três
  * frentes, que são o submenu "Continuidade" do topo: manutenção técnica (o
  * Cuidado Técnico), conteúdo e campanhas recorrentes (as mensalidades da
  * Presença) e monitoramento e otimização (Integrações Monitoradas e Evolução

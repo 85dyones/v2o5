@@ -14,19 +14,19 @@ import { ler, semComentarios } from "./fonte";
  * (o LCP é o H1), FAQ igual ao schema e texto sem marcas de IA.
  */
 
-const DAS_SOLUCOES = ["/branding-e-identidade", "/presenca-digital-local", "/criacao-de-sites", "/sprint-de-eficiencia"];
+const DAS_SOLUCOES = ["/presenca-digital-local", "/criacao-de-sites", "/sprint-de-eficiencia"];
 const DE_RECURSO = ["/agente-de-ia-para-whatsapp", "/automacao-com-ia", "/crm-com-whatsapp", "/rastreamento-de-conversoes"];
 const ROTAS = [...DAS_SOLUCOES, ...DE_RECURSO];
 const numerosDoCase = [...CASE.numeros, ...CASE_MOTORS.numeros.itens];
 
 describe("páginas de solução", () => {
-  it("são as quatro soluções e as quatro de recurso, prontas, indexáveis e montadas pelo molde", () => {
+  it("são as três soluções e as quatro de recurso, prontas, indexáveis e montadas pelo molde", () => {
     expect(SOLUCOES.map((s) => s.rota).sort()).toEqual([...ROTAS].sort());
     for (const rota of ROTAS) {
       expect(paginaDa(rota).pronta, rota).toBe(true);
       // As de recurso mudaram em 25/10/2026 (sem mapa em 24 horas, sem valor); as soluções, em 27/10/2026;
-      // o agente no WhatsApp ganhou "chatbot" no título em 31/10/2026.
-      const data = DAS_SOLUCOES.includes(rota) ? "2026-10-27" : rota === "/agente-de-ia-para-whatsapp" ? "2026-10-31" : "2026-10-25";
+      // o agente no WhatsApp ganhou "chatbot" no título em 31/10/2026 e voltou a "Agente de IA" no H1 em 12/11/2026.
+      const data = DAS_SOLUCOES.includes(rota) ? "2026-10-27" : rota === "/agente-de-ia-para-whatsapp" ? "2026-11-12" : "2026-10-25";
       expect(paginaDa(rota).atualizadaEm, rota).toBe(data);
       const pagina = semComentarios(ler(`src/app${rota}/page.tsx`));
       expect(pagina, rota).toContain("<PaginaDeSolucao rota={ROTA}");

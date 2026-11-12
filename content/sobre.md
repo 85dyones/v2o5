@@ -7,8 +7,8 @@ description: "Quem é a V2O5 Vendas e Tecnologia, o método em cinco perguntas, 
 canonical: "https://www.v2o5.com.br/sobre"
 robots: null
 h1: "Simplificar o que é complexo."
-extraido_em: "2026-10-27T14:34:01.868Z"
-fonte: "build local da branch claude/kind-tesla-eefroe em 27/10/2026 (portfólio das quatro soluções), antes da publicação"
+extraido_em: "2026-11-12T15:26:32.532Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 12/11/2026 (sem Branding e sem tráfego pago), antes da publicação"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 # Simplificar o que é complexo.
@@ -270,8 +270,6 @@ Da estratégia de marca aos materiais aplicados no negócio.
 - Sistema e manual de marca
 - Comunicação visual
 - Aplicação da marca no site, nas redes e nos materiais
-
-Branding & Identidade é uma das quatro soluções, com pacotes próprios.
 
 04
 

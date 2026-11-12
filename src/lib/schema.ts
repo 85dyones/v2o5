@@ -143,7 +143,7 @@ const ofertaDoPlano = (p: PlanoDeContinuidade): No =>
   ofertaMensal(p.nome, `${p.para} ${p.inclui.join("; ")}.`, p.mensal, `${SITE_URL}/continuidade#${p.frente}`);
 
 /**
- * O catálogo de `/precos` desde 27/10/2026: os pacotes das quatro soluções
+ * O catálogo de `/precos` desde 27/10/2026: os pacotes das soluções
  * (`ofertas.ts` e `sprint.ts`) e os planos de continuidade, com os mesmos
  * valores da página.
  */
@@ -224,7 +224,7 @@ export function servicoAutomotivo(): No {
 }
 
 /**
- * A página como serviço. Nas quatro soluções (`oferta`), com o catálogo dos
+ * A página como serviço. Nas soluções (`oferta`), com o catálogo dos
  * pacotes; nas páginas de recurso, sem oferta de preço.
  */
 export function servicoDaSolucao(rota: string): No {

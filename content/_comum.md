@@ -1,7 +1,7 @@
 ---
 conteudo: "Topo, rodapé e peças presentes em todas as rotas"
-extraido_em: "2026-10-27T14:34:01.868Z"
-fonte: "build local da branch claude/kind-tesla-eefroe em 27/10/2026 (portfólio das quatro soluções), antes da publicação"
+extraido_em: "2026-11-12T15:26:32.532Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 12/11/2026 (sem Branding e sem tráfego pago), antes da publicação"
 ---
 
 <!-- Topo e rodapé são idênticos nas 16 rotas extraídas (conferido no script). -->
@@ -16,8 +16,6 @@ fonte: "build local da branch claude/kind-tesla-eefroe em 27/10/2026 (portfólio
 
 Soluções
 
-[Branding & Identidade](/branding-e-identidade)
-
 [Presença Digital Local](/presenca-digital-local)
 
 [Sites & Integrações](/criacao-de-sites)
@@ -26,7 +24,7 @@ Soluções
 
 [Revendas de veículos](/segmentos/revendas-de-veiculos)
 
-[Ver as quatro soluções](/#solucoes)
+[Ver as três soluções](/#solucoes)
 
 Continuidade
 
@@ -49,8 +47,6 @@ Continuidade
 Menu <!-- oculto no desktop 1440 -->
 
 [Soluções](/#solucoes) <!-- oculto no desktop 1440 -->
-
-[Branding & Identidade](/branding-e-identidade) <!-- oculto no desktop 1440 -->
 
 [Presença Digital Local](/presenca-digital-local) <!-- oculto no desktop 1440 -->
 
@@ -86,7 +82,6 @@ V2O5 | Eficiência comercial e operacional com tecnologia.
 
 ## Soluções
 
-- [Branding & Identidade](/branding-e-identidade)
 - [Presença Digital Local](/presenca-digital-local)
 - [Sites & Integrações](/criacao-de-sites)
 - [Sprint de Eficiência](/sprint-de-eficiencia)

@@ -29,7 +29,7 @@ export function textoDoLlms(): string {
     `Fundador: ${VISAO_360.fundador.nome}. ${VISAO_360.fundador.texto}`,
     "",
     "## Soluções e preços de referência",
-    `A V2O5 vende quatro soluções, cada uma com pacotes de escopo claro, e a continuidade, opcional. ${REGRAS_DE_PRECO.join(" ")}`,
+    `A V2O5 vende três soluções, cada uma com pacotes de escopo claro, e a continuidade, opcional. ${REGRAS_DE_PRECO.join(" ")}`,
     "",
     ...OFERTAS.flatMap((o) => [
       `### [${o.nome}](${SITE_URL}${o.rota})`,

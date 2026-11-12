@@ -26,7 +26,7 @@ export const PAGINAS: Pagina[] = [
     rota: "/",
     titulo: TITULO_PADRAO,
     descricao:
-      "Branding, presença digital local, sites com integração e o Sprint de Eficiência: a V2O5 melhora marca, presença e operação, com preço de referência.",
+      "Presença digital local, sites com integração e o Sprint de Eficiência: a V2O5 melhora a presença e a operação, com preço de referência.",
     atualizadaEm: "2026-10-27",
     pronta: true,
   },
@@ -35,7 +35,7 @@ export const PAGINAS: Pagina[] = [
     titulo: "Chatbot com IA para WhatsApp: agente que atende",
     descricao:
       "Chatbot com IA no WhatsApp: um agente que responde na hora com as informações do negócio, qualifica, agenda e chama a equipe. Entra num Sprint de Eficiência.",
-    atualizadaEm: "2026-10-31",
+    atualizadaEm: "2026-11-12",
     pronta: true,
   },
   {
@@ -87,14 +87,6 @@ export const PAGINAS: Pagina[] = [
     pronta: true,
   },
   {
-    rota: "/branding-e-identidade",
-    titulo: "Branding e identidade visual",
-    descricao:
-      "Identidade visual com variações, cores, tipografia e guia de uso, aplicada no dia a dia comercial, e reposicionamento de marca. Preços de referência.",
-    atualizadaEm: "2026-10-27",
-    pronta: true,
-  },
-  {
     rota: "/presenca-digital-local",
     titulo: "Presença digital para negócios locais",
     descricao:
@@ -120,9 +112,9 @@ export const PAGINAS: Pagina[] = [
   },
   {
     rota: "/precos",
-    titulo: "Preços: quatro soluções e a continuidade",
+    titulo: "Preços: três soluções e a continuidade",
     descricao:
-      "Preços de referência de Branding, Presença Digital Local, Sites & Integrações, Sprint de Eficiência e dos planos de continuidade. Diagnóstico gratuito.",
+      "Preços de referência de Presença Digital Local, Sites & Integrações, Sprint de Eficiência e dos planos de continuidade. Diagnóstico gratuito.",
     atualizadaEm: "2026-10-27",
     pronta: true,
   },

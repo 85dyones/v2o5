@@ -1,6 +1,6 @@
-# LinkedIn: Service Page da V2O5 (31/10/2026)
+# LinkedIn: Service Page da V2O5 (31/10/2026; revisada em 12/11/2026)
 
-A Service Page lista o que a empresa vende, com descrição e exemplos de trabalho. Todo preço vem de `src/conteudo/ofertas.ts` e `sprint.ts` (travado por `tests/precos-publicos.test.ts`) e é "preço de referência", como no site. Antes de colar, confira no LinkedIn o limite de caracteres de cada campo e escolha, na lista do LinkedIn, a categoria mais próxima de cada serviço.
+A Service Page lista o que a empresa vende, com descrição e exemplos de trabalho. Todo preço vem de `src/conteudo/ofertas.ts` e `sprint.ts` (travado por `tests/precos-publicos.test.ts`) e é "preço de referência", como no site. Desde 12/11/2026 não há Branding nem tráfego pago (saíram do portfólio), e o serviço do agente se chama "Agente de IA para WhatsApp" ("chatbot" ficou só no título da página do site, para a busca). Antes de colar, confira no LinkedIn o limite de caracteres de cada campo e escolha, na lista do LinkedIn, a categoria mais próxima de cada serviço.
 
 Imagens de exemplo (1200 x 627) em `design/marca/redes/`, uma por serviço. As capturas da Motors Store são de 26/10/2026, com a autorização do case.
 
@@ -18,11 +18,11 @@ Imagens de exemplo (1200 x 627) em `design/marca/redes/`, uma por serviço. As c
 - **Link:** https://www.v2o5.com.br/criacao-de-sites
 - **Exemplo:** `linkedin-servico-sites-1200x627.png` (capturas da Motors Store)
 
-### 3. Chatbot com IA para WhatsApp
+### 3. Agente de IA para WhatsApp
 - **Categoria sugerida:** automação / atendimento ao cliente
 - **Descrição:** Um agente de IA no WhatsApp que responde na hora com as informações do negócio, qualifica o contato, agenda e chama a equipe quando a conversa pede uma pessoa. Entra num Sprint de Eficiência, com escopo e preço fechados em proposta.
 - **Link:** https://www.v2o5.com.br/agente-de-ia-para-whatsapp
-- **Exemplo:** `linkedin-servico-chatbot-whatsapp-1200x627.png`
+- **Exemplo:** `linkedin-servico-agente-whatsapp-1200x627.png`
 
 ### 4. Presença Digital Local
 - **Categoria sugerida:** marketing digital
@@ -30,13 +30,7 @@ Imagens de exemplo (1200 x 627) em `design/marca/redes/`, uma por serviço. As c
 - **Link:** https://www.v2o5.com.br/presenca-digital-local
 - **Exemplo:** `linkedin-servico-presenca-1200x627.png`
 
-### 5. Branding & Identidade
-- **Categoria sugerida:** branding / design de identidade
-- **Descrição:** Para a empresa percebida abaixo do que entrega ou com uma marca diferente em cada canal. Identidade visual com regras de uso e, nos pacotes maiores, posicionamento e comunicação. Identidade Essencial (R$ 2.400), Marca em Uso (R$ 4.900) e Reposicionamento (a partir de R$ 7.900).
-- **Link:** https://www.v2o5.com.br/branding-e-identidade
-- **Exemplo:** `linkedin-servico-branding-1200x627.png`
-
-### 6. Continuidade (opcional)
+### 5. Continuidade (opcional)
 - **Categoria sugerida:** suporte e manutenção de TI
 - **Descrição:** Depois da entrega, planos opcionais para manter e evoluir o que foi entregue, com limites escritos: Cuidado Técnico (R$ 349/mês), Integrações Monitoradas (R$ 590/mês) e Evolução Contínua (R$ 990/mês). Nenhuma solução obriga a contratar outra.
 - **Link:** https://www.v2o5.com.br/continuidade

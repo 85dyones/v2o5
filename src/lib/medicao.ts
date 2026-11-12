@@ -192,11 +192,10 @@ export type TipoDePagina =
 
 /**
  * A linha de cada página de solução e de recurso (`linha` em `conteudo/solucoes.ts`;
- * `tests/medicao.test.ts` confere). As quatro soluções de 27/10/2026 entram
- * com `branding`, `presenca`, `sites` e `sprint`.
+ * `tests/medicao.test.ts` confere). As soluções entram com `presenca`,
+ * `sites` e `sprint` (`branding` saiu em 12/11/2026).
  */
 export const LINHA_DA_ROTA: Record<string, string> = {
-  "/branding-e-identidade": "branding",
   "/presenca-digital-local": "presenca",
   "/sprint-de-eficiencia": "sprint",
   "/criacao-de-sites": "sites",

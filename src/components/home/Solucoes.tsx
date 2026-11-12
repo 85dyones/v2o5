@@ -15,11 +15,11 @@ export function MarcaDeEtapa({ etapa }: { etapa: Etapa }) {
 }
 
 /**
- * A seção `#solucoes` da home desde 27/10/2026: as quatro soluções, cada uma
+ * A seção `#solucoes` da home desde 27/10/2026 (três desde 12/11): as soluções, cada uma
  * com o problema que resolve, o que o cliente recebe e o preço de entrada,
  * e a continuidade embaixo, opcional. A célula inteira é o link e leva a
  * faixa na cor da solução. Tudo de `ofertas.ts`; o âncora segue `#solucoes`
- * (404, `/gestao-de-trafego` e a vitrine apontam para ela).
+ * (404, `/branding-e-identidade` e a vitrine apontam para ela).
  */
 export default function Solucoes() {
   return (
@@ -32,11 +32,11 @@ export default function Solucoes() {
         <p className="texto-guia col-span-12 mt-6 max-w-[40rem] lg:col-span-7">{SOLUCOES.texto}</p>
       </div>
 
-      <ul className="mt-titulo-conteudo grid border-t-2 border-texto md:grid-cols-2">
+      <ul className="mt-titulo-conteudo grid border-t-2 border-texto lg:grid-cols-3">
         {OFERTAS.map((o, i) => {
           const preco = `A partir de ${BRL(precoDeEntrada(o))}`;
           return (
-            <li key={o.id} className={`border-b border-linha ${i % 2 === 0 ? "md:border-r" : ""}`}>
+            <li key={o.id} className={`border-b border-linha ${i < OFERTAS.length - 1 ? "lg:border-r" : ""}`}>
               <LinkOuAncora href={o.rota} className="servico-celula flex h-full flex-col gap-4 p-6 md:p-8" data-evento="cta_click" data-local="solucoes">
                 {/* A cor da solução numa faixa curta: o fio da rota (`.servico`) só serve a linhas de largura inteira. */}
                 <span aria-hidden="true" className="block h-1 w-12" style={{ backgroundColor: COR_DA_ROTA[o.etapa] }} />

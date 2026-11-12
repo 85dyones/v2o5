@@ -2,13 +2,13 @@
 rota: "/agente-de-ia-para-whatsapp"
 url: "https://www.v2o5.com.br/agente-de-ia-para-whatsapp"
 status: 200
-title: "Agente de IA para WhatsApp | V2O5 Vendas e Tecnologia"
-description: "Agente de IA no WhatsApp que responde na hora com as informações do seu negócio, qualifica, agenda e passa para a equipe. Entra num Sprint de Eficiência."
+title: "Chatbot com IA para WhatsApp: agente que atende | V2O5 Vendas e Tecnologia"
+description: "Chatbot com IA no WhatsApp: um agente que responde na hora com as informações do negócio, qualifica, agenda e chama a equipe. Entra num Sprint de Eficiência."
 canonical: "https://www.v2o5.com.br/agente-de-ia-para-whatsapp"
 robots: null
 h1: "Agente de IA para WhatsApp que responde, qualifica e agenda."
-extraido_em: "2026-10-27T14:34:01.868Z"
-fonte: "build local da branch claude/kind-tesla-eefroe em 27/10/2026 (portfólio das quatro soluções), antes da publicação"
+extraido_em: "2026-11-12T17:35:18.479Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 12/11/2026 (sem Branding e sem tráfego pago), antes da publicação"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 # Agente de IA para WhatsApp que responde, qualifica e agenda.

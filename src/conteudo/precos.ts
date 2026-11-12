@@ -1,8 +1,8 @@
 /**
  * Formatação de preço e os nomes das capacidades. Desde 27/10/2026 os preços
- * moram em `ofertas.ts` (Branding, Presença, Sites e continuidade) e em
- * `sprint.ts` (Sprint). O cardápio de 15/10 (planos Presença, Atendimento e
- * Completo, tráfego, módulos e serviços) saiu do código; o registro dele está
+ * moram em `ofertas.ts` (Presença, Sites e continuidade) e em `sprint.ts`
+ * (Sprint). O cardápio de 15/10 (planos Presença, Atendimento e Completo,
+ * tráfego, módulos e serviços) e o Branding de 27/10 saíram do código; o registro dele está
  * em `memory/context/oferta.md`, "Histórico".
  */
 
@@ -39,10 +39,7 @@ export type Pilar = "mapa" | "operacao";
 export const CAPACIDADES: Record<string, { nome: string }> = {
   sites: { nome: "Sites & Integrações" },
   rastreamento: { nome: "Rastreamento até a venda" },
-  googleAds: { nome: "Google Ads" },
-  metaAds: { nome: "Meta Ads" },
-  trafego: { nome: "Google Ads e Meta Ads juntos" },
-  catalogo: { nome: "Anúncios de catálogo" },
+  catalogo: { nome: "Catálogo de anúncios ligado ao estoque" },
   redes: { nome: "Conteúdo e redes sociais" },
   avaliacoes: { nome: "Avaliações no Google" },
   agente: { nome: "Agente de IA no WhatsApp" },
@@ -54,7 +51,6 @@ export const CAPACIDADES: Record<string, { nome: string }> = {
   diagnostico: { nome: "Diagnóstico e análise de operação" },
   consultoria: { nome: "Consultoria de processos" },
   dados: { nome: "Indicadores e painéis" },
-  branding: { nome: "Branding & Identidade" },
   presenca: { nome: "Presença Digital Local" },
   sprint: { nome: "Sprint de Eficiência" },
 };

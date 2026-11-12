@@ -13,8 +13,8 @@ import type { Etapa } from "@/lib/tokens";
  * primeiro parágrafo, o problema, o que entra, como funciona, o que roda na
  * Motors Store (só o que roda, com número do case), como a linha entra num
  * Sprint e as perguntas, que viram FAQPage. Desde 27/10/2026 há dois tipos:
- * as páginas das quatro soluções (`oferta`: Branding, Presença, Sites e o
- * Sprint), com os pacotes e o preço de referência de `ofertas.ts`; e as
+ * as páginas das soluções (`oferta`: Presença, Sites e o Sprint; Branding
+ * saiu em 12/11/2026), com os pacotes e o preço de referência de `ofertas.ts`; e as
  * páginas de recurso (agente, CRM, automação, rastreamento), sem valor, que
  * dizem como a linha entra num Sprint. Todo preço citado aqui sai de
  * `ofertas.ts` ou `sprint.ts`, nunca digitado. Tudo que é número
@@ -61,7 +61,6 @@ export interface Solucao {
 }
 
 const SITES = ofertaDa("sites");
-const BRANDING = ofertaDa("branding");
 const PRESENCA = ofertaDa("presenca");
 const SPRINT = ofertaDa("sprint");
 const continuidade = (i: number) => PLANOS_DE_CONTINUIDADE[i];
@@ -169,7 +168,7 @@ export const SOLUCOES: Solucao[] = [
     etapa: "verde",
     vinheta: "agente",
     sobretitulo: "Agente de IA no WhatsApp",
-    titulo: "Chatbot com IA para WhatsApp que responde, qualifica e agenda.",
+    titulo: "Agente de IA para WhatsApp que responde, qualifica e agenda.",
     resumo:
       "Responde na hora, a qualquer hora, com as informações do seu negócio. Quando a conversa pede uma pessoa, chama alguém da equipe.",
     fatos: [
@@ -504,9 +503,9 @@ export const SOLUCOES: Solucao[] = [
       "O rastreamento entra num Sprint quando o gargalo é não saber de onde vem cada venda. O Sprint audita o que já existe, implementa a camada de dados e compara a cobertura da origem nas vendas antes e depois.",
     perguntas: [
       {
-        pergunta: "Vocês fazem tráfego pago sem rastreamento?",
+        pergunta: "Vocês fazem tráfego pago?",
         resposta:
-          "Não. Sem rastreamento até a venda, a campanha otimiza pelo formulário preenchido, e a verba vai para o anúncio que gera contato barato, mesmo quando ele vende pouco. A gestão de tráfego começa com o rastreamento ligado.",
+          "Não. A V2O5 liga cada venda ao anúncio que trouxe o cliente, e a campanha fica com você ou com a sua agência, que passa a otimizar pela venda registrada no CRM.",
       },
       {
         pergunta: "Isso está de acordo com a LGPD?",
@@ -527,93 +526,7 @@ export const SOLUCOES: Solucao[] = [
         resposta: "Funciona se o site aceitar tags e o formulário puder gravar a origem. O diagnóstico responde isso em 45 minutos.",
       },
     ],
-    relacionadas: ["googleAds", "crm", "sites"],
-  },
-  {
-    rota: "/branding-e-identidade",
-    linha: "branding",
-    oferta: "branding",
-    pilar: "mapa",
-    etapa: "violeta",
-    vinheta: "marca",
-    sobretitulo: "Branding & Identidade",
-    titulo: "Branding e identidade visual que funcionam em todos os canais.",
-    resumo: "Identidade visual com variações, cores, tipografia e guia de uso. Nos pacotes maiores, comunicação e posicionamento.",
-    fatos: [
-      { rotulo: "Resolve", valor: BRANDING.resolve },
-      { rotulo: "Preço de entrada", valor: `${entrada(BRANDING)}, da identidade essencial ao reposicionamento` },
-      { rotulo: "Entrega", valor: "Arquivos finais, guia de uso e as rodadas de revisão escritas no contrato" },
-    ],
-    problema: {
-      titulo: "Um logotipo usado de cinco jeitos diferentes.",
-      texto:
-        "Cada canal mostra uma cor, uma fonte e um tom. O cliente não reconhece a empresa de um lugar para o outro, e a percepção fica abaixo do que ela entrega. A marca precisa de regras de uso, além do desenho.",
-    },
-    entregas: [
-      {
-        titulo: "Identidade visual",
-        texto: "Logotipo e variações, paleta de cores e tipografia, desenhados para funcionar no celular, no papel e na fachada.",
-      },
-      {
-        titulo: "Guia de uso",
-        texto: "As regras para aplicar a marca sem depender de quem desenhou: tamanhos, cores, combinações e o que evitar.",
-      },
-      {
-        titulo: "Aplicações",
-        texto: "Do perfil das redes à proposta comercial, conforme o pacote.",
-      },
-      {
-        titulo: "Comunicação e posicionamento",
-        texto: "Tom de voz e mensagens principais na Marca em Uso; proposta de valor e plano de aplicação no Reposicionamento.",
-      },
-      {
-        titulo: "Arquivos finais",
-        texto: "Em vetor e em imagem, organizados para a equipe e para os fornecedores.",
-      },
-    ],
-    comoFunciona: [
-      {
-        titulo: "Diagnóstico",
-        texto: "45 minutos com o fundador sobre o que a marca precisa resolver e onde ela aparece hoje.",
-      },
-      {
-        titulo: "Proposta",
-        texto: "O pacote, os entregáveis, os arquivos finais e as rodadas de revisão por escrito.",
-      },
-      {
-        titulo: "Criação e revisões",
-        texto: "As propostas visuais e as rodadas de revisão previstas no pacote.",
-      },
-      {
-        titulo: "Entrega",
-        texto: "Arquivos finais e guia de uso. Nos pacotes maiores, a marca aplicada nos materiais combinados.",
-      },
-    ],
-    perguntas: [
-      {
-        pergunta: "Quanto custa uma identidade visual?",
-        resposta: `${listaDePrecos(BRANDING)}. São preços de referência: o valor fechado sai em proposta.`,
-      },
-      {
-        pergunta: "Vocês fazem só o logotipo?",
-        resposta:
-          "O logotipo sozinho não é vendido como projeto de branding. O pacote menor já entrega as variações, as cores, a tipografia e o guia de uso, para a marca funcionar em todos os canais.",
-      },
-      {
-        pergunta: "Qual a diferença entre identidade e reposicionamento?",
-        resposta:
-          "A identidade trata de como a marca aparece. O reposicionamento começa antes: diagnóstico, posicionamento e proposta de valor, e só depois a identidade nova ou revisada.",
-      },
-      {
-        pergunta: "Quantas revisões estão incluídas?",
-        resposta: "Duas rodadas na Identidade Essencial e duas por etapa na Marca em Uso. O número fica escrito no contrato.",
-      },
-      {
-        pergunta: "O registro no INPI está incluído?",
-        resposta: "Não. O registro da marca, a impressão e a produção de fotos e vídeos ficam fora dos pacotes.",
-      },
-    ],
-    relacionadas: ["sites", "redes", "avaliacoes"],
+    relacionadas: ["sites", "crm", "dados"],
   },
   {
     rota: "/presenca-digital-local",

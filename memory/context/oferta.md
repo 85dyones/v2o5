@@ -1,6 +1,8 @@
 # Oferta e preços
 
-> **Desde 27/10/2026 a V2O5 vende quatro soluções e a continuidade, todas com preço de referência público** (Dyones, "Handoff mestre: reposicionamento comercial, portfólio e política inicial de preços", aprovado em 27/10 com "sim" às substituições). Substitui o guarda-chuva dos três Sprints (25/10), a regra "só o Sprint tem valor público" (25/10), os valores do Sprint de 26/10, a recorrência de R$ 1.200 a R$ 5.000 (25/10), os planos do hub automotivo e a oferta do Completo até 31/12/2026 (15/10 e 25/10), o piso de mensalidade de R$ 690 (12/10) e o Start Digital fora do cardápio. O que ficou para trás está em "Histórico", no fim.
+> **Desde 12/11/2026 são três soluções e a continuidade** (Dyones: "vamos focar nos serviços ainda mais, vou remover o trafego pago do kit, quero ser focado nas soluções que não há muitos entregando"; e, à proposta de foco: "Trafego e Branding... presença digital é simples e pode ser trabalhado num pacote acessível"). Saíram a gestão de tráfego pago e o Branding & Identidade; a Presença Digital Local fica como a porta acessível. Branding foi para "Histórico", no fim.
+>
+> **Desde 27/10/2026 a V2O5 vende soluções com preço de referência público e a continuidade** (eram quatro até 12/11) (Dyones, "Handoff mestre: reposicionamento comercial, portfólio e política inicial de preços", aprovado em 27/10 com "sim" às substituições). Substitui o guarda-chuva dos três Sprints (25/10), a regra "só o Sprint tem valor público" (25/10), os valores do Sprint de 26/10, a recorrência de R$ 1.200 a R$ 5.000 (25/10), os planos do hub automotivo e a oferta do Completo até 31/12/2026 (15/10 e 25/10), o piso de mensalidade de R$ 690 (12/10) e o Start Digital fora do cardápio. O que ficou para trás está em "Histórico", no fim.
 
 Fonte em código: `src/conteudo/ofertas.ts` (Branding, Presença, Sites e continuidade) e `src/conteudo/sprint.ts` (Sprint). Esta página repete os mesmos números e `tests/ofertas.test.ts` confere os dois lados. Todo "R$" público sai dessas duas fontes: `tests/precos-publicos.test.ts` recusa qualquer outro valor no site, no `llms.txt`, no schema, na vitrine e no agente do n8n.
 
@@ -15,27 +17,16 @@ Fonte em código: `src/conteudo/ofertas.ts` (Branding, Presença, Sites e contin
 ## Resumo público (home e `/precos`)
 | Solução | Preço público de entrada | Página |
 |---|---|---|
-| Branding & Identidade | a partir de R$ 2.400 | `/branding-e-identidade` |
 | Presença Digital Local | a partir de R$ 790 | `/presenca-digital-local` |
 | Sites & Integrações | a partir de R$ 2.900 | `/criacao-de-sites` |
 | Sprint de Eficiência | a partir de R$ 3.900 | `/sprint-de-eficiencia` |
 | Continuidade | planos a partir de R$ 349/mês | `/continuidade` |
 
 O que cada uma resolve (nenhuma obriga a comprar a seguinte):
-- Branding resolve percepção, identidade e posicionamento.
 - Presença Digital Local estrutura os canais e a comunicação digital. Substitui o antigo Start Digital.
 - Sites & Integrações constrói canais próprios ligados à operação que já existe. Não é outro ERP nem outro CRM.
 - Sprint de Eficiência resolve um gargalo específico com processo, tecnologia e medição.
 - Continuidade mantém funcionando e evoluindo o que foi contratado, dentro de limites definidos. É opcional.
-
-## Branding & Identidade
-| Pacote | Implantação | Escopo de referência |
-|---|---|---|
-| Identidade Essencial | R$ 2.400 | Identidade visual funcional, variações de marca, cores, tipografia, aplicações essenciais e guia básico |
-| Marca em Uso | R$ 4.900 | Sistema visual mais completo, diretrizes de comunicação, aplicações comerciais e kit digital |
-| Reposicionamento | a partir de R$ 7.900 | Diagnóstico, posicionamento, proposta de valor, identidade e plano de aplicação |
-
-Regras: identidade visual é diferente de projeto de posicionamento; entregáveis, arquivos finais e revisões vão no contrato; logotipo sozinho não é vendido como projeto completo de branding; produção de materiais nunca é ilimitada. Fora: registro da marca no INPI, impressão e produção gráfica, fotos e vídeos, criação de nome (só em proposta específica).
 
 ## Presença Digital Local
 | Pacote | Implantação | Continuidade opcional | O que a mensalidade cobre |
@@ -102,24 +93,37 @@ Regras: o escopo de cada plano não muda para criar a isca, só o preço; o efei
 O hub `/segmentos/revendas-de-veiculos` vende dois caminhos: o Site Automotivo Integrado (a partir de R$ 11.900, com Integrações Monitoradas a R$ 590/mês, opcional) e a Operação com IA, um Sprint Integrado para revendas (R$ 6.900 de referência: agente de IA no WhatsApp, CRM com funil, passagem para a equipe e treinamento; IA e mensagens pelo valor do provedor). Os modelos Mapa e Completo saíram com a tabela de 15/10. Revenda Mais em produção; Autoconf, BNDV, Boom, Altimus e Syonet integráveis depois de verificar a API ou a exportação de cada um.
 
 ## Regras comerciais
-- Os quatro preços de entrada correspondem a uma entrega que pode ser contratada por aquele valor. Se as propostas reais passarem sempre do preço de entrada, ele sai da chamada.
+- Os preços de entrada correspondem a uma entrega que pode ser contratada por aquele valor. Se as propostas reais passarem sempre do preço de entrada, ele sai da chamada.
 - Coerência entre home, páginas das soluções, formulário, propostas e materiais. Sem comparação depreciativa com concorrentes e sem "mais por menos" sem evidência.
 - Custos de terceiros, mídia paga e serviços externos só com previsão no contrato.
 - Integração só é anunciada como "em produção" quando existe (hoje: Revenda Mais).
-- Tráfego pago: fica fora do preço público (Dyones, 27/10); entra como capacidade dentro de um Sprint ou da Presença, com a verba paga direto às plataformas e só com o rastreamento ligado.
+- Tráfego pago: ~~fica fora do preço público e entra como capacidade dentro de um Sprint ou da Presença (27/10)~~. Desde 12/11 a V2O5 não faz gestão de tráfego (Google Ads e Meta Ads). Para quem anuncia, entrega o rastreamento até a venda e o catálogo ligado ao estoque; a campanha fica com o cliente ou com a agência dele.
 - Reativação só com base própria, com registro de origem e saída fácil; lista comprada ou raspada não entra.
 - Propostas já enviadas (os diagnósticos de 15 a 19/10 em diagnostico.v2o5.com.br) passam à tabela nova: "faça tudo, mesmo as propostas enviadas, podem virar upsell com o preço" (Dyones, 27/10). Contrato assinado não muda.
 - **Desconto fidelidade (interno, fora do site):** clientes antigos pagam a tabela com 27,5% de desconto, arredondado (Dyones, 14/10/2026, na renovação do atendimento da 16ª Vara Cível).
 
 ## Quantidades redigidas em 27/10 (aprovadas pelo Dyones no mesmo dia)
 O handoff deixou estas quantidades para definir antes de publicar; o Dyones pediu um rascunho ("você aprova antes de publicar") e, depois do preview, aprovou como está ("siga sua recomendação, faça o merge na ordem"). Cada uma está no código e muda num lugar só:
-- Branding: duas rodadas de revisão na Identidade Essencial e duas por etapa na Marca em Uso; aplicações essenciais = perfil das redes, assinatura de e-mail e cartão digital; aplicações comerciais = apresentação, proposta e cartão de visita.
 - Presença: Essencial com Perfil da Empresa no Google, uma rede social, WhatsApp Business e três modelos; Estruturada com até duas redes, oito modelos, calendário de três meses e uma campanha de lançamento; Assistida com ferramenta de agendamento, fluxo de aprovação e oito peças de referência por mês. Uma rodada de revisão por entrega.
 - Sites: Site Personalizado com até seis páginas; duas rodadas de revisão na Landing Page e no Site Personalizado.
 - Continuidade: as horas, os prazos de resposta e o canal da tabela acima.
 
 ## Viabilidade (estimativa, 27/10)
 Hora do fundador valorada em R$ 150 e infra por cliente da tabela de 12/10 (horas estimadas, não medidas): o Cuidado Técnico paga cerca de 1 hora e a infra de um site estático (~R$ 40); as Integrações Monitoradas, cerca de 2,5 horas; a Evolução Contínua, cerca de 6 horas brutas para 4,5 horas de compromisso (4 horas e a conversa mensal). A Presença Essencial (R$ 790) equivale a cerca de 5 horas e o kit de R$ 490 a cerca de 2 horas com ferramentas. Fecha se a entrega for padronizada e o limite estiver no contrato. Com a política da tarde de 27/10, os três planos de entrada pagam R$ 100 a mais por mês, cerca de 40 minutos da hora do fundador: o Cuidado Técnico (R$ 349) passa a cobrir cerca de 2 horas além da infra, para 1 hora de compromisso.
+
+## Histórico: Branding & Identidade de 27/10 a 12/11/2026 (saiu em 12/11)
+
+Guardado como registro; não vale para proposta nova. Saiu porque há muito designer e estúdio de marca entregando, e marca não é o que diferencia a V2O5 (Dyones, 12/11). O que o Dyones sabe de marca segue em `/sobre`, como experiência do fundador.
+
+| Pacote | Implantação | Escopo de referência |
+|---|---|---|
+| Identidade Essencial | R$ 2.400 | Identidade visual funcional, variações de marca, cores, tipografia, aplicações essenciais e guia básico |
+| Marca em Uso | R$ 4.900 | Sistema visual mais completo, diretrizes de comunicação, aplicações comerciais e kit digital |
+| Reposicionamento | a partir de R$ 7.900 | Diagnóstico, posicionamento, proposta de valor, identidade e plano de aplicação |
+
+Regras: identidade visual é diferente de projeto de posicionamento; entregáveis, arquivos finais e revisões vão no contrato; logotipo sozinho não é vendido como projeto completo de branding; produção de materiais nunca é ilimitada. Fora: registro da marca no INPI, impressão e produção gráfica, fotos e vídeos, criação de nome (só em proposta específica).
+
+Quantidades aprovadas em 27/10: duas rodadas de revisão na Identidade Essencial e duas por etapa na Marca em Uso; aplicações essenciais = perfil das redes, assinatura de e-mail e cartão digital; aplicações comerciais = apresentação, proposta e cartão de visita.
 
 ## Histórico: cardápio de 15/10 a 26/10/2026 (aposentado em 27/10)
 

@@ -398,3 +398,23 @@ Decisão do Dyones (`memory/decisoes.md`, 27/10; arquitetura em `docs/2026-10-27
 - `#como-se-liga`: o painel da peça perdeu a faixa visível "Caminho que passa por aqui" / "Paradas que ela toca", que repetia o mapa logo acima (as estações fora do caminho já apagam). A lista segue no DOM só para leitor de tela (`sr-only`), sem as setas; o texto da peça ocupa o painel.
 - Chips das camadas: no celular, "Origem na entrada, venda de volta ao anúncio" quebra linha em vez de passar da tela (o chip tinha 413 px em 390).
 - Texto, âncoras, `data-local` e eventos: sem mudança. `content/home.md`, `sprint-de-eficiencia.md`, `automacao-com-ia.md` e `gestao-de-trafego.md` anotam a lista como só para leitor de tela.
+
+## Atualização de 12/11/2026 (sem Branding e sem tráfego pago)
+
+Decisão do Dyones (`memory/decisoes.md`, 12/11): saem a gestão de tráfego pago e o Branding & Identidade; ficam Presença Digital Local, Sites & Integrações e Sprint de Eficiência.
+
+- Rotas que saíram, com 301 (`REDIRECIONAMENTOS_DO_PORTFOLIO` em `next.config.ts`, conferido em `tests/redirecionamentos.test.ts`):
+
+  | Rota | Agora | Destino |
+  |---|---|---|
+  | `/branding-e-identidade` | 301 | `/#solucoes` |
+  | `/gestao-de-trafego` | 301 (era 307 para `/#solucoes`) | `/rastreamento-de-conversoes` |
+
+  `/branding-e-identidade` sai do sitemap, de `PAGINAS` e de `LINHA_DA_ROTA` (`service_line=branding` deixa de existir). `content/branding-e-identidade.md` e `content/gestao-de-trafego.md` saíram, e as duas rotas saíram do extrator.
+- Topo e menu do celular: o grupo Soluções perde Branding & Identidade; "Ver as quatro soluções" vira "Ver as três soluções". O grupo Continuidade não muda.
+- Home: `#solucoes` com três soluções em três colunas a partir de `lg` (uma por linha abaixo disso); o H2 vira "Três soluções."; o subtítulo do hero perde "a marca". A pergunta "Vocês fazem tráfego pago sem rastreamento?" vira "Vocês fazem tráfego pago?" (home e `/rastreamento-de-conversoes`, com o FAQPage do schema).
+- `/precos`: H1 "Três soluções, com preço de referência." (a skill `diagnostico-presenca` confere "Três soluções"); o resumo e "Todos os pacotes" perdem o Branding; o `OfferCatalog` perde os três pacotes dele.
+- `llms.txt`: "três soluções", sem a seção do Branding e sem os cartões de branding e de tráfego; "Anúncios de catálogo" vira "Catálogo de anúncios ligado ao estoque".
+- Âncoras, formulário, `/api/leads`, WhatsApp e eventos: sem mudança. `/#solucoes` continua (agora também destino de `/branding-e-identidade`).
+- `content/` reextraído do build local da branch nas rotas que mudaram; o de `/agente-de-ia-para-whatsapp` traz também o título com "Chatbot com IA", que estava no ar desde 31/10 e ainda não tinha sido reextraído.
+- `/agente-de-ia-para-whatsapp`: o H1 volta a "Agente de IA para WhatsApp que responde, qualifica e agenda." (`<title>` e descrição seguem com "Chatbot com IA", para a busca); `atualizadaEm` 2026-11-12 no sitemap.

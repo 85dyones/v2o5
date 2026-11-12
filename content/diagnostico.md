@@ -7,8 +7,8 @@ description: "Sessão inicial gratuita de 45 minutos com o fundador para identif
 canonical: "https://www.v2o5.com.br/diagnostico"
 robots: null
 h1: "Em 45 minutos, qual gargalo atacar primeiro. Sessão inicial gratuita, sem compromisso."
-extraido_em: "2026-10-27T14:34:01.868Z"
-fonte: "build local da branch claude/kind-tesla-eefroe em 27/10/2026 (portfólio das quatro soluções), antes da publicação"
+extraido_em: "2026-11-12T15:26:32.532Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 12/11/2026 (sem Branding e sem tráfego pago), antes da publicação"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 # Em 45 minutos, qual gargalo atacar primeiro. Sessão inicial gratuita, sem compromisso.
@@ -90,7 +90,7 @@ Por chamada de vídeo ou WhatsApp. Olhamos presença, atendimento, operação e 
 
 O próximo passo, se houver
 
-Havendo um bom caso, a V2O5 propõe a solução que cabe no problema (Branding, Presença, Sites ou Sprint), com escopo, entregáveis, prazo e investimento por escrito. Se não houver, a conversa termina ali.
+Havendo um bom caso, a V2O5 propõe a solução que cabe no problema (Presença, Sites ou Sprint), com escopo, entregáveis, prazo e investimento por escrito. Se não houver, a conversa termina ali.
 
 Para quem tem uma empresa que vende pelo WhatsApp, pela internet ou pela loja, e quer saber onde o cliente se perde antes de gastar em anúncio, site ou sistema.
 
