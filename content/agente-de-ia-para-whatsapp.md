@@ -6,12 +6,12 @@ title: "Chatbot com IA para WhatsApp: agente que atende | V2O5 Vendas e Tecnolog
 description: "Chatbot com IA no WhatsApp: um agente que responde na hora com as informações do negócio, qualifica, agenda e chama a equipe. Entra num Sprint de Eficiência."
 canonical: "https://www.v2o5.com.br/agente-de-ia-para-whatsapp"
 robots: null
-h1: "Chatbot com IA para WhatsApp que responde, qualifica e agenda."
-extraido_em: "2026-11-12T15:26:32.532Z"
+h1: "Agente de IA para WhatsApp que responde, qualifica e agenda."
+extraido_em: "2026-11-12T17:35:18.479Z"
 fonte: "build local da branch claude/kind-tesla-eefroe em 12/11/2026 (sem Branding e sem tráfego pago), antes da publicação"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
-# Chatbot com IA para WhatsApp que responde, qualifica e agenda.
+# Agente de IA para WhatsApp que responde, qualifica e agenda.
 
 Responde na hora, a qualquer hora, com as informações do seu negócio. Quando a conversa pede uma pessoa, chama alguém da equipe.
 

@@ -35,10 +35,10 @@ const grade = (w, h, passo, inicio = 0) => {
   return `<svg class="abs" style="left:0;top:0" width="${w}" height="${h}">${l}</svg>`;
 };
 
-/** Faixa de quatro células com fio no topo na cor da etapa (a tira de soluções do site). */
-const CELULAS = [["Branding", COR.violeta], ["Presença", COR.verde], ["Sites", COR.azul], ["Sprint", COR.ambar]];
+/** Faixa das soluções, uma célula por solução, com fio no topo na cor da etapa (a tira de soluções do site; três desde 12/11/2026). */
+const CELULAS = [["Presença", COR.verde], ["Sites", COR.azul], ["Sprint", COR.ambar]];
 const faixa = (x, y, larg, alt, fonte_) => {
-  const c = larg / 4;
+  const c = larg / CELULAS.length;
   return CELULAS.map(([t, cor], i) => `<div class="abs" style="left:${x + i * c}px;top:${y}px;width:${c}px;height:${alt}px;border:1px solid ${COR.regua};${i ? "border-left:none;" : ""}background:${COR.cartao}">
     <div class="abs" style="left:${fonte_ * 1.1}px;top:-1px;width:${fonte_ * 2.2}px;height:${Math.max(3, fonte_ * 0.28)}px;background:${cor}"></div>
     <div class="abs rot" style="left:${fonte_ * 1.1}px;top:${alt / 2 - fonte_ * 0.3}px;font-size:${fonte_}px">${t}</div></div>`).join("");
@@ -160,19 +160,16 @@ cartao({ arquivo: "linkedin-servico-sites-1200x627.png", etiqueta: "Sites & Inte
 cartao({ arquivo: "linkedin-servico-presenca-1200x627.png", etiqueta: "Presença Digital Local", cor: COR.verde, titulo: "Ser encontrado com a informação certa.",
   linhas: [["Presença Essencial", "Mensalidade opcional de R$ 390", "R$ 790"], ["Presença Estruturada", "Mensalidade opcional de R$ 490", "R$ 1.490"], ["Presença Assistida", "Mensalidade opcional de R$ 890", "R$ 1.990"]],
   rodape: "Perfil no Google, redes e WhatsApp organizados" });
-cartao({ arquivo: "linkedin-servico-branding-1200x627.png", etiqueta: "Branding & Identidade", cor: COR.violeta, titulo: "Uma marca que mostra o que a empresa entrega.",
-  linhas: [["Identidade Essencial", "Identidade visual funcional e guia básico", "R$ 2.400"], ["Marca em Uso", "Aplicada no dia a dia comercial", "R$ 4.900"], ["Reposicionamento", "Muda como o mercado percebe a empresa", "a partir de R$ 7.900"]],
-  rodape: "Preços de referência. Escopo fechado em proposta." });
 cartao({ arquivo: "linkedin-servico-continuidade-1200x627.png", etiqueta: "Continuidade", cor: COR.grafite, titulo: "Manter e evoluir o que foi entregue, com limites escritos.",
   linhas: [["Cuidado Técnico", "Hospedagem, backup e suporte", "R$ 349/mês"], ["Integrações Monitoradas", "Monitora e corrige as integrações", "R$ 590/mês"], ["Evolução Contínua", "Melhorias mensais priorizadas", "R$ 990/mês"]],
   rodape: "Opcional. Nenhuma solução obriga a comprar outra." });
 const passos = [["1", "Responde na hora", COR.violeta], ["2", "Qualifica", COR.verde], ["3", "Agenda", COR.azul], ["4", "Chama a equipe", COR.ambar]];
-PEÇAS.push({ arquivo: "linkedin-servico-chatbot-whatsapp-1200x627.png", w: 1200, h: 627, html: base(1200, 627, `
+PEÇAS.push({ arquivo: "linkedin-servico-agente-whatsapp-1200x627.png", w: 1200, h: 627, html: base(1200, 627, `
   ${grade(1200, 627, 100, 50)}
   <div class="abs" style="left:0;top:0;width:12px;height:100%;background:${COR.verde}"></div>
   <div class="abs" style="left:0;bottom:0;width:100%;height:4px;background:${COR.tinta}"></div>
   <div class="bloco abs" style="width:56px;height:56px;left:64px;top:44px">${bloco}</div>
-  <div class="abs rot" style="left:138px;top:62px;font-size:16px">Chatbot com IA para WhatsApp</div>
+  <div class="abs rot" style="left:138px;top:62px;font-size:16px">Agente de IA para WhatsApp</div>
   <div class="abs h" style="left:64px;top:128px;width:1000px;font-size:62px">Um agente que atende com o que a empresa sabe.</div>
   ${passos.map(([n, t, c], i) => `<div class="abs" style="left:${64 + i * 275}px;top:330px;width:255px;height:130px;border:1px solid ${COR.regua};background:${COR.cartao}"><div class="abs" style="left:20px;top:-1px;width:44px;height:5px;background:${c}"></div><div class="abs rot" style="left:20px;top:26px;font-size:14px">Passo ${n}</div><div class="abs" style="left:20px;top:64px;font-weight:600;font-size:26px;letter-spacing:-0.02em">${t}</div></div>`).join("")}
   <div class="abs rot" style="left:64px;bottom:34px;font-size:15px">Entra num Sprint de Eficiência</div>

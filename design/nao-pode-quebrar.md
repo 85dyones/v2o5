@@ -417,3 +417,4 @@ Decisão do Dyones (`memory/decisoes.md`, 12/11): saem a gestão de tráfego pag
 - `llms.txt`: "três soluções", sem a seção do Branding e sem os cartões de branding e de tráfego; "Anúncios de catálogo" vira "Catálogo de anúncios ligado ao estoque".
 - Âncoras, formulário, `/api/leads`, WhatsApp e eventos: sem mudança. `/#solucoes` continua (agora também destino de `/branding-e-identidade`).
 - `content/` reextraído do build local da branch nas rotas que mudaram; o de `/agente-de-ia-para-whatsapp` traz também o título com "Chatbot com IA", que estava no ar desde 31/10 e ainda não tinha sido reextraído.
+- `/agente-de-ia-para-whatsapp`: o H1 volta a "Agente de IA para WhatsApp que responde, qualifica e agenda." (`<title>` e descrição seguem com "Chatbot com IA", para a busca); `atualizadaEm` 2026-11-12 no sitemap.

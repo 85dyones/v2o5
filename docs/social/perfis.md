@@ -39,10 +39,10 @@ O endereço do LinkedIn precisa continuar `v2o5-consutoria` (é o que está no `
 - **Setor:** Serviços e consultoria de TI (ou manter Tecnologia, informação e internet)
 - **Botão:** "Fale conosco" para https://www.v2o5.com.br/diagnostico
 - **Sobre:**
-  > A V2O5 ajuda pequenas e médias empresas a vender e operar com menos atrito. Começamos por um diagnóstico gratuito de 45 minutos com o fundador, achamos o gargalo e resolvemos um de cada vez: identidade e marca, presença digital, sites integrados ao CRM e ao WhatsApp, agentes de IA e automação.
+  > A V2O5 ajuda pequenas e médias empresas a vender e operar com menos atrito. Começamos por um diagnóstico gratuito de 45 minutos com o fundador, achamos o gargalo e resolvemos um de cada vez: presença digital, sites integrados ao CRM e ao WhatsApp, agentes de IA e automação.
   >
   > Cada solução tem escopo fechado e preço de referência público em v2o5.com.br/precos. O método roda em produção na Motors Store, revenda de seminovos de Curitiba. Atendimento on-line em todo o Brasil.
-- **Especialidades:** Branding e identidade, Presença digital local, Sites e integrações, Chatbot com IA para WhatsApp, Automação de processos, CRM com WhatsApp, Rastreamento de conversões
+- **Especialidades:** Presença digital local, Sites e integrações, Agente de IA para WhatsApp, Automação de processos, CRM com WhatsApp, Rastreamento de conversões
 - **Logo:** `design/marca/bloco-1080.png`. **Banner** 1128 x 191 px: ainda não existe; pedir ao design.
 - **Primeira publicação (apresentação):** o que a V2O5 faz, como o diagnóstico funciona e o link. Sem número que não seja do case.
 - **Perfil do fundador (Dyones Oliveira):** cargo "Fundador, V2O5 Vendas e Tecnologia", empresa atual ligada à página, mesmo sobre curto e o link do site; ele é o autor dos guias e o canal de maior alcance.
@@ -83,7 +83,7 @@ Eu não consigo criar a página. Passo a passo (Meta Business Suite ou facebook.
 ## Perfil da Empresa no Google (precisa da sua confirmação para eu alterar)
 
 Texto novo para o campo "Descrição" (hoje fala em Curitiba):
-> A V2O5 Vendas e Tecnologia é uma consultoria on-line que ajuda pequenas e médias empresas de todo o Brasil a vender e operar com menos atrito. Começamos por um diagnóstico gratuito de 45 minutos e resolvemos um gargalo de cada vez: identidade e marca, presença digital, sites integrados ao CRM e ao WhatsApp, chatbot com IA e automação. Cada solução tem escopo fechado e preço de referência público. O método já roda em produção na Motors Store, revenda de seminovos de Curitiba.
+> A V2O5 Vendas e Tecnologia é uma consultoria on-line que ajuda pequenas e médias empresas de todo o Brasil a vender e operar com menos atrito. Começamos por um diagnóstico gratuito de 45 minutos e resolvemos um gargalo de cada vez: presença digital, sites integrados ao CRM e ao WhatsApp, agentes de IA e automação. Cada solução tem escopo fechado e preço de referência público. O método já roda em produção na Motors Store, revenda de seminovos de Curitiba.
 
 - **Área de atendimento:** Brasil (negócio sem atendimento no local). Endereço de rua oculto.
 - **Verificação:** continua pendente; sem ela o resto não aparece.

@@ -35,7 +35,7 @@ export const PAGINAS: Pagina[] = [
     titulo: "Chatbot com IA para WhatsApp: agente que atende",
     descricao:
       "Chatbot com IA no WhatsApp: um agente que responde na hora com as informações do negócio, qualifica, agenda e chama a equipe. Entra num Sprint de Eficiência.",
-    atualizadaEm: "2026-10-31",
+    atualizadaEm: "2026-11-12",
     pronta: true,
   },
   {
