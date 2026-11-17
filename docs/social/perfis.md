@@ -60,7 +60,7 @@ O endereço do LinkedIn precisa continuar `v2o5-consutoria` (é o que está no `
   ```
 - **Link:** https://www.v2o5.com.br/diagnostico?utm_source=instagram&utm_medium=bio
 - **Foto:** `design/marca/bloco-1080.png`
-- **Destaques (capas no papel #F2F1EC com o símbolo):** Método, Soluções, Preços, Case Motors, Case 16ª Vara, Diagnóstico. O da 16ª (17/11) usa `instagram-destaque-16-vara-1080x1920.png` e junta os stories do case `/cases/16-vara-civel`, sem número.
+- **Destaques (capas no papel #F2F1EC com o símbolo):** Método, Soluções, Preços, Case Motors, Case 16ª Vara, Diagnóstico. O da 16ª (17/11) junta os stories do case `/cases/16-vara-civel`, sem número. A capa pedida pelo Dyones leva a marca do TJPR com "16ª VARA CÍVEL" embaixo, na D-DIN PRO (DIN aberta, da linha da URW DIN do manual do TJPR), e foi entregue a ele fora deste repositório, que é público: o manual de marca do TJPR reserva a assinatura setorial à Coordenadoria de Comunicação Social, e a marca só entra aqui se a autorização da vara cobrir o uso. Sem a marca, a capa é `instagram-destaque-16-vara-1080x1920.png`.
 - **Fixados (3):** o que fazemos, como funciona o diagnóstico, o case da Motors.
 - **Conta profissional:** conectar à página do Facebook (a mesma, abaixo), ativar botão de contato por WhatsApp.
 - **Publicações antigas:** arquivar as que usam a marca ou o texto de "ConsultorIA" e preços antigos; não apagar o que não for conflitante.
