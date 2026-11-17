@@ -24,9 +24,9 @@
       .fio { position: absolute; left: 72px; right: 72px; top: 350px; height: 3px; background: var(--tinta); }
       .bloco { position: absolute; left: 72px; right: 72px; }
       #gancho { top: 560px; font-size: 100px; line-height: 1.08; font-weight: 700; letter-spacing: -0.035em; }
-      #gancho .p { display: inline-block; margin-right: 0.22em; opacity: 0; }
-      #prova { top: 440px; font-size: 84px; line-height: 1.1; font-weight: 700; letter-spacing: -0.03em; opacity: 0; }
-      #prova span { background: var(--acao); padding: 0 14px; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+      #prova { top: 440px; font-size: 84px; line-height: 1.1; font-weight: 700; letter-spacing: -0.03em; }
+      #prova .ch { background: var(--acao); }
+      #prova .car { background: var(--tinta); }
       #tela { top: 700px; height: 557px; border: 3px solid var(--tinta); background: var(--cartao); display: none; overflow: hidden; opacity: 0; }
       #tela img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
       /* conversa de exemplo */
@@ -45,7 +45,7 @@
       .relogio .h1 { height: 12px; } .relogio .h2 { height: 17px; }
       /* legendas do corpo */
       #legendas { top: 1090px; height: 340px; }
-      #legendas p { position: absolute; left: 0; right: 0; top: 0; font-size: 58px; line-height: 1.14; font-weight: 700; letter-spacing: -0.03em; opacity: 0; }
+      #legendas p { position: absolute; left: 0; right: 0; top: 0; font-size: 58px; line-height: 1.14; font-weight: 700; letter-spacing: -0.03em; }
       /* final animado */
       #fim { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; background: var(--tinta); color: var(--papel); }
       #fim svg { position: absolute; left: 230px; top: 440px; width: 620px; height: 388px; overflow: visible; }
@@ -54,6 +54,7 @@
       #fim .sub { position: absolute; left: 0; right: 0; top: 1090px; text-align: center; font-size: 44px; font-weight: 500; color: var(--claro2); letter-spacing: 0.01em; }
       #fim .barra { position: absolute; left: 480px; top: 1160px; width: 120px; height: 6px; background: var(--acao); transform: scaleX(0); transform-origin: 50% 50%; }
       #fim .chamada { position: absolute; left: 90px; right: 90px; top: 1210px; text-align: center; font-size: 52px; line-height: 1.16; font-weight: 600; letter-spacing: -0.025em; }
+      .pw { display: inline-block; padding: 0 0.1em; margin: 0 0.02em; opacity: 0; }
       #fim .acc { color: var(--acao); font-weight: 700; }
       .ch { position: relative; display: inline-block; opacity: 0; white-space: pre; }
       .car { position: absolute; right: -0.06em; top: 0.12em; bottom: 0.06em; width: 0.07em; background: var(--acao); opacity: 0; }
@@ -66,7 +67,7 @@
       <div class="marca" id="marca"><i></i>V2O5 Vendas e Tecnologia</div>
       <div class="fio" id="fio"></div>
       <h1 id="gancho" class="bloco"></h1>
-      <div id="prova" class="bloco"><span></span></div>
+      <div id="prova" class="bloco"></div>
       <div id="tela" class="bloco"><img alt="" /></div>
       <div id="chat" class="bloco">
         <div class="chat-head"><div class="av"></div><b>Cliente</b><span class="exemplo">EXEMPLO</span></div>
@@ -100,11 +101,9 @@
       const $ = (s) => document.querySelector(s);
       const tl = gsap.timeline({ paused: true });
 
-      // gancho: palavra por palavra
-      const g = $("#gancho");
-      String(v.gancho).split(/\s+/).forEach((w) => { const s = document.createElement("span"); s.className = "p"; s.textContent = w; g.appendChild(s); });
-      tl.set("#gancho .p", { y: 36 }, 0);
-      tl.to("#gancho .p", { opacity: 1, y: 0, duration: 0.32, ease: "power3.out", stagger: 0.07 }, 0.05);
+      // gancho digitado
+      const gTxt = String(v.gancho);
+      digitar($("#gancho"), [{ t: gTxt }], 0.15, Math.min(0.03, 1.6 / gTxt.length));
       tl.to("#gancho", { opacity: 0, y: -24, duration: 0.3, ease: "power2.in" }, G - 0.3);
 
       const MEIO0 = G, MEIO1 = E - 0.55;
@@ -117,10 +116,10 @@
         let t = MEIO0 + 0.2; const ts = [];
         const box = $("#legendas");
         frases.forEach((f, i) => {
-          const p = document.createElement("p"); p.textContent = f; box.appendChild(p);
+          const p = document.createElement("p"); box.appendChild(p);
           const dur = janela * pesos[i] / soma;
           ts.push(t);
-          tl.fromTo(p, { opacity: 0, y: 28 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, t);
+          destacar(p, f, t + 0.05, dur * 0.82);
           if (i < frases.length - 1) tl.to(p, { opacity: 0, duration: 0.2, ease: "power1.in" }, t + dur - 0.22);
           t += dur;
         });
@@ -138,9 +137,8 @@
         tl.fromTo("#b2", { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.4, ease: "back.out(1.6)" }, marcos[3] + 0.15);
         ["#chat", "#timer", "#legendas"].forEach((s) => tl.to(s, { opacity: 0, duration: 0.25 }, E - 0.6));
       } else {
-        $("#prova span").textContent = v.prova;
+        digitar($("#prova"), [{ t: String(v.prova) }], G + 0.1, 0.035, true);
         if (v.print) { const t2 = $("#tela"); t2.style.display = "block"; t2.querySelector("img").src = v.print; }
-        tl.fromTo("#prova", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, G);
         tl.fromTo("#tela", { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, G + 0.1);
       }
 
@@ -149,13 +147,34 @@
       const principal = partes[0].replace(/\.$/, "").trim();
       const corte = principal.lastIndexOf(". ");
       const segs = corte > 0 ? [{ t: principal.slice(0, corte + 1) + " " }, { t: principal.slice(corte + 2) + ".", c: "acc" }] : [{ t: principal }];
+      // legenda dinâmica: as palavras entram uma a uma e a palavra da vez ganha o destaque âmbar
+      function destacar(el, texto, t0, dur) {
+        el.innerHTML = "";
+        const palavras = texto.split(/\s+/);
+        const total = palavras.reduce((a, w) => a + w.length + 1, 0);
+        let acum = 0;
+        const spans = palavras.map((w) => { const sp = document.createElement("span"); sp.className = "pw"; sp.textContent = w; el.appendChild(sp); el.appendChild(document.createTextNode(" ")); return sp; });
+        spans.forEach((sp, i) => {
+          const ti = t0 + dur * acum / total;
+          acum += palavras[i].length + 1;
+          const tf = i < spans.length - 1 ? t0 + dur * acum / total : ti + 0.45;
+          gsap.set(sp, { scale: 0.8, transformOrigin: "50% 70%" });
+          tl.to(sp, { opacity: 1, scale: 1, duration: 0.16, ease: "back.out(2)" }, ti);
+          tl.set(sp, { backgroundColor: "#F2A516", color: "#121418" }, ti);
+          tl.set(sp, { backgroundColor: "rgba(242,165,22,0)", color: "#121418" }, tf);
+        });
+      }
       // texto digitado: cada letra aparece em seguida, com o cursor âmbar na última
-      function digitar(el, segmentos, t0, vel) {
+      function digitar(el, segmentos, t0, vel, espacosComoLetra) {
         el.innerHTML = ""; let t = t0;
         segmentos.forEach((seg) => {
           seg.t.split(/(\s+)/).forEach((parte) => {
             if (!parte) return;
-            if (/^\s+$/.test(parte)) { el.appendChild(document.createTextNode(" ")); t += vel; return; }
+            if (/^\s+$/.test(parte)) {
+              if (espacosComoLetra) { const e = document.createElement("span"); e.className = "ch"; e.textContent = " "; el.appendChild(e); tl.set(e, { opacity: 1 }, t); }
+              else el.appendChild(document.createTextNode(" "));
+              t += vel; return;
+            }
             const w = document.createElement("span"); w.style.whiteSpace = "nowrap"; w.style.display = "inline-block"; if (seg.c) w.className = seg.c;
             [...parte].forEach((ch) => {
               const sp = document.createElement("span"); sp.className = "ch"; sp.textContent = ch;
