@@ -189,7 +189,8 @@ describe("carga das ferramentas", () => {
     expect(js[0]).toBe("js");
     expect(config[0]).toBe("config");
     expect(config[1]).toBe("G-ABCD1234");
-    expect(config[2]).toEqual({ send_page_view: false });
+    // Sem send_page_view: false, que a tag ignora; o page_view da primeira carga fica com o GA4 (17/11/2026).
+    expect(config).toHaveLength(2);
     expect(win.fbq!.queue).toEqual([
       ["set", "autoConfig", false, "123456789012345"],
       ["init", "123456789012345"],
@@ -304,5 +305,67 @@ describe("todo CTA e link de contato está marcado", () => {
     expect(form).toContain("formularioIniciado(");
     expect(form).toContain("leadGerado(");
     expect(form).toContain('dados.medicao = "desligada"');
+  });
+});
+
+describe("page_view: um por página vista (17/11/2026)", () => {
+  afterEach(() => {
+    delete (window as { gtag?: unknown }).gtag;
+    delete (window as { fbq?: unknown }).fbq;
+  });
+
+  it("na primeira carga o site não manda o page_view do GA4, que a tag já manda sozinha; o PageView da Meta sai", async () => {
+    const { paginaVista } = await import("@/lib/medicao");
+    const gtag = vi.fn();
+    const fbq = vi.fn();
+    Object.assign(window, { gtag, fbq });
+    paginaVista("/precos", true);
+    expect(gtag).not.toHaveBeenCalled();
+    expect(fbq).toHaveBeenCalledWith("track", "PageView");
+  });
+
+  it("nas trocas de rota manda o page_view com o contexto, o título da rota e o endereço", async () => {
+    const { paginaVista } = await import("@/lib/medicao");
+    const { tituloDaRota } = await import("@/conteudo/paginas");
+    const gtag = vi.fn();
+    Object.assign(window, { gtag });
+    paginaVista("/precos");
+    expect(gtag).toHaveBeenCalledTimes(1);
+    const [comando, nome, parametros] = gtag.mock.calls[0];
+    expect([comando, nome]).toEqual(["event", "page_view"]);
+    expect(parametros).toMatchObject({ page_type: "precos", page_title: tituloDaRota("/precos") });
+    expect(parametros.page_location).toBe(window.location.href);
+  });
+
+  it("o título da rota é o mesmo do <title>: a home inteira, as internas com o sufixo do layout", async () => {
+    const { tituloDaRota, paginaDa, SUFIXO_DO_TITULO } = await import("@/conteudo/paginas");
+    expect(tituloDaRota("/")).toBe(paginaDa("/").titulo);
+    expect(tituloDaRota("/diagnostico/recebido")).toBe(`${paginaDa("/diagnostico/recebido").titulo}${SUFIXO_DO_TITULO}`);
+    expect(tituloDaRota("/precos/")).toBe(tituloDaRota("/precos"));
+    expect(tituloDaRota("/rota-que-nao-existe")).toBeNull();
+    expect(ler("src/app/layout.tsx")).toContain("template: `%s${SUFIXO_DO_TITULO}`");
+  });
+});
+
+describe("form_start: uma vez por visita à página (17/11/2026)", () => {
+  afterEach(() => {
+    delete (window as { gtag?: unknown }).gtag;
+  });
+
+  it("uma tecla dispara onInput e onChange juntos, e o form_start sai uma vez só", async () => {
+    vi.doMock("next/navigation", () => ({ useRouter: () => ({ push: vi.fn() }) }));
+    const { render, fireEvent, cleanup } = await import("@testing-library/react");
+    const { default: Formulario } = await import("@/components/diagnostico/Formulario");
+    const gtag = vi.fn();
+    Object.assign(window, { gtag });
+    const { createElement } = await import("react");
+    const r = render(createElement(Formulario));
+    const campo = r.container.querySelector("input:not([type=hidden]), textarea") as HTMLInputElement;
+    fireEvent.input(campo, { target: { value: "a" } });
+    fireEvent.change(campo, { target: { value: "ab" } });
+    fireEvent.input(campo, { target: { value: "abc" } });
+    expect(gtag.mock.calls.filter((c) => c[1] === "form_start")).toHaveLength(1);
+    cleanup();
+    vi.doUnmock("next/navigation");
   });
 });

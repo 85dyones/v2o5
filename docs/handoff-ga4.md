@@ -2,6 +2,26 @@
 
 Escrito em 17/11/2026 para quem for ligar o Google Analytics 4 do site (um agente com acesso ao GA4 e à Vercel, ou o Dyones). É a pendência 16 de `memory/pendencias.md`. O código está pronto desde 13/10/2026; falta a conta.
 
+## Estado depois da configuração (17/11/2026, fim do dia)
+
+- Propriedade criada e `NEXT_PUBLIC_GA4_ID=G-053C2SG991` publicado em produção pelo Dyones.
+- Conferido em produção: o `gtag` carrega sem erro de política de segurança. Chegam ao GA4:
+  - `page_view` com `page_type`, inclusive na navegação sem recarregar;
+  - `cta_click` com `cta_location` e `cta_label`;
+  - `click_whatsapp` com `whatsapp_location` e `pos_lead`.
+- **Corrigido no código (17/11, noite): o `page_view` dobrado na primeira carga.**
+  - A tag do Google manda um `page_view` sozinho uns 0,5 s depois de carregar. Ela ignora o `send_page_view: false` e todo parâmetro definido pela página, no `config` ou no `set`. Testado em produção e numa página isolada só com o trecho do Google.
+  - Agora o site deixa esse `page_view` da primeira carga com a tag e manda o dele só nas trocas de rota. O `config` saiu sem `send_page_view: false`.
+  - Efeito: um `page_view` por página vista. O da página de entrada traz endereço e título, mas fica sem `page_type`, porque nenhum parâmetro da página chega nele. Nas trocas de rota, o `page_view` traz `page_type`, `page_title` e `page_location`.
+  - Se um dia a opção "Ignorar instâncias duplicadas da configuração na página" (Admin → Fluxos de dados → o fluxo → Definir as configurações da tag → Mostrar tudo) for desligada e a tag passar a respeitar a página, o código continua certo: o `page_view` da primeira carga segue sendo um só.
+- **Corrigido no código: o `form_start` dobrado.** Uma tecla dispara `onInput` e `onChange` no mesmo instante. A trava era um estado do React, que só muda depois, e agora é uma referência. Sai uma vez por visita à página.
+- **Corrigido no código: o título vazio nas trocas de rota.** O `page_view` saía às vezes antes de o Next trocar o `<title>`, como em `/diagnostico/recebido`. Agora leva `page_title`, montado do mapa de páginas igual ao `<title>`, e `page_location`.
+- Conferido com o build local e a tag real, com as coletas bloqueadas para não sujar o GA4:
+  - carga completa de `/diagnostico`: um `page_view`;
+  - três teclas no formulário: um `form_start`;
+  - troca para `/precos`: um `page_view` com `page_type=precos` e o título de Preços.
+- O `generate_lead` só se confere com um lead de teste avisado.
+
 ## Ponto de partida (conferido em 17/11/2026)
 
 - O site em produção (https://www.v2o5.com.br) **não manda nada ao GA4**: nenhum script de produção traz um ID `G-…`. Ou a variável `NEXT_PUBLIC_GA4_ID` não existe na Vercel, ou foi criada e o site não foi publicado de novo depois disso.
@@ -12,15 +32,15 @@ Escrito em 17/11/2026 para quem for ligar o Google Analytics 4 do site (um agent
 
 | Evento | Quando | Parâmetros |
 |---|---|---|
-| `page_view` | Cada rota, inclusive na navegação sem recarregar | `page_type` (home, solucao, segmento, case, precos, continuidade, diagnostico, recebido, sobre, guia, privacidade, nao-encontrada, outra), `service_line` (nas páginas de solução), `segment` (nas de segmento) |
+| `page_view` | Na carga completa, a própria tag do GA4 manda (sem `page_type`); a cada troca de rota sem recarregar, o site manda, também com `page_title` e `page_location` | `page_type` (home, solucao, segmento, case, precos, continuidade, diagnostico, recebido, sobre, guia, privacidade, nao-encontrada, outra), `service_line` (nas páginas de solução), `segment` (nas de segmento) |
 | `cta_click` | Clique num botão ou link marcado como CTA | `cta_location`, `cta_label` |
 | `click_whatsapp` | Clique num link de WhatsApp | `whatsapp_location`, `pos_lead` = `nao` |
 | `click_whatsapp_pos_lead` | O mesmo, depois de um lead na mesma sessão (fica fora da conta de conversão) | `whatsapp_location`, `pos_lead` = `sim` |
 | `click_email` | Clique no e-mail | `email_location` |
-| `form_start` | Primeira interação com o formulário do diagnóstico, uma vez por visita à página | `form_id` |
+| `form_start` | Primeira interação com o formulário do diagnóstico, uma vez por visita à página (corrigido em 17/11: saía duas vezes) | `form_id` |
 | `generate_lead` | Lead enviado com sucesso em `/diagnostico` | `event_id` (o mesmo da API de Conversões da Meta), `form_id`, `lead_type`, `segmento` |
 
-O `gtag` é configurado com `send_page_view: false`, porque o `page_view` sai do código, rota a rota.
+O `gtag` é configurado sem parâmetros: a tag desta propriedade ignora o `send_page_view: false` e manda o `page_view` da carga completa sozinha. O site manda o das trocas de rota (17/11/2026).
 
 ## Passo a passo
 
@@ -51,7 +71,7 @@ O `gtag` é configurado com `send_page_view: false`, porque o `page_view` sai do
 1. Use um navegador sem bloqueador de anúncios e sem ter desligado a medição em `/privacidade`. Quem desligou fica com `v2o5.medicao=desligada` no armazenamento do navegador, e nada carrega.
 2. Abra o relatório **Tempo real** do GA4, ou o DebugView com a extensão Tag Assistant.
 3. No site, faça o caminho e confira:
-   - home → `/precos` → `/sobre`: um `page_view` por página, com o `page_type` certo e sem duplicar;
+   - home → `/precos` → `/sobre`: um `page_view` por página, sem duplicar. O da home, carga completa, vem da tag e sem `page_type`; os de `/precos` e `/sobre`, com o `page_type` e o título certos;
    - clique em "Pedir diagnóstico": `cta_click` com o `cta_location`;
    - clique no botão do WhatsApp: `click_whatsapp` com o `whatsapp_location`;
    - envie um lead de teste em `/diagnostico`, com "TESTE" no nome: `form_start` e depois `generate_lead`. Avise no grupo, porque o lead de teste também chega ao n8n e ao Chatwoot.

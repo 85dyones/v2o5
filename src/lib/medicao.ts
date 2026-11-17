@@ -1,3 +1,4 @@
+import { tituloDaRota } from "@/conteudo/paginas";
 import { CHAVE_DA_ORIGEM } from "@/lib/origem";
 import { TERCEIROS } from "@/lib/terceiros";
 
@@ -282,8 +283,24 @@ export function enviar(evento: EventoMedido): void {
   if (evento.meta) window.fbq?.(evento.meta.padrao ? "track" : "trackCustom", evento.meta.nome, evento.meta.parametros);
 }
 
-export function paginaVista(pathname: string): void {
-  window.gtag?.("event", "page_view", { ...contextoDaPagina(pathname) });
+/**
+ * Uma página vista. Na primeira carga o GA4 já manda o `page_view` sozinho: a
+ * tag desta propriedade ignora o `send_page_view: false` e todo parâmetro
+ * definido pela página (testado em produção e numa página isolada em
+ * 17/11/2026), então o nosso duplicaria a visualização. Ali o site não manda
+ * o dele, e esse `page_view` fica com o endereço e o título, sem `page_type`.
+ * Nas trocas de rota (o App Router navega sem recarregar), o site manda o
+ * `page_view` com o contexto, o título e o endereço explícitos, porque o
+ * evento pode sair antes de o Next trocar o `<title>`.
+ */
+export function paginaVista(pathname: string, primeiraCarga = false): void {
+  if (!primeiraCarga) {
+    window.gtag?.("event", "page_view", {
+      ...contextoDaPagina(pathname),
+      page_title: tituloDaRota(pathname) ?? document.title,
+      page_location: window.location.href,
+    });
+  }
   window.fbq?.("track", "PageView");
 }
 
@@ -331,7 +348,9 @@ export function prepararFerramentas({ ga4, pixel }: Ferramentas, win: Window = w
       win.dataLayer!.push(arguments);
     };
     win.gtag("js", new Date());
-    win.gtag("config", ga4, { send_page_view: false });
+    // Sem `send_page_view: false`: a tag manda o `page_view` da primeira carga de
+    // todo jeito, e o site deixa esse com ela (ver `paginaVista`).
+    win.gtag("config", ga4);
   }
   if (pixel && !win.fbq) {
     const fila: Fbq = function fbq(...args: unknown[]) {
