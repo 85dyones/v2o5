@@ -214,12 +214,14 @@ export const CASE_MOTORS = {
 };
 
 /**
- * Página do case da 16ª Vara Cível (17/11/2026): a triagem do atendimento por
- * WhatsApp da serventia, em uso desde outubro de 2025. Publicação do nome
- * autorizada pela vara (Dyones, 17/11/2026). O detalhe do cliente mora no
- * repositório privado; aqui entra só o que a leitura dos fluxos de 14/10/2026
- * confirma. Sem IA: a versão em uso é triagem por menu. Sem número por
- * enquanto: a regra de quando os números entram está em
+ * Página do case da 16ª Vara Cível: a triagem do atendimento por WhatsApp da
+ * serventia, em uso desde outubro de 2025. Publicação do nome e da marca
+ * autorizada pela vara (Dyones, 17/11/2026). Storytelling revisto em 17/11:
+ * o ponto de partida (um WhatsApp para os onze setores), o desenho e as
+ * regras, uma conversa de exemplo e o que muda para a equipe. Tudo sai da
+ * leitura dos fluxos de 14/10/2026 (textos do Typebot e menu dos setores).
+ * Sem IA: a versão em uso é triagem por menu. Sem número de resultado: a
+ * regra de quando os números entram está em
  * `memory/projects/case-16-vara-civel.md`. `tests/case-16-vara-civel.test.ts` confere.
  */
 export const CASE_16VC = {
@@ -230,31 +232,113 @@ export const CASE_16VC = {
     cidade: "Curitiba",
     estado: "PR",
     ramo: "serventia judicial do TJPR",
+    /** Texto alternativo da marca do tribunal na ficha do cliente. */
+    marca: "Tribunal de Justiça do Estado do Paraná",
   },
   sobretitulo: "Case",
   titulo: "16ª Vara Cível: a triagem do WhatsApp da serventia.",
   /** Curto de propósito: o LCP da página é o H1. */
   resumo:
-    "A V2O5 montou para a 16ª Vara Cível de Curitiba a triagem automatizada do WhatsApp, que separa cada pedido por assunto e setor antes de chegar à equipe.",
+    "Um WhatsApp para onze setores e o gabinete. A V2O5 desenhou com a serventia a triagem que separa cada pedido antes de ele chegar à equipe.",
   fatos: [
     { rotulo: "Cliente", valor: "Serventia da 16ª Vara Cível do Foro Central de Curitiba (TJPR)" },
     { rotulo: "Entrega", valor: "triagem por WhatsApp, encaminhamento por setor e registro no sistema de atendimento" },
     { rotulo: "Em uso", valor: "desde outubro de 2025" },
   ],
   antes: {
-    sobretitulo: "Antes: o ponto de partida",
-    titulo: "O que chegava pelo WhatsApp.",
-    texto: "O fluxo desenhado em maio de 2025 para o atendimento da serventia, antes da automação.",
-    itens: [
-      "Pedidos sobre andamento de processo e diligências chegavam pela mesma conversa.",
-      "Parte do que chegava era do gabinete das magistradas, e parte da serventia.",
-      "Na serventia, cada diligência tem um setor responsável, e alguém precisava triar e encaminhar.",
+    sobretitulo: "Antes",
+    titulo: "Um WhatsApp para onze setores.",
+    texto:
+      "Pelo mesmo número chegavam a intimação a confirmar, a pergunta sobre o andamento e a dúvida de quem advoga no processo. Cada pedido tinha um dono, o gabinete da magistrada ou um setor da serventia, e alguém da equipe precisava pedir o número do processo e descobrir a quem passar o pedido.",
+    setoresTitulo: "Os onze caminhos da serventia",
+    setores: [
+      "Desarquivamento e arquivamento",
+      "Recolhimento de guias",
+      "Petições, juntadas e manifestações",
+      "Alvarás, certidões e termos",
+      "Editais, mandados e ofícios",
+      "Sisbajud, Renajud e outros sistemas conveniados",
+      "Retorno de conclusão",
+      "Decurso de prazo",
+      "Audiências",
+      "Despacho com a magistrada",
+      "Portarias do juízo",
+    ],
+  },
+  desenho: {
+    sobretitulo: "O desenho",
+    titulo: "Primeiro o caminho, depois a ferramenta.",
+    texto:
+      "O fluxo foi desenhado com a serventia em maio de 2025, pergunta por pergunta, a partir de como cada setor trabalha. Está em uso desde outubro de 2025, e quatro regras vieram junto.",
+    regras: [
+      {
+        titulo: "Nada de resposta jurídica automática",
+        texto: "A triagem coleta os dados e encaminha. Quem responde sobre o processo é a equipe da serventia.",
+      },
+      {
+        titulo: "Toda conversa tem saída para uma pessoa",
+        texto: "Cada caminho leva a um setor da serventia, a um atendente ou ao contato do gabinete da magistrada.",
+      },
+      {
+        titulo: "Intimação confirmada por um atendente",
+        texto: "Quem recebeu uma intimação pelo WhatsApp informa o nome, e um atendente retoma a conversa para confirmar a identidade.",
+      },
+      {
+        titulo: "A pessoa confere antes de enviar",
+        texto: "No fim, a triagem mostra os dados para conferência e informa o prazo de retorno do setor.",
+      },
+    ],
+  },
+  /**
+   * Uma consulta de exemplo, com os textos do fluxo em uso (Typebot, lido em
+   * 14/10/2026) encurtados e nome e dados fictícios. A pessoa responde pelo
+   * número da opção, como no fluxo.
+   */
+  conversa: {
+    sobretitulo: "Na prática",
+    titulo: "Uma consulta, do começo ao fim.",
+    texto:
+      "É assim que um pedido de alvará sai da conversa já com o setor e os dados, sem ninguém da equipe precisar perguntar nada.",
+    nota: "Exemplo com nome e dados fictícios; os textos seguem o fluxo em uso, encurtados.",
+    legenda: "WhatsApp da 16ª Vara Cível de Curitiba",
+    mensagens: [
+      {
+        de: "vara",
+        texto:
+          "Marina, seja bem-vinda ao atendimento da 16ª Vara Cível de Curitiba. Sobre qual assunto é seu contato hoje?\n1 · Recebi uma intimação pelo WhatsApp\n2 · Quero consultar o status de um processo\n3 · Preciso tirar uma dúvida",
+      },
+      { de: "pessoa", texto: "2" },
+      { de: "vara", texto: "Você é parte ou advogado(a) no processo?\n1 · Parte\n2 · Advogado(a)" },
+      { de: "pessoa", texto: "2" },
+      { de: "vara", texto: "Informe o número completo do processo." },
+      { de: "pessoa", texto: "o número do processo, no formato do CNJ" },
+      {
+        de: "vara",
+        texto: "O processo está concluso com a magistrada ou aguardando análise da serventia?\n1 · Concluso com a magistrada\n2 · Análise pela serventia",
+      },
+      { de: "pessoa", texto: "2" },
+      {
+        de: "vara",
+        texto: "Em qual setor deseja atendimento?\n1 · Desarquivamento/Arquivamento\n…\n4 · Expedição de Alvarás, Certidões e Termos\n…\n11 · Portarias do Juízo",
+      },
+      { de: "pessoa", texto: "4" },
+      {
+        de: "vara",
+        texto: "Confira os dados: setor, parte ou advogado(a), nome, número do processo, observação e urgência. Os dados estão corretos?\n1 · Sim\n2 · Não",
+      },
+      { de: "pessoa", texto: "1" },
+      {
+        de: "vara",
+        texto:
+          "Sua solicitação foi registrada. As informações foram enviadas ao setor de Expedição de Alvarás, Certidões e Termos, que analisará sua demanda no prazo estimado de até 48 horas úteis.",
+      },
     ],
   },
   construido: {
-    sobretitulo: "Depois: implementado",
-    titulo: "O que a V2O5 montou.",
-    texto: "Uma triagem por menu, sem resposta jurídica automática: ela coleta os dados, encaminha e deixa a resposta com a equipe da serventia.",
+    sobretitulo: "Depois",
+    titulo: "A conversa chega pronta para a equipe.",
+    texto:
+      "Uma triagem por menu, sem resposta jurídica automática, que registra cada pedido no sistema de atendimento com o setor e os dados que o servidor precisa para responder.",
     pecas: [
       {
         linha: "Atendimento no WhatsApp",
@@ -265,19 +349,19 @@ export const CASE_16VC = {
         linha: "Consulta de processo",
         titulo: "Os dados certos antes de encaminhar",
         texto:
-          "Nome, parte ou advogado, número do processo no formato do CNJ e a situação: concluso com a magistrada ou em análise na serventia. Antes de enviar, a pessoa confere os dados.",
+          "Nome, parte ou advogado, número do processo no formato do CNJ e a situação: concluso com a magistrada ou em análise na serventia.",
       },
       {
         linha: "Encaminhamento por setor",
         titulo: "Cada conversa marcada com o setor",
         texto:
-          "Na serventia, a pessoa escolhe o setor, e a conversa entra no sistema de atendimento com o setor e os dados preenchidos, e a pessoa recebe o prazo de retorno.",
+          "A conversa entra no sistema de atendimento com o setor, os dados e a urgência que a pessoa pediu, e quem atende já começa pela resposta.",
       },
       {
-        linha: "Intimação e gabinete",
+        linha: "Dúvida, intimação e gabinete",
         titulo: "Cada assunto no seu caminho",
         texto:
-          "Quem recebeu uma intimação pelo WhatsApp é chamado por um atendente para confirmar a identidade. Assunto do gabinete recebe a orientação de contato com o gabinete da magistrada.",
+          "A dúvida segue para a área de análises gerais e a intimação, para um atendente. O assunto do gabinete recebe a orientação de contato com o gabinete da magistrada.",
       },
     ],
   },

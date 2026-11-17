@@ -1,4 +1,5 @@
 import type { CSSProperties } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import Icone from "@/components/Icone";
 import JsonLd from "@/components/JsonLd";
@@ -10,16 +11,19 @@ import { COR_DA_ROTA, Parada, Trecho } from "@/components/rota/Rota";
 import { CASE_16VC } from "@/conteudo/case";
 import { metadataDa } from "@/conteudo/paginas";
 import { grafoDoCase16 } from "@/lib/schema";
+import marcaTjpr from "@/assets/tjpr/marca-tjpr.png";
 
 const ROTA = CASE_16VC.rota;
 
 export const metadata = metadataDa(ROTA);
 
 /**
- * O case da 16ª Vara Cível (17/11/2026), no molde do case da Motors Store:
- * abertura com a ficha, o ponto de partida, o que foi montado, a ficha
- * técnica e o fecho escuro. Sem seção de números até o alerta de 24/09/2026
- * ser resolvido (`conteudo/case.ts`).
+ * O case da 16ª Vara Cível (17/11/2026), contado como história: a abertura
+ * com a marca do TJPR (uso autorizado pela vara), o ponto de partida com os
+ * onze caminhos da serventia, o desenho e as regras, uma conversa de exemplo
+ * (rotulada, com dados fictícios), o que muda para a equipe, a ficha técnica
+ * e o fecho escuro. A rota desce em verde nas seções do atendimento. Sem seção
+ * de números (regra em `memory/projects/case-16-vara-civel.md`).
  */
 export default function Pagina() {
   const c = CASE_16VC;
@@ -39,6 +43,7 @@ export default function Pagina() {
               <p className="texto-guia mt-7 max-w-[38rem]">{c.resumo}</p>
             </div>
             <div className="col-span-12 flex flex-col gap-3 border-t border-linha pb-12 pt-8 md:pb-16 lg:col-span-4 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-20">
+              <Image src={marcaTjpr} alt={c.cliente.marca} sizes="224px" className="mb-3 h-auto w-56" />
               <p className="titulo-cartao">{c.cliente.nome}</p>
               <p className="text-[0.9375rem] leading-relaxed text-texto-secundario">
                 {c.cliente.completo}, {c.cliente.ramo}.
@@ -73,16 +78,60 @@ export default function Pagina() {
             </div>
             <p className="texto-guia col-span-12 lg:col-span-5 lg:pt-8">{c.antes.texto}</p>
           </div>
-          <ul className="mt-12 grid border-t-2 border-texto lg:grid-cols-3">
-            {c.antes.itens.map((item) => (
-              <li key={item} className="border-b border-linha py-5 pr-6 text-[0.9375rem] leading-relaxed">
-                {item}
+          {/* Os onze setores do menu da serventia, em células de fio: o tamanho do problema à vista. */}
+          <div className="mt-12 border-t-2 border-texto md:mt-14">
+            <p className="rotulo py-4 text-texto-secundario">{c.antes.setoresTitulo}</p>
+            <ol className="grid grid-cols-1 gap-px border border-linha bg-linha sm:grid-cols-2 lg:grid-cols-4">
+              {c.antes.setores.map((setor, i) => (
+                <li key={setor} className="flex min-h-20 items-start gap-4 bg-fundo p-4 text-[0.9375rem] leading-snug">
+                  <span className="font-mono text-[0.8125rem] tabular-nums text-texto-secundario">{String(i + 1).padStart(2, "0")}</span>
+                  {setor}
+                </li>
+              ))}
+              <li aria-hidden="true" className="hachura hidden bg-fundo lg:block" />
+            </ol>
+          </div>
+        </Trecho>
+
+        <Trecho aria-labelledby="titulo-desenho">
+          <div className="relative grid grid-cols-12 gap-x-6 gap-y-6">
+            <Parada />
+            <div className="col-span-12 lg:col-span-7">
+              <p className="rotulo text-texto-secundario">{c.desenho.sobretitulo}</p>
+              <h2 id="titulo-desenho" className="titulo-secao mt-3">
+                {c.desenho.titulo}
+              </h2>
+            </div>
+            <p className="texto-guia col-span-12 lg:col-span-5 lg:pt-8">{c.desenho.texto}</p>
+          </div>
+          <ul className="mt-12 grid grid-cols-1 gap-px border-2 border-texto bg-linha md:mt-14 md:grid-cols-2">
+            {c.desenho.regras.map((regra) => (
+              <li key={regra.titulo} className="bg-fundo p-6 md:p-7">
+                <h3 className="titulo-cartao">{regra.titulo}</h3>
+                <p className="mt-3 max-w-[30rem] text-[0.9375rem] leading-relaxed text-texto-secundario">{regra.texto}</p>
               </li>
             ))}
           </ul>
         </Trecho>
 
-        <Trecho aria-labelledby="titulo-construido">
+        <Trecho aria-labelledby="titulo-conversa" etapa="verde">
+          <div className="relative grid grid-cols-12 gap-x-6 gap-y-10">
+            <Parada />
+            <div className="col-span-12 lg:col-span-5">
+              <p className="rotulo text-texto-secundario">{c.conversa.sobretitulo}</p>
+              <h2 id="titulo-conversa" className="titulo-secao mt-3">
+                {c.conversa.titulo}
+              </h2>
+              <p className="texto-guia mt-6">{c.conversa.texto}</p>
+              <p className="mt-5 text-sm text-texto-secundario">{c.conversa.nota}</p>
+            </div>
+            <div className="col-span-12 lg:col-span-6 lg:col-start-7">
+              <Conversa legenda={c.conversa.legenda} mensagens={c.conversa.mensagens} />
+            </div>
+          </div>
+        </Trecho>
+
+        <Trecho aria-labelledby="titulo-construido" etapa="verde">
           <div className="relative grid grid-cols-12 gap-x-6 gap-y-6">
             <Parada />
             <div className="col-span-12 lg:col-span-7">
@@ -169,5 +218,34 @@ export default function Pagina() {
       <Entradas />
       <JsonLd grafo={grafoDoCase16()} />
     </>
+  );
+}
+
+/**
+ * A conversa de exemplo, como uma janela de registro: a vara à esquerda, no
+ * papel do cartão, e a pessoa à direita, na tinta verde do atendimento. Rotulada
+ * como exemplo, como o registro de eventos do case da Motors.
+ */
+function Conversa({ legenda, mensagens }: { legenda: string; mensagens: { de: string; texto: string }[] }) {
+  return (
+    <figure className="border-y-2 border-texto bg-fundo">
+      <figcaption className="flex items-center justify-between gap-4 py-3">
+        <span className="font-mono text-xs text-texto-secundario">{legenda}</span>
+        <span className="rotulo bg-tinta-ambar px-2 py-1 text-texto">exemplo</span>
+      </figcaption>
+      <ol className="flex flex-col gap-3 border-t border-linha py-5">
+        {mensagens.map((m, i) => (
+          <li
+            key={i}
+            className={`max-w-[85%] whitespace-pre-line border px-4 py-3 text-[0.9375rem] leading-relaxed ${
+              m.de === "pessoa" ? "self-end border-tinta-verde bg-tinta-verde" : "self-start border-linha bg-fundo-cartao"
+            }`}
+          >
+            <span className="sr-only">{m.de === "pessoa" ? "Pessoa: " : "Vara: "}</span>
+            {m.texto}
+          </li>
+        ))}
+      </ol>
+    </figure>
   );
 }
