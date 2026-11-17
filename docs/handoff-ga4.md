@@ -2,6 +2,19 @@
 
 Escrito em 17/11/2026 para quem for ligar o Google Analytics 4 do site (um agente com acesso ao GA4 e à Vercel, ou o Dyones). É a pendência 16 de `memory/pendencias.md`. O código está pronto desde 13/10/2026; falta a conta.
 
+## Estado depois da configuração (17/11/2026, fim do dia)
+
+- Propriedade criada e `NEXT_PUBLIC_GA4_ID=G-053C2SG991` publicado em produção pelo Dyones.
+- Conferido em produção: o `gtag` carrega sem erro de política de segurança. Chegam ao GA4:
+  - `page_view` com `page_type`, inclusive na navegação sem recarregar;
+  - `cta_click` com `cta_location` e `cta_label`;
+  - `click_whatsapp` com `whatsapp_location` e `pos_lead`.
+- **Pendente: um `page_view` a mais na primeira página, sem `page_type`.**
+  - A tag do Google manda esse `page_view` automático mesmo com `send_page_view: false`. Testado numa página isolada só com o trecho padrão do Google, então a causa não está no código do site. Na navegação seguinte não duplica: a opção do histórico está desligada.
+  - Causa provável: em Admin → Fluxos de dados → o fluxo → Definir as configurações da tag → Mostrar tudo, a opção "Ignorar instâncias duplicadas da configuração na página". Desligue e teste de novo.
+  - Enquanto isso, a página de entrada de cada sessão conta uma visualização a mais, com `page_type` "(not set)". Sessões, usuários e eventos-chave não mudam.
+- O `generate_lead` só se confere com um lead de teste avisado.
+
 ## Ponto de partida (conferido em 17/11/2026)
 
 - O site em produção (https://www.v2o5.com.br) **não manda nada ao GA4**: nenhum script de produção traz um ID `G-…`. Ou a variável `NEXT_PUBLIC_GA4_ID` não existe na Vercel, ou foi criada e o site não foi publicado de novo depois disso.
