@@ -82,11 +82,12 @@
       .grade .q span { display: block; font-size: 190px; line-height: 0.9; font-weight: 700; letter-spacing: -0.05em; }
       .grade .q small { font-size: 42px; font-weight: 600; color: var(--apagado); }
       .chatg { position: relative; border: 3px solid var(--tinta); background: var(--cartao); }
-      .msgs { padding: 26px; display: flex; flex-direction: column; gap: 16px; }
-      .m { max-width: 720px; padding: 18px 26px; font-size: 38px; line-height: 1.2; border: 2px solid var(--linha); background: #fff; }
+      .chatg .chat-head { height: 84px; }
+      .msgs { padding: 20px; display: flex; flex-direction: column; gap: 12px; }
+      .m { max-width: 720px; padding: 12px 20px; font-size: 32px; line-height: 1.2; border: 2px solid var(--linha); background: #fff; }
       .m.c { align-self: flex-start; }
       .m.a { align-self: flex-end; background: #F7E2B5; border-color: var(--acao); }
-      .selo { align-self: center; background: var(--tinta); color: var(--papel); font-size: 32px; font-weight: 600; padding: 10px 24px; }
+      .selo { align-self: center; background: var(--tinta); color: var(--papel); font-size: 30px; font-weight: 600; padding: 8px 22px; }
       /* legendas do corpo */
       #legendas { top: 1090px; height: 340px; }
       #legendas p { position: absolute; left: 0; right: 0; top: 0; font-size: 58px; line-height: 1.14; font-weight: 700; letter-spacing: -0.03em; }
@@ -162,6 +163,7 @@
         const box = $("#legendas");
         frases.forEach((f, i) => {
           const p = document.createElement("p"); box.appendChild(p);
+          p.style.fontSize = (f.length > 100 ? 48 : f.length > 80 ? 53 : 58) + "px";
           const dur = janela * pesos[i] / soma;
           ts.push(t);
           destacar(p, f, t + 0.05, dur * 0.82);
