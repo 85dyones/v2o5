@@ -7,6 +7,8 @@ import Entradas from "@/components/layout/Entradas";
 import Topo from "@/components/layout/Topo";
 import Rodape from "@/components/layout/Rodape";
 import Construcao from "@/components/marca/Construcao";
+import ConversaPreguicosa from "@/components/case/ConversaPreguicosa";
+import ConversaVisao from "@/components/case/ConversaVisao";
 import { COR_DA_ROTA, Parada, Trecho } from "@/components/rota/Rota";
 import { CASE_16VC } from "@/conteudo/case";
 import { metadataDa } from "@/conteudo/paginas";
@@ -22,8 +24,8 @@ export const metadata = metadataDa(ROTA);
  * com a marca do TJPR (uso autorizado pela vara), o ponto de partida com os
  * onze caminhos da serventia, o desenho e as regras, uma conversa de exemplo
  * (rotulada, com dados fictícios), o que muda para a equipe, a ficha técnica
- * e o fecho escuro. A rota desce em verde nas seções do atendimento. Sem seção
- * de números (regra em `memory/projects/case-16-vara-civel.md`).
+ * e o fecho escuro. A rota desce em verde nas seções do atendimento e em azul
+ * nos números (desde 17/11/2026, com fonte e período; `memory/projects/case-16-vara-civel.md`).
  */
 export default function Pagina() {
   const c = CASE_16VC;
@@ -126,7 +128,10 @@ export default function Pagina() {
               <p className="mt-5 text-sm text-texto-secundario">{c.conversa.nota}</p>
             </div>
             <div className="col-span-12 lg:col-span-6 lg:col-start-7">
-              <Conversa legenda={c.conversa.legenda} mensagens={c.conversa.mensagens} />
+              {/* A janela fixa com a triagem rodando: carrega perto da tela; até lá, a conversa inteira do servidor. */}
+              <ConversaPreguicosa legenda={c.conversa.legenda} mensagens={c.conversa.mensagens}>
+                <ConversaVisao legenda={c.conversa.legenda} mensagens={c.conversa.mensagens} />
+              </ConversaPreguicosa>
             </div>
           </div>
         </Trecho>
@@ -154,6 +159,42 @@ export default function Pagina() {
               </li>
             ))}
           </ul>
+        </Trecho>
+
+        <Trecho aria-labelledby="titulo-numeros" etapa="azul">
+          <div className="relative grid grid-cols-12">
+            <Parada />
+            <div className="col-span-12 lg:col-span-7">
+              <p className="rotulo text-texto-secundario">{c.numeros.sobretitulo}</p>
+              <h2 id="titulo-numeros" className="titulo-secao mt-3">
+                {c.numeros.titulo}
+              </h2>
+            </div>
+          </div>
+          {/* O mosaico do case da Motors: o total na célula de tinta, os outros no papel. */}
+          <dl className="mt-12 grid grid-cols-1 gap-px border-2 border-texto bg-linha sm:grid-cols-2 md:mt-14 lg:grid-cols-4">
+            {c.numeros.itens.map((n, i) => (
+              <div
+                key={n.texto}
+                className={`flex min-h-44 flex-col justify-start gap-6 p-6 sm:justify-between md:min-h-56 md:p-7 ${
+                  i === 0 ? "sm:col-span-2 bg-texto text-fundo" : "bg-fundo"
+                }`}
+              >
+                <dt
+                  className={`order-2 max-w-[20rem] text-[0.9375rem] leading-relaxed ${
+                    i === 0 ? "text-faixa-escura-secundario" : "text-texto-secundario"
+                  }`}
+                >
+                  {n.texto}
+                </dt>
+                <dd className="order-1 flex items-baseline gap-3">
+                  <span className="numero-grande">{n.valor}</span>
+                  {n.complemento ? <span className="text-xl font-medium tracking-[-0.02em] opacity-75">{n.complemento}</span> : null}
+                </dd>
+              </div>
+            ))}
+          </dl>
+          <p className="mt-4 text-sm text-texto-secundario">{c.numeros.fonte}</p>
         </Trecho>
 
         <Trecho aria-labelledby="titulo-stack">
@@ -218,34 +259,5 @@ export default function Pagina() {
       <Entradas />
       <JsonLd grafo={grafoDoCase16()} />
     </>
-  );
-}
-
-/**
- * A conversa de exemplo, como uma janela de registro: a vara à esquerda, no
- * papel do cartão, e a pessoa à direita, na tinta verde do atendimento. Rotulada
- * como exemplo, como o registro de eventos do case da Motors.
- */
-function Conversa({ legenda, mensagens }: { legenda: string; mensagens: { de: string; texto: string }[] }) {
-  return (
-    <figure className="border-y-2 border-texto bg-fundo">
-      <figcaption className="flex items-center justify-between gap-4 py-3">
-        <span className="font-mono text-xs text-texto-secundario">{legenda}</span>
-        <span className="rotulo bg-tinta-ambar px-2 py-1 text-texto">exemplo</span>
-      </figcaption>
-      <ol className="flex flex-col gap-3 border-t border-linha py-5">
-        {mensagens.map((m, i) => (
-          <li
-            key={i}
-            className={`max-w-[85%] whitespace-pre-line border px-4 py-3 text-[0.9375rem] leading-relaxed ${
-              m.de === "pessoa" ? "self-end border-tinta-verde bg-tinta-verde" : "self-start border-linha bg-fundo-cartao"
-            }`}
-          >
-            <span className="sr-only">{m.de === "pessoa" ? "Pessoa: " : "Vara: "}</span>
-            {m.texto}
-          </li>
-        ))}
-      </ol>
-    </figure>
   );
 }

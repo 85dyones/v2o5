@@ -3,8 +3,8 @@ rota: "/llms.txt"
 url: "https://www.v2o5.com.br/llms.txt"
 status: 200
 content_type: "text/plain; charset=utf-8"
-extraido_em: "2026-11-17T16:17:30.910Z"
-fonte: "build local da branch claude/kind-tesla-eefroe em 17/11/2026 (case da 16ª Vara Cível com storytelling e marca do TJPR), antes da publicação"
+extraido_em: "2026-11-17T17:12:45.537Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 17/11/2026 (case da 16ª Vara Cível com os números medidos), antes da publicação"
 ---
 
 <!-- Corpo de /llms.txt exatamente como servido (gerado por src/app/llms.txt/route.ts). -->
@@ -87,7 +87,10 @@ Revenda de seminovos em Curitiba. Banco de dados da Motors Store, lido em 17/11/
 - 148 veículos sincronizados com o estoque do Revenda Mais.
 
 ## Case 16ª Vara Cível
-Um WhatsApp para onze setores e o gabinete. A V2O5 desenhou com a serventia a triagem que separa cada pedido antes de ele chegar à equipe. Uma triagem por menu, sem resposta jurídica automática, que registra cada pedido no sistema de atendimento com o setor e os dados que o servidor precisa para responder. Em uso desde outubro de 2025. [Case completo](https://www.v2o5.com.br/cases/16-vara-civel).
+Um WhatsApp para onze setores e o gabinete. A V2O5 desenhou com a serventia a triagem que separa cada pedido antes de ele chegar à equipe. Uma triagem por menu, sem resposta jurídica automática, que registra cada pedido no sistema de atendimento com o setor e os dados que o servidor precisa para responder. Em uso desde outubro de 2025. Sistema de atendimento da serventia, lido em 14/10/2026. Conversas criadas de 07/01 a 13/10/2026; só contagens, sem dado pessoal. [Case completo](https://www.v2o5.com.br/cases/16-vara-civel).
+- 950 conversas no WhatsApp da serventia de 07/01 a 13/10/2026.
+- 345 pedidos com os dados completos do fluxo: 128 consultas de processo, 110 dúvidas, 59 intimações e 48 assuntos do gabinete.
+- 118 pedidos encaminhados direto a um de oito setores específicos, de petições e alvarás a audiências e decurso de prazo.
 
 ## Como começar
 - [Diagnóstico gratuito](https://www.v2o5.com.br/diagnostico): Diagnóstico gratuito: 45 minutos de conversa com o fundador para identificar e priorizar um gargalo.

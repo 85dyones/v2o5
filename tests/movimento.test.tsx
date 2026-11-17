@@ -147,6 +147,53 @@ describe("orquestrador: a demonstração", () => {
   });
 });
 
+describe("case da 16ª: a janela da triagem", () => {
+  const mensagens = [
+    { de: "vara", texto: "Sobre qual assunto é seu contato hoje?" },
+    { de: "pessoa", texto: "2" },
+    { de: "vara", texto: "Informe o número completo do processo." },
+  ];
+  async function montar() {
+    const { default: ConversaInterativa } = await import("@/components/case/ConversaInterativa");
+    const r = render(<ConversaInterativa legenda="exemplo" mensagens={mensagens} comecarZerado />);
+    const visiveis = () => r.container.querySelectorAll('ol[aria-hidden="true"] > li:not([data-digitando])').length;
+    return { tela: r.container, visiveis };
+  }
+
+  it("com menos movimento a conversa aparece inteira, sem timer nem observador", async () => {
+    prepararJanela(true);
+    const { visiveis } = await montar();
+    expect(visiveis()).toBe(mensagens.length);
+    expect(observadores).toHaveLength(0);
+    expect(vi.getTimerCount()).toBe(0);
+  });
+
+  it("sem a preferência as mensagens entram uma a uma quando a janela aparece, e param quando ela sai", async () => {
+    prepararJanela(false);
+    const { tela, visiveis } = await montar();
+    expect(visiveis()).toBe(0);
+    act(() => avisar(true));
+    expect(vi.getTimerCount()).toBeGreaterThan(0);
+    act(() => {
+      vi.advanceTimersByTime(300);
+    });
+    expect(tela.querySelector("[data-digitando]")).not.toBeNull();
+    act(() => {
+      vi.advanceTimersByTime(900);
+    });
+    expect(visiveis()).toBe(1);
+    act(() => avisar(false));
+    expect(vi.getTimerCount()).toBe(0);
+    expect(visiveis()).toBe(mensagens.length);
+  });
+
+  it("o leitor de tela recebe a conversa inteira, sem ouvir as mensagens chegando", async () => {
+    prepararJanela(false);
+    const { tela } = await montar();
+    expect(tela.querySelectorAll("ol.sr-only > li")).toHaveLength(mensagens.length);
+  });
+});
+
 describe("diagrama: a peça escolhida", () => {
   async function clicarNoCrm() {
     const { default: DiagramaInterativo } = await import("@/components/home/diagrama/DiagramaInterativo");

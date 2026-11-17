@@ -6,13 +6,15 @@ import { artigoDoCase16, grafoDoCase16 } from "@/lib/schema";
 import { ler, semComentarios } from "./fonte";
 
 /**
- * O case da 16ª Vara Cível (17/11/2026): nome autorizado pela vara, sem
- * número até a regra de `memory/projects/case-16-vara-civel.md` liberar, sem
- * IA (a versão em uso é triagem por menu), sem dado pessoal e sem orientação
- * jurídica automática.
+ * O case da 16ª Vara Cível (17/11/2026): nome e marca autorizados pela vara;
+ * números só os que estão em `memory/projects/case-16-vara-civel.md`, com
+ * fonte e período (publicados depois de resolvido o problema de atribuição ao
+ * time); sem IA (a versão em uso é triagem por menu), sem dado pessoal e sem
+ * orientação jurídica automática.
  */
 
 const pagina = semComentarios(ler("src/app/cases/16-vara-civel/page.tsx"));
+const memoria = ler("memory/projects/case-16-vara-civel.md");
 const texto = JSON.stringify(CASE_16VC);
 
 describe("case 16ª Vara Cível", () => {
@@ -29,11 +31,22 @@ describe("case 16ª Vara Cível", () => {
     expect(pagina).toContain("grafoDoCase16()");
   });
 
-  it("não publica número nem promete dado futuro", () => {
-    expect(pagina).not.toContain("numero-grande");
-    expect("numeros" in CASE_16VC).toBe(false);
-    // Fora da conversa de exemplo, só datas ("maio de 2025"), os nomes (16ª, V2O5, n8n) e os 45 minutos do diagnóstico levam algarismo.
-    const { conversa, ...resto } = CASE_16VC;
+  it("cada número da página existe na memória do case, com a fonte e o período ao lado", () => {
+    expect(memoria).toMatch(/\| Conversas lidas no período \| 950 \|/);
+    expect(memoria).toMatch(/\| Encaminhamentos completos \(com os atributos do fluxo\) \| 345: consulta 128, dúvida 110, intimação 59, magistrada 48 \|/);
+    expect(memoria).toMatch(/\| Encaminhados direto a setores específicos \| 118, em oito setores/);
+    expect(memoria).toMatch(/resolvido o problema de atribuição ao time/);
+    expect(CASE_16VC.numeros.itens.map((n) => n.valor)).toEqual([950, 345, 118]);
+    expect(CASE_16VC.numeros.itens[1].texto).toMatch(/128 consultas de processo, 110 dúvidas, 59 intimações e 48 assuntos do gabinete/);
+    expect(CASE_16VC.numeros.fonte).toMatch(/lido em 14\/10\/2026/);
+    expect(CASE_16VC.numeros.fonte).toMatch(/07\/01 a 13\/10\/2026/);
+    expect(pagina).toContain("{c.numeros.fonte}");
+  });
+
+  it("fora dos números e da conversa de exemplo, não publica algarismo nem promete dado futuro", () => {
+    // Só datas ("maio de 2025"), os nomes (16ª, V2O5, n8n) e os 45 minutos do diagnóstico levam algarismo.
+    const { conversa, numeros, ...resto } = CASE_16VC;
+    expect(numeros.itens).toHaveLength(3);
     const semNomeEData = JSON.stringify(resto)
       .replace(/16ª|16-vara|V2O5|n8n|45 minutos/g, "")
       .replace(/(janeiro|fevereiro|março|abril|maio|junho|julho|agosto|setembro|outubro|novembro|dezembro) de \d{4}/g, "");
@@ -49,7 +62,8 @@ describe("case 16ª Vara Cível", () => {
     expect(CASE_16VC.desenho.regras.map((r) => r.titulo)).toContain("Toda conversa tem saída para uma pessoa");
     expect(CASE_16VC.conversa.nota).toMatch(/fictícios/);
     expect(CASE_16VC.conversa.mensagens.at(-1)?.texto).toMatch(/48 horas úteis/);
-    for (const id of ["titulo-antes", "titulo-desenho", "titulo-conversa", "titulo-construido", "titulo-stack"]) expect(pagina).toContain(`id="${id}"`);
+    for (const id of ["titulo-antes", "titulo-desenho", "titulo-conversa", "titulo-construido", "titulo-numeros", "titulo-stack"]) expect(pagina).toContain(`id="${id}"`);
+    expect(CASE_16VC.construido.pecas[2].texto).toMatch(/já atribuída ao time do setor/);
     expect(pagina).toContain("<Conversa");
     expect(pagina).toMatch(/alt=\{c\.cliente\.marca\}/);
     expect(CASE_16VC.resumo.length).toBeLessThanOrEqual(140);
