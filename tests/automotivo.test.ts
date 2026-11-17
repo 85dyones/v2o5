@@ -1,7 +1,8 @@
 import { describe, expect, it } from "vitest";
 import { HUB_AUTOMOTIVO } from "@/conteudo/automotivo";
 import { BRL } from "@/conteudo/precos";
-import { ofertaDa, PLANOS_DE_CONTINUIDADE } from "@/conteudo/ofertas";
+import { NAVEGACAO } from "@/conteudo/home";
+import { OFERTAS, ofertaDa, PLANOS_DE_CONTINUIDADE } from "@/conteudo/ofertas";
 import { SPRINT_DE_PRECOS } from "@/conteudo/sprint";
 import { paginaDa } from "@/conteudo/paginas";
 import { grafoDoHubAutomotivo, servicoAutomotivo } from "@/lib/schema";
@@ -18,6 +19,16 @@ const texto = JSON.stringify(HUB_AUTOMOTIVO);
 const pagina = semComentarios(ler("src/app/segmentos/revendas-de-veiculos/page.tsx"));
 
 describe("hub automotivo", () => {
+  it("é exemplo, não solução: fica fora do grupo Soluções do topo e do menu do celular, e o rodapé o liga em Empresa (17/11/2026)", () => {
+    const solucoes = NAVEGACAO.find((i) => i.rotulo === "Soluções");
+    const hrefs = solucoes && "itens" in solucoes ? (solucoes.itens ?? []).map((i) => i.href) : [];
+    expect(hrefs).toEqual(OFERTAS.map((o) => o.rota));
+    expect(JSON.stringify(NAVEGACAO)).not.toContain(HUB_AUTOMOTIVO.rota);
+    const rodape = ler("src/components/layout/Rodape.tsx");
+    const empresa = rodape.slice(rodape.indexOf("const EMPRESA_LINKS"), rodape.indexOf("];", rodape.indexOf("const EMPRESA_LINKS")));
+    expect(empresa).toContain(`href: "${HUB_AUTOMOTIVO.rota}"`);
+  });
+
   it("está pronto e indexável, com serviço (sem oferta de preço) e perguntas no schema", () => {
     expect(paginaDa(HUB_AUTOMOTIVO.rota).pronta).toBe(true);
     const grafo = grafoDoHubAutomotivo() as { "@graph": { "@type"?: string; "@id"?: string }[] };
