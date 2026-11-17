@@ -22,8 +22,6 @@ Soluções
 
 [Sprint de Eficiência](/sprint-de-eficiencia)
 
-[Revendas de veículos](/segmentos/revendas-de-veiculos)
-
 [Ver as três soluções](/#solucoes)
 
 Continuidade
@@ -57,8 +55,6 @@ Menu <!-- oculto no desktop 1440 -->
 [Sites & Integrações](/criacao-de-sites) <!-- oculto no desktop 1440 -->
 
 [Sprint de Eficiência](/sprint-de-eficiencia) <!-- oculto no desktop 1440 -->
-
-[Revendas de veículos](/segmentos/revendas-de-veiculos) <!-- oculto no desktop 1440 -->
 
 [Continuidade](/continuidade) <!-- oculto no desktop 1440 -->
 

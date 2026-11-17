@@ -210,10 +210,9 @@ export const NAVEGACAO: ItemDaNavegacao[] = [
     rotulo: "Soluções",
     href: "/#solucoes",
     todos: "Ver as três soluções",
-    itens: [
-      ...OFERTAS.map((o) => ({ rotulo: o.nome, href: o.rota })),
-      { rotulo: "Revendas de veículos", href: "/segmentos/revendas-de-veiculos" },
-    ],
+    // Só as três soluções. Revendas de veículos é exemplo, não produto
+    // (17/11/2026): a página segue no ar, ligada pelo rodapé (grupo Empresa).
+    itens: OFERTAS.map((o) => ({ rotulo: o.nome, href: o.rota })),
   },
   {
     rotulo: "Continuidade",
