@@ -4,7 +4,9 @@
     {"id":"gancho","type":"string","label":"Gancho (2 primeiros segundos)","default":"Seu cliente pediu preço e sumiu. Sabe por quê?"},
     {"id":"prova","type":"string","label":"Texto de apoio / fonte (até 6 palavras)","default":"Cliente sumiu?"},
     {"id":"print","type":"string","label":"Caminho da imagem de tela (opcional)","default":""},
-    {"id":"cta","type":"string","label":"CTA final","default":"Descubra onde sua empresa pode funcionar melhor. Gratuitamente: link na bio."}
+    {"id":"cta","type":"string","label":"CTA final","default":"Descubra onde sua empresa pode funcionar melhor. Gratuitamente: link na bio."},
+    {"id":"cena","type":"string","label":"Cena do meio: texto ou conversa","default":"texto"},
+    {"id":"legendas","type":"string","label":"Legendas do corpo, JSON com uma frase por item","default":"[]"}
   ]'>
   <head>
     <meta charset="UTF-8" />
@@ -12,48 +14,160 @@
     <script src="assets/gsap.min.js"></script>
     <style>
       @font-face { font-family: "Geist"; src: url("assets/geist-latin.woff2") format("woff2"); font-weight: 100 900; }
-      :root { --papel: #F2F1EC; --tinta: #121418; --acao: #F2A516; --apagado: #5A5D66; --linha: #D6D4CC; }
+      :root { --papel: #F2F1EC; --cartao: #FAF9F5; --tinta: #121418; --acao: #F2A516; --apagado: #5A5D66; --linha: #D6D4CC; --claro2: #A9ACB4; }
       * { margin: 0; padding: 0; box-sizing: border-box; }
       html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--papel); font-family: "Geist", sans-serif; color: var(--tinta); }
-      /* Zonas seguras: a interface do Instagram cobre ~250 px em cima e ~420 px embaixo. Nada de texto fora de y 250 a 1500. */
-      #root { position: relative; width: 1080px; height: 1920px; }
+      /* Zonas seguras: a interface do Instagram cobre ~250 px em cima e ~420 px embaixo. Texto só entre y 250 e 1500. */
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; }
       .marca { position: absolute; left: 72px; top: 270px; display: flex; align-items: center; gap: 18px; font-size: 34px; font-weight: 600; letter-spacing: -0.01em; }
       .marca i { display: block; width: 44px; height: 44px; background: var(--acao); }
       .fio { position: absolute; left: 72px; right: 72px; top: 350px; height: 3px; background: var(--tinta); }
       .bloco { position: absolute; left: 72px; right: 72px; }
-      #gancho { top: 560px; font-size: 96px; line-height: 1.08; font-weight: 700; letter-spacing: -0.035em; }
-      #prova { top: 620px; font-size: 84px; line-height: 1.1; font-weight: 700; letter-spacing: -0.03em; }
+      #gancho { top: 560px; font-size: 100px; line-height: 1.08; font-weight: 700; letter-spacing: -0.035em; }
+      #gancho .p { display: inline-block; margin-right: 0.22em; opacity: 0; }
+      #prova { top: 440px; font-size: 84px; line-height: 1.1; font-weight: 700; letter-spacing: -0.03em; opacity: 0; }
       #prova span { background: var(--acao); padding: 0 14px; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
-      #tela { top: 700px; height: 557px; border: 3px solid var(--tinta); background: #FAF9F5; display: none; overflow: hidden; }
+      #tela { top: 700px; height: 557px; border: 3px solid var(--tinta); background: var(--cartao); display: none; overflow: hidden; opacity: 0; }
       #tela img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
-      #cta { top: 640px; font-size: 76px; line-height: 1.12; font-weight: 700; letter-spacing: -0.03em; }
-      #cta small { display: block; margin-top: 40px; font-size: 40px; font-weight: 500; color: var(--apagado); letter-spacing: 0; }
+      /* conversa de exemplo */
+      #chat { top: 410px; border: 3px solid var(--tinta); background: var(--cartao); height: 500px; opacity: 0; display: none; overflow: hidden; }
+      .chat-head { height: 104px; border-bottom: 3px solid var(--tinta); display: flex; align-items: center; gap: 22px; padding: 0 32px; background: #E8E6DF; }
+      .av { width: 56px; height: 56px; border-radius: 50%; background: var(--tinta); }
+      .chat-head b { font-size: 38px; font-weight: 600; letter-spacing: -0.02em; }
+      .exemplo { margin-left: auto; background: var(--acao); font-size: 24px; font-weight: 700; letter-spacing: 0.06em; padding: 6px 14px; }
+      .bolha { position: absolute; left: 32px; max-width: 760px; background: #fff; border: 2px solid var(--linha); padding: 24px 30px 18px; font-size: 42px; line-height: 1.2; opacity: 0; }
+      .bolha em { display: block; margin-top: 10px; text-align: right; font-style: normal; font-size: 24px; color: var(--apagado); }
+      #b1 { top: 150px; } #b2 { top: 310px; }
+      #timer { top: 940px; height: 84px; opacity: 0; }
+      #timer .t { position: absolute; left: 0; top: 0; height: 84px; display: flex; align-items: center; gap: 20px; background: var(--tinta); color: var(--papel); padding: 0 32px 0 22px; font-size: 40px; font-weight: 600; letter-spacing: -0.02em; opacity: 0; white-space: nowrap; }
+      .relogio { position: relative; width: 44px; height: 44px; border: 4px solid var(--acao); border-radius: 50%; display: block; flex: none; }
+      .relogio u { position: absolute; left: 50%; bottom: 50%; width: 4px; background: var(--acao); transform-origin: 50% 100%; margin-left: -2px; }
+      .relogio .h1 { height: 12px; } .relogio .h2 { height: 17px; }
+      /* legendas do corpo */
+      #legendas { top: 1090px; height: 340px; }
+      #legendas p { position: absolute; left: 0; right: 0; top: 0; font-size: 58px; line-height: 1.14; font-weight: 700; letter-spacing: -0.03em; opacity: 0; }
+      /* final animado */
+      #fim { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; background: var(--tinta); color: var(--papel); }
+      #fim svg { position: absolute; left: 230px; top: 440px; width: 620px; height: 388px; overflow: visible; }
+      #fim .nome { position: absolute; left: 0; right: 0; top: 880px; text-align: center; font-size: 176px; font-weight: 700; letter-spacing: -0.05em; line-height: 1; }
+      #fim .nome span { display: inline-block; opacity: 0; }
+      #fim .sub { position: absolute; left: 0; right: 0; top: 1090px; text-align: center; font-size: 44px; font-weight: 500; color: var(--claro2); letter-spacing: 0.01em; opacity: 0; }
+      #fim .barra { position: absolute; left: 480px; top: 1160px; width: 120px; height: 6px; background: var(--acao); transform: scaleX(0); transform-origin: 50% 50%; }
+      #fim .chamada { position: absolute; left: 90px; right: 90px; top: 1210px; text-align: center; font-size: 52px; line-height: 1.16; font-weight: 600; letter-spacing: -0.025em; opacity: 0; }
+      #fim .chamada b { color: var(--acao); font-weight: 700; }
+      #fim .pilula { position: absolute; left: 0; right: 0; top: 1385px; text-align: center; opacity: 0; }
+      #fim .pilula span { display: inline-block; background: var(--acao); color: var(--tinta); font-size: 46px; font-weight: 700; padding: 14px 34px; letter-spacing: -0.01em; }
     </style>
   </head>
   <body>
     <div id="root" data-composition-id="main" data-start="0" data-duration="{{DURACAO}}" data-width="1080" data-height="1920">
-      <div class="marca clip" data-start="0" data-duration="{{DURACAO}}" data-track-index="0"><i></i>V2O5 Vendas e Tecnologia</div>
-      <div class="fio clip" data-start="0" data-duration="{{DURACAO}}" data-track-index="0"></div>
-      <h1 id="gancho" class="bloco clip" data-start="0" data-duration="{{GANCHO_DUR}}" data-track-index="1"></h1>
-      <div id="prova" class="bloco clip" data-start="{{GANCHO_DUR}}" data-duration="{{MEIO_DUR}}" data-track-index="1"><span></span></div>
-      <div id="tela" class="bloco clip" data-start="{{GANCHO_DUR}}" data-duration="{{MEIO_DUR}}" data-track-index="2"><img alt="" /></div>
-      <div id="cta" class="bloco clip" data-start="{{CTA_INICIO}}" data-duration="{{CTA_DUR}}" data-track-index="1"></div>
+      <div class="marca" id="marca"><i></i>V2O5 Vendas e Tecnologia</div>
+      <div class="fio" id="fio"></div>
+      <h1 id="gancho" class="bloco"></h1>
+      <div id="prova" class="bloco"><span></span></div>
+      <div id="tela" class="bloco"><img alt="" /></div>
+      <div id="chat" class="bloco">
+        <div class="chat-head"><div class="av"></div><b>Cliente</b><span class="exemplo">EXEMPLO</span></div>
+        <div class="bolha" id="b1">Oi! Quanto custa o serviço?<em>14:02</em></div>
+        <div class="bolha" id="b2">Já fechei com outra empresa. Obrigado.<em>no dia seguinte</em></div>
+      </div>
+      <div id="timer" class="bloco">
+        <div class="t"><i class="relogio"><u class="h1"></u><u class="h2"></u></i>Sem resposta há 3 min</div>
+        <div class="t"><i class="relogio"><u class="h1"></u><u class="h2"></u></i>Sem resposta há 47 min</div>
+        <div class="t"><i class="relogio"><u class="h1"></u><u class="h2"></u></i>Sem resposta há 5 h</div>
+        <div class="t"><i class="relogio"><u class="h1"></u><u class="h2"></u></i>Sem resposta há 1 dia</div>
+      </div>
+      <div id="legendas" class="bloco"></div>
+      <div id="fim">
+        <svg viewBox="{{VIEWBOX}}" aria-hidden="true">
+          <path id="nuvem" d="{{NUVEM}}" fill="none" stroke="#F2F1EC" stroke-width="{{TRACO}}" stroke-linejoin="round" />
+          <path id="rede" d="{{REDE}}" fill="#F2F1EC" />
+          <circle id="anel" cx="{{AMBAR_CX}}" cy="{{AMBAR_CY}}" r="{{AMBAR_R}}" fill="none" stroke="#F2A516" stroke-width="1.2" opacity="0" />
+          <circle id="ambar" cx="{{AMBAR_CX}}" cy="{{AMBAR_CY}}" r="{{AMBAR_R}}" fill="#F2A516" />
+        </svg>
+        <div class="nome" id="nome"></div>
+        <div class="barra" id="barra"></div>
+        <div class="sub" id="sub">Vendas e Tecnologia</div>
+        <div class="chamada" id="chamada"></div>
+        <div class="pilula" id="pilula"><span></span></div>
+      </div>
     </div>
     <script>
       const v = window.__hyperframes.getVariables();
-      document.querySelector("#gancho").textContent = v.gancho;
-      document.querySelector("#prova span").textContent = v.prova;
-      const partes = String(v.cta).split(":");
-      const cta = document.querySelector("#cta");
-      cta.textContent = partes[0].trim() + (partes[1] ? "." : "");
-      if (partes[1]) { const s = document.createElement("small"); s.textContent = partes.slice(1).join(":").trim(); cta.appendChild(s); }
-      if (v.print) { const t = document.querySelector("#tela"); t.style.display = "block"; t.querySelector("img").src = v.print; document.querySelector("#prova").style.top = "440px"; }
+      const D = {{DURACAO}}, G = {{GANCHO_DUR}}, E = {{FIM_INICIO}};
+      const $ = (s) => document.querySelector(s);
       const tl = gsap.timeline({ paused: true });
-      const G = {{GANCHO_DUR}}, M = {{MEIO_DUR}}, C = {{CTA_INICIO}};
-      tl.fromTo("#gancho", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, 0);
-      tl.fromTo("#prova", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, G);
-      tl.fromTo("#tela", { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, G + 0.1);
-      tl.fromTo("#cta", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, C);
+
+      // gancho: palavra por palavra
+      const g = $("#gancho");
+      String(v.gancho).split(/\s+/).forEach((w) => { const s = document.createElement("span"); s.className = "p"; s.textContent = w; g.appendChild(s); });
+      tl.set("#gancho .p", { y: 36 }, 0);
+      tl.to("#gancho .p", { opacity: 1, y: 0, duration: 0.32, ease: "power3.out", stagger: 0.07 }, 0.05);
+      tl.to("#gancho", { opacity: 0, y: -24, duration: 0.3, ease: "power2.in" }, G - 0.3);
+
+      const MEIO0 = G, MEIO1 = E - 0.55;
+      if (v.cena === "conversa") {
+        $("#chat").style.display = "block";
+        const frases = JSON.parse(v.legendas || "[]");
+        const pesos = frases.map((f) => f.split(/\s+/).length);
+        const soma = pesos.reduce((a, b) => a + b, 0) || 1;
+        const janela = MEIO1 - MEIO0 - 0.3;
+        let t = MEIO0 + 0.2; const ts = [];
+        const box = $("#legendas");
+        frases.forEach((f, i) => {
+          const p = document.createElement("p"); p.textContent = f; box.appendChild(p);
+          const dur = janela * pesos[i] / soma;
+          ts.push(t);
+          tl.fromTo(p, { opacity: 0, y: 28 }, { opacity: 1, y: 0, duration: 0.3, ease: "power3.out" }, t);
+          if (i < frases.length - 1) tl.to(p, { opacity: 0, duration: 0.2, ease: "power1.in" }, t + dur - 0.22);
+          t += dur;
+        });
+        // cartão da conversa
+        tl.fromTo("#chat", { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, MEIO0 + 0.1);
+        tl.fromTo("#b1", { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.4, ease: "back.out(1.6)" }, ts[0] + 0.3);
+        tl.fromTo("#timer", { opacity: 0 }, { opacity: 1, duration: 0.25 }, ts[0] + 1.6);
+        const marcos = [ts[0] + 1.6, ts[1 % ts.length] + 0.2, ts[1 % ts.length] + 1.9, ts[2 % ts.length] + 0.3];
+        document.querySelectorAll("#timer .t").forEach((el, i) => {
+          tl.fromTo(el, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.22, ease: "power2.out" }, marcos[i]);
+          if (i < 3) tl.to(el, { opacity: 0, duration: 0.15 }, marcos[i + 1] - 0.15);
+        });
+        document.querySelectorAll("#timer .h2").forEach((h) => tl.to(h, { rotation: 1440, duration: MEIO1 - marcos[0], ease: "none" }, marcos[0]));
+        document.querySelectorAll("#timer .h1").forEach((h) => tl.to(h, { rotation: 120, duration: MEIO1 - marcos[0], ease: "none" }, marcos[0]));
+        tl.fromTo("#b2", { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.4, ease: "back.out(1.6)" }, marcos[3] + 0.15);
+        ["#chat", "#timer", "#legendas"].forEach((s) => tl.to(s, { opacity: 0, duration: 0.25 }, E - 0.6));
+      } else {
+        $("#prova span").textContent = v.prova;
+        if (v.print) { const t2 = $("#tela"); t2.style.display = "block"; t2.querySelector("img").src = v.print; }
+        tl.fromTo("#prova", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, G);
+        tl.fromTo("#tela", { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, G + 0.1);
+      }
+
+      // final animado com o símbolo da V2O5
+      const partes = String(v.cta).split(":");
+      const principal = partes[0].replace(/\.$/, "").trim();
+      const corte = principal.lastIndexOf(". ");
+      $("#chamada").innerHTML = corte > 0 ? principal.slice(0, corte + 1) + " <b>" + principal.slice(corte + 2) + ".</b>" : principal;
+      const pil = (partes[1] || "link na bio").replace(/\.$/, "").trim();
+      $("#pilula span").textContent = pil.charAt(0).toUpperCase() + pil.slice(1);
+      "V2O5".split("").forEach((c) => { const s = document.createElement("span"); s.textContent = c; $("#nome").appendChild(s); });
+      const comp = $("#nuvem").getTotalLength();
+      gsap.set("#nuvem", { strokeDasharray: comp, strokeDashoffset: comp });
+      gsap.set("#rede", { opacity: 0, scale: 0.9, transformOrigin: "50% 50%" });
+      gsap.set("#ambar", { scale: 0, transformOrigin: "{{AMBAR_CX}}px {{AMBAR_CY}}px" });
+      gsap.set("#anel", { transformOrigin: "{{AMBAR_CX}}px {{AMBAR_CY}}px", opacity: 0 });
+      gsap.set("#fim", { y: 1920 });
+      tl.to("#fim", { y: 0, duration: 0.5, ease: "power3.inOut" }, E - 0.5);
+      tl.to("#nuvem", { strokeDashoffset: 0, duration: 0.85, ease: "power2.inOut" }, E + 0.1);
+      tl.to("#rede", { opacity: 1, scale: 1, duration: 0.6, ease: "power2.out" }, E + 0.7);
+      tl.to("#ambar", { scale: 1, duration: 0.45, ease: "back.out(2.4)" }, E + 1.15);
+      tl.fromTo("#anel", { opacity: 0.9, scale: 1 }, { opacity: 0, scale: 5, duration: 0.8, ease: "power2.out", immediateRender: false }, E + 1.2);
+      tl.to("#nome span", { opacity: 1, y: 0, duration: 0.4, ease: "power3.out", stagger: 0.08 }, E + 1.3);
+      tl.set("#nome span", { y: 40 }, 0);
+      tl.to("#barra", { scaleX: 1, duration: 0.5, ease: "power3.out" }, E + 1.75);
+      tl.to("#sub", { opacity: 1, duration: 0.45 }, E + 1.8);
+      tl.fromTo("#chamada", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, E + 2.3);
+      tl.fromTo("#pilula", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, E + 2.8);
+      tl.to("#fim", { opacity: 0, duration: 0.4, ease: "power1.in" }, D - 0.4);
       window.__timelines["main"] = tl;
       tl.seek(0);
     </script>
