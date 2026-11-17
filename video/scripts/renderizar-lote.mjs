@@ -74,7 +74,7 @@ const sim = simbolo();
 
 for (const r of reels) {
   const dur = Math.max(14, Number(r.duracao_s));
-  const G = 3.5, E = +(dur - 5).toFixed(1);
+  const G = 3.5, E = +(dur - 5.5).toFixed(1);
   let html = modelo.replaceAll("{{DURACAO}}", String(dur)).replaceAll("{{GANCHO_DUR}}", String(G)).replaceAll("{{FIM_INICIO}}", String(E));
   for (const [k, val] of Object.entries(sim)) html = html.replaceAll(`{{${k}}}`, val);
   const tmp = join(saida, `.tmp-${r.codigo}`);

@@ -27,7 +27,7 @@ O vídeo sai sem música: o áudio é escolhido na biblioteca do Instagram na ho
 - GSAP 3.15.0 e a fonte Geist ficam locais (não carrega nada de CDN no render).
 
 ## Final animado e cenas
-O modelo tem um final animado de 5 s com o símbolo da V2O5 (nuvem desenhada, rede, átomo âmbar, "V2O5", "Vendas e Tecnologia" e a chamada com o botão "Link na bio"), lido de `src/lib/marca-vetor.ts`. O som do final (subida suave, batida, toque do átomo e saída, sem música) é sintetizado pelo `renderizar-lote.mjs` com o ffmpeg e juntado ao vídeo; `--sem-som` desliga. Nível alvo: perto de -15 LUFS, pico em -3 dBFS.
+O modelo tem um final animado de 5,5 s (o texto sob o logo é digitado, com cursor âmbar) com o símbolo da V2O5 (nuvem desenhada, rede, átomo âmbar, "V2O5", "Vendas e Tecnologia" e a chamada com o botão "Link na bio"), lido de `src/lib/marca-vetor.ts`. O som do final (subida suave, batida, toque do átomo e saída, sem música) é sintetizado pelo `renderizar-lote.mjs` com o ffmpeg e juntado ao vídeo; `--sem-som` desliga. Nível alvo: perto de -15 LUFS, pico em -3 dBFS.
 Cenas do meio: `--cena L1-01=conversa` usa a conversa de exemplo com legendas do corpo (sem locução); sem a opção, a cena é texto com imagem de tela. Qualidade final: sem `--draft`.
 
 ## Telas dos reels
