@@ -18,6 +18,7 @@ const so = (flags[flags.indexOf("--so") + 1] ?? "").split(",").filter(Boolean);
 const pares = (nome) => Object.fromEntries(flags.flatMap((f, i) => (f === nome ? [flags[i + 1].split("=")] : [])));
 const prints = pares("--print");
 const cenas = pares("--cena");
+const cenasCfg = existsSync(join(raiz, "cenas.json")) ? JSON.parse(readFileSync(join(raiz, "cenas.json"), "utf8")) : {};
 const telas = pares("--tela"); // gravação em vídeo da tela: --tela L1-08=gravacoes/telas/v-formulario-completo.mp4
 
 function lerCsv(texto) {
@@ -82,7 +83,8 @@ for (const r of reels) {
   rmSync(tmp, { recursive: true, force: true });
   mkdirSync(tmp, { recursive: true });
   spawnSync("cp", ["-r", join(raiz, "modelos/reel") + "/.", tmp]);
-  const cena = cenas[r.codigo] ?? (telas[r.codigo] || prints[r.codigo] ? "tela" : "texto");
+  const cfg = cenasCfg[r.codigo] ?? {};
+  const cena = cenas[r.codigo] ?? cfg.tipo ?? (telas[r.codigo] || prints[r.codigo] ? "tela" : "texto");
   let videoTag = "";
   if (telas[r.codigo] && existsSync(telas[r.codigo])) {
     // O clipe é estendido (último quadro parado) até cobrir toda a cena do meio.
@@ -103,7 +105,7 @@ for (const r of reels) {
   }
   writeFileSync(join(tmp, "index.html"), html.replaceAll("{{VIDEO_TAG}}", videoTag));
   const legendas = cena !== "texto" ? r.corpo.split(/(?<=[.!?])\s+(?=[A-ZÁÉÍÓÚ])/) : [];
-  const vars = { gancho: r.gancho, prova: r.texto_tela, print, cta: r.cta, cena, legendas: JSON.stringify(legendas) };
+  const vars = { gancho: r.gancho, prova: r.texto_tela, print, cta: r.cta, cena, legendas: JSON.stringify(legendas), cfg: JSON.stringify(cfg) };
   const mudo = join(saida, `${r.codigo}.mudo.mp4`);
   const arq = join(saida, `${r.codigo}.mp4`);
   const res = spawnSync("npx", ["hyperframes", "render", tmp, "-o", mudo, "-q", draft ? "draft" : "delivery", "--variables", JSON.stringify(vars), "--quiet"], { cwd: raiz, stdio: "inherit" });

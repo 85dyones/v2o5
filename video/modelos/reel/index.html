@@ -6,7 +6,8 @@
     {"id":"print","type":"string","label":"Caminho da imagem de tela (opcional)","default":""},
     {"id":"cta","type":"string","label":"CTA final","default":"Descubra onde sua empresa pode funcionar melhor. Gratuitamente: link na bio."},
     {"id":"cena","type":"string","label":"Cena do meio: texto ou conversa","default":"texto"},
-    {"id":"legendas","type":"string","label":"Legendas do corpo, JSON com uma frase por item","default":"[]"}
+    {"id":"legendas","type":"string","label":"Legendas do corpo, JSON com uma frase por item","default":"[]"},
+    {"id":"cfg","type":"string","label":"Configuração da cena do meio (JSON)","default":"{}"}
   ]'>
   <head>
     <meta charset="UTF-8" />
@@ -43,6 +44,47 @@
       .relogio { position: relative; width: 44px; height: 44px; border: 4px solid var(--acao); border-radius: 50%; display: block; flex: none; }
       .relogio u { position: absolute; left: 50%; bottom: 50%; width: 4px; background: var(--acao); transform-origin: 50% 100%; margin-left: -2px; }
       .relogio .h1 { height: 12px; } .relogio .h2 { height: 17px; }
+      /* cenas de motion do meio */
+      #cena { position: absolute; left: 72px; right: 72px; top: 430px; height: 680px; }
+      #cena .etiqueta { position: absolute; right: 0; top: -52px; background: var(--acao); font-size: 24px; font-weight: 700; letter-spacing: 0.06em; padding: 6px 14px; }
+      .barras { display: flex; flex-direction: column; gap: 22px; }
+      .linha .lt { display: flex; justify-content: space-between; align-items: baseline; font-size: 38px; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 8px; }
+      .linha .nt { font-style: normal; font-size: 34px; font-weight: 700; background: var(--acao); padding: 0 12px; }
+      .trilho { height: 52px; border: 3px solid var(--tinta); background: #E8E6DF; }
+      .enche { display: block; height: 100%; width: 0; }
+      .caminho { position: relative; display: flex; flex-direction: column; }
+      .caminho .no { position: relative; min-height: 100px; border: 3px solid var(--tinta); background: var(--cartao); padding: 18px 28px; display: flex; flex-direction: column; justify-content: center; }
+      .caminho .no b { font-size: 42px; font-weight: 700; letter-spacing: -0.025em; }
+      .caminho .no small { font-size: 28px; color: var(--apagado); margin-top: 2px; }
+      .caminho .lig { width: 4px; height: 40px; background: var(--tinta); margin-left: 60px; }
+      .quest { position: absolute; right: 28px; top: 20px; width: 60px; height: 60px; background: var(--acao); font-size: 42px; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+      .ok { position: absolute; right: 24px; top: 26px; background: var(--acao); font-size: 28px; font-weight: 700; padding: 8px 16px; }
+      .token { position: absolute; right: 24px; top: 0; z-index: 3; background: var(--acao); font-size: 30px; font-weight: 700; padding: 10px 22px; border: 3px solid var(--tinta); }
+      .chips { display: flex; gap: 14px; margin-top: 24px; flex-wrap: wrap; }
+      .chips span { background: var(--tinta); color: var(--papel); font-size: 32px; font-weight: 600; padding: 12px 22px; }
+      .comp { display: grid; grid-template-columns: 1fr 1fr; gap: 34px; }
+      .col h3 { font-size: 36px; font-weight: 700; letter-spacing: -0.02em; padding-bottom: 14px; margin-bottom: 18px; border-bottom: 4px solid var(--linha); }
+      .col.bom h3 { border-bottom-color: var(--acao); }
+      .col .item { font-size: 37px; line-height: 1.15; font-weight: 600; letter-spacing: -0.02em; padding: 20px 22px; margin-bottom: 16px; border: 3px solid var(--tinta); background: var(--cartao); }
+      .col.ruim .item { background: #E8E6DF; color: var(--apagado); border-color: var(--linha); }
+      .col.bom .item u { text-decoration: none; display: inline-block; background: var(--acao); width: 40px; height: 40px; text-align: center; margin-right: 14px; font-size: 30px; line-height: 40px; }
+      .numero { text-align: center; }
+      .numero .fonte { display: inline-block; background: var(--acao); font-size: 30px; font-weight: 700; padding: 8px 18px; margin-bottom: 28px; }
+      .numero .grande { font-size: 330px; line-height: 0.95; font-weight: 700; letter-spacing: -0.06em; }
+      .numero .suf { font-size: 120px; letter-spacing: -0.03em; margin-left: 18px; }
+      .numero .rot { font-size: 46px; font-weight: 600; margin-top: 18px; }
+      .numero .extra { display: inline-block; margin-top: 26px; background: var(--tinta); color: var(--papel); font-size: 38px; font-weight: 600; padding: 12px 26px; }
+      .celulas { display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px; }
+      .cel { height: 100px; border: 3px solid var(--tinta); background: var(--cartao); }
+      .grade .q { text-align: center; margin-top: 26px; }
+      .grade .q span { display: block; font-size: 190px; line-height: 0.9; font-weight: 700; letter-spacing: -0.05em; }
+      .grade .q small { font-size: 42px; font-weight: 600; color: var(--apagado); }
+      .chatg { position: relative; border: 3px solid var(--tinta); background: var(--cartao); }
+      .msgs { padding: 26px; display: flex; flex-direction: column; gap: 16px; }
+      .m { max-width: 720px; padding: 18px 26px; font-size: 38px; line-height: 1.2; border: 2px solid var(--linha); background: #fff; }
+      .m.c { align-self: flex-start; }
+      .m.a { align-self: flex-end; background: #F7E2B5; border-color: var(--acao); }
+      .selo { align-self: center; background: var(--tinta); color: var(--papel); font-size: 32px; font-weight: 600; padding: 10px 24px; }
       /* legendas do corpo */
       #legendas { top: 1090px; height: 340px; }
       #legendas p { position: absolute; left: 0; right: 0; top: 0; font-size: 58px; line-height: 1.14; font-weight: 700; letter-spacing: -0.03em; }
@@ -80,6 +122,7 @@
         <div class="t"><i class="relogio"><u class="h1"></u><u class="h2"></u></i>Sem resposta há 5 h</div>
         <div class="t"><i class="relogio"><u class="h1"></u><u class="h2"></u></i>Sem resposta há 1 dia</div>
       </div>
+      <div id="cena"></div>
       <div id="legendas" class="bloco"></div>
       <div id="fim">
         <svg viewBox="{{VIEWBOX}}" aria-hidden="true">
@@ -97,6 +140,7 @@
     </div>
     <script>
       const v = window.__hyperframes.getVariables();
+      const cfg = JSON.parse(v.cfg || "{}");
       const D = {{DURACAO}}, G = {{GANCHO_DUR}}, E = {{FIM_INICIO}};
       const $ = (s) => document.querySelector(s);
       const tl = gsap.timeline({ paused: true });
@@ -124,6 +168,81 @@
         });
         return ts;
       }
+      // ---- cenas de motion do meio (dirigidas pelo cfg do reel) ----
+      const cena = $("#cena");
+      function el(cls, html, pai) { const e = document.createElement("div"); if (cls) e.className = cls; if (html) e.innerHTML = html; (pai || cena).appendChild(e); return e; }
+      // âncora: tempo em que começa a frase i (aceita fração: 1.5 fica no meio entre a frase 1 e a 2)
+      const A = (ts, i) => { const k = Math.min(Math.floor(i || 0), ts.length - 1); const prox = ts[Math.min(k + 1, ts.length - 1)]; const dt = k + 1 < ts.length ? prox - ts[k] : 2; return ts[k] + dt * ((i || 0) - Math.floor(i || 0)) + 0.15; };
+      const pop = (e, t, extra) => tl.fromTo(e, { opacity: 0, y: 34 }, Object.assign({ opacity: 1, y: 0, duration: 0.42, ease: "power3.out" }, extra || {}), t);
+      const CENAS = {
+        barras(c, ts) {
+          if (c.tag) el("etiqueta", c.tag);
+          const box = el("barras");
+          c.linhas.forEach((l) => {
+            const r = el("linha", `<div class="lt"><span>${l.rotulo}</span><em class="nt">${l.nota || ""}</em></div><div class="trilho"><i class="enche"></i></div>`, box);
+            const fill = r.querySelector(".enche"), nt = r.querySelector(".nt");
+            fill.style.background = l.cor === "acao" ? "#F2A516" : l.cor === "apagado" ? "#A9ACB4" : "#121418";
+            const t0 = A(ts, l.a); pop(r, t0);
+            if (l.cresce != null) { gsap.set(fill, { width: (l.v0 || 8) + "%" }); tl.to(fill, { width: l.v + "%", duration: 1.2, ease: "power2.inOut" }, A(ts, l.cresce)); }
+            else { tl.to(fill, { width: l.v + "%", duration: 0.9, ease: "power2.out" }, t0 + 0.15); }
+            if (l.na != null) tl.fromTo(nt, { opacity: 0 }, { opacity: 1, duration: 0.3 }, A(ts, l.na));
+            if (l.destaque != null) tl.set(fill, { backgroundColor: "#F2A516" }, A(ts, l.destaque));
+          });
+        },
+        caminho(c, ts) {
+          const box = el("caminho"); const nos = [];
+          c.nos.forEach((n, i) => { if (i) el("lig", "", box); nos.push(el("no", `<b>${n.rotulo}</b>${n.sub ? `<small>${n.sub}</small>` : ""}`, box)); });
+          nos.forEach((e, i) => {
+            const n = c.nos[i], t0 = A(ts, n.a != null ? n.a : i);
+            pop(e, t0);
+            const lig = e.previousElementSibling;
+            if (lig && lig.classList.contains("lig")) { gsap.set(lig, { scaleY: 0, transformOrigin: "50% 0%" }); tl.to(lig, { scaleY: 1, duration: 0.25, ease: "none" }, t0 - 0.3); }
+            if (n.destaque) tl.set(e, { backgroundColor: "#F7E2B5" }, t0 + 0.3);
+            if (n.pergunta) {
+              const q = el("quest", "?", e); tl.fromTo(q, { opacity: 0, scale: 0.5 }, { opacity: 1, scale: 1, duration: 0.3, ease: "back.out(2)" }, t0 + 0.3);
+              if (n.resolve) { tl.to(q, { opacity: 0, duration: 0.2 }, A(ts, n.resolve.a)); const ok = el("ok", n.resolve.texto, e); tl.fromTo(ok, { opacity: 0 }, { opacity: 1, duration: 0.3 }, A(ts, n.resolve.a) + 0.1); tl.set(e, { backgroundColor: "#F7E2B5" }, A(ts, n.resolve.a)); }
+            }
+          });
+          if (c.chips) { const ch = el("chips", c.chips.itens.map((x) => `<span>${x}</span>`).join(""), box); tl.fromTo(ch.children, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.35, stagger: 0.15 }, A(ts, c.chips.a)); }
+          if (c.pilula) {
+            const tk = el("token", c.pilula.texto, box); const base = nos[0].offsetTop + 26; tk.style.top = base + "px";
+            tl.fromTo(tk, { opacity: 0 }, { opacity: 1, duration: 0.25 }, A(ts, c.pilula.a));
+            c.pilula.vai.forEach((v2) => { const ta = A(ts, v2.a); tl.to(tk, { y: nos[v2.no].offsetTop - nos[0].offsetTop, duration: 0.7, ease: "power2.inOut" }, ta); tl.set(nos[v2.no], { backgroundColor: "#F7E2B5" }, ta + 0.7); });
+          }
+        },
+        comparar(c, ts) {
+          const box = el("comp");
+          c.colunas.forEach((col, ci) => {
+            const cx = el("col " + (ci ? "bom" : "ruim"), `<h3>${col.titulo}</h3>`, box);
+            tl.fromTo(cx.querySelector("h3"), { opacity: 0 }, { opacity: 1, duration: 0.3 }, A(ts, col.a || 0));
+            col.itens.forEach((it, i) => { const e = el("item", (ci ? "<u>✓</u>" : "") + it.texto, cx); if (!ci) gsap.set(e, { rotation: i % 2 ? 0.8 : -0.8 }); pop(e, A(ts, it.a)); });
+          });
+        },
+        numero(c, ts) {
+          const box = el("numero", `<div class="fonte">${c.fonte}</div><div class="grande"><span class="nv">0</span><span class="suf">${c.sufixo || ""}</span></div><div class="rot">${c.rotulo}</div>${c.extra ? `<div class="extra">${c.extra}</div>` : ""}`);
+          const o = { n: 0 }, nv = box.querySelector(".nv");
+          tl.fromTo(box.querySelector(".fonte"), { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.4 }, A(ts, c.fonteA || 0));
+          tl.fromTo([box.querySelector(".grande"), box.querySelector(".rot")], { opacity: 0 }, { opacity: 1, duration: 0.3 }, A(ts, c.a));
+          tl.to(o, { n: c.valor, duration: 1.6, ease: "power2.out", onUpdate: () => { nv.textContent = Math.round(o.n); } }, A(ts, c.a));
+          if (c.extra) tl.fromTo(box.querySelector(".extra"), { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.4 }, A(ts, c.extraA != null ? c.extraA : c.a) + 0.9);
+        },
+        grade(c, ts) {
+          if (c.tag) el("etiqueta", c.tag);
+          const box = el("grade"); const g = el("celulas", "", box); const cels = [];
+          for (let i = 0; i < c.linhas * c.colunas; i++) cels.push(el("cel", "", g));
+          tl.fromTo(cels, { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.25, ease: "back.out(2)", stagger: 0.03 }, A(ts, 0));
+          c.marcadas.forEach((idx, k) => tl.set(cels[idx], { backgroundColor: "#F2A516" }, A(ts, c.aMarcar) + k * 0.2));
+          const q = el("q", `<span>${c.valor}</span><small>${c.rotulo}</small>`, box);
+          tl.fromTo(q, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.4 }, A(ts, c.aValor || 0));
+        },
+        chat(c, ts) {
+          const box = el("chatg", `<div class="chat-head"><div class="av"></div><b>${c.nome}</b><span class="exemplo">EXEMPLO</span></div><div class="msgs"></div>`);
+          const ms = box.querySelector(".msgs");
+          c.msgs.forEach((m) => pop(el("m " + m.de, m.texto, ms), A(ts, m.a)));
+          if (c.selo) pop(el("selo", c.selo.texto, ms), A(ts, c.selo.a));
+        },
+      };
+
       const MEIO0 = G, MEIO1 = E - 0.55;
       if (v.cena === "conversa") {
         $("#chat").style.display = "block";
@@ -141,6 +260,12 @@
         document.querySelectorAll("#timer .h1").forEach((h) => tl.to(h, { rotation: 120, duration: MEIO1 - marcos[0], ease: "none" }, marcos[0]));
         tl.fromTo("#b2", { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.4, ease: "back.out(1.6)" }, marcos[3] + 0.15);
         ["#chat", "#timer", "#legendas"].forEach((s) => tl.to(s, { opacity: 0, duration: 0.25 }, E - 0.6));
+      } else if (CENAS[v.cena]) {
+        $("#legendas").style.cssText = "top:1130px;height:300px;";
+        const ts2 = legendar();
+        tl.fromTo("#cena", { opacity: 0 }, { opacity: 1, duration: 0.3 }, MEIO0 + 0.1);
+        CENAS[v.cena](cfg, ts2);
+        ["#cena", "#legendas"].forEach((q) => tl.to(q, { opacity: 0, duration: 0.25 }, E - 0.6));
       } else if (v.cena === "tela") {
         $("#prova").style.cssText = "top:410px;font-size:66px;";
         $("#tela").style.cssText = "display:block;top:540px;left:0;right:0;height:643px;border-left:0;border-right:0;";
