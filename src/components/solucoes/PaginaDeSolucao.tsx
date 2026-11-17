@@ -267,7 +267,7 @@ function NaMotors({ m, etapa, captura }: { m: NonNullable<Solucao["naMotors"]>; 
           {/* grid para a célula de tinta esticar até a altura da linha */}
           <dl className="grid">{celulas}</dl>
           <div className="flex flex-col justify-between gap-6 border-t border-linha p-6 md:border-l md:border-t-0 md:p-7">
-            <p className="text-sm text-texto-secundario">{CASE.fonte}</p>
+            <p className="text-sm text-texto-secundario">{m.fonte ?? CASE.fonte}</p>
             <Link href="/cases/motors-store" className="botao botao-secundario self-start" data-evento="cta_click" data-local="na-motors">
               Ler o case completo
               <Icone nome="seta" className="seta size-4" />
@@ -291,7 +291,7 @@ function NaMotors({ m, etapa, captura }: { m: NonNullable<Solucao["naMotors"]>; 
               <div aria-hidden="true" className="hachura hidden border-l border-linha md:block" />
             </dl>
           )}
-          <p className="mt-4 text-sm text-texto-secundario">{CASE.fonte}</p>
+          <p className="mt-4 text-sm text-texto-secundario">{m.fonte ?? CASE.fonte}</p>
           {/* O site entregue em mais telas (26/10, Dyones: "coloque mais prints do site"): só em /criacao-de-sites. */}
           {captura ? (
             <div className="mt-14 md:mt-16">

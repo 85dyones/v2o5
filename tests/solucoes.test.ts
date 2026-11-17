@@ -17,7 +17,7 @@ import { ler, semComentarios } from "./fonte";
 const DAS_SOLUCOES = ["/presenca-digital-local", "/criacao-de-sites", "/sprint-de-eficiencia"];
 const DE_RECURSO = ["/agente-de-ia-para-whatsapp", "/automacao-com-ia", "/crm-com-whatsapp", "/rastreamento-de-conversoes"];
 const ROTAS = [...DAS_SOLUCOES, ...DE_RECURSO];
-const numerosDoCase = [...CASE.numeros, ...CASE_MOTORS.numeros.itens];
+const numerosDoCase = [...CASE.numeros, ...CASE_MOTORS.numeros.itens, ...CASE_MOTORS.atendimento.numeros];
 
 describe("páginas de solução", () => {
   it("são as três soluções e as quatro de recurso, prontas, indexáveis e montadas pelo molde", () => {
@@ -25,8 +25,13 @@ describe("páginas de solução", () => {
     for (const rota of ROTAS) {
       expect(paginaDa(rota).pronta, rota).toBe(true);
       // As de recurso mudaram em 25/10/2026 (sem mapa em 24 horas, sem valor); as soluções, em 27/10/2026;
-      // o agente no WhatsApp ganhou "chatbot" no título em 31/10/2026 e voltou a "Agente de IA" no H1 em 12/11/2026.
-      const data = DAS_SOLUCOES.includes(rota) ? "2026-10-27" : rota === "/agente-de-ia-para-whatsapp" ? "2026-11-12" : "2026-10-25";
+      // o agente no WhatsApp ganhou "chatbot" no título em 31/10/2026 e voltou a "Agente de IA" no H1 em 12/11/2026;
+      // a de sites perdeu o Site Automotivo Integrado em 17/11/2026.
+      const data =
+        rota === "/criacao-de-sites" ? "2026-11-17"
+        : DAS_SOLUCOES.includes(rota) ? "2026-10-27"
+        : rota === "/agente-de-ia-para-whatsapp" ? "2026-11-12"
+        : "2026-10-25";
       expect(paginaDa(rota).atualizadaEm, rota).toBe(data);
       const pagina = semComentarios(ler(`src/app${rota}/page.tsx`));
       expect(pagina, rota).toContain("<PaginaDeSolucao rota={ROTA}");
@@ -71,8 +76,13 @@ describe("páginas de solução", () => {
         expect(s.problema.href, s.rota).toBe(VISAO_360.evidencia.href);
       }
     }
-    expect(solucaoDa("/agente-de-ia-para-whatsapp").naMotors).toBeUndefined();
-    expect(JSON.stringify(solucaoDa("/agente-de-ia-para-whatsapp"))).not.toMatch(/Motors/);
+    // O Ney roda na Motors desde 21/10/2026: a página do agente cita a loja só com os números dele (17/11/2026).
+    expect(solucaoDa("/agente-de-ia-para-whatsapp").naMotors?.numeros).toEqual([
+      CASE_MOTORS.atendimento.numeros[1],
+      CASE_MOTORS.atendimento.numeros[2],
+    ]);
+    expect(JSON.stringify(solucaoDa("/agente-de-ia-para-whatsapp"))).not.toMatch(/Chatwoot|DeepSeek|Haiku|Claude/);
+    expect(solucaoDa("/agente-de-ia-para-whatsapp").naMotors?.fonte).toBe(CASE_MOTORS.atendimento.fonte);
   });
 
   it("o resumo fica curto para o H1 continuar sendo o LCP, e o H1 é a busca-alvo em frase", () => {

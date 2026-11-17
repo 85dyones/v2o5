@@ -7,8 +7,8 @@ description: "Fluxos no n8n que ligam os sistemas que a sua empresa já usa, com
 canonical: "https://www.v2o5.com.br/automacao-com-ia"
 robots: null
 h1: "Automação de processos com IA e n8n."
-extraido_em: "2026-10-27T14:34:01.868Z"
-fonte: "build local da branch claude/kind-tesla-eefroe em 27/10/2026 (portfólio das quatro soluções), antes da publicação"
+extraido_em: "2026-11-17T15:24:58.492Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 17/11/2026 (case Motors com o Ney, números de 17/11), antes da publicação"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 # Automação de processos com IA e n8n.
@@ -29,7 +29,7 @@ definida na proposta ou na continuidade, se contratada
 
 Em produção
 
-Motors Store: 132 veículos sincronizados com o Revenda Mais
+Motors Store: 148 veículos sincronizados com o Revenda Mais
 
 ## O processo existe, mas mora na cabeça de uma pessoa.
 
@@ -131,23 +131,23 @@ Atração
 
 Recebe o visitante e guarda de onde ele veio antes de levá-lo ao WhatsApp ou ao formulário.
 
-Caminho que passa por aqui <!-- só para leitor de tela -->
+Caminho que passa por aqui <!-- só leitor de tela -->
 
-- Site
-- WhatsApp
-- Agente de IA
-- CRM
-- Venda
+- Site <!-- só leitor de tela -->
+- WhatsApp <!-- só leitor de tela -->
+- Agente de IA <!-- só leitor de tela -->
+- CRM <!-- só leitor de tela -->
+- Venda <!-- só leitor de tela -->
 
 ## Rodando na Motors Store.
 
-Sincronização do estoque com o Revenda Mais, vendas incompletas e alertas de estagnação do funil, com WhatsApp pela Evolution API.
+Sincronização do estoque com o Revenda Mais, entrada das conversas do WhatsApp pela Evolution API, rodada do atendimento a cada 15 minutos e alerta de falha de integração.
 
 veículos sincronizados com o estoque do Revenda Mais
 
-132
+148
 
-Banco de dados da Motors Store, lido em 08/10/2026. Leads contados de 05/09 a 08/10/2026.
+Banco de dados da Motors Store, lido em 17/11/2026. Leads contados de 05/09 a 17/11/2026.
 
 [Ler o case completo](/cases/motors-store)
 

@@ -22,8 +22,10 @@ export const metadata = metadataDa(ROTA);
 /**
  * O case completo da Motors Store (plano, seção 6.3), na direção B. A rota
  * desce em fio fino nas seções de texto (abertura, o que foi montado, a
- * ficha técnica) e em azul nas de gestão, onde o dado sai do banco da loja
- * (números e eventos). Termina no fecho escuro, no botão do diagnóstico.
+ * ficha técnica), em azul nas de gestão, onde o dado sai do banco da loja
+ * (números e eventos), e em verde no atendimento do Ney (17/11/2026: os
+ * passos, a ficha que vai ao CRM do Revenda Mais e os números dele).
+ * Termina no fecho escuro, no botão do diagnóstico.
  * Conteúdo em `conteudo/case.ts`; números conferidos por `tests/case.test.ts`.
  */
 export default function Pagina() {
@@ -140,6 +142,51 @@ export default function Pagina() {
           </div>
         </Trecho>
 
+        <Trecho aria-labelledby="titulo-atendimento" etapa="verde">
+          <div className="relative grid grid-cols-12 gap-x-6 gap-y-6">
+            <Parada />
+            <div className="col-span-12 lg:col-span-7">
+              <p className="rotulo text-texto-secundario">{c.atendimento.sobretitulo}</p>
+              <h2 id="titulo-atendimento" className="titulo-secao mt-3">
+                {c.atendimento.titulo}
+              </h2>
+            </div>
+            <p className="texto-guia col-span-12 lg:col-span-5 lg:pt-2">{c.atendimento.texto}</p>
+          </div>
+          <div className="mt-12 grid grid-cols-12 gap-x-6 gap-y-10 md:mt-14">
+            {/* Os passos do Ney, do WhatsApp ao CRM, como linhas de registro numeradas. */}
+            <ol className="col-span-12 border-t-2 border-texto lg:col-span-7">
+              {c.atendimento.passos.map((passo, i) => (
+                <li key={passo.titulo} className="grid grid-cols-12 gap-x-6 gap-y-2 border-b border-linha py-6">
+                  <span className="rotulo col-span-12 tabular-nums text-texto-secundario md:col-span-2 md:pt-1.5">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <div className="col-span-12 md:col-span-10">
+                    <h3 className="titulo-cartao">{passo.titulo}</h3>
+                    <p className="mt-2 max-w-[34rem] text-[0.9375rem] leading-relaxed text-texto-secundario">{passo.texto}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+            <div className="col-span-12 lg:col-span-5">
+              <FichaNoCrm ficha={c.atendimento.ficha} />
+              <p className="mt-4 text-sm text-texto-secundario">{c.atendimento.ficha.nota}</p>
+            </div>
+          </div>
+          <dl className="mt-12 grid grid-cols-1 gap-px border-2 border-texto bg-linha sm:grid-cols-3 md:mt-14">
+            {c.atendimento.numeros.map((n) => (
+              <div key={n.texto} className="flex min-h-44 flex-col justify-start gap-6 bg-fundo p-6 sm:justify-between md:min-h-56 md:p-7">
+                <dt className="order-2 max-w-[20rem] text-[0.9375rem] leading-relaxed text-texto-secundario">{n.texto}</dt>
+                <dd className="order-1 flex items-baseline gap-3">
+                  <span className="numero-grande">{n.valor}</span>
+                  {n.complemento ? <span className="text-xl font-medium tracking-[-0.02em] opacity-75">{n.complemento}</span> : null}
+                </dd>
+              </div>
+            ))}
+          </dl>
+          <p className="mt-4 text-sm text-texto-secundario">{c.atendimento.fonte}</p>
+        </Trecho>
+
         <Trecho aria-labelledby="titulo-stack">
           {/* A ficha técnica: as ferramentas em células de fio e, ao lado, quem assina. */}
           <div className="relative grid grid-cols-12 border-y-2 border-texto">
@@ -252,5 +299,30 @@ function Abertura() {
         </dl>
       </div>
     </section>
+  );
+}
+
+/**
+ * O texto que o lead qualificado leva ao CRM do Revenda Mais, como ficha de
+ * registro: fio entre as linhas, mono só aqui, que é dado. Rotulada como
+ * exemplo: o formato é o do envio, os valores não.
+ */
+function FichaNoCrm({ ficha }: { ficha: (typeof CASE_MOTORS)["atendimento"]["ficha"] }) {
+  return (
+    <figure className="border-y-2 border-texto bg-fundo">
+      <figcaption className="flex items-center justify-between gap-4 py-3">
+        <span className="font-mono text-xs text-texto-secundario">{ficha.legenda}</span>
+        <span className="rotulo bg-tinta-ambar px-2 py-1 text-texto">exemplo</span>
+      </figcaption>
+      <p className="border-t border-linha py-3 font-mono text-[0.8125rem] font-medium text-texto">{ficha.titulo}</p>
+      <dl className="grid grid-cols-[minmax(0,8.5rem)_1fr] font-mono text-[0.8125rem]">
+        {ficha.linhas.map(([rotulo, valor]) => (
+          <div key={rotulo} className="contents">
+            <dt className="border-t border-linha py-2.5 pr-4 text-texto-secundario">{rotulo}</dt>
+            <dd className="border-t border-linha py-2.5 text-texto">{valor}</dd>
+          </div>
+        ))}
+      </dl>
+    </figure>
   );
 }

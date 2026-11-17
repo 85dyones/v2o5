@@ -52,15 +52,18 @@ export default function SubmenuDoTopo({ item }: { item: ItemDaNavegacao & { iten
             </LinkOuAncora>
           </li>
         ))}
-        <li className="mt-1 border-t border-linha pt-1">
-          <LinkOuAncora
-            href={item.href}
-            onClick={() => ref.current?.removeAttribute("open")}
-            className="flex min-h-11 items-center px-4 text-sm font-semibold text-texto transition-colors hover:bg-fundo-cartao"
-          >
-            {item.todos ?? item.rotulo}
-          </LinkOuAncora>
-        </li>
+        {/* Grupo sem página própria (Cases) não tem o link final. */}
+        {item.todos ? (
+          <li className="mt-1 border-t border-linha pt-1">
+            <LinkOuAncora
+              href={item.href}
+              onClick={() => ref.current?.removeAttribute("open")}
+              className="flex min-h-11 items-center px-4 text-sm font-semibold text-texto transition-colors hover:bg-fundo-cartao"
+            >
+              {item.todos}
+            </LinkOuAncora>
+          </li>
+        ) : null}
       </ul>
     </details>
   );

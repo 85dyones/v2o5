@@ -7,8 +7,8 @@ description: "GA4, API de Conversões da Meta e conversões offline do Google Ad
 canonical: "https://www.v2o5.com.br/rastreamento-de-conversoes"
 robots: null
 h1: "Rastreamento de conversões até a venda."
-extraido_em: "2026-11-12T15:26:32.532Z"
-fonte: "build local da branch claude/kind-tesla-eefroe em 12/11/2026 (sem Branding e sem tráfego pago), antes da publicação"
+extraido_em: "2026-11-17T15:24:58.492Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 17/11/2026 (case Motors com o Ney, números de 17/11), antes da publicação"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 # Rastreamento de conversões até a venda.
@@ -29,7 +29,7 @@ GA4 e GTM arrumados, API de Conversões da Meta, conversão offline do Google Ad
 
 Em produção
 
-Motors Store: 42 de 44 leads do site com identificador único
+Motors Store: 129 de 131 leads do site com identificador único
 
 ## A campanha aprende com o formulário preenchido, e vende pouco.
 
@@ -119,11 +119,11 @@ Camada de dados versionada e testada; Meta Pixel com API de Conversões deduplic
 
 leads do site chegaram com identificador para não contar a mesma conversão duas vezes
 
-42
+129
 
-de 44
+de 131
 
-Banco de dados da Motors Store, lido em 08/10/2026. Leads contados de 05/09 a 08/10/2026.
+Banco de dados da Motors Store, lido em 17/11/2026. Leads contados de 05/09 a 17/11/2026.
 
 [Ler o case completo](/cases/motors-store)
 

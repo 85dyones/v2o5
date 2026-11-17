@@ -162,21 +162,9 @@ const SITES: Oferta = {
       para: "Para quem precisa do site ligado ao sistema que já usa.",
       inclui: [
         "Tudo do Site Personalizado",
-        "Integração com um sistema que a empresa já usa (CRM, agenda, catálogo ou ERP), depois de verificar a documentação e o acesso",
+        "Integração com um sistema que a empresa já usa (CRM, agenda, estoque, catálogo ou ERP), depois de verificar a documentação e o acesso",
         "Contatos medidos até o sistema, com a origem gravada",
         "Aviso quando a integração falha",
-      ],
-    },
-    {
-      nome: "Site Automotivo Integrado",
-      preco: { valor: 11900, aPartirDe: true },
-      para: "Para a revenda que quer site próprio com o estoque do gestor e os contatos no CRM.",
-      inclui: [
-        "Site da revenda com identidade própria",
-        "Estoque alimentado pelo gestor atual, por feed, API ou outro meio autorizado (Revenda Mais em produção)",
-        "Página de cada veículo e tratamento dos vendidos",
-        "Contatos encaminhados ao CRM que a loja já usa, com a origem registrada",
-        "Monitoramento de falhas da integração",
       ],
     },
   ],

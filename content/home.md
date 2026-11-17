@@ -7,8 +7,8 @@ description: "Presença digital local, sites com integração e o Sprint de Efic
 canonical: "https://www.v2o5.com.br"
 robots: null
 h1: "Do problema ao resultado, pelo caminho mais simples."
-extraido_em: "2026-11-12T15:26:32.532Z"
-fonte: "build local da branch claude/kind-tesla-eefroe em 12/11/2026 (sem Branding e sem tráfego pago), antes da publicação"
+extraido_em: "2026-11-17T15:24:58.492Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 17/11/2026 (case Motors com o Ney, números de 17/11), antes da publicação"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 Estratégia, processos e tecnologia
@@ -198,13 +198,13 @@ Atração
 
 Recebe o visitante e guarda de onde ele veio antes de levá-lo ao WhatsApp ou ao formulário.
 
-Caminho que passa por aqui <!-- só para leitor de tela -->
+Caminho que passa por aqui <!-- só leitor de tela -->
 
-- Site
-- WhatsApp
-- Agente de IA
-- CRM
-- Venda
+- Site <!-- só leitor de tela -->
+- WhatsApp <!-- só leitor de tela -->
+- Agente de IA <!-- só leitor de tela -->
+- CRM <!-- só leitor de tela -->
+- Venda <!-- só leitor de tela -->
 
 Resultado antes de vaidade técnica
 
@@ -238,7 +238,8 @@ Revenda de seminovos em Curitiba, com gargalos diagnosticados em busca, leads, s
 
 - Sincronização de estoque
 - Rastreamento de leads
-- Integrações comerciais
+- Agente de IA no WhatsApp
+- Lead no CRM do Revenda Mais
 
 Construir, observar, melhorar
 
@@ -252,49 +253,7 @@ Os projetos da V2O5 testam hipóteses em operações reais. Implementar é uma p
 
 [Ler o case completo](/cases/motors-store)
 
-## Para revendas de veículos
-
-O modelo parte do sistema da Motors Store: site de estoque integrado ao sistema da loja (Revenda Mais, Autoconf e outros), agente de IA no WhatsApp, CRM e rastreamento até a venda.
-
-[Ver a página de revendas](/segmentos/revendas-de-veiculos)
-
-Estoque <!-- decorativo, aria-hidden -->
-
-exemplo <!-- decorativo, aria-hidden -->
-
-sincronizado com o Revenda Mais <!-- decorativo, aria-hidden -->
-
-Onix LT 1.0 turbo <!-- decorativo, aria-hidden -->
-
-2022 <!-- decorativo, aria-hidden -->
-
-no site <!-- decorativo, aria-hidden -->
-
-no agente <!-- decorativo, aria-hidden -->
-
-HB20 Comfort <!-- decorativo, aria-hidden -->
-
-2021 <!-- decorativo, aria-hidden -->
-
-no site <!-- decorativo, aria-hidden -->
-
-no agente <!-- decorativo, aria-hidden -->
-
-Corolla XEi <!-- decorativo, aria-hidden -->
-
-2020 <!-- decorativo, aria-hidden -->
-
-no site <!-- decorativo, aria-hidden -->
-
-no agente <!-- decorativo, aria-hidden -->
-
-Compass Longitude <!-- decorativo, aria-hidden -->
-
-2021 <!-- decorativo, aria-hidden -->
-
-no site <!-- decorativo, aria-hidden -->
-
-no agente <!-- decorativo, aria-hidden -->
+Fora do varejo, a triagem do WhatsApp da 16ª Vara Cível de Curitiba. [Ler o case da 16ª Vara Cível](/cases/16-vara-civel)
 
 ## O que todo mundo pergunta antes de fechar.
 
@@ -379,7 +338,6 @@ O · 4,8 <!-- texto em SVG; decorativo, aria-hidden -->
 
 <!-- rótulos de acessibilidade (aria-label) desta rota, fora topo e rodapé:
 - "Diagrama: como as peças do sistema se ligam" (ol)
-- "Segmento" (section)
 - "Antes de contratar" (section)
 - "Conversa no WhatsApp" (aside)
 -->

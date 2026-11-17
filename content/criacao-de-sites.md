@@ -3,12 +3,12 @@ rota: "/criacao-de-sites"
 url: "https://www.v2o5.com.br/criacao-de-sites"
 status: 200
 title: "Criação de sites profissionais e integrações | V2O5 Vendas e Tecnologia"
-description: "Landing page, site personalizado, site conectado ao seu sistema e site automotivo com estoque integrado. Rápido no celular, achado no Google e medido."
+description: "Landing page, site personalizado e site conectado ao sistema que você já usa. Rápido no celular, achado no Google e medido."
 canonical: "https://www.v2o5.com.br/criacao-de-sites"
 robots: null
 h1: "Criação de sites profissionais, ligados ao sistema que você já usa."
-extraido_em: "2026-10-27T18:10:55.133Z"
-fonte: "build local da branch claude/kind-tesla-eefroe em 27/10/2026 (mensalidades de entrada da tarde de 27/10), antes da publicação"
+extraido_em: "2026-11-17T15:24:58.492Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 17/11/2026 (case Motors com o Ney, números de 17/11), antes da publicação"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 # Criação de sites profissionais, ligados ao sistema que você já usa.
@@ -25,7 +25,7 @@ Quando a empresa depende de perfil de terceiros, ou o site não conversa com o s
 
 Preço de entrada
 
-a partir de R$ 2.900, da landing page ao site automotivo integrado
+a partir de R$ 2.900, da landing page ao site conectado
 
 Entrega-base
 
@@ -33,7 +33,7 @@ Onze itens iguais em todo site da V2O5, das páginas que o Google entende à ent
 
 Em produção
 
-Motors Store: site de estoque com 132 veículos sincronizados e 26 guias
+Motors Store: site de estoque com 148 veículos sincronizados e 26 guias
 
 ## O site de template aparece bonito e some na busca.
 
@@ -121,7 +121,7 @@ Site de estoque com vitrine, ficha de veículo, páginas por marca e modelo e se
 
 veículos sincronizados com o estoque do Revenda Mais
 
-132
+148
 
 guias publicados, assinados pelo fundador da V2O5
 
@@ -131,7 +131,7 @@ guias publicados, assinados pelo fundador da V2O5
 
 motorsstore.com.br, capturado em 19/10/2026
 
-Banco de dados da Motors Store, lido em 08/10/2026. Leads contados de 05/09 a 08/10/2026.
+Banco de dados da Motors Store, lido em 17/11/2026. Leads contados de 05/09 a 17/11/2026.
 
 ### O site entregue, tela por tela.
 
@@ -212,25 +212,9 @@ Preço de referência da implantação.
 Para quem precisa do site ligado ao sistema que já usa.
 
 - Tudo do Site Personalizado
-- Integração com um sistema que a empresa já usa (CRM, agenda, catálogo ou ERP), depois de verificar a documentação e o acesso
+- Integração com um sistema que a empresa já usa (CRM, agenda, estoque, catálogo ou ERP), depois de verificar a documentação e o acesso
 - Contatos medidos até o sistema, com a origem gravada
 - Aviso quando a integração falha
-
-Sites & Integrações
-
-### Site Automotivo Integrado
-
-A partir de R$ 11.900
-
-Preço de referência da implantação.
-
-Para a revenda que quer site próprio com o estoque do gestor e os contatos no CRM.
-
-- Site da revenda com identidade própria
-- Estoque alimentado pelo gestor atual, por feed, API ou outro meio autorizado (Revenda Mais em produção)
-- Página de cada veículo e tratamento dos vendidos
-- Contatos encaminhados ao CRM que a loja já usa, com a origem registrada
-- Monitoramento de falhas da integração
 
 ### Fora dos pacotes
 
@@ -258,7 +242,7 @@ O que entra, quanto custa e o que fica de fora. O resto cabe no diagnóstico.
 
 Quanto custa um site profissional?
 
-Os pacotes: Landing Page, R$ 2.900; Site Personalizado, R$ 5.900; Site Conectado, a partir de R$ 9.900; Site Automotivo Integrado, a partir de R$ 11.900. São preços de referência: o valor fechado sai em proposta, depois de conhecer o escopo e o sistema que o site precisa ligar. O diagnóstico inicial, de 45 minutos, é gratuito.
+Os pacotes: Landing Page, R$ 2.900; Site Personalizado, R$ 5.900; Site Conectado, a partir de R$ 9.900. São preços de referência: o valor fechado sai em proposta, depois de conhecer o escopo e o sistema que o site precisa ligar. O diagnóstico inicial, de 45 minutos, é gratuito.
 
 Posso aproveitar o site que já tenho?
 
@@ -266,7 +250,7 @@ O diagnóstico começa pelo site atual: velocidade, páginas, tags. Se a base fo
 
 O site se liga ao meu CRM ou ao meu sistema de gestão?
 
-No Site Conectado e no Site Automotivo Integrado, sim. A integração entra na proposta depois de verificar a documentação, o acesso, os limites e os custos do sistema. Compatibilidade com qualquer sistema não é prometida.
+No Site Conectado, sim. A integração entra na proposta depois de verificar a documentação, o acesso, os limites e os custos do sistema. Compatibilidade com qualquer sistema não é prometida.
 
 E depois que o site vai ao ar?
 

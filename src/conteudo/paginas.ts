@@ -50,8 +50,8 @@ export const PAGINAS: Pagina[] = [
     rota: "/criacao-de-sites",
     titulo: "Criação de sites profissionais e integrações",
     descricao:
-      "Landing page, site personalizado, site conectado ao seu sistema e site automotivo com estoque integrado. Rápido no celular, achado no Google e medido.",
-    atualizadaEm: "2026-10-27",
+      "Landing page, site personalizado e site conectado ao sistema que você já usa. Rápido no celular, achado no Google e medido.",
+    atualizadaEm: "2026-11-17",
     pronta: true,
   },
   {
@@ -74,8 +74,8 @@ export const PAGINAS: Pagina[] = [
     rota: "/segmentos/revendas-de-veiculos",
     titulo: "Sistema de vendas para revendas de veículos",
     descricao:
-      "Site de estoque ligado ao sistema da loja (Revenda Mais, Autoconf e outros), agente de IA no WhatsApp, CRM e rastreamento até a venda, num Sprint.",
-    atualizadaEm: "2026-10-25",
+      "Site ligado ao estoque do sistema da loja (Revenda Mais, Autoconf e outros), agente de IA no WhatsApp, CRM e rastreamento até a venda, como na Motors Store.",
+    atualizadaEm: "2026-11-17",
     pronta: true,
   },
   {
@@ -84,6 +84,14 @@ export const PAGINAS: Pagina[] = [
     descricao:
       "O que a V2O5 montou para a Motors Store, revenda de seminovos em Curitiba, e os números do sistema rodando, lidos no banco de dados da loja.",
     atualizadaEm: "2026-10-25",
+    pronta: true,
+  },
+  {
+    rota: "/cases/16-vara-civel",
+    titulo: "Case 16ª Vara Cível",
+    descricao:
+      "A triagem automatizada do WhatsApp da serventia da 16ª Vara Cível de Curitiba: cada pedido separado por assunto e setor, com os dados preenchidos.",
+    atualizadaEm: "2026-11-17",
     pronta: true,
   },
   {
@@ -115,7 +123,7 @@ export const PAGINAS: Pagina[] = [
     titulo: "Preços: três soluções e a continuidade",
     descricao:
       "Preços de referência de Presença Digital Local, Sites & Integrações, Sprint de Eficiência e dos planos de continuidade. Diagnóstico gratuito.",
-    atualizadaEm: "2026-10-27",
+    atualizadaEm: "2026-11-17",
     pronta: true,
   },
   {

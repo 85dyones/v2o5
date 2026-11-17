@@ -7,8 +7,8 @@ description: "Preços de referência de Presença Digital Local, Sites & Integra
 canonical: "https://www.v2o5.com.br/precos"
 robots: null
 h1: "Três soluções, com preço de referência."
-extraido_em: "2026-11-12T15:26:32.532Z"
-fonte: "build local da branch claude/kind-tesla-eefroe em 12/11/2026 (sem Branding e sem tráfego pago), antes da publicação"
+extraido_em: "2026-11-17T14:48:14.330Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 17/11/2026 (case da 16ª Vara Cível, revenda como exemplo), antes da publicação"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 # Três soluções, com preço de referência.
@@ -68,10 +68,6 @@ R$ 5.900
 Site Conectado
 
 A partir de R$ 9.900
-
-Site Automotivo Integrado
-
-A partir de R$ 11.900
 
 [Ver Sites & Integrações](/criacao-de-sites)
 

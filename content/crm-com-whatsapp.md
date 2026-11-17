@@ -7,8 +7,8 @@ description: "CRM sob medida com WhatsApp dentro do funil: cada contato com orig
 canonical: "https://www.v2o5.com.br/crm-com-whatsapp"
 robots: null
 h1: "CRM com WhatsApp integrado e IA."
-extraido_em: "2026-10-27T14:34:01.868Z"
-fonte: "build local da branch claude/kind-tesla-eefroe em 27/10/2026 (portfólio das quatro soluções), antes da publicação"
+extraido_em: "2026-11-17T15:24:58.492Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 17/11/2026 (case Motors com o Ney, números de 17/11), antes da publicação"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 # CRM com WhatsApp integrado e IA.
@@ -29,7 +29,7 @@ Funil e campos do seu negócio, WhatsApp dentro do CRM, banco próprio, backups 
 
 Em produção
 
-Motors Store: painel com funil, estoque, clientes, investidores e mídia paga
+Motors Store: lead qualificado pelo agente de IA no CRM do Revenda Mais, com a origem e a ficha
 
 ## O funil vive no WhatsApp de cada vendedor.
 
@@ -117,13 +117,17 @@ A equipe é treinada na implantação, e o primeiro mês ajusta o que a rotina p
 
 ## O painel da Motors Store.
 
-Funil de leads, estoque, clientes, investidores e mídia paga num painel só, com as conversas do Chatwoot.
+O lead qualificado pelo Ney vai ao CRM do Revenda Mais com a origem, o carro e a ficha, e o painel da loja mostra quem está com o agente, quem já foi ao CRM e quem precisa do dono.
 
-leads no funil em cinco semanas: 44 pelos formulários do site e 12 pelo WhatsApp direto, via Chatwoot
+leads no funil de 05/09 a 17/11: 131 pelos formulários do site e 106 pelo WhatsApp direto
 
-56
+237
 
-Banco de dados da Motors Store, lido em 08/10/2026. Leads contados de 05/09 a 08/10/2026.
+leads qualificados pelo Ney entregues ao CRM do Revenda Mais desde 04/11
+
+37
+
+Banco de dados da Motors Store, lido em 17/11/2026. Leads contados de 05/09 a 17/11/2026.
 
 [Ler o case completo](/cases/motors-store)
 

@@ -6,7 +6,6 @@ import Hero from "@/components/home/Hero";
 import Solucoes from "@/components/home/Solucoes";
 import Perguntas from "@/components/home/Perguntas";
 import ComoSeLiga from "@/components/home/diagrama/ComoSeLiga";
-import Automotivo from "@/components/home/Automotivo";
 import Fechamento from "@/components/home/Fechamento";
 import Dores from "@/components/home/Dores";
 import Sprint from "@/components/home/Sprint";
@@ -21,8 +20,9 @@ import { FECHO } from "@/conteudo/home";
  * (27/10/2026) responde em poucos segundos o que a V2O5 faz e como começar:
  * a abertura, as soluções e a continuidade, o caminho de entrada
  * (diagnóstico, solução, continuidade), os problemas da operação e o método
- * do Sprint, um exemplo de como as peças se ligam, o que se mede, a prova (a
- * Motors Store) e o segmento automotivo.
+ * do Sprint, um exemplo de como as peças se ligam, o que se mede e a prova (os
+ * cases). A seção do segmento automotivo saiu em 17/11/2026: revenda é exemplo,
+ * não produto.
  */
 export default function Home({ titulo }: { titulo: string }) {
   return (
@@ -37,7 +37,6 @@ export default function Home({ titulo }: { titulo: string }) {
         <ComoSeLiga />
         <Indicadores />
         <ProjetoReal />
-        <Automotivo />
         <Perguntas />
         <Nome />
         <Fechamento titulo={FECHO.titulo} texto={FECHO.texto} botao={FECHO.botao} />

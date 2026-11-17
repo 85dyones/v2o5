@@ -1,6 +1,7 @@
 import { CONDICOES, METODO } from "@/conteudo/sprint";
 import { CONTINUIDADE, mensalEmTexto, OFERTAS, PLANOS_DE_CONTINUIDADE, precoEmTexto, REGRAS_DE_PRECO } from "@/conteudo/ofertas";
 import { ASSINATURA, AUTOMOTIVO, CASE, EMPRESA, HERO, PILARES, VISAO_360 } from "@/conteudo/home";
+import { CASE_16VC } from "@/conteudo/case";
 import { SITE_URL } from "@/lib/site";
 import { whatsappParaLer } from "@/lib/whatsapp";
 
@@ -52,12 +53,15 @@ export function textoDoLlms(): string {
     "Automação, IA, dados, painéis e integrações entram como recursos de uma solução, quase sempre de um Sprint, sem preço próprio.",
     "",
     ...pilares,
-    "## Segmento automotivo",
+    "## Exemplo por segmento: revendas de veículos",
     `- [${AUTOMOTIVO.titulo}](${SITE_URL}${AUTOMOTIVO.href}): ${AUTOMOTIVO.texto}`,
     "",
     "## Case Motors Store",
     `Revenda de seminovos em Curitiba. ${CASE.fonte} [Case completo](${SITE_URL}/cases/motors-store).`,
     ...numeros,
+    "",
+    "## Case 16ª Vara Cível",
+    `${CASE_16VC.resumo} ${CASE_16VC.construido.texto} Em uso ${CASE_16VC.fatos[2].valor}. [Case completo](${SITE_URL}${CASE_16VC.rota}).`,
     "",
     "## Como começar",
     `- [Diagnóstico gratuito](${SITE_URL}/diagnostico): ${HERO.nota}`,

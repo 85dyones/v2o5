@@ -11,6 +11,7 @@ import { linkEmail } from "@/lib/email";
 const EMPRESA_LINKS = [
   { rotulo: "Revendas de veículos", href: "/segmentos/revendas-de-veiculos" },
   { rotulo: "Case Motors Store", href: "/cases/motors-store" },
+  { rotulo: "Case 16ª Vara Cível", href: "/cases/16-vara-civel" },
   { rotulo: "Preços", href: "/precos" },
   { rotulo: "Sobre", href: "/sobre" },
   { rotulo: "Privacidade", href: "/privacidade" },

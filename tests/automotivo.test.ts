@@ -28,14 +28,15 @@ describe("hub automotivo", () => {
     expect(faq.mainEntity.map((p) => p.name)).toEqual(HUB_AUTOMOTIVO.perguntas.map((p) => p.pergunta));
   });
 
-  it("mostra os dois caminhos de 27/10/2026 com os valores da tabela, sem plano antigo, módulo ou repasse", () => {
+  it("mostra os dois caminhos com os pacotes de qualquer negócio (Site Conectado e Sprint Integrado), sem plano antigo, módulo ou repasse (17/11/2026)", () => {
     expect(HUB_AUTOMOTIVO.planos.itens.map((p) => [p.nome, p.sprint])).toEqual([
-      ["Site Automotivo Integrado", "Sites & Integrações"],
+      ["Site Conectado", "Sites & Integrações"],
       ["Operação com IA", "Sprint Integrado"],
     ]);
-    const site = ofertaDa("sites").pacotes.find((p) => p.nome === "Site Automotivo Integrado")!;
+    const site = ofertaDa("sites").pacotes.find((p) => p.nome === "Site Conectado")!;
     expect(HUB_AUTOMOTIVO.planos.itens[0].preco).toBe(`A partir de ${BRL(site.preco.valor)}`);
-    expect(HUB_AUTOMOTIVO.planos.itens[0].inclui).toEqual(site.inclui);
+    expect(HUB_AUTOMOTIVO.planos.itens[0].inclui.join(" ")).toMatch(/Tudo do Site Personalizado/);
+    expect(texto).not.toMatch(/Automotivo Integrado|11\.900|Tráfego pago entra/);
     const integrado = SPRINT_DE_PRECOS.niveis.find((n) => n.nome === "Sprint Integrado")!;
     expect(HUB_AUTOMOTIVO.planos.itens[1].preco).toBe(BRL(integrado.preco.valor));
     // A continuidade é opcional e sai da tabela.
@@ -43,7 +44,7 @@ describe("hub automotivo", () => {
       expect(p.rotuloDaContinuidade).toMatch(/opcional/);
       expect(PLANOS_DE_CONTINUIDADE.some((c) => p.continuidade.includes(c.nome))).toBe(true);
     }
-    // O teto interno do Site Automotivo Integrado (R$ 16.900) não aparece.
+    // A faixa interna da revenda (até R$ 16.900) não aparece.
     expect(texto).not.toMatch(/16\.900/);
     expect(texto).not.toMatch(/Mapa|Completo|31\/12\/2026|Painel do dono|R\$ 1\.300/);
     expect(HUB_AUTOMOTIVO).not.toHaveProperty("extras");

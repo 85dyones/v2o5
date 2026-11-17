@@ -3,15 +3,15 @@ rota: "/segmentos/revendas-de-veiculos"
 url: "https://www.v2o5.com.br/segmentos/revendas-de-veiculos"
 status: 200
 title: "Sistema de vendas para revendas de veículos | V2O5 Vendas e Tecnologia"
-description: "Site de estoque ligado ao sistema da loja (Revenda Mais, Autoconf e outros), agente de IA no WhatsApp, CRM e rastreamento até a venda, num Sprint."
+description: "Site ligado ao estoque do sistema da loja (Revenda Mais, Autoconf e outros), agente de IA no WhatsApp, CRM e rastreamento até a venda, como na Motors Store."
 canonical: "https://www.v2o5.com.br/segmentos/revendas-de-veiculos"
 robots: null
-h1: "O sistema da Motors Store, pronto para a sua revenda."
-extraido_em: "2026-10-27T18:10:55.133Z"
-fonte: "build local da branch claude/kind-tesla-eefroe em 27/10/2026 (mensalidades de entrada da tarde de 27/10), antes da publicação"
+h1: "O que roda na Motors Store, aplicado à sua revenda."
+extraido_em: "2026-11-17T14:48:14.330Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 17/11/2026 (case da 16ª Vara Cível, revenda como exemplo), antes da publicação"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
-# O sistema da Motors Store, pronto para a sua revenda.
+# O que roda na Motors Store, aplicado à sua revenda.
 
 Site de estoque ligado ao sistema que a loja já usa, agente de IA no WhatsApp, CRM e rastreamento até a venda, com preço de referência.
 
@@ -32,7 +32,7 @@ Revenda Mais · em produção
 
 Dois caminhos
 
-O Site Automotivo Integrado e a Operação com IA, juntos ou um de cada vez
+O Site Conectado e a Operação com IA, juntos ou um de cada vez
 
 Integração em produção
 
@@ -88,23 +88,22 @@ Pixel, API de Conversões e GA4 com um identificador único por lead. A campanha
 
 ## Dois caminhos para revendas.
 
-Um cuida do site e do estoque; o outro, do atendimento. Dá para começar por qualquer um e somar o outro depois, na mesma base. Os valores são de referência, e o preço fechado sai em proposta.
+Os mesmos pacotes que a V2O5 vende para qualquer negócio, aplicados à revenda. Um cuida do site e do estoque; o outro, do atendimento. Dá para começar por qualquer um e somar o outro depois, na mesma base. Os valores são de referência, e o preço fechado sai em proposta.
 
 Sites & Integrações
 
-### Site Automotivo Integrado
+### Site Conectado
 
-Para a revenda que quer site próprio com o estoque do gestor e os contatos no CRM.
+Para a revenda que quer o site ligado ao estoque do sistema de gestão, com os contatos medidos.
 
-- Site da revenda com identidade própria
-- Estoque alimentado pelo gestor atual, por feed, API ou outro meio autorizado (Revenda Mais em produção)
-- Página de cada veículo e tratamento dos vendidos
-- Contatos encaminhados ao CRM que a loja já usa, com a origem registrada
-- Monitoramento de falhas da integração
+- Tudo do Site Personalizado, com a página de cada veículo e o tratamento dos vendidos
+- Estoque alimentado pelo sistema de gestão, por feed, API ou outro meio autorizado (Revenda Mais em produção)
+- Contatos medidos até o sistema da loja, com a origem gravada
+- Aviso quando a integração falha
 
 Implantação
 
-A partir de R$ 11.900
+A partir de R$ 9.900
 
 Continuidade opcional
 
@@ -129,7 +128,7 @@ Continuidade opcional
 
 Integrações Monitoradas, R$ 590/mês, ou Evolução Contínua, R$ 990/mês
 
-Uso da IA e mensagens do WhatsApp ficam por fora, pelo valor do provedor, discriminados na fatura, com teto mensal combinado e aviso antes de ultrapassá-lo; a V2O5 gerencia. Tráfego pago entra no escopo do projeto, com a verba paga direto às plataformas.
+Uso da IA e mensagens do WhatsApp ficam por fora, pelo valor do provedor, discriminados na fatura, com teto mensal combinado e aviso antes de ultrapassá-lo; a V2O5 gerencia. A campanha de anúncios fica com a loja ou com a agência dela.
 
 ## A prova está no case.
 
@@ -155,7 +154,7 @@ Se a loja já tem equipe ou fotógrafo, o site, o feed de anúncios e o agente u
 
 Posso começar só pelo site de estoque?
 
-Pode. O Site Automotivo Integrado funciona sozinho: o estoque no site e a origem dos contatos primeiro, e a Operação com IA entra depois, na mesma base.
+Pode. O Site Conectado funciona sozinho: o estoque no site e a origem dos contatos primeiro, e a Operação com IA entra depois, na mesma base.
 
 O site e os dados são meus?
 
