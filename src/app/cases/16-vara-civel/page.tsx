@@ -7,6 +7,8 @@ import Entradas from "@/components/layout/Entradas";
 import Topo from "@/components/layout/Topo";
 import Rodape from "@/components/layout/Rodape";
 import Construcao from "@/components/marca/Construcao";
+import ConversaPreguicosa from "@/components/case/ConversaPreguicosa";
+import ConversaVisao from "@/components/case/ConversaVisao";
 import { COR_DA_ROTA, Parada, Trecho } from "@/components/rota/Rota";
 import { CASE_16VC } from "@/conteudo/case";
 import { metadataDa } from "@/conteudo/paginas";
@@ -126,7 +128,10 @@ export default function Pagina() {
               <p className="mt-5 text-sm text-texto-secundario">{c.conversa.nota}</p>
             </div>
             <div className="col-span-12 lg:col-span-6 lg:col-start-7">
-              <Conversa legenda={c.conversa.legenda} mensagens={c.conversa.mensagens} />
+              {/* A janela fixa com a triagem rodando: carrega perto da tela; até lá, a conversa inteira do servidor. */}
+              <ConversaPreguicosa legenda={c.conversa.legenda} mensagens={c.conversa.mensagens}>
+                <ConversaVisao legenda={c.conversa.legenda} mensagens={c.conversa.mensagens} />
+              </ConversaPreguicosa>
             </div>
           </div>
         </Trecho>
@@ -254,34 +259,5 @@ export default function Pagina() {
       <Entradas />
       <JsonLd grafo={grafoDoCase16()} />
     </>
-  );
-}
-
-/**
- * A conversa de exemplo, como uma janela de registro: a vara à esquerda, no
- * papel do cartão, e a pessoa à direita, na tinta verde do atendimento. Rotulada
- * como exemplo, como o registro de eventos do case da Motors.
- */
-function Conversa({ legenda, mensagens }: { legenda: string; mensagens: { de: string; texto: string }[] }) {
-  return (
-    <figure className="border-y-2 border-texto bg-fundo">
-      <figcaption className="flex items-center justify-between gap-4 py-3">
-        <span className="font-mono text-xs text-texto-secundario">{legenda}</span>
-        <span className="rotulo bg-tinta-ambar px-2 py-1 text-texto">exemplo</span>
-      </figcaption>
-      <ol className="flex flex-col gap-3 border-t border-linha py-5">
-        {mensagens.map((m, i) => (
-          <li
-            key={i}
-            className={`max-w-[85%] whitespace-pre-line border px-4 py-3 text-[0.9375rem] leading-relaxed ${
-              m.de === "pessoa" ? "self-end border-tinta-verde bg-tinta-verde" : "self-start border-linha bg-fundo-cartao"
-            }`}
-          >
-            <span className="sr-only">{m.de === "pessoa" ? "Pessoa: " : "Vara: "}</span>
-            {m.texto}
-          </li>
-        ))}
-      </ol>
-    </figure>
   );
 }

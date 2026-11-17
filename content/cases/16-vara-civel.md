@@ -7,8 +7,8 @@ description: "A triagem automatizada do WhatsApp da serventia da 16ª Vara Cíve
 canonical: "https://www.v2o5.com.br/cases/16-vara-civel"
 robots: null
 h1: "16ª Vara Cível: a triagem do WhatsApp da serventia."
-extraido_em: "2026-11-17T17:12:45.537Z"
-fonte: "build local da branch claude/kind-tesla-eefroe em 17/11/2026 (case da 16ª Vara Cível com os números medidos), antes da publicação"
+extraido_em: "2026-11-17T17:21:31.174Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 17/11/2026 (case da 16ª Vara Cível com os números e a janela da triagem), antes da publicação"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 # 16ª Vara Cível: a triagem do WhatsApp da serventia.
@@ -119,57 +119,32 @@ WhatsApp da 16ª Vara Cível de Curitiba
 
 exemplo
 
-Vara: <!-- só leitor de tela -->
-
-- Marina, seja bem-vinda ao atendimento da 16ª Vara Cível de Curitiba. Sobre qual assunto é seu contato hoje? 1 · Recebi uma intimação pelo WhatsApp 2 · Quero consultar o status de um processo 3 · Preciso tirar uma dúvida
-
-Pessoa: <!-- só leitor de tela -->
-
-- 2
-
-Vara: <!-- só leitor de tela -->
-
-- Você é parte ou advogado(a) no processo? 1 · Parte 2 · Advogado(a)
-
-Pessoa: <!-- só leitor de tela -->
-
-- 2
-
-Vara: <!-- só leitor de tela -->
-
-- Informe o número completo do processo.
-
-Pessoa: <!-- só leitor de tela -->
-
-- o número do processo, no formato do CNJ
-
-Vara: <!-- só leitor de tela -->
-
-- O processo está concluso com a magistrada ou aguardando análise da serventia? 1 · Concluso com a magistrada 2 · Análise pela serventia
-
-Pessoa: <!-- só leitor de tela -->
-
-- 2
-
-Vara: <!-- só leitor de tela -->
-
-- Em qual setor deseja atendimento? 1 · Desarquivamento/Arquivamento … 4 · Expedição de Alvarás, Certidões e Termos … 11 · Portarias do Juízo
-
-Pessoa: <!-- só leitor de tela -->
-
-- 4
-
-Vara: <!-- só leitor de tela -->
-
-- Confira os dados: setor, parte ou advogado(a), nome, número do processo, observação e urgência. Os dados estão corretos? 1 · Sim 2 · Não
-
-Pessoa: <!-- só leitor de tela -->
-
-- 1
-
-Vara: <!-- só leitor de tela -->
-
-- Sua solicitação foi registrada. As informações foram enviadas ao setor de Expedição de Alvarás, Certidões e Termos, que analisará sua demanda no prazo estimado de até 48 horas úteis.
+- Marina, seja bem-vinda ao atendimento da 16ª Vara Cível de Curitiba. Sobre qual assunto é seu contato hoje? 1 · Recebi uma intimação pelo WhatsApp 2 · Quero consultar o status de um processo 3 · Preciso tirar uma dúvida <!-- decorativo, aria-hidden -->
+- 2 <!-- decorativo, aria-hidden -->
+- Você é parte ou advogado(a) no processo? 1 · Parte 2 · Advogado(a) <!-- decorativo, aria-hidden -->
+- 2 <!-- decorativo, aria-hidden -->
+- Informe o número completo do processo. <!-- decorativo, aria-hidden -->
+- o número do processo, no formato do CNJ <!-- decorativo, aria-hidden -->
+- O processo está concluso com a magistrada ou aguardando análise da serventia? 1 · Concluso com a magistrada 2 · Análise pela serventia <!-- decorativo, aria-hidden -->
+- 2 <!-- decorativo, aria-hidden -->
+- Em qual setor deseja atendimento? 1 · Desarquivamento/Arquivamento … 4 · Expedição de Alvarás, Certidões e Termos … 11 · Portarias do Juízo <!-- decorativo, aria-hidden -->
+- 4 <!-- decorativo, aria-hidden -->
+- Confira os dados: setor, parte ou advogado(a), nome, número do processo, observação e urgência. Os dados estão corretos? 1 · Sim 2 · Não <!-- decorativo, aria-hidden -->
+- 1 <!-- decorativo, aria-hidden -->
+- Sua solicitação foi registrada. As informações foram enviadas ao setor de Expedição de Alvarás, Certidões e Termos, que analisará sua demanda no prazo estimado de até 48 horas úteis. <!-- decorativo, aria-hidden -->
+- Vara: Marina, seja bem-vinda ao atendimento da 16ª Vara Cível de Curitiba. Sobre qual assunto é seu contato hoje? 1 · Recebi uma intimação pelo WhatsApp 2 · Quero consultar o status de um processo 3 · Preciso tirar uma dúvida <!-- só leitor de tela -->
+- Pessoa: 2 <!-- só leitor de tela -->
+- Vara: Você é parte ou advogado(a) no processo? 1 · Parte 2 · Advogado(a) <!-- só leitor de tela -->
+- Pessoa: 2 <!-- só leitor de tela -->
+- Vara: Informe o número completo do processo. <!-- só leitor de tela -->
+- Pessoa: o número do processo, no formato do CNJ <!-- só leitor de tela -->
+- Vara: O processo está concluso com a magistrada ou aguardando análise da serventia? 1 · Concluso com a magistrada 2 · Análise pela serventia <!-- só leitor de tela -->
+- Pessoa: 2 <!-- só leitor de tela -->
+- Vara: Em qual setor deseja atendimento? 1 · Desarquivamento/Arquivamento … 4 · Expedição de Alvarás, Certidões e Termos … 11 · Portarias do Juízo <!-- só leitor de tela -->
+- Pessoa: 4 <!-- só leitor de tela -->
+- Vara: Confira os dados: setor, parte ou advogado(a), nome, número do processo, observação e urgência. Os dados estão corretos? 1 · Sim 2 · Não <!-- só leitor de tela -->
+- Pessoa: 1 <!-- só leitor de tela -->
+- Vara: Sua solicitação foi registrada. As informações foram enviadas ao setor de Expedição de Alvarás, Certidões e Termos, que analisará sua demanda no prazo estimado de até 48 horas úteis. <!-- só leitor de tela -->
 
 Depois
 

@@ -1135,6 +1135,24 @@
   }
 }
 
+/* A janela da triagem no case da 16ª: cada mensagem entra com um passo curto,
+   e os três pontos da digitação aparecem um depois do outro, uma vez. Só sem a
+   preferência por menos movimento; com ela, a conversa aparece inteira e parada. */
+@media (prefers-reduced-motion: no-preference) {
+  .conversa-entra,
+  .conversa-ponto {
+    animation: bloco-entra var(--duracao-media) var(--curva-saida) both;
+  }
+
+  .conversa-ponto:nth-child(2) {
+    animation-delay: var(--duracao-curta);
+  }
+
+  .conversa-ponto:nth-child(3) {
+    animation-delay: calc(var(--duracao-curta) * 2);
+  }
+}
+
 /* Card do CRM da demonstração: a tinta clara do âmbar quando atualiza. */
 .cartao-crm[data-pronto] {
   animation: crm-atualiza var(--duracao-revela) var(--curva-saida);
