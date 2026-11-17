@@ -107,8 +107,8 @@ const destaques = [
   { nome: "Soluções", cy: 500, fundo: COR.tintaVerde, glifo: [[300, 400, COR.violeta], [580, 400, COR.verde], [300, 680, COR.azul], [580, 680, COR.ambar]].map(([x, y, c]) => `<rect x="${x}" y="${y - 140}" width="200" height="200" rx="18" fill="${c}"/>`).join("") },
   { nome: "Preços", cy: 530, fundo: COR.tintaAmbar, glifo: `<text x="540" y="650" text-anchor="middle" font-family="Geist" font-weight="700" font-size="330" fill="${COR.tinta}" letter-spacing="-14">R$</text>` },
   { nome: "Case", cy: 505, fundo: COR.tintaAzul, glifo: `<text x="540" y="650" text-anchor="middle" font-family="Geist" font-weight="700" font-size="400" fill="${COR.tinta}" letter-spacing="-14">M</text>` },
-  // O segundo case (17/11/2026): a triagem do WhatsApp da 16ª Vara Cível, no verde do atendimento.
-  { nome: "16ª Vara", slug: "16-vara", cy: 530, fundo: COR.tintaVerde, glifo: `<text x="540" y="650" text-anchor="middle" font-family="Geist" font-weight="700" font-size="330" fill="${COR.tinta}" letter-spacing="-14">16ª</text>` },
+  // O destaque da 16ª Vara Cível (17/11/2026) não sai daqui: leva a marca do TJPR, com uso autorizado
+  // pela vara, e quem gera é design/ferramentas/gerar-16-vara.py.
   { nome: "Diagnóstico", cy: 500, fundo: COR.tintaAmbar, glifo: `<text x="540" y="620" text-anchor="middle" font-family="Geist" font-weight="700" font-size="330" fill="${COR.tinta}" letter-spacing="-12">45'</text>` },
 ];
 for (const d of destaques) {

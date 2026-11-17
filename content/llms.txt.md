@@ -3,8 +3,8 @@ rota: "/llms.txt"
 url: "https://www.v2o5.com.br/llms.txt"
 status: 200
 content_type: "text/plain; charset=utf-8"
-extraido_em: "2026-11-17T15:24:58.492Z"
-fonte: "build local da branch claude/kind-tesla-eefroe em 17/11/2026 (case Motors com o Ney, números de 17/11), antes da publicação"
+extraido_em: "2026-11-17T16:17:30.910Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 17/11/2026 (case da 16ª Vara Cível com storytelling e marca do TJPR), antes da publicação"
 ---
 
 <!-- Corpo de /llms.txt exatamente como servido (gerado por src/app/llms.txt/route.ts). -->
@@ -87,7 +87,7 @@ Revenda de seminovos em Curitiba. Banco de dados da Motors Store, lido em 17/11/
 - 148 veículos sincronizados com o estoque do Revenda Mais.
 
 ## Case 16ª Vara Cível
-A V2O5 montou para a 16ª Vara Cível de Curitiba a triagem automatizada do WhatsApp, que separa cada pedido por assunto e setor antes de chegar à equipe. Uma triagem por menu, sem resposta jurídica automática: ela coleta os dados, encaminha e deixa a resposta com a equipe da serventia. Em uso desde outubro de 2025. [Case completo](https://www.v2o5.com.br/cases/16-vara-civel).
+Um WhatsApp para onze setores e o gabinete. A V2O5 desenhou com a serventia a triagem que separa cada pedido antes de ele chegar à equipe. Uma triagem por menu, sem resposta jurídica automática, que registra cada pedido no sistema de atendimento com o setor e os dados que o servidor precisa para responder. Em uso desde outubro de 2025. [Case completo](https://www.v2o5.com.br/cases/16-vara-civel).
 
 ## Como começar
 - [Diagnóstico gratuito](https://www.v2o5.com.br/diagnostico): Diagnóstico gratuito: 45 minutos de conversa com o fundador para identificar e priorizar um gargalo.

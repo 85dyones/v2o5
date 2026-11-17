@@ -7,13 +7,15 @@ description: "A triagem automatizada do WhatsApp da serventia da 16ª Vara Cíve
 canonical: "https://www.v2o5.com.br/cases/16-vara-civel"
 robots: null
 h1: "16ª Vara Cível: a triagem do WhatsApp da serventia."
-extraido_em: "2026-11-17T14:48:14.330Z"
-fonte: "build local da branch claude/kind-tesla-eefroe em 17/11/2026 (case da 16ª Vara Cível, revenda como exemplo), antes da publicação"
+extraido_em: "2026-11-17T16:17:30.910Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 17/11/2026 (case da 16ª Vara Cível com storytelling e marca do TJPR), antes da publicação"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 # 16ª Vara Cível: a triagem do WhatsApp da serventia.
 
-A V2O5 montou para a 16ª Vara Cível de Curitiba a triagem automatizada do WhatsApp, que separa cada pedido por assunto e setor antes de chegar à equipe.
+Um WhatsApp para onze setores e o gabinete. A V2O5 desenhou com a serventia a triagem que separa cada pedido antes de ele chegar à equipe.
+
+![Tribunal de Justiça do Estado do Paraná](/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fmarca-tjpr.29y-9zpby_ub9.png&w=3840&q=75)
 
 16ª Vara Cível de Curitiba
 
@@ -31,21 +33,149 @@ Em uso
 
 desde outubro de 2025
 
-Antes: o ponto de partida
+Antes
 
-## O que chegava pelo WhatsApp.
+## Um WhatsApp para onze setores.
 
-O fluxo desenhado em maio de 2025 para o atendimento da serventia, antes da automação.
+Pelo mesmo número chegavam a intimação a confirmar, a pergunta sobre o andamento e a dúvida de quem advoga no processo. Cada pedido tinha um dono, o gabinete da magistrada ou um setor da serventia, e alguém da equipe precisava pedir o número do processo e descobrir a quem passar o pedido.
 
-- Pedidos sobre andamento de processo e diligências chegavam pela mesma conversa.
-- Parte do que chegava era do gabinete das magistradas, e parte da serventia.
-- Na serventia, cada diligência tem um setor responsável, e alguém precisava triar e encaminhar.
+Os onze caminhos da serventia
 
-Depois: implementado
+01
 
-## O que a V2O5 montou.
+- Desarquivamento e arquivamento
 
-Uma triagem por menu, sem resposta jurídica automática: ela coleta os dados, encaminha e deixa a resposta com a equipe da serventia.
+02
+
+- Recolhimento de guias
+
+03
+
+- Petições, juntadas e manifestações
+
+04
+
+- Alvarás, certidões e termos
+
+05
+
+- Editais, mandados e ofícios
+
+06
+
+- Sisbajud, Renajud e outros sistemas conveniados
+
+07
+
+- Retorno de conclusão
+
+08
+
+- Decurso de prazo
+
+09
+
+- Audiências
+
+10
+
+- Despacho com a magistrada
+
+11
+
+- Portarias do juízo
+
+O desenho
+
+## Primeiro o caminho, depois a ferramenta.
+
+O fluxo foi desenhado com a serventia em maio de 2025, pergunta por pergunta, a partir de como cada setor trabalha. Está em uso desde outubro de 2025, e quatro regras vieram junto.
+
+### Nada de resposta jurídica automática
+
+A triagem coleta os dados e encaminha. Quem responde sobre o processo é a equipe da serventia.
+
+### Toda conversa tem saída para uma pessoa
+
+Cada caminho leva a um setor da serventia, a um atendente ou ao contato do gabinete da magistrada.
+
+### Intimação confirmada por um atendente
+
+Quem recebeu uma intimação pelo WhatsApp informa o nome, e um atendente retoma a conversa para confirmar a identidade.
+
+### A pessoa confere antes de enviar
+
+No fim, a triagem mostra os dados para conferência e informa o prazo de retorno do setor.
+
+Na prática
+
+## Uma consulta, do começo ao fim.
+
+É assim que um pedido de alvará sai da conversa já com o setor e os dados, sem ninguém da equipe precisar perguntar nada.
+
+Exemplo com nome e dados fictícios; os textos seguem o fluxo em uso, encurtados.
+
+WhatsApp da 16ª Vara Cível de Curitiba
+
+exemplo
+
+Vara: <!-- só leitor de tela -->
+
+- Marina, seja bem-vinda ao atendimento da 16ª Vara Cível de Curitiba. Sobre qual assunto é seu contato hoje? 1 · Recebi uma intimação pelo WhatsApp 2 · Quero consultar o status de um processo 3 · Preciso tirar uma dúvida
+
+Pessoa: <!-- só leitor de tela -->
+
+- 2
+
+Vara: <!-- só leitor de tela -->
+
+- Você é parte ou advogado(a) no processo? 1 · Parte 2 · Advogado(a)
+
+Pessoa: <!-- só leitor de tela -->
+
+- 2
+
+Vara: <!-- só leitor de tela -->
+
+- Informe o número completo do processo.
+
+Pessoa: <!-- só leitor de tela -->
+
+- o número do processo, no formato do CNJ
+
+Vara: <!-- só leitor de tela -->
+
+- O processo está concluso com a magistrada ou aguardando análise da serventia? 1 · Concluso com a magistrada 2 · Análise pela serventia
+
+Pessoa: <!-- só leitor de tela -->
+
+- 2
+
+Vara: <!-- só leitor de tela -->
+
+- Em qual setor deseja atendimento? 1 · Desarquivamento/Arquivamento … 4 · Expedição de Alvarás, Certidões e Termos … 11 · Portarias do Juízo
+
+Pessoa: <!-- só leitor de tela -->
+
+- 4
+
+Vara: <!-- só leitor de tela -->
+
+- Confira os dados: setor, parte ou advogado(a), nome, número do processo, observação e urgência. Os dados estão corretos? 1 · Sim 2 · Não
+
+Pessoa: <!-- só leitor de tela -->
+
+- 1
+
+Vara: <!-- só leitor de tela -->
+
+- Sua solicitação foi registrada. As informações foram enviadas ao setor de Expedição de Alvarás, Certidões e Termos, que analisará sua demanda no prazo estimado de até 48 horas úteis.
+
+Depois
+
+## A conversa chega pronta para a equipe.
+
+Uma triagem por menu, sem resposta jurídica automática, que registra cada pedido no sistema de atendimento com o setor e os dados que o servidor precisa para responder.
 
 Atendimento no WhatsApp
 
@@ -57,19 +187,19 @@ Consulta de processo
 
 ### Os dados certos antes de encaminhar
 
-Nome, parte ou advogado, número do processo no formato do CNJ e a situação: concluso com a magistrada ou em análise na serventia. Antes de enviar, a pessoa confere os dados.
+Nome, parte ou advogado, número do processo no formato do CNJ e a situação: concluso com a magistrada ou em análise na serventia.
 
 Encaminhamento por setor
 
 ### Cada conversa marcada com o setor
 
-Na serventia, a pessoa escolhe o setor, e a conversa entra no sistema de atendimento com o setor e os dados preenchidos, e a pessoa recebe o prazo de retorno.
+A conversa entra no sistema de atendimento com o setor, os dados e a urgência que a pessoa pediu, e quem atende já começa pela resposta.
 
-Intimação e gabinete
+Dúvida, intimação e gabinete
 
 ### Cada assunto no seu caminho
 
-Quem recebeu uma intimação pelo WhatsApp é chamado por um atendente para confirmar a identidade. Assunto do gabinete recebe a orientação de contato com o gabinete da magistrada.
+A dúvida segue para a área de análises gerais e a intimação, para um atendente. O assunto do gabinete recebe a orientação de contato com o gabinete da magistrada.
 
 ## Com o que foi feito
 
