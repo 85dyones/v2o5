@@ -26,6 +26,10 @@ O vídeo sai sem música: o áudio é escolhido na biblioteca do Instagram na ho
 - O `init` cria arquivos `AGENTS.md` e `CLAUDE.md` com instruções do fornecedor; foram removidos do modelo. Não restaurar.
 - GSAP 3.15.0 e a fonte Geist ficam locais (não carrega nada de CDN no render).
 
+## Telas dos reels
+`gravacoes/gravar-telas.mjs` captura as telas do site (Playwright, dados fictícios, nada é enviado) em `gravacoes/telas/` (fora do git). `gravacoes/ficha-exemplo.html` é um cartão de exemplo, com selo "EXEMPLO", para o L1-06. Com o site no ar (`npm run build && npx next start -p 3100`, na raiz): `SITE=http://localhost:3100 node gravacoes/gravar-telas.mjs`. Mapa tela por reel: L1-06 `ficha-exemplo`, L1-08 `formulario-completo`, L1-10 `diagnostico-passos`, L1-17 `precos-valores`, L1-21 `diagnostico-topo`, L1-25 `formulario-parcial`.
+
 ## O que falta
-- Gravar as telas (Playwright) dos reels de demonstração L1-06 a L1-10 e L1-16, e animar os reels de motion (a cena do meio hoje é só texto).
+- Animar os reels de motion (a cena do meio hoje é só texto) e gravar vídeo, não só imagem, das telas.
+- L1-07 (conversa de exemplo do agente) e L1-09 (link com etiqueta) pedem animação própria, sem tela do site.
 - Aprovar o visual do modelo com o Dyones (papel, tinta e âmbar da marca).

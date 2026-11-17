@@ -24,7 +24,7 @@
       #gancho { top: 560px; font-size: 96px; line-height: 1.08; font-weight: 700; letter-spacing: -0.035em; }
       #prova { top: 620px; font-size: 84px; line-height: 1.1; font-weight: 700; letter-spacing: -0.03em; }
       #prova span { background: var(--acao); padding: 0 14px; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
-      #tela { top: 860px; height: 600px; border: 3px solid var(--tinta); background: #FAF9F5; display: none; overflow: hidden; }
+      #tela { top: 700px; height: 557px; border: 3px solid var(--tinta); background: #FAF9F5; display: none; overflow: hidden; }
       #tela img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
       #cta { top: 640px; font-size: 76px; line-height: 1.12; font-weight: 700; letter-spacing: -0.03em; }
       #cta small { display: block; margin-top: 40px; font-size: 40px; font-weight: 500; color: var(--apagado); letter-spacing: 0; }
@@ -47,7 +47,7 @@
       const cta = document.querySelector("#cta");
       cta.textContent = partes[0].trim() + (partes[1] ? "." : "");
       if (partes[1]) { const s = document.createElement("small"); s.textContent = partes.slice(1).join(":").trim(); cta.appendChild(s); }
-      if (v.print) { const t = document.querySelector("#tela"); t.style.display = "block"; t.querySelector("img").src = v.print; document.querySelector("#prova").style.top = "420px"; }
+      if (v.print) { const t = document.querySelector("#tela"); t.style.display = "block"; t.querySelector("img").src = v.print; document.querySelector("#prova").style.top = "440px"; }
       const tl = gsap.timeline({ paused: true });
       const G = {{GANCHO_DUR}}, M = {{MEIO_DUR}}, C = {{CTA_INICIO}};
       tl.fromTo("#gancho", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, 0);

@@ -2,7 +2,7 @@
 // Renderiza os reels de um lote, um a um, a partir do CSV de roteiros.
 // Uso: node scripts/renderizar-lote.mjs <lote.csv> [--draft] [--so L1-01,L1-02] [--print L1-06=caminho.png]
 // O HyperFrames não tem --batch: este script faz o laço com --variables.
-import { readFileSync, mkdirSync, writeFileSync, rmSync, existsSync } from "node:fs";
+import { readFileSync, mkdirSync, writeFileSync, rmSync, existsSync, copyFileSync } from "node:fs";
 import { spawnSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
 import { dirname, join, resolve } from "node:path";
@@ -45,7 +45,13 @@ for (const r of reels) {
   mkdirSync(tmp, { recursive: true });
   spawnSync("cp", ["-r", join(raiz, "modelos/reel") + "/.", tmp]);
   writeFileSync(join(tmp, "index.html"), html);
-  const print = prints[r.codigo] && existsSync(prints[r.codigo]) ? resolve(prints[r.codigo]) : "";
+  let print = "";
+  if (prints[r.codigo] && existsSync(prints[r.codigo])) {
+    // A imagem precisa estar dentro da pasta do projeto para o render servi-la.
+    mkdirSync(join(tmp, "assets"), { recursive: true });
+    copyFileSync(resolve(prints[r.codigo]), join(tmp, "assets/print.png"));
+    print = "assets/print.png";
+  }
   const vars = { gancho: r.gancho, prova: r.texto_tela, print, cta: r.cta };
   const arq = join(saida, `${r.codigo}.mp4`);
   const res = spawnSync("npx", ["hyperframes", "render", tmp, "-o", arq, "-q", draft ? "draft" : "delivery", "--variables", JSON.stringify(vars), "--quiet"], { cwd: raiz, stdio: "inherit" });
