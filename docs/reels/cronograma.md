@@ -53,3 +53,6 @@ Regras: o vídeo repetido vale entre redes diferentes; no Instagram nunca se rep
 ## O que falta de decisão do Dyones
 - ~~Aprovar a promessa única.~~ Feito em 17/11: "Descubra onde sua empresa pode funcionar melhor. Gratuitamente." Os roteiros e o título do `/diagnostico` usam a frase, palavra por palavra.
 - Autorizar telas e conversas da Motors nos vídeos (nome, logo e números já estão autorizados desde 08/10; telas do painel e do Ney exigem dados mascarados).
+
+## Lote 1 pronto (17/11)
+`docs/reels/lote-1.md` (25 ganchos, roteiros, agenda por dia e textos de LinkedIn e Facebook) e `docs/reels/lote-1.csv` (com o link UTM de cada reel). A produção segue na segunda 30/11. Decisão em aberto: a locução (voz do Dyones, sem rosto) ou só legenda animada com áudio da biblioteca do Instagram.
