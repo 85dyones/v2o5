@@ -21,7 +21,9 @@ const CURSOR = `
     document.addEventListener("DOMContentLoaded", () => document.body.appendChild(c));
     addEventListener("mousemove", (e) => { c.style.transform = "translate(" + e.clientX + "px," + e.clientY + "px)"; }, true); })();`;
 
+const SO = (process.env.SO ?? "").split(",").filter(Boolean);
 async function gravar(nome, roteiro, { pagina = "/diagnostico", arquivo } = {}) {
+  if (SO.length && !SO.includes(nome)) return;
   const dir = join(saida, `.rec-${nome}`);
   rmSync(dir, { recursive: true, force: true });
   const ctx = await browser.newContext({ viewport: { width: 1260, height: 750 }, deviceScaleFactor: 1, locale: "pt-BR", recordVideo: { dir, size: { width: 1260, height: 750 } } });
@@ -83,4 +85,45 @@ await gravar("v-precos", async (p) => {
   await ir(p, "text=Sprint de Eficiência", 700); await p.waitForTimeout(1500);
 }, { pagina: "/precos" });
 await gravar("v-ficha-exemplo", async (p) => { await p.waitForTimeout(6800); }, { arquivo: pathToFileURL(join(aqui, "ficha-exemplo.html")).href });
+
+// Passeios por outras páginas do site (a tela precisa ter a ver com o que o reel fala).
+const para = async (p, rota, y = 0, ms = 1800, antes = 0) => {
+  await p.goto(`${SITE}${rota}`); await p.waitForLoadState("networkidle"); await p.waitForTimeout(500);
+  await p.mouse.move(820, 330, { steps: 6 });
+  if (y) await rolar(p, y, ms);
+  await p.waitForTimeout(antes);
+};
+const alvo = (y) => y - 120;
+
+await gravar("v-08-sites", async (p) => {
+  await preparaForm(p);
+  await digitar(p, '[name="nome"]', "Mariana Souza");
+  await para(p, "/criacao-de-sites", alvo(1285), 1700, 700);
+  await rolar(p, alvo(3594) - alvo(1285), 1900); await p.waitForTimeout(800);
+  await para(p, "/crm-com-whatsapp", alvo(3040), 2100, 900);
+});
+await gravar("v-10-diagnostico", async (p) => {
+  await para(p, "/", alvo(1649), 2000, 1200);
+  await para(p, "/diagnostico", 330, 1500);
+  await ir(p, "text=Você conta como vende hoje", 800); await p.waitForTimeout(700);
+  await ir(p, "text=45 minutos com o fundador", 600); await p.waitForTimeout(700);
+  await ir(p, "text=O próximo passo, se houver", 600); await p.waitForTimeout(800);
+  await para(p, "/criacao-de-sites", alvo(2693), 2200, 1200);
+});
+await gravar("v-21-fundador", async (p) => {
+  // Sem a página /sobre: a foto do fundador não entra no primeiro lote.
+  await para(p, "/", alvo(3333), 2300, 1100);
+  await rolar(p, alvo(4205) - alvo(3333), 2100); await p.waitForTimeout(1100);
+  await para(p, "/diagnostico", 330, 1500, 700);
+  await ir(p, "text=45 minutos com o fundador", 900); await p.waitForTimeout(1500);
+});
+await gravar("v-25-passeio", async (p) => {
+  await preparaForm(p);
+  await digitar(p, '[name="nome"]', "Mariana Souza");
+  await digitar(p, '[name="empresa"]', "Loja Exemplo");
+  await para(p, "/presenca-digital-local", 0, 0, 1300);
+  await rolar(p, alvo(1112), 1500); await p.waitForTimeout(500);
+  await para(p, "/agente-de-ia-para-whatsapp", alvo(736), 1500, 700);
+  await para(p, "/crm-com-whatsapp", alvo(641), 1500, 700);
+});
 await browser.close();

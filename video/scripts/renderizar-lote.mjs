@@ -88,7 +88,10 @@ for (const r of reels) {
     // O clipe é estendido (último quadro parado) até cobrir toda a cena do meio.
     mkdirSync(join(tmp, "assets"), { recursive: true });
     const janela = +(E - 0.55 - G - 0.1).toFixed(2);
-    const p2 = spawnSync("ffmpeg", ["-v", "error", "-y", "-i", resolve(telas[r.codigo]), "-vf", `tpad=stop_mode=clone:stop_duration=60,trim=duration=${janela},setpts=PTS-STARTPTS,fps=30,format=yuv420p`, "-c:v", "libx264", "-crf", "16", "-an", join(tmp, "assets/tela.mp4")], { stdio: "inherit" });
+    // Se a gravação for mais longa que a cena, acelera até caber (no máximo 1,3x); se for mais curta, segura o último quadro.
+    const durClipe = Number(spawnSync("ffprobe", ["-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", resolve(telas[r.codigo])]).stdout.toString());
+    const fator = durClipe > janela ? Math.max(janela / durClipe, 1 / 1.3) : 1;
+    const p2 = spawnSync("ffmpeg", ["-v", "error", "-y", "-i", resolve(telas[r.codigo]), "-vf", `setpts=PTS*${fator.toFixed(4)},tpad=stop_mode=clone:stop_duration=60,trim=duration=${janela},setpts=PTS-STARTPTS,fps=30,format=yuv420p`, "-c:v", "libx264", "-crf", "16", "-an", join(tmp, "assets/tela.mp4")], { stdio: "inherit" });
     if (p2.status !== 0) throw new Error("falhou ao preparar a gravação da tela");
     videoTag = `<video class="clip" src="assets/tela.mp4" muted playsinline data-start="${+(G + 0.1).toFixed(2)}" data-duration="${janela}" data-track-index="2"></video>`;
   }
