@@ -8,7 +8,7 @@ export const DIAGNOSTICO = {
   titulo: "Descubra onde sua empresa pode funcionar melhor.",
   apagado: "Gratuitamente.",
   texto:
-    "Em 45 minutos, analisamos como sua empresa funciona, identificamos gargalos e oportunidades e recomendamos por onde começar.",
+    "Em 45 minutos, analisamos como sua empresa funciona e recomendamos por onde começar.",
   passos: [
     {
       titulo: "Você conta como vende hoje",
