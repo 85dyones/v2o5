@@ -45,7 +45,9 @@
       .relogio u { position: absolute; left: 50%; bottom: 50%; width: 4px; background: var(--acao); transform-origin: 50% 100%; margin-left: -2px; }
       .relogio .h1 { height: 12px; } .relogio .h2 { height: 17px; }
       /* cenas de motion do meio */
-      #cena { position: absolute; left: 72px; right: 72px; top: 430px; height: 680px; }
+      #cena { position: absolute; left: 72px; right: 72px; top: 430px; height: 680px; display: flex; flex-direction: column; justify-content: center; }
+      #cena > * { width: 100%; }
+      #cena > .etiqueta { width: auto; }
       #cena .etiqueta { position: absolute; right: 0; top: -52px; background: var(--acao); font-size: 24px; font-weight: 700; letter-spacing: 0.06em; padding: 6px 14px; }
       .barras { display: flex; flex-direction: column; gap: 22px; }
       .linha .lt { display: flex; justify-content: space-between; align-items: baseline; font-size: 38px; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 8px; }
