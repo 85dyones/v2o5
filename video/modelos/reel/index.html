@@ -103,7 +103,7 @@
 
       // gancho digitado
       const gTxt = String(v.gancho);
-      digitar($("#gancho"), [{ t: gTxt }], 0.15, Math.min(0.03, 1.6 / gTxt.length));
+      digitar($("#gancho"), [{ t: gTxt }], 0.15, 0.032, false, { pausa: 0.7, quebra: true });
       tl.to("#gancho", { opacity: 0, y: -24, duration: 0.3, ease: "power2.in" }, G - 0.3);
 
       const MEIO0 = G, MEIO1 = E - 0.55;
@@ -165,12 +165,18 @@
         });
       }
       // texto digitado: cada letra aparece em seguida, com o cursor âmbar na última
-      function digitar(el, segmentos, t0, vel, espacosComoLetra) {
-        el.innerHTML = ""; let t = t0;
+      function digitar(el, segmentos, t0, vel, espacosComoLetra, opcoes) {
+        el.innerHTML = ""; let t = t0; let fimDeFrase = false;
+        const op = opcoes || {};
         segmentos.forEach((seg) => {
           seg.t.split(/(\s+)/).forEach((parte) => {
             if (!parte) return;
             if (/^\s+$/.test(parte)) {
+              // pausa dramática no fim da frase; com `quebra`, a frase seguinte começa em outra linha
+              if (fimDeFrase && op.pausa) {
+                t += op.pausa; fimDeFrase = false;
+                if (op.quebra) { el.appendChild(document.createElement("br")); return; }
+              }
               if (espacosComoLetra) { const e = document.createElement("span"); e.className = "ch"; e.textContent = " "; el.appendChild(e); tl.set(e, { opacity: 1 }, t); }
               else el.appendChild(document.createTextNode(" "));
               t += vel; return;
@@ -182,6 +188,7 @@
               tl.set(sp, { opacity: 1 }, t); tl.set(c, { opacity: 1 }, t); tl.set(c, { opacity: 0 }, t + vel); t += vel;
             });
             el.appendChild(w);
+            fimDeFrase = /[.?!]$/.test(parte);
           });
         });
         return t;
@@ -204,7 +211,7 @@
       tl.set("#nome span", { y: 40 }, 0);
       tl.to("#barra", { scaleX: 1, duration: 0.5, ease: "power3.out" }, E + 1.75);
       const fimSub = digitar($("#sub"), [{ t: "Vendas e Tecnologia" }], E + 1.75, 0.032);
-      const fimChamada = digitar($("#chamada"), segs, Math.max(E + 2.45, fimSub + 0.1), 0.02);
+      const fimChamada = digitar($("#chamada"), segs, Math.max(E + 2.45, fimSub + 0.1), 0.02, false, { pausa: 0.3 });
       tl.fromTo("#pilula", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, fimChamada + 0.15);
       tl.to("#fim", { opacity: 0, duration: 0.4, ease: "power1.in" }, D - 0.4);
       window.__timelines["main"] = tl;
