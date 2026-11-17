@@ -1,5 +1,7 @@
 # Plano: 100 reels de teste para a V2O5 (17/11/2026)
 
+> **Atualização de 17/11 (respostas do Dyones):** o Instagram tem 7 seguidores, então o reel de teste (200 seguidores) fica para depois e o plano começa por uma Fase A de base e fundação. Escopo: só os lotes 1 e 2 (50 reels), lote 1 sem aparecer em vídeo, frequência de posts em Instagram, Facebook e LinkedIn. Cronograma com datas, rotina por rede e decisões abertas em [`docs/reels/cronograma.md`](reels/cronograma.md). Arquivos de trabalho em `docs/reels/` (ficha do produto, 10 prompts, planilha, aprendizados) e `scripts/utm-reels.mjs` (links com UTM). As seções abaixo são a análise original; onde conflitarem, vale o cronograma.
+
 Origem: PDF "100 reels de teste com o Claude" (fabiano.app, regras do Instagram "conferidas em 15/11/2026"). Este plano adapta o framework à V2O5 e respeita as regras do projeto (número só com fonte e medido, texto sem travessão e sem "não é X, é Y", marca e preços de `src/conteudo/`).
 
 ## 1. O que o documento propõe
