@@ -7,8 +7,8 @@ description: "A triagem automatizada do WhatsApp da serventia da 16ª Vara Cíve
 canonical: "https://www.v2o5.com.br/cases/16-vara-civel"
 robots: null
 h1: "16ª Vara Cível: a triagem do WhatsApp da serventia."
-extraido_em: "2026-11-17T16:17:30.910Z"
-fonte: "build local da branch claude/kind-tesla-eefroe em 17/11/2026 (case da 16ª Vara Cível com storytelling e marca do TJPR), antes da publicação"
+extraido_em: "2026-11-17T17:12:45.537Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 17/11/2026 (case da 16ª Vara Cível com os números medidos), antes da publicação"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 # 16ª Vara Cível: a triagem do WhatsApp da serventia.
@@ -193,13 +193,31 @@ Encaminhamento por setor
 
 ### Cada conversa marcada com o setor
 
-A conversa entra no sistema de atendimento com o setor, os dados e a urgência que a pessoa pediu, e quem atende já começa pela resposta.
+A conversa entra no sistema de atendimento já atribuída ao time do setor, com os dados e a urgência que a pessoa pediu, e quem atende já começa pela resposta.
 
 Dúvida, intimação e gabinete
 
 ### Cada assunto no seu caminho
 
 A dúvida segue para a área de análises gerais e a intimação, para um atendente. O assunto do gabinete recebe a orientação de contato com o gabinete da magistrada.
+
+Medido
+
+## O que passou pela triagem.
+
+conversas no WhatsApp da serventia de 07/01 a 13/10/2026
+
+950
+
+pedidos com os dados completos do fluxo: 128 consultas de processo, 110 dúvidas, 59 intimações e 48 assuntos do gabinete
+
+345
+
+pedidos encaminhados direto a um de oito setores específicos, de petições e alvarás a audiências e decurso de prazo
+
+118
+
+Sistema de atendimento da serventia, lido em 14/10/2026. Conversas criadas de 07/01 a 13/10/2026; só contagens, sem dado pessoal.
 
 ## Com o que foi feito
 

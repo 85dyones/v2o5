@@ -22,8 +22,8 @@ export const metadata = metadataDa(ROTA);
  * com a marca do TJPR (uso autorizado pela vara), o ponto de partida com os
  * onze caminhos da serventia, o desenho e as regras, uma conversa de exemplo
  * (rotulada, com dados fictícios), o que muda para a equipe, a ficha técnica
- * e o fecho escuro. A rota desce em verde nas seções do atendimento. Sem seção
- * de números (regra em `memory/projects/case-16-vara-civel.md`).
+ * e o fecho escuro. A rota desce em verde nas seções do atendimento e em azul
+ * nos números (desde 17/11/2026, com fonte e período; `memory/projects/case-16-vara-civel.md`).
  */
 export default function Pagina() {
   const c = CASE_16VC;
@@ -154,6 +154,42 @@ export default function Pagina() {
               </li>
             ))}
           </ul>
+        </Trecho>
+
+        <Trecho aria-labelledby="titulo-numeros" etapa="azul">
+          <div className="relative grid grid-cols-12">
+            <Parada />
+            <div className="col-span-12 lg:col-span-7">
+              <p className="rotulo text-texto-secundario">{c.numeros.sobretitulo}</p>
+              <h2 id="titulo-numeros" className="titulo-secao mt-3">
+                {c.numeros.titulo}
+              </h2>
+            </div>
+          </div>
+          {/* O mosaico do case da Motors: o total na célula de tinta, os outros no papel. */}
+          <dl className="mt-12 grid grid-cols-1 gap-px border-2 border-texto bg-linha sm:grid-cols-2 md:mt-14 lg:grid-cols-4">
+            {c.numeros.itens.map((n, i) => (
+              <div
+                key={n.texto}
+                className={`flex min-h-44 flex-col justify-start gap-6 p-6 sm:justify-between md:min-h-56 md:p-7 ${
+                  i === 0 ? "sm:col-span-2 bg-texto text-fundo" : "bg-fundo"
+                }`}
+              >
+                <dt
+                  className={`order-2 max-w-[20rem] text-[0.9375rem] leading-relaxed ${
+                    i === 0 ? "text-faixa-escura-secundario" : "text-texto-secundario"
+                  }`}
+                >
+                  {n.texto}
+                </dt>
+                <dd className="order-1 flex items-baseline gap-3">
+                  <span className="numero-grande">{n.valor}</span>
+                  {n.complemento ? <span className="text-xl font-medium tracking-[-0.02em] opacity-75">{n.complemento}</span> : null}
+                </dd>
+              </div>
+            ))}
+          </dl>
+          <p className="mt-4 text-sm text-texto-secundario">{c.numeros.fonte}</p>
         </Trecho>
 
         <Trecho aria-labelledby="titulo-stack">

@@ -220,9 +220,10 @@ export const CASE_MOTORS = {
  * o ponto de partida (um WhatsApp para os onze setores), o desenho e as
  * regras, uma conversa de exemplo e o que muda para a equipe. Tudo sai da
  * leitura dos fluxos de 14/10/2026 (textos do Typebot e menu dos setores).
- * Sem IA: a versão em uso é triagem por menu. Sem número de resultado: a
- * regra de quando os números entram está em
- * `memory/projects/case-16-vara-civel.md`. `tests/case-16-vara-civel.test.ts` confere.
+ * Sem IA: a versão em uso é triagem por menu. Números desde 17/11/2026,
+ * quando o Dyones confirmou resolvido o problema de atribuição ao time: só
+ * contagens lidas no sistema de atendimento em 14/10/2026, com fonte e
+ * período (`memory/projects/case-16-vara-civel.md`). `tests/case-16-vara-civel.test.ts` confere.
  */
 export const CASE_16VC = {
   rota: "/cases/16-vara-civel",
@@ -355,7 +356,7 @@ export const CASE_16VC = {
         linha: "Encaminhamento por setor",
         titulo: "Cada conversa marcada com o setor",
         texto:
-          "A conversa entra no sistema de atendimento com o setor, os dados e a urgência que a pessoa pediu, e quem atende já começa pela resposta.",
+          "A conversa entra no sistema de atendimento já atribuída ao time do setor, com os dados e a urgência que a pessoa pediu, e quem atende já começa pela resposta.",
       },
       {
         linha: "Dúvida, intimação e gabinete",
@@ -364,6 +365,29 @@ export const CASE_16VC = {
           "A dúvida segue para a área de análises gerais e a intimação, para um atendente. O assunto do gabinete recebe a orientação de contato com o gabinete da magistrada.",
       },
     ],
+  },
+  /**
+   * Só contagens, lidas no sistema de atendimento (Chatwoot) em 14/10/2026, de
+   * conversas criadas de 07/01 a 13/10/2026. Números em
+   * `memory/projects/case-16-vara-civel.md`, conferidos pelo teste.
+   */
+  numeros: {
+    sobretitulo: "Medido",
+    titulo: "O que passou pela triagem.",
+    itens: [
+      { valor: 950, complemento: "", texto: "conversas no WhatsApp da serventia de 07/01 a 13/10/2026" },
+      {
+        valor: 345,
+        complemento: "",
+        texto: "pedidos com os dados completos do fluxo: 128 consultas de processo, 110 dúvidas, 59 intimações e 48 assuntos do gabinete",
+      },
+      {
+        valor: 118,
+        complemento: "",
+        texto: "pedidos encaminhados direto a um de oito setores específicos, de petições e alvarás a audiências e decurso de prazo",
+      },
+    ],
+    fonte: "Sistema de atendimento da serventia, lido em 14/10/2026. Conversas criadas de 07/01 a 13/10/2026; só contagens, sem dado pessoal.",
   },
   stack: {
     titulo: "Com o que foi feito",
