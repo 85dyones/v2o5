@@ -110,7 +110,7 @@ export const PROJETO = {
   titulo: "Motors Store",
   texto:
     "Revenda de seminovos em Curitiba, com gargalos diagnosticados em busca, leads, site e acompanhamento comercial. O case mostra o diagnóstico como o antes, o que a V2O5 implementou como o depois e, à parte, o que foi medido.",
-  pilulas: ["Sincronização de estoque", "Rastreamento de leads", "Integrações comerciais"],
+  pilulas: ["Sincronização de estoque", "Rastreamento de leads", "Agente de IA no WhatsApp", "Lead no CRM do Revenda Mais"],
   sobretitulo: "Construir, observar, melhorar",
   chamada: "A tecnologia precisa deixar rastro de valor.",
   paragrafo:
@@ -920,19 +920,19 @@ export const CAMADAS = PECAS.filter((p) => p.camada);
 
 /**
  * Só número lido do banco da Motors, com período declarado. Fonte:
- * `memory/projects/case-motors.md` (leitura de 08/10/2026; a tabela de
+ * `memory/projects/case-motors.md` (leitura de 17/11/2026; a tabela de
  * leads começa em 05/09/2026).
  */
 export const CASE = {
-  fonte: "Banco de dados da Motors Store, lido em 08/10/2026. Leads contados de 05/09 a 08/10/2026.",
+  fonte: "Banco de dados da Motors Store, lido em 17/11/2026. Leads contados de 05/09 a 17/11/2026.",
   numeros: [
     {
-      valor: 42,
-      complemento: "de 44",
+      valor: 129,
+      complemento: "de 131",
       texto: "leads do site chegaram com identificador para não contar a mesma conversão duas vezes",
     },
     { valor: 26, complemento: "", texto: "guias publicados, assinados pelo fundador da V2O5" },
-    { valor: 132, complemento: "", texto: "veículos sincronizados com o estoque do Revenda Mais" },
+    { valor: 148, complemento: "", texto: "veículos sincronizados com o estoque do Revenda Mais" },
   ],
   /** Formato real dos eventos; valores ilustrativos. */
   terminal: [

@@ -7,8 +7,8 @@ description: "Landing page, site personalizado e site conectado ao sistema que v
 canonical: "https://www.v2o5.com.br/criacao-de-sites"
 robots: null
 h1: "Criação de sites profissionais, ligados ao sistema que você já usa."
-extraido_em: "2026-11-17T14:48:14.330Z"
-fonte: "build local da branch claude/kind-tesla-eefroe em 17/11/2026 (case da 16ª Vara Cível, revenda como exemplo), antes da publicação"
+extraido_em: "2026-11-17T15:24:58.492Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 17/11/2026 (case Motors com o Ney, números de 17/11), antes da publicação"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 # Criação de sites profissionais, ligados ao sistema que você já usa.
@@ -33,7 +33,7 @@ Onze itens iguais em todo site da V2O5, das páginas que o Google entende à ent
 
 Em produção
 
-Motors Store: site de estoque com 132 veículos sincronizados e 26 guias
+Motors Store: site de estoque com 148 veículos sincronizados e 26 guias
 
 ## O site de template aparece bonito e some na busca.
 
@@ -121,7 +121,7 @@ Site de estoque com vitrine, ficha de veículo, páginas por marca e modelo e se
 
 veículos sincronizados com o estoque do Revenda Mais
 
-132
+148
 
 guias publicados, assinados pelo fundador da V2O5
 
@@ -131,7 +131,7 @@ guias publicados, assinados pelo fundador da V2O5
 
 motorsstore.com.br, capturado em 19/10/2026
 
-Banco de dados da Motors Store, lido em 08/10/2026. Leads contados de 05/09 a 08/10/2026.
+Banco de dados da Motors Store, lido em 17/11/2026. Leads contados de 05/09 a 17/11/2026.
 
 ### O site entregue, tela por tela.
 

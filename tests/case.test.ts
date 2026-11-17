@@ -7,9 +7,9 @@ import { ler, semComentarios } from "./fonte";
 
 /**
  * A página do case só publica número que está na memória do case, lido do
- * banco da Motors, e com fonte e período ao lado. Nada de atendimento ou
- * tempo de resposta até o Chatwoot da Motors ser corrigido
- * (`memory/projects/case-motors.md`).
+ * banco da Motors, e com fonte e período ao lado. O atendimento entra desde
+ * 17/11/2026 só pelo Ney, com os números das mensagens gravadas por ele; o
+ * Chatwoot saiu do caminho (`memory/projects/case-motors.md`).
  */
 
 const memoria = ler("memory/projects/case-motors.md");
@@ -29,19 +29,19 @@ describe("case Motors Store", () => {
   });
 
   it("cada número da página existe na memória do case", () => {
-    expect(memoria).toMatch(/\| Leads no funil \| 56 \(44 formulários do site, 12 WhatsApp/);
-    expect(memoria).toMatch(/\| Leads do site com `event_id` \| 42 de 44 \(95%\)/);
-    expect(memoria).toMatch(/ligados ao veículo \| 38 \/ 37 de 44/);
-    expect(memoria).toMatch(/com gclid ou fbclid \| 28 \/ 26 de 44/);
+    expect(memoria).toMatch(/\| Leads no funil \| 237 \(131 formulários do site, 106 WhatsApp/);
+    expect(memoria).toMatch(/\| Leads do site com `event_id` \| 129 de 131 \(98%\)/);
+    expect(memoria).toMatch(/ligados ao veículo \| 119 \/ 113 de 131/);
+    expect(memoria).toMatch(/com gclid ou fbclid \| 103 \/ 96 de 131/);
     expect(memoria).toMatch(/\| Guias publicados \| 26 \|/);
-    expect(memoria).toMatch(/\| Estoque sincronizado \| 132 veículos, 46 marcados como vendidos/);
+    expect(memoria).toMatch(/\| Estoque sincronizado \| 148 veículos, 60 marcados como vendidos/);
     expect(CASE_MOTORS.numeros.itens.map((n) => `${n.valor}${n.complemento ? ` ${n.complemento}` : ""}`)).toEqual([
-      "56",
-      "42 de 44",
-      "37 de 44",
-      "26 de 44",
+      "237",
+      "129 de 131",
+      "113 de 131",
+      "96 de 131",
       "26",
-      "132",
+      "148",
     ]);
     expect(CASE_MOTORS.construido.pecas.map((p) => p.titulo)).toContain("26 guias com método próprio");
   });
@@ -51,9 +51,28 @@ describe("case Motors Store", () => {
     expect(pagina).toContain("{c.numeros.fonte}");
   });
 
-  it("não fala de atendimento nem de tempo de resposta como resultado", () => {
-    expect(textoDoCase).not.toMatch(/tempo de resposta|primeira resposta|respondido em|responde em/i);
+  it("o Ney: cada número existe na memória do case, com a fonte ao lado (17/11)", () => {
+    expect(memoria).toMatch(/\| Clientes atendidos pelo Ney \| 125 /);
+    expect(memoria).toMatch(/\| Primeira resposta \| 93 de 100 em até 1 min; mediana 38 s/);
+    expect(memoria).toMatch(/\| Leads entregues ao CRM do Revenda Mais \| 37 desde 04\/11/);
+    expect(CASE_MOTORS.atendimento.numeros.map((n) => `${n.valor}${n.complemento ? ` ${n.complemento}` : ""}`)).toEqual([
+      "125",
+      "93 de 100",
+      "37",
+    ]);
+    expect(CASE_MOTORS.atendimento.numeros[1].texto).toMatch(/38 segundos/);
+    expect(CASE_MOTORS.atendimento.fonte).toMatch(/17\/11\/2026/);
+    expect(pagina).toContain("{c.atendimento.fonte}");
+    expect(CASE_MOTORS.atendimento.ficha.nota).toMatch(/ilustrativos/);
+  });
+
+  it("o atendimento é o do Ney: sem Chatwoot, sem nome de modelo e sem tempo fora da seção dele", () => {
+    expect(textoDoCase).not.toMatch(/Chatwoot/);
+    expect(textoDoCase).not.toMatch(/DeepSeek|Haiku|Claude|GPT|OpenAI/i);
     expect(textoDoCase).not.toMatch(/-70%|3\.4x|3,4x/);
+    const { atendimento, ...resto } = CASE_MOTORS;
+    expect(atendimento.titulo).toMatch(/Ney/);
+    expect(JSON.stringify(resto)).not.toMatch(/segundos|tempo de resposta|primeira resposta/i);
   });
 
   it("só número medido: sem ressalva sobre o que não foi medido e sem promessa de dado futuro (Dyones, 11/10)", () => {

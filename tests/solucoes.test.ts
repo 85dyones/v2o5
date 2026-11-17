@@ -17,7 +17,7 @@ import { ler, semComentarios } from "./fonte";
 const DAS_SOLUCOES = ["/presenca-digital-local", "/criacao-de-sites", "/sprint-de-eficiencia"];
 const DE_RECURSO = ["/agente-de-ia-para-whatsapp", "/automacao-com-ia", "/crm-com-whatsapp", "/rastreamento-de-conversoes"];
 const ROTAS = [...DAS_SOLUCOES, ...DE_RECURSO];
-const numerosDoCase = [...CASE.numeros, ...CASE_MOTORS.numeros.itens];
+const numerosDoCase = [...CASE.numeros, ...CASE_MOTORS.numeros.itens, ...CASE_MOTORS.atendimento.numeros];
 
 describe("páginas de solução", () => {
   it("são as três soluções e as quatro de recurso, prontas, indexáveis e montadas pelo molde", () => {
@@ -76,8 +76,13 @@ describe("páginas de solução", () => {
         expect(s.problema.href, s.rota).toBe(VISAO_360.evidencia.href);
       }
     }
-    expect(solucaoDa("/agente-de-ia-para-whatsapp").naMotors).toBeUndefined();
-    expect(JSON.stringify(solucaoDa("/agente-de-ia-para-whatsapp"))).not.toMatch(/Motors/);
+    // O Ney roda na Motors desde 21/10/2026: a página do agente cita a loja só com os números dele (17/11/2026).
+    expect(solucaoDa("/agente-de-ia-para-whatsapp").naMotors?.numeros).toEqual([
+      CASE_MOTORS.atendimento.numeros[1],
+      CASE_MOTORS.atendimento.numeros[2],
+    ]);
+    expect(JSON.stringify(solucaoDa("/agente-de-ia-para-whatsapp"))).not.toMatch(/Chatwoot|DeepSeek|Haiku|Claude/);
+    expect(solucaoDa("/agente-de-ia-para-whatsapp").naMotors?.fonte).toBe(CASE_MOTORS.atendimento.fonte);
   });
 
   it("o resumo fica curto para o H1 continuar sendo o LCP, e o H1 é a busca-alvo em frase", () => {

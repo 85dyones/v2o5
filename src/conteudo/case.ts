@@ -2,9 +2,11 @@ import { CASE } from "@/conteudo/home";
 
 /**
  * Página do case Motors Store. Tudo que é número vem de
- * `memory/projects/case-motors.md` (lido do banco da loja em 08/10/2026,
- * leads de 05/09 a 08/10) e `tests/case.test.ts` confere. Nada de tempo de
- * resposta nem de atendimento até o Chatwoot da Motors ser corrigido.
+ * `memory/projects/case-motors.md` (lido do banco da loja em 17/11/2026,
+ * leads de 05/09 a 17/11; a leitura de 08/10 ficou no histórico) e
+ * `tests/case.test.ts` confere. O atendimento entra desde 17/11: o Ney, agente
+ * de IA da loja, roda pela Evolution API desde 21/10 (fora do Chatwoot), e o
+ * tempo até a primeira resposta sai das mensagens gravadas por ele.
  * Publicação de nome, logo e números autorizada pelo Dyones em 08/10.
  * Regra do Dyones (11/10): só número medido, com fonte; sem ressalva sobre o
  * que ainda não foi medido e sem promessa de dado futuro. Cliente compra
@@ -24,11 +26,11 @@ export const CASE_MOTORS = {
   titulo: "Motors Store: o sistema inteiro numa revenda de seminovos.",
   /** Curto de propósito: o LCP da página é o H1, e um parágrafo maior que ele rouba o posto (regra do CLAUDE.md; `tests/case.test.ts`). */
   resumo:
-    "A V2O5 montou para a Motors Store, em Curitiba, o site de estoque, os guias, o rastreamento até a venda, o painel e as automações.",
+    "A V2O5 montou para a Motors Store, em Curitiba, o site de estoque, o agente de IA no WhatsApp, o rastreamento até a venda e as automações.",
   fatos: [
     { rotulo: "Cliente", valor: "Motors Store, revenda de seminovos em Curitiba" },
-    { rotulo: "Entrega", valor: "site de estoque, guias, rastreamento, painel e automações" },
-    { rotulo: "Fonte", valor: "banco de dados da Motors, lido em 08/10/2026" },
+    { rotulo: "Entrega", valor: "site de estoque, agente de IA, guias, rastreamento, painel e automações" },
+    { rotulo: "Fonte", valor: "banco de dados da Motors, lido em 17/11/2026" },
   ],
   /**
    * Os gargalos que o Dyones confirmou em 25/10/2026 (roteiro ajustado). São
@@ -72,18 +74,31 @@ export const CASE_MOTORS = {
           "Camada de dados versionada e testada; Meta Pixel com API de Conversões deduplicada por event_id; GA4 e GTM; UTM e click IDs gravados no lead.",
       },
       {
+        linha: "Atendimento com IA",
+        titulo: "O Ney, agente da loja no WhatsApp",
+        texto:
+          "Agente de IA feito para a Motors: responde com o estoque real, qualifica pela régua da loja e passa o cliente à equipe na hora certa.",
+      },
+      {
+        linha: "Integrações entre sistemas",
+        titulo: "Lead qualificado no CRM do Revenda Mais",
+        texto:
+          "Na passagem, o lead vai ao CRM do Revenda Mais com a origem da mídia, o carro de interesse e a qualificação do Ney, e o CRM distribui ao vendedor.",
+      },
+      {
         linha: "CRM e sistemas sob medida",
         titulo: "Painel da loja",
-        texto: "Funil de leads, estoque, clientes, investidores e mídia paga num painel só.",
+        texto:
+          "A mesa do Ney: quem está com o agente, quem já foi ao CRM e quem precisa do dono, junto do estoque, da mídia paga e das consultas de placa.",
       },
       {
         linha: "Automação de processos",
         titulo: "Rotinas no n8n",
         texto:
-          "Sincronização do estoque com o Revenda Mais, vendas incompletas e alertas de estagnação do funil, com WhatsApp pela Evolution API e atribuição no Chatwoot.",
+          "Sincronização do estoque com o Revenda Mais, entrada das conversas do WhatsApp pela Evolution API, rodada do atendimento a cada 15 minutos e alerta de falha de integração.",
       },
       {
-        linha: "Integrações entre sistemas",
+        linha: "Conteúdo com IA",
         titulo: "Descritivo de veículo com IA",
         texto:
           "Gerador de descritivo com modelo de linguagem, validado contra invenção de dado: o texto só sai com o que a ficha confirma.",
@@ -96,38 +111,97 @@ export const CASE_MOTORS = {
     fonte: CASE.fonte,
     itens: [
       {
-        valor: 56,
+        valor: 237,
         complemento: "",
-        texto: "leads no funil em cinco semanas: 44 pelos formulários do site e 12 pelo WhatsApp direto, via Chatwoot",
+        texto: "leads no funil de 05/09 a 17/11: 131 pelos formulários do site e 106 pelo WhatsApp direto",
       },
       {
-        valor: 42,
-        complemento: "de 44",
+        valor: 129,
+        complemento: "de 131",
         texto: "leads do site com o identificador que impede a Meta de contar a mesma conversão duas vezes",
       },
-      { valor: 37, complemento: "de 44", texto: "leads do site ligados ao veículo que motivou o contato" },
+      { valor: 113, complemento: "de 131", texto: "leads do site ligados ao veículo que motivou o contato" },
       {
-        valor: 26,
-        complemento: "de 44",
+        valor: 96,
+        complemento: "de 131",
         texto: "leads do site com gclid ou fbclid: o anúncio exato que trouxe a pessoa",
       },
       { valor: 26, complemento: "", texto: "guias publicados, assinados pelo fundador da V2O5" },
       {
-        valor: 132,
+        valor: 148,
         complemento: "",
-        texto: "veículos no estoque sincronizado com o Revenda Mais, 46 já marcados como vendidos",
+        texto: "veículos no estoque sincronizado com o Revenda Mais, 60 já marcados como vendidos",
       },
     ],
   },
   rastreio: {
     titulo: "Como a venda fica rastreável.",
     texto:
-      "Cada lead do site sai com um identificador que o navegador e o servidor compartilham. A Meta e o Google recebem a mesma conversão pelos dois caminhos e contam uma vez só. O lead chega ao painel com a origem, o anúncio e o carro, e quando vira venda a verba sabe de onde veio.",
+      "Cada lead do site sai com um identificador que o navegador e o servidor compartilham. A Meta e o Google recebem a mesma conversão pelos dois caminhos e contam uma vez só. O lead chega com a origem, o anúncio e o carro, e leva os três até o CRM do Revenda Mais.",
     exemplo: "Formato real dos eventos; os valores são ilustrativos.",
+  },
+  /**
+   * O Ney e o lead qualificado no CRM do Revenda Mais (17/11/2026). Como
+   * funciona: `docs/ATENDIMENTO_IA.md`, `docs/FLUXO_DO_LEAD.md` e
+   * `docs/INTEGRACAO_REVENDAMAIS.md` do repositório da Motors. Números lidos
+   * do banco em 17/11 (`memory/projects/case-motors.md`). A ficha é o formato
+   * do texto que vai ao CRM, com valores ilustrativos.
+   */
+  atendimento: {
+    sobretitulo: "Atendimento com IA",
+    titulo: "O Ney qualifica, o Revenda Mais distribui.",
+    texto:
+      "O Ney é o agente de IA da Motors Store no WhatsApp, feito sob medida para a loja. Ele conversa com quem chega pelo anúncio, pelo site ou direto, e só passa o cliente à equipe quando a conversa está pronta para o vendedor.",
+    passos: [
+      {
+        titulo: "Responde com o estoque real",
+        texto: "Lê o estoque que o Revenda Mais sincroniza, com o link de cada carro, e manda as fotos aos poucos: primeiro de fora, o interior se o cliente quiser.",
+      },
+      {
+        titulo: "Preenche a ficha e soma o aquecimento",
+        texto: "Carro, forma de pagamento, entrada, troca, prazo e visita. Uma régua de pesos dá a nota de 0 a 100 e mostra o motivo de cada ponto.",
+      },
+      {
+        titulo: "Passa na hora certa",
+        texto: "Quando o cliente marca a visita, chega à simulação do financiamento, pede uma condição que só o vendedor dá ou pede para falar com uma pessoa.",
+      },
+      {
+        titulo: "Entrega no CRM do Revenda Mais",
+        texto: "O lead vai ao CRM com a origem da mídia, o carro de interesse e a qualificação do Ney, e o CRM escolhe o vendedor. Se o CRM recusar, o envio tenta de novo e o dono é avisado.",
+      },
+      {
+        titulo: "Retoma sem atropelar a equipe",
+        texto: "Quem parou de responder recebe uma retomada no tempo certo. Quem já está com um vendedor fica com ele, e a mensagem nova vai para a loja.",
+      },
+    ],
+    numeros: [
+      { valor: 125, complemento: "", texto: "clientes atendidos pelo Ney no WhatsApp desde 21/10" },
+      {
+        valor: 93,
+        complemento: "de 100",
+        texto: "primeiras mensagens respondidas pelo Ney em até um minuto, com mediana de 38 segundos",
+      },
+      { valor: 37, complemento: "", texto: "leads qualificados pelo Ney entregues ao CRM do Revenda Mais desde 04/11" },
+    ],
+    fonte: "Banco de dados da Motors Store, lido em 17/11/2026. Conversas de 21/10 a 17/11/2026; envios ao CRM de 04/11 a 17/11/2026.",
+    ficha: {
+      legenda: "lead no CRM do Revenda Mais",
+      nota: "Formato do lead que chega ao CRM; os valores são ilustrativos.",
+      titulo: "VISITA MARCADA, qualificado pelo Ney",
+      linhas: [
+        ["Aquecimento", "82/100, quer visitar a loja"],
+        ["Visita marcada", "sábado, às 10h"],
+        ["Procura", "Compass Longitude 2021"],
+        ["Pagamento", "financiado, com entrada"],
+        ["Troca", "Gol 2015"],
+        ["Origem", "Site da Loja - Meta ADS, com a campanha e o anúncio"],
+        ["Resumo da conversa", "o que o cliente pediu, em poucas linhas"],
+      ],
+    },
   },
   stack: {
     titulo: "Com o que foi feito",
-    itens: ["Next.js", "Vercel", "Supabase", "n8n", "Evolution API", "Chatwoot", "Meta Pixel e API de Conversões", "GA4 e GTM", "Revenda Mais"],
+    itens: ["Next.js", "Vercel", "Supabase", "n8n", "Evolution API", "Meta Pixel e API de Conversões", "GA4 e GTM", "Revenda Mais (estoque e CRM)"],
   },
   assinatura:
     "Quem assina os 26 guias da Motors Store é o fundador da V2O5, Dyones Oliveira. É ele quem conduz o diagnóstico gratuito.",

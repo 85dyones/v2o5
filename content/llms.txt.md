@@ -3,8 +3,8 @@ rota: "/llms.txt"
 url: "https://www.v2o5.com.br/llms.txt"
 status: 200
 content_type: "text/plain; charset=utf-8"
-extraido_em: "2026-11-17T14:48:14.330Z"
-fonte: "build local da branch claude/kind-tesla-eefroe em 17/11/2026 (case da 16ª Vara Cível, revenda como exemplo), antes da publicação"
+extraido_em: "2026-11-17T15:24:58.492Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 17/11/2026 (case Motors com o Ney, números de 17/11), antes da publicação"
 ---
 
 <!-- Corpo de /llms.txt exatamente como servido (gerado por src/app/llms.txt/route.ts). -->
@@ -81,10 +81,10 @@ Automação, IA, dados, painéis e integrações entram como recursos de uma sol
 - [Para revendas de veículos](https://www.v2o5.com.br/segmentos/revendas-de-veiculos): As mesmas soluções aplicadas a revendas, a partir do que roda na Motors Store: site ligado ao estoque do sistema da loja (Revenda Mais, Autoconf e outros), agente de IA no WhatsApp, CRM e rastreamento até a venda.
 
 ## Case Motors Store
-Revenda de seminovos em Curitiba. Banco de dados da Motors Store, lido em 08/10/2026. Leads contados de 05/09 a 08/10/2026. [Case completo](https://www.v2o5.com.br/cases/motors-store).
-- 42 de 44 leads do site chegaram com identificador para não contar a mesma conversão duas vezes.
+Revenda de seminovos em Curitiba. Banco de dados da Motors Store, lido em 17/11/2026. Leads contados de 05/09 a 17/11/2026. [Case completo](https://www.v2o5.com.br/cases/motors-store).
+- 129 de 131 leads do site chegaram com identificador para não contar a mesma conversão duas vezes.
 - 26 guias publicados, assinados pelo fundador da V2O5.
-- 132 veículos sincronizados com o estoque do Revenda Mais.
+- 148 veículos sincronizados com o estoque do Revenda Mais.
 
 ## Case 16ª Vara Cível
 A V2O5 montou para a 16ª Vara Cível de Curitiba a triagem automatizada do WhatsApp, que separa cada pedido por assunto e setor antes de chegar à equipe. Uma triagem por menu, sem resposta jurídica automática: ela coleta os dados, encaminha e deixa a resposta com a equipe da serventia. Em uso desde outubro de 2025. [Case completo](https://www.v2o5.com.br/cases/16-vara-civel).

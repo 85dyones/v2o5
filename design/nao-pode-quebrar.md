@@ -408,6 +408,7 @@ Decisão do Dyones (`memory/decisoes.md`, 17/11): não há produto para revenda,
 - Rodapé: "Case 16ª Vara Cível" depois de "Case Motors Store". Home: a seção `#case` ganha, abaixo do botão do case Motors, a linha com o link para o case da 16ª; a seção Automotivo saiu da home (`Automotivo.tsx` apagado), e nenhuma âncora apontava para ela.
 - `/precos`, `/criacao-de-sites`, `llms.txt` e `OfferCatalog`: sem o Site Automotivo Integrado (R$ 11.900 entrou nos valores aposentados de `tests/precos-publicos.test.ts`). `/segmentos/revendas-de-veiculos` mantém rota, H1, âncoras e `page_type`; título, planos e o `Service` do schema falam do Site Conectado. O `llms.txt` troca "Segmento" por "Exemplo por segmento" e ganha "## Case 16ª Vara Cível".
 - Formulário, `/api/leads`, WhatsApp e eventos: sem mudança.
+- Tarde de 17/11, case Motors: números relidos em 17/11 (home, `#case`, case, soluções, `llms.txt` e a raiz de diagnostico.v2o5.com.br); seção nova `titulo-atendimento` no case (etapa verde, entre o rastreio e a ficha técnica) com os passos do Ney, a ficha do lead no CRM e três números; `/agente-de-ia-para-whatsapp` ganha o bloco "O Ney, na Motors Store." com fonte própria (`naMotors.fonte`). Âncoras, H1 e rotas sem mudança.
 
 ## Atualização de 12/11/2026 (sem Branding e sem tráfego pago)
 

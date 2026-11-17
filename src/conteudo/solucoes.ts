@@ -20,9 +20,9 @@ import type { Etapa } from "@/lib/tokens";
  * `ofertas.ts` ou `sprint.ts`, nunca digitado. Tudo que é número
  * sai de `CASE`, `CASE_MOTORS` ou da evidência da Visão 360, com fonte. `tests/solucoes.test.ts` confere.
  *
- * Sobre o agente: a memória do case não registra agente de IA na Motors,
- * então a página do agente não cita a loja (pendência 13); a prova dela é a
- * demonstração rotulada como fictícia.
+ * Sobre o agente: desde 17/11/2026 a página cita o Ney, agente de IA da
+ * Motors Store em produção desde 21/10, com os números de
+ * `CASE_MOTORS.atendimento`; a demonstração rotulada como fictícia continua.
  */
 
 export interface Numero {
@@ -48,7 +48,7 @@ export interface Solucao {
   entregas: { titulo: string; texto: string }[];
   comoFunciona: { titulo: string; texto: string }[];
   /** Só quando a linha roda na Motors Store; os números são os do case, por referência. */
-  naMotors?: { titulo: string; texto: string; numeros: Numero[] };
+  naMotors?: { titulo: string; texto: string; numeros: Numero[]; /** Quando os números não são os do funil (o Ney). */ fonte?: string };
   /** Página de recurso: como a linha entra num Sprint de Eficiência, a ficha "No Sprint" (sem valor). */
   noSprint?: string;
   /** Página de solução (27/10/2026): os pacotes de `ofertas.ts` no lugar da ficha "No Sprint". */
@@ -229,6 +229,13 @@ export const SOLUCOES: Solucao[] = [
         texto: "Entra no número oficial da empresa. Toda conversa fica no CRM, com origem e desfecho.",
       },
     ],
+    naMotors: {
+      titulo: "O Ney, na Motors Store.",
+      texto:
+        "O agente de IA da loja responde com o estoque real, preenche a ficha do cliente e passa o lead pronto ao CRM do Revenda Mais quando ele marca a visita, chega à simulação ou pede uma pessoa.",
+      numeros: [CASE_MOTORS.atendimento.numeros[1], CASE_MOTORS.atendimento.numeros[2]],
+      fonte: CASE_MOTORS.atendimento.fonte,
+    },
     noSprint:
       "O agente entra num Sprint quando o gargalo é a resposta lenta ou o contato que se perde fora do horário. O Sprint mapeia o atendimento de hoje, define o que o agente responde e quando chama uma pessoa, implementa e compara o tempo de resposta e os contatos acompanhados antes e depois.",
     perguntas: [
@@ -316,7 +323,7 @@ export const SOLUCOES: Solucao[] = [
     naMotors: {
       titulo: "Rodando na Motors Store.",
       texto:
-        "Sincronização do estoque com o Revenda Mais, vendas incompletas e alertas de estagnação do funil, com WhatsApp pela Evolution API.",
+        "Sincronização do estoque com o Revenda Mais, entrada das conversas do WhatsApp pela Evolution API, rodada do atendimento a cada 15 minutos e alerta de falha de integração.",
       numeros: [CASE.numeros[2]],
     },
     noSprint:
@@ -362,7 +369,7 @@ export const SOLUCOES: Solucao[] = [
     fatos: [
       { rotulo: "No Sprint", valor: "Intervenção para quando o gargalo é o funil espalhado entre conversas e planilhas" },
       { rotulo: "O que entra", valor: "Funil e campos do seu negócio, WhatsApp dentro do CRM, banco próprio, backups e treinamento da equipe, conforme o escopo" },
-      { rotulo: "Em produção", valor: "Motors Store: painel com funil, estoque, clientes, investidores e mídia paga" },
+      { rotulo: "Em produção", valor: "Motors Store: lead qualificado pelo agente de IA no CRM do Revenda Mais, com a origem e a ficha" },
     ],
     problema: {
       titulo: "O funil vive no WhatsApp de cada vendedor.",
@@ -404,8 +411,9 @@ export const SOLUCOES: Solucao[] = [
     ],
     naMotors: {
       titulo: "O painel da Motors Store.",
-      texto: "Funil de leads, estoque, clientes, investidores e mídia paga num painel só, com as conversas do Chatwoot.",
-      numeros: [CASE_MOTORS.numeros.itens[0]],
+      texto:
+        "O lead qualificado pelo Ney vai ao CRM do Revenda Mais com a origem, o carro e a ficha, e o painel da loja mostra quem está com o agente, quem já foi ao CRM e quem precisa do dono.",
+      numeros: [CASE_MOTORS.numeros.itens[0], CASE_MOTORS.atendimento.numeros[2]],
     },
     noSprint:
       "O CRM entra num Sprint quando o gargalo é o funil espalhado entre conversas e planilhas. O Sprint mapeia como a venda acontece, desenha as etapas e os campos com a equipe, implanta e compara a proporção de contatos acompanhados e a conversão de etapa.",

@@ -7,8 +7,8 @@ description: "Chatbot com IA no WhatsApp: um agente que responde na hora com as 
 canonical: "https://www.v2o5.com.br/agente-de-ia-para-whatsapp"
 robots: null
 h1: "Agente de IA para WhatsApp que responde, qualifica e agenda."
-extraido_em: "2026-11-12T17:35:18.479Z"
-fonte: "build local da branch claude/kind-tesla-eefroe em 12/11/2026 (sem Branding e sem tráfego pago), antes da publicação"
+extraido_em: "2026-11-17T15:24:58.492Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 17/11/2026 (case Motors com o Ney, números de 17/11), antes da publicação"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 # Agente de IA para WhatsApp que responde, qualifica e agenda.
@@ -146,6 +146,24 @@ Responsável
 
 …
 
+## O Ney, na Motors Store.
+
+O agente de IA da loja responde com o estoque real, preenche a ficha do cliente e passa o lead pronto ao CRM do Revenda Mais quando ele marca a visita, chega à simulação ou pede uma pessoa.
+
+primeiras mensagens respondidas pelo Ney em até um minuto, com mediana de 38 segundos
+
+93
+
+de 100
+
+leads qualificados pelo Ney entregues ao CRM do Revenda Mais desde 04/11
+
+37
+
+Banco de dados da Motors Store, lido em 17/11/2026. Conversas de 21/10 a 17/11/2026; envios ao CRM de 04/11 a 17/11/2026.
+
+[Ler o case completo](/cases/motors-store)
+
 ## Agente de IA no WhatsApp num Sprint de Eficiência.
 
 O agente entra num Sprint quando o gargalo é a resposta lenta ou o contato que se perde fora do horário. O Sprint mapeia o atendimento de hoje, define o que o agente responde e quando chama uma pessoa, implementa e compara o tempo de resposta e os contatos acompanhados antes e depois.
@@ -221,6 +239,7 @@ O · 4,8 <!-- texto em SVG; decorativo, aria-hidden -->
 - "Demonstração" (section)
 - "Frentes da demonstração" (div role=tablist)
 - "Etapa do funil" (ol)
+- "Case" (section)
 - "No Sprint" (section)
 - "Antes de contratar" (section)
 - "Conversa no WhatsApp" (aside)

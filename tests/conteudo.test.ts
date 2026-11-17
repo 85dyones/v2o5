@@ -25,18 +25,18 @@ describe("números do case", () => {
   const memoria = ler("memory/projects/case-motors.md");
 
   it("cada número existe na memória do case, lido do banco", () => {
-    expect(memoria).toMatch(/\| Leads do site com `event_id` \| 42 de 44/);
+    expect(memoria).toMatch(/\| Leads do site com `event_id` \| 129 de 131/);
     expect(memoria).toMatch(/\| Guias publicados \| 26 \|/);
-    expect(memoria).toMatch(/\| Estoque sincronizado \| 132 veículos/);
+    expect(memoria).toMatch(/\| Estoque sincronizado \| 148 veículos/);
     expect(CASE.numeros.map((n) => `${n.valor}${n.complemento ? ` ${n.complemento}` : ""}`)).toEqual([
-      "42 de 44",
+      "129 de 131",
       "26",
-      "132",
+      "148",
     ]);
   });
 
   it("a fonte e o período aparecem junto dos números", () => {
-    expect(CASE.fonte).toMatch(/08\/10\/2026/);
+    expect(CASE.fonte).toMatch(/17\/11\/2026/);
     expect(CASE.fonte).toMatch(/05\/09/);
     expect(ler("src/components/home/CaseMotors.tsx")).toMatch(/\{CASE\.fonte\}/);
   });

@@ -7,8 +7,8 @@ description: "Presença digital local, sites com integração e o Sprint de Efic
 canonical: "https://www.v2o5.com.br"
 robots: null
 h1: "Do problema ao resultado, pelo caminho mais simples."
-extraido_em: "2026-11-17T14:48:14.330Z"
-fonte: "build local da branch claude/kind-tesla-eefroe em 17/11/2026 (case da 16ª Vara Cível, revenda como exemplo), antes da publicação"
+extraido_em: "2026-11-17T15:24:58.492Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 17/11/2026 (case Motors com o Ney, números de 17/11), antes da publicação"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 Estratégia, processos e tecnologia
@@ -238,7 +238,8 @@ Revenda de seminovos em Curitiba, com gargalos diagnosticados em busca, leads, s
 
 - Sincronização de estoque
 - Rastreamento de leads
-- Integrações comerciais
+- Agente de IA no WhatsApp
+- Lead no CRM do Revenda Mais
 
 Construir, observar, melhorar
 
