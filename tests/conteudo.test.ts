@@ -253,12 +253,14 @@ describe("Como tudo se liga: a ordem do funil (26/10/2026)", () => {
     for (const c of CAMADAS) for (const id of c.caminho) expect(PARADAS.map((p) => p.id)).toContain(id);
   });
 
-  it("a home segue a lógica soluções, como começar, problema, método, exemplo, medição e prova (27/10/2026)", () => {
+  it("a home segue a lógica soluções, como começar, problema, método, exemplo, medição e prova, sem seção de segmento (17/11/2026)", () => {
     const home = ler("src/components/home/Home.tsx");
-    const ordem = ["<Hero ", "<Solucoes />", "<Escada />", "<Dores />", "<Sprint />", "<ComoSeLiga />", "<Indicadores />", "<ProjetoReal />", "<Automotivo />"];
+    const ordem = ["<Hero ", "<Solucoes />", "<Escada />", "<Dores />", "<Sprint />", "<ComoSeLiga />", "<Indicadores />", "<ProjetoReal />"];
     const posicoes = ordem.map((c) => home.indexOf(c));
     expect(posicoes.every((p) => p > 0)).toBe(true);
     expect(posicoes).toEqual([...posicoes].sort((a, b) => a - b));
+    // Revenda é exemplo e case, não produto (Dyones, 17/11/2026).
+    expect(home).not.toContain("<Automotivo");
   });
 });
 

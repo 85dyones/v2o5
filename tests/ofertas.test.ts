@@ -63,7 +63,6 @@ describe("as três soluções (27/10/2026; Branding saiu em 12/11/2026)", () => 
         ["Landing Page", 2900, false, null],
         ["Site Personalizado", 5900, false, null],
         ["Site Conectado", 9900, true, null],
-        ["Site Automotivo Integrado", 11900, true, null],
       ],
       sprint: [
         ["Sprint Essencial", 3900, false, null],
@@ -94,11 +93,13 @@ describe("as três soluções (27/10/2026; Branding saiu em 12/11/2026)", () => 
     expect(ofertaDa("sites").regras.join(" ")).toMatch(/não substitui o CRM/);
   });
 
-  it("o Site Automotivo Integrado mostra só o 'a partir de'; o teto fica em oferta.md", () => {
-    const s = ofertaDa("sites").pacotes.find((p) => p.nome === "Site Automotivo Integrado")!;
-    expect(precoEmTexto(s.preco)).toBe("a partir de R$ 11.900");
+  it("revenda compra o Site Conectado: não há pacote automotivo, e a faixa interna fica em oferta.md (17/11/2026)", () => {
+    expect(ofertaDa("sites").pacotes.map((p) => p.nome)).not.toContain("Site Automotivo Integrado");
+    const conectado = ofertaDa("sites").pacotes.find((p) => p.nome === "Site Conectado")!;
+    expect(precoEmTexto(conectado.preco)).toBe("a partir de R$ 9.900");
+    expect(conectado.inclui.join(" ")).toMatch(/estoque/);
     expect(vigente).toContain("R$ 11.900 a R$ 16.900");
-    expect(JSON.stringify(OFERTAS)).not.toContain("16.900");
+    expect(JSON.stringify(OFERTAS)).not.toMatch(/11\.900|16\.900|Automotivo/);
   });
 });
 

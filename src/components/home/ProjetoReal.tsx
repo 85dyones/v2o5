@@ -4,8 +4,9 @@ import { Parada, Trecho } from "@/components/rota/Rota";
 import { PROJETO } from "@/conteudo/home";
 
 /**
- * O projeto da Motors Store em resumo. Só afirmações que o case já publica;
- * os números, com fonte e período, ficam na página do case.
+ * O projeto da Motors Store em resumo, e o link para o segundo case (16ª Vara
+ * Cível, 17/11/2026). Só afirmações que os cases já publicam; os números, com
+ * fonte e período, ficam na página do case.
  */
 export default function ProjetoReal() {
   return (
@@ -41,6 +42,12 @@ export default function ProjetoReal() {
             {PROJETO.link}
             <Icone nome="seta" className="seta size-4" />
           </Link>
+          <p className="mt-6 max-w-[34rem] text-[0.9375rem] leading-relaxed text-texto-secundario">
+            {PROJETO.outro.texto}{" "}
+            <Link href={PROJETO.outro.href} className="link-sublinhado text-texto" data-evento="cta_click" data-local="case">
+              {PROJETO.outro.link}
+            </Link>
+          </p>
         </div>
       </div>
     </Trecho>

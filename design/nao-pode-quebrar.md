@@ -399,6 +399,16 @@ Decisão do Dyones (`memory/decisoes.md`, 27/10; arquitetura em `docs/2026-10-27
 - Chips das camadas: no celular, "Origem na entrada, venda de volta ao anúncio" quebra linha em vez de passar da tela (o chip tinha 413 px em 390).
 - Texto, âncoras, `data-local` e eventos: sem mudança. `content/home.md`, `sprint-de-eficiencia.md`, `automacao-com-ia.md` e `gestao-de-trafego.md` anotam a lista como só para leitor de tela.
 
+## Atualização de 17/11/2026 (case da 16ª Vara Cível, revenda como exemplo)
+
+Decisão do Dyones (`memory/decisoes.md`, 17/11): não há produto para revenda, e o case da 16ª Vara Cível foi autorizado.
+
+- Rota nova: `/cases/16-vara-civel`, 200, indexável, no sitemap (`PAGINAS`), `page_type` `case` (o prefixo `/cases/` já mapeava), JSON-LD com `Article` assinado pelo fundador e `about` `GovernmentOrganization` sem URL (`grafoDoCase16`). Texto em `content/cases/16-vara-civel.md`; a rota entrou no extrator. `tests/case-16-vara-civel.test.ts` trava sem número, sem IA, sem dado pessoal e sem travessão.
+- Topo e menu do celular: "Case" vira o grupo "Cases" (Motors Store e 16ª Vara Cível), com `href` `/#case` e sem o link final "Ver todos" (`SubmenuDoTopo` só mostra o link final quando o grupo tem `todos`).
+- Rodapé: "Case 16ª Vara Cível" depois de "Case Motors Store". Home: a seção `#case` ganha, abaixo do botão do case Motors, a linha com o link para o case da 16ª; a seção Automotivo saiu da home (`Automotivo.tsx` apagado), e nenhuma âncora apontava para ela.
+- `/precos`, `/criacao-de-sites`, `llms.txt` e `OfferCatalog`: sem o Site Automotivo Integrado (R$ 11.900 entrou nos valores aposentados de `tests/precos-publicos.test.ts`). `/segmentos/revendas-de-veiculos` mantém rota, H1, âncoras e `page_type`; título, planos e o `Service` do schema falam do Site Conectado. O `llms.txt` troca "Segmento" por "Exemplo por segmento" e ganha "## Case 16ª Vara Cível".
+- Formulário, `/api/leads`, WhatsApp e eventos: sem mudança.
+
 ## Atualização de 12/11/2026 (sem Branding e sem tráfego pago)
 
 Decisão do Dyones (`memory/decisoes.md`, 12/11): saem a gestão de tráfego pago e o Branding & Identidade; ficam Presença Digital Local, Sites & Integrações e Sprint de Eficiência.

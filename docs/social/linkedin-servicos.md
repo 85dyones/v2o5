@@ -14,7 +14,7 @@ Imagens de exemplo (1200 x 627) em `design/marca/redes/`, uma por serviço. As c
 
 ### 2. Sites & Integrações
 - **Categoria sugerida:** desenvolvimento web
-- **Descrição:** Site próprio, rápido e medido, ligado ao CRM, ao estoque ou ao sistema de gestão quando o escopo pede. Landing Page (R$ 2.900), Site Personalizado (R$ 5.900) e Site Conectado (a partir de R$ 9.900). Para revendas de veículos há o Site Automotivo Integrado, a partir de R$ 11.900, o mesmo método que roda na Motors Store.
+- **Descrição:** Site próprio, rápido e medido, ligado ao CRM, ao estoque ou ao sistema de gestão quando o escopo pede. Landing Page (R$ 2.900), Site Personalizado (R$ 5.900) e Site Conectado (a partir de R$ 9.900). Para revendas de veículos, o Site Conectado liga o estoque do sistema da loja ao site, o mesmo método que roda na Motors Store.
 - **Link:** https://www.v2o5.com.br/criacao-de-sites
 - **Exemplo:** `linkedin-servico-sites-1200x627.png` (capturas da Motors Store)
 

@@ -138,3 +138,84 @@ export const CASE_MOTORS = {
     secundario: "Ver os caminhos para revendas",
   },
 };
+
+/**
+ * Página do case da 16ª Vara Cível (17/11/2026): a triagem do atendimento por
+ * WhatsApp da serventia, em uso desde outubro de 2025. Publicação do nome
+ * autorizada pela vara (Dyones, 17/11/2026). O detalhe do cliente mora no
+ * repositório privado; aqui entra só o que a leitura dos fluxos de 14/10/2026
+ * confirma. Sem IA: a versão em uso é triagem por menu. Sem número por
+ * enquanto: a regra de quando os números entram está em
+ * `memory/projects/case-16-vara-civel.md`. `tests/case-16-vara-civel.test.ts` confere.
+ */
+export const CASE_16VC = {
+  rota: "/cases/16-vara-civel",
+  cliente: {
+    nome: "16ª Vara Cível de Curitiba",
+    completo: "Serventia da 16ª Vara Cível do Foro Central de Curitiba",
+    cidade: "Curitiba",
+    estado: "PR",
+    ramo: "serventia judicial do TJPR",
+  },
+  sobretitulo: "Case",
+  titulo: "16ª Vara Cível: a triagem do WhatsApp da serventia.",
+  /** Curto de propósito: o LCP da página é o H1. */
+  resumo:
+    "A V2O5 montou para a 16ª Vara Cível de Curitiba a triagem automatizada do WhatsApp, que separa cada pedido por assunto e setor antes de chegar à equipe.",
+  fatos: [
+    { rotulo: "Cliente", valor: "Serventia da 16ª Vara Cível do Foro Central de Curitiba (TJPR)" },
+    { rotulo: "Entrega", valor: "triagem por WhatsApp, encaminhamento por setor e registro no sistema de atendimento" },
+    { rotulo: "Em uso", valor: "desde outubro de 2025" },
+  ],
+  antes: {
+    sobretitulo: "Antes: o ponto de partida",
+    titulo: "O que chegava pelo WhatsApp.",
+    texto: "O fluxo desenhado em maio de 2025 para o atendimento da serventia, antes da automação.",
+    itens: [
+      "Pedidos sobre andamento de processo e diligências chegavam pela mesma conversa.",
+      "Parte do que chegava era do gabinete das magistradas, e parte da serventia.",
+      "Na serventia, cada diligência tem um setor responsável, e alguém precisava triar e encaminhar.",
+    ],
+  },
+  construido: {
+    sobretitulo: "Depois: implementado",
+    titulo: "O que a V2O5 montou.",
+    texto: "Uma triagem por menu, sem resposta jurídica automática: ela coleta os dados, encaminha e deixa a resposta com a equipe da serventia.",
+    pecas: [
+      {
+        linha: "Atendimento no WhatsApp",
+        titulo: "Três caminhos logo na entrada",
+        texto: "Boas-vindas em nome da 16ª Vara Cível e um menu: recebi uma intimação, consultar um processo ou tirar uma dúvida.",
+      },
+      {
+        linha: "Consulta de processo",
+        titulo: "Os dados certos antes de encaminhar",
+        texto:
+          "Nome, parte ou advogado, número do processo no formato do CNJ e a situação: concluso com a magistrada ou em análise na serventia. Antes de enviar, a pessoa confere os dados.",
+      },
+      {
+        linha: "Encaminhamento por setor",
+        titulo: "Cada conversa marcada com o setor",
+        texto:
+          "Na serventia, a pessoa escolhe o setor, e a conversa entra no sistema de atendimento com o setor e os dados preenchidos, e a pessoa recebe o prazo de retorno.",
+      },
+      {
+        linha: "Intimação e gabinete",
+        titulo: "Cada assunto no seu caminho",
+        texto:
+          "Quem recebeu uma intimação pelo WhatsApp é chamado por um atendente para confirmar a identidade. Assunto do gabinete recebe a orientação de contato com o gabinete da magistrada.",
+      },
+    ],
+  },
+  stack: {
+    titulo: "Com o que foi feito",
+    itens: ["WhatsApp", "Evolution API", "Typebot", "n8n", "Chatwoot"],
+  },
+  assinatura: "O projeto é conduzido pelo fundador da V2O5, Dyones Oliveira. É ele quem conduz o diagnóstico gratuito.",
+  chamada: {
+    titulo: "Sua equipe tria pedidos um por um no WhatsApp?",
+    texto: "O diagnóstico é gratuito: 45 minutos com o fundador para identificar e priorizar o gargalo do seu atendimento.",
+    botao: "Pedir diagnóstico gratuito",
+    secundario: "Ver todos os preços",
+  },
+};

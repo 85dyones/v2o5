@@ -7,8 +7,8 @@ description: "Fluxos no n8n que ligam os sistemas que a sua empresa já usa, com
 canonical: "https://www.v2o5.com.br/automacao-com-ia"
 robots: null
 h1: "Automação de processos com IA e n8n."
-extraido_em: "2026-10-27T14:34:01.868Z"
-fonte: "build local da branch claude/kind-tesla-eefroe em 27/10/2026 (portfólio das quatro soluções), antes da publicação"
+extraido_em: "2026-11-17T14:48:14.330Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 17/11/2026 (case da 16ª Vara Cível, revenda como exemplo), antes da publicação"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 # Automação de processos com IA e n8n.
@@ -131,13 +131,13 @@ Atração
 
 Recebe o visitante e guarda de onde ele veio antes de levá-lo ao WhatsApp ou ao formulário.
 
-Caminho que passa por aqui <!-- só para leitor de tela -->
+Caminho que passa por aqui <!-- só leitor de tela -->
 
-- Site
-- WhatsApp
-- Agente de IA
-- CRM
-- Venda
+- Site <!-- só leitor de tela -->
+- WhatsApp <!-- só leitor de tela -->
+- Agente de IA <!-- só leitor de tela -->
+- CRM <!-- só leitor de tela -->
+- Venda <!-- só leitor de tela -->
 
 ## Rodando na Motors Store.
 

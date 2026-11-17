@@ -121,6 +121,12 @@ export const PROJETO = {
     "Separamos o que foi implementado do que já tem resultado comprovado.",
   ],
   link: "Ler o case completo",
+  /** O segundo case, fora do varejo (17/11/2026). */
+  outro: {
+    texto: "Fora do varejo, a triagem do WhatsApp da 16ª Vara Cível de Curitiba.",
+    link: "Ler o case da 16ª Vara Cível",
+    href: "/cases/16-vara-civel",
+  },
 };
 
 const entradas = OFERTAS.map(precoDeEntrada);
@@ -198,7 +204,7 @@ export interface ItemDaNavegacao {
   todos?: string;
 }
 
-/** O menu de 27/10/2026 (três soluções desde 12/11): as soluções e a continuidade em grupos, depois preços, case e sobre. */
+/** O menu de 27/10/2026 (três soluções desde 12/11, dois cases desde 17/11): as soluções, a continuidade e os cases em grupos, depois preços e sobre. */
 export const NAVEGACAO: ItemDaNavegacao[] = [
   {
     rotulo: "Soluções",
@@ -220,7 +226,14 @@ export const NAVEGACAO: ItemDaNavegacao[] = [
     ],
   },
   { rotulo: "Preços", href: "/precos" },
-  { rotulo: "Case", href: "/cases/motors-store" },
+  {
+    rotulo: "Cases",
+    href: "/#case",
+    itens: [
+      { rotulo: "Motors Store", href: "/cases/motors-store" },
+      { rotulo: "16ª Vara Cível", href: "/cases/16-vara-civel" },
+    ],
+  },
   { rotulo: "Sobre", href: "/sobre" },
 ];
 
@@ -931,23 +944,16 @@ export const CASE = {
   ],
 };
 
+/**
+ * Revendas de veículos como exemplo (17/11/2026): a seção da home saiu, e o
+ * automotivo fica como o case da Motors Store e a página de exemplo. Este
+ * bloco alimenta só o `llms.txt`.
+ */
 export const AUTOMOTIVO = {
   titulo: "Para revendas de veículos",
   texto:
-    "O modelo parte do sistema da Motors Store: site de estoque integrado ao sistema da loja (Revenda Mais, Autoconf e outros), agente de IA no WhatsApp, CRM e rastreamento até a venda.",
+    "As mesmas soluções aplicadas a revendas, a partir do que roda na Motors Store: site ligado ao estoque do sistema da loja (Revenda Mais, Autoconf e outros), agente de IA no WhatsApp, CRM e rastreamento até a venda.",
   href: "/segmentos/revendas-de-veiculos",
-  /** Vinheta do estoque: carros de exemplo, rotulada como exemplo. */
-  estoque: {
-    titulo: "Estoque",
-    origem: "sincronizado com o Revenda Mais",
-    destinos: ["no site", "no agente"],
-    carros: [
-      ["Onix LT 1.0 turbo", "2022"],
-      ["HB20 Comfort", "2021"],
-      ["Corolla XEi", "2020"],
-      ["Compass Longitude", "2021"],
-    ],
-  },
 };
 
 export const EMPRESA = {

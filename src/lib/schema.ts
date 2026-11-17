@@ -1,5 +1,5 @@
 import { HUB_AUTOMOTIVO } from "@/conteudo/automotivo";
-import { CASE_MOTORS } from "@/conteudo/case";
+import { CASE_16VC, CASE_MOTORS } from "@/conteudo/case";
 import { SOBRE } from "@/conteudo/sobre";
 import { solucaoDa } from "@/conteudo/solucoes";
 import { ASSINATURA, EMPRESA, PERGUNTAS, PILARES, VISAO_360 } from "@/conteudo/home";
@@ -200,6 +200,35 @@ export function artigoDoCase(): No {
   };
 }
 
+/** O case da 16ª Vara Cível como artigo assinado pelo fundador (17/11/2026). */
+export function artigoDoCase16(): No {
+  const p = paginaDa(CASE_16VC.rota);
+  return {
+    "@type": "Article",
+    "@id": `${SITE_URL}${CASE_16VC.rota}#artigo`,
+    headline: CASE_16VC.titulo,
+    description: p.descricao,
+    inLanguage: "pt-BR",
+    datePublished: "2026-11-17",
+    dateModified: p.atualizadaEm,
+    mainEntityOfPage: `${SITE_URL}${CASE_16VC.rota}`,
+    author: ref(ID_DO_FUNDADOR),
+    publisher: ref(ID_DA_ORGANIZACAO),
+    about: {
+      "@type": "GovernmentOrganization",
+      name: CASE_16VC.cliente.completo,
+      address: { "@type": "PostalAddress", addressLocality: CASE_16VC.cliente.cidade, addressRegion: CASE_16VC.cliente.estado, addressCountry: "BR" },
+    },
+  };
+}
+
+export function grafoDoCase16(): No {
+  return {
+    "@context": "https://schema.org",
+    "@graph": [ref(ID_DA_ORGANIZACAO), fundador(), trilha(CASE_16VC.rota), artigoDoCase16()],
+  };
+}
+
 export function grafoDoCase(): No {
   return {
     "@context": "https://schema.org",
@@ -213,7 +242,7 @@ export function servicoAutomotivo(): No {
   return {
     "@type": "Service",
     "@id": `${SITE_URL}${rota}#servico`,
-    name: "Site Automotivo Integrado e Operação com IA para revendas de veículos",
+    name: "Site Conectado e Operação com IA para revendas de veículos",
     description: HUB_AUTOMOTIVO.resumo,
     url: `${SITE_URL}${rota}`,
     provider: ref(ID_DA_ORGANIZACAO),

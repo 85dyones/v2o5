@@ -45,9 +45,8 @@ Substitui, como oferta, o "Conteúdo e gestão de redes sociais" (R$ 1.500 + R$ 
 | Landing Page | R$ 2.900 | Uma página comercial, formulário ou botão funcional e rastreamento básico |
 | Site Personalizado | R$ 5.900 | Site institucional personalizado, estrutura comercial, SEO técnico básico e contatos funcionais |
 | Site Conectado | a partir de R$ 9.900 | Site personalizado, integração com um sistema existente e medição dos contatos |
-| Site Automotivo Integrado | a partir de R$ 11.900 | Site próprio da revenda, estoque sincronizado com o gestor e contatos no CRM, conforme compatibilidade e escopo |
 
-O Site Automotivo Integrado tem faixa interna de R$ 11.900 a R$ 16.900; o público vê só o "a partir de" (Dyones, 27/10, coerente com a regra de 26/10 sobre teto). Entrega-base de todo site em `src/conteudo/sitePadrao.ts`. Regras: preço fechado só para escopo conhecido; integração só depois de verificar documentação, credenciais, limites e custos do sistema; integração padrão é diferente de desenvolvimento específico; sem promessa de compatibilidade universal; prever veículo vendido, atualização, falha e contato que não chega ao CRM. Fora: domínio, e-mail, APIs pagas e licenças de terceiros, mídia paga, loja com pagamento, fotos e vídeos.
+Revenda de veículos compra o Site Conectado (17/11/2026): não há pacote automotivo na tabela. Referência interna para a revenda: perto de R$ 9.900 quando o sistema da loja já tem integração pronta (Revenda Mais em produção) e o escopo é o do pacote; R$ 11.900 a R$ 16.900 quando o sistema ainda não tem integração, quando contatos vão para um CRM separado do gestor ou quando o escopo pede mais (a faixa do antigo Site Automotivo Integrado, 27/10). O público vê só o "a partir de R$ 9.900". Entrega-base de todo site em `src/conteudo/sitePadrao.ts`. Regras: preço fechado só para escopo conhecido; integração só depois de verificar documentação, credenciais, limites e custos do sistema; integração padrão é diferente de desenvolvimento específico; sem promessa de compatibilidade universal; prever veículo vendido, atualização, falha e contato que não chega ao CRM. Fora: domínio, e-mail, APIs pagas e licenças de terceiros, mídia paga, loja com pagamento, fotos e vídeos.
 
 ## Sprint de Eficiência
 | Pacote | Preço de referência | Duração de referência | Escopo |
@@ -90,7 +89,7 @@ O plano de entrada de cada frente custa perto do degrau seguinte, para que o mai
 Regras: o escopo de cada plano não muda para criar a isca, só o preço; o efeito vem dos números lado a lado em `/precos`, `/continuidade` e nas páginas, sem frase de comparação no texto público. A isca é mais forte na Presença (R$ 100 de distância). No Cuidado Técnico ela depende de o site ter integração: site sem integração não usa as Integrações Monitoradas, e o degrau seguinte para ele é a Evolução Contínua.
 
 ## Segmento automotivo
-O hub `/segmentos/revendas-de-veiculos` vende dois caminhos: o Site Automotivo Integrado (a partir de R$ 11.900, com Integrações Monitoradas a R$ 590/mês, opcional) e a Operação com IA, um Sprint Integrado para revendas (R$ 6.900 de referência: agente de IA no WhatsApp, CRM com funil, passagem para a equipe e treinamento; IA e mensagens pelo valor do provedor). Os modelos Mapa e Completo saíram com a tabela de 15/10. Revenda Mais em produção; Autoconf, BNDV, Boom, Altimus e Syonet integráveis depois de verificar a API ou a exportação de cada um.
+Desde 17/11/2026 não há produto para revenda: o hub `/segmentos/revendas-de-veiculos` é página de exemplo, com os mesmos pacotes aplicados à revenda a partir do que roda na Motors Store, e a home não tem mais seção automotiva. Dois caminhos: o Site Conectado (a partir de R$ 9.900, com Integrações Monitoradas a R$ 590/mês, opcional) e a Operação com IA, um Sprint Integrado (R$ 6.900 de referência: agente de IA no WhatsApp, CRM com funil, passagem para a equipe e treinamento; IA e mensagens pelo valor do provedor). Os modelos Mapa e Completo saíram com a tabela de 15/10. Revenda Mais em produção; Autoconf, BNDV, Boom, Altimus e Syonet integráveis depois de verificar a API ou a exportação de cada um.
 
 ## Regras comerciais
 - Os preços de entrada correspondem a uma entrega que pode ser contratada por aquele valor. Se as propostas reais passarem sempre do preço de entrada, ele sai da chamada.
@@ -110,6 +109,10 @@ O handoff deixou estas quantidades para definir antes de publicar; o Dyones pedi
 
 ## Viabilidade (estimativa, 27/10)
 Hora do fundador valorada em R$ 150 e infra por cliente da tabela de 12/10 (horas estimadas, não medidas): o Cuidado Técnico paga cerca de 1 hora e a infra de um site estático (~R$ 40); as Integrações Monitoradas, cerca de 2,5 horas; a Evolução Contínua, cerca de 6 horas brutas para 4,5 horas de compromisso (4 horas e a conversa mensal). A Presença Essencial (R$ 790) equivale a cerca de 5 horas e o kit de R$ 490 a cerca de 2 horas com ferramentas. Fecha se a entrega for padronizada e o limite estiver no contrato. Com a política da tarde de 27/10, os três planos de entrada pagam R$ 100 a mais por mês, cerca de 40 minutos da hora do fundador: o Cuidado Técnico (R$ 349) passa a cobrir cerca de 2 horas além da infra, para 1 hora de compromisso.
+
+## Histórico: Site Automotivo Integrado de 27/10 a 17/11/2026 (saiu em 17/11)
+
+Pacote de Sites & Integrações só para revendas: "a partir de R$ 11.900" no público, faixa interna de R$ 11.900 a R$ 16.900; site próprio da revenda, estoque sincronizado com o gestor e contatos no CRM, conforme compatibilidade e escopo. Saiu porque produto de nicho concorre com plataformas sólidas do setor; a revenda passa a comprar o Site Conectado, e a faixa ficou como referência interna dele (Dyones, 17/11).
 
 ## Histórico: Branding & Identidade de 27/10 a 12/11/2026 (saiu em 12/11)
 

@@ -1,7 +1,7 @@
 ---
 conteudo: "Topo, rodapé e peças presentes em todas as rotas"
-extraido_em: "2026-11-12T15:26:32.532Z"
-fonte: "build local da branch claude/kind-tesla-eefroe em 12/11/2026 (sem Branding e sem tráfego pago), antes da publicação"
+extraido_em: "2026-11-17T14:48:14.330Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 17/11/2026 (case da 16ª Vara Cível, revenda como exemplo), antes da publicação"
 ---
 
 <!-- Topo e rodapé são idênticos nas 16 rotas extraídas (conferido no script). -->
@@ -38,7 +38,11 @@ Continuidade
 
 [Preços](/precos)
 
-[Case](/cases/motors-store)
+Cases
+
+[Motors Store](/cases/motors-store)
+
+[16ª Vara Cível](/cases/16-vara-civel)
 
 [Sobre](/sobre)
 
@@ -66,7 +70,11 @@ Menu <!-- oculto no desktop 1440 -->
 
 [Preços](/precos) <!-- oculto no desktop 1440 -->
 
-[Case](/cases/motors-store) <!-- oculto no desktop 1440 -->
+[Cases](/#case) <!-- oculto no desktop 1440 -->
+
+[Motors Store](/cases/motors-store) <!-- oculto no desktop 1440 -->
+
+[16ª Vara Cível](/cases/16-vara-civel) <!-- oculto no desktop 1440 -->
 
 [Sobre](/sobre) <!-- oculto no desktop 1440 -->
 
@@ -98,6 +106,7 @@ V2O5 | Eficiência comercial e operacional com tecnologia.
 
 - [Revendas de veículos](/segmentos/revendas-de-veiculos)
 - [Case Motors Store](/cases/motors-store)
+- [Case 16ª Vara Cível](/cases/16-vara-civel)
 - [Preços](/precos)
 - [Sobre](/sobre)
 - [Privacidade](/privacidade)

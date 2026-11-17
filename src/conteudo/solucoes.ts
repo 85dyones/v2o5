@@ -88,7 +88,7 @@ export const SOLUCOES: Solucao[] = [
       "Site próprio que carrega rápido no celular, aparece no Google e grava a origem de cada contato. Com integração quando o escopo pede.",
     fatos: [
       { rotulo: "Resolve", valor: SITES.resolve },
-      { rotulo: "Preço de entrada", valor: `${entrada(SITES)}, da landing page ao site automotivo integrado` },
+      { rotulo: "Preço de entrada", valor: `${entrada(SITES)}, da landing page ao site conectado` },
       { rotulo: "Entrega-base", valor: "Onze itens iguais em todo site da V2O5, das páginas que o Google entende à entrega documentada" },
       {
         rotulo: "Em produção",
@@ -138,7 +138,7 @@ export const SOLUCOES: Solucao[] = [
       {
         pergunta: "O site se liga ao meu CRM ou ao meu sistema de gestão?",
         resposta:
-          "No Site Conectado e no Site Automotivo Integrado, sim. A integração entra na proposta depois de verificar a documentação, o acesso, os limites e os custos do sistema. Compatibilidade com qualquer sistema não é prometida.",
+          "No Site Conectado, sim. A integração entra na proposta depois de verificar a documentação, o acesso, os limites e os custos do sistema. Compatibilidade com qualquer sistema não é prometida.",
       },
       {
         pergunta: "E depois que o site vai ao ar?",
