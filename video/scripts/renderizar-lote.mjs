@@ -18,6 +18,7 @@ const so = (flags[flags.indexOf("--so") + 1] ?? "").split(",").filter(Boolean);
 const pares = (nome) => Object.fromEntries(flags.flatMap((f, i) => (f === nome ? [flags[i + 1].split("=")] : [])));
 const prints = pares("--print");
 const cenas = pares("--cena");
+const telas = pares("--tela"); // gravação em vídeo da tela: --tela L1-08=gravacoes/telas/v-formulario-completo.mp4
 
 function lerCsv(texto) {
   const linhas = []; let campo = ""; let linha = []; let aspas = false;
@@ -81,15 +82,24 @@ for (const r of reels) {
   rmSync(tmp, { recursive: true, force: true });
   mkdirSync(tmp, { recursive: true });
   spawnSync("cp", ["-r", join(raiz, "modelos/reel") + "/.", tmp]);
-  writeFileSync(join(tmp, "index.html"), html);
+  const cena = cenas[r.codigo] ?? (telas[r.codigo] || prints[r.codigo] ? "tela" : "texto");
+  let videoTag = "";
+  if (telas[r.codigo] && existsSync(telas[r.codigo])) {
+    // O clipe é estendido (último quadro parado) até cobrir toda a cena do meio.
+    mkdirSync(join(tmp, "assets"), { recursive: true });
+    const janela = +(E - 0.55 - G - 0.1).toFixed(2);
+    const p2 = spawnSync("ffmpeg", ["-v", "error", "-y", "-i", resolve(telas[r.codigo]), "-vf", `tpad=stop_mode=clone:stop_duration=60,trim=duration=${janela},setpts=PTS-STARTPTS,fps=30,format=yuv420p`, "-c:v", "libx264", "-crf", "16", "-an", join(tmp, "assets/tela.mp4")], { stdio: "inherit" });
+    if (p2.status !== 0) throw new Error("falhou ao preparar a gravação da tela");
+    videoTag = `<video class="clip" src="assets/tela.mp4" muted playsinline data-start="${+(G + 0.1).toFixed(2)}" data-duration="${janela}" data-track-index="2"></video>`;
+  }
   let print = "";
   if (prints[r.codigo] && existsSync(prints[r.codigo])) {
     mkdirSync(join(tmp, "assets"), { recursive: true });
     copyFileSync(resolve(prints[r.codigo]), join(tmp, "assets/print.png"));
     print = "assets/print.png";
   }
-  const cena = cenas[r.codigo] ?? "texto";
-  const legendas = cena === "conversa" ? r.corpo.split(/(?<=[.!?])\s+(?=[A-ZÁÉÍÓÚ])/) : [];
+  writeFileSync(join(tmp, "index.html"), html.replaceAll("{{VIDEO_TAG}}", videoTag));
+  const legendas = cena !== "texto" ? r.corpo.split(/(?<=[.!?])\s+(?=[A-ZÁÉÍÓÚ])/) : [];
   const vars = { gancho: r.gancho, prova: r.texto_tela, print, cta: r.cta, cena, legendas: JSON.stringify(legendas) };
   const mudo = join(saida, `${r.codigo}.mudo.mp4`);
   const arq = join(saida, `${r.codigo}.mp4`);

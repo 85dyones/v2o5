@@ -28,7 +28,7 @@
       #prova .ch { background: var(--acao); }
       #prova .car { background: var(--tinta); }
       #tela { top: 700px; height: 557px; border: 3px solid var(--tinta); background: var(--cartao); display: none; overflow: hidden; opacity: 0; }
-      #tela img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+      #tela img, #tela video { position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: cover; object-position: top; }
       /* conversa de exemplo */
       #chat { top: 410px; border: 3px solid var(--tinta); background: var(--cartao); height: 500px; opacity: 0; display: none; overflow: hidden; }
       .chat-head { height: 104px; border-bottom: 3px solid var(--tinta); display: flex; align-items: center; gap: 22px; padding: 0 32px; background: #E8E6DF; }
@@ -68,7 +68,7 @@
       <div class="fio" id="fio"></div>
       <h1 id="gancho" class="bloco"></h1>
       <div id="prova" class="bloco"></div>
-      <div id="tela" class="bloco"><img alt="" /></div>
+      <div id="tela" class="bloco">{{VIDEO_TAG}}<img alt="" /></div>
       <div id="chat" class="bloco">
         <div class="chat-head"><div class="av"></div><b>Cliente</b><span class="exemplo">EXEMPLO</span></div>
         <div class="bolha" id="b1">Oi! Quanto custa o serviço?<em>14:02</em></div>
@@ -106,9 +106,8 @@
       digitar($("#gancho"), [{ t: gTxt }], 0.15, 0.032, false, { pausa: 0.7, quebra: true });
       tl.to("#gancho", { opacity: 0, y: -24, duration: 0.3, ease: "power2.in" }, G - 0.3);
 
-      const MEIO0 = G, MEIO1 = E - 0.55;
-      if (v.cena === "conversa") {
-        $("#chat").style.display = "block";
+      // legendas do corpo: palavra por palavra, com a palavra da vez em destaque
+      function legendar() {
         const frases = JSON.parse(v.legendas || "[]");
         const pesos = frases.map((f) => f.split(/\s+/).length);
         const soma = pesos.reduce((a, b) => a + b, 0) || 1;
@@ -123,6 +122,12 @@
           if (i < frases.length - 1) tl.to(p, { opacity: 0, duration: 0.2, ease: "power1.in" }, t + dur - 0.22);
           t += dur;
         });
+        return ts;
+      }
+      const MEIO0 = G, MEIO1 = E - 0.55;
+      if (v.cena === "conversa") {
+        $("#chat").style.display = "block";
+        const ts = legendar();
         // cartão da conversa
         tl.fromTo("#chat", { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, MEIO0 + 0.1);
         tl.fromTo("#b1", { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.4, ease: "back.out(1.6)" }, ts[0] + 0.3);
@@ -136,6 +141,17 @@
         document.querySelectorAll("#timer .h1").forEach((h) => tl.to(h, { rotation: 120, duration: MEIO1 - marcos[0], ease: "none" }, marcos[0]));
         tl.fromTo("#b2", { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.4, ease: "back.out(1.6)" }, marcos[3] + 0.15);
         ["#chat", "#timer", "#legendas"].forEach((s) => tl.to(s, { opacity: 0, duration: 0.25 }, E - 0.6));
+      } else if (v.cena === "tela") {
+        $("#prova").style.cssText = "top:410px;font-size:66px;";
+        $("#tela").style.cssText = "display:block;top:540px;left:0;right:0;height:643px;border-left:0;border-right:0;";
+        $("#legendas").style.cssText = "top:1235px;height:250px;";
+        document.querySelectorAll("#legendas p").forEach((q) => (q.style.fontSize = "50px"));
+        digitar($("#prova"), [{ t: String(v.prova) }], G + 0.1, 0.035, true);
+        if (v.print) $("#tela img").src = v.print; else $("#tela img").style.display = "none";
+        tl.fromTo("#tela", { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, G + 0.1);
+        legendar();
+        document.querySelectorAll("#legendas p").forEach((q) => (q.style.fontSize = "50px"));
+        ["#prova", "#tela"].forEach((q) => tl.to(q, { opacity: 0, duration: 0.25 }, E - 0.6));
       } else {
         digitar($("#prova"), [{ t: String(v.prova) }], G + 0.1, 0.035, true);
         if (v.print) { const t2 = $("#tela"); t2.style.display = "block"; t2.querySelector("img").src = v.print; }
