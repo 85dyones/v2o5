@@ -13,7 +13,7 @@ fonte: "build local da branch claude/kind-tesla-eefroe em 12/11/2026 (sem Brandi
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 # Descubra onde sua empresa pode funcionar melhor. Gratuitamente.
 
-Em 45 minutos, analisamos como sua empresa funciona e recomendamos por onde começar.
+Em 45 minutos, identificamos o gargalo que mais pesa na sua empresa e recomendamos por onde começar.
 
 ## Pedir o diagnóstico
 
@@ -68,7 +68,7 @@ Algo mais que a gente deva saber (opcional)
 
 Site <!-- armadilha para robôs (campo site), aria-hidden -->
 
-Agendar diagnóstico gratuito
+Pedir diagnóstico gratuito
 
 Sem custo e sem compromisso de contratação.
 

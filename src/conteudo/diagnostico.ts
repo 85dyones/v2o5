@@ -8,7 +8,7 @@ export const DIAGNOSTICO = {
   titulo: "Descubra onde sua empresa pode funcionar melhor.",
   apagado: "Gratuitamente.",
   texto:
-    "Em 45 minutos, analisamos como sua empresa funciona e recomendamos por onde começar.",
+    "Em 45 minutos, identificamos o gargalo que mais pesa na sua empresa e recomendamos por onde começar.",
   passos: [
     {
       titulo: "Você conta como vende hoje",
@@ -30,7 +30,7 @@ export const DIAGNOSTICO = {
     "O Diagnóstico de Gargalo é a sessão inicial, gratuita, de 45 minutos. Ele identifica e prioriza um gargalo, mas não inclui mapeamento completo do processo, implementação nem acompanhamento ou mensuração de resultados. Esses passos vêm depois, na solução contratada e, se fizer sentido, na continuidade, com escopo, valor e prazo definidos em proposta.",
   formulario: {
     titulo: "Pedir o diagnóstico",
-    enviar: "Agendar diagnóstico gratuito",
+    enviar: "Pedir diagnóstico gratuito",
     microtexto: "Sem custo e sem compromisso de contratação.",
     enviando: "Enviando...",
     consentimento:
