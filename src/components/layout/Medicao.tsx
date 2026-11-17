@@ -2,7 +2,7 @@
 
 import LinkOuAncora from "@/components/LinkOuAncora";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   avisoVisto,
   carregarFerramentas,
@@ -19,7 +19,8 @@ import {
 /**
  * Liga a camada de dados (`lib/medicao.ts`) no layout: prepara as filas na
  * montagem, carrega as ferramentas depois do conteúdo, manda um `page_view`
- * por rota (o App Router navega sem recarregar) e ouve os cliques em
+ * a cada troca de rota (o App Router navega sem recarregar; o da primeira
+ * carga o GA4 manda sozinho, ver `paginaVista`) e ouve os cliques em
  * elementos com `data-evento`. Mostra o aviso informativo uma vez, só quando
  * alguma ferramenta está ativa neste navegador.
  *
@@ -29,6 +30,8 @@ import {
 export default function Medicao() {
   const pathname = usePathname();
   const [aviso, setAviso] = useState(false);
+  // A primeira rota é a da carga completa: o GA4 manda esse page_view sozinho.
+  const primeiraCarga = useRef(true);
 
   useEffect(() => {
     const ativas = ferramentasAtivas();
@@ -53,7 +56,8 @@ export default function Medicao() {
 
   useEffect(() => {
     const ativas = ferramentasAtivas();
-    if (ativas.ga4 || ativas.pixel) paginaVista(pathname);
+    if (ativas.ga4 || ativas.pixel) paginaVista(pathname, primeiraCarga.current);
+    primeiraCarga.current = false;
   }, [pathname]);
 
   if (!aviso) return null;

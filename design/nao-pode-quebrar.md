@@ -170,7 +170,7 @@ Os CTAs e os links de WhatsApp e e-mail não têm JavaScript próprio: levam `da
 
 | Evento GA4 | Parâmetros | Evento na Meta | Quando |
 |---|---|---|---|
-| `page_view` | `page_type`, e `service_line` ou `segment` quando houver (tabela da seção 1) | `PageView` | a cada rota, inclusive na navegação do App Router; o `gtag` é configurado com `send_page_view: false` |
+| `page_view` | `page_type`, e `service_line` ou `segment` quando houver (tabela da seção 1); desde 17/11/2026 também `page_title` e `page_location` | `PageView` | a cada troca de rota do App Router; o da carga completa a tag do GA4 manda sozinha (ela ignora o `send_page_view: false`), sem `page_type`, e o `PageView` da Meta sai em toda rota |
 | `cta_click` | `cta_location` (= `data-local`), `cta_label` (texto) | nenhum | clique em `[data-evento="cta_click"]` |
 | `click_whatsapp` | `whatsapp_location` (= `data-local`), `pos_lead: "nao"` | `Contact` (padrão), `content_name` = local | clique em link de WhatsApp sem lead nesta sessão |
 | `click_whatsapp_pos_lead` | `whatsapp_location`, `pos_lead: "sim"` | nenhum | o mesmo clique depois de um lead na sessão (não conta como conversão) |

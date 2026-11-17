@@ -4,6 +4,7 @@ import Ancora from "@/components/layout/Ancora";
 import FonteMonoTardia from "@/components/layout/FonteMonoTardia";
 import Medicao from "@/components/layout/Medicao";
 import PrimeiroToque from "@/components/layout/PrimeiroToque";
+import { SUFIXO_DO_TITULO } from "@/conteudo/paginas";
 import { SITE_URL } from "@/lib/site";
 import "./globals.css";
 
@@ -11,7 +12,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
     default: "V2O5 Vendas e Tecnologia | Menos atrito entre problema e resultado",
-    template: "%s | V2O5 Vendas e Tecnologia",
+    template: `%s${SUFIXO_DO_TITULO}`,
   },
   description:
     "A V2O5 acha o gargalo, simplifica o processo e implementa tecnologia, automação e IA para a operação render mais e ser medida. Comece pelo Sprint de Eficiência.",

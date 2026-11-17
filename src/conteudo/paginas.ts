@@ -166,6 +166,22 @@ export const PAGINAS: Pagina[] = [
   },
 ];
 
+/** O modelo do `<title>` das páginas internas (`app/layout.tsx`); a home usa o título inteiro. */
+export const SUFIXO_DO_TITULO = " | V2O5 Vendas e Tecnologia";
+
+/**
+ * O título que o navegador mostra na rota, montado como o `metadataDa` e o
+ * modelo do layout montam. A medição usa no `page_view` das trocas de rota,
+ * que às vezes sai antes de o Next trocar o `<title>` (17/11/2026). Fora do
+ * mapa de páginas, `null`.
+ */
+export function tituloDaRota(rota: string): string | null {
+  const limpa = rota.length > 1 ? rota.replace(/\/+$/, "") : rota;
+  const pagina = PAGINAS.find((p) => p.rota === limpa);
+  if (!pagina) return null;
+  return limpa === "/" ? pagina.titulo : `${pagina.titulo}${SUFIXO_DO_TITULO}`;
+}
+
 export function paginaDa(rota: string): Pagina {
   const pagina = PAGINAS.find((p) => p.rota === rota);
   if (!pagina) throw new Error(`Rota fora do mapa de páginas: ${rota}`);

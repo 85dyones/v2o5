@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { Fragment, useId, useState, type FormEvent } from "react";
+import { Fragment, useId, useRef, useState, type FormEvent } from "react";
 import { flushSync } from "react-dom";
 import Icone from "@/components/Icone";
 import { Parada } from "@/components/rota/Rota";
@@ -101,13 +101,15 @@ export default function Formulario() {
   const [objetivos, setObjetivos] = useState<string[]>([]);
   const [erros, setErros] = useState<Erros>({});
   const [estado, setEstado] = useState<"parado" | "enviando" | "erro" | "canal">("parado");
-  const [iniciado, setIniciado] = useState(false);
+  // Ref e não estado: uma tecla dispara onInput e onChange no mesmo instante, e o
+  // estado só muda depois, então os dois passavam e o form_start saía duas vezes (17/11/2026).
+  const iniciado = useRef(false);
 
   const campo = (nome: string) => `${id}-${nome}`;
 
   const aoTocar = () => {
-    if (iniciado) return;
-    setIniciado(true);
+    if (iniciado.current) return;
+    iniciado.current = true;
     formularioIniciado(FORM_ID);
   };
 
