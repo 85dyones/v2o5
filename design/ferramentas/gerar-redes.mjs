@@ -107,10 +107,12 @@ const destaques = [
   { nome: "Soluções", cy: 500, fundo: COR.tintaVerde, glifo: [[300, 400, COR.violeta], [580, 400, COR.verde], [300, 680, COR.azul], [580, 680, COR.ambar]].map(([x, y, c]) => `<rect x="${x}" y="${y - 140}" width="200" height="200" rx="18" fill="${c}"/>`).join("") },
   { nome: "Preços", cy: 530, fundo: COR.tintaAmbar, glifo: `<text x="540" y="650" text-anchor="middle" font-family="Geist" font-weight="700" font-size="330" fill="${COR.tinta}" letter-spacing="-14">R$</text>` },
   { nome: "Case", cy: 505, fundo: COR.tintaAzul, glifo: `<text x="540" y="650" text-anchor="middle" font-family="Geist" font-weight="700" font-size="400" fill="${COR.tinta}" letter-spacing="-14">M</text>` },
+  // O segundo case (17/11/2026): a triagem do WhatsApp da 16ª Vara Cível, no verde do atendimento.
+  { nome: "16ª Vara", slug: "16-vara", cy: 530, fundo: COR.tintaVerde, glifo: `<text x="540" y="650" text-anchor="middle" font-family="Geist" font-weight="700" font-size="330" fill="${COR.tinta}" letter-spacing="-14">16ª</text>` },
   { nome: "Diagnóstico", cy: 500, fundo: COR.tintaAmbar, glifo: `<text x="540" y="620" text-anchor="middle" font-family="Geist" font-weight="700" font-size="330" fill="${COR.tinta}" letter-spacing="-12">45'</text>` },
 ];
 for (const d of destaques) {
-  PEÇAS.push({ arquivo: `instagram-destaque-${d.nome.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "")}-1080x1920.png`, w: 1080, h: 1920, html: base(1080, 1920, `
+  PEÇAS.push({ arquivo: `instagram-destaque-${d.slug ?? d.nome.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "")}-1080x1920.png`, w: 1080, h: 1920, html: base(1080, 1920, `
     ${grade(1080, 1920, 120, 60)}
     <svg class="abs" style="left:0;top:0" width="1080" height="1920" viewBox="0 0 1080 1920"><circle cx="540" cy="960" r="430" fill="${d.fundo}" stroke="${COR.tinta}" stroke-width="6"/><g transform="translate(540 960) scale(0.82) translate(-540 -${d.cy})">${d.glifo}</g></svg>`) });
 }

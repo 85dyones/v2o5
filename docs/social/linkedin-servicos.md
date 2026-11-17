@@ -20,7 +20,7 @@ Imagens de exemplo (1200 x 627) em `design/marca/redes/`, uma por serviço. As c
 
 ### 3. Agente de IA para WhatsApp
 - **Categoria sugerida:** automação / atendimento ao cliente
-- **Descrição:** Um agente de IA no WhatsApp que responde na hora com as informações do negócio, qualifica o contato, agenda e chama a equipe quando a conversa pede uma pessoa. Entra num Sprint de Eficiência, com escopo e preço fechados em proposta.
+- **Descrição:** Um agente de IA no WhatsApp que responde na hora com as informações do negócio, qualifica o contato, agenda e chama a equipe quando a conversa pede uma pessoa. Na Motors Store, o agente responde 93 de 100 primeiras mensagens em até um minuto, com mediana de 38 segundos (21/10 a 17/11/2026). Entra num Sprint de Eficiência, com escopo e preço fechados em proposta.
 - **Link:** https://www.v2o5.com.br/agente-de-ia-para-whatsapp
 - **Exemplo:** `linkedin-servico-agente-whatsapp-1200x627.png`
 
@@ -39,6 +39,6 @@ Imagens de exemplo (1200 x 627) em `design/marca/redes/`, uma por serviço. As c
 ## Cuidados
 
 - **Nenhum resultado prometido.** A Service Page não diz "aumente suas vendas": o que se mede é combinado antes, com linha de base (regra do site).
-- **Case Motors:** só os números de `memory/projects/case-motors.md`, com período, se for citar. Esta página não os usa.
+- **Case Motors:** só os números de `memory/projects/case-motors.md`, com período. Esta página usa um só, o do Ney no serviço 3 (aprovado pelo Dyones em 17/11); se o case for relido, o número e o período mudam juntos.
 - **Avaliações e recomendações:** LinkedIn permite pedir a clientes; só de clientes reais e autorizados.
 - **Atualização:** se um preço mudar em `ofertas.ts`, regere os cartões (`node design/ferramentas/gerar-redes.mjs`) e troque a descrição aqui.

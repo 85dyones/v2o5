@@ -14,7 +14,7 @@ Gerados por `node design/ferramentas/gerar-redes.mjs` (Geist, papel, tinta e as 
 | LinkedIn | Banner da página, 1128 x 191 (arquivo em 2x) | `linkedin-banner-empresa-1128x191.png` | Capa da página da empresa (o logo cobre o canto inferior esquerdo; o texto começa à direita dele) |
 | LinkedIn | Banner pessoal, 1584 x 396 | `linkedin-banner-pessoal-1584x396.png` | Perfil do Dyones |
 | Facebook | Capa 1640 x 624 (2x de 820 x 312) | `facebook-capa-1640x624.png` | Capa da página; o avatar cobre o canto inferior esquerdo e o celular corta as laterais, por isso o texto fica no centro |
-| Instagram | Capas dos destaques, 1080 x 1920 (5) | `instagram-destaque-{metodo,solucoes,precos,case,diagnostico}-1080x1920.png` | Destaques: Método, Soluções, Preços, Case, Diagnóstico |
+| Instagram | Capas dos destaques, 1080 x 1920 (6) | `instagram-destaque-{metodo,solucoes,precos,case,16-vara,diagnostico}-1080x1920.png` | Destaques: Método, Soluções, Preços, Case, 16ª Vara, Diagnóstico |
 | Google | Logo 720 x 720 e foto de capa 1024 x 576 | `google-logo-720.png`, `google-capa-1024x576.png` | Perfil da Empresa (logo e foto de capa) |
 | Instagram | Modelo de post 1080 x 1350 e de story 1080 x 1920 | `instagram-modelo-post-1080x1350.png`, `instagram-modelo-story-1080x1920.png` | Base visual da rotina semanal |
 
@@ -41,7 +41,7 @@ O endereço do LinkedIn precisa continuar `v2o5-consutoria` (é o que está no `
 - **Sobre:**
   > A V2O5 ajuda pequenas e médias empresas a vender e operar com menos atrito. Começamos por um diagnóstico gratuito de 45 minutos com o fundador, achamos o gargalo e resolvemos um de cada vez: presença digital, sites integrados ao CRM e ao WhatsApp, agentes de IA e automação.
   >
-  > Cada solução tem escopo fechado e preço de referência público em v2o5.com.br/precos. O método roda em produção na Motors Store, revenda de seminovos de Curitiba. Atendimento on-line em todo o Brasil.
+  > Cada solução tem escopo fechado e preço de referência público em v2o5.com.br/precos. O método roda em produção na Motors Store, revenda de seminovos, e na triagem do WhatsApp da 16ª Vara Cível, as duas em Curitiba. Atendimento on-line em todo o Brasil.
 - **Especialidades:** Presença digital local, Sites e integrações, Agente de IA para WhatsApp, Automação de processos, CRM com WhatsApp, Rastreamento de conversões
 - **Logo:** `design/marca/bloco-1080.png`. **Banner** 1128 x 191 px: ainda não existe; pedir ao design.
 - **Primeira publicação (apresentação):** o que a V2O5 faz, como o diagnóstico funciona e o link. Sem número que não seja do case.
@@ -60,7 +60,7 @@ O endereço do LinkedIn precisa continuar `v2o5-consutoria` (é o que está no `
   ```
 - **Link:** https://www.v2o5.com.br/diagnostico?utm_source=instagram&utm_medium=bio
 - **Foto:** `design/marca/bloco-1080.png`
-- **Destaques (capas no papel #F2F1EC com o símbolo):** Método, Soluções, Preços, Case Motors, Diagnóstico.
+- **Destaques (capas no papel #F2F1EC com o símbolo):** Método, Soluções, Preços, Case Motors, Case 16ª Vara, Diagnóstico. O da 16ª (17/11) usa `instagram-destaque-16-vara-1080x1920.png` e junta os stories do case `/cases/16-vara-civel`, sem número.
 - **Fixados (3):** o que fazemos, como funciona o diagnóstico, o case da Motors.
 - **Conta profissional:** conectar à página do Facebook (a mesma, abaixo), ativar botão de contato por WhatsApp.
 - **Publicações antigas:** arquivar as que usam a marca ou o texto de "ConsultorIA" e preços antigos; não apagar o que não for conflitante.
@@ -83,7 +83,7 @@ Eu não consigo criar a página. Passo a passo (Meta Business Suite ou facebook.
 ## Perfil da Empresa no Google (precisa da sua confirmação para eu alterar)
 
 Texto novo para o campo "Descrição" (hoje fala em Curitiba):
-> A V2O5 Vendas e Tecnologia é uma consultoria on-line que ajuda pequenas e médias empresas de todo o Brasil a vender e operar com menos atrito. Começamos por um diagnóstico gratuito de 45 minutos e resolvemos um gargalo de cada vez: presença digital, sites integrados ao CRM e ao WhatsApp, agentes de IA e automação. Cada solução tem escopo fechado e preço de referência público. O método já roda em produção na Motors Store, revenda de seminovos de Curitiba.
+> A V2O5 Vendas e Tecnologia é uma consultoria on-line que ajuda pequenas e médias empresas de todo o Brasil a vender e operar com menos atrito. Começamos por um diagnóstico gratuito de 45 minutos e resolvemos um gargalo de cada vez: presença digital, sites integrados ao CRM e ao WhatsApp, agentes de IA e automação. Cada solução tem escopo fechado e preço de referência público. O método já roda em produção na Motors Store, revenda de seminovos, e na triagem do WhatsApp da 16ª Vara Cível, as duas em Curitiba.
 
 - **Área de atendimento:** Brasil (negócio sem atendimento no local). Endereço de rua oculto.
 - **Verificação:** continua pendente; sem ela o resto não aparece.
