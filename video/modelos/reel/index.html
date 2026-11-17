@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="pt-BR" data-resolution="portrait"
+  data-composition-variables='[
+    {"id":"gancho","type":"string","label":"Gancho (2 primeiros segundos)","default":"Seu cliente pediu preço e sumiu. Sabe por quê?"},
+    {"id":"prova","type":"string","label":"Texto de apoio / fonte (até 6 palavras)","default":"Cliente sumiu?"},
+    {"id":"print","type":"string","label":"Caminho da imagem de tela (opcional)","default":""},
+    {"id":"cta","type":"string","label":"CTA final","default":"Descubra onde sua empresa pode funcionar melhor. Gratuitamente: link na bio."}
+  ]'>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="assets/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: "Geist"; src: url("assets/geist-latin.woff2") format("woff2"); font-weight: 100 900; }
+      :root { --papel: #F2F1EC; --tinta: #121418; --acao: #F2A516; --apagado: #5A5D66; --linha: #D6D4CC; }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--papel); font-family: "Geist", sans-serif; color: var(--tinta); }
+      /* Zonas seguras: a interface do Instagram cobre ~250 px em cima e ~420 px embaixo. Nada de texto fora de y 250 a 1500. */
+      #root { position: relative; width: 1080px; height: 1920px; }
+      .marca { position: absolute; left: 72px; top: 270px; display: flex; align-items: center; gap: 18px; font-size: 34px; font-weight: 600; letter-spacing: -0.01em; }
+      .marca i { display: block; width: 44px; height: 44px; background: var(--acao); }
+      .fio { position: absolute; left: 72px; right: 72px; top: 350px; height: 3px; background: var(--tinta); }
+      .bloco { position: absolute; left: 72px; right: 72px; }
+      #gancho { top: 560px; font-size: 96px; line-height: 1.08; font-weight: 700; letter-spacing: -0.035em; }
+      #prova { top: 620px; font-size: 84px; line-height: 1.1; font-weight: 700; letter-spacing: -0.03em; }
+      #prova span { background: var(--acao); padding: 0 14px; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+      #tela { top: 860px; height: 600px; border: 3px solid var(--tinta); background: #FAF9F5; display: none; overflow: hidden; }
+      #tela img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+      #cta { top: 640px; font-size: 76px; line-height: 1.12; font-weight: 700; letter-spacing: -0.03em; }
+      #cta small { display: block; margin-top: 40px; font-size: 40px; font-weight: 500; color: var(--apagado); letter-spacing: 0; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="{{DURACAO}}" data-width="1080" data-height="1920">
+      <div class="marca clip" data-start="0" data-duration="{{DURACAO}}" data-track-index="0"><i></i>V2O5 Vendas e Tecnologia</div>
+      <div class="fio clip" data-start="0" data-duration="{{DURACAO}}" data-track-index="0"></div>
+      <h1 id="gancho" class="bloco clip" data-start="0" data-duration="{{GANCHO_DUR}}" data-track-index="1"></h1>
+      <div id="prova" class="bloco clip" data-start="{{GANCHO_DUR}}" data-duration="{{MEIO_DUR}}" data-track-index="1"><span></span></div>
+      <div id="tela" class="bloco clip" data-start="{{GANCHO_DUR}}" data-duration="{{MEIO_DUR}}" data-track-index="2"><img alt="" /></div>
+      <div id="cta" class="bloco clip" data-start="{{CTA_INICIO}}" data-duration="{{CTA_DUR}}" data-track-index="1"></div>
+    </div>
+    <script>
+      const v = window.__hyperframes.getVariables();
+      document.querySelector("#gancho").textContent = v.gancho;
+      document.querySelector("#prova span").textContent = v.prova;
+      const partes = String(v.cta).split(":");
+      const cta = document.querySelector("#cta");
+      cta.textContent = partes[0].trim() + (partes[1] ? "." : "");
+      if (partes[1]) { const s = document.createElement("small"); s.textContent = partes.slice(1).join(":").trim(); cta.appendChild(s); }
+      if (v.print) { const t = document.querySelector("#tela"); t.style.display = "block"; t.querySelector("img").src = v.print; document.querySelector("#prova").style.top = "420px"; }
+      const tl = gsap.timeline({ paused: true });
+      const G = {{GANCHO_DUR}}, M = {{MEIO_DUR}}, C = {{CTA_INICIO}};
+      tl.fromTo("#gancho", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, 0);
+      tl.fromTo("#prova", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, G);
+      tl.fromTo("#tela", { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, G + 0.1);
+      tl.fromTo("#cta", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, C);
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>

@@ -1,5 +1,7 @@
 # Vídeo do produto a partir de repositório git (17/11/2026)
 
+> **Atualização de 17/11 (tarde):** decidido e feito. O gerador está em `video/` dentro deste repositório, isolado do site (pasta própria, dependências próprias, fora do lint e do build). Conferido: o HyperFrames 0.9.63 aceita `--variables` e **não tem `--batch`**; o laço está em `video/scripts/renderizar-lote.mjs`. Rascunhos de L1-01, L1-02 e L1-03 renderizados (1080x1920, 30 fps). Uso e segurança em `video/README.md`. A recomendação do repositório separado `v2o5-reels` fica como evolução, não como bloqueio.
+
 Resposta curta: sim. O vídeo pode ser gerado por código, versionado em git, e a V2O5 tem material para isso sem usar dado de cliente. Fica para a segunda etapa, depois do lote 1 sem Motors; este arquivo registra a abordagem.
 
 ## O que dá para gerar sem dado de cliente
