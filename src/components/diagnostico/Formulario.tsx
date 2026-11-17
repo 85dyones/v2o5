@@ -338,6 +338,7 @@ export default function Formulario() {
           <Icone nome="seta" className="seta size-4" />
         </button>
         <p className="text-sm leading-snug text-texto-secundario">
+          <span className="mb-1 block font-medium text-texto">{f.microtexto}</span>
           <SemQuebraNoHifen texto={f.consentimento} />{" "}
           <Link href="/privacidade" className="link-sublinhado">
             Como tratamos os dados

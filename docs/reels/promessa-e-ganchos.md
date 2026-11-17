@@ -1,5 +1,7 @@
 # Promessa, gancho e CTA: seis opções para escolher (17/11/2026)
 
+> **Decisão do Dyones (17/11):** o texto da landing e dos reels é o dele, não uma das seis opções. Título "Descubra onde sua empresa pode funcionar melhor. Gratuitamente."; subtítulo "Em 45 minutos, analisamos como sua empresa funciona, identificamos gargalos e oportunidades e recomendamos por onde começar."; botão "Agendar diagnóstico gratuito"; microtexto "Sem custo e sem compromisso de contratação." Já aplicado em `/diagnostico` (`src/conteudo/diagnostico.ts`). O CTA dos reels repete a promessa: "Descubra onde sua empresa pode funcionar melhor. Gratuitamente. O link está na bio." Os ganchos específicos das opções abaixo carregam a força do reel; a promessa só fecha o vídeo e abre a landing. Abaixo, a análise original.
+
 A promessa é uma só para todos os reels e para o título do `/diagnostico`, palavra por palavra. O gancho muda de reel para reel. O CTA leva sempre ao mesmo destino (o link na bio). Por isso a escolha mais pesada é a promessa; os ganchos das outras opções viram ângulos do lote 1.
 
 Regras que todas cumprem: até 10 palavras na promessa, até 12 no gancho, sem número que não esteja na ficha, sem travessão. A opção B depende de um número do case Motors e traz o período.

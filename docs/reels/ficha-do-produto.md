@@ -15,7 +15,7 @@ Lead que chega e esfria sem resposta; site sem rastreamento; conversas no WhatsA
 Agência de redes sociais, site de modelo pronto, planilha e WhatsApp manual. [CONFERIR com o Dyones]
 
 ## Promessa (10 palavras ou menos, no reel e no título da landing)
-Rascunho: "Veja onde sua empresa perde venda, em 45 minutos." [CONFERIR: aprovar]
+"Descubra onde sua empresa pode funcionar melhor. Gratuitamente." (aprovada pelo Dyones em 17/11). Subtítulo, botão e microtexto em `docs/reels/promessa-e-ganchos.md`.
 
 ## Provas que temos (só estas entram em roteiro)
 - Case **Motors Store** (revenda de seminovos, Curitiba), nome, logo e números autorizados em 08/10/2026. Fonte: `memory/projects/case-motors.md`.

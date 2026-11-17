@@ -51,5 +51,5 @@ Regras: o vídeo repetido vale entre redes diferentes; no Instagram nunca se rep
 | dom | Leitura do lote: insights do Instagram, GA4 e leads por `utm_content`, no prompt 6; escolha dos 3 vencedores |
 
 ## O que falta de decisão do Dyones
-- Aprovar a promessa única (rascunho: "Em 45 minutos, sem custo, a V2O5 mostra onde sua empresa perde venda e o que resolver primeiro."). Os roteiros e o título do `/diagnostico` usam a frase, palavra por palavra.
+- ~~Aprovar a promessa única.~~ Feito em 17/11: "Descubra onde sua empresa pode funcionar melhor. Gratuitamente." Os roteiros e o título do `/diagnostico` usam a frase, palavra por palavra.
 - Autorizar telas e conversas da Motors nos vídeos (nome, logo e números já estão autorizados desde 08/10; telas do painel e do Ney exigem dados mascarados).
