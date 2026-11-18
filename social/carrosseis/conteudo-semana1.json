@@ -1,0 +1,122 @@
+{
+  "diagnostico-diferencial": {
+    "titulo": "V2O5: o diagnóstico",
+    "slides": [
+      { "tipo": "capa", "estilo": "papel", "etiqueta": "O diferencial", "titulo": "Antes de vender a solução, a V2O5 entende o problema.", "sub": "O diagnóstico gratuito de 45 minutos é a porta de entrada.", "rodape": "Deslize para ver como funciona" },
+      { "tipo": "lista", "etiqueta": "Como funciona", "titulo": "45 minutos com o fundador.", "itens": ["Você conta como vende hoje, em um formulário de dois minutos.", "A conversa olha presença, atendimento, operação e funil, com os seus números.", "Por vídeo ou WhatsApp, no dia combinado."], "nota": "Sem custo e sem compromisso de contratação." },
+      { "tipo": "lista", "etiqueta": "O que você leva", "titulo": "Um gargalo priorizado e um próximo passo.", "itens": ["O gargalo que mais pesa na sua empresa, identificado.", "Uma recomendação de por onde começar.", "Havendo um bom caso, a proposta por escrito, com escopo, entregáveis, prazo e investimento."], "nota": "Se não houver um bom caso, a conversa termina ali." },
+      { "tipo": "lista", "etiqueta": "Os limites combinados", "titulo": "O que o diagnóstico não inclui.", "itens": ["Mapeamento completo do processo.", "Implementação.", "Acompanhamento e mensuração de resultados."], "nota": "Esses passos vêm depois, se houver projeto." },
+      { "tipo": "texto", "etiqueta": "A lógica", "titulo": "A decisão parte do problema.", "corpo": ["Comprar, integrar, automatizar ou desenvolver: a escolha depende do que o diagnóstico encontra.", "Nem todo problema pede um agente de IA ou um software novo."] },
+      { "tipo": "lista", "etiqueta": "Depois do diagnóstico", "titulo": "Três soluções, com preço de entrada público.", "itens": ["Presença Digital Local, a partir de R$ 790", "Sites & Integrações, a partir de R$ 2.900", "Sprint de Eficiência, a partir de R$ 3.900"], "nota": "Nenhuma solução obriga a seguinte." },
+      { "tipo": "cta", "titulo": "Descubra onde sua empresa pode funcionar melhor.", "destaque": "Gratuitamente.", "botao": "Pedir diagnóstico gratuito", "rodape": "Link na bio. v2o5.com.br/diagnostico" }
+    ]
+  },
+  "presenca-por-dentro": {
+    "titulo": "V2O5: Presença Digital Local",
+    "slides": [
+      { "tipo": "capa", "estilo": "verde", "etiqueta": "Solução 1", "titulo": "Presença Digital Local, por dentro.", "sub": "Para o cliente que procura a empresa e encontra a informação certa.", "rodape": "Deslize para ver o que está incluído" },
+      { "tipo": "texto", "etiqueta": "O problema", "titulo": "O cliente procura e encontra informação errada.", "corpo": ["Perfil parado, horário desatualizado ou nenhum jeito fácil de chamar.", "A V2O5 entrega o perfil no Google, as redes e o WhatsApp organizados, com modelos de conteúdo e, se quiser, a rotina mensal."] },
+      { "tipo": "lista", "etiqueta": "Os três pacotes", "titulo": "Escolha pelo ponto de partida.", "itens": ["Presença Essencial, R$ 790: Google, uma rede e WhatsApp Business organizados.", "Presença Estruturada, R$ 1.490: até duas redes, calendário de três meses e uma campanha de lançamento.", "Presença Assistida, R$ 1.990: agendamento, fluxo de aprovação e orientação para a equipe."] },
+      { "tipo": "lista", "etiqueta": "Dentro do Essencial", "titulo": "O que o Essencial entrega.", "itens": ["Perfil da Empresa no Google configurado ou otimizado (a verificação depende do Google).", "Uma rede social organizada: Instagram ou Facebook.", "WhatsApp Business com perfil, horário e mensagens de saudação e ausência.", "Três modelos de publicação com a identidade da empresa."], "nota": "Inclui uma rodada de revisão." },
+      { "tipo": "lista", "etiqueta": "Mensalidade opcional", "titulo": "Dá para contratar só a implantação.", "itens": ["Essencial: R$ 390 por mês, com suporte e até quatro pequenas atualizações.", "Estruturada: R$ 490 por mês, com um kit de quatro peças e uma campanha.", "Assistida: R$ 890 por mês, com operação assistida das redes."], "nota": "O volume final da Assistida sai na proposta." },
+      { "tipo": "lista", "etiqueta": "O que fica de fora", "titulo": "Limites do escopo.", "itens": ["Verba de anúncios.", "Gravação presencial de fotos e vídeos.", "Resposta a comentários e mensagens.", "Publicações ilimitadas."], "nota": "Preço de referência; o valor fechado sai em proposta." },
+      { "tipo": "cta", "titulo": "Descubra onde sua empresa pode funcionar melhor.", "destaque": "Gratuitamente.", "botao": "Pedir diagnóstico gratuito", "rodape": "Link na bio. v2o5.com.br/presenca-digital-local" }
+    ]
+  },
+  "sites-por-dentro": {
+    "titulo": "V2O5: Sites & Integrações",
+    "slides": [
+      { "tipo": "capa", "estilo": "tinta", "etiqueta": "Solução 2", "titulo": "Sites & Integrações, por dentro.", "sub": "Site próprio, rápido e medido, ligado ao que a empresa já usa.", "rodape": "Deslize para ver o que está incluído" },
+      { "tipo": "texto", "etiqueta": "O problema", "titulo": "A empresa depende de perfil de terceiros, ou o site não conversa com o sistema.", "corpo": ["A V2O5 entrega um site próprio, rápido e medido, ligado ao CRM, ao estoque ou ao sistema de gestão quando o escopo pede."] },
+      { "tipo": "lista", "etiqueta": "Os três pacotes", "titulo": "Do mais simples ao conectado.", "itens": ["Landing Page, R$ 2.900: uma página comercial que leva ao contato.", "Site Personalizado, R$ 5.900: site institucional com até seis páginas.", "Site Conectado, a partir de R$ 9.900: o site ligado a um sistema que a empresa já usa."] },
+      { "tipo": "lista", "etiqueta": "Em todo site", "titulo": "O que vem em qualquer pacote.", "itens": ["Contatos funcionando: WhatsApp, formulário e telefone.", "Rastreamento básico: de onde veio cada contato.", "SEO técnico e publicação no domínio da empresa.", "Duas rodadas de revisão."] },
+      { "tipo": "lista", "etiqueta": "O Site Conectado", "titulo": "O que a integração liga.", "itens": ["Um sistema que a empresa já usa: CRM, agenda, estoque, catálogo ou ERP.", "Contatos medidos até o sistema, com a origem gravada.", "Aviso quando a integração falha."], "nota": "A integração entra depois de verificar a documentação e o acesso." },
+      { "tipo": "lista", "etiqueta": "Como o preço fecha", "titulo": "Escopo conhecido, preço fechado.", "itens": ["O preço fechado vale para um escopo conhecido.", "Integração só entra na proposta depois de verificar documentação, credenciais, limites e custos do sistema.", "O site se liga ao que a empresa já usa e não substitui o CRM nem o sistema de gestão."], "nota": "Fora do escopo: domínio e e-mail, mídia paga e loja virtual com pagamento." },
+      { "tipo": "cta", "titulo": "Descubra onde sua empresa pode funcionar melhor.", "destaque": "Gratuitamente.", "botao": "Pedir diagnóstico gratuito", "rodape": "Link na bio. v2o5.com.br/criacao-de-sites" }
+    ]
+  },
+  "sprint-por-dentro": {
+    "titulo": "V2O5: Sprint de Eficiência",
+    "slides": [
+      { "tipo": "capa", "estilo": "ambar", "etiqueta": "Solução 3", "titulo": "Sprint de Eficiência, por dentro.", "sub": "Um gargalo, um projeto fechado, preço em proposta.", "rodape": "Deslize para ver os níveis" },
+      { "tipo": "texto", "etiqueta": "O problema", "titulo": "Um processo trava a operação.", "corpo": ["Retrabalho, contato perdido, sistemas que não conversam.", "O Sprint entrega um gargalo resolvido, com a solução implantada e os indicadores comparados antes e depois."] },
+      { "tipo": "lista", "etiqueta": "Os três níveis", "titulo": "Do gargalo simples ao complexo.", "itens": ["Sprint Essencial, R$ 3.900: um gargalo delimitado. Referência de 1 a 2 semanas.", "Sprint Integrado, R$ 6.900: um fluxo que envolve sistemas. Referência de 2 a 4 semanas.", "Sprint Avançado, a partir de R$ 12.900: integrações complexas, regras de negócio ou IA. Referência de 4 a 8 semanas ou mais."], "nota": "A duração é referência, nunca promessa." },
+      { "tipo": "lista", "etiqueta": "O que cabe", "titulo": "Exemplos de gargalo.", "itens": ["Corrigir o fluxo de captação de leads.", "Automatizar uma tarefa repetitiva.", "Integrar duas ferramentas que já existem.", "Estruturar captação, qualificação e distribuição de leads."] },
+      { "tipo": "lista", "etiqueta": "Como o Sprint anda", "titulo": "Do processo real à próxima decisão.", "itens": ["Mapear o processo real.", "Simplificar antes de automatizar.", "Escolher a intervenção proporcional ao problema.", "Implementar, comparar antes e depois e decidir o próximo passo."] },
+      { "tipo": "lista", "etiqueta": "O preço", "titulo": "Do que o preço é feito.", "itens": ["Execução: aprofundamento do diagnóstico, desenvolvimento, configuração, testes e implantação.", "Complexidade e risco: integrações frágeis, dados ruins, dependência de terceiros.", "Custos diretos: APIs, infraestrutura, licenças e fornecedores, discriminados na proposta."], "nota": "Sem percentual, ROI nem garantia de resultado." },
+      { "tipo": "cta", "titulo": "Descubra onde sua empresa pode funcionar melhor.", "destaque": "Gratuitamente.", "botao": "Pedir diagnóstico gratuito", "rodape": "Link na bio. v2o5.com.br/sprint-de-eficiencia" }
+    ]
+  },
+  "dor-lead-esfria": {
+    "titulo": "V2O5: lead que esfria no WhatsApp",
+    "slides": [
+      { "tipo": "capa", "estilo": "ambar", "etiqueta": "Autoteste", "titulo": "Lead que esfria no WhatsApp: onde a conversa trava?", "sub": "Cinco sinais para você conferir na sua empresa.", "rodape": "Deslize e marque os que você reconhece" },
+      { "tipo": "lista", "etiqueta": "Sinais, parte 1", "titulo": "Você reconhece algum destes?", "itens": ["A primeira resposta ao cliente demora.", "Ninguém sabe quem responde cada conversa.", "Conversas ficam paradas sem aviso."] },
+      { "tipo": "lista", "etiqueta": "Sinais, parte 2", "titulo": "E estes?", "itens": ["O contato some e ninguém lembra de retomar.", "Você não sabe de onde veio cada cliente."], "nota": "Marcou dois ou mais? Vale um diagnóstico." },
+      { "tipo": "texto", "etiqueta": "Por que importa", "titulo": "A venda se perde no intervalo.", "corpo": ["Muita venda se perde entre a pergunta do cliente e a primeira resposta.", "Enquanto a conversa espera, o cliente pode estar falando com outra empresa."] },
+      { "tipo": "solucao", "cor": "#F2A516", "etiqueta": "O que resolve", "nome": "Sprint de Eficiência", "quando": "Quando um processo trava a operação: retrabalho, contato perdido, sistemas que não conversam.", "recebe": "Um gargalo resolvido, com a solução implantada e os indicadores comparados antes e depois.", "preco": "A partir de R$ 3.900" },
+      { "tipo": "lista", "etiqueta": "Como começamos", "titulo": "Pelo diagnóstico gratuito.", "itens": ["Você conta como vende hoje, em dois minutos.", "45 minutos com o fundador, por vídeo ou WhatsApp.", "Havendo um bom caso, a proposta vem por escrito."], "nota": "Sem custo e sem compromisso de contratação." },
+      { "tipo": "cta", "titulo": "Descubra onde sua empresa pode funcionar melhor.", "destaque": "Gratuitamente.", "botao": "Pedir diagnóstico gratuito", "rodape": "Link na bio. v2o5.com.br/diagnostico" }
+    ]
+  },
+  "dor-sistemas-separados": {
+    "titulo": "V2O5: sistemas que não conversam",
+    "slides": [
+      { "tipo": "capa", "estilo": "ambar", "etiqueta": "Autoteste", "titulo": "Sistemas que não conversam: onde você digita duas vezes?", "sub": "Cinco sinais para você conferir na sua empresa.", "rodape": "Deslize e marque os que você reconhece" },
+      { "tipo": "lista", "etiqueta": "Sinais, parte 1", "titulo": "Você reconhece algum destes?", "itens": ["Você digita o mesmo dado em dois lugares.", "A planilha e o sistema mostram números diferentes.", "O site, o WhatsApp e o CRM não trocam informação."] },
+      { "tipo": "lista", "etiqueta": "Sinais, parte 2", "titulo": "E estes?", "itens": ["Uma pessoa guarda o processo na cabeça.", "Quando ela falta, o processo para."], "nota": "Marcou dois ou mais? Vale um diagnóstico." },
+      { "tipo": "texto", "etiqueta": "Por que importa", "titulo": "O dado digitado à mão erra.", "corpo": ["Cada dado digitado à mão em dois lugares é um erro esperando para acontecer.", "Integrar o sistema que você já usa com o site e o WhatsApp tira esse trabalho."] },
+      { "tipo": "solucao", "cor": "#F2A516", "etiqueta": "O que resolve", "nome": "Sprint de Eficiência", "quando": "Quando um processo trava a operação: retrabalho, contato perdido, sistemas que não conversam.", "recebe": "Um gargalo resolvido, com a solução implantada e os indicadores comparados antes e depois.", "preco": "A partir de R$ 3.900" },
+      { "tipo": "lista", "etiqueta": "Como começamos", "titulo": "Pelo diagnóstico gratuito.", "itens": ["Você conta como vende hoje, em dois minutos.", "45 minutos com o fundador, por vídeo ou WhatsApp.", "Havendo um bom caso, a proposta vem por escrito."], "nota": "Sem custo e sem compromisso de contratação." },
+      { "tipo": "cta", "titulo": "Descubra onde sua empresa pode funcionar melhor.", "destaque": "Gratuitamente.", "botao": "Pedir diagnóstico gratuito", "rodape": "Link na bio. v2o5.com.br/diagnostico" }
+    ]
+  },
+  "dor-site-sem-medicao": {
+    "titulo": "V2O5: site sem medição",
+    "slides": [
+      { "tipo": "capa", "estilo": "tinta", "etiqueta": "Autoteste", "titulo": "O seu site está no ar. Você sabe quem entrou nele?", "sub": "Cinco sinais para você conferir na sua empresa.", "rodape": "Deslize e marque os que você reconhece" },
+      { "tipo": "lista", "etiqueta": "Sinais, parte 1", "titulo": "Você reconhece algum destes?", "itens": ["Você não sabe quantas pessoas visitam o site por semana.", "Você não sabe quais páginas trazem contato.", "Você não sabe de qual anúncio ou post veio o último cliente."] },
+      { "tipo": "lista", "etiqueta": "Sinais, parte 2", "titulo": "E estes?", "itens": ["O formulário não registra a origem do contato.", "Os números ficam em ferramentas que ninguém abre."], "nota": "Marcou dois ou mais? Vale um diagnóstico." },
+      { "tipo": "texto", "etiqueta": "Por que importa", "titulo": "Uma vitrine sem câmera.", "corpo": ["Site sem medição não mostra quem passou nem o que olhou.", "Sem esse dado, decidir onde investir vira palpite."] },
+      { "tipo": "solucao", "cor": "#2457C5", "etiqueta": "O que resolve", "nome": "Sites & Integrações", "quando": "Quando a empresa depende de perfil de terceiros, ou o site não conversa com o sistema que ela já usa.", "recebe": "Site próprio, rápido e medido, com o rastreamento de onde veio cada contato.", "preco": "A partir de R$ 2.900" },
+      { "tipo": "lista", "etiqueta": "Como começamos", "titulo": "Pelo diagnóstico gratuito.", "itens": ["Você conta como vende hoje, em dois minutos.", "45 minutos com o fundador, por vídeo ou WhatsApp.", "Havendo um bom caso, a proposta vem por escrito."], "nota": "Sem custo e sem compromisso de contratação." },
+      { "tipo": "cta", "titulo": "Descubra onde sua empresa pode funcionar melhor.", "destaque": "Gratuitamente.", "botao": "Pedir diagnóstico gratuito", "rodape": "Link na bio. v2o5.com.br/diagnostico" }
+    ]
+  },
+  "dor-formulario": {
+    "titulo": "V2O5: o caminho do formulário",
+    "slides": [
+      { "tipo": "capa", "estilo": "tinta", "etiqueta": "Autoteste", "titulo": "Para onde vai o contato que chega pelo seu site?", "sub": "Cinco sinais para você conferir na sua empresa.", "rodape": "Deslize e marque os que você reconhece" },
+      { "tipo": "lista", "etiqueta": "Sinais, parte 1", "titulo": "Você reconhece algum destes?", "itens": ["O formulário envia para um e-mail que ninguém olha.", "Ninguém sabe quem responde o contato do site.", "O cliente espera dias por uma resposta."] },
+      { "tipo": "lista", "etiqueta": "Sinais, parte 2", "titulo": "E estes?", "itens": ["O contato chega sem a origem.", "A equipe pergunta de novo o que o cliente já preencheu."], "nota": "Marcou dois ou mais? Vale um diagnóstico." },
+      { "tipo": "texto", "etiqueta": "Por que importa", "titulo": "O caminho precisa estar desenhado.", "corpo": ["O caminho do formulário até uma pessoa precisa estar desenhado.", "O cliente que espera sem resposta pode procurar outro."] },
+      { "tipo": "solucao", "cor": "#2457C5", "etiqueta": "O que resolve", "nome": "Sites & Integrações", "quando": "Quando a empresa depende de perfil de terceiros, ou o site não conversa com o sistema que ela já usa.", "recebe": "No Site Conectado, contatos medidos até o sistema, com a origem gravada e aviso quando a integração falha.", "preco": "A partir de R$ 9.900" },
+      { "tipo": "lista", "etiqueta": "Como começamos", "titulo": "Pelo diagnóstico gratuito.", "itens": ["Você conta como vende hoje, em dois minutos.", "45 minutos com o fundador, por vídeo ou WhatsApp.", "Havendo um bom caso, a proposta vem por escrito."], "nota": "Sem custo e sem compromisso de contratação." },
+      { "tipo": "cta", "titulo": "Descubra onde sua empresa pode funcionar melhor.", "destaque": "Gratuitamente.", "botao": "Pedir diagnóstico gratuito", "rodape": "Link na bio. v2o5.com.br/diagnostico" }
+    ]
+  },
+  "dor-google": {
+    "titulo": "V2O5: o que o cliente encontra no Google",
+    "slides": [
+      { "tipo": "capa", "estilo": "verde", "etiqueta": "Autoteste", "titulo": "O seu cliente procura a empresa no Google. O que ele encontra?", "sub": "Cinco sinais para você conferir na sua empresa.", "rodape": "Deslize e marque os que você reconhece" },
+      { "tipo": "lista", "etiqueta": "Sinais, parte 1", "titulo": "Você reconhece algum destes?", "itens": ["O horário do Perfil da Empresa no Google está errado.", "O telefone ou o endereço mudaram e o perfil não.", "As fotos são antigas."] },
+      { "tipo": "lista", "etiqueta": "Sinais, parte 2", "titulo": "E estes?", "itens": ["O perfil nunca foi verificado.", "Não há botão de WhatsApp para chamar."], "nota": "Marcou dois ou mais? Vale um diagnóstico." },
+      { "tipo": "texto", "etiqueta": "Por que importa", "titulo": "A busca encontra o que está publicado.", "corpo": ["O cliente procura a empresa e encontra informação errada, perfil parado ou nenhum jeito fácil de chamar."] },
+      { "tipo": "solucao", "cor": "#17773F", "etiqueta": "O que resolve", "nome": "Presença Digital Local", "quando": "Quando o cliente procura e encontra informação errada, perfil parado ou nenhum jeito fácil de chamar.", "recebe": "Perfil no Google, uma rede e o WhatsApp Business organizados, com informações e botões de chamada revisados.", "preco": "A partir de R$ 790" },
+      { "tipo": "lista", "etiqueta": "Como começamos", "titulo": "Pelo diagnóstico gratuito.", "itens": ["Você conta como vende hoje, em dois minutos.", "45 minutos com o fundador, por vídeo ou WhatsApp.", "Havendo um bom caso, a proposta vem por escrito."], "nota": "Sem custo e sem compromisso de contratação." },
+      { "tipo": "cta", "titulo": "Descubra onde sua empresa pode funcionar melhor.", "destaque": "Gratuitamente.", "botao": "Pedir diagnóstico gratuito", "rodape": "Link na bio. v2o5.com.br/diagnostico" }
+    ]
+  },
+  "dor-perfil-parado": {
+    "titulo": "V2O5: perfil parado",
+    "slides": [
+      { "tipo": "capa", "estilo": "verde", "etiqueta": "Autoteste", "titulo": "Perfil parado: o cliente acha que a empresa fechou?", "sub": "Cinco sinais para você conferir na sua empresa.", "rodape": "Deslize e marque os que você reconhece" },
+      { "tipo": "lista", "etiqueta": "Sinais, parte 1", "titulo": "Você reconhece algum destes?", "itens": ["A última publicação tem meses.", "O perfil diz uma coisa e o site diz outra.", "Ninguém sabe quem cuida das redes."] },
+      { "tipo": "lista", "etiqueta": "Sinais, parte 2", "titulo": "E estes?", "itens": ["O nome, a foto e a bio não seguem a identidade da empresa.", "Você publica só quando lembra."], "nota": "Marcou dois ou mais? Vale um diagnóstico." },
+      { "tipo": "texto", "etiqueta": "Por que importa", "titulo": "Perfil parado passa a impressão de empresa parada.", "corpo": ["Um perfil organizado e atualizado é o primeiro passo para o cliente chamar."] },
+      { "tipo": "solucao", "cor": "#17773F", "etiqueta": "O que resolve", "nome": "Presença Digital Local", "quando": "Quando o cliente procura e encontra informação errada, perfil parado ou nenhum jeito fácil de chamar.", "recebe": "No pacote Estruturada, até duas redes, oito modelos de posts e stories, calendário de três meses e uma campanha de lançamento.", "preco": "Estruturada: R$ 1.490" },
+      { "tipo": "lista", "etiqueta": "Como começamos", "titulo": "Pelo diagnóstico gratuito.", "itens": ["Você conta como vende hoje, em dois minutos.", "45 minutos com o fundador, por vídeo ou WhatsApp.", "Havendo um bom caso, a proposta vem por escrito."], "nota": "Sem custo e sem compromisso de contratação." },
+      { "tipo": "cta", "titulo": "Descubra onde sua empresa pode funcionar melhor.", "destaque": "Gratuitamente.", "botao": "Pedir diagnóstico gratuito", "rodape": "Link na bio. v2o5.com.br/diagnostico" }
+    ]
+  }
+}

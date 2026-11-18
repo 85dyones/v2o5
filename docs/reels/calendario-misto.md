@@ -1,5 +1,7 @@
 # Calendário misto: reels e carrosséis atacando dores (18/11/2026)
 
+> **Decisão de 18/11 (Dyones):** capa em papel com a planta do logo aprovada. Na semana de 01/12 saem **3 reels e 2 carrosséis por dia**, alternados, com carrosséis sobre as três soluções, o diagnóstico como diferencial e seis dores. A agenda detalhada, com legendas das três redes, está em `semana-1-agenda.md` (e `.csv`). Os 10 reels que sobram (L1-03, 05, 06, 09, 12, 15, 16, 18, 19 e 25) abrem a semana de 08/12. O quadro e o calendário abaixo são a proposta anterior, de referência.
+
 Decisão do Dyones em 18/11: os três primeiros posts são os carrosséis fixos (`docs/social/posts-fixos.md`); depois, reels e carrosséis se intercalam, cada um atacando uma dor que uma solução da V2O5 resolve.
 
 ## Como os dois formatos trabalham juntos

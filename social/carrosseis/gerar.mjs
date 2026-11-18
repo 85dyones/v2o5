@@ -11,7 +11,7 @@ const require = createRequire(import.meta.url);
 const { chromium } = require("playwright");
 const aqui = dirname(fileURLToPath(import.meta.url));
 const raiz = join(aqui, "../..");
-const dados = JSON.parse(readFileSync(join(aqui, "conteudo.json"), "utf8"));
+const dados = { ...JSON.parse(readFileSync(join(aqui, "conteudo.json"), "utf8")), ...JSON.parse(readFileSync(join(aqui, "conteudo-semana1.json"), "utf8")) };
 const fonte = "data:font/woff2;base64," + readFileSync(join(raiz, "src/app/fonts/geist-latin.woff2")).toString("base64");
 
 // O símbolo da marca e a planta de construção do rodapé do site, lidos direto dos dados do site.
@@ -79,6 +79,7 @@ p.c{font-size:42px;line-height:1.3;font-weight:500;margin-top:34px;color:#121418
 .it{display:flex;gap:30px;align-items:flex-start;margin-top:34px}
 .it u{flex:none;width:62px;height:62px;background:#F2A516;color:#121418;font-size:34px;font-weight:700;text-align:center;line-height:62px;text-decoration:none}
 .it span{font-size:44px;line-height:1.25;font-weight:600;letter-spacing:-.02em;padding-top:2px}
+.it.g{margin-top:44px}.it.g span{font-size:50px}.it.g u{width:72px;height:72px;line-height:72px;font-size:40px}
 .nota{margin-top:44px;font-size:34px;line-height:1.3;color:#5A5D66;font-weight:500;border-top:3px solid #D6D4CC;padding-top:26px}
 .passo{border:3px solid #121418;background:#FAF9F5;padding:36px 40px;margin-top:32px}
 .passo .n{font-size:30px;font-weight:700;background:#F2A516;display:inline-block;padding:4px 14px;margin-bottom:18px}
@@ -113,7 +114,7 @@ function slide(t, i, n) {
     const texto = t.cor === "#F2A516" ? "#121418" : "#fff";
     corpo = `<div class="sol" style="--c:${t.cor};--pc:${texto}"><div class="et" style="background:${t.cor};color:${texto}">${esc(t.etiqueta)}</div><h2>${esc(t.nome)}</h2><div class="l">Quando</div><div class="t">${esc(t.quando)}</div><div class="l">O que você recebe</div><div class="t">${esc(t.recebe)}</div><div class="preco">${esc(t.preco)}</div></div>`;
   }
-  if (t.tipo === "lista") corpo = `<div class="et">${esc(t.etiqueta)}</div><h2>${esc(t.titulo)}</h2>${t.itens.map((x, k) => `<div class="it"><u>${k + 1}</u><span>${esc(x)}</span></div>`).join("")}${t.nota ? `<div class="nota">${esc(t.nota)}</div>` : ""}`;
+  if (t.tipo === "lista") corpo = `<div class="et">${esc(t.etiqueta)}</div><h2>${esc(t.titulo)}</h2>${t.itens.map((x, k) => `<div class="it${t.itens.length <= 3 ? " g" : ""}"><u>${k + 1}</u><span>${esc(x)}</span></div>`).join("")}${t.nota ? `<div class="nota">${esc(t.nota)}</div>` : ""}`;
   if (t.tipo === "passos") corpo = `<div class="et">${esc(t.etiqueta)}</div>${t.passos.map((p) => `<div class="passo"><div class="n">${p.n}</div><h3>${esc(p.titulo)}</h3><p>${esc(p.texto)}</p></div>`).join("")}`;
   if (t.tipo === "numeros") corpo = `<div class="et">${esc(t.etiqueta)}</div><h2>${esc(t.titulo)}</h2>${t.numeros.map((x) => `<div class="num"><b>${esc(x.valor)}</b><span>${esc(x.rotulo)}</span></div>`).join("")}${t.nota ? `<div class="nota">${esc(t.nota)}</div>` : ""}`;
   if (t.tipo === "cta") corpo = `<div class="simb" style="width:220px;height:138px">${simbolo("#F2F1EC")}</div><h1 style="font-size:88px">${esc(t.titulo)} <span class="dest">${esc(t.destaque)}</span></h1><div><span class="botao">${esc(t.botao)}</span></div>`;

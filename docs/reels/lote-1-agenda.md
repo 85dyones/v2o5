@@ -1,5 +1,7 @@
 # Lote 1: agenda de postagem (terça 01/12 a sábado 05/12/2026)
 
+> **Atualização de 18/11:** para a semana de 01/12 vale `semana-1-agenda.md` (3 reels e 2 carrosséis por dia, 15 dos 25 reels). Esta agenda segue valendo para o link da bio por dia e como banco das legendas dos reels; os 10 reels restantes vão para a semana de 08/12.
+
 Horários em Brasília (UTC-3). Cada dia mistura os cinco ângulos e o ângulo de cada horário gira de um dia para o outro (o horário não pesa sempre sobre o mesmo ângulo). Os arquivos `L1-XX.mp4` e as capas `capas/L1-XX.jpg` (arte com o gancho e o destaque âmbar de legenda; gerada por `video/gravacoes/gerar-capas.mjs` a partir de `video/capas.json`) estão em `video/saida/` (fora do git). A tabela completa, uma linha por post, está em `lote-1-agenda.csv`.
 
 ## Link da bio, trocado todo dia de manhã
