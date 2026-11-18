@@ -6,14 +6,14 @@ title: "Diagnóstico gratuito | V2O5 Vendas e Tecnologia"
 description: "Sessão inicial gratuita de 45 minutos com o fundador para identificar e priorizar um gargalo. Sem mapeamento completo, implementação ou acompanhamento."
 canonical: "https://www.v2o5.com.br/diagnostico"
 robots: null
-h1: "Em 45 minutos, qual gargalo atacar primeiro. Sessão inicial gratuita, sem compromisso."
+h1: "Descubra onde sua empresa pode funcionar melhor. Gratuitamente."
 extraido_em: "2026-11-12T15:26:32.532Z"
 fonte: "build local da branch claude/kind-tesla-eefroe em 12/11/2026 (sem Branding e sem tráfego pago), antes da publicação"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
-# Em 45 minutos, qual gargalo atacar primeiro. Sessão inicial gratuita, sem compromisso.
+# Descubra onde sua empresa pode funcionar melhor. Gratuitamente.
 
-Uma conversa com o fundador sobre como a sua empresa aparece, atende e vende hoje. Serve para entender o problema, estimar o impacto e decidir se existe um projeto viável.
+Em 45 minutos, identificamos o gargalo que mais pesa na sua empresa e recomendamos por onde começar.
 
 ## Pedir o diagnóstico
 
@@ -69,6 +69,8 @@ Algo mais que a gente deva saber (opcional)
 Site <!-- armadilha para robôs (campo site), aria-hidden -->
 
 Pedir diagnóstico gratuito
+
+Sem custo e sem compromisso de contratação.
 
 Ao enviar, você concorda em receber o contato da V2O5 pelo WhatsApp e pelo e-mail informados, para marcar a conversa. [Como tratamos os dados](/privacidade).
 

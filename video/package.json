@@ -1,0 +1,19 @@
+{
+  "name": "v2o5-reels",
+  "private": true,
+  "version": "0.0.0",
+  "description": "Gerador dos reels da V2O5 (isolado do site: dependências próprias)",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "devDependencies": {
+    "gsap": "^3.15.0",
+    "hyperframes": "0.9.63"
+  },
+  "scripts": {
+    "preparar": "node scripts/preparar.mjs",
+    "lote": "node scripts/renderizar-lote.mjs ../docs/reels/lote-1.csv",
+    "rascunho": "node scripts/renderizar-lote.mjs ../docs/reels/lote-1.csv --draft"
+  }
+}
