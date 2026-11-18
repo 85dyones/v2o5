@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 // Gera os carrosséis fixos da V2O5: PNG 1080x1350 (Instagram e Facebook) e PDF (LinkedIn, documento).
 // Uso: node social/carrosseis/gerar.mjs   (precisa do Playwright global; saída em social/carrosseis/saida/)
+//   CAPA=papel|ambar|tinta|escuro  troca o estilo de todas as capas (padrão: o "estilo" de cada capa em conteudo.json)
+//   OPCOES=1                       gera só as quatro opções de capa do primeiro carrossel
 import { createRequire } from "node:module";
 import { readFileSync, mkdirSync } from "node:fs";
 import { fileURLToPath } from "node:url";
@@ -12,13 +14,41 @@ const raiz = join(aqui, "../..");
 const dados = JSON.parse(readFileSync(join(aqui, "conteudo.json"), "utf8"));
 const fonte = "data:font/woff2;base64," + readFileSync(join(raiz, "src/app/fonts/geist-latin.woff2")).toString("base64");
 
-// Símbolo da marca, do vetor do site (versão grande).
-const ts = readFileSync(join(raiz, "src/lib/marca-vetor.ts"), "utf8");
-const bloco = ts.slice(ts.indexOf('"grande": {'), ts.indexOf('"pequeno": {'));
-const pega = (re) => bloco.match(re)[1];
-const vb = readFileSync(join(raiz, "src/lib/marca.ts"), "utf8").match(/VIEWBOX = \{ x: (\d+), y: (\d+), largura: (\d+), altura: (\d+) \}/);
-const simbolo = (cor) =>
-  `<svg viewBox="${vb[1]} ${vb[2]} ${vb[3]} ${vb[4]}" aria-hidden="true"><path d="${pega(/"nuvem": "([^"]+)"/)}" fill="none" stroke="${cor}" stroke-width="${pega(/"tracoDaNuvem": ([\d.]+)/)}" stroke-linejoin="round"/><path d="${pega(/"rede": "([^"]+)"/)}" fill="${cor}"/><circle cx="${pega(/"ambar": \{\s*"cx": ([\d.]+)/)}" cy="${pega(/"cy": ([\d.]+),\s*"r": [\d.]+\s*\},\s*"nos"/)}" r="${pega(/"ambar": \{[^}]*"r": ([\d.]+)/)}" fill="#F2A516"/></svg>`;
+// O símbolo da marca e a planta de construção do rodapé do site, lidos direto dos dados do site.
+const { SIMBOLO_C1D } = await import(join(raiz, "src/lib/marca-vetor.ts"));
+const { DESENHOS, VIEWBOX } = await import(join(raiz, "src/lib/marca.ts"));
+const { CIRCULOS_DA_NUVEM, COTAS_DOS_ATOMOS } = await import(join(raiz, "src/lib/construcao.ts"));
+const V = SIMBOLO_C1D.grande;
+const NOS = V.nos;
+const vb = `${VIEWBOX.x} ${VIEWBOX.y} ${VIEWBOX.largura} ${VIEWBOX.altura}`;
+const simbolo = (cor, atomo = "#F2A516") =>
+  `<svg viewBox="${vb}" aria-hidden="true"><path d="${V.nuvem}" fill="none" stroke="${cor}" stroke-width="${V.tracoDaNuvem}" stroke-linejoin="round"/><path d="${V.rede}" fill="${cor}"/><circle cx="${V.ambar.cx}" cy="${V.ambar.cy}" r="${V.ambar.r}" fill="${atomo}"/></svg>`;
+
+// A planta do símbolo, como no rodapé do site: grade, círculos da nuvem, ligações, cotas e o símbolo por cima.
+const TONS = {
+  papel: { grade: "#E3E1DA", constr: "#BDBBB3", no: "#BDBBB3", cota: "#7A7972", simbolo: "#121418", atomo: "#F2A516" },
+  ambar: { grade: "rgba(18,20,24,.13)", constr: "rgba(18,20,24,.38)", no: "rgba(18,20,24,.45)", cota: "rgba(18,20,24,.6)", simbolo: "#121418", atomo: "#F2F1EC" },
+  tinta: { grade: "rgba(18,20,24,.10)", constr: "rgba(18,20,24,.30)", no: "rgba(18,20,24,.4)", cota: "rgba(18,20,24,.55)", simbolo: "#121418", atomo: "#F2A516" },
+};
+TONS.verde = TONS.tinta; // as tintas das valências do vanádio: verde, violeta e azul (tinta)
+TONS.violeta = TONS.tinta;
+function planta(tom) {
+  const t = TONS[tom];
+  const gx = [...new Set([...Object.values(NOS).map((n) => n.x), ...CIRCULOS_DA_NUVEM.map((c) => c.x)])];
+  const gy = [...new Set([...Object.values(NOS).map((n) => n.y), ...CIRCULOS_DA_NUVEM.map((c) => c.y)])];
+  const ambarId = Object.entries(NOS).find(([, n]) => n.x === V.ambar.cx && n.y === V.ambar.cy)?.[0];
+  const lig = DESENHOS.C1d.ligacoes;
+  const grade = gx.map((x) => `<line x1="${x}" y1="0" x2="${x}" y2="100"/>`).join("") + gy.map((y) => `<line x1="-10" y1="${y}" x2="140" y2="${y}"/>`).join("");
+  const circulos = CIRCULOS_DA_NUVEM.map((c) => `<circle cx="${c.x}" cy="${c.y}" r="${c.r}" stroke-dasharray="1.2 1.2"/><rect x="${c.x - 0.9}" y="${c.y - 0.9}" width="1.8" height="1.8" fill="${t.no}" stroke="none"/>`).join("");
+  const ligacoes = lig.map(([a, b]) => `<line x1="${NOS[a].x}" y1="${NOS[a].y}" x2="${NOS[b].x}" y2="${NOS[b].y}"/>`).join("");
+  const atomos = Object.entries(NOS).map(([id, n]) => `<circle cx="${n.x}" cy="${n.y}" r="${n.r + 1.6}" stroke="${id === ambarId ? "#F2A516" : t.no}" stroke-width=".4"/>`).join("");
+  const cotas = CIRCULOS_DA_NUVEM.map((c) => `<line x1="${c.x}" y1="${c.y}" x2="${c.x + c.r * 0.707}" y2="${c.y - c.r * 0.707}" stroke="${t.cota}" stroke-width=".25"/><text x="${c.x + c.r * 0.36 + 1}" y="${c.y - c.r * 0.36 - 1}">r ${c.r}</text>`).join("");
+  return `<svg class="planta" viewBox="2 10 124 78" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+<g stroke="${t.grade}" stroke-width=".25">${grade}</g>
+<g fill="none" stroke="${t.constr}" stroke-width=".35">${circulos}${ligacoes}${atomos}</g>
+<g font-family="Geist,sans-serif" font-size="2.4" fill="${t.cota}">${cotas}<text x="${NOS.V1.x - 4}" y="${NOS.V1.y + 11.5}">V · ${COTAS_DOS_ATOMOS.V}</text><text x="${NOS.Ob.x + 6.5}" y="${NOS.Ob.y + 1}">O · ${COTAS_DOS_ATOMOS.O}</text></g>
+<path d="${V.nuvem}" fill="none" stroke="${t.simbolo}" stroke-width="${V.tracoDaNuvem}" stroke-linejoin="round"/><path d="${V.rede}" fill="${t.simbolo}"/><circle cx="${V.ambar.cx}" cy="${V.ambar.cy}" r="${V.ambar.r}" fill="${t.atomo}"/></svg>`;
+}
 
 const esc = (t) => String(t).replace(/&/g, "&amp;").replace(/</g, "&lt;");
 const CSS = `
@@ -28,17 +58,17 @@ const CSS = `
 body{background:#fff}
 .s{position:relative;width:1080px;height:1350px;overflow:hidden;background:#F2F1EC;color:#121418;font-family:Geist,sans-serif;page-break-after:always;break-after:page}
 .s.esc{background:#121418;color:#F2F1EC}
-.topo{position:absolute;left:72px;right:72px;top:64px;display:flex;justify-content:space-between;align-items:center;font-size:30px;font-weight:600;letter-spacing:-.01em}
+.topo{position:absolute;left:72px;right:72px;top:64px;display:flex;justify-content:space-between;align-items:center;font-size:30px;font-weight:600;letter-spacing:-.01em;z-index:2}
 .topo .m{display:flex;align-items:center;gap:16px}.topo i{display:block;width:38px;height:38px;background:#F2A516}
 .topo .n{font-weight:500;color:#5A5D66}.esc .topo .n{color:#A9ACB4}
-.fio{position:absolute;left:72px;right:72px;top:130px;height:3px;background:#121418}.esc .fio{background:#2E3138}
-.corpo{position:absolute;left:72px;right:72px;top:190px;bottom:150px;display:flex;flex-direction:column;justify-content:center}
+.fio{position:absolute;left:72px;right:72px;top:130px;height:3px;background:#121418;z-index:2}.esc .fio{background:#2E3138}
+.corpo{position:absolute;left:72px;right:72px;top:190px;bottom:150px;display:flex;flex-direction:column;justify-content:center;z-index:2}
 .et{align-self:flex-start;background:#F2A516;color:#121418;font-size:28px;font-weight:700;letter-spacing:.04em;padding:8px 18px;margin-bottom:36px;text-transform:uppercase}
 h1{font-size:104px;line-height:1.04;font-weight:700;letter-spacing:-.04em}
 h2{font-size:78px;line-height:1.08;font-weight:700;letter-spacing:-.035em}
 p.c{font-size:42px;line-height:1.3;font-weight:500;margin-top:34px;color:#121418}
 .sub{font-size:46px;line-height:1.25;color:#A9ACB4;margin-top:40px;font-weight:500}
-.rod{position:absolute;left:72px;right:72px;bottom:64px;display:flex;justify-content:space-between;align-items:center;font-size:30px;font-weight:500;color:#5A5D66;gap:30px}
+.rod{position:absolute;left:72px;right:72px;bottom:64px;display:flex;justify-content:space-between;align-items:center;font-size:30px;font-weight:500;color:#5A5D66;gap:30px;z-index:2}
 .esc .rod{color:#A9ACB4}.rod b{color:#121418;font-weight:700}.esc .rod b{color:#F2F1EC}
 .seta{flex:none;display:inline-block;background:#F2A516;color:#121418;width:64px;height:64px;text-align:center;line-height:60px;font-size:40px;font-weight:700}
 .simb{width:300px;height:188px;margin-bottom:56px}
@@ -58,14 +88,26 @@ p.c{font-size:42px;line-height:1.3;font-weight:500;margin-top:34px;color:#121418
 .num span{display:block;font-size:40px;line-height:1.25;font-weight:500;margin-top:10px;color:#33363D}
 .dest{color:#F2A516}
 .botao{display:inline-block;margin-top:54px;background:#F2A516;color:#121418;font-size:50px;font-weight:700;letter-spacing:-.02em;padding:24px 44px}
+.s.ambar{background:#F2A516}.s.tinta{background:#D5E0F3}.s.papel{background:#F2F1EC}
+.planta{position:absolute;left:60px;top:650px;width:960px;height:604px;z-index:1}
+.s.ambar .topo i{background:#121418}
+.s.ambar .seta{background:#121418;color:#F2A516}
+.s.verde{background:#D3E6D9}.s.violeta{background:#E0D9F0}
+.s.verde .fio,.s.violeta .fio{background:#121418}
+.s.ambar .fio,.s.tinta .fio,.s.papel .fio{background:#121418}
+.s .corpo.alto{justify-content:flex-start;bottom:auto}
+.s .sub.cl{color:#33363D}
 `;
 function slide(t, i, n) {
-  const claro = t.tipo !== "capa" && t.tipo !== "cta";
+  const estilo = t.tipo === "capa" ? (process.env.CAPA ?? t.estilo ?? "papel") : "escuro";
+  const capaClara = t.tipo === "capa" && estilo !== "escuro";
+  const claro = (t.tipo !== "capa" && t.tipo !== "cta") || capaClara;
   const topo = `<div class="topo"><div class="m"><i></i>V2O5 Vendas e Tecnologia</div><div class="n">${i + 1}/${n}</div></div><div class="fio"></div>`;
   const rod = (txt, seta) => `<div class="rod"><span>${txt}</span>${seta ? '<span class="seta">→</span>' : ""}</div>`;
   const seta = i < n - 1;
   let corpo = "";
-  if (t.tipo === "capa") corpo = `<div class="simb">${simbolo("#F2F1EC")}</div><div class="et">${esc(t.etiqueta)}</div><h1>${esc(t.titulo)}</h1><div class="sub">${esc(t.sub)}</div>`;
+  if (t.tipo === "capa" && !capaClara) corpo = `<div class="simb">${simbolo("#F2F1EC")}</div><div class="et">${esc(t.etiqueta)}</div><h1>${esc(t.titulo)}</h1><div class="sub">${esc(t.sub)}</div>`;
+  if (capaClara) corpo = `<div class="et" style="background:${estilo === "ambar" ? "#121418" : "#F2A516"};color:${estilo === "ambar" ? "#F2F1EC" : "#121418"}">${esc(t.etiqueta)}</div><h1 style="font-size:${t.titulo.length > 45 ? 76 : 96}px">${esc(t.titulo)}</h1><div class="sub cl" style="font-size:${t.titulo.length > 45 ? 38 : 46}px;margin-top:28px">${esc(t.sub)}</div>`;
   if (t.tipo === "texto") corpo = `<div class="et">${esc(t.etiqueta)}</div><h2>${esc(t.titulo)}</h2>${t.corpo.map((c) => `<p class="c">${esc(c)}</p>`).join("")}`;
   if (t.tipo === "solucao") {
     const texto = t.cor === "#F2A516" ? "#121418" : "#fff";
@@ -76,7 +118,9 @@ function slide(t, i, n) {
   if (t.tipo === "numeros") corpo = `<div class="et">${esc(t.etiqueta)}</div><h2>${esc(t.titulo)}</h2>${t.numeros.map((x) => `<div class="num"><b>${esc(x.valor)}</b><span>${esc(x.rotulo)}</span></div>`).join("")}${t.nota ? `<div class="nota">${esc(t.nota)}</div>` : ""}`;
   if (t.tipo === "cta") corpo = `<div class="simb" style="width:220px;height:138px">${simbolo("#F2F1EC")}</div><h1 style="font-size:88px">${esc(t.titulo)} <span class="dest">${esc(t.destaque)}</span></h1><div><span class="botao">${esc(t.botao)}</span></div>`;
   const pe = t.tipo === "capa" ? rod(esc(t.rodape), true) : t.tipo === "cta" ? rod(esc(t.rodape), false) : rod("<b>v2o5.com.br</b>", seta);
-  return `<section class="s ${claro ? "" : "esc"}">${topo}<div class="corpo">${corpo}</div>${pe}</section>`;
+  const fundo = capaClara ? planta(estilo) : "";
+  const classe = capaClara ? estilo : claro ? "" : "esc";
+  return `<section class="s ${classe}">${topo}${fundo}<div class="corpo${capaClara ? " alto" : ""}">${corpo}</div>${pe}</section>`;
 }
 const html = (slides) => `<!doctype html><meta charset="utf-8"><style>${CSS}</style>${slides.map((t, i) => slide(t, i, slides.length)).join("")}`;
 
@@ -84,6 +128,19 @@ const saida = join(aqui, "saida");
 mkdirSync(saida, { recursive: true });
 const b = await chromium.launch();
 const p = await b.newPage({ viewport: { width: 1080, height: 1350 } });
+if (process.env.OPCOES === "1") {
+  mkdirSync(join(saida, "opcoes-capa"), { recursive: true });
+  const primeiro = dados["o-que-fazemos"].slides;
+  for (const estilo of ["escuro", "papel", "ambar", "tinta"]) {
+    process.env.CAPA = estilo;
+    await p.setContent(html([primeiro[0], primeiro[1]]));
+    await p.waitForTimeout(300);
+    const [capa] = await p.$$("section.s");
+    await capa.screenshot({ path: join(saida, "opcoes-capa", `capa-${estilo}.png`) });
+  }
+  await b.close();
+  process.exit(0);
+}
 for (const [nome, c] of Object.entries(dados)) {
   await p.setContent(html(c.slides));
   await p.waitForTimeout(400);
