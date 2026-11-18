@@ -7,7 +7,8 @@
     {"id":"cta","type":"string","label":"CTA final","default":"Descubra onde sua empresa pode funcionar melhor. Gratuitamente: link na bio."},
     {"id":"cena","type":"string","label":"Cena do meio: texto ou conversa","default":"texto"},
     {"id":"legendas","type":"string","label":"Legendas do corpo, JSON com uma frase por item","default":"[]"},
-    {"id":"cfg","type":"string","label":"Configuração da cena do meio (JSON)","default":"{}"}
+    {"id":"cfg","type":"string","label":"Configuração da cena do meio (JSON)","default":"{}"},
+    {"id":"narr","type":"string","label":"Plano de tempos da narração (JSON) ou null","default":"null"}
   ]'>
   <head>
     <meta charset="UTF-8" />
@@ -144,13 +145,14 @@
     <script>
       const v = window.__hyperframes.getVariables();
       const cfg = JSON.parse(v.cfg || "{}");
+      const N = JSON.parse(v.narr || "null");
       const D = {{DURACAO}}, G = {{GANCHO_DUR}}, E = {{FIM_INICIO}};
       const $ = (s) => document.querySelector(s);
       const tl = gsap.timeline({ paused: true });
 
       // gancho digitado
       const gTxt = String(v.gancho);
-      digitar($("#gancho"), [{ t: gTxt }], 0.15, 0.032, false, { pausa: 0.7, quebra: true });
+      digitar($("#gancho"), [{ t: gTxt }], N ? N.ganchoStart : 0.15, N ? N.ganchoVel : 0.032, false, { pausa: N ? N.ganchoPausa : 0.7, quebra: true });
       tl.to("#gancho", { opacity: 0, y: -24, duration: 0.3, ease: "power2.in" }, G - 0.3);
 
       // legendas do corpo: palavra por palavra, com a palavra da vez em destaque
@@ -164,10 +166,11 @@
         frases.forEach((f, i) => {
           const p = document.createElement("p"); box.appendChild(p);
           p.style.fontSize = (f.length > 100 ? 48 : f.length > 80 ? 53 : 58) + "px";
-          const dur = janela * pesos[i] / soma;
-          ts.push(t);
-          destacar(p, f, t + 0.05, dur * 0.82);
-          if (i < frases.length - 1) tl.to(p, { opacity: 0, duration: 0.2, ease: "power1.in" }, t + dur - 0.22);
+          const dur = N ? N.tempos[i].d : janela * pesos[i] / soma;
+          const tt = N ? N.tempos[i].t : t;
+          ts.push(tt);
+          destacar(p, f, tt + 0.05, dur * (N ? 0.95 : 0.82));
+          if (i < frases.length - 1) tl.to(p, { opacity: 0, duration: 0.2, ease: "power1.in" }, N ? tt + dur + 0.08 : tt + dur - 0.22);
           t += dur;
         });
         return ts;
@@ -355,8 +358,8 @@
       tl.to("#nome span", { opacity: 1, y: 0, duration: 0.4, ease: "power3.out", stagger: 0.08 }, E + 1.3);
       tl.set("#nome span", { y: 40 }, 0);
       tl.to("#barra", { scaleX: 1, duration: 0.5, ease: "power3.out" }, E + 1.75);
-      const fimSub = digitar($("#sub"), [{ t: "Vendas e Tecnologia" }], E + 1.75, 0.032);
-      const fimChamada = digitar($("#chamada"), segs, Math.max(E + 2.45, fimSub + 0.1), 0.02, false, { pausa: 0.3 });
+      const fimSub = digitar($("#sub"), [{ t: "Vendas e Tecnologia" }], N ? E + 1.5 : E + 1.75, 0.032);
+      const fimChamada = digitar($("#chamada"), segs, N ? N.fimTexto0 : Math.max(E + 2.45, fimSub + 0.1), N ? N.fimVel : 0.02, false, { pausa: 0.3 });
       tl.fromTo("#pilula", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, fimChamada + 0.15);
       tl.to("#fim", { opacity: 0, duration: 0.4, ease: "power1.in" }, D - 0.4);
       window.__timelines["main"] = tl;
