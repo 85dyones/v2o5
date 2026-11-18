@@ -26,7 +26,7 @@
   "case-motors-v2": {
     "titulo": "V2O5: case Motors Store",
     "slides": [
-      { "tipo": "capa", "estilo": "papel", "etiqueta": "Case · Motors Store", "titulo": "93 de 100 conversas com a primeira resposta em até 1 minuto.", "sub": "Medido nas mensagens do agente de IA da loja, de 21/10 a 17/11/2026.", "rodape": "Deslize para ver como foi feito" },
+      { "tipo": "capa", "estilo": "papel", "etiqueta": "Case · Motors Store", "titulo": "93 de 100 conversas com a primeira resposta em até 1 minuto.", "sub": "Mediana de 38 segundos, medida nas mensagens do agente de IA da Motors Store, de 21/10 a 17/11/2026.", "rodape": "Deslize para ver como foi feito" },
       { "tipo": "lista", "etiqueta": "Antes: diagnosticado", "titulo": "O que travava a Motors Store.", "itens": ["Baixa visibilidade nas buscas, nos buscadores e nas IAs.", "Falta de leads qualificados.", "Presença digital fraca e site lento.", "Acompanhamento comercial inconsistente."], "nota": "Gargalos identificados antes da intervenção, não resultados." },
       { "tipo": "lista", "etiqueta": "Depois: implementado", "titulo": "O que a V2O5 montou.", "itens": ["Site de estoque, com 26 guias publicados.", "O Ney, agente de IA no WhatsApp.", "Rastreamento até a venda.", "Painel e automações, ligados pela mesma base de dados."], "nota": "Cada peça é uma linha do cardápio da V2O5." },
       { "tipo": "numeros", "etiqueta": "O funil, em contagens", "titulo": "Leads desde 05/09/2026.", "numeros": [ { "valor": "237", "rotulo": "leads no funil: 131 do site e 106 pelo WhatsApp direto" }, { "valor": "103 de 131", "rotulo": "leads do site chegam com a origem registrada" } ], "nota": "Fonte: banco de dados da Motors, lido em 17/11/2026." },
@@ -43,6 +43,8 @@
     { "tipo": "capa", "estilo": "papel", "etiqueta": "Como a V2O5 trabalha", "titulo": "Escopo fechado e preço público: o combinado antes de começar.", "sub": "Do diagnóstico gratuito à próxima decisão.", "rodape": "Deslize para ver o caminho" } ] },
   "alt-como-atuamos-c": { "titulo": "alt", "slides": [
     { "tipo": "capa", "estilo": "papel", "etiqueta": "Como a V2O5 trabalha", "titulo": "Um problema por vez. Em 45 minutos, sem custo.", "sub": "Veja o caminho, do diagnóstico à solução.", "rodape": "Deslize para ver o caminho" } ] },
+  "alt-case-motors-d": { "titulo": "alt", "slides": [
+    { "tipo": "capa", "estilo": "papel", "etiqueta": "Case · Motors Store", "titulo": "Primeira resposta em 38 segundos, na mediana, pelo agente de IA no WhatsApp.", "sub": "Em 93 de 100 conversas, em até 1 minuto. Motors Store, de 21/10 a 17/11/2026.", "rodape": "Deslize para ver como foi feito" } ] },
   "alt-case-motors-b": { "titulo": "alt", "slides": [
     { "tipo": "capa", "estilo": "papel", "etiqueta": "Case · Motors Store", "titulo": "Em 93 de 100 conversas, o agente de IA de uma revenda respondeu em até 1 minuto.", "sub": "Agente de IA no WhatsApp. Fonte: banco da loja, 21/10 a 17/11/2026.", "rodape": "Deslize para ver como foi feito" } ] },
   "alt-case-motors-c": { "titulo": "alt", "slides": [
