@@ -4,14 +4,15 @@ Três carrosséis de 7 slides que apresentam a V2O5, os serviços e a forma de t
 
 | Fixo | Carrossel | Arquivos | Papel |
 |---|---|---|---|
-| 1 | O que fazemos | `o-que-fazemos-v2-01.png` a `-07.png` e `o-que-fazemos-v2.pdf` | Quem somos, para quem é, as três frentes com resultado e preço de entrada, como começa |
-| 2 | Como trabalhamos | `como-atuamos-v2-01.png` a `-07.png` e `como-atuamos-v2.pdf` | O diagnóstico, o combinado, os seis passos, os limites e as três soluções |
-| 3 | Case Motors Store | `case-motors-v2-01.png` a `-07.png` e `case-motors-v2.pdf` | A prova: 93 de 100 conversas com a primeira resposta em até 1 minuto, mediana de 38 segundos, e o que dá para levar |
+| 1 | O que fazemos | `fixo-1-o-que-fazemos-01.png` a `-07.png` e `fixo-1-o-que-fazemos.pdf` | Quem somos, para quem é, as três frentes com resultado e preço de entrada, como começa |
+| 2 | Como trabalhamos | `fixo-2-como-trabalhamos-01.png` a `-07.png` e `fixo-2-como-trabalhamos.pdf` | O diagnóstico, o combinado, os seis passos, os limites e as três soluções |
+| 3 | Case Motors Store | `fixo-3-case-motors-01.png` a `-07.png` e `fixo-3-case-motors.pdf` | A prova: 93 de 100 conversas com a primeira resposta em até 1 minuto, mediana de 38 segundos, e o que dá para levar |
 
 ## Formatos
-- **Instagram:** 7 imagens PNG 1080x1350 (4:5), na ordem numerada. Publicar como carrossel e fixar os três no perfil (o Instagram permite até 3 fixados). Conferir na grade a ordem em que ficam; se sair invertida, desafixar e fixar de novo.
-- **Facebook:** as mesmas 7 imagens, como publicação com várias fotos na página, e fixar na página.
-- **LinkedIn:** o PDF (documento, 7 páginas, texto selecionável), como "Documento" na página da empresa. O link vai no primeiro comentário, com UTM de LinkedIn.
+A chamada final muda por rede, porque cada uma tem um lugar diferente para o link. O pacote vem em três pastas.
+- **Instagram (`instagram/`):** 7 imagens PNG 1080x1350 (4:5), na ordem numerada. A chamada é "Link na bio". Publicar como carrossel e fixar os três no perfil (o Instagram permite até 3 fixados). Conferir na grade a ordem em que ficam; se sair invertida, desafixar e fixar de novo.
+- **Facebook (`facebook/`):** as mesmas 7 imagens, com a chamada "Peça pelo link na legenda" (o link clicável vai na legenda). Publicação com várias fotos na página, e fixar na página.
+- **LinkedIn (`linkedin/`):** o carrossel do LinkedIn é o **documento em PDF**: cada página vira uma lâmina que se passa para o lado. O PDF tem 7 páginas, texto selecionável, e a chamada mostra o endereço `v2o5.com.br/diagnostico` em vez de "link na bio". O link clicável vai no primeiro comentário, com UTM de LinkedIn.
 
 ## Quando publicar
 Quinta 26/11 o fixo 3, sexta 27/11 o fixo 2 e sábado 28/11 o fixo 1; domingo 29/11, fixar os três e trocar o link da bio. Assim ficam na grade do perfil na ordem 1, 2, 3 quando a semana de 01/12 começar. A ordem de fixação (qual aparece primeiro) é uma aposta sem dado: 1 "O que fazemos", depois o case e depois o método; o dado dos primeiros dias diz se muda.
@@ -37,7 +38,7 @@ A V2O5 é uma consultoria on-line para pequenas e médias empresas, em todo o Br
 
 Descubra onde sua empresa pode funcionar melhor. Gratuitamente: https://www.v2o5.com.br/diagnostico?utm_source=facebook&utm_medium=post-fixo&utm_campaign=posts-fixos&utm_content=fixo-1
 ```
-**LinkedIn (texto do post, com o PDF `o-que-fazemos-v2.pdf`; título do documento: "V2O5: o que fazemos")**
+**LinkedIn (texto do post, com o PDF `linkedin/fixo-1-o-que-fazemos.pdf`; título do documento: "V2O5: o que fazemos")**
 ```
 Quanto custa resolver o gargalo da sua empresa? Aqui o preço aparece.
 
@@ -72,7 +73,7 @@ São 45 minutos com o fundador, gratuitos e sem compromisso. O combinado vale an
 
 Descubra onde sua empresa pode funcionar melhor. Gratuitamente: https://www.v2o5.com.br/diagnostico?utm_source=facebook&utm_medium=post-fixo&utm_campaign=posts-fixos&utm_content=fixo-2
 ```
-**LinkedIn (texto do post, com o PDF `como-atuamos-v2.pdf`; título do documento: "V2O5: como trabalhamos")**
+**LinkedIn (texto do post, com o PDF `linkedin/fixo-2-como-trabalhamos.pdf`; título do documento: "V2O5: como trabalhamos")**
 ```
 O que acontece depois que você pede um diagnóstico?
 
@@ -107,7 +108,7 @@ Case completo: v2o5.com.br/cases/motors-store (link na bio).
 
 São contagens lidas no banco de dados da loja, não vendas, e a resposta humana não é medida. O resultado é o da Motors. Case completo: https://www.v2o5.com.br/cases/motors-store?utm_source=facebook&utm_medium=post-fixo&utm_campaign=posts-fixos&utm_content=fixo-3
 ```
-**LinkedIn (texto do post, com o PDF `case-motors-v2.pdf`; título do documento: "V2O5: case Motors Store")**
+**LinkedIn (texto do post, com o PDF `linkedin/fixo-3-case-motors.pdf`; título do documento: "V2O5: case Motors Store")**
 ```
 93 de 100 conversas com a primeira resposta em até 1 minuto, mediana de 38 segundos. É o agente de IA da Motors Store, revenda de seminovos em Curitiba, no WhatsApp, entre 21/10 e 17/11/2026.
 

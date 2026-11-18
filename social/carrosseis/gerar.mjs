@@ -168,12 +168,31 @@ if (process.env.OPCOES === "1") {
   await b.close();
   process.exit(0);
 }
+// Cada rede lê a chamada de um jeito: no Instagram o link está na bio; no Facebook, na legenda; no LinkedIn, no primeiro comentário.
+function adaptar(slides, rede) {
+  if (rede === "instagram") return slides;
+  const destino = rede === "facebook" ? "Link na legenda" : "Link no primeiro comentário";
+  return slides.map((s) => {
+    const t = { ...s };
+    if (t.tipo === "capa" && t.rodape) t.rodape = t.rodape.replace(/^Deslize/, rede === "linkedin" ? "Continue" : "Deslize");
+    if (t.tipo === "cta") {
+      if (t.botao === "Link na bio") t.botao = rede === "linkedin" ? "v2o5.com.br/diagnostico" : "Peça pelo link na legenda";
+      if (t.rodape) t.rodape = t.rodape.replace("Link na bio.", `${destino}.`).replace("Salve e envie", rede === "linkedin" ? "Salve e compartilhe" : "Salve e envie");
+    }
+    return t;
+  });
+}
+const nomePasta = { instagram: saida, facebook: join(saida, "facebook"), linkedin: join(saida, "linkedin") };
+mkdirSync(nomePasta.facebook, { recursive: true });
+mkdirSync(nomePasta.linkedin, { recursive: true });
 for (const [nome, c] of Object.entries(dados)) {
-  await p.setContent(html(c.slides));
-  await p.waitForTimeout(400);
-  const secoes = await p.$$("section.s");
-  for (let i = 0; i < secoes.length; i++) await secoes[i].screenshot({ path: join(saida, `${nome}-${String(i + 1).padStart(2, "0")}.png`) });
-  await p.pdf({ path: join(saida, `${nome}.pdf`), width: "1080px", height: "1350px", printBackground: true, preferCSSPageSize: true });
-  console.log(nome, secoes.length, "slides");
+  for (const rede of ["instagram", "facebook", "linkedin"]) {
+    await p.setContent(html(adaptar(c.slides, rede)));
+    await p.waitForTimeout(300);
+    const secoes = await p.$$("section.s");
+    if (rede !== "linkedin") for (let i = 0; i < secoes.length; i++) await secoes[i].screenshot({ path: join(nomePasta[rede], `${nome}-${String(i + 1).padStart(2, "0")}.png`) });
+    if (rede !== "facebook") await p.pdf({ path: join(nomePasta[rede], `${nome}.pdf`), width: "1080px", height: "1350px", printBackground: true, preferCSSPageSize: true });
+    if (rede === "instagram") console.log(nome, secoes.length, "slides");
+  }
 }
 await b.close();

@@ -1,6 +1,6 @@
 # Semana 1: 3 reels e 2 carrosséis por dia (terça 01/12 a sábado 05/12/2026)
 
-Horários de Brasília. Cada dia alterna reel, carrossel, reel, carrossel, reel. Dos 25 reels prontos, 15 entram nesta semana; os outros 10 (L1-03, 05, 06, 09, 12, 15, 16, 18, 19 e 25) seguem para a semana de 08/12. Arquivos: reels em `L1-XX.mp4` com capa `capas/L1-XX.jpg`; carrosséis em `<nome>-01.png` a `-07.png` (Instagram e Facebook) e `<nome>.pdf` (LinkedIn), no zip `carrosseis-semana-1.zip`. O link da bio muda por dia (`utm_content=L1-D1` a `L1-D5`, em `lote-1-agenda.md`).
+Horários de Brasília. Cada dia alterna reel, carrossel, reel, carrossel, reel. Dos 25 reels prontos, 15 entram nesta semana; os outros 10 (L1-03, 05, 06, 09, 12, 15, 16, 18, 19 e 25) seguem para a semana de 08/12. Arquivos: reels em `L1-XX.mp4` com capa `capas/L1-XX.jpg`; carrosséis no zip `carrosseis-semana-1.zip`, em três pastas, porque a chamada muda por rede: `instagram/<nome>-01.png` a `-07.png` (chamada "link na bio"), `facebook/<nome>-01.png` a `-07.png` ("link na legenda") e `linkedin/<nome>.pdf` (documento, com o endereço na chamada e "link no primeiro comentário"). O link da bio muda por dia (`utm_content=L1-D1` a `L1-D5`, em `lote-1-agenda.md`).
 
 Facebook: o primeiro reel (08:30) e o primeiro carrossel (11:30) de cada dia, como reel e como álbum. LinkedIn: um carrossel em PDF por dia de terça a quinta, às 10:00, com o link no primeiro comentário.
 
@@ -32,7 +32,7 @@ Link na bio.
 #v2o5 #diagnosticoempresarial #consultoriaempresarial #pequenasempresas #gestaoempresarial #eficiencia
 ```
 
-Facebook (álbum, às 11:30):
+Facebook (álbum, às 11:30; arquivos `facebook/diagnostico-diferencial-01.png` a `-07.png`):
 ```
 O diferencial da V2O5: antes de vender a solução, entender o problema.
 
@@ -42,7 +42,7 @@ Descubra onde sua empresa pode funcionar melhor. Gratuitamente: https://www.v2o5
 ```
 
 ### 10:00 · LinkedIn: O diagnóstico como diferencial
-Documento `diagnostico-diferencial.pdf` (título do documento: "V2O5: o diagnóstico como diferencial")
+Documento `linkedin/diagnostico-diferencial.pdf` (título do documento: "V2O5: o diagnóstico como diferencial")
 
 ```
 Antes de vender a solução, a V2O5 entende o problema.
@@ -119,7 +119,7 @@ Link na bio.
 #v2o5 #sitesprofissionais #landingpage #integracaodesistemas #crm #pequenasempresas
 ```
 
-Facebook (álbum, às 11:30):
+Facebook (álbum, às 11:30; arquivos `facebook/sites-por-dentro-01.png` a `-07.png`):
 ```
 Sites & Integrações, por dentro: Landing Page, Site Personalizado e Site Conectado.
 
@@ -129,7 +129,7 @@ Descubra onde sua empresa pode funcionar melhor. Gratuitamente: https://www.v2o5
 ```
 
 ### 10:00 · LinkedIn: Sites & Integrações, por dentro
-Documento `sites-por-dentro.pdf` (título do documento: "V2O5: sites & integrações, por dentro")
+Documento `linkedin/sites-por-dentro.pdf` (título do documento: "V2O5: sites & integrações, por dentro")
 
 ```
 Sites & Integrações, por dentro.
@@ -208,7 +208,7 @@ Link na bio.
 #v2o5 #automacaodeprocessos #produtividade #eficienciaoperacional #crm #pequenasempresas
 ```
 
-Facebook (álbum, às 11:30):
+Facebook (álbum, às 11:30; arquivos `facebook/sprint-por-dentro-01.png` a `-07.png`):
 ```
 Sprint de Eficiência, por dentro: um gargalo, um projeto fechado, preço em proposta.
 
@@ -218,7 +218,7 @@ Descubra onde sua empresa pode funcionar melhor. Gratuitamente: https://www.v2o5
 ```
 
 ### 10:00 · LinkedIn: Sprint de Eficiência, por dentro
-Documento `sprint-por-dentro.pdf` (título do documento: "V2O5: sprint de eficiência, por dentro")
+Documento `linkedin/sprint-por-dentro.pdf` (título do documento: "V2O5: sprint de eficiência, por dentro")
 
 ```
 Sprint de Eficiência, por dentro.
@@ -299,7 +299,7 @@ Link na bio.
 #v2o5 #leads #sitesprofissionais #atendimentoaocliente #crm #vendas
 ```
 
-Facebook (álbum, às 11:30):
+Facebook (álbum, às 11:30; arquivos `facebook/dor-formulario-01.png` a `-07.png`):
 ```
 Para onde vai o contato que chega pelo seu site? Cinco sinais para conferir na sua empresa.
 
@@ -378,7 +378,7 @@ Link na bio.
 #v2o5 #googlemeunegocio #presencadigital #seolocal #negocioslocais #pequenasempresas
 ```
 
-Facebook (álbum, às 11:30):
+Facebook (álbum, às 11:30; arquivos `facebook/dor-google-01.png` a `-07.png`):
 ```
 O seu cliente procura a empresa no Google. O que ele encontra? Cinco sinais para conferir.
 

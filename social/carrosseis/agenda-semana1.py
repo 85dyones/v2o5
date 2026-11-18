@@ -94,7 +94,7 @@ def link(src, med, cont, dest=BASE):
 
 linhas = []
 md = ["# Semana 1: 3 reels e 2 carrosséis por dia (terça 01/12 a sábado 05/12/2026)\n"]
-md.append("Horários de Brasília. Cada dia alterna reel, carrossel, reel, carrossel, reel. Dos 25 reels prontos, 15 entram nesta semana; os outros 10 (L1-03, 05, 06, 09, 12, 15, 16, 18, 19 e 25) seguem para a semana de 08/12. Arquivos: reels em `L1-XX.mp4` com capa `capas/L1-XX.jpg`; carrosséis em `<nome>-01.png` a `-07.png` (Instagram e Facebook) e `<nome>.pdf` (LinkedIn), no zip `carrosseis-semana-1.zip`. O link da bio muda por dia (`utm_content=L1-D1` a `L1-D5`, em `lote-1-agenda.md`).\n")
+md.append("Horários de Brasília. Cada dia alterna reel, carrossel, reel, carrossel, reel. Dos 25 reels prontos, 15 entram nesta semana; os outros 10 (L1-03, 05, 06, 09, 12, 15, 16, 18, 19 e 25) seguem para a semana de 08/12. Arquivos: reels em `L1-XX.mp4` com capa `capas/L1-XX.jpg`; carrosséis no zip `carrosseis-semana-1.zip`, em três pastas, porque a chamada muda por rede: `instagram/<nome>-01.png` a `-07.png` (chamada \"link na bio\"), `facebook/<nome>-01.png` a `-07.png` (\"link na legenda\") e `linkedin/<nome>.pdf` (documento, com o endereço na chamada e \"link no primeiro comentário\"). O link da bio muda por dia (`utm_content=L1-D1` a `L1-D5`, em `lote-1-agenda.md`).\n")
 md.append("Facebook: o primeiro reel (08:30) e o primeiro carrossel (11:30) de cada dia, como reel e como álbum. LinkedIn: um carrossel em PDF por dia de terça a quinta, às 10:00, com o link no primeiro comentário.\n")
 for k, d in enumerate(dias):
     md.append(f"## {nomes[k].capitalize()} {d.strftime('%d/%m')}\n")
@@ -112,15 +112,15 @@ for k, d in enumerate(dias):
             fb = f"{texto}\n\nDescubra onde sua empresa pode funcionar melhor. Gratuitamente: {link('facebook', 'post', n)}"
             md.append(f"### {h} · Carrossel: {t}\nArquivos `{n}-01.png` a `{n}-07.png` · Instagram\n\n```\n{ig}\n```\n")
             if i == 1:
-                md.append(f"Facebook (álbum, às {h}):\n```\n{fb}\n```\n")
+                md.append(f"Facebook (álbum, às {h}; arquivos `facebook/{n}-01.png` a `-07.png`):\n```\n{fb}\n```\n")
             linhas.append(dict(data=d.isoformat(), dia=nomes[k], hora=h, rede="Instagram" + (" + Facebook" if i == 1 else ""), tipo="carrossel", codigo=n, arquivos=f"{n}-01.png a {n}-07.png", capa=f"{n}-01.png", legenda=ig))
             if i == 1:
                 linhas[-1]["legenda_facebook"] = fb
         if i == 1 and k in linkedin:
             n = linkedin[k]
             t, texto, tags, li, litags = C[n]
-            md.append(f"### 10:00 · LinkedIn: {t}\nDocumento `{n}.pdf` (título do documento: \"V2O5: {t.lower()}\")\n\n```\n{li}\n\n{litags}\n```\nPrimeiro comentário: `{link('linkedin', 'post', n)}`\n")
-            linhas.append(dict(data=d.isoformat(), dia=nomes[k], hora="10:00", rede="LinkedIn", tipo="carrossel (PDF)", codigo=n, arquivos=f"{n}.pdf", capa="", legenda=f"{li}\n\n{litags}", legenda_facebook="", comentario=link('linkedin', 'post', n)))
+            md.append(f"### 10:00 · LinkedIn: {t}\nDocumento `linkedin/{n}.pdf` (título do documento: \"V2O5: {t.lower()}\")\n\n```\n{li}\n\n{litags}\n```\nPrimeiro comentário: `{link('linkedin', 'post', n)}`\n")
+            linhas.append(dict(data=d.isoformat(), dia=nomes[k], hora="10:00", rede="LinkedIn", tipo="carrossel (PDF)", codigo=n, arquivos=f"linkedin/{n}.pdf", capa="", legenda=f"{li}\n\n{litags}", legenda_facebook="", comentario=link('linkedin', 'post', n)))
 campos = ["data", "dia", "hora", "rede", "tipo", "codigo", "arquivos", "capa", "legenda", "legenda_facebook", "comentario"]
 with open(os.path.join(raiz, "docs/reels/semana-1-agenda.csv"), "w", newline="", encoding="utf-8") as f:
     w = csv.DictWriter(f, fieldnames=campos)
