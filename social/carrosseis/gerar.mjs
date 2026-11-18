@@ -16,6 +16,7 @@ const dados = {
   ...JSON.parse(readFileSync(join(aqui, "conteudo.json"), "utf8")),
   ...JSON.parse(readFileSync(join(aqui, "conteudo-semana1.json"), "utf8")),
   ...JSON.parse(readFileSync(join(aqui, "conteudo-dores-v2.json"), "utf8")),
+  ...JSON.parse(readFileSync(join(aqui, "conteudo-fixos-v2.json"), "utf8")),
 };
 const fonte = "data:font/woff2;base64," + readFileSync(join(raiz, "src/app/fonts/geist-latin.woff2")).toString("base64");
 
@@ -85,6 +86,8 @@ p.c{font-size:42px;line-height:1.3;font-weight:500;margin-top:34px;color:#121418
 .it u{flex:none;width:62px;height:62px;background:#F2A516;color:#121418;font-size:34px;font-weight:700;text-align:center;line-height:62px;text-decoration:none}
 .it span{font-size:44px;line-height:1.25;font-weight:600;letter-spacing:-.02em;padding-top:2px}
 .it.g{margin-top:44px}.it.g span{font-size:50px}.it.g u{width:72px;height:72px;line-height:72px;font-size:40px}
+.sol .nm{font-size:40px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#5A5D66}
+.sol .res{font-size:68px;line-height:1.1;font-weight:700;letter-spacing:-.035em;margin-top:18px}
 .cena{margin-top:30px;border-left:4px solid #121418;padding-left:0}
 .cena .l{display:flex;gap:28px;align-items:baseline;padding:26px 0 26px 34px;border-bottom:3px solid #D6D4CC}
 .cena .l:last-child{border-bottom:0}
@@ -125,11 +128,15 @@ function slide(t, i, n) {
   const seta = i < n - 1;
   let corpo = "";
   if (t.tipo === "capa" && !capaClara) corpo = `<div class="simb">${simbolo("#F2F1EC")}</div><div class="et">${esc(t.etiqueta)}</div><h1>${esc(t.titulo)}</h1><div class="sub">${esc(t.sub)}</div>`;
-  if (capaClara) corpo = `<div class="et" style="background:${estilo === "ambar" ? "#121418" : "#F2A516"};color:${estilo === "ambar" ? "#F2F1EC" : "#121418"}">${esc(t.etiqueta)}</div><h1 style="font-size:${t.titulo.length > 45 ? 76 : 96}px">${esc(t.titulo)}</h1><div class="sub cl" style="font-size:${t.titulo.length > 45 ? 38 : 46}px;margin-top:28px">${esc(t.sub)}</div>`;
+  if (capaClara) corpo = `<div class="et" style="background:${estilo === "ambar" ? "#121418" : "#F2A516"};color:${estilo === "ambar" ? "#F2F1EC" : "#121418"}">${esc(t.etiqueta)}</div><h1 style="font-size:${t.titulo.length > 70 ? 66 : t.titulo.length > 45 ? 76 : 96}px">${esc(t.titulo)}</h1><div class="sub cl" style="font-size:${t.titulo.length > 45 ? 36 : 46}px;margin-top:26px">${esc(t.sub)}</div>`;
   if (t.tipo === "texto") corpo = `<div class="et">${esc(t.etiqueta)}</div><h2>${esc(t.titulo)}</h2>${t.corpo.map((c) => `<p class="c">${esc(c)}</p>`).join("")}`;
   if (t.tipo === "solucao") {
     const texto = t.cor === "#F2A516" ? "#121418" : "#fff";
     corpo = `<div class="sol" style="--c:${t.cor};--pc:${texto}"><div class="et" style="background:${t.cor};color:${texto}">${esc(t.etiqueta)}</div><h2>${esc(t.nome)}</h2><div class="l">Quando</div><div class="t">${esc(t.quando)}</div><div class="l">O que você recebe</div><div class="t">${esc(t.recebe)}</div><div class="preco">${esc(t.preco)}</div></div>`;
+  }
+  if (t.tipo === "frente") {
+    const texto = t.cor === "#F2A516" ? "#121418" : "#fff";
+    corpo = `<div class="sol" style="--c:${t.cor};--pc:${texto}"><div class="et" style="background:${t.cor};color:${texto}">${esc(t.etiqueta)}</div><div class="nm">${esc(t.nome)}</div><div class="res">${esc(t.resultado)}</div><div class="l">Como</div><div class="t">${esc(t.como)}</div><div class="preco">${esc(t.preco)}</div></div>`;
   }
   if (t.tipo === "lista") corpo = `<div class="et">${esc(t.etiqueta)}</div><h2>${esc(t.titulo)}</h2>${t.itens.map((x, k) => `<div class="it${t.itens.length <= 3 ? " g" : ""}"><u>${k + 1}</u><span>${esc(x)}</span></div>`).join("")}${t.nota ? `<div class="nota">${esc(t.nota)}</div>` : ""}`;
   if (t.tipo === "cena") corpo = `<div class="et">${esc(t.etiqueta)}</div><h2>${esc(t.titulo)}</h2><div class="cena">${t.linhas.map((x) => `<div class="l${x.d ? " d" : ""}"><div class="q">${esc(x.q)}</div><div class="t">${esc(x.t)}</div></div>`).join("")}</div>`;

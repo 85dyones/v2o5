@@ -1,0 +1,50 @@
+{
+  "o-que-fazemos-v2": {
+    "titulo": "V2O5: o que fazemos",
+    "slides": [
+      { "tipo": "capa", "estilo": "papel", "etiqueta": "V2O5 Vendas e Tecnologia", "titulo": "Quanto custa resolver o gargalo da sua empresa? Aqui o preço aparece.", "sub": "Três soluções, com escopo fechado e preço de referência público.", "rodape": "Deslize para ver o que fazemos" },
+      { "tipo": "lista", "etiqueta": "Para quem é", "titulo": "Sinais de que vale conversar.", "itens": ["O cliente demora a ser respondido.", "O perfil ou o site não ajudam a chamar a empresa.", "Os sistemas não trocam informação.", "Você não sabe de onde vem cada cliente."], "nota": "Atendemos pequenas e médias empresas, on-line, em todo o Brasil." },
+      { "tipo": "frente", "cor": "#17773F", "etiqueta": "Frente 1", "nome": "Presença Digital Local", "resultado": "O cliente encontra a informação certa e consegue chamar a empresa.", "como": "Perfil no Google, redes e WhatsApp organizados, com modelos de conteúdo.", "preco": "A partir de R$ 790" },
+      { "tipo": "frente", "cor": "#2457C5", "etiqueta": "Frente 2", "nome": "Sites & Integrações", "resultado": "Um site próprio, rápido e medido, que mostra de onde vem cada contato.", "como": "Ligado ao CRM, ao estoque ou ao sistema que a empresa já usa, quando o escopo pede.", "preco": "A partir de R$ 2.900" },
+      { "tipo": "frente", "cor": "#F2A516", "etiqueta": "Frente 3", "nome": "Sprint de Eficiência", "resultado": "Um gargalo da operação resolvido, com os indicadores comparados antes e depois.", "como": "Um projeto fechado, com solução implantada, para retrabalho, contato perdido ou sistemas separados.", "preco": "A partir de R$ 3.900" },
+      { "tipo": "lista", "etiqueta": "Como começa", "titulo": "Sempre por um diagnóstico gratuito.", "itens": ["45 minutos com o fundador, por vídeo ou WhatsApp.", "O gargalo que mais pesa, identificado, e uma recomendação de por onde começar.", "Havendo um bom caso, a proposta vem por escrito."], "nota": "Sem custo e sem compromisso. Depois do projeto, a continuidade é opcional, a partir de R$ 349 por mês." },
+      { "tipo": "cta", "titulo": "Qual é o gargalo da sua empresa?", "destaque": "Descubra, gratuitamente.", "botao": "Link na bio", "rodape": "Diagnóstico de 45 minutos. Preços em v2o5.com.br/precos; o valor fechado sai em proposta." }
+    ]
+  },
+  "como-atuamos-v2": {
+    "titulo": "V2O5: como trabalhamos",
+    "slides": [
+      { "tipo": "capa", "estilo": "papel", "etiqueta": "Como a V2O5 trabalha", "titulo": "O que acontece depois que você pede um diagnóstico?", "sub": "O caminho da V2O5, passo a passo, com o combinado desde o início.", "rodape": "Deslize para ver o caminho" },
+      { "tipo": "lista", "etiqueta": "Passo 1", "titulo": "45 minutos, gratuitos.", "itens": ["Você conta como vende hoje, em um formulário de dois minutos.", "A conversa com o fundador olha presença, atendimento, operação e funil, com os seus números.", "Por vídeo ou WhatsApp, no dia combinado."], "nota": "Sem custo e sem compromisso de contratação." },
+      { "tipo": "lista", "etiqueta": "O combinado", "titulo": "Antes de qualquer projeto.", "itens": ["Escopo fechado e preço de referência público.", "Nenhum escopo ilimitado.", "Nenhuma solução obriga a seguinte.", "Sem promessa de percentual de resultado."], "nota": "O valor fechado de cada projeto sai em proposta, depois de delimitar o gargalo." },
+      { "tipo": "lista", "etiqueta": "O método", "titulo": "Do processo real à próxima decisão.", "itens": ["Mapear o processo real.", "Simplificar antes de automatizar.", "Escolher a intervenção proporcional.", "Implementar a solução acordada.", "Comparar antes e depois.", "Registrar e decidir o próximo passo."], "nota": "Comprar, integrar, automatizar ou desenvolver: a escolha depende do problema." },
+      { "tipo": "lista", "etiqueta": "Os limites", "titulo": "O que o diagnóstico não inclui.", "itens": ["Mapeamento completo do processo.", "Implementação.", "Acompanhamento e mensuração de resultados."], "nota": "Esses passos vêm depois, se houver projeto. Se não houver um bom caso, a conversa termina ali." },
+      { "tipo": "lista", "etiqueta": "Depois do diagnóstico", "titulo": "Três soluções, com preço de entrada público.", "itens": ["Presença Digital Local, a partir de R$ 790", "Sites & Integrações, a partir de R$ 2.900", "Sprint de Eficiência, a partir de R$ 3.900"], "nota": "Nenhuma obriga a seguinte." },
+      { "tipo": "cta", "titulo": "Quer ver o caminho na sua empresa?", "destaque": "Peça o diagnóstico gratuito.", "botao": "Link na bio", "rodape": "45 minutos, sem custo e sem compromisso. v2o5.com.br/diagnostico" }
+    ]
+  },
+  "case-motors-v2": {
+    "titulo": "V2O5: case Motors Store",
+    "slides": [
+      { "tipo": "capa", "estilo": "papel", "etiqueta": "Case · Motors Store", "titulo": "93 de 100 conversas com a primeira resposta em até 1 minuto.", "sub": "Medido nas mensagens do agente de IA da loja, de 21/10 a 17/11/2026.", "rodape": "Deslize para ver como foi feito" },
+      { "tipo": "lista", "etiqueta": "Antes: diagnosticado", "titulo": "O que travava a Motors Store.", "itens": ["Baixa visibilidade nas buscas, nos buscadores e nas IAs.", "Falta de leads qualificados.", "Presença digital fraca e site lento.", "Acompanhamento comercial inconsistente."], "nota": "Gargalos identificados antes da intervenção, não resultados." },
+      { "tipo": "lista", "etiqueta": "Depois: implementado", "titulo": "O que a V2O5 montou.", "itens": ["Site de estoque, com 26 guias publicados.", "O Ney, agente de IA no WhatsApp.", "Rastreamento até a venda.", "Painel e automações, ligados pela mesma base de dados."], "nota": "Cada peça é uma linha do cardápio da V2O5." },
+      { "tipo": "numeros", "etiqueta": "O funil, em contagens", "titulo": "Leads desde 05/09/2026.", "numeros": [ { "valor": "237", "rotulo": "leads no funil: 131 do site e 106 pelo WhatsApp direto" }, { "valor": "103 de 131", "rotulo": "leads do site chegam com a origem registrada" } ], "nota": "Fonte: banco de dados da Motors, lido em 17/11/2026." },
+      { "tipo": "numeros", "etiqueta": "O Ney, desde 21/10/2026", "titulo": "O agente no WhatsApp.", "numeros": [ { "valor": "125", "rotulo": "clientes atendidos pelo agente" }, { "valor": "38 s", "rotulo": "mediana da primeira resposta, nas conversas lidas" } ], "nota": "Medido nas mensagens do agente, com a espera de propósito pela rajada de mensagens. A resposta humana não é medida." },
+      { "tipo": "lista", "etiqueta": "Para a sua empresa", "titulo": "O que dá para levar deste case.", "itens": ["O agente lê o estoque sincronizado com o sistema da loja.", "Ele passa a conversa para uma pessoa quando o cliente marca visita, chega à simulação ou pede uma condição do vendedor.", "O resultado é o da Motors. O que cabe na sua empresa o diagnóstico mostra."], "nota": "Sem promessa de percentual. São contagens, não vendas." },
+      { "tipo": "cta", "titulo": "Quer saber o que cabe na sua empresa?", "destaque": "Peça o diagnóstico gratuito.", "botao": "Link na bio", "rodape": "45 minutos, sem custo e sem compromisso. Case completo em v2o5.com.br/cases/motors-store" }
+    ]
+  },
+  "alt-o-que-fazemos-a": { "titulo": "alt", "slides": [
+    { "tipo": "capa", "estilo": "papel", "etiqueta": "V2O5 Vendas e Tecnologia", "titulo": "Sua empresa tem um problema de venda ou de operação? A V2O5 resolve.", "sub": "Eficiência comercial e operacional com tecnologia.", "rodape": "Deslize para ver o que fazemos" } ] },
+  "alt-o-que-fazemos-c": { "titulo": "alt", "slides": [
+    { "tipo": "capa", "estilo": "papel", "etiqueta": "V2O5 Vendas e Tecnologia", "titulo": "Cliente que não acha a empresa ou não é respondido. A V2O5 resolve.", "sub": "Três soluções, com preço de entrada público.", "rodape": "Deslize para ver o que fazemos" } ] },
+  "alt-como-atuamos-b": { "titulo": "alt", "slides": [
+    { "tipo": "capa", "estilo": "papel", "etiqueta": "Como a V2O5 trabalha", "titulo": "Escopo fechado e preço público: o combinado antes de começar.", "sub": "Do diagnóstico gratuito à próxima decisão.", "rodape": "Deslize para ver o caminho" } ] },
+  "alt-como-atuamos-c": { "titulo": "alt", "slides": [
+    { "tipo": "capa", "estilo": "papel", "etiqueta": "Como a V2O5 trabalha", "titulo": "Um problema por vez. Em 45 minutos, sem custo.", "sub": "Veja o caminho, do diagnóstico à solução.", "rodape": "Deslize para ver o caminho" } ] },
+  "alt-case-motors-b": { "titulo": "alt", "slides": [
+    { "tipo": "capa", "estilo": "papel", "etiqueta": "Case · Motors Store", "titulo": "Em 93 de 100 conversas, o agente de IA de uma revenda respondeu em até 1 minuto.", "sub": "Agente de IA no WhatsApp. Fonte: banco da loja, 21/10 a 17/11/2026.", "rodape": "Deslize para ver como foi feito" } ] },
+  "alt-case-motors-c": { "titulo": "alt", "slides": [
+    { "tipo": "capa", "estilo": "papel", "etiqueta": "Case · Motors Store", "titulo": "O que a V2O5 montou numa revenda de seminovos, e o que dá para medir.", "sub": "Site, agente de IA, rastreamento e painel. Números de 17/11/2026.", "rodape": "Deslize para ver como foi feito" } ] }
+}
