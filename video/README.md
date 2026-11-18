@@ -33,6 +33,11 @@ Cenas do meio: `--cena L1-01=conversa` usa a conversa de exemplo com legendas do
 ## Ritmo de leitura
 Gancho e chamada final são digitados com pausa dramática no fim de cada frase (0,7 s no gancho, 0,3 s na chamada); no gancho a frase seguinte desce para outra linha ("Seu cliente pediu preço e sumiu." / "Sabe por quê?"). As legendas do corpo entram palavra por palavra, com a palavra da vez em âmbar. O gancho fica na tela até 4,2 s.
 
+## Narração e efeitos (teste no L1-01)
+`node scripts/renderizar-lote.mjs ../docs/reels/lote-1.csv --so L1-01 --narrar pm_alex` gera a versão narrada (`saida/L1-01.narrado-pm_alex.mp4`). A voz sai do Kokoro, local, em português do Brasil (`pm_alex` e `pm_santa` masculinas, `pf_dora` feminina). O tempo do vídeo passa a vir da duração da fala: a digitação do gancho, as legendas e o texto do final acompanham a voz, e o vídeo fica mais longo. Os efeitos (entrada das mensagens, tique do relógio, passagem para o final, logo, botão) são sintetizados e misturados com a voz, normalizados perto de -15 LUFS. Só o reel de conversa (L1-01) tem efeitos próprios por enquanto.
+Requisitos: um ambiente Python com `kokoro-onnx` e `soundfile` (`TTS_PY` aponta para ele), o modelo `kokoro-v1.0.int8.onnx` e o `voices-v1.0.bin` do release `model-files-v1.0` de `thewh1teagle/kokoro-onnx` (`KOKORO_MODEL` e `KOKORO_VOICES`). Nada é enviado a serviço externo.
+Limite: eu não ouvi o áudio (só medi nível e conferi os quadros); a escolha da voz e a pronúncia (siglas como IA e CRM) precisam de escuta humana.
+
 ## Capas
 `node gravacoes/gerar-capas.mjs` gera as 25 capas (1080x1920, JPG) em `saida/capas/`, com o gancho e o trecho em destaque âmbar (como a legenda do vídeo). O trecho de cada reel está em `capas.json`; o gancho vem do `lote-1.csv`.
 
