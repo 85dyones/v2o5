@@ -11,7 +11,12 @@ const require = createRequire(import.meta.url);
 const { chromium } = require("playwright");
 const aqui = dirname(fileURLToPath(import.meta.url));
 const raiz = join(aqui, "../..");
-const dados = { ...JSON.parse(readFileSync(join(aqui, "conteudo.json"), "utf8")), ...JSON.parse(readFileSync(join(aqui, "conteudo-semana1.json"), "utf8")) };
+// conteudo-dores-v2.json (18/11) substitui as seis dores de conteudo-semana1.json: capa com cenário, cena de virada, escala e chamada específica.
+const dados = {
+  ...JSON.parse(readFileSync(join(aqui, "conteudo.json"), "utf8")),
+  ...JSON.parse(readFileSync(join(aqui, "conteudo-semana1.json"), "utf8")),
+  ...JSON.parse(readFileSync(join(aqui, "conteudo-dores-v2.json"), "utf8")),
+};
 const fonte = "data:font/woff2;base64," + readFileSync(join(raiz, "src/app/fonts/geist-latin.woff2")).toString("base64");
 
 // O símbolo da marca e a planta de construção do rodapé do site, lidos direto dos dados do site.
@@ -80,6 +85,18 @@ p.c{font-size:42px;line-height:1.3;font-weight:500;margin-top:34px;color:#121418
 .it u{flex:none;width:62px;height:62px;background:#F2A516;color:#121418;font-size:34px;font-weight:700;text-align:center;line-height:62px;text-decoration:none}
 .it span{font-size:44px;line-height:1.25;font-weight:600;letter-spacing:-.02em;padding-top:2px}
 .it.g{margin-top:44px}.it.g span{font-size:50px}.it.g u{width:72px;height:72px;line-height:72px;font-size:40px}
+.cena{margin-top:30px;border-left:4px solid #121418;padding-left:0}
+.cena .l{display:flex;gap:28px;align-items:baseline;padding:26px 0 26px 34px;border-bottom:3px solid #D6D4CC}
+.cena .l:last-child{border-bottom:0}
+.cena .q{flex:none;width:250px;font-size:30px;font-weight:700;letter-spacing:.02em;color:#5A5D66;text-transform:uppercase}
+.cena .t{font-size:44px;line-height:1.22;font-weight:600;letter-spacing:-.02em}
+.cena .l.d{background:#F2A516;border-bottom:0}.cena .l.d .q{color:#121418}
+.esc2 .faixa{flex:none}
+.esc .faixa{}
+.faixa{flex:none;min-width:190px;background:#121418;color:#F2F1EC;font-size:44px;font-weight:700;padding:14px 22px;text-align:center;letter-spacing:-.02em}
+.linhae{display:flex;gap:30px;align-items:center;margin-top:34px;padding:28px 30px;border:3px solid #121418;background:#FAF9F5}
+.linhae span{font-size:42px;line-height:1.22;font-weight:600;letter-spacing:-.02em}
+.linhae.m3{background:#F7E2B5}
 .nota{margin-top:44px;font-size:34px;line-height:1.3;color:#5A5D66;font-weight:500;border-top:3px solid #D6D4CC;padding-top:26px}
 .passo{border:3px solid #121418;background:#FAF9F5;padding:36px 40px;margin-top:32px}
 .passo .n{font-size:30px;font-weight:700;background:#F2A516;display:inline-block;padding:4px 14px;margin-bottom:18px}
@@ -115,6 +132,8 @@ function slide(t, i, n) {
     corpo = `<div class="sol" style="--c:${t.cor};--pc:${texto}"><div class="et" style="background:${t.cor};color:${texto}">${esc(t.etiqueta)}</div><h2>${esc(t.nome)}</h2><div class="l">Quando</div><div class="t">${esc(t.quando)}</div><div class="l">O que você recebe</div><div class="t">${esc(t.recebe)}</div><div class="preco">${esc(t.preco)}</div></div>`;
   }
   if (t.tipo === "lista") corpo = `<div class="et">${esc(t.etiqueta)}</div><h2>${esc(t.titulo)}</h2>${t.itens.map((x, k) => `<div class="it${t.itens.length <= 3 ? " g" : ""}"><u>${k + 1}</u><span>${esc(x)}</span></div>`).join("")}${t.nota ? `<div class="nota">${esc(t.nota)}</div>` : ""}`;
+  if (t.tipo === "cena") corpo = `<div class="et">${esc(t.etiqueta)}</div><h2>${esc(t.titulo)}</h2><div class="cena">${t.linhas.map((x) => `<div class="l${x.d ? " d" : ""}"><div class="q">${esc(x.q)}</div><div class="t">${esc(x.t)}</div></div>`).join("")}</div>`;
+  if (t.tipo === "escala") corpo = `<div class="et">${esc(t.etiqueta)}</div><h2>${esc(t.titulo)}</h2>${t.linhas.map((x, k) => `<div class="linhae${k === 1 ? " m3" : ""}"><div class="faixa">${esc(x.faixa)}</div><span>${esc(x.texto)}</span></div>`).join("")}${t.nota ? `<div class="nota">${esc(t.nota)}</div>` : ""}`;
   if (t.tipo === "passos") corpo = `<div class="et">${esc(t.etiqueta)}</div>${t.passos.map((p) => `<div class="passo"><div class="n">${p.n}</div><h3>${esc(p.titulo)}</h3><p>${esc(p.texto)}</p></div>`).join("")}`;
   if (t.tipo === "numeros") corpo = `<div class="et">${esc(t.etiqueta)}</div><h2>${esc(t.titulo)}</h2>${t.numeros.map((x) => `<div class="num"><b>${esc(x.valor)}</b><span>${esc(x.rotulo)}</span></div>`).join("")}${t.nota ? `<div class="nota">${esc(t.nota)}</div>` : ""}`;
   if (t.tipo === "cta") corpo = `<div class="simb" style="width:220px;height:138px">${simbolo("#F2F1EC")}</div><h1 style="font-size:88px">${esc(t.titulo)} <span class="dest">${esc(t.destaque)}</span></h1><div><span class="botao">${esc(t.botao)}</span></div>`;

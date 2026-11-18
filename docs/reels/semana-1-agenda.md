@@ -160,6 +160,8 @@ Lead que esfria no WhatsApp: onde a conversa trava? Cinco sinais para conferir n
 
 Marcou dois ou mais? Vale um diagnóstico. A solução para esse tipo de gargalo é o Sprint de Eficiência, a partir de R$ 3.900.
 
+Salve este carrossel para conferir com a equipe e envie para quem cuida disso.
+
 Descubra onde sua empresa pode funcionar melhor. Gratuitamente.
 Link na bio.
 
@@ -247,6 +249,8 @@ O seu site está no ar. Você sabe quem entrou nele? Cinco sinais de site sem me
 
 Site sem medição é uma vitrine sem câmera: sem esse dado, decidir onde investir vira palpite. Sites & Integrações, a partir de R$ 2.900, com o rastreamento de onde veio cada contato.
 
+Salve este carrossel para conferir com a equipe e envie para quem cuida disso.
+
 Descubra onde sua empresa pode funcionar melhor. Gratuitamente.
 Link na bio.
 
@@ -287,6 +291,8 @@ Para onde vai o contato que chega pelo seu site? Cinco sinais para conferir na s
 
 O caminho do formulário até uma pessoa precisa estar desenhado. No Site Conectado, os contatos são medidos até o sistema, com a origem gravada e aviso quando a integração falha. A partir de R$ 9.900.
 
+Salve este carrossel para conferir com a equipe e envie para quem cuida disso.
+
 Descubra onde sua empresa pode funcionar melhor. Gratuitamente.
 Link na bio.
 
@@ -321,6 +327,8 @@ Arquivos `dor-sistemas-separados-01.png` a `dor-sistemas-separados-07.png` · In
 Sistemas que não conversam: onde você digita duas vezes? Cinco sinais para conferir na sua empresa.
 
 Cada dado digitado à mão em dois lugares é um erro esperando para acontecer. Integrar o sistema que você já usa com o site e o WhatsApp tira esse trabalho. Sprint de Eficiência, a partir de R$ 3.900.
+
+Salve este carrossel para conferir com a equipe e envie para quem cuida disso.
 
 Descubra onde sua empresa pode funcionar melhor. Gratuitamente.
 Link na bio.
@@ -362,6 +370,8 @@ O seu cliente procura a empresa no Google. O que ele encontra? Cinco sinais para
 
 Horário errado, telefone antigo, fotos velhas, perfil sem verificação e nenhum botão de WhatsApp. A Presença Digital Local organiza o perfil, uma rede e o WhatsApp Business, a partir de R$ 790.
 
+Salve este carrossel para conferir com a equipe e envie para quem cuida disso.
+
 Descubra onde sua empresa pode funcionar melhor. Gratuitamente.
 Link na bio.
 
@@ -396,6 +406,8 @@ Arquivos `dor-perfil-parado-01.png` a `dor-perfil-parado-07.png` · Instagram
 Perfil parado: o cliente acha que a empresa fechou? Cinco sinais para conferir.
 
 Um perfil organizado e atualizado é o primeiro passo para o cliente chamar. No pacote Estruturada da Presença Digital Local: até duas redes, oito modelos de posts e stories, calendário de três meses e uma campanha de lançamento. R$ 1.490.
+
+Salve este carrossel para conferir com a equipe e envie para quem cuida disso.
 
 Descubra onde sua empresa pode funcionar melhor. Gratuitamente.
 Link na bio.

@@ -107,7 +107,8 @@ for k, d in enumerate(dias):
         else:
             n = item
             t, texto, tags, li, litags = C[n]
-            ig = f"{texto}\n\n{CTA_IG}\n\n{tags}"
+            salvar = "Salve este carrossel para conferir com a equipe e envie para quem cuida disso.\n\n" if n.startswith("dor-") else ""
+            ig = f"{texto}\n\n{salvar}{CTA_IG}\n\n{tags}"
             fb = f"{texto}\n\nDescubra onde sua empresa pode funcionar melhor. Gratuitamente: {link('facebook', 'post', n)}"
             md.append(f"### {h} · Carrossel: {t}\nArquivos `{n}-01.png` a `{n}-07.png` · Instagram\n\n```\n{ig}\n```\n")
             if i == 1:
