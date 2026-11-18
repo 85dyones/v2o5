@@ -4,7 +4,7 @@
 //        [--print L1-06=img.png] [--cena L1-01=conversa] [--sem-som]
 // O HyperFrames não tem --batch: este script faz o laço com --variables.
 // O som do final (efeito curto, sem música) é sintetizado aqui e juntado ao vídeo com o ffmpeg.
-import { readFileSync, mkdirSync, writeFileSync, rmSync, existsSync, copyFileSync, renameSync } from "node:fs";
+import { readFileSync, mkdirSync, writeFileSync, rmSync, existsSync, copyFileSync, renameSync, readdirSync } from "node:fs";
 import { spawnSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
 import { dirname, join, resolve } from "node:path";
@@ -20,7 +20,8 @@ const prints = pares("--print");
 const cenas = pares("--cena");
 const cenasCfg = existsSync(join(raiz, "cenas.json")) ? JSON.parse(readFileSync(join(raiz, "cenas.json"), "utf8")) : {};
 const telas = pares("--tela");
-const narrar = flags.includes("--narrar") ? flags[flags.indexOf("--narrar") + 1] : null; // voz do Kokoro: pm_alex, pm_santa, pf_dora // gravação em vídeo da tela: --tela L1-08=gravacoes/telas/v-formulario-completo.mp4
+const vozPasta = flags.includes("--voz-pasta") ? resolve(flags[flags.indexOf("--voz-pasta") + 1]) : null; // gravações próprias: <pasta>/<codigo>/NN-tipo.wav
+const narrar = vozPasta ? "propria" : flags.includes("--narrar") ? flags[flags.indexOf("--narrar") + 1] : null; // voz do Kokoro: pm_alex, pm_santa, pf_dora // gravação em vídeo da tela: --tela L1-08=gravacoes/telas/v-formulario-completo.mp4
 
 function lerCsv(texto) {
   const linhas = []; let campo = ""; let linha = []; let aspas = false;
@@ -74,7 +75,36 @@ function efeito(arquivo, inicioDoFim, total) {
 const ms = (s) => Math.round(s * 1000);
 const frasesDe = (t) => t.trim().split(/(?<=[.?!])\s+(?=[A-ZÁÉÍÓÚ0-9])/);
 
+// Narração gravada pelo próprio autor: <pasta>/<codigo>/NN-tipo.wav, na mesma ordem dos trechos de docs/reels/narracao-roteiro.md.
+function narracaoPropria(reel) {
+  const origem = join(vozPasta, reel.codigo);
+  const destino = join(raiz, "saida/narracao/propria", reel.codigo);
+  mkdirSync(destino, { recursive: true });
+  const cta = reel.cta.split(":");
+  const unidades = [
+    ...frasesDe(reel.gancho).map((t) => ["gancho", t]),
+    ...frasesDe(reel.corpo).map((t) => ["corpo", t]),
+    ["cta", cta[0].trim()],
+    ["link", (cta[1] ?? "link na bio").trim().replace(/^./, (c) => c.toUpperCase())],
+  ];
+  const arquivos = readdirSync(origem).filter((f) => f.endsWith(".wav")).sort().map((f) => join(origem, f));
+  // A chamada final é a mesma em todos os reels: pode ser gravada uma vez só em <pasta>/_cta/cta.wav e _cta/link.wav.
+  if (arquivos.length === unidades.length - 2 && existsSync(join(vozPasta, "_cta/cta.wav")) && existsSync(join(vozPasta, "_cta/link.wav"))) arquivos.push(join(vozPasta, "_cta/cta.wav"), join(vozPasta, "_cta/link.wav"));
+  if (arquivos.length !== unidades.length) throw new Error(`${reel.codigo}: esperava ${unidades.length} gravações em ${origem} (ou ${unidades.length - 2} mais a pasta _cta), achei ${arquivos.length}`);
+  const out = unidades.map(([tipo, texto], i) => {
+    const alvo = join(destino, `${String(i).padStart(2, "0")}-${tipo}.wav`);
+    // tira o silêncio do começo e do fim de cada gravação
+    const filtro = "silenceremove=start_periods=1:start_threshold=-42dB:start_silence=0.04,areverse,silenceremove=start_periods=1:start_threshold=-42dB:start_silence=0.12,areverse";
+    const r = spawnSync("ffmpeg", ["-v", "error", "-y", "-i", arquivos[i], "-af", filtro, "-ar", "48000", "-ac", "1", alvo]);
+    if (r.status !== 0) throw new Error("falhou ao aparar " + arquivos[i]);
+    const dur = Number(spawnSync("ffprobe", ["-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", alvo]).stdout.toString());
+    return { tipo, texto, arquivo: alvo, dur: +dur.toFixed(3) };
+  });
+  return { voz: "propria", unidades: out };
+}
+
 function gerarNarracao(codigo, voz) {
+  if (vozPasta) return narracaoPropria(reels.find((x) => x.codigo === codigo));
   const pasta = join(raiz, "saida/narracao", voz);
   const arq = join(pasta, codigo, "manifest.json");
   if (!existsSync(arq)) {
