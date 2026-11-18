@@ -33,6 +33,9 @@ Cenas do meio: `--cena L1-01=conversa` usa a conversa de exemplo com legendas do
 ## Ritmo de leitura
 Gancho e chamada final são digitados com pausa dramática no fim de cada frase (0,7 s no gancho, 0,3 s na chamada); no gancho a frase seguinte desce para outra linha ("Seu cliente pediu preço e sumiu." / "Sabe por quê?"). As legendas do corpo entram palavra por palavra, com a palavra da vez em âmbar. O gancho fica na tela até 4,2 s.
 
+## Capas
+`node gravacoes/gerar-capas.mjs` gera as 25 capas (1080x1920, JPG) em `saida/capas/`, com o gancho e o trecho em destaque âmbar (como a legenda do vídeo). O trecho de cada reel está em `capas.json`; o gancho vem do `lote-1.csv`.
+
 ## Telas dos reels
 `gravacoes/gravar-telas.mjs` captura as telas do site (Playwright, dados fictícios, nada é enviado) em `gravacoes/telas/` (fora do git). `gravacoes/ficha-exemplo.html` é um cartão de exemplo, com selo "EXEMPLO", para o L1-06. Com o site no ar (`npm run build && npx next start -p 3100`, na raiz): `SITE=http://localhost:3100 node gravacoes/gravar-telas.mjs`. Mapa tela por reel: L1-06 `ficha-exemplo`, L1-08 `formulario-completo`, L1-10 `diagnostico-passos`, L1-17 `precos-valores`, L1-21 `diagnostico-topo`, L1-25 `formulario-parcial`.
 

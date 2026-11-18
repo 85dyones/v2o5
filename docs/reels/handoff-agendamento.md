@@ -15,7 +15,7 @@ Para o agente que vai executar. Objetivo: colocar os 25 reels do lote 1 no Insta
 
 ## O que preservar em cada reel do Instagram
 - **Formato de reel** (o vídeo vertical, nunca como post de feed comum). Conferir na tela de revisão que a proporção é 9:16 e que aparece como reel.
-- **Capa:** usar `capas/L1-XX.jpg` (quadro de 3,4 s, com o gancho completo). Se o compositor só aceitar escolher um quadro do vídeo, escolher o mais próximo de 3,4 s.
+- **Capa:** usar `capas/L1-XX.jpg` (arte com o gancho e o destaque âmbar de legenda, 1080x1920). Se o compositor só aceitar escolher um quadro do vídeo, escolher o mais próximo de 3,4 s.
 - **Legenda:** colar exatamente a coluna `legenda` (a primeira linha é o gancho; a última tem as hashtags).
 - **Compartilhar também no feed:** manter ligado o padrão de reel (aparece no feed e na grade). Não aplicar filtros, melhorias nem efeitos.
 - **Compartilhar no Facebook:** desligado nos reels do Instagram. O Facebook leva legenda própria (abaixo).

@@ -1,6 +1,6 @@
 # Lote 1: agenda de postagem (terça 01/12 a sábado 05/12/2026)
 
-Horários em Brasília (UTC-3). Cada dia mistura os cinco ângulos e o ângulo de cada horário gira de um dia para o outro (o horário não pesa sempre sobre o mesmo ângulo). Os arquivos `L1-XX.mp4` e as capas `capas/L1-XX.jpg` (quadro de 3,4 s, com o gancho completo) estão em `video/saida/` (fora do git). A tabela completa, uma linha por post, está em `lote-1-agenda.csv`.
+Horários em Brasília (UTC-3). Cada dia mistura os cinco ângulos e o ângulo de cada horário gira de um dia para o outro (o horário não pesa sempre sobre o mesmo ângulo). Os arquivos `L1-XX.mp4` e as capas `capas/L1-XX.jpg` (arte com o gancho e o destaque âmbar de legenda; gerada por `video/gravacoes/gerar-capas.mjs` a partir de `video/capas.json`) estão em `video/saida/` (fora do git). A tabela completa, uma linha por post, está em `lote-1-agenda.csv`.
 
 ## Link da bio, trocado todo dia de manhã
 O Instagram não tem link clicável na legenda: o link de todos os reels é o da bio. Por isso o UTM é por dia, não por reel. Trocar o link da bio antes do primeiro post de cada dia:
