@@ -117,6 +117,8 @@ p.c{font-size:42px;line-height:1.3;font-weight:500;margin-top:34px;color:#121418
 .s.verde .fio,.s.violeta .fio{background:#121418}
 .s.ambar .fio,.s.tinta .fio,.s.papel .fio{background:#121418}
 .s .corpo.alto{justify-content:flex-start;bottom:auto}
+.fit{display:flex;flex-direction:column;flex:none}
+.corpo.alto .fit{max-height:none}
 .s .sub.cl{color:#33363D}
 `;
 function slide(t, i, n) {
@@ -125,7 +127,7 @@ function slide(t, i, n) {
   const claro = (t.tipo !== "capa" && t.tipo !== "cta") || capaClara;
   const topo = `<div class="topo"><div class="m"><i></i>V2O5 Vendas e Tecnologia</div><div class="n">${i + 1}/${n}</div></div><div class="fio"></div>`;
   const rod = (txt, seta) => `<div class="rod"><span>${txt}</span>${seta ? '<span class="seta">→</span>' : ""}</div>`;
-  const seta = i < n - 1;
+  const seta = i < n - 1 && !t.semSeta;
   let corpo = "";
   if (t.tipo === "capa" && !capaClara) corpo = `<div class="simb">${simbolo("#F2F1EC")}</div><div class="et">${esc(t.etiqueta)}</div><h1>${esc(t.titulo)}</h1><div class="sub">${esc(t.sub)}</div>`;
   if (capaClara) corpo = `<div class="et" style="background:${estilo === "ambar" ? "#121418" : "#F2A516"};color:${estilo === "ambar" ? "#F2F1EC" : "#121418"}">${esc(t.etiqueta)}</div><h1 style="font-size:${t.titulo.length > 70 ? 66 : t.titulo.length > 45 ? 76 : 96}px">${esc(t.titulo)}</h1><div class="sub cl" style="font-size:${t.titulo.length > 45 ? 36 : 46}px;margin-top:26px">${esc(t.sub)}</div>`;
@@ -144,10 +146,10 @@ function slide(t, i, n) {
   if (t.tipo === "passos") corpo = `<div class="et">${esc(t.etiqueta)}</div>${t.passos.map((p) => `<div class="passo"><div class="n">${p.n}</div><h3>${esc(p.titulo)}</h3><p>${esc(p.texto)}</p></div>`).join("")}`;
   if (t.tipo === "numeros") corpo = `<div class="et">${esc(t.etiqueta)}</div><h2>${esc(t.titulo)}</h2>${t.numeros.map((x) => `<div class="num"><b>${esc(x.valor)}</b><span>${esc(x.rotulo)}</span></div>`).join("")}${t.nota ? `<div class="nota">${esc(t.nota)}</div>` : ""}`;
   if (t.tipo === "cta") corpo = `<div class="simb" style="width:220px;height:138px">${simbolo("#F2F1EC")}</div><h1 style="font-size:88px">${esc(t.titulo)} <span class="dest">${esc(t.destaque)}</span></h1><div><span class="botao">${esc(t.botao)}</span></div>`;
-  const pe = t.tipo === "capa" ? rod(esc(t.rodape), true) : t.tipo === "cta" ? rod(esc(t.rodape), false) : rod("<b>v2o5.com.br</b>", seta);
+  const pe = t.tipo === "capa" ? rod(esc(t.rodape), !t.semSeta) : t.tipo === "cta" ? rod(esc(t.rodape), false) : rod("<b>v2o5.com.br</b>", seta);
   const fundo = capaClara ? planta(estilo) : "";
   const classe = capaClara ? estilo : claro ? "" : "esc";
-  return `<section class="s ${classe}">${topo}${fundo}<div class="corpo${capaClara ? " alto" : ""}">${corpo}</div>${pe}</section>`;
+  return `<section class="s ${classe}">${topo}${fundo}<div class="corpo${capaClara ? " alto" : ""}"><div class="fit">${corpo}</div></div>${pe}</section>`;
 }
 const html = (slides) => `<!doctype html><meta charset="utf-8"><style>${CSS}</style>${slides.map((t, i) => slide(t, i, slides.length)).join("")}`;
 
@@ -179,8 +181,29 @@ function adaptar(slides, rede) {
       if (t.botao === "Link na bio") t.botao = rede === "linkedin" ? "v2o5.com.br/diagnostico" : "Peça pelo link na legenda";
       if (t.rodape) t.rodape = t.rodape.replace("Link na bio.", `${destino}.`).replace("Salve e envie", rede === "linkedin" ? "Salve e compartilhe" : "Salve e envie");
     }
+    if (rede === "linkedin") t.semSeta = true; // o PDF fica mais limpo, sem a seta de deslizar do Instagram
     return t;
   });
+}
+
+// Se o conteúdo de um slide passa da área disponível (entre o fio de cima e o rodapé), encolhe até caber e avisa.
+async function ajustar(pagina, rotulo) {
+  const r = await pagina.evaluate(() => {
+    const saida = [];
+    document.querySelectorAll("section.s").forEach((s, i) => {
+      const corpo = s.querySelector(".corpo"), fit = s.querySelector(".fit");
+      if (!corpo || !fit) return;
+      const alto = corpo.classList.contains("alto");
+      // área útil: do topo do corpo até 40 px acima do rodapé
+      const limite = alto ? 440 : corpo.clientHeight; // capas claras: o espaço acima da planta do logo
+      let z = 1;
+      fit.style.zoom = "1";
+      while (fit.getBoundingClientRect().height > limite && z > 0.6) { z -= 0.03; fit.style.zoom = String(+z.toFixed(2)); }
+      if (z < 1) saida.push({ slide: i + 1, zoom: +z.toFixed(2) });
+    });
+    return saida;
+  });
+  for (const x of r) console.log(`  ajuste ${rotulo} slide ${x.slide}: zoom ${x.zoom}${x.zoom < 0.85 ? " (encolheu muito: encurtar o texto)" : ""}`);
 }
 const nomePasta = { instagram: saida, facebook: join(saida, "facebook"), linkedin: join(saida, "linkedin") };
 mkdirSync(nomePasta.facebook, { recursive: true });
@@ -189,6 +212,7 @@ for (const [nome, c] of Object.entries(dados)) {
   for (const rede of ["instagram", "facebook", "linkedin"]) {
     await p.setContent(html(adaptar(c.slides, rede)));
     await p.waitForTimeout(300);
+    await ajustar(p, `${nome}/${rede}`);
     const secoes = await p.$$("section.s");
     if (rede !== "linkedin") for (let i = 0; i < secoes.length; i++) await secoes[i].screenshot({ path: join(nomePasta[rede], `${nome}-${String(i + 1).padStart(2, "0")}.png`) });
     if (rede !== "facebook") await p.pdf({ path: join(nomePasta[rede], `${nome}.pdf`), width: "1080px", height: "1350px", printBackground: true, preferCSSPageSize: true });
