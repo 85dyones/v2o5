@@ -175,6 +175,9 @@
       const gTxt = String(v.gancho);
       if (V2) {
         // gancho escuro com destaque (padrão v2): corte seco para a cena clara em G
+        const maiorLinha = (t) => Math.max(...String(t).split("|").map((s) => s.replace(/[\[\]]/g, "").length));
+        const mh = maiorLinha(N.hook.texto);
+        $("#hook h1").style.fontSize = (mh > 26 ? 88 : mh > 20 ? 96 : mh > 16 ? 104 : 112) + "px";
         $("#hook h1").innerHTML = marcar(N.hook.texto);
         $("#hook .hn").textContent = N.hook.nota || "";
         tl.fromTo("#hook h1", { opacity: 0, y: 36 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, 0.1);
@@ -418,6 +421,8 @@
       // padrão v2: antes da logo, a frase de efeito e a chamada de compartilhar, no mesmo fundo escuro
       const EL = V2 ? N.EL : E;
       if (V2) {
+        const mp = Math.max(...[N.punch.linha1, N.punch.linha2].map((s) => String(s).replace(/[\[\]]/g, "").length));
+        $("#punch").style.fontSize = (mp > 22 ? 76 : mp > 18 ? 84 : mp > 14 ? 92 : 100) + "px";
         $("#punch").innerHTML = marcar(N.punch.linha1) + "<br>" + marcar(N.punch.linha2);
         $("#compart span").textContent = N.compart + " →";
         tl.fromTo("#punch", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, E + 0.25);
