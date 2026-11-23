@@ -216,7 +216,7 @@ function mixar(falas, sfx, total, saidaWav) {
     nodes.push(`[fala][efeitos]amix=inputs=2:normalize=0,loudnorm=I=-15:TP=-2:LRA=7,apad=whole_dur=${total},atrim=0:${total}[o]`);
   } else {
     // sem narração: só os efeitos, normalizados para o celular
-    nodes.push(`${ef}amix=inputs=${sfx.length}:normalize=0,volume=1.0,loudnorm=I=-16:TP=-2:LRA=9,apad=whole_dur=${total},atrim=0:${total}[o]`);
+    nodes.push(`${ef}amix=inputs=${sfx.length}:normalize=0,volume=1.0,loudnorm=I=-14:TP=-2:LRA=9,apad=whole_dur=${total},atrim=0:${total}[o]`);
   }
   args.push("-filter_complex", nodes.join(";"), "-map", "[o]", "-ar", "48000", "-ac", "2", saidaWav);
   const r = spawnSync("ffmpeg", args, { stdio: "inherit" });

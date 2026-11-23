@@ -1,6 +1,6 @@
 {
   "L1-13": {
-    "hook": { "texto": "O cliente preencheu o formulário. [Quem viu?]", "nota": "Cena de exemplo" },
+    "hook": { "texto": "O cliente preencheu o formulário.|[Quem viu?]", "nota": "Cena de exemplo" },
     "beats": ["O cliente preencheu o formulário.", "O aviso caiu num e-mail [parado].", "Ele esperou. [Ninguém] respondeu.", "Procurou [outro]."],
     "relogio": [ { "a": 0, "t": "14:00" }, { "a": 1, "t": "14:01" }, { "a": 2, "t": "Quinta", "selo": "+3 DIAS" } ],
     "punch": { "linha1": "Contato sem dono", "linha2": "vira [venda perdida]." },
@@ -12,7 +12,7 @@
       { "rotulo": "Procurou outro", "a": 3 } ] }
   },
   "L1-20": {
-    "hook": { "texto": "Você digitou a mesma venda [três vezes].", "nota": "Cena de exemplo" },
+    "hook": { "texto": "Você digitou a mesma venda|[três vezes].", "nota": "Cena de exemplo" },
     "beats": ["Segunda: digitou no [sistema].", "Terça: digitou na [planilha].", "Quarta: digitou no [WhatsApp].", "Integrado: digitou [uma vez]."],
     "punch": { "linha1": "Dado digitado à mão", "linha2": "é [erro esperando]." },
     "compartilhar": "Envie para quem digita tudo duas vezes",
@@ -21,7 +21,7 @@
       { "titulo": "Sistemas integrados", "a": 3, "itens": [ { "texto": "Digita uma vez", "a": 3 }, { "texto": "O dado chega ao site e ao WhatsApp", "a": 3.5 } ] } ] }
   },
   "L1-11": {
-    "hook": { "texto": "Seu site está no ar. [Quem entrou nele?]" },
+    "hook": { "texto": "Seu site está no ar.|[Quem entrou nele?]" },
     "beats": ["Seu site está no ar.", "Você não vê [quem passou].", "Sem dado, investir vira [palpite].", "Medir é o [primeiro passo]."],
     "punch": { "linha1": "Site sem medição", "linha2": "é [vitrine sem câmera]." },
     "compartilhar": "Envie para quem investe sem medir"

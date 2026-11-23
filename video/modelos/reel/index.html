@@ -166,7 +166,7 @@
       const N = JSON.parse(v.narr || "null");
       const V2 = !!(N && N.v2);
       // [trecho] vira o destaque âmbar de legenda
-      const marcar = (t) => String(t).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/\[([^\]]+)\]/g, '<mark class="hl">$1</mark>');
+      const marcar = (t) => String(t).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/\[([^\]]+)\]/g, '<mark class="hl">$1</mark>').replace(/\|/g, "<br>");
       const D = {{DURACAO}}, G = {{GANCHO_DUR}}, E = {{FIM_INICIO}};
       const $ = (s) => document.querySelector(s);
       const tl = gsap.timeline({ paused: true });
@@ -408,7 +408,8 @@
       $("#pilula span").textContent = pil.charAt(0).toUpperCase() + pil.slice(1);
       "V2O5".split("").forEach((c) => { const s = document.createElement("span"); s.textContent = c; $("#nome").appendChild(s); });
       const comp = $("#nuvem").getTotalLength();
-      gsap.set("#nuvem", { strokeDasharray: comp, strokeDashoffset: comp });
+      gsap.set("#nuvem", { strokeDasharray: comp, strokeDashoffset: comp, opacity: 0 }); // sem opacidade, a ponta do traço aparece durante a frase de efeito
+      tl.set("#nuvem", { opacity: 1 }, (V2 ? N.EL : E) + 0.1);
       gsap.set("#rede", { opacity: 0, scale: 0.9, transformOrigin: "50% 50%" });
       gsap.set("#ambar", { scale: 0, transformOrigin: "{{AMBAR_CX}}px {{AMBAR_CY}}px" });
       gsap.set("#anel", { transformOrigin: "{{AMBAR_CX}}px {{AMBAR_CY}}px", opacity: 0 });
