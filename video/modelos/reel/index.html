@@ -93,8 +93,10 @@
       #legendas { top: 1090px; height: 340px; }
       #legendas p { position: absolute; left: 0; right: 0; top: 0; font-size: 58px; line-height: 1.14; font-weight: 700; letter-spacing: -0.03em; }
       /* padrão v2 (reel dos 4 minutos): gancho escuro, legenda curta com um destaque, relógio, frase de efeito e chamada de compartilhar */
+      mark.hl2 { background: linear-gradient(var(--acao), var(--acao)) no-repeat left center; background-size: 0% 100%; color: inherit; padding: 0 0.12em; margin: 0 -0.02em; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
       mark.hl { background: var(--acao); color: var(--tinta); padding: 0 0.12em; margin: 0 -0.02em; }
       #legendas p.v2 { font-size: 78px; line-height: 1.1; letter-spacing: -0.035em; opacity: 0; }
+      #legendas p.v2 mark.hl2, #hook mark.hl2, #punch mark.hl2 { display: inline; }
       #hook { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; background: var(--tinta); color: var(--papel); z-index: 6; }
       #hook .hm { position: absolute; left: 72px; top: 270px; display: flex; align-items: center; gap: 18px; font-size: 34px; font-weight: 600; letter-spacing: -0.01em; }
       #hook .hm i { display: block; width: 44px; height: 44px; background: var(--acao); }
@@ -104,7 +106,7 @@
       #relogio { position: absolute; left: 72px; right: 72px; top: 385px; height: 150px; }
       #relogio .rt { position: absolute; left: 0; top: 0; display: flex; align-items: center; gap: 26px; opacity: 0; font-size: 150px; line-height: 1; font-weight: 700; letter-spacing: -0.05em; }
       #relogio .rb { font-size: 34px; letter-spacing: 0.04em; background: var(--acao); padding: 6px 16px; margin-top: 8px; }
-      #punch { position: absolute; left: 90px; right: 90px; top: 560px; font-size: 100px; line-height: 1.08; font-weight: 700; letter-spacing: -0.04em; opacity: 0; }
+      #punch { position: absolute; left: 90px; right: 90px; top: 560px; font-size: 100px; line-height: 1.08; font-weight: 700; letter-spacing: -0.04em; }
       #compart { position: absolute; left: 90px; top: 1040px; opacity: 0; }
       #compart span { display: inline-block; border: 3px solid var(--papel); font-size: 40px; font-weight: 600; letter-spacing: -0.01em; padding: 18px 30px; }
       /* final animado */
@@ -178,9 +180,8 @@
         const maiorLinha = (t) => Math.max(...String(t).split("|").map((s) => s.replace(/[\[\]]/g, "").length));
         const mh = maiorLinha(N.hook.texto);
         $("#hook h1").style.fontSize = (mh > 26 ? 88 : mh > 20 ? 96 : mh > 16 ? 104 : 112) + "px";
-        $("#hook h1").innerHTML = marcar(N.hook.texto);
+        digitarMarcado($("#hook h1"), N.hook.texto, 0.2, 0.028, { pausaBr: 0.5 }); // digitado, com pausa entre as frases e o destaque depois
         $("#hook .hn").textContent = N.hook.nota || "";
-        tl.fromTo("#hook h1", { opacity: 0, y: 36 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, 0.1);
         tl.fromTo("#hook .hn", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 0.6);
         tl.set("#hook", { autoAlpha: 0 }, G);
       } else {
@@ -201,11 +202,11 @@
           // legenda curta, com um destaque fixo, entrando de uma vez e saindo antes da próxima
           frases.forEach((f, i) => {
             const p = document.createElement("p"); p.className = "v2"; box.appendChild(p);
-            p.innerHTML = marcar(f);
             if (f.replace(/[\[\]]/g, "").length > 34) p.style.fontSize = "66px";
             const tt = N.tempos[i].t, dur = N.tempos[i].d;
             ts.push(tt);
-            tl.fromTo(p, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.28, ease: "power3.out" }, tt);
+            tl.set(p, { opacity: 1 }, tt);
+            digitarMarcado(p, f, tt + 0.05, 0.028); // texto digitado, pausa entre as frases e destaque âmbar depois
             if (i < frases.length - 1) tl.to(p, { opacity: 0, duration: 0.18, ease: "power1.in" }, tt + dur - 0.05);
           });
           return ts;
@@ -383,16 +384,18 @@
         el.innerHTML = ""; let t = t0; let fimDeFrase = false;
         const op = opcoes || {};
         segmentos.forEach((seg) => {
+          if (seg.br) { el.appendChild(document.createElement("br")); t += op.pausaBr != null ? op.pausaBr : 0.4; fimDeFrase = false; return; }
+          const alvo = seg.hl ? Object.assign(document.createElement("mark"), { className: "hl2" }) : el;
           seg.t.split(/(\s+)/).forEach((parte) => {
             if (!parte) return;
             if (/^\s+$/.test(parte)) {
               // pausa dramática no fim da frase; com `quebra`, a frase seguinte começa em outra linha
               if (fimDeFrase && op.pausa) {
                 t += op.pausa; fimDeFrase = false;
-                if (op.quebra) { el.appendChild(document.createElement("br")); return; }
+                if (op.quebra) { alvo.appendChild(document.createElement("br")); return; }
               }
-              if (espacosComoLetra) { const e = document.createElement("span"); e.className = "ch"; e.textContent = " "; el.appendChild(e); tl.set(e, { opacity: 1 }, t); }
-              else el.appendChild(document.createTextNode(" "));
+              if (espacosComoLetra) { const e = document.createElement("span"); e.className = "ch"; e.textContent = " "; alvo.appendChild(e); tl.set(e, { opacity: 1 }, t); }
+              else alvo.appendChild(document.createTextNode(" "));
               t += vel; return;
             }
             const w = document.createElement("span"); w.style.whiteSpace = "nowrap"; w.style.display = "inline-block"; if (seg.c) w.className = seg.c;
@@ -401,11 +404,32 @@
               const c = document.createElement("i"); c.className = "car"; sp.appendChild(c); w.appendChild(sp);
               tl.set(sp, { opacity: 1 }, t); tl.set(c, { opacity: 1 }, t); tl.set(c, { opacity: 0 }, t + vel); t += vel;
             });
-            el.appendChild(w);
+            alvo.appendChild(w);
             fimDeFrase = /[.?!]$/.test(parte);
           });
+          if (seg.hl) { el.appendChild(alvo); if (op.marcas) op.marcas.push({ el: alvo, fim: t }); }
         });
         return t;
+      }
+      // "texto [destaque] mais|nova linha" vira segmentos; o destaque entra depois, como um marca-texto
+      function segMarcado(texto) {
+        const segs = [];
+        String(texto).split(/(\[[^\]]+\])/).forEach((pedaco) => {
+          if (!pedaco) return;
+          if (/^\[/.test(pedaco)) { segs.push({ t: pedaco.slice(1, -1), hl: true }); return; }
+          pedaco.split("|").forEach((p2, i) => { if (i) segs.push({ br: true }); if (p2) segs.push({ t: p2 }); });
+        });
+        return segs;
+      }
+      function marcaTexto(marcas, atraso) {
+        marcas.forEach((m) => tl.to(m.el, { backgroundSize: "100% 100%", color: "#121418", duration: 0.28, ease: "power2.out" }, m.fim + atraso));
+      }
+      // texto com a digitação, a pausa entre as frases e o destaque depois
+      function digitarMarcado(el, texto, t0, vel, opcoes) {
+        const marcas = [];
+        const fim = digitar(el, segMarcado(texto), t0, vel, false, Object.assign({ pausa: 0.45, marcas }, opcoes || {}));
+        marcaTexto(marcas, 0.18);
+        return fim;
       }
       const pil = (partes[1] || "link na bio").replace(/\.$/, "").trim();
       $("#pilula span").textContent = pil.charAt(0).toUpperCase() + pil.slice(1);
@@ -423,10 +447,9 @@
       if (V2) {
         const mp = Math.max(...[N.punch.linha1, N.punch.linha2].map((s) => String(s).replace(/[\[\]]/g, "").length));
         $("#punch").style.fontSize = (mp > 22 ? 76 : mp > 18 ? 84 : mp > 14 ? 92 : 100) + "px";
-        $("#punch").innerHTML = marcar(N.punch.linha1) + "<br>" + marcar(N.punch.linha2);
         $("#compart span").textContent = N.compart + " →";
-        tl.fromTo("#punch", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, E + 0.25);
-        tl.fromTo("#compart", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, E + 2.3);
+        digitarMarcado($("#punch"), N.punch.linha1 + "|" + N.punch.linha2, E + 0.25, 0.03, { pausaBr: 0.4, pausa: 0.3 });
+        tl.fromTo("#compart", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, E + 2.6);
         tl.to(["#punch", "#compart"], { opacity: 0, duration: 0.25 }, EL - 0.3);
       }
       tl.to("#nuvem", { strokeDashoffset: 0, duration: 0.85, ease: "power2.inOut" }, EL + 0.1);

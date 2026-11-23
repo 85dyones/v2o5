@@ -169,9 +169,14 @@ function efeitosConversa(pl) {
 // ---- padrão v2 (reel dos 4 minutos): gancho escuro, beats curtos, frase de efeito, compartilhar e logo ----
 // Dados por reel em video/v2.json. Os beats substituem as frases do corpo, na mesma quantidade (as âncoras da cena seguem os beats).
 function planejarV2(d, ctaPrincipal) {
-  const HK = 2.4, BEAT = 2.6, GAP = 0.1, PUNCH = 4.4;
-  const tempos = d.beats.map((_, i) => ({ t: +(HK + 0.2 + i * (BEAT + GAP)).toFixed(2), d: BEAT }));
-  const E = +(tempos[tempos.length - 1].t + BEAT + 0.5).toFixed(2);
+  // Tempos guiados pelo texto: digitação (0,028 s por letra), pausa de 0,45 s entre frases, destaque e um respiro para ler.
+  const limpo = (t) => String(t).replace(/[\[\]]/g, "").replace(/\|/g, " ");
+  const frasesDe2 = (t) => (limpo(t).match(/[.?!](\s|$)/g) || []).length || 1;
+  const dur = (t, extra) => Math.max(2.4, limpo(t).length * 0.028 + (frasesDe2(t) - 1) * 0.45 + extra);
+  const HK = +Math.max(2.8, dur(d.hook.texto.replace("|", " "), 1.3) + 0.2).toFixed(2), GAP = 0.1, PUNCH = 4.6;
+  let acum = HK + 0.2;
+  const tempos = d.beats.map((b) => { const dd = +dur(b, 1.3).toFixed(2); const x = { t: +acum.toFixed(2), d: dd }; acum += dd + GAP; return x; });
+  const E = +(tempos[tempos.length - 1].t + tempos[tempos.length - 1].d + 0.5).toFixed(2);
   const EL = +(E + PUNCH).toFixed(2);
   const chamada = ctaPrincipal.replace(/\.$/, "");
   const fimVel = 0.022;
