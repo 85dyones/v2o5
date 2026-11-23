@@ -19,6 +19,8 @@ const pares = (nome) => Object.fromEntries(flags.flatMap((f, i) => (f === nome ?
 const prints = pares("--print");
 const cenas = pares("--cena");
 const cenasCfg = existsSync(join(raiz, "cenas.json")) ? JSON.parse(readFileSync(join(raiz, "cenas.json"), "utf8")) : {};
+const v2Flag = flags.includes("--v2"); // padrão do reel dos 4 minutos, com os dados de video/v2.json
+const v2Cfg = existsSync(join(raiz, "v2.json")) ? JSON.parse(readFileSync(join(raiz, "v2.json"), "utf8")) : {};
 const telas = pares("--tela");
 const vozPasta = flags.includes("--voz-pasta") ? resolve(flags[flags.indexOf("--voz-pasta") + 1]) : null; // gravações próprias: <pasta>/<codigo>/NN-tipo.wav
 const narrar = vozPasta ? "propria" : flags.includes("--narrar") ? flags[flags.indexOf("--narrar") + 1] : null; // voz do Kokoro: pm_alex, pm_santa, pf_dora // gravação em vídeo da tela: --tela L1-08=gravacoes/telas/v-formulario-completo.mp4
@@ -164,6 +166,42 @@ function efeitosConversa(pl) {
   return sfx;
 }
 
+// ---- padrão v2 (reel dos 4 minutos): gancho escuro, beats curtos, frase de efeito, compartilhar e logo ----
+// Dados por reel em video/v2.json. Os beats substituem as frases do corpo, na mesma quantidade (as âncoras da cena seguem os beats).
+function planejarV2(d, ctaPrincipal) {
+  const HK = 2.4, BEAT = 2.6, GAP = 0.1, PUNCH = 4.4;
+  const tempos = d.beats.map((_, i) => ({ t: +(HK + 0.2 + i * (BEAT + GAP)).toFixed(2), d: BEAT }));
+  const E = +(tempos[tempos.length - 1].t + BEAT + 0.5).toFixed(2);
+  const EL = +(E + PUNCH).toFixed(2);
+  const chamada = ctaPrincipal.replace(/\.$/, "");
+  const fimVel = 0.022;
+  const fimTexto0 = +(EL + 1.85).toFixed(2);
+  const pilula = fimTexto0 + fimVel * chamada.length + 0.3 + 0.15;
+  const D = Math.ceil(pilula + 1.2);
+  return { G: HK, E, D, falas: [], pilula, EL, plano: { v2: true, hook: d.hook, beats: d.beats, punch: d.punch, compart: d.compartilhar, relogio: d.relogio ?? null, EL, tempos, fimVel, fimTexto0 } };
+}
+
+// Efeitos do padrão v2: grave contínuo baixo, toque em cada beat, passagem para o escuro, batida da frase de efeito e da logo.
+function efeitosV2(pl) {
+  const { E, EL, D } = pl;
+  const tempos = pl.plano.tempos;
+  const sfx = [];
+  const ruido = (dur, f, t, vol) => sfx.push({ src: `anoisesrc=d=${dur}:c=pink:a=0.5`, filtro: f, t, vol });
+  const tom = (f, dur, filtro, t, vol) => sfx.push({ src: `sine=f=${f}:d=${dur}`, filtro, t, vol });
+  tom(140, D, `afade=t=in:d=1.2,afade=t=out:st=${D - 1.5}:d=1.5`, 0, 0.05); // grave contínuo
+  tom(90, 0.4, "afade=t=out:st=0.05:d=0.35", 0.12, 0.7); // golpe do gancho
+  tempos.forEach((x, i) => tom(i % 2 ? 480 : 600, 0.12, "afade=t=out:st=0.02:d=0.1", x.t, 0.4)); // toque de cada beat
+  ruido(0.6, "highpass=f=600,lowpass=f=5000,afade=t=in:d=0.3,afade=t=out:st=0.3:d=0.3", E - 0.55, 0.3); // passagem para o escuro
+  tom(80, 0.5, "afade=t=out:st=0.05:d=0.45", E + 0.25, 0.9); // batida da frase de efeito
+  tom(700, 0.15, "afade=t=out:st=0.02:d=0.13", E + 2.3, 0.35); // pílula de compartilhar
+  ruido(1.1, "highpass=f=700,lowpass=f=5200,afade=t=in:d=0.9,afade=t=out:st=0.9:d=0.2", EL + 0.1, 0.4); // subida da logo
+  tom(88, 0.45, "afade=t=out:st=0.05:d=0.4", EL + 1.15, 0.9); // batida da logo
+  tom(1318, 0.7, "afade=t=in:d=0.01,afade=t=out:st=0.05:d=0.65", EL + 1.18, 0.2); // átomo âmbar
+  tom(740, 0.15, "afade=t=out:st=0.02:d=0.13", pl.pilula, 0.4); // botão final
+  ruido(0.5, "highpass=f=900,lowpass=f=4200,afade=t=in:d=0.2,afade=t=out:st=0.25:d=0.25", D - 0.55, 0.28);
+  return sfx;
+}
+
 function mixar(falas, sfx, total, saidaWav) {
   const args = ["-v", "error", "-y"];
   const nodes = [];
@@ -172,9 +210,14 @@ function mixar(falas, sfx, total, saidaWav) {
   falas.forEach((f, i) => nodes.push(`[${i}:a]aresample=48000,aformat=channel_layouts=mono,adelay=${ms(f.t)}:all=1[v${i}]`));
   sfx.forEach((x, j) => { const i = falas.length + j; nodes.push(`[${i}:a]aresample=48000,aformat=channel_layouts=mono,${x.filtro},volume=${x.vol},adelay=${ms(x.t)}:all=1[e${j}]`); });
   const fl = falas.map((_, i) => `[v${i}]`).join(""), ef = sfx.map((_, j) => `[e${j}]`).join("");
-  nodes.push(`${fl}amix=inputs=${falas.length}:normalize=0,volume=1.0[fala]`);
-  nodes.push(`${ef}amix=inputs=${sfx.length}:normalize=0,volume=0.8[efeitos]`);
-  nodes.push(`[fala][efeitos]amix=inputs=2:normalize=0,loudnorm=I=-15:TP=-2:LRA=7,apad=whole_dur=${total},atrim=0:${total}[o]`);
+  if (falas.length) {
+    nodes.push(`${fl}amix=inputs=${falas.length}:normalize=0,volume=1.0[fala]`);
+    nodes.push(`${ef}amix=inputs=${sfx.length}:normalize=0,volume=0.8[efeitos]`);
+    nodes.push(`[fala][efeitos]amix=inputs=2:normalize=0,loudnorm=I=-15:TP=-2:LRA=7,apad=whole_dur=${total},atrim=0:${total}[o]`);
+  } else {
+    // sem narração: só os efeitos, normalizados para o celular
+    nodes.push(`${ef}amix=inputs=${sfx.length}:normalize=0,volume=1.0,loudnorm=I=-16:TP=-2:LRA=9,apad=whole_dur=${total},atrim=0:${total}[o]`);
+  }
   args.push("-filter_complex", nodes.join(";"), "-map", "[o]", "-ar", "48000", "-ac", "2", saidaWav);
   const r = spawnSync("ffmpeg", args, { stdio: "inherit" });
   if (r.status !== 0) throw new Error("falhou ao misturar a narração e os efeitos");
@@ -190,7 +233,11 @@ for (const r of reels) {
   let dur = Math.max(14, Number(r.duracao_s));
   let G = 4.2, E = +(dur - 5.5).toFixed(1);
   let pl = null;
-  if (narrar) {
+  const dv2 = v2Flag ? v2Cfg[r.codigo] : null;
+  if (dv2) {
+    pl = planejarV2(dv2, r.cta.split(":")[0].trim());
+    ({ G, E, D: dur } = pl);
+  } else if (narrar) {
     pl = planejar(gerarNarracao(r.codigo, narrar), r.cta.split(":")[0].trim());
     ({ G, E, D: dur } = pl);
   }
@@ -200,7 +247,7 @@ for (const r of reels) {
   rmSync(tmp, { recursive: true, force: true });
   mkdirSync(tmp, { recursive: true });
   spawnSync("cp", ["-r", join(raiz, "modelos/reel") + "/.", tmp]);
-  const cfg = cenasCfg[r.codigo] ?? {};
+  const cfg = (dv2 && dv2.cfg) ? dv2.cfg : (cenasCfg[r.codigo] ?? {});
   const cena = cenas[r.codigo] ?? cfg.tipo ?? (telas[r.codigo] || prints[r.codigo] ? "tela" : "texto");
   let videoTag = "";
   if (telas[r.codigo] && existsSync(telas[r.codigo])) {
@@ -221,9 +268,9 @@ for (const r of reels) {
     print = "assets/print.png";
   }
   writeFileSync(join(tmp, "index.html"), html.replaceAll("{{VIDEO_TAG}}", videoTag));
-  const legendas = cena !== "texto" ? r.corpo.split(/(?<=[.!?])\s+(?=[A-ZÁÉÍÓÚ])/) : [];
+  const legendas = dv2 ? dv2.beats : cena !== "texto" ? r.corpo.split(/(?<=[.!?])\s+(?=[A-ZÁÉÍÓÚ])/) : [];
   const vars = { gancho: r.gancho, prova: r.texto_tela, print, cta: r.cta, cena, legendas: JSON.stringify(legendas), cfg: JSON.stringify(cfg), narr: pl ? JSON.stringify(pl.plano) : "null" };
-  const sufixo = narrar ? `.narrado-${narrar}` : "";
+  const sufixo = dv2 ? ".v2" : narrar ? `.narrado-${narrar}` : "";
   const mudo = join(saida, `${r.codigo}${sufixo}.mudo.mp4`);
   const arq = join(saida, `${r.codigo}${sufixo}.mp4`);
   const res = spawnSync("npx", ["hyperframes", "render", tmp, "-o", mudo, "-q", draft ? "draft" : "delivery", "--variables", JSON.stringify(vars), "--quiet"], { cwd: raiz, stdio: "inherit" });
@@ -232,7 +279,7 @@ for (const r of reels) {
   if (semSom) { renameSync(mudo, arq); }
   else if (pl) {
     const wav = join(saida, `${r.codigo}${sufixo}.mix.wav`);
-    mixar(pl.falas, cena === "conversa" ? efeitosConversa(pl) : [], dur, wav);
+    mixar(pl.falas, dv2 ? efeitosV2(pl) : cena === "conversa" ? efeitosConversa(pl) : [], dur, wav);
     const m = spawnSync("ffmpeg", ["-v", "error", "-y", "-i", mudo, "-i", wav, "-c:v", "copy", "-c:a", "aac", "-b:a", "192k", "-shortest", arq], { stdio: "inherit" });
     if (m.status !== 0) { console.error(`falhou ao juntar o som: ${r.codigo}`); process.exit(m.status ?? 1); }
     rmSync(mudo, { force: true }); rmSync(wav, { force: true });

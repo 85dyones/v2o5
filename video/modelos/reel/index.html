@@ -92,6 +92,21 @@
       /* legendas do corpo */
       #legendas { top: 1090px; height: 340px; }
       #legendas p { position: absolute; left: 0; right: 0; top: 0; font-size: 58px; line-height: 1.14; font-weight: 700; letter-spacing: -0.03em; }
+      /* padrão v2 (reel dos 4 minutos): gancho escuro, legenda curta com um destaque, relógio, frase de efeito e chamada de compartilhar */
+      mark.hl { background: var(--acao); color: var(--tinta); padding: 0 0.12em; margin: 0 -0.02em; }
+      #legendas p.v2 { font-size: 78px; line-height: 1.1; letter-spacing: -0.035em; opacity: 0; }
+      #hook { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; background: var(--tinta); color: var(--papel); z-index: 6; }
+      #hook .hm { position: absolute; left: 72px; top: 270px; display: flex; align-items: center; gap: 18px; font-size: 34px; font-weight: 600; letter-spacing: -0.01em; }
+      #hook .hm i { display: block; width: 44px; height: 44px; background: var(--acao); }
+      #hook .hf { position: absolute; left: 72px; right: 72px; top: 350px; height: 3px; background: #2E3138; }
+      #hook h1 { position: absolute; left: 72px; right: 72px; top: 600px; font-size: 112px; line-height: 1.08; font-weight: 700; letter-spacing: -0.04em; }
+      #hook .hn { position: absolute; left: 72px; top: 1180px; font-size: 32px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #A9ACB4; }
+      #relogio { position: absolute; left: 72px; right: 72px; top: 385px; height: 150px; }
+      #relogio .rt { position: absolute; left: 0; top: 0; display: flex; align-items: center; gap: 26px; opacity: 0; font-size: 150px; line-height: 1; font-weight: 700; letter-spacing: -0.05em; }
+      #relogio .rb { font-size: 34px; letter-spacing: 0.04em; background: var(--acao); padding: 6px 16px; margin-top: 8px; }
+      #punch { position: absolute; left: 90px; right: 90px; top: 560px; font-size: 100px; line-height: 1.08; font-weight: 700; letter-spacing: -0.04em; opacity: 0; }
+      #compart { position: absolute; left: 90px; top: 1040px; opacity: 0; }
+      #compart span { display: inline-block; border: 3px solid var(--papel); font-size: 40px; font-weight: 600; letter-spacing: -0.01em; padding: 18px 30px; }
       /* final animado */
       #fim { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; background: var(--tinta); color: var(--papel); }
       #fim svg { position: absolute; left: 230px; top: 440px; width: 620px; height: 388px; overflow: visible; }
@@ -127,7 +142,9 @@
         <div class="t"><i class="relogio"><u class="h1"></u><u class="h2"></u></i>Sem resposta há 1 dia</div>
       </div>
       <div id="cena"></div>
+      <div id="relogio"></div>
       <div id="legendas" class="bloco"></div>
+      <div id="hook"><div class="hm"><i></i>V2O5 Vendas e Tecnologia</div><div class="hf"></div><h1></h1><div class="hn"></div></div>
       <div id="fim">
         <svg viewBox="{{VIEWBOX}}" aria-hidden="true">
           <path id="nuvem" d="{{NUVEM}}" fill="none" stroke="#F2F1EC" stroke-width="{{TRACO}}" stroke-linejoin="round" />
@@ -140,20 +157,34 @@
         <div class="sub" id="sub">Vendas e Tecnologia</div>
         <div class="chamada" id="chamada"></div>
         <div class="pilula" id="pilula"><span></span></div>
+        <div id="punch"></div><div id="compart"><span></span></div>
       </div>
     </div>
     <script>
       const v = window.__hyperframes.getVariables();
       const cfg = JSON.parse(v.cfg || "{}");
       const N = JSON.parse(v.narr || "null");
+      const V2 = !!(N && N.v2);
+      // [trecho] vira o destaque âmbar de legenda
+      const marcar = (t) => String(t).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/\[([^\]]+)\]/g, '<mark class="hl">$1</mark>');
       const D = {{DURACAO}}, G = {{GANCHO_DUR}}, E = {{FIM_INICIO}};
       const $ = (s) => document.querySelector(s);
       const tl = gsap.timeline({ paused: true });
 
       // gancho digitado
       const gTxt = String(v.gancho);
-      digitar($("#gancho"), [{ t: gTxt }], N ? N.ganchoStart : 0.15, N ? N.ganchoVel : 0.032, false, { pausa: N ? N.ganchoPausa : 0.7, quebra: true });
-      tl.to("#gancho", { opacity: 0, y: -24, duration: 0.3, ease: "power2.in" }, G - 0.3);
+      if (V2) {
+        // gancho escuro com destaque (padrão v2): corte seco para a cena clara em G
+        $("#hook h1").innerHTML = marcar(N.hook.texto);
+        $("#hook .hn").textContent = N.hook.nota || "";
+        tl.fromTo("#hook h1", { opacity: 0, y: 36 }, { opacity: 1, y: 0, duration: 0.35, ease: "power3.out" }, 0.1);
+        tl.fromTo("#hook .hn", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 0.6);
+        tl.set("#hook", { autoAlpha: 0 }, G);
+      } else {
+        digitar($("#gancho"), [{ t: gTxt }], N ? N.ganchoStart : 0.15, N ? N.ganchoVel : 0.032, false, { pausa: N ? N.ganchoPausa : 0.7, quebra: true });
+        tl.to("#gancho", { opacity: 0, y: -24, duration: 0.3, ease: "power2.in" }, G - 0.3);
+        tl.set("#hook", { autoAlpha: 0 }, 0);
+      }
 
       // legendas do corpo: palavra por palavra, com a palavra da vez em destaque
       function legendar() {
@@ -163,6 +194,19 @@
         const janela = MEIO1 - MEIO0 - 0.3;
         let t = MEIO0 + 0.2; const ts = [];
         const box = $("#legendas");
+        if (V2) {
+          // legenda curta, com um destaque fixo, entrando de uma vez e saindo antes da próxima
+          frases.forEach((f, i) => {
+            const p = document.createElement("p"); p.className = "v2"; box.appendChild(p);
+            p.innerHTML = marcar(f);
+            if (f.replace(/[\[\]]/g, "").length > 34) p.style.fontSize = "66px";
+            const tt = N.tempos[i].t, dur = N.tempos[i].d;
+            ts.push(tt);
+            tl.fromTo(p, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.28, ease: "power3.out" }, tt);
+            if (i < frases.length - 1) tl.to(p, { opacity: 0, duration: 0.18, ease: "power1.in" }, tt + dur - 0.05);
+          });
+          return ts;
+        }
         frases.forEach((f, i) => {
           const p = document.createElement("p"); box.appendChild(p);
           p.style.fontSize = (f.length > 100 ? 48 : f.length > 80 ? 53 : 58) + "px";
@@ -271,7 +315,26 @@
         $("#legendas").style.cssText = "top:1130px;height:300px;";
         const ts2 = legendar();
         tl.fromTo("#cena", { opacity: 0 }, { opacity: 1, duration: 0.3 }, MEIO0 + 0.1);
+        const temRelogio = V2 && N.relogio && N.relogio.length;
+        if (temRelogio) { $("#cena").style.top = "575px"; $("#cena").style.height = "515px"; }
         CENAS[v.cena](cfg, ts2);
+        if (temRelogio) {
+          // relógio grande no topo: a hora (ou o dia) troca a cada beat, com o selo opcional (+1 DIA)
+          N.relogio.forEach((r, k) => {
+            const e = document.createElement("div"); e.className = "rt"; e.innerHTML = r.t + (r.selo ? `<span class="rb">${r.selo}</span>` : ""); $("#relogio").appendChild(e);
+            const t0 = A(ts2, r.a) - 0.15, prox = N.relogio[k + 1];
+            tl.fromTo(e, { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.22, ease: "power2.out" }, t0);
+            if (prox) tl.to(e, { opacity: 0, duration: 0.12 }, A(ts2, prox.a) - 0.15);
+            else tl.to(e, { opacity: 0, duration: 0.25 }, E - 0.6);
+          });
+        }
+        if (V2) {
+          // encolhe a cena se ela passar da área disponível
+          const area = temRelogio ? 515 : 680;
+          const filhos = [...$("#cena").children].filter((c) => !c.classList.contains("etiqueta"));
+          const soma = filhos.reduce((a, c) => a + c.getBoundingClientRect().height, 0);
+          if (soma > area) filhos.forEach((c) => (c.style.zoom = String(Math.max(0.7, area / soma))));
+        }
         ["#cena", "#legendas"].forEach((q) => tl.to(q, { opacity: 0, duration: 0.25 }, E - 0.6));
       } else if (v.cena === "tela") {
         $("#prova").style.cssText = "top:410px;font-size:66px;";
@@ -351,15 +414,24 @@
       gsap.set("#anel", { transformOrigin: "{{AMBAR_CX}}px {{AMBAR_CY}}px", opacity: 0 });
       gsap.set("#fim", { y: 1920 });
       tl.to("#fim", { y: 0, duration: 0.5, ease: "power3.inOut" }, E - 0.5);
-      tl.to("#nuvem", { strokeDashoffset: 0, duration: 0.85, ease: "power2.inOut" }, E + 0.1);
-      tl.to("#rede", { opacity: 1, scale: 1, duration: 0.6, ease: "power2.out" }, E + 0.7);
-      tl.to("#ambar", { scale: 1, duration: 0.45, ease: "back.out(2.4)" }, E + 1.15);
-      tl.fromTo("#anel", { opacity: 0.9, scale: 1 }, { opacity: 0, scale: 5, duration: 0.8, ease: "power2.out", immediateRender: false }, E + 1.2);
-      tl.to("#nome span", { opacity: 1, y: 0, duration: 0.4, ease: "power3.out", stagger: 0.08 }, E + 1.3);
+      // padrão v2: antes da logo, a frase de efeito e a chamada de compartilhar, no mesmo fundo escuro
+      const EL = V2 ? N.EL : E;
+      if (V2) {
+        $("#punch").innerHTML = marcar(N.punch.linha1) + "<br>" + marcar(N.punch.linha2);
+        $("#compart span").textContent = N.compart + " →";
+        tl.fromTo("#punch", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, E + 0.25);
+        tl.fromTo("#compart", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, E + 2.3);
+        tl.to(["#punch", "#compart"], { opacity: 0, duration: 0.25 }, EL - 0.3);
+      }
+      tl.to("#nuvem", { strokeDashoffset: 0, duration: 0.85, ease: "power2.inOut" }, EL + 0.1);
+      tl.to("#rede", { opacity: 1, scale: 1, duration: 0.6, ease: "power2.out" }, EL + 0.7);
+      tl.to("#ambar", { scale: 1, duration: 0.45, ease: "back.out(2.4)" }, EL + 1.15);
+      tl.fromTo("#anel", { opacity: 0.9, scale: 1 }, { opacity: 0, scale: 5, duration: 0.8, ease: "power2.out", immediateRender: false }, EL + 1.2);
+      tl.to("#nome span", { opacity: 1, y: 0, duration: 0.4, ease: "power3.out", stagger: 0.08 }, EL + 1.3);
       tl.set("#nome span", { y: 40 }, 0);
-      tl.to("#barra", { scaleX: 1, duration: 0.5, ease: "power3.out" }, E + 1.75);
-      const fimSub = digitar($("#sub"), [{ t: "Vendas e Tecnologia" }], N ? E + 1.5 : E + 1.75, 0.032);
-      const fimChamada = digitar($("#chamada"), segs, N ? N.fimTexto0 : Math.max(E + 2.45, fimSub + 0.1), N ? N.fimVel : 0.02, false, { pausa: 0.3 });
+      tl.to("#barra", { scaleX: 1, duration: 0.5, ease: "power3.out" }, EL + 1.75);
+      const fimSub = digitar($("#sub"), [{ t: "Vendas e Tecnologia" }], N ? EL + 1.5 : EL + 1.75, 0.032);
+      const fimChamada = digitar($("#chamada"), segs, N ? N.fimTexto0 : Math.max(EL + 2.45, fimSub + 0.1), N ? N.fimVel : 0.02, false, { pausa: 0.3 });
       tl.fromTo("#pilula", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, fimChamada + 0.15);
       tl.to("#fim", { opacity: 0, duration: 0.4, ease: "power1.in" }, D - 0.4);
       window.__timelines["main"] = tl;
