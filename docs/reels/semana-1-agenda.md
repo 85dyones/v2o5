@@ -2,7 +2,7 @@
 
 Horários de Brasília. Cada dia alterna reel, carrossel, reel, carrossel, reel. Dos 25 reels prontos, 15 entram nesta semana; os outros 10 (L1-03, 05, 06, 09, 12, 15, 16, 18, 19 e 25) seguem para a semana de 08/12. Arquivos: reels em `L1-XX-v2.mp4` (L1-01, 07, 20, 24 e 25 na revisão `-v2.1.mp4`) com capa `capas/L1-XX-v2.jpg`; carrosséis no zip `carrosseis-semana-1.zip`, em três pastas, porque a chamada muda por rede: `instagram/<nome>-01.png` a `-07.png` (chamada "link na bio"), `facebook/<nome>-01.png` a `-07.png` ("link na legenda") e `linkedin/<nome>.pdf` (documento, com o endereço na chamada e "link no primeiro comentário"). O link da bio muda por dia (`utm_content=L1-D1` a `L1-D5`, em `lote-1-agenda.md`).
 
-Facebook: o primeiro reel (08:30) e o primeiro carrossel (11:30) de cada dia, como reel e como álbum. LinkedIn: um carrossel em PDF por dia de terça a quinta, às 10:00, com o link no primeiro comentário.
+Facebook: o primeiro reel (08:30) e o primeiro carrossel (11:30) de cada dia, como reel e como álbum. LinkedIn: um carrossel em PDF por dia de terça a quinta, às 10:00, e dois reels (L1-13 na quarta e L1-20 na quinta, às 12:00), com o link no primeiro comentário.
 
 ## Terça 01/12
 
@@ -141,6 +141,21 @@ Três pacotes: Landing Page (R$ 2.900), Site Personalizado (R$ 5.900) e Site Con
 ```
 Primeiro comentário: `https://www.v2o5.com.br/diagnostico?utm_source=linkedin&utm_medium=post&utm_campaign=semana-1&utm_content=sites-por-dentro`
 
+### 12:00 · LinkedIn: Reel L1-13
+Arquivo `L1-13-v2.mp4` (vertical, o mesmo do Instagram) · Capa `capas/L1-13-v2.jpg`
+
+```
+O cliente preencheu o formulário. Quem viu?
+Cena de exemplo.
+
+Muito site recebe o pedido e deixa ele parado numa caixa de entrada. O cliente esperou, ninguém respondeu e ele procurou outro. O caminho do formulário até uma pessoa precisa estar desenhado. É um dos pontos que olhamos no diagnóstico gratuito de 45 minutos.
+
+Link do diagnóstico gratuito no primeiro comentário.
+
+#Vendas #Atendimento #Sites
+```
+Primeiro comentário: `https://www.v2o5.com.br/diagnostico?utm_source=linkedin&utm_medium=reel&utm_campaign=semana-1&utm_content=L1-13`
+
 ### 14:00 · Reel L1-08
 Arquivo `L1-08-v2.mp4` · Capa `capas/L1-08-v2.jpg`
 
@@ -230,6 +245,21 @@ Um gargalo resolvido, com a solução implantada e os indicadores comparados ant
 #Eficiência #Automação #Processos
 ```
 Primeiro comentário: `https://www.v2o5.com.br/diagnostico?utm_source=linkedin&utm_medium=post&utm_campaign=semana-1&utm_content=sprint-por-dentro`
+
+### 12:00 · LinkedIn: Reel L1-20
+Arquivo `L1-20-v2.mp4` (vertical, o mesmo do Instagram) · Capa `capas/L1-20-v2.jpg`
+
+```
+Você digitou a mesma venda três vezes.
+Cena de exemplo.
+
+Cada dado digitado à mão em mais de um lugar é um erro esperando para acontecer. Integrar o sistema que você já usa com o site e o WhatsApp tira esse trabalho. Isso entra no desenho de uma solução em Sites & Integrações.
+
+Link do diagnóstico gratuito no primeiro comentário.
+
+#Automação #Integração #Processos
+```
+Primeiro comentário: `https://www.v2o5.com.br/diagnostico?utm_source=linkedin&utm_medium=reel&utm_campaign=semana-1&utm_content=L1-20`
 
 ### 14:00 · Reel L1-02
 Arquivo `L1-02-v2.mp4` · Capa `capas/L1-02-v2.jpg`
@@ -330,7 +360,7 @@ Arquivos `dor-sistemas-separados-01.png` a `dor-sistemas-separados-07.png` · In
 ```
 Sistemas que não conversam: onde você digita duas vezes? Cinco sinais para conferir na sua empresa.
 
-Cada dado digitado à mão em dois lugares é um erro esperando para acontecer. Integrar o sistema que você já usa com o site e o WhatsApp tira esse trabalho. Sprint de Eficiência, a partir de R$ 3.900.
+Cada dado digitado à mão em mais de um lugar é um erro esperando para acontecer. Integrar o sistema que você já usa com o site e o WhatsApp tira esse trabalho. Sprint de Eficiência, a partir de R$ 3.900.
 
 Salve este carrossel para conferir com a equipe e envie para quem cuida disso.
 

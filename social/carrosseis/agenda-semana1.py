@@ -60,7 +60,7 @@ C = {
   "Lead que esfria no WhatsApp: onde a conversa trava?\n\nCinco sinais para conferir: a primeira resposta demora, ninguém sabe quem responde, conversas ficam paradas, o contato some sem retomada e a origem do cliente é desconhecida. Quem reconhece dois ou mais costuma ter um gargalo claro no atendimento. O diagnóstico gratuito de 45 minutos começa por aí.",
   "#Atendimento #WhatsAppBusiness #Vendas"),
  "dor-sistemas-separados": ("Sistemas que não conversam",
-  "Sistemas que não conversam: onde você digita duas vezes? Cinco sinais para conferir na sua empresa.\n\nCada dado digitado à mão em dois lugares é um erro esperando para acontecer. Integrar o sistema que você já usa com o site e o WhatsApp tira esse trabalho. Sprint de Eficiência, a partir de R$ 3.900.",
+  "Sistemas que não conversam: onde você digita duas vezes? Cinco sinais para conferir na sua empresa.\n\nCada dado digitado à mão em mais de um lugar é um erro esperando para acontecer. Integrar o sistema que você já usa com o site e o WhatsApp tira esse trabalho. Sprint de Eficiência, a partir de R$ 3.900.",
   "#v2o5 #automacao #integracaodesistemas #processos #produtividade #pme",
   "Sistemas que não conversam: onde você digita duas vezes?\n\nCinco sinais: o mesmo dado em dois lugares, planilha e sistema com números diferentes, site, WhatsApp e CRM sem troca de informação, processo guardado na cabeça de uma pessoa e processo que para quando ela falta. O diagnóstico gratuito de 45 minutos identifica o gargalo que mais pesa e recomenda por onde começar.",
   "#Integração #Processos #Automação"),
@@ -99,13 +99,19 @@ plano = [
 horas = ["08:30", "11:30", "14:00", "17:30", "20:00"]
 linkedin = {0: "diagnostico-diferencial", 1: "sites-por-dentro", 2: "sprint-por-dentro"}
 
+# reels no LinkedIn (vídeo vertical, sem link na bio: o endereço vai no primeiro comentário)
+linkedin_reels = {
+    1: ("L1-13", "Muito site recebe o pedido e deixa ele parado numa caixa de entrada. O cliente esperou, ninguém respondeu e ele procurou outro. O caminho do formulário até uma pessoa precisa estar desenhado. É um dos pontos que olhamos no diagnóstico gratuito de 45 minutos.", "#Vendas #Atendimento #Sites"),
+    2: ("L1-20", "Cada dado digitado à mão em mais de um lugar é um erro esperando para acontecer. Integrar o sistema que você já usa com o site e o WhatsApp tira esse trabalho. Isso entra no desenho de uma solução em Sites & Integrações.", "#Automação #Integração #Processos"),
+}
+
 def link(src, med, cont, dest=BASE):
     return f"{dest}?utm_source={src}&utm_medium={med}&utm_campaign=semana-1&utm_content={cont}"
 
 linhas = []
 md = ["# Semana 1: 3 reels e 2 carrosséis por dia (terça 01/12 a sábado 05/12/2026)\n"]
 md.append("Horários de Brasília. Cada dia alterna reel, carrossel, reel, carrossel, reel. Dos 25 reels prontos, 15 entram nesta semana; os outros 10 (L1-03, 05, 06, 09, 12, 15, 16, 18, 19 e 25) seguem para a semana de 08/12. Arquivos: reels em `L1-XX-v2.mp4` (L1-01, 07, 20, 24 e 25 na revisão `-v2.1.mp4`) com capa `capas/L1-XX-v2.jpg`; carrosséis no zip `carrosseis-semana-1.zip`, em três pastas, porque a chamada muda por rede: `instagram/<nome>-01.png` a `-07.png` (chamada \"link na bio\"), `facebook/<nome>-01.png` a `-07.png` (\"link na legenda\") e `linkedin/<nome>.pdf` (documento, com o endereço na chamada e \"link no primeiro comentário\"). O link da bio muda por dia (`utm_content=L1-D1` a `L1-D5`, em `lote-1-agenda.md`).\n")
-md.append("Facebook: o primeiro reel (08:30) e o primeiro carrossel (11:30) de cada dia, como reel e como álbum. LinkedIn: um carrossel em PDF por dia de terça a quinta, às 10:00, com o link no primeiro comentário.\n")
+md.append("Facebook: o primeiro reel (08:30) e o primeiro carrossel (11:30) de cada dia, como reel e como álbum. LinkedIn: um carrossel em PDF por dia de terça a quinta, às 10:00, e dois reels (L1-13 na quarta e L1-20 na quinta, às 12:00), com o link no primeiro comentário.\n")
 for k, d in enumerate(dias):
     md.append(f"## {nomes[k].capitalize()} {d.strftime('%d/%m')}\n")
     for i, item in enumerate(plano[k]):
@@ -131,6 +137,11 @@ for k, d in enumerate(dias):
             t, texto, tags, li, litags = C[n]
             md.append(f"### 10:00 · LinkedIn: {t}\nDocumento `linkedin/{n}.pdf` (título do documento: \"V2O5: {t.lower()}\")\n\n```\n{li}\n\n{litags}\n```\nPrimeiro comentário: `{link('linkedin', 'post', n)}`\n")
             linhas.append(dict(data=d.isoformat(), dia=nomes[k], hora="10:00", rede="LinkedIn", tipo="carrossel (PDF)", codigo=n, arquivos=f"linkedin/{n}.pdf", capa="", legenda=f"{li}\n\n{litags}", legenda_facebook="", comentario=link('linkedin', 'post', n)))
+        if i == 1 and k in linkedin_reels:
+            c, corpo, tags_li = linkedin_reels[k]
+            leg = f"{abertura_v2(c)}\n\n{corpo}\n\nLink do diagnóstico gratuito no primeiro comentário.\n\n{tags_li}"
+            md.append(f"### 12:00 · LinkedIn: Reel {c}\nArquivo `{c}-v2.mp4` (vertical, o mesmo do Instagram) · Capa `capas/{c}-v2.jpg`\n\n```\n{leg}\n```\nPrimeiro comentário: `{link('linkedin', 'reel', c)}`\n")
+            linhas.append(dict(data=d.isoformat(), dia=nomes[k], hora="12:00", rede="LinkedIn", tipo="reel", codigo=c, arquivos=f"{c}-v2.mp4", capa=f"capas/{c}-v2.jpg", legenda=leg, legenda_facebook="", comentario=link('linkedin', 'reel', c)))
 campos = ["data", "dia", "hora", "rede", "tipo", "codigo", "arquivos", "capa", "legenda", "legenda_facebook", "comentario"]
 with open(os.path.join(raiz, "docs/reels/semana-1-agenda.csv"), "w", newline="", encoding="utf-8") as f:
     w = csv.DictWriter(f, fieldnames=campos)
