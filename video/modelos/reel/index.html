@@ -344,12 +344,12 @@
         $("#prova").style.cssText = "top:410px;font-size:66px;";
         $("#tela").style.cssText = "display:block;top:540px;left:0;right:0;height:643px;border-left:0;border-right:0;";
         $("#legendas").style.cssText = "top:1235px;height:250px;";
-        document.querySelectorAll("#legendas p").forEach((q) => (q.style.fontSize = "50px"));
-        digitar($("#prova"), [{ t: String(v.prova) }], G + 0.1, 0.035, true);
+        if (!V2) document.querySelectorAll("#legendas p").forEach((q) => (q.style.fontSize = "50px"));
+        if (!V2) digitar($("#prova"), [{ t: String(v.prova) }], G + 0.1, 0.035, true);
         if (v.print) $("#tela img").src = v.print; else $("#tela img").style.display = "none";
         tl.fromTo("#tela", { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, G + 0.1);
         legendar();
-        document.querySelectorAll("#legendas p").forEach((q) => (q.style.fontSize = "50px"));
+        if (!V2) document.querySelectorAll("#legendas p").forEach((q) => (q.style.fontSize = "50px"));
         ["#prova", "#tela"].forEach((q) => tl.to(q, { opacity: 0, duration: 0.25 }, E - 0.6));
       } else {
         digitar($("#prova"), [{ t: String(v.prova) }], G + 0.1, 0.035, true);
