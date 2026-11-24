@@ -48,3 +48,6 @@ Limite: eu não ouvi o áudio (só medi nível e conferi os quadros); a escolha 
 - Animar os reels de motion (a cena do meio hoje é só texto) e gravar vídeo, não só imagem, das telas.
 - L1-07 (conversa de exemplo do agente) e L1-09 (link com etiqueta) pedem animação própria, sem tela do site.
 - Aprovar o visual do modelo com o Dyones (papel, tinta e âmbar da marca).
+
+## Música de fundo (24/11/2026)
+`scripts/musica.sh <reel.mp4> <trilha.mp3> <saida.mp4> [inicio_s=10] [nivel_lufs=-21]` mistura uma trilha por baixo do áudio de efeitos de um reel já renderizado, sem refazer o vídeo: a trilha é nivelada, cai sozinha quando há efeito (sidechain), entra e sai em fade, e o resultado volta a -14 LUFS. As trilhas ficam fora do repositório (licença é conferida pelo Dyones; padrão do lote 1: "minimal electronica", do banco de áudio livre que ele escolheu). Os arquivos finais saem como `L1-XX-v2-musica.mp4`.
