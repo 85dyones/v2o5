@@ -448,6 +448,7 @@
         const mp = Math.max(...[N.punch.linha1, N.punch.linha2].map((s) => String(s).replace(/[\[\]]/g, "").length));
         $("#punch").style.fontSize = (mp > 22 ? 76 : mp > 18 ? 84 : mp > 14 ? 92 : 100) + "px";
         $("#compart span").textContent = N.compart + " →";
+        $("#compart span").style.fontSize = (N.compart.length > 46 ? 30 : N.compart.length > 42 ? 34 : 40) + "px"; // a pílula cabe numa linha só
         digitarMarcado($("#punch"), N.punch.linha1 + "|" + N.punch.linha2, E + 0.25, 0.03, { pausaBr: 0.4, pausa: 0.3 });
         tl.fromTo("#compart", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.4, ease: "power3.out" }, E + 2.6);
         tl.to(["#punch", "#compart"], { opacity: 0, duration: 0.25 }, EL - 0.3);
