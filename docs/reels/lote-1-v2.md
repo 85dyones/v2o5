@@ -230,7 +230,7 @@ Legenda de leitura: *cena de exemplo* = a nota discreta no gancho porque o reel 
 - **Beat 2:** Terça: digitou na [planilha].
 - **Beat 3:** Quarta: digitou no [WhatsApp].
 - **Beat 4:** Integrado: digitou [uma vez].
-- **Frase de efeito:** Digitar à mão / é erro esperando para acontecer.
+- **Frase de efeito:** Digitar à mão / é erro esperando / para acontecer.
 - **Compartilhar:** Envie para quem digita tudo duas vezes
 
 ## L1-21 · Bastidor do diagnóstico · cena: tela
