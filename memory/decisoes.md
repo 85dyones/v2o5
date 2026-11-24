@@ -2,6 +2,11 @@
 
 Log datado. Decisão nova entra no topo do dia; decisão revogada fica riscada com a data da troca.
 
+## 24/11/2026 (reels no padrão do "reel dos 4 minutos". Dyones: "e se invertermos, tentar aqui trazer o padrão de edição do vídeo modelo, para os reels que já fizemos?"; depois: "o texto em bloco voltou, não há diferenciação ou tempo de espera entre as sentenças e os destaques")
+- Os 25 reels do lote 1 foram refeitos no padrão da referência (`docs/reels/referencia/`): gancho escuro digitado com a nota "Cena de exemplo" onde há cenário ilustrativo, beats curtos com um destaque, frase de efeito em fundo escuro, chamada de compartilhar com nome e logo no fim; sem narração, com efeitos e áudio perto de -17,7 LUFS. Textos em `video/v2.json` e `docs/reels/lote-1-v2.md`; arquivos `L1-XX.v2.mp4`. A versão anterior continua no repositório.
+- Regra de ritmo (Dyones): todo texto macro é digitado, com pausa entre as frases, e o destaque âmbar entra depois, como marca-texto; nada de bloco que aparece de uma vez.
+- A nota "Cena de exemplo" aparece no gancho dos reels com horários, números ou conversas ilustrativos; o L1-03 mostra a fonte real da Motors e segue "em até 1 minuto". O contraste da "Outra empresa" (segundo cartão de conversa) do reel de referência ainda não foi reproduzido.
+
 ## 18/11/2026 (100 reels de teste; lote 1 pronto. Dyones: "olhei todos, estão aprováveis"; sobre a voz: "vou narrar eu mesmo ou clonar minha voz")
 - Plano dos 100 reels adaptado do framework do PDF (`docs/2026-11-17-plano-100-reels-de-teste.md`, arquivos de trabalho em `docs/reels/`). Começa pelos lotes 1 e 2; o reel de teste do Instagram exige 200 seguidores (a conta tinha 7), então os lotes saem como reel comum. Cronograma: lote 1 de 01/12 a 05/12, lote 2 de 08/12 a 12/12, portão em 14/12.
 - Promessa única, do Dyones: "Descubra onde sua empresa pode funcionar melhor. Gratuitamente." Aplicada em `/diagnostico` (PR #52): subtítulo "Em 45 minutos, identificamos o gargalo que mais pesa na sua empresa e recomendamos por onde começar." (no escopo do ponto único, sem prometer mapeamento completo), botão "Pedir diagnóstico gratuito" e microtexto "Sem custo e sem compromisso de contratação."
