@@ -14,10 +14,10 @@
   "L1-05": { "tipo": "grade", "tag": "EXEMPLO · 24 conversas", "linhas": 4, "colunas": 6, "marcadas": [2, 5, 7, 10, 13, 14, 17, 20, 22], "aMarcar": 1, "valor": "?", "rotulo": "sem resposta esta semana", "aValor": 0 },
   "L1-07": { "tipo": "chat", "nome": "Cliente", "msgs": [
     { "de": "c", "texto": "Oi! Vocês fazem desconto à vista?", "a": 0.3 },
-    { "de": "a", "texto": "Oi! Posso ajudar. Qual produto você quer?", "a": 0.9 },
-    { "de": "c", "texto": "O mais vendido. E o desconto?", "a": 1.2 },
-    { "de": "a", "texto": "Desconto quem decide é a equipe. Vou chamar uma pessoa.", "a": 1.5 } ],
-    "selo": { "texto": "Passou para a equipe", "a": 1.85 } },
+    { "de": "a", "texto": "Oi, tudo bem? Claro, vou te ajudar. Qual carro te interessou?", "a": 0.9 },
+    { "de": "c", "texto": "O Corolla. E o desconto?", "a": 1.2 },
+    { "de": "a", "texto": "Anotei seu interesse no Corolla. Vou chamar um consultor para combinar o melhor valor com você.", "a": 1.5 } ],
+    "selo": { "texto": "Consultor chamado", "a": 1.85 } },
   "L1-09": { "tipo": "caminho", "nos": [
     { "rotulo": "Post com link", "sub": "o link leva a etiqueta de origem", "a": 0 },
     { "rotulo": "Pedido de diagnóstico", "sub": "a etiqueta vai junto", "a": 1 },

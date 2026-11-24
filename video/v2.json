@@ -1,7 +1,7 @@
 {
   "L1-01": {
     "hook": { "texto": "Seu cliente pediu o preço às 14h02.|[Quando você respondeu?]", "nota": "Cena de exemplo" },
-    "beats": ["Ele perguntou o preço.", "Você estava [ocupado].", "Ninguém [respondeu].", "Ele já tinha [fechado]."],
+    "beats": ["Ele perguntou o preço.", "Você estava [ocupado].", "Ninguém [respondeu].", "Quando você [voltou],", "ele já tinha [fechado]."],
     "punch": { "linha1": "Seu preço nem entrou", "linha2": "na [disputa]." },
     "compartilhar": "Envie para quem deixa cliente esperando"
   },
@@ -38,8 +38,8 @@
   },
   "L1-07": {
     "hook": { "texto": "O cliente pediu desconto.|[Quem respondeu?]", "nota": "Cena de exemplo" },
-    "beats": ["Conversa de [exemplo].", "O agente responde e [chama uma pessoa].", "Na Motors, desde [21/10/2026]."],
-    "punch": { "linha1": "O agente responde.", "linha2": "A pessoa [decide]." },
+    "beats": ["Conversa de [exemplo].", "O agente acolhe e [chama o consultor].", "Na Motors, desde [21/10/2026]."],
+    "punch": { "linha1": "O agente acolhe.", "linha2": "O consultor [fecha]." },
     "compartilhar": "Envie para quem responde tudo sozinho"
   },
   "L1-08": {
@@ -127,15 +127,15 @@
   },
   "L1-24": {
     "hook": { "texto": "Por onde começar?|[A V2O5 escolhe com você.]" },
-    "beats": ["Primeiro: onde o cliente [se perde].", "Depois: o [impacto] desse ponto.", "Só então a [solução] que cabe.", "Você decide o [próximo passo]."],
+    "beats": ["Primeiro: onde o cliente [se perde].", "Depois: o [impacto] desse ponto.", "Só então a [solução] que cabe.", "Sem custo e sem [compromisso]."],
     "punch": { "linha1": "Você decide", "linha2": "o [próximo passo]." },
     "compartilhar": "Envie para quem não sabe por onde começar"
   },
   "L1-25": {
-    "hook": { "texto": "O que o diagnóstico|vai olhar na [sua empresa]?" },
-    "beats": ["Dois minutos de [formulário].", "Olhamos presença, atendimento, operação e [funil].", "Sem números? Descobrimos o que [medir]."],
-    "punch": { "linha1": "Você traz a dúvida.", "linha2": "A gente traz o [próximo passo]." },
-    "compartilhar": "Envie para quem quer saber por onde começar"
+    "hook": { "texto": "Em 45 minutos,|você descobre [por onde começar]." },
+    "beats": ["Analisamos como sua empresa [funciona].", "Achamos os [gargalos] e as oportunidades.", "Você sai com o [primeiro passo].", "Sem custo. Peça [agora]."],
+    "punch": { "linha1": "Peça seu diagnóstico", "linha2": "[gratuito] agora." },
+    "compartilhar": "Toque no link da bio e peça o seu"
   },
   "L1-13": {
     "hook": { "texto": "O cliente preencheu o formulário.|[Quem viu?]", "nota": "Cena de exemplo" },
@@ -152,7 +152,7 @@
   "L1-20": {
     "hook": { "texto": "Você digitou a mesma venda|[três vezes].", "nota": "Cena de exemplo" },
     "beats": ["Segunda: digitou no [sistema].", "Terça: digitou na [planilha].", "Quarta: digitou no [WhatsApp].", "Integrado: digitou [uma vez]."],
-    "punch": { "linha1": "Digitar à mão", "linha2": "é [erro esperando]." },
+    "punch": { "linha1": "Digitar à mão", "linha2": "é erro esperando [para acontecer]." },
     "compartilhar": "Envie para quem digita tudo duas vezes",
     "cfg": { "tipo": "comparar", "colunas": [
       { "titulo": "Sistemas separados", "a": 0, "itens": [ { "texto": "Digita no sistema", "a": 0 }, { "texto": "Digita de novo na planilha", "a": 1 }, { "texto": "Digita de novo no WhatsApp", "a": 2 } ] },

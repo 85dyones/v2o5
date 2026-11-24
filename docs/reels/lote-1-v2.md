@@ -12,7 +12,8 @@ Legenda de leitura: *cena de exemplo* = a nota discreta no gancho porque o reel 
 - **Beat 1:** Ele perguntou o preço.
 - **Beat 2:** Você estava [ocupado].
 - **Beat 3:** Ninguém [respondeu].
-- **Beat 4:** Ele já tinha [fechado].
+- **Beat 4:** Quando você [voltou],
+- **Beat 5:** ele já tinha [fechado].
 - **Frase de efeito:** Seu preço nem entrou / na disputa.
 - **Compartilhar:** Envie para quem deixa cliente esperando
 
@@ -81,9 +82,9 @@ Legenda de leitura: *cena de exemplo* = a nota discreta no gancho porque o reel 
 - **Gancho v2:** O cliente pediu desconto. / Quem respondeu?  
   *nota na tela: Cena de exemplo*
 - **Beat 1:** Conversa de [exemplo].
-- **Beat 2:** O agente responde e [chama uma pessoa].
+- **Beat 2:** O agente acolhe e [chama o consultor].
 - **Beat 3:** Na Motors, desde [21/10/2026].
-- **Frase de efeito:** O agente responde. / A pessoa decide.
+- **Frase de efeito:** O agente acolhe. / O consultor fecha.
 - **Compartilhar:** Envie para quem responde tudo sozinho
 
 ## L1-08 · Demonstração · cena: tela
@@ -229,7 +230,7 @@ Legenda de leitura: *cena de exemplo* = a nota discreta no gancho porque o reel 
 - **Beat 2:** Terça: digitou na [planilha].
 - **Beat 3:** Quarta: digitou no [WhatsApp].
 - **Beat 4:** Integrado: digitou [uma vez].
-- **Frase de efeito:** Digitar à mão / é erro esperando.
+- **Frase de efeito:** Digitar à mão / é erro esperando para acontecer.
 - **Compartilhar:** Envie para quem digita tudo duas vezes
 
 ## L1-21 · Bastidor do diagnóstico · cena: tela
@@ -271,17 +272,18 @@ Legenda de leitura: *cena de exemplo* = a nota discreta no gancho porque o reel 
 - **Beat 1:** Primeiro: onde o cliente [se perde].
 - **Beat 2:** Depois: o [impacto] desse ponto.
 - **Beat 3:** Só então a [solução] que cabe.
-- **Beat 4:** Você decide o [próximo passo].
+- **Beat 4:** Sem custo e sem [compromisso].
 - **Frase de efeito:** Você decide / o próximo passo.
 - **Compartilhar:** Envie para quem não sabe por onde começar
 
 ## L1-25 · Bastidor do diagnóstico · cena: tela
 
 - **Gancho (v1):** Quer saber o que o diagnóstico vai olhar na sua empresa?
-- **Gancho v2:** O que o diagnóstico / vai olhar na sua empresa?
-- **Beat 1:** Dois minutos de [formulário].
-- **Beat 2:** Olhamos presença, atendimento, operação e [funil].
-- **Beat 3:** Sem números? Descobrimos o que [medir].
-- **Frase de efeito:** Você traz a dúvida. / A gente traz o próximo passo.
-- **Compartilhar:** Envie para quem quer saber por onde começar
+- **Gancho v2:** Em 45 minutos, / você descobre por onde começar.
+- **Beat 1:** Analisamos como sua empresa [funciona].
+- **Beat 2:** Achamos os [gargalos] e as oportunidades.
+- **Beat 3:** Você sai com o [primeiro passo].
+- **Beat 4:** Sem custo. Peça [agora].
+- **Frase de efeito:** Peça seu diagnóstico / gratuito agora.
+- **Compartilhar:** Toque no link da bio e peça o seu
 
