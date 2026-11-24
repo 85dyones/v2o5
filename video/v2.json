@@ -152,7 +152,7 @@
   "L1-20": {
     "hook": { "texto": "Você digitou a mesma venda|[três vezes].", "nota": "Cena de exemplo" },
     "beats": ["Segunda: digitou no [sistema].", "Terça: digitou na [planilha].", "Quarta: digitou no [WhatsApp].", "Integrado: digitou [uma vez]."],
-    "punch": { "linha1": "Digitar à mão", "linha2": "é erro esperando [para acontecer]." },
+    "punch": { "linha1": "Digitar à mão", "linha2": "é erro esperando|[para acontecer]." },
     "compartilhar": "Envie para quem digita tudo duas vezes",
     "cfg": { "tipo": "comparar", "colunas": [
       { "titulo": "Sistemas separados", "a": 0, "itens": [ { "texto": "Digita no sistema", "a": 0 }, { "texto": "Digita de novo na planilha", "a": 1 }, { "texto": "Digita de novo no WhatsApp", "a": 2 } ] },
