@@ -2,7 +2,7 @@
 """Gera a agenda da semana 1 (01/12 a 05/12/2026): 3 reels e 2 carrosséis por dia, com as legendas das três redes.
 Saída: docs/reels/semana-1-agenda.md e docs/reels/semana-1-agenda.csv
 """
-import csv, datetime, os
+import csv, datetime, os, re
 
 raiz = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..")
 BASE = "https://www.v2o5.com.br/diagnostico"
@@ -16,11 +16,21 @@ with open(os.path.join(raiz, "docs/reels/lote-1-agenda.csv"), encoding="utf-8") 
 with open(os.path.join(raiz, "docs/reels/lote-1.csv"), encoding="utf-8") as f:
     ganchos = {r["codigo"]: r["gancho"] for r in csv.DictReader(f)}
 
+import json
+v2 = json.load(open(os.path.join(raiz, "video/v2.json"), encoding="utf-8"))
+
+def abertura_v2(c):
+    # primeira linha da legenda = gancho do reel v2 (colchetes e barras saem)
+    t = v2[c]["hook"]["texto"].replace("[", "").replace("]", "").replace("|", " ")
+    t = re.sub(r"\s+", " ", t).strip()
+    return t + ("\nCena de exemplo." if v2[c]["hook"].get("nota") == "Cena de exemplo" else "")
+
 def legenda_reel(c):
     if c in reels:
-        return reels[c]["legenda"]
+        resto = reels[c]["legenda"].split("\n\n", 1)
+        return abertura_v2(c) + ("\n\n" + resto[1] if len(resto) > 1 else "")
     extra = "\nFonte do número: Motors Store, de 21/10 a 17/11/2026." if c == "L1-03" else ""
-    return f"{ganchos[c]}{extra}\n\n{CTA_IG}\n\n#v2o5"
+    return f"{abertura_v2(c)}{extra}\n\n{CTA_IG}\n\n#v2o5"
 
 # carrosséis: (título, texto da legenda, hashtags do Instagram, texto do LinkedIn, hashtags do LinkedIn)
 C = {
@@ -94,7 +104,7 @@ def link(src, med, cont, dest=BASE):
 
 linhas = []
 md = ["# Semana 1: 3 reels e 2 carrosséis por dia (terça 01/12 a sábado 05/12/2026)\n"]
-md.append("Horários de Brasília. Cada dia alterna reel, carrossel, reel, carrossel, reel. Dos 25 reels prontos, 15 entram nesta semana; os outros 10 (L1-03, 05, 06, 09, 12, 15, 16, 18, 19 e 25) seguem para a semana de 08/12. Arquivos: reels em `L1-XX.mp4` com capa `capas/L1-XX.jpg`; carrosséis no zip `carrosseis-semana-1.zip`, em três pastas, porque a chamada muda por rede: `instagram/<nome>-01.png` a `-07.png` (chamada \"link na bio\"), `facebook/<nome>-01.png` a `-07.png` (\"link na legenda\") e `linkedin/<nome>.pdf` (documento, com o endereço na chamada e \"link no primeiro comentário\"). O link da bio muda por dia (`utm_content=L1-D1` a `L1-D5`, em `lote-1-agenda.md`).\n")
+md.append("Horários de Brasília. Cada dia alterna reel, carrossel, reel, carrossel, reel. Dos 25 reels prontos, 15 entram nesta semana; os outros 10 (L1-03, 05, 06, 09, 12, 15, 16, 18, 19 e 25) seguem para a semana de 08/12. Arquivos: reels em `L1-XX-v2.mp4` (L1-01, 07, 20, 24 e 25 na revisão `-v2.1.mp4`) com capa `capas/L1-XX-v2.jpg`; carrosséis no zip `carrosseis-semana-1.zip`, em três pastas, porque a chamada muda por rede: `instagram/<nome>-01.png` a `-07.png` (chamada \"link na bio\"), `facebook/<nome>-01.png` a `-07.png` (\"link na legenda\") e `linkedin/<nome>.pdf` (documento, com o endereço na chamada e \"link no primeiro comentário\"). O link da bio muda por dia (`utm_content=L1-D1` a `L1-D5`, em `lote-1-agenda.md`).\n")
 md.append("Facebook: o primeiro reel (08:30) e o primeiro carrossel (11:30) de cada dia, como reel e como álbum. LinkedIn: um carrossel em PDF por dia de terça a quinta, às 10:00, com o link no primeiro comentário.\n")
 for k, d in enumerate(dias):
     md.append(f"## {nomes[k].capitalize()} {d.strftime('%d/%m')}\n")
@@ -102,8 +112,8 @@ for k, d in enumerate(dias):
         h = horas[i]
         if i % 2 == 0:
             c = item
-            md.append(f"### {h} · Reel {c}{' (também no Facebook)' if i == 0 else ''}\nArquivo `{c}.mp4` · Capa `capas/{c}.jpg`\n\n```\n{legenda_reel(c)}\n```\n")
-            linhas.append(dict(data=d.isoformat(), dia=nomes[k], hora=h, rede="Instagram" + (" + Facebook" if i == 0 else ""), tipo="reel", codigo=c, arquivos=f"{c}.mp4", capa=f"capas/{c}.jpg", legenda=legenda_reel(c)))
+            md.append(f"### {h} · Reel {c}{' (também no Facebook)' if i == 0 else ''}\nArquivo `{c}-v2.mp4` · Capa `capas/{c}-v2.jpg`\n\n```\n{legenda_reel(c)}\n```\n")
+            linhas.append(dict(data=d.isoformat(), dia=nomes[k], hora=h, rede="Instagram" + (" + Facebook" if i == 0 else ""), tipo="reel", codigo=c, arquivos=f"{c}-v2.mp4", capa=f"capas/{c}-v2.jpg", legenda=legenda_reel(c)))
         else:
             n = item
             t, texto, tags, li, litags = C[n]

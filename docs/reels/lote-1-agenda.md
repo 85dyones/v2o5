@@ -218,7 +218,7 @@ Arquivo: `L1-03.mp4` · Capa: `capas/L1-03.jpg`
 
 Legenda do Instagram:
 ```
-Antes: lead esfriando. Depois: 93 de 100 respondidos em um minuto.
+Antes: lead esfriando. Depois: 93 de 100 com a primeira resposta em até 1 minuto.
 Fonte do número: Motors Store, de 21/10 a 17/11/2026.
 
 Descubra onde sua empresa pode funcionar melhor. Gratuitamente.

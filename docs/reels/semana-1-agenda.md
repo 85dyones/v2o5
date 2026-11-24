@@ -1,16 +1,17 @@
 # Semana 1: 3 reels e 2 carrosséis por dia (terça 01/12 a sábado 05/12/2026)
 
-Horários de Brasília. Cada dia alterna reel, carrossel, reel, carrossel, reel. Dos 25 reels prontos, 15 entram nesta semana; os outros 10 (L1-03, 05, 06, 09, 12, 15, 16, 18, 19 e 25) seguem para a semana de 08/12. Arquivos: reels em `L1-XX.mp4` com capa `capas/L1-XX.jpg`; carrosséis no zip `carrosseis-semana-1.zip`, em três pastas, porque a chamada muda por rede: `instagram/<nome>-01.png` a `-07.png` (chamada "link na bio"), `facebook/<nome>-01.png` a `-07.png` ("link na legenda") e `linkedin/<nome>.pdf` (documento, com o endereço na chamada e "link no primeiro comentário"). O link da bio muda por dia (`utm_content=L1-D1` a `L1-D5`, em `lote-1-agenda.md`).
+Horários de Brasília. Cada dia alterna reel, carrossel, reel, carrossel, reel. Dos 25 reels prontos, 15 entram nesta semana; os outros 10 (L1-03, 05, 06, 09, 12, 15, 16, 18, 19 e 25) seguem para a semana de 08/12. Arquivos: reels em `L1-XX-v2.mp4` (L1-01, 07, 20, 24 e 25 na revisão `-v2.1.mp4`) com capa `capas/L1-XX-v2.jpg`; carrosséis no zip `carrosseis-semana-1.zip`, em três pastas, porque a chamada muda por rede: `instagram/<nome>-01.png` a `-07.png` (chamada "link na bio"), `facebook/<nome>-01.png` a `-07.png` ("link na legenda") e `linkedin/<nome>.pdf` (documento, com o endereço na chamada e "link no primeiro comentário"). O link da bio muda por dia (`utm_content=L1-D1` a `L1-D5`, em `lote-1-agenda.md`).
 
 Facebook: o primeiro reel (08:30) e o primeiro carrossel (11:30) de cada dia, como reel e como álbum. LinkedIn: um carrossel em PDF por dia de terça a quinta, às 10:00, com o link no primeiro comentário.
 
 ## Terça 01/12
 
 ### 08:30 · Reel L1-01 (também no Facebook)
-Arquivo `L1-01.mp4` · Capa `capas/L1-01.jpg`
+Arquivo `L1-01-v2.mp4` · Capa `capas/L1-01-v2.jpg`
 
 ```
-Seu cliente pediu preço e sumiu. Sabe por quê?
+Seu cliente pediu o preço às 14h02. Quando você respondeu?
+Cena de exemplo.
 
 Descubra onde sua empresa pode funcionar melhor. Gratuitamente.
 Link na bio.
@@ -54,7 +55,7 @@ O diagnóstico gratuito de 45 minutos é a nossa porta de entrada: olhamos prese
 Primeiro comentário: `https://www.v2o5.com.br/diagnostico?utm_source=linkedin&utm_medium=post&utm_campaign=semana-1&utm_content=diagnostico-diferencial`
 
 ### 14:00 · Reel L1-21
-Arquivo `L1-21.mp4` · Capa `capas/L1-21.jpg`
+Arquivo `L1-21-v2.mp4` · Capa `capas/L1-21-v2.jpg`
 
 ```
 45 minutos para achar o que trava a sua venda.
@@ -80,10 +81,10 @@ Link na bio.
 ```
 
 ### 20:00 · Reel L1-17
-Arquivo `L1-17.mp4` · Capa `capas/L1-17.jpg`
+Arquivo `L1-17-v2.mp4` · Capa `capas/L1-17-v2.jpg`
 
 ```
-Orçamento escondido ou preço público? Aqui o preço aparece.
+Orçamento escondido ou preço público?
 
 Descubra onde sua empresa pode funcionar melhor. Gratuitamente.
 Link na bio.
@@ -94,10 +95,10 @@ Link na bio.
 ## Quarta 02/12
 
 ### 08:30 · Reel L1-11 (também no Facebook)
-Arquivo `L1-11.mp4` · Capa `capas/L1-11.jpg`
+Arquivo `L1-11-v2.mp4` · Capa `capas/L1-11-v2.jpg`
 
 ```
-Seu site está no ar. Você sabe quem entrou nele?
+Seu site está no ar. Quem entrou nele?
 
 Descubra onde sua empresa pode funcionar melhor. Gratuitamente.
 Link na bio.
@@ -141,10 +142,10 @@ Três pacotes: Landing Page (R$ 2.900), Site Personalizado (R$ 5.900) e Site Con
 Primeiro comentário: `https://www.v2o5.com.br/diagnostico?utm_source=linkedin&utm_medium=post&utm_campaign=semana-1&utm_content=sites-por-dentro`
 
 ### 14:00 · Reel L1-08
-Arquivo `L1-08.mp4` · Capa `capas/L1-08.jpg`
+Arquivo `L1-08-v2.mp4` · Capa `capas/L1-08-v2.jpg`
 
 ```
-Um site que grava o lead no CRM. Veja como.
+O visitante preencheu o formulário. Onde o dado foi parar?
 
 Descubra onde sua empresa pode funcionar melhor. Gratuitamente.
 Link na bio.
@@ -169,10 +170,11 @@ Link na bio.
 ```
 
 ### 20:00 · Reel L1-07
-Arquivo `L1-07.mp4` · Capa `capas/L1-07.jpg`
+Arquivo `L1-07-v2.mp4` · Capa `capas/L1-07-v2.jpg`
 
 ```
-Este é um agente de IA respondendo um cliente no WhatsApp.
+O cliente pediu desconto. Quem respondeu?
+Cena de exemplo.
 
 Descubra onde sua empresa pode funcionar melhor. Gratuitamente.
 Link na bio.
@@ -183,7 +185,7 @@ Link na bio.
 ## Quinta 03/12
 
 ### 08:30 · Reel L1-22 (também no Facebook)
-Arquivo `L1-22.mp4` · Capa `capas/L1-22.jpg`
+Arquivo `L1-22-v2.mp4` · Capa `capas/L1-22-v2.jpg`
 
 ```
 O que a V2O5 olha primeiro numa empresa.
@@ -230,10 +232,11 @@ Um gargalo resolvido, com a solução implantada e os indicadores comparados ant
 Primeiro comentário: `https://www.v2o5.com.br/diagnostico?utm_source=linkedin&utm_medium=post&utm_campaign=semana-1&utm_content=sprint-por-dentro`
 
 ### 14:00 · Reel L1-02
-Arquivo `L1-02.mp4` · Capa `capas/L1-02.jpg`
+Arquivo `L1-02-v2.mp4` · Capa `capas/L1-02-v2.jpg`
 
 ```
-Mais anúncio não resolve venda que se perde no WhatsApp.
+Você investe em mais anúncio. Quem já chegou foi respondido?
+Cena de exemplo.
 
 Descubra onde sua empresa pode funcionar melhor. Gratuitamente.
 Link na bio.
@@ -258,10 +261,11 @@ Link na bio.
 ```
 
 ### 20:00 · Reel L1-13
-Arquivo `L1-13.mp4` · Capa `capas/L1-13.jpg`
+Arquivo `L1-13-v2.mp4` · Capa `capas/L1-13-v2.jpg`
 
 ```
-Formulário que cai num e-mail esquecido é lead perdido.
+O cliente preencheu o formulário. Quem viu?
+Cena de exemplo.
 
 Descubra onde sua empresa pode funcionar melhor. Gratuitamente.
 Link na bio.
@@ -272,10 +276,10 @@ Link na bio.
 ## Sexta 04/12
 
 ### 08:30 · Reel L1-10 (também no Facebook)
-Arquivo `L1-10.mp4` · Capa `capas/L1-10.jpg`
+Arquivo `L1-10-v2.mp4` · Capa `capas/L1-10-v2.jpg`
 
 ```
-Veja o que acontece nos 45 minutos do diagnóstico.
+Você sabe o que acontece nos 45 minutos?
 
 Descubra onde sua empresa pode funcionar melhor. Gratuitamente.
 Link na bio.
@@ -309,10 +313,10 @@ Descubra onde sua empresa pode funcionar melhor. Gratuitamente: https://www.v2o5
 ```
 
 ### 14:00 · Reel L1-14
-Arquivo `L1-14.mp4` · Capa `capas/L1-14.jpg`
+Arquivo `L1-14-v2.mp4` · Capa `capas/L1-14-v2.jpg`
 
 ```
-WhatsApp sem dono vira conversa que ninguém responde.
+Todo mundo pode responder. Ninguém respondeu.
 
 Descubra onde sua empresa pode funcionar melhor. Gratuitamente.
 Link na bio.
@@ -337,10 +341,11 @@ Link na bio.
 ```
 
 ### 20:00 · Reel L1-20
-Arquivo `L1-20.mp4` · Capa `capas/L1-20.jpg`
+Arquivo `L1-20-v2.mp4` · Capa `capas/L1-20-v2.jpg`
 
 ```
-Sistema que não conversa com o resto: você digita duas vezes.
+Você digitou a mesma venda três vezes.
+Cena de exemplo.
 
 Descubra onde sua empresa pode funcionar melhor. Gratuitamente.
 Link na bio.
@@ -351,10 +356,11 @@ Link na bio.
 ## Sábado 05/12
 
 ### 08:30 · Reel L1-23 (também no Facebook)
-Arquivo `L1-23.mp4` · Capa `capas/L1-23.jpg`
+Arquivo `L1-23-v2.mp4` · Capa `capas/L1-23-v2.jpg`
 
 ```
-Um problema por vez: é assim que a V2O5 começa.
+Mapear a empresa inteira? Um problema por vez.
+Cena de exemplo.
 
 Descubra onde sua empresa pode funcionar melhor. Gratuitamente.
 Link na bio.
@@ -388,10 +394,11 @@ Descubra onde sua empresa pode funcionar melhor. Gratuitamente: https://www.v2o5
 ```
 
 ### 14:00 · Reel L1-04
-Arquivo `L1-04.mp4` · Capa `capas/L1-04.jpg`
+Arquivo `L1-04-v2.mp4` · Capa `capas/L1-04-v2.jpg`
 
 ```
-Você está deixando o cliente esperando e nem percebe.
+Seu cliente esperou. Você nem percebeu.
+Cena de exemplo.
 
 Descubra onde sua empresa pode funcionar melhor. Gratuitamente.
 Link na bio.
@@ -416,10 +423,10 @@ Link na bio.
 ```
 
 ### 20:00 · Reel L1-24
-Arquivo `L1-24.mp4` · Capa `capas/L1-24.jpg`
+Arquivo `L1-24-v2.mp4` · Capa `capas/L1-24-v2.jpg`
 
 ```
-Como a V2O5 escolhe por onde começar.
+Por onde começar? A V2O5 escolhe com você.
 
 Descubra onde sua empresa pode funcionar melhor. Gratuitamente.
 Link na bio.
