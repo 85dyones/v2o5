@@ -63,8 +63,9 @@ function LinhaDePreco({ nome, preco, mensal }: { nome: string; preco: string; me
  * preço exato de cada um. A lista inteira fica aqui de propósito: é a tabela
  * que a skill `diagnostico-presenca` lê para montar a proposta e conferir
  * cada valor (`docs/2026-10-27-portfolio-no-site.md`, seção 6). O detalhe
- * de cada pacote mora na página da solução. `#titulo-sprint` continua
- * pousando no Sprint, destino de links antigos, da vitrine e do schema.
+ * de cada pacote mora na página da solução. Cada solução tem a âncora
+ * `#titulo-<id>`; desde 25/11/2026 o Atendimento com IA ocupa o lugar do
+ * Sprint (`#titulo-atendimento`).
  */
 export default function Pagina() {
   const comPreco = (texto: string) => texto.replace(/^a/, "A");
@@ -143,7 +144,7 @@ export default function Pagina() {
           <div className="grid gap-x-8 gap-y-12 lg:grid-cols-2">
             {OFERTAS.map((o) => (
               <div key={o.id}>
-                <h3 id={o.id === "sprint" ? "titulo-sprint" : `titulo-${o.id}`} className="titulo-cartao border-b-2 border-texto pb-3">
+                <h3 id={`titulo-${o.id}`} className="titulo-cartao border-b-2 border-texto pb-3">
                   {o.nome}
                 </h3>
                 <ul>

@@ -22,8 +22,6 @@ describe("a capa da home", () => {
   it("a abertura não traz canvas, 3D nem Motion: o mapa é HTML e CSS", () => {
     for (const arquivo of [
       "src/components/home/Hero.tsx",
-      "src/components/home/mapa/MapaDaAbertura.tsx",
-      "src/components/home/mapa/Estacoes.tsx",
     ]) {
       const codigo = semComentarios(ler(arquivo));
       expect(codigo, arquivo).not.toMatch(/<canvas|three|from "motion"|import\("motion"\)/);
@@ -44,10 +42,9 @@ describe("a capa da home", () => {
     }
   });
 
-  it("orquestrador e diagrama chegam perto da tela, não na carga", () => {
+  it("o orquestrador chega perto da tela, não na carga", () => {
     for (const arquivo of [
       "src/components/home/orquestrador/OrquestradorPreguicoso.tsx",
-      "src/components/home/diagrama/DiagramaPreguicoso.tsx",
     ]) {
       expect(semComentarios(ler(arquivo)), arquivo).toMatch(/const importar = \(\) => import\("\.\/\w+Interativo"\)/);
     }

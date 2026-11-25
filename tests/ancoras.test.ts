@@ -68,12 +68,6 @@ describe("âncoras", () => {
     }
     expect(semComentarios(ler("src/components/LinkOuAncora.tsx"))).toMatch(/href\.includes\("#"\)/);
   });
-
-  it("o bloco 'o que registramos' já vem no HTML do servidor, com a mesma altura", () => {
-    const comp = semComentarios(ler("src/components/solucoes/OQueRegistramos.tsx"));
-    expect(comp).toMatch(/useSyncExternalStore\(assinar, lerOrigem, \(\) => "\{\}"\)/);
-    expect(comp).not.toMatch(/if \(bruto === null\) return null/);
-  });
 });
 
 describe("correção de pouso (lib/ancora.ts)", () => {

@@ -19,31 +19,31 @@ export interface Pagina {
   pronta: boolean;
 }
 
-export const TITULO_PADRAO = "V2O5 Vendas e Tecnologia | Menos atrito entre problema e resultado";
+export const TITULO_PADRAO = "V2O5 Vendas e Tecnologia | Digitalização para pequenos negócios";
 
 export const PAGINAS: Pagina[] = [
   {
     rota: "/",
     titulo: TITULO_PADRAO,
     descricao:
-      "Presença digital local, sites com integração e o Sprint de Eficiência: a V2O5 melhora a presença e a operação, com preço de referência.",
-    atualizadaEm: "2026-10-27",
+      "Digitalização para pequenos negócios: presença no Google, sites com integração e atendimento com IA no WhatsApp, com preço de referência.",
+    atualizadaEm: "2026-11-25",
     pronta: true,
   },
   {
     rota: "/agente-de-ia-para-whatsapp",
     titulo: "Chatbot com IA para WhatsApp: agente que atende",
     descricao:
-      "Chatbot com IA no WhatsApp: um agente que responde na hora com as informações do negócio, qualifica, agenda e chama a equipe. Entra num Sprint de Eficiência.",
-    atualizadaEm: "2026-11-12",
+      "Chatbot com IA no WhatsApp: um agente que responde na hora com as informações do negócio, qualifica, agenda e chama a equipe. Pacotes com preço de referência.",
+    atualizadaEm: "2026-11-25",
     pronta: true,
   },
   {
     rota: "/automacao-com-ia",
     titulo: "Automação de processos com IA e n8n",
     descricao:
-      "Fluxos no n8n que ligam os sistemas que a sua empresa já usa, com IA validada contra invenção de dado e registro de cada execução. Entra num Sprint.",
-    atualizadaEm: "2026-10-25",
+      "Fluxos no n8n que ligam os sistemas que a empresa já usa, com IA validada contra invenção de dado e registro de cada execução. Recurso do Atendimento com IA.",
+    atualizadaEm: "2026-11-25",
     pronta: true,
   },
   {
@@ -58,24 +58,16 @@ export const PAGINAS: Pagina[] = [
     rota: "/crm-com-whatsapp",
     titulo: "CRM com WhatsApp integrado",
     descricao:
-      "CRM sob medida com WhatsApp dentro do funil: cada contato com origem, etapa e próximo passo. Intervenção de um Sprint de Eficiência.",
-    atualizadaEm: "2026-10-25",
-    pronta: true,
-  },
-  {
-    rota: "/rastreamento-de-conversoes",
-    titulo: "Rastreamento de conversões até a venda",
-    descricao:
-      "GA4, API de Conversões da Meta e conversões offline do Google Ads: cada lead e cada venda ligados ao anúncio que trouxe o cliente. Entra num Sprint.",
-    atualizadaEm: "2026-10-25",
+      "CRM sob medida com WhatsApp dentro do funil: cada contato com origem, etapa e próximo passo. Recurso do Atendimento com IA.",
+    atualizadaEm: "2026-11-25",
     pronta: true,
   },
   {
     rota: "/segmentos/revendas-de-veiculos",
     titulo: "Sistema de vendas para revendas de veículos",
     descricao:
-      "Site ligado ao estoque do sistema da loja (Revenda Mais, Autoconf e outros), agente de IA no WhatsApp, CRM e rastreamento até a venda, como na Motors Store.",
-    atualizadaEm: "2026-11-17",
+      "Site ligado ao estoque do sistema da loja (Revenda Mais, Autoconf e outros) e agente de IA no WhatsApp que qualifica e entrega o lead ao CRM da loja.",
+    atualizadaEm: "2026-11-25",
     pronta: true,
   },
   {
@@ -98,21 +90,13 @@ export const PAGINAS: Pagina[] = [
     rota: "/presenca-digital-local",
     titulo: "Presença digital para negócios locais",
     descricao:
-      "Perfil da Empresa no Google, redes sociais e WhatsApp Business organizados, com modelos de conteúdo, calendário e rotina mensal opcional.",
-    atualizadaEm: "2026-10-27",
-    pronta: true,
-  },
-  {
-    rota: "/sprint-de-eficiencia",
-    titulo: "Sprint de Eficiência: um gargalo resolvido e medido",
-    descricao:
-      "Projeto fechado para um gargalo da operação: mapear, simplificar, implementar e comparar os indicadores antes e depois. Três Sprints com preço de referência.",
-    atualizadaEm: "2026-10-27",
+      "Perfil da Empresa no Google, redes sociais e WhatsApp Business organizados, com pedido de avaliação, modelos de conteúdo e rotina mensal opcional.",
+    atualizadaEm: "2026-11-25",
     pronta: true,
   },
   {
     rota: "/continuidade",
-    titulo: "Continuidade: manutenção, conteúdo e monitoramento",
+    titulo: "Continuidade: manutenção e monitoramento",
     descricao:
       "Planos opcionais para manter e evoluir o que foi entregue: Cuidado Técnico, Integrações Monitoradas e Evolução Contínua, com horas e prazos escritos.",
     atualizadaEm: "2026-10-27",
@@ -122,8 +106,8 @@ export const PAGINAS: Pagina[] = [
     rota: "/precos",
     titulo: "Preços: três soluções e a continuidade",
     descricao:
-      "Preços de referência de Presença Digital Local, Sites & Integrações, Sprint de Eficiência e dos planos de continuidade. Diagnóstico gratuito.",
-    atualizadaEm: "2026-11-17",
+      "Preços de referência de Presença Digital Local, Sites & Integrações, Atendimento com IA e dos planos de continuidade. Diagnóstico gratuito.",
+    atualizadaEm: "2026-11-25",
     pronta: true,
   },
   {

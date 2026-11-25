@@ -10,15 +10,14 @@ import {
   planoDaFrente,
   precoDeEntrada,
 } from "@/conteudo/ofertas";
-import { SPRINT_DE_PRECOS } from "@/conteudo/sprint";
 import { ler } from "./fonte";
 
 /**
- * O portfólio de 27/10/2026: `ofertas.ts` e `sprint.ts` são a fonte, e
+ * O portfólio de 27/10/2026, com o foco de 25/11/2026 (Atendimento com IA no
+ * lugar do Sprint, sem a Presença Assistida): `ofertas.ts` é a fonte, e
  * `memory/context/oferta.md` repete os números. Aqui os dois lados são
- * comparados e as regras do handoff ficam travadas: quatro soluções na
- * ordem, preço de entrada, "a partir de" só no pacote de topo, continuidade
- * opcional com limites, nenhum escopo ilimitado.
+ * comparados e as regras ficam travadas: três soluções na ordem, preço de
+ * entrada, continuidade opcional com limites, nenhum escopo ilimitado.
  */
 
 const oferta = ler("memory/context/oferta.md");
@@ -37,13 +36,14 @@ describe("formato do preço", () => {
   });
 });
 
-describe("as três soluções (27/10/2026; Branding saiu em 12/11/2026)", () => {
-  it("são Presença, Sites e Sprint, nessa ordem, cada uma com a sua rota", () => {
+describe("as três soluções (27/10/2026; Branding saiu em 12/11/2026; Atendimento com IA no lugar do Sprint em 25/11/2026)", () => {
+  it("são Presença, Sites e Atendimento com IA, nessa ordem; o Atendimento mora na página do agente", () => {
     expect(OFERTAS.map((o) => [o.nome, o.rota])).toEqual([
       ["Presença Digital Local", "/presenca-digital-local"],
       ["Sites & Integrações", "/criacao-de-sites"],
-      ["Sprint de Eficiência", "/sprint-de-eficiencia"],
+      ["Atendimento com IA", "/agente-de-ia-para-whatsapp"],
     ]);
+    expect(JSON.stringify(OFERTAS)).not.toMatch(/Sprint|Assistida|12\.900/);
   });
 
   it("o preço de entrada é o da tabela do handoff", () => {
@@ -57,20 +57,27 @@ describe("as três soluções (27/10/2026; Branding saiu em 12/11/2026)", () => 
       presenca: [
         ["Presença Essencial", 790, false, 390],
         ["Presença Estruturada", 1490, false, 490],
-        ["Presença Assistida", 1990, false, 890],
       ],
       sites: [
         ["Landing Page", 2900, false, null],
         ["Site Personalizado", 5900, false, null],
         ["Site Conectado", 9900, true, null],
       ],
-      sprint: [
-        ["Sprint Essencial", 3900, false, null],
-        ["Sprint Integrado", 6900, false, null],
-        ["Sprint Avançado", 12900, true, null],
+      atendimento: [
+        ["Atendimento Essencial", 3900, true, null],
+        ["Atendimento Integrado", 6900, true, null],
       ],
     });
-    expect(SPRINT_DE_PRECOS.niveis.filter((n) => "principal" in n && n.principal).map((n) => n.nome)).toEqual(["Sprint Integrado"]);
+    expect(OFERTAS.flatMap((o) => o.pacotes.filter((p) => p.principal).map((p) => p.nome))).toEqual(["Atendimento Integrado"]);
+  });
+
+  it("a Presença pede a avaliação no Google, e o Atendimento responde só com o aprovado e tem saída para uma pessoa (25/11/2026)", () => {
+    expect(ofertaDa("presenca").pacotes[0].inclui.join(" ")).toMatch(/avaliação no Google/);
+    const atendimento = ofertaDa("atendimento");
+    expect(atendimento.regras.join(" ")).toMatch(/só com o que a empresa aprovou/);
+    expect(atendimento.regras.join(" ")).toMatch(/chama uma pessoa/);
+    expect(atendimento.fora.join(" ")).toMatch(/valor do provedor/);
+    expect(atendimento.pacotes[1].inclui.join(" ")).toMatch(/só para quem consentiu/);
   });
 
   it("cada pacote diz para quem é e o que inclui, e cada solução diz o que fica de fora", () => {
@@ -104,13 +111,13 @@ describe("as três soluções (27/10/2026; Branding saiu em 12/11/2026)", () => 
 });
 
 describe("continuidade", () => {
-  it("três planos opcionais, nas três frentes do menu", () => {
+  it("três planos opcionais, nas duas frentes do menu (a de conteúdo saiu em 25/11/2026)", () => {
     expect(PLANOS_DE_CONTINUIDADE.map((p) => [p.nome, p.mensal])).toEqual([
       ["Cuidado Técnico", 349],
       ["Integrações Monitoradas", 590],
       ["Evolução Contínua", 990],
     ]);
-    expect(CONTINUIDADE.frentes.map((f) => f.id)).toEqual(["manutencao-tecnica", "conteudo-e-campanhas", "monitoramento-e-otimizacao"]);
+    expect(CONTINUIDADE.frentes.map((f) => f.id)).toEqual(["manutencao-tecnica", "monitoramento-e-otimizacao"]);
     expect(planoDaFrente("manutencao-tecnica").map((p) => p.nome)).toEqual(["Cuidado Técnico"]);
     expect(planoDaFrente("monitoramento-e-otimizacao").map((p) => p.nome)).toEqual(["Integrações Monitoradas", "Evolução Contínua"]);
     expect(CONTINUIDADE.texto).toMatch(/Nenhum plano é obrigatório/);

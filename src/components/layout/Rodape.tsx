@@ -17,12 +17,10 @@ const EMPRESA_LINKS = [
   { rotulo: "Privacidade", href: "/privacidade" },
 ];
 
-/** As páginas de recurso do Sprint: sem preço, fora do menu, ligadas daqui (27/10/2026). */
+/** As páginas de recurso do Atendimento com IA (25/11/2026; antes, do Sprint): sem preço, fora do menu, ligadas daqui. */
 const RECURSOS = [
-  { rotulo: "Agente de IA no WhatsApp", href: "/agente-de-ia-para-whatsapp" },
   { rotulo: "CRM com WhatsApp", href: "/crm-com-whatsapp" },
   { rotulo: "Automação com IA", href: "/automacao-com-ia" },
-  { rotulo: "Rastreamento até a venda", href: "/rastreamento-de-conversoes" },
 ];
 
 const LINK = "inline-flex min-h-9 items-center transition-colors hover:text-texto";

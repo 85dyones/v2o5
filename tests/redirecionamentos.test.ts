@@ -14,12 +14,17 @@ const linha = seo.split("\n").find((l) => l.includes("`/jornada/`→`/sobre`"))!
 const pares = [...linha.matchAll(/`([^`]+)`→`([^`]+)`/g)].map((m) => [m[1], m[2]]);
 const tira = (r: string) => (r.length > 1 ? r.replace(/\/$/, "") : r);
 
-describe("o que saiu do portfólio em 12/11/2026", () => {
-  it("tráfego pago leva ao rastreamento e Branding à seção de soluções, por 301, e as rotas não existem mais", async () => {
+describe("o que saiu do portfólio (12/11/2026 e 25/11/2026)", () => {
+  it("tráfego e rastreamento levam a Sites, Branding à seção de soluções e o Sprint ao Atendimento com IA, por 301, e as rotas não existem mais", async () => {
     const regras = await config.redirects!();
     const destino = (de: string) => regras.find((r) => r.source === de);
-    expect(destino("/gestao-de-trafego")?.destination).toBe("/rastreamento-de-conversoes");
+    expect(destino("/gestao-de-trafego")?.destination).toBe("/criacao-de-sites");
     expect(destino("/branding-e-identidade")?.destination).toBe("/#solucoes");
+    expect(destino("/sprint-de-eficiencia")?.destination).toBe("/agente-de-ia-para-whatsapp");
+    expect(destino("/rastreamento-de-conversoes")?.destination).toBe("/criacao-de-sites");
+    // Nenhum destino é rota que também saiu: sem redirecionamento em cadeia.
+    const sairam = new Set(REDIRECIONAMENTOS_DO_PORTFOLIO.map((r) => r.source));
+    for (const r of REDIRECIONAMENTOS_DO_PORTFOLIO) expect(sairam.has(r.destination.split("#")[0]), r.source).toBe(false);
     for (const r of REDIRECIONAMENTOS_DO_PORTFOLIO) {
       expect(destino(r.source)?.statusCode, r.source).toBe(301);
       expect(existsSync(join(RAIZ, "src/app", r.source.slice(1))), r.source).toBe(false);

@@ -62,8 +62,8 @@ describe("página Sobre", () => {
 
   it("o nome vem do catalisador, e a assinatura é a da marca", () => {
     expect(SOBRE.nome.texto).toMatch(/pentóxido de vanádio/);
-    expect(SOBRE.nome.assinatura).toBe("V2O5 | Eficiência comercial e operacional com tecnologia.");
-    expect(ler("memory/context/marca.md")).toContain("V2O5 | Eficiência comercial e operacional com tecnologia.");
+    expect(SOBRE.nome.assinatura).toBe("V2O5 | Digitalização para pequenos negócios.");
+    expect(ler("memory/context/marca.md")).toContain("V2O5 | Digitalização para pequenos negócios.");
   });
 
   it("o resumo fica curto para o H1 continuar sendo o LCP", () => {
@@ -90,7 +90,7 @@ describe("página Sobre", () => {
       "Automação, integrações e processos",
       "Atendimento, comunicação e relacionamento",
       "CRM, vendas e sistemas de gestão",
-      "Marketing, aquisição e conversão",
+      "Presença, busca e medição",
       "Dados, inteligência e mensuração",
     ]);
     for (const c of cats) {

@@ -2,42 +2,42 @@
 rota: "/"
 url: "https://www.v2o5.com.br/"
 status: 200
-title: "V2O5 Vendas e Tecnologia | Menos atrito entre problema e resultado"
-description: "Presença digital local, sites com integração e o Sprint de Eficiência: a V2O5 melhora a presença e a operação, com preço de referência."
+title: "V2O5 Vendas e Tecnologia | Digitalização para pequenos negócios"
+description: "Digitalização para pequenos negócios: presença no Google, sites com integração e atendimento com IA no WhatsApp, com preço de referência."
 canonical: "https://www.v2o5.com.br"
 robots: null
-h1: "Do problema ao resultado, pelo caminho mais simples."
-extraido_em: "2026-11-17T15:24:58.492Z"
-fonte: "build local da branch claude/kind-tesla-eefroe em 17/11/2026 (case Motors com o Ney, números de 17/11), antes da publicação"
+h1: "Coloque seu negócio no mapa e cuide de cada cliente que chega."
+extraido_em: "2026-11-25T15:38:59.225Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 25/11/2026 (foco em pequenos negócios), antes da publicação"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
-Estratégia, processos e tecnologia
+Digitalização para pequenos negócios
 
-# Do problema ao resultado, pelo caminho mais simples.
+# Coloque seu negócio no mapa e cuide de cada cliente que chega.
 
-A V2O5 ajuda empresas a melhorar a presença digital e a operação, ligando processos e tecnologia ao que o negócio precisa de verdade.
+A V2O5 deixa o seu negócio fácil de achar no Google e organiza o WhatsApp para nenhum cliente ficar sem resposta.
 
 [Pedir diagnóstico gratuito](/diagnostico)
 
 [Ver as três soluções](#solucoes)
 
-Começamos pelo processo e pelo resultado desejado. A ferramenta vem depois.
+Começamos pelo cliente que você quer atender melhor. A ferramenta vem depois.
 
 Três soluções
 
 - Presença Digital Local
 - Sites & Integrações
-- Sprint de Eficiência
+- Atendimento com IA
 
 ## Três soluções. Escolha pelo problema que você tem.
 
 Cada uma resolve um tipo de problema e tem pacotes com preço de referência. Elas se completam, mas nenhuma obriga a comprar a seguinte.
 
-[Presença Digital Local → Quando o cliente procura e encontra informação errada, perfil parado ou nenhum jeito fácil de chamar. Perfil no Google, redes e WhatsApp organizados, com modelos de conteúdo e, se quiser, a rotina mensal. A partir de R$ 790](/presenca-digital-local)
+[Presença Digital Local → Quando o cliente procura e encontra informação errada, perfil parado ou nenhum jeito fácil de chamar. Perfil no Google, redes e WhatsApp organizados, com pedido de avaliação, modelos de conteúdo e, se quiser, a rotina mensal. A partir de R$ 790](/presenca-digital-local)
 
 [Sites & Integrações → Quando a empresa depende de perfil de terceiros, ou o site não conversa com o sistema que ela já usa. Site próprio, rápido e medido, ligado ao CRM, ao estoque ou ao sistema de gestão quando o escopo pede. A partir de R$ 2.900](/criacao-de-sites)
 
-[Sprint de Eficiência → Quando um processo trava a operação: retrabalho, contato perdido, sistemas que não conversam. Um gargalo resolvido, com a solução implantada e os indicadores comparados antes e depois. A partir de R$ 3.900](/sprint-de-eficiencia)
+[Atendimento com IA → Quando o cliente chama no WhatsApp e espera, se perde entre as conversas ou some sem que ninguém retome. WhatsApp organizado e um agente de IA que responde e qualifica, com cada contato passado à pessoa certa ou ao sistema que você já usa. A partir de R$ 3.900](/agente-de-ia-para-whatsapp)
 
 [Continuidade Depois da entrega, planos opcionais para manter e evoluir o que foi entregue, com limites escritos. Planos a partir de R$ 349/mês](/continuidade)
 
@@ -59,7 +59,7 @@ A solução
 
 ### Uma das três soluções
 
-Presença, Sites ou Sprint, com pacotes de escopo claro. O valor fechado sai em proposta, com entregáveis, exclusões, prazo e custos de terceiros.
+Presença, Sites ou Atendimento com IA, com pacotes de escopo claro. O valor fechado sai em proposta, com entregáveis, exclusões, prazo e custos de terceiros.
 
 Preços de entrada de R$ 790 a R$ 3.900. Nenhuma solução obriga a comprar a seguinte.
 
@@ -75,185 +75,73 @@ Planos a partir de R$ 349/mês. Não inclui desenvolvimento ilimitado nem novas 
 
 [Ver valores e condições](/continuidade)
 
-Bônus por desempenho fica como opção futura do Sprint, só com linha de base, regra de atribuição acordada e dados auditáveis. Não faz parte da oferta padrão.
+## O cliente procura, chama e às vezes desiste. Quase sempre por um detalhe que dá para arrumar.
 
-## O problema raramente é falta de ferramenta. Quase sempre é atrito entre as que já existem.
+Perfil desatualizado, mensagem que demora, cliente que comprou uma vez e nunca mais apareceu. A V2O5 começa por esses detalhes.
 
-A operação perde tempo entre sistemas que não conversam, tarefas repetidas e decisões tomadas sem informação suficiente. É por aí que a gente começa.
+### Difícil de achar
 
-### Informação espalhada
+Perfil no Google sem horário, sem foto ou com o telefone antigo. Quem procura perto de casa acaba no vizinho.
 
-Dados em planilhas, mensagens e sistemas diferentes impedem uma visão confiável do que está acontecendo.
+### Resposta que demora
 
-### Retrabalho que virou rotina
+A mensagem chega no WhatsApp à noite ou no meio do movimento e fica para depois. Quando a resposta sai, o cliente já comprou em outro lugar.
 
-Gente copiando dados, cobrando retorno e repetindo etapas que poderiam ser eliminadas, integradas ou automatizadas.
+### Cliente que não volta
 
-### Atividade sem resultado visível
-
-A operação funciona, mas ninguém mede com clareza o tempo gasto, onde trava e o que de fato melhorou.
-
-Sprint de Eficiência
-
-## O método: do processo real à próxima decisão.
-
-Um projeto com escopo definido para um gargalo específico. Processo, integração, automação e IA entram como meios, conforme o problema.
-
-Comprar, integrar, automatizar ou desenvolver: a decisão depende do problema, não da preferência por uma ferramenta.
-
-[Escolher um processo](/diagnostico)
-
-[Ver os Sprints e os preços](/sprint-de-eficiencia)
-
-01 <!-- decorativo, aria-hidden -->
-
-### Mapear o processo real
-
-Como o fluxo acontece hoje, quem participa, onde trava e quanto custa. Registramos a situação inicial antes de mexer.
-
-- Mapa do fluxo
-- Linha de base
-
-02 <!-- decorativo, aria-hidden -->
-
-### Simplificar antes de automatizar
-
-Tiramos as etapas que não precisam existir. Nem todo problema pede um agente de IA ou um software novo.
-
-- Fluxo proposto
-
-03 <!-- decorativo, aria-hidden -->
-
-### Escolher a intervenção proporcional
-
-Comprar, integrar, automatizar ou desenvolver, conforme o problema. A proposta fecha o escopo e os critérios de aceite.
-
-- Escopo acordado
-- Critérios de aceite
-
-04 <!-- decorativo, aria-hidden -->
-
-### Implementar a solução acordada
-
-Ligamos as ferramentas que já existem e, quando faz sentido, construímos integrações, automações ou agentes, com testes.
-
-- Integrações
-- Automação
-- Testes
-
-05 <!-- decorativo, aria-hidden -->
-
-### Comparar antes e depois
-
-Os indicadores disponíveis voltam a ser medidos e comparados com a situação inicial.
-
-- Indicadores
-
-06 <!-- decorativo, aria-hidden -->
-
-### Registrar e decidir o próximo passo
-
-Documentamos o que mudou e decidimos a próxima melhoria, ou encerramos.
-
-- Documentação
-- Próxima decisão
-
-## Um exemplo: o caminho de um contato num Sprint Integrado. Cada Sprint liga só as peças que o gargalo pede.
-
-Cinco paradas, na ordem do funil: atração, atendimento, gestão e venda. Duas camadas acompanham o caminho inteiro: a automação, que liga as peças, e o rastreamento, que grava a origem na entrada e devolve a venda ao anúncio. Escolha uma peça para ver o caminho; outros Sprints ligam outras peças.
-
-Site
-
-Atração
-
-WhatsApp
-
-Atendimento
-
-Agente de IA
-
-Atendimento
-
-CRM
-
-Gestão
-
-Venda
-
-Venda
-
-Em todo o caminho
-
-n8n
-
-Liga as peças
-
-Rastreamento
-
-Origem na entrada, venda de volta ao anúncio
-
-Atração
-
-### Site
-
-Recebe o visitante e guarda de onde ele veio antes de levá-lo ao WhatsApp ou ao formulário.
-
-Caminho que passa por aqui <!-- só leitor de tela -->
-
-- Site <!-- só leitor de tela -->
-- WhatsApp <!-- só leitor de tela -->
-- Agente de IA <!-- só leitor de tela -->
-- CRM <!-- só leitor de tela -->
-- Venda <!-- só leitor de tela -->
+Ninguém lembra de quem comprou nem de chamar de novo na hora certa. A venda seguinte fica por conta do acaso.
 
 Resultado antes de vaidade técnica
 
-## O que conta é o que mudou na operação.
+## O que conta é o cliente bem atendido.
 
 O indicador depende do problema escolhido. Antes de implementar, combinamos o que acompanhar e como o resultado será observado.
 
-Tempo
+Tempo de resposta
 
-Quanto demora para concluir uma tarefa ou mover uma solicitação entre etapas.
+Quanto demora a primeira resposta no WhatsApp, no horário e fora dele.
 
-Retrabalho
+Contatos perdidos
 
-Quantas vezes a informação precisa ser recopiada, corrigida ou pedida de novo.
+Quantas conversas ficam sem resposta ou sem próximo passo.
 
-Conversão e resposta
+Avaliações
 
-Onde os contatos se perdem, quanto demora a resposta e quais oportunidades avançam.
+Quantas avaliações novas chegam ao Google e o que os clientes contam nelas.
 
-Visibilidade
+Clientes que voltam
 
-Se a equipe entende o estado da operação e age com dados confiáveis.
+Quantos clientes compram de novo depois do primeiro contato.
 
 Não prometemos um percentual de melhoria igual para todos. Definimos uma linha de base, implementamos dentro do escopo acordado e medimos o que os dados disponíveis permitem medir.
 
-Projeto em ambiente real
+Projetos em ambiente real
 
-## Motors Store
+## Dois atendimentos no ar. Um no comércio, outro no serviço público.
 
-Revenda de seminovos em Curitiba, com gargalos diagnosticados em busca, leads, site e acompanhamento comercial. O case mostra o diagnóstico como o antes, o que a V2O5 implementou como o depois e, à parte, o que foi medido.
+### Motors Store
 
-- Sincronização de estoque
-- Rastreamento de leads
+Revenda de seminovos em Curitiba. O site se liga ao estoque, o agente de IA atende e qualifica no WhatsApp, e o lead pronto chega ao CRM do Revenda Mais.
+
+- Site ligado ao estoque
 - Agente de IA no WhatsApp
 - Lead no CRM do Revenda Mais
 
-Construir, observar, melhorar
+[Ler o case da Motors Store](/cases/motors-store)
 
-A tecnologia precisa deixar rastro de valor.
+### 16ª Vara Cível de Curitiba
 
-Os projetos da V2O5 testam hipóteses em operações reais. Implementar é uma parte do trabalho; registrar a linha de base, acompanhar o comportamento e aprender com os dados também é entrega.
+Um WhatsApp para os onze setores e o gabinete. A triagem pergunta o assunto e entrega cada conversa ao setor certo, com os dados preenchidos.
 
-- Começamos por um gargalo específico, não por uma lista de funcionalidades.
+- Triagem no WhatsApp
+- Conversa no setor certo
+- Sempre com saída para uma pessoa
+
+[Ler o case da 16ª Vara Cível](/cases/16-vara-civel)
+
+- Começamos pelo cliente que precisa ser atendido, não por uma lista de funcionalidades.
 - Usamos os sistemas que já existem sempre que resolvem com menos atrito.
-- Separamos o que foi implementado do que já tem resultado comprovado.
-
-[Ler o case completo](/cases/motors-store)
-
-Fora do varejo, a triagem do WhatsApp da 16ª Vara Cível de Curitiba. [Ler o case da 16ª Vara Cível](/cases/16-vara-civel)
+- Separamos o que foi implementado do que já tem resultado medido.
 
 ## O que todo mundo pergunta antes de fechar.
 
@@ -261,19 +149,19 @@ Preço, pagamento, o que cada solução entrega e o que vem depois. Se a sua per
 
 Quanto custa?
 
-O diagnóstico inicial, de 45 minutos, é gratuito. Os preços de entrada são Presença Digital Local a partir de R$ 790, Sites & Integrações a partir de R$ 2.900, Sprint de Eficiência a partir de R$ 3.900, e a continuidade tem planos a partir de R$ 349/mês. São preços de referência: o valor fechado sai em proposta, para um escopo conhecido.
+O diagnóstico inicial, de 45 minutos, é gratuito. Os preços de entrada são Presença Digital Local a partir de R$ 790, Sites & Integrações a partir de R$ 2.900, Atendimento com IA a partir de R$ 3.900, e a continuidade tem planos a partir de R$ 349/mês. São preços de referência: o valor fechado sai em proposta, para um escopo conhecido.
 
 Preciso contratar tudo?
 
 Não. Cada solução resolve um tipo de problema e funciona sozinha. Elas se completam, e o diagnóstico ajuda a escolher por onde começar. A continuidade também é opcional.
 
-O que um Sprint entrega?
+O que o Atendimento com IA entrega?
 
-Um projeto fechado para um gargalo delimitado: mapeamento do fluxo atual, priorização, implementação da solução acordada, testes e comparação dos indicadores disponíveis antes e depois. A proposta define o problema, os entregáveis, as exclusões, o prazo, as responsabilidades do cliente e os critérios de aceite.
+O WhatsApp organizado, um agente de IA que responde com as informações do seu negócio e passa a conversa à pessoa certa, e a lista de contatos com a origem. No Atendimento Integrado, o agente também qualifica e leva cada contato ao sistema que você já usa.
 
 Como funciona o pagamento?
 
-No Sprint: em projetos, 50% na contratação, 30% na validação intermediária e 20% no aceite final. Em Sprints pequenos, 50% na contratação e 50% na entrega. Nas outras soluções, as condições saem na proposta.
+As condições saem na proposta, com o escopo, os entregáveis, o prazo e os custos de terceiros por escrito.
 
 E depois da entrega?
 
@@ -289,11 +177,11 @@ Responde na hora com as informações do seu negócio e, quando a conversa pede 
 
 Vocês fazem tráfego pago?
 
-Não. A V2O5 liga cada venda ao anúncio que trouxe o cliente, e quem roda a campanha é você ou a sua agência. Com a venda registrada no CRM voltando para o Google e a Meta, a campanha otimiza pelo que vende.
+Não. A V2O5 cuida de o negócio ser encontrado no Google e de atender bem quem chega. Quem anuncia segue com a própria campanha, e o site grava de onde veio cada contato.
 
 Como funciona o diagnóstico gratuito?
 
-São 45 minutos de conversa com o fundador sobre marca, presença, atendimento, operação e funil, para identificar e priorizar o problema e avaliar se existe um projeto viável. A sessão não inclui mapeamento completo do processo, implementação nem acompanhamento de resultados. Havendo um bom caso, o próximo passo é a proposta da solução que cabe no problema, com escopo, entregáveis, prazo e investimento.
+São 45 minutos de conversa com o fundador sobre presença, atendimento e os sistemas que você já usa, para identificar e priorizar o problema e avaliar se existe um projeto viável. A sessão não inclui mapeamento completo do processo, implementação nem acompanhamento de resultados. Havendo um bom caso, o próximo passo é a proposta da solução que cabe no problema, com escopo, entregáveis, prazo e investimento.
 
 A V2O5 atende fora de Curitiba?
 
@@ -337,7 +225,6 @@ O · 4,8 <!-- texto em SVG; decorativo, aria-hidden -->
 <!-- diagrama "como tudo se liga": painel de cada peça (a peça "site" é a que vem escolhida no HTML) -->
 
 <!-- rótulos de acessibilidade (aria-label) desta rota, fora topo e rodapé:
-- "Diagrama: como as peças do sistema se ligam" (ol)
 - "Antes de contratar" (section)
 - "Conversa no WhatsApp" (aside)
 -->

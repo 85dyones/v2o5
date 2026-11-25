@@ -2,13 +2,13 @@
 rota: "/continuidade"
 url: "https://www.v2o5.com.br/continuidade"
 status: 200
-title: "Continuidade: manutenção, conteúdo e monitoramento | V2O5 Vendas e Tecnologia"
+title: "Continuidade: manutenção e monitoramento | V2O5 Vendas e Tecnologia"
 description: "Planos opcionais para manter e evoluir o que foi entregue: Cuidado Técnico, Integrações Monitoradas e Evolução Contínua, com horas e prazos escritos."
 canonical: "https://www.v2o5.com.br/continuidade"
 robots: null
 h1: "Continuidade: o que segue depois da entrega."
-extraido_em: "2026-10-27T18:10:55.133Z"
-fonte: "build local da branch claude/kind-tesla-eefroe em 27/10/2026 (mensalidades de entrada da tarde de 27/10), antes da publicação"
+extraido_em: "2026-11-25T15:38:59.225Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 25/11/2026 (foco em pequenos negócios), antes da publicação"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 # Continuidade: o que segue depois da entrega.
@@ -38,30 +38,6 @@ Para manter no ar o site ou a página entregue.
 - Monitoramento de disponibilidade do site e do formulário
 - Até 1 hora de suporte técnico por mês: correções e pequenas trocas de texto ou imagem
 - Resposta em até 2 dias úteis, por WhatsApp ou e-mail, em horário comercial
-
-## Conteúdo e campanhas recorrentes
-
-As mensalidades da Presença Digital Local: atualizações, kit mensal de conteúdo ou a rotina assistida.
-
-### Presença Essencial
-
-R$ 390/mês
-
-Suporte e até quatro pequenas atualizações por mês nos canais: horário, contato, foto ou informação.
-
-### Presença Estruturada
-
-R$ 490/mês
-
-Kit mensal com quatro peças de conteúdo e uma campanha, prontas para publicar.
-
-### Presença Assistida
-
-R$ 890/mês
-
-Operação assistida: calendário do mês, oito peças de referência, programação nas redes e uma campanha. O volume final sai na proposta.
-
-Cada mensalidade acompanha o pacote de implantação de mesmo nome. [Ver a Presença Digital Local](/presenca-digital-local).
 
 ## Monitoramento e otimização
 
@@ -130,7 +106,7 @@ Não. Ela é contratada à parte, quando o que foi entregue continua rodando e p
 
 Quanto custa?
 
-Cuidado Técnico, R$ 349/mês; Integrações Monitoradas, R$ 590/mês; Evolução Contínua, R$ 990/mês. As mensalidades de conteúdo da Presença Digital Local vão de R$ 390/mês a R$ 890/mês.
+Cuidado Técnico, R$ 349/mês; Integrações Monitoradas, R$ 590/mês; Evolução Contínua, R$ 990/mês. A mensalidade opcional da Presença Digital Local, de R$ 390/mês a R$ 490/mês, é contratada com ela.
 
 O que acontece se eu usar mais horas do que o plano tem?
 

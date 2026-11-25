@@ -7,8 +7,8 @@ description: "Quem é a V2O5 Vendas e Tecnologia, o método em cinco perguntas, 
 canonical: "https://www.v2o5.com.br/sobre"
 robots: null
 h1: "Simplificar o que é complexo."
-extraido_em: "2026-11-12T15:26:32.532Z"
-fonte: "build local da branch claude/kind-tesla-eefroe em 12/11/2026 (sem Branding e sem tráfego pago), antes da publicação"
+extraido_em: "2026-11-25T15:38:59.225Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 25/11/2026 (foco em pequenos negócios), antes da publicação"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 # Simplificar o que é complexo.
@@ -71,7 +71,7 @@ Experiência: Rebranding da Top Imóveis para Top Soluções Imobiliárias
 
 Marketing
 
-Prática: Conteúdo, SEO e tráfego da Motors Store
+Prática: Conteúdo e SEO da Motors Store
 
 Vendas
 
@@ -165,7 +165,7 @@ Rede
 
 a cor da ação
 
-V2O5 | Eficiência comercial e operacional com tecnologia.
+V2O5 | Digitalização para pequenos negócios.
 
 ## Como eu trabalho.
 
@@ -327,19 +327,17 @@ Gestão comercial, funil de vendas, operação e relacionamento.
 
 08
 
-Marketing, aquisição e conversão
+Presença, busca e medição
 
 + <!-- decorativo, aria-hidden -->
 
-Atrair demanda, acompanhar campanhas e medir resultados.
+Ser encontrado por quem procura e saber de onde veio cada contato.
 
-- Meta Ads
-- Google Ads
-- Google Analytics 4
-- Google Tag Manager
-- Meta Pixel
-- API de Conversões
+- Perfil da Empresa no Google
 - Google Search Console
+- Google Analytics 4
+- Instagram
+- Facebook
 
 09
 

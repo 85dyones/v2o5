@@ -194,16 +194,16 @@ export type TipoDePagina =
 /**
  * A linha de cada página de solução e de recurso (`linha` em `conteudo/solucoes.ts`;
  * `tests/medicao.test.ts` confere). As soluções entram com `presenca`,
- * `sites` e `sprint` (`branding` saiu em 12/11/2026).
+ * `sites` e `atendimento` (o Atendimento com IA, na página do agente, desde
+ * 25/11/2026; antes, `agente`). `branding` saiu em 12/11/2026; `sprint` e
+ * `rastreamento`, em 25/11/2026.
  */
 export const LINHA_DA_ROTA: Record<string, string> = {
   "/presenca-digital-local": "presenca",
-  "/sprint-de-eficiencia": "sprint",
   "/criacao-de-sites": "sites",
-  "/agente-de-ia-para-whatsapp": "agente",
+  "/agente-de-ia-para-whatsapp": "atendimento",
   "/automacao-com-ia": "automacao",
   "/crm-com-whatsapp": "crm",
-  "/rastreamento-de-conversoes": "rastreamento",
 };
 
 export interface ContextoDaPagina {

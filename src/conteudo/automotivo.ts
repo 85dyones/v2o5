@@ -1,35 +1,31 @@
 import { listaDeSistemasIntegraveis, SISTEMA_EM_PRODUCAO, SISTEMAS_INTEGRAVEIS } from "@/conteudo/diagnostico";
 import { mensalEmTexto, precoEmTexto } from "@/conteudo/precos";
 import { ofertaDa, PLANOS_DE_CONTINUIDADE } from "@/conteudo/ofertas";
-import { SPRINT_DE_PRECOS } from "@/conteudo/sprint";
 /**
  * Página de exemplo do segmento automotivo (`/segmentos/revendas-de-veiculos`):
  * as mesmas soluções que a V2O5 vende para qualquer negócio, aplicadas à
- * revenda a partir do que roda na Motors Store (site ligado ao estoque,
- * agente, CRM e rastreamento). Desde 17/11/2026 não há produto próprio para
- * revendas: os dois caminhos são o Site Conectado, de Sites & Integrações, e
- * a Operação com IA, um Sprint Integrado (Dyones: revenda como prova, não como
- * produto). Os valores saem de `ofertas.ts` e `sprint.ts`. Os modelos
- * Mapa e Completo e a oferta do Completo até 31/12/2026 saíram com a tabela
- * de 15/10. Os números do case e o caminho do lead moram em
- * `/cases/motors-store`, que o hub só aponta. `tests/automotivo.test.ts` confere.
- *
- * Sobre o agente: a memória do case registra n8n, Evolution e Chatwoot na
- * Motors, não um agente de IA. Por isso o texto diz que o agente completa o
- * sistema, sem afirmar que roda na loja (pendência 13).
+ * revenda a partir do que roda na Motors Store. Desde 17/11/2026 não há
+ * produto próprio para revendas (Dyones: revenda como prova, não como
+ * produto). Desde 25/11/2026 (foco em pequenos negócios, sem anúncio) a
+ * página fala de três peças: site ligado ao estoque, atendimento e
+ * qualificação com IA no WhatsApp e o lead entregue ao CRM da loja. Os dois
+ * caminhos são o Site Conectado, de Sites & Integrações, e o Atendimento
+ * Integrado, do Atendimento com IA. Os valores saem de `ofertas.ts`. Os
+ * números do case moram em `/cases/motors-store`, que o hub só aponta.
+ * `tests/automotivo.test.ts` confere.
  */
 const SITE_CONECTADO = ofertaDa("sites").pacotes.find((p) => p.nome === "Site Conectado")!;
-const SPRINT_INTEGRADO = SPRINT_DE_PRECOS.niveis.find((n) => n.nome === "Sprint Integrado")!;
+const ATENDIMENTO_INTEGRADO = ofertaDa("atendimento").pacotes.find((p) => p.nome === "Atendimento Integrado")!;
 const [, MONITORADAS, EVOLUCAO] = PLANOS_DE_CONTINUIDADE;
 
 export const HUB_AUTOMOTIVO = {
   rota: "/segmentos/revendas-de-veiculos",
   sobretitulo: "Revendas de veículos",
-  titulo: "O que roda na Motors Store, aplicado à sua revenda.",
+  titulo: "Site de estoque e atendimento com IA para revendas de veículos.",
   /** Curto de propósito: o LCP da página é o H1 (`tests/automotivo.test.ts`). */
   resumo:
-    "Site de estoque ligado ao sistema que a loja já usa, agente de IA no WhatsApp, CRM e rastreamento até a venda, com preço de referência.",
-  /** Os sistemas de gestão com que o Sprint para revendas trabalha: um em produção, os outros por fluxo (Dyones, 13/10). */
+    "Site de estoque ligado ao sistema da loja e um agente de IA que atende, qualifica e entrega o lead pronto ao CRM, com preço de referência.",
+  /** Os sistemas de gestão com que a V2O5 trabalha para revendas: um em produção, os outros por fluxo (Dyones, 13/10). */
   sistemas: {
     rotulo: "Funciona com o sistema da loja",
     emProducao: SISTEMA_EM_PRODUCAO,
@@ -37,7 +33,7 @@ export const HUB_AUTOMOTIVO = {
     outros: "outro sistema, por fluxo",
   },
   fatos: [
-    { rotulo: "Dois caminhos", valor: "O Site Conectado e a Operação com IA, juntos ou um de cada vez" },
+    { rotulo: "Dois caminhos", valor: "O Site Conectado e o Atendimento Integrado, juntos ou um de cada vez" },
     { rotulo: "Integração em produção", valor: "Revenda Mais: o estoque entra no site e no agente sozinho" },
     { rotulo: "Integráveis por fluxo", valor: listaDeSistemasIntegraveis() },
     { rotulo: "Referência", valor: "Motors Store, revenda de seminovos em Curitiba, com números lidos do banco" },
@@ -45,7 +41,7 @@ export const HUB_AUTOMOTIVO = {
   pacote: {
     titulo: "O que a V2O5 monta para revendas.",
     texto:
-      "Quatro peças na mesma base: o que entra por uma aparece nas outras. Site, rastreamento, painel e automações rodam na Motors Store; o agente de IA no WhatsApp completa o sistema. O escopo de cada projeto sai em proposta.",
+      "Três peças na mesma base: o que entra por uma aparece nas outras. As três rodam na Motors Store. O escopo de cada projeto sai em proposta.",
     pecas: [
       {
         linha: "Sites e presença",
@@ -57,18 +53,13 @@ export const HUB_AUTOMOTIVO = {
         linha: "Agente de IA no WhatsApp",
         titulo: "Atende à noite e no fim de semana",
         texto:
-          "Responde com o estoque real, qualifica o interesse, agenda a visita e passa ao vendedor a conversa e a origem do contato.",
+          "Responde com o estoque real, qualifica com as perguntas da loja (interesse, prazo, forma de pagamento) e agenda a visita.",
       },
       {
-        linha: "CRM e sistemas sob medida",
-        titulo: "Funil com origem e próximo passo",
-        texto: "Cada lead com o carro de interesse, o anúncio que trouxe a pessoa e o responsável.",
-      },
-      {
-        linha: "Rastreamento até a venda",
-        titulo: "A venda volta para o Google e a Meta",
+        linha: "Integração com o sistema da loja",
+        titulo: "Lead pronto no CRM da loja",
         texto:
-          "Pixel, API de Conversões e GA4 com um identificador único por lead. A campanha passa a otimizar pelo carro vendido.",
+          "O lead qualificado entra no CRM que a loja já usa, com o carro de interesse, a origem e a conversa, e o vendedor segue dali. Em produção com o Revenda Mais.",
       },
     ],
   },
@@ -81,7 +72,7 @@ export const HUB_AUTOMOTIVO = {
       {
         id: "site",
         nome: SITE_CONECTADO.nome,
-        sprint: "Sites & Integrações",
+        solucao: "Sites & Integrações",
         para: "Para a revenda que quer o site ligado ao estoque do sistema de gestão, com os contatos medidos.",
         inclui: [
           "Tudo do Site Personalizado, com a página de cada veículo e o tratamento dos vendidos",
@@ -96,23 +87,23 @@ export const HUB_AUTOMOTIVO = {
       },
       {
         id: "operacao",
-        nome: "Operação com IA",
-        sprint: SPRINT_INTEGRADO.nome,
-        para: "Responder na hora, a qualquer hora, sem perder o contato que chegou.",
+        nome: ATENDIMENTO_INTEGRADO.nome,
+        solucao: ofertaDa("atendimento").nome,
+        para: "Para responder na hora, a qualquer hora, qualificar e entregar o lead pronto ao vendedor.",
         inclui: [
           "Agente de IA no WhatsApp com o estoque real",
-          "CRM com funil, origem do contato e aviso de lead parado",
-          "Passagem do agente para o vendedor na mesma conversa",
+          "Qualificação com as perguntas da loja: interesse, prazo e forma de pagamento",
+          "Lead entregue ao CRM da loja, com a ficha e a conversa",
           "Treinamento da equipe",
         ],
-        rotuloDoPreco: "Preço de referência",
-        preco: precoEmTexto(SPRINT_INTEGRADO.preco),
+        rotuloDoPreco: "Implantação",
+        preco: precoEmTexto(ATENDIMENTO_INTEGRADO.preco).replace(/^a/, "A"),
         rotuloDaContinuidade: "Continuidade opcional",
         continuidade: `${MONITORADAS.nome}, ${mensalEmTexto(MONITORADAS.mensal)}, ou ${EVOLUCAO.nome}, ${mensalEmTexto(EVOLUCAO.mensal)}`,
       },
     ],
     rodape:
-      "Uso da IA e mensagens do WhatsApp ficam por fora, pelo valor do provedor, discriminados na fatura, com teto mensal combinado e aviso antes de ultrapassá-lo; a V2O5 gerencia. A campanha de anúncios fica com a loja ou com a agência dela.",
+      "Uso da IA e mensagens do WhatsApp ficam por fora, pelo valor do provedor, discriminados na fatura, com teto mensal combinado e aviso antes de ultrapassá-lo; a V2O5 gerencia.",
   },
   case: {
     texto: "O que foi construído na Motors Store, os números lidos no banco da loja e o caminho de um lead, do estoque à venda, estão no case.",
@@ -133,12 +124,12 @@ export const HUB_AUTOMOTIVO = {
     {
       pergunta: "Preciso de fotógrafo?",
       resposta:
-        "Se a loja já tem equipe ou fotógrafo, o site, o feed de anúncios e o agente usam as fotos que estão no sistema. Se não tem, a V2O5 pode indicar parceiros de fotografia, contratados à parte.",
+        "Se a loja já tem equipe ou fotógrafo, o site e o agente usam as fotos que estão no sistema. Se não tem, a V2O5 pode indicar parceiros de fotografia, contratados à parte.",
     },
     {
       pergunta: "Posso começar só pelo site de estoque?",
       resposta:
-        "Pode. O Site Conectado funciona sozinho: o estoque no site e a origem dos contatos primeiro, e a Operação com IA entra depois, na mesma base.",
+        "Pode. O Site Conectado funciona sozinho: o estoque no site e a origem dos contatos primeiro, e o Atendimento Integrado entra depois, na mesma base.",
     },
     {
       pergunta: "O site e os dados são meus?",

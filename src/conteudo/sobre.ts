@@ -9,9 +9,10 @@ import { EMPRESA, VISAO_360 } from "@/conteudo/home";
  * o que publicou no site antigo (livros até os 7 anos, o concurso de 1992)
  * e o que a memória do case confirma (os 26 guias). Respostas do Dyones em
  * 13/10: a relação com a Motors é de fornecedora; a empresa foi fundada em
- * dezembro de 2019. Em 25/10/2026 a narrativa passou ao posicionamento do
- * Sprint de Eficiência: a IA é um meio, não o centro, e não há mais "equipe
- * completa de IA". Os preços moram nas páginas das soluções (27/10). Sem
+ * dezembro de 2019. Em 25/10/2026 a narrativa passou a tratar a IA como um
+ * meio, não o centro, e não há mais "equipe completa de IA"; em 25/11/2026 o
+ * foco passou ao pequeno negócio e o Sprint saiu. Os preços moram nas
+ * páginas das soluções (27/10). Sem
  * foto até ela chegar (pendência 1) e sem citação inventada.
  * `tests/sobre.test.ts` confere.
  */
@@ -51,7 +52,7 @@ export const SOBRE = {
     sonho:
       "Quero que a V2O5 seja lembrada por identificar problemas importantes, resolver alguns muito bem e provar o resultado, e não por prometer resolver tudo. Cada projeto deve deixar algo funcionando, uma evidência do que melhorou e uma decisão clara sobre o próximo passo.",
   },
-  /** O método em cinco perguntas, que cada Sprint responde por escrito. */
+  /** O método em cinco perguntas, que cada projeto responde por escrito. */
   metodo: {
     titulo: "O método em cinco perguntas.",
     texto: "Todo projeto meu passa pelas mesmas cinco etapas, e cada uma tem uma pergunta que precisa de resposta antes de seguir.",
@@ -190,9 +191,9 @@ export const SOBRE = {
         itens: ["Revenda Mais", "Kenlo", "CRM sob medida"],
       },
       {
-        titulo: "Marketing, aquisição e conversão",
-        descricao: "Atrair demanda, acompanhar campanhas e medir resultados.",
-        itens: ["Meta Ads", "Google Ads", "Google Analytics 4", "Google Tag Manager", "Meta Pixel", "API de Conversões", "Google Search Console"],
+        titulo: "Presença, busca e medição",
+        descricao: "Ser encontrado por quem procura e saber de onde veio cada contato.",
+        itens: ["Perfil da Empresa no Google", "Google Search Console", "Google Analytics 4", "Instagram", "Facebook"],
       },
       {
         titulo: "Dados, inteligência e mensuração",

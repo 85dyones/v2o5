@@ -1,4 +1,3 @@
-import { CONDICOES, METODO } from "@/conteudo/sprint";
 import { CONTINUIDADE, mensalEmTexto, OFERTAS, PLANOS_DE_CONTINUIDADE, precoEmTexto, REGRAS_DE_PRECO } from "@/conteudo/ofertas";
 import { ASSINATURA, AUTOMOTIVO, CASE, EMPRESA, HERO, PILARES, VISAO_360 } from "@/conteudo/home";
 import { CASE_16VC } from "@/conteudo/case";
@@ -37,20 +36,18 @@ export function textoDoLlms(): string {
       `${o.resolve} ${o.recebe}`,
       ...o.pacotes.map(
         (p) =>
-          `- ${p.nome}: ${precoEmTexto(p.preco)}${p.mensal ? `; mensalidade opcional de ${mensalEmTexto(p.mensal.valor)} (${p.mensal.cobre})` : ""}${p.duracao ? `; duração de referência ${p.duracao}` : ""}. ${p.para}`,
+          `- ${p.nome}: ${precoEmTexto(p.preco)}${p.mensal ? `; mensalidade opcional de ${mensalEmTexto(p.mensal.valor)} (${p.mensal.cobre})` : ""}. ${p.para}`,
       ),
       `Fora dos pacotes: ${o.fora.join("; ")}.`,
       "",
     ]),
-    `Método do Sprint: ${METODO.map((m, i) => `${i + 1}. ${m.titulo}`).join("; ")}. Pagamento do Sprint: ${CONDICOES.itens[1].texto}`,
-    "",
     `### [Continuidade](${SITE_URL}/continuidade)`,
     CONTINUIDADE.texto,
     ...PLANOS_DE_CONTINUIDADE.map((p) => `- ${p.nome}: ${mensalEmTexto(p.mensal)}. ${p.para} ${p.inclui.join("; ")}.`),
     ...CONTINUIDADE.limites.map((l) => `- ${l.titulo}: ${l.texto}`),
     "",
     "## Recursos que um projeto pode usar",
-    "Automação, IA, dados, painéis e integrações entram como recursos de uma solução, quase sempre de um Sprint, sem preço próprio.",
+    "CRM, automação e integrações entram como recursos de uma solução, quase sempre do Atendimento com IA, sem preço próprio.",
     "",
     ...pilares,
     "## Exemplo por segmento: revendas de veículos",

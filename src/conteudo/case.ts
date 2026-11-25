@@ -26,10 +26,10 @@ export const CASE_MOTORS = {
   titulo: "Motors Store: o sistema inteiro numa revenda de seminovos.",
   /** Curto de propósito: o LCP da página é o H1, e um parágrafo maior que ele rouba o posto (regra do CLAUDE.md; `tests/case.test.ts`). */
   resumo:
-    "A V2O5 montou para a Motors Store, em Curitiba, o site de estoque, o agente de IA no WhatsApp, o rastreamento até a venda e as automações.",
+    "A V2O5 montou para a Motors Store, em Curitiba, o site de estoque, o agente de IA no WhatsApp, a entrega do lead ao CRM e as automações.",
   fatos: [
     { rotulo: "Cliente", valor: "Motors Store, revenda de seminovos em Curitiba" },
-    { rotulo: "Entrega", valor: "site de estoque, agente de IA, guias, rastreamento, painel e automações" },
+    { rotulo: "Entrega", valor: "site de estoque, agente de IA, guias, painel, integração com o CRM e automações" },
     { rotulo: "Fonte", valor: "banco de dados da Motors, lido em 17/11/2026" },
   ],
   /**
@@ -68,12 +68,6 @@ export const CASE_MOTORS = {
           "Hub de conteúdo assinado pelo fundador da V2O5, com dados estruturados por página, llms.txt e IndexNow, para o Google e as IAs encontrarem cada guia.",
       },
       {
-        linha: "Rastreamento até a venda",
-        titulo: "Cada lead com a origem",
-        texto:
-          "Camada de dados versionada e testada; Meta Pixel com API de Conversões deduplicada por event_id; GA4 e GTM; UTM e click IDs gravados no lead.",
-      },
-      {
         linha: "Atendimento com IA",
         titulo: "O Ney, agente da loja no WhatsApp",
         texto:
@@ -83,13 +77,13 @@ export const CASE_MOTORS = {
         linha: "Integrações entre sistemas",
         titulo: "Lead qualificado no CRM do Revenda Mais",
         texto:
-          "Na passagem, o lead vai ao CRM do Revenda Mais com a origem da mídia, o carro de interesse e a qualificação do Ney, e o CRM distribui ao vendedor.",
+          "Na passagem, o lead vai ao CRM do Revenda Mais com a origem do contato, o carro de interesse e a qualificação do Ney, e o CRM distribui ao vendedor.",
       },
       {
         linha: "CRM e sistemas sob medida",
         titulo: "Painel da loja",
         texto:
-          "A mesa do Ney: quem está com o agente, quem já foi ao CRM e quem precisa do dono, junto do estoque, da mídia paga e das consultas de placa.",
+          "A mesa do Ney: quem está com o agente, quem já foi ao CRM e quem precisa do dono, junto do estoque e das consultas de placa.",
       },
       {
         linha: "Automação de processos",
@@ -115,17 +109,7 @@ export const CASE_MOTORS = {
         complemento: "",
         texto: "leads no funil de 05/09 a 17/11: 131 pelos formulários do site e 106 pelo WhatsApp direto",
       },
-      {
-        valor: 129,
-        complemento: "de 131",
-        texto: "leads do site com o identificador que impede a Meta de contar a mesma conversão duas vezes",
-      },
       { valor: 113, complemento: "de 131", texto: "leads do site ligados ao veículo que motivou o contato" },
-      {
-        valor: 96,
-        complemento: "de 131",
-        texto: "leads do site com gclid ou fbclid: o anúncio exato que trouxe a pessoa",
-      },
       { valor: 26, complemento: "", texto: "guias publicados, assinados pelo fundador da V2O5" },
       {
         valor: 148,
@@ -133,12 +117,6 @@ export const CASE_MOTORS = {
         texto: "veículos no estoque sincronizado com o Revenda Mais, 60 já marcados como vendidos",
       },
     ],
-  },
-  rastreio: {
-    titulo: "Como a venda fica rastreável.",
-    texto:
-      "Cada lead do site sai com um identificador que o navegador e o servidor compartilham. A Meta e o Google recebem a mesma conversão pelos dois caminhos e contam uma vez só. O lead chega com a origem, o anúncio e o carro, e leva os três até o CRM do Revenda Mais.",
-    exemplo: "Formato real dos eventos; os valores são ilustrativos.",
   },
   /**
    * O Ney e o lead qualificado no CRM do Revenda Mais (17/11/2026). Como
@@ -151,7 +129,7 @@ export const CASE_MOTORS = {
     sobretitulo: "Atendimento com IA",
     titulo: "O Ney qualifica, o Revenda Mais distribui.",
     texto:
-      "O Ney é o agente de IA da Motors Store no WhatsApp, feito sob medida para a loja. Ele conversa com quem chega pelo anúncio, pelo site ou direto, e só passa o cliente à equipe quando a conversa está pronta para o vendedor.",
+      "O Ney é o agente de IA da Motors Store no WhatsApp, feito sob medida para a loja. Ele conversa com quem chega pelo site ou direto pelo WhatsApp, e só passa o cliente à equipe quando a conversa está pronta para o vendedor.",
     passos: [
       {
         titulo: "Responde com o estoque real",
@@ -167,7 +145,7 @@ export const CASE_MOTORS = {
       },
       {
         titulo: "Entrega no CRM do Revenda Mais",
-        texto: "O lead vai ao CRM com a origem da mídia, o carro de interesse e a qualificação do Ney, e o CRM escolhe o vendedor. Se o CRM recusar, o envio tenta de novo e o dono é avisado.",
+        texto: "O lead vai ao CRM com a origem do contato, o carro de interesse e a qualificação do Ney, e o CRM escolhe o vendedor. Se o CRM recusar, o envio tenta de novo e o dono é avisado.",
       },
       {
         titulo: "Retoma sem atropelar a equipe",
@@ -194,14 +172,14 @@ export const CASE_MOTORS = {
         ["Procura", "Compass Longitude 2021"],
         ["Pagamento", "financiado, com entrada"],
         ["Troca", "Gol 2015"],
-        ["Origem", "Site da Loja - Meta ADS, com a campanha e o anúncio"],
+        ["Origem", "Site da Loja"],
         ["Resumo da conversa", "o que o cliente pediu, em poucas linhas"],
       ],
     },
   },
   stack: {
     titulo: "Com o que foi feito",
-    itens: ["Next.js", "Vercel", "Supabase", "n8n", "Evolution API", "Meta Pixel e API de Conversões", "GA4 e GTM", "Revenda Mais (estoque e CRM)"],
+    itens: ["Next.js", "Vercel", "Supabase", "n8n", "Evolution API", "Revenda Mais (estoque e CRM)"],
   },
   assinatura:
     "Quem assina os 26 guias da Motors Store é o fundador da V2O5, Dyones Oliveira. É ele quem conduz o diagnóstico gratuito.",

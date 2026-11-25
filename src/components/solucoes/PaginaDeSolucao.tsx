@@ -24,13 +24,12 @@ import type { Etapa } from "@/lib/tokens";
 /**
  * O molde das páginas de solução, na direção B (19/10). A rota da margem
  * toma a cor da etapa da solução (`etapa` em `conteudo/solucoes.ts`) da
- * abertura a "como entra num Sprint"; perguntas e as linhas que combinam
- * ligam as paradas com o fio fino, e o fecho leva a rota em âmbar até o botão.
- * Página de recurso (agente, CRM, automação, rastreamento): não publica
- * valor; a linha entra num Sprint e o preço é o do Sprint. Página de solução
- * (desde 12/11/2026: Presença, Sites e o próprio Sprint, com
- * `oferta`): no lugar de "como entra num Sprint", os pacotes com o preço de
- * referência de `ofertas.ts`.
+ * abertura aos pacotes; perguntas e as linhas que combinam ligam as paradas
+ * com o fio fino, e o fecho leva a rota em âmbar até o botão. Página de
+ * solução (`oferta`: Presença, Sites e, desde 25/11/2026, o Atendimento com IA
+ * na página do agente): os pacotes com o preço de referência de `ofertas.ts`.
+ * Página de recurso (CRM, automação): não publica valor; a ficha "Na solução"
+ * diz como a linha entra no Atendimento com IA.
  * Os sobretítulos saíram da tela e viraram o nome acessível de cada seção.
  * Texto todo de `conteudo/solucoes.ts`.
  */
@@ -52,7 +51,7 @@ export default function PaginaDeSolucao({ rota, demonstracao }: { rota: string; 
         <ComoFunciona s={s} />
         {demonstracao}
         {s.naMotors ? <NaMotors m={s.naMotors} etapa={s.etapa} captura={s.linha === "sites" ? "vitrine" : undefined} /> : null}
-        {s.oferta ? <Pacotes oferta={ofertaDa(s.oferta)} /> : <NoSprint s={s} />}
+        {s.oferta ? <Pacotes oferta={ofertaDa(s.oferta)} /> : <NaSolucao s={s} />}
         <Perguntas
           lista={s.perguntas}
           sobretitulo="Antes de contratar"
@@ -60,7 +59,7 @@ export default function PaginaDeSolucao({ rota, demonstracao }: { rota: string; 
           texto={
             s.oferta
               ? "O que entra, quanto custa e o que fica de fora. O resto cabe no diagnóstico."
-              : "O que entra, onde encaixa num Sprint e o que fica de fora. O resto cabe no diagnóstico."
+              : `O que entra, onde encaixa no ${ofertaDa("atendimento").nome} e o que fica de fora. O resto cabe no diagnóstico.`
           }
         />
         <Relacionadas linhas={relacionadas} titulo={s.oferta ? "Recursos que combinam com esta solução." : undefined} />
@@ -104,12 +103,12 @@ function Abertura({ s }: { s: Solucao }) {
               <Icone nome="seta" className="seta size-4" />
             </Link>
             <a
-              href={s.oferta ? "#titulo-pacotes" : "#titulo-no-sprint"}
+              href={s.oferta ? "#titulo-pacotes" : "#titulo-na-solucao"}
               className="link-sublinhado text-[0.9375rem] font-medium"
               data-evento="cta_click"
               data-local="hero"
             >
-              {s.oferta ? "Ver os pacotes" : "Ver como entra num Sprint"}
+              {s.oferta ? "Ver os pacotes" : `Ver como entra no ${ofertaDa("atendimento").nome}`}
             </a>
           </div>
         </div>
@@ -336,33 +335,34 @@ function CelulasDoCase({ numeros }: { numeros: NonNullable<Solucao["naMotors"]>[
 }
 
 /**
- * Como a linha entra num Sprint, numa ficha fechada por fio de 2 px: o texto
- * da própria solução à esquerda e, ao lado, de onde sai o preço (proposta do
- * Sprint, com os valores em `/sprint-de-eficiencia`). O `id="titulo-no-sprint"`
- * é a âncora do botão "Ver como entra num Sprint".
+ * Como o recurso entra no Atendimento com IA (25/11/2026; antes, "No
+ * Sprint"), numa ficha fechada por fio de 2 px: o texto da própria página à
+ * esquerda e, ao lado, de onde sai o preço (os pacotes da solução). O
+ * `id="titulo-na-solucao"` é a âncora do botão da abertura.
  */
-function NoSprint({ s }: { s: Solucao }) {
+function NaSolucao({ s }: { s: Solucao }) {
   const nome = capacidade(s.linha).nome;
+  const solucao = ofertaDa("atendimento");
   return (
-    <Trecho aria-label="No Sprint" etapa={s.etapa}>
+    <Trecho aria-label="Na solução" etapa={s.etapa}>
       <div className="relative grid grid-cols-12 gap-x-6">
         <Parada />
-        <h2 id="titulo-no-sprint" className="titulo-secao col-span-12 lg:col-span-8">
-          {nome} num Sprint de Eficiência.
+        <h2 id="titulo-na-solucao" className="titulo-secao col-span-12 lg:col-span-8">
+          {nome} no {solucao.nome}.
         </h2>
       </div>
       <div className="mt-12 grid grid-cols-12 border-2 border-texto md:mt-14">
         <div className="col-span-12 p-6 md:p-7 lg:col-span-7">
-          <p className="max-w-[40rem] text-[1.0625rem] leading-relaxed">{s.noSprint}</p>
-          <LinkOuAncora href="/sprint-de-eficiencia#titulo-pacotes" className="botao botao-secundario mt-7" data-evento="cta_click" data-local="preco">
-            Ver os Sprints e os valores
+          <p className="max-w-[40rem] text-[1.0625rem] leading-relaxed">{s.naSolucao}</p>
+          <LinkOuAncora href={`${solucao.rota}#titulo-pacotes`} className="botao botao-secundario mt-7" data-evento="cta_click" data-local="preco">
+            Ver os pacotes e os valores
             <Icone nome="seta" className="seta size-4" />
           </LinkOuAncora>
         </div>
         <div className="col-span-12 flex flex-col justify-center border-t border-linha bg-fundo-cartao p-6 md:p-8 lg:col-span-5 lg:border-l lg:border-t-0">
           <p className="rotulo text-texto-secundario">O preço final</p>
           <p className="mt-3 text-[1.125rem] leading-snug">
-            Sai da proposta do Sprint, depois de delimitar o gargalo, o escopo, os entregáveis e o prazo.
+            Sai da proposta do {solucao.nome}, depois de conhecer o atendimento de hoje, o escopo e os sistemas envolvidos.
           </p>
           <p className="mt-4 text-sm leading-relaxed text-texto-secundario">
             O diagnóstico inicial, de 45 minutos, é gratuito.
@@ -378,7 +378,7 @@ function NoSprint({ s }: { s: Solucao }) {
  * o link, a linha pinta a rota na cor da etapa dela e leva a parada, que se
  * acende no hover.
  */
-function Relacionadas({ linhas, titulo = "Intervenções que combinam com esta." }: { linhas: Linha[]; titulo?: string }) {
+function Relacionadas({ linhas, titulo = "Recursos que combinam com este." }: { linhas: Linha[]; titulo?: string }) {
   return (
     <Trecho aria-labelledby="titulo-relacionadas">
       <div className="relative grid grid-cols-12 gap-x-6">

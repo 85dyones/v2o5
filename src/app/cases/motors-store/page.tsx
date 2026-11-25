@@ -2,16 +2,14 @@ import type { CSSProperties } from "react";
 import Link from "next/link";
 import Icone from "@/components/Icone";
 import JsonLd from "@/components/JsonLd";
-import TerminalDeEventos from "@/components/home/TerminalDeEventos";
 import Entradas from "@/components/layout/Entradas";
 import Topo from "@/components/layout/Topo";
 import Rodape from "@/components/layout/Rodape";
 import MarcaMotors from "@/components/marca/MarcaMotors";
 import CapturasDaMotors, { TODAS_AS_CAPTURAS } from "@/components/case/CapturasDaMotors";
 import Construcao from "@/components/marca/Construcao";
-import { COR_DA_ROTA, ComMarcas, Parada, Trecho } from "@/components/rota/Rota";
+import { COR_DA_ROTA, Parada, Trecho } from "@/components/rota/Rota";
 import { CASE_MOTORS } from "@/conteudo/case";
-import { CASE } from "@/conteudo/home";
 import { metadataDa } from "@/conteudo/paginas";
 import { grafoDoCase } from "@/lib/schema";
 
@@ -96,7 +94,7 @@ export default function Pagina() {
           {/* Mosaico como o da home: o total na célula de tinta, os outros no
               papel, a sobra em hachura. O fio entre células é o fundo que
               aparece no `gap-px`, então vale em qualquer número de colunas. */}
-          <dl className="mt-12 grid grid-cols-1 gap-px sm:grid-cols-2 border-2 border-texto bg-linha md:mt-14 lg:grid-cols-4">
+          <dl className="mt-12 grid grid-cols-1 gap-px sm:grid-cols-2 border-2 border-texto bg-linha md:mt-14 lg:grid-cols-3">
             {c.numeros.itens.map((n, i) => (
               <div
                 key={n.texto}
@@ -120,26 +118,6 @@ export default function Pagina() {
             <div aria-hidden="true" className="hachura hidden bg-fundo sm:block" />
           </dl>
           <p className="mt-4 text-sm text-texto-secundario">{c.numeros.fonte}</p>
-        </Trecho>
-
-        <Trecho aria-labelledby="titulo-rastreio" etapa="azul">
-          <div className="relative grid grid-cols-12">
-            <Parada />
-            <h2 id="titulo-rastreio" className="titulo-secao col-span-12 lg:col-span-7">
-              {c.rastreio.titulo}
-            </h2>
-          </div>
-          <div className="mt-10 grid grid-cols-12 gap-x-6 gap-y-10 md:mt-12">
-            <div className="col-span-12 lg:col-span-4">
-              <p className="texto-guia">
-                <ComMarcas texto={c.rastreio.texto} marcas={["a origem, o anúncio e o carro"]} etapa="azul" />
-              </p>
-              <p className="mt-5 text-sm text-texto-secundario">{c.rastreio.exemplo}</p>
-            </div>
-            <div className="col-span-12 lg:col-span-8">
-              <TerminalDeEventos linhas={CASE.terminal} />
-            </div>
-          </div>
         </Trecho>
 
         <Trecho aria-labelledby="titulo-atendimento" etapa="verde">

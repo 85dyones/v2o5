@@ -13,32 +13,30 @@ import {
 } from "@/conteudo/home";
 import { continuidadeAPartirDe, mensalEmTexto, OFERTAS, precoDeEntrada, VALORES_PUBLICOS } from "@/conteudo/ofertas";
 import { BRL } from "@/conteudo/precos";
+import { CASE_MOTORS } from "@/conteudo/case";
 import { arquivos, ler, semComentarios } from "./fonte";
 
 /**
  * Regras de texto do CLAUDE.md: número só com fonte e período, demonstração
- * rotulada, preço só da tabela (`ofertas.ts` e `sprint.ts`), sem travessão
- * no texto público.
+ * rotulada, preço só da tabela (`ofertas.ts`), sem travessão no texto
+ * público. Desde 25/11/2026: foco em pequenos negócios, sem Sprint e sem
+ * anúncio na fala da Motors.
  */
 
 describe("números do case", () => {
   const memoria = ler("memory/projects/case-motors.md");
 
   it("cada número existe na memória do case, lido do banco", () => {
-    expect(memoria).toMatch(/\| Leads do site com `event_id` \| 129 de 131/);
     expect(memoria).toMatch(/\| Guias publicados \| 26 \|/);
     expect(memoria).toMatch(/\| Estoque sincronizado \| 148 veículos/);
-    expect(CASE.numeros.map((n) => `${n.valor}${n.complemento ? ` ${n.complemento}` : ""}`)).toEqual([
-      "129 de 131",
-      "26",
-      "148",
-    ]);
+    expect(CASE.numeros.map((n) => `${n.valor}${n.complemento ? ` ${n.complemento}` : ""}`)).toEqual(["26", "148"]);
   });
 
   it("a fonte e o período aparecem junto dos números", () => {
     expect(CASE.fonte).toMatch(/17\/11\/2026/);
     expect(CASE.fonte).toMatch(/05\/09/);
-    expect(ler("src/components/home/CaseMotors.tsx")).toMatch(/\{CASE\.fonte\}/);
+    expect(ler("src/app/llms.txt/route.ts")).toMatch(/CASE\.fonte/);
+    expect(CASE_MOTORS.numeros.fonte).toBe(CASE.fonte);
   });
 
   it("os exemplos proibidos do documento de motion não aparecem", () => {
@@ -52,20 +50,21 @@ describe("números do case", () => {
 describe("demonstrações rotuladas", () => {
   it("o orquestrador diz que é demonstração com dados fictícios", () => {
     expect(ler("src/components/home/orquestrador/Orquestrador.tsx")).toMatch(/Demonstração com dados fictícios/);
-    expect(FRENTES.map((f) => f.aba)).toEqual(["Agente de IA", "Automação", "Site e rastreamento"]);
+    expect(FRENTES.map((f) => f.aba)).toEqual(["Agente de IA", "Automação", "Contato de volta"]);
+    expect(JSON.stringify(FRENTES)).not.toMatch(/anúncio|Google Ads|Meta|R\$/);
   });
 
-  it("o terminal do case é rotulado como exemplo", () => {
-    expect(ler("src/components/home/TerminalDeEventos.tsx")).toMatch(/>exemplo</);
-    expect(ler("src/components/home/CaseMotors.tsx")).toMatch(/<TerminalDeEventos linhas=\{CASE\.terminal\}/);
+  it("o case da Motors e a home não falam de anúncio nem de rastreamento até o anúncio (25/11/2026)", () => {
+    expect(JSON.stringify(CASE_MOTORS)).not.toMatch(/anúncio|Meta ADS|Meta Pixel|Google Ads|gclid|fbclid|API de Conversões|rastreamento/i);
+    expect(JSON.stringify({ HERO, PERGUNTAS, PILARES, LINHAS })).not.toMatch(/Google Ads|Meta Ads|gclid|fbclid|rastreamento até/i);
   });
 });
 
 describe("oferta", () => {
   it("os cartões de recurso não publicam valor nem falam de plano ou mensalidade", () => {
-    // O cartão de tráfego pago saiu em 12/11/2026.
-    expect(LINHAS).toHaveLength(12);
-    expect(LINHAS.map((l) => l.linha)).not.toContain("googleAds");
+    // O cartão de tráfego pago saiu em 12/11/2026; rastreamento, catálogo de anúncios, consultoria e indicadores, em 25/11/2026.
+    expect(LINHAS).toHaveLength(8);
+    for (const fora of ["googleAds", "rastreamento", "catalogo", "consultoria", "dados"]) expect(LINHAS.map((l) => l.linha)).not.toContain(fora);
     for (const linha of LINHAS) {
       expect(linha, linha.titulo).not.toHaveProperty("preco");
       expect(`${linha.titulo} ${linha.frase}`, linha.titulo).not.toMatch(/R\$|mensalidade|plano |Completo/);
@@ -74,11 +73,11 @@ describe("oferta", () => {
   });
 });
 
-describe("os dois grupos do catálogo (operação primeiro, \"Trazer mais gente\" depois)", () => {
+describe("os dois grupos do catálogo, na ordem do H1: colocar no mapa e cuidar de cada cliente (25/11/2026)", () => {
   const servicos = PILARES.flatMap((p) => p.servicos);
 
   it("são dois grupos, e toda linha da home está num deles", () => {
-    expect(PILARES.map((p) => p.sobretitulo)).toEqual(["Organizar a operação", "Trazer mais gente"]);
+    expect(PILARES.map((p) => p.sobretitulo)).toEqual(["Colocar no mapa", "Cuidar de cada cliente"]);
     for (const l of LINHAS) expect(servicos, l.titulo).toContainEqual(l);
   });
 
@@ -99,28 +98,25 @@ describe("os dois grupos do catálogo (operação primeiro, \"Trazer mais gente\
     expect(fonte).not.toContain("PILARES");
   });
 
-  it("o mapa traz Perfil da Empresa no Google, SEO e o catálogo ligado ao estoque, sem branding nem tráfego pago (12/11/2026)", () => {
-    const mapa = PILARES[1].servicos.map((s) => s.titulo).join(" | ");
+  it("o mapa traz Perfil da Empresa no Google, SEO, sites, redes e avaliações, sem anúncio, branding nem tráfego pago", () => {
+    const mapa = PILARES[0].servicos.map((s) => s.titulo).join(" | ");
     expect(mapa).toMatch(/Perfil da Empresa no Google/);
     expect(mapa).toMatch(/SEO/);
-    expect(mapa).toMatch(/Catálogo de anúncios ligado ao estoque/);
-    expect(mapa).not.toMatch(/Branding|Tráfego pago/i);
-    expect(PILARES[1].servicos).toHaveLength(7);
-    expect(PILARES[1].titulo).toMatch(/De que adianta trazer mais gente se a operação não está pronta/);
+    expect(mapa).toMatch(/Avaliações no Google/);
+    expect(mapa).not.toMatch(/Branding|Tráfego pago|anúncio|Rastreamento/i);
+    expect(PILARES[0].servicos).toHaveLength(5);
+    expect(PILARES[0].titulo).toBe("Ser encontrado por quem procura perto.");
   });
 
-  it("a operação traz o agente no bloco grande, diagnóstico, consultoria, indicadores e integrações, e o pós-venda por último; sem módulos", () => {
-    const operacao = PILARES[0].servicos.map((s) => s.titulo);
+  it("cuidar de cada cliente traz o agente primeiro, o diagnóstico, CRM, automação e integrações, e o pós-venda por último; sem consultoria nem indicadores", () => {
+    const operacao = PILARES[1].servicos.map((s) => s.titulo);
     expect(operacao[0]).toBe("Agente de IA no WhatsApp");
     expect(operacao).toContain("Diagnóstico e análise de operação");
-    expect(operacao).toContain("Consultoria de processos");
-    expect(operacao).toContain("Indicadores e painéis");
-    expect(operacao).toContain("Pós-venda e recorrência");
-    expect(operacao).not.toContain("Painel do dono");
-    expect(operacao).not.toContain("Reativação de base");
+    expect(operacao).not.toContain("Consultoria de processos");
+    expect(operacao).not.toContain("Indicadores e painéis");
     expect(operacao[operacao.length - 1]).toBe("Pós-venda e recorrência");
     expect(operacao.indexOf("Integrações entre sistemas")).toBe(operacao.length - 2);
-    expect(PILARES[0].servicos).toHaveLength(8);
+    expect(PILARES[1].servicos).toHaveLength(6);
   });
 
   it("a home não volta ao catálogo genérico: as capacidades ficam como recursos, fora da home", () => {
@@ -197,8 +193,8 @@ describe("perguntas e chamadas", () => {
 });
 
 describe("texto público", () => {
-  it("o H1 da home é o de 25/10, mantido em 27/10, e a decisão está registrada", () => {
-    expect(TITULO_DA_HOME).toBe("Do problema ao resultado, pelo caminho mais simples.");
+  it("o H1 da home é o de 25/11/2026 (foco em pequenos negócios), e a decisão está registrada", () => {
+    expect(TITULO_DA_HOME).toBe("Coloque seu negócio no mapa e cuide de cada cliente que chega.");
     expect(ler("memory/decisoes.md")).toContain(TITULO_DA_HOME);
   });
 
@@ -207,15 +203,6 @@ describe("texto público", () => {
     for (const arquivo of fontes) {
       expect(semComentarios(ler(arquivo)), arquivo).not.toMatch(/[—–]/);
     }
-  });
-});
-
-describe("Como tudo se liga (home)", () => {
-  it("o diagrama é apresentado como exemplo de um Sprint, não como pacote fechado (25/10/2026)", () => {
-    const fonte = ler("src/components/home/diagrama/ComoSeLiga.tsx");
-    expect(fonte).toMatch(/Um exemplo: o caminho de um contato num Sprint Integrado/);
-    expect(fonte).toMatch(/Cada Sprint liga só as peças que o gargalo pede/);
-    expect(fonte).toMatch(/id="como-se-liga"/);
   });
 });
 
@@ -231,31 +218,11 @@ describe("telas da Motors", () => {
   });
 });
 
-describe("Como tudo se liga: a ordem do funil (26/10/2026)", () => {
-  it("as paradas seguem atração, atendimento, gestão e venda, sem etapa fora de ordem", async () => {
-    const { PARADAS, CAMADAS, PECAS } = await import("@/conteudo/home");
-    expect(PARADAS.map((p) => p.id)).toEqual(["site", "whatsapp", "agente", "crm", "venda"]);
-    const ordem = { violeta: 0, verde: 1, azul: 2, ambar: 3 } as const;
-    const etapas = PARADAS.map((p) => ordem[p.etapa]);
-    expect(etapas).toEqual([...etapas].sort((a, b) => a - b));
-    expect(PARADAS[PARADAS.length - 1].etapa).toBe("ambar");
-    expect(CAMADAS.map((c) => c.id)).toEqual(["n8n", "rastreamento"]);
-    expect(PECAS).toHaveLength(7);
-  });
-
-  it("o rastreamento é camada (origem na entrada, venda de volta ao anúncio) e não uma parada; nenhum caminho de parada o contém", async () => {
-    const { PARADAS, CAMADAS } = await import("@/conteudo/home");
-    const rastreio = CAMADAS.find((c) => c.id === "rastreamento")!;
-    expect(rastreio.camada).toMatch(/Origem na entrada, venda de volta ao anúncio/);
-    expect(rastreio.texto).toMatch(/na entrada/);
-    expect(rastreio.texto).toMatch(/devolve a conversão/);
-    for (const p of PARADAS) expect(p.caminho, p.nome).not.toContain("rastreamento");
-    for (const c of CAMADAS) for (const id of c.caminho) expect(PARADAS.map((p) => p.id)).toContain(id);
-  });
-
-  it("a home segue a lógica soluções, como começar, problema, método, exemplo, medição e prova, sem seção de segmento (17/11/2026)", () => {
+describe("a ordem da home (25/11/2026)", () => {
+  it("a home segue a lógica soluções, como começar, problema, medição e prova, sem seção de segmento nem método do Sprint", () => {
     const home = ler("src/components/home/Home.tsx");
-    const ordem = ["<Hero ", "<Solucoes />", "<Escada />", "<Dores />", "<Sprint />", "<ComoSeLiga />", "<Indicadores />", "<ProjetoReal />"];
+    expect(home).not.toMatch(/<Sprint|<ComoSeLiga/);
+    const ordem = ["<Hero ", "<Solucoes />", "<Escada />", "<Dores />", "<Indicadores />", "<ProjetoReal />"];
     const posicoes = ordem.map((c) => home.indexOf(c));
     expect(posicoes.every((p) => p > 0)).toBe(true);
     expect(posicoes).toEqual([...posicoes].sort((a, b) => a - b));

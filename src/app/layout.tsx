@@ -4,18 +4,18 @@ import Ancora from "@/components/layout/Ancora";
 import FonteMonoTardia from "@/components/layout/FonteMonoTardia";
 import Medicao from "@/components/layout/Medicao";
 import PrimeiroToque from "@/components/layout/PrimeiroToque";
-import { SUFIXO_DO_TITULO } from "@/conteudo/paginas";
+import { SUFIXO_DO_TITULO, TITULO_PADRAO } from "@/conteudo/paginas";
 import { SITE_URL } from "@/lib/site";
 import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "V2O5 Vendas e Tecnologia | Menos atrito entre problema e resultado",
+    default: TITULO_PADRAO,
     template: `%s${SUFIXO_DO_TITULO}`,
   },
   description:
-    "A V2O5 acha o gargalo, simplifica o processo e implementa tecnologia, automação e IA para a operação render mais e ser medida. Comece pelo Sprint de Eficiência.",
+    "A V2O5 digitaliza pequenos negócios: coloca a empresa no Google e organiza o atendimento no WhatsApp, com sites, integrações e IA. Comece pelo diagnóstico gratuito.",
   applicationName: "V2O5 Vendas e Tecnologia",
   openGraph: { type: "website", siteName: "V2O5 Vendas e Tecnologia", locale: "pt_BR", url: "/" },
   twitter: { card: "summary" },

@@ -3,12 +3,12 @@ rota: "/automacao-com-ia"
 url: "https://www.v2o5.com.br/automacao-com-ia"
 status: 200
 title: "Automação de processos com IA e n8n | V2O5 Vendas e Tecnologia"
-description: "Fluxos no n8n que ligam os sistemas que a sua empresa já usa, com IA validada contra invenção de dado e registro de cada execução. Entra num Sprint."
+description: "Fluxos no n8n que ligam os sistemas que a empresa já usa, com IA validada contra invenção de dado e registro de cada execução. Recurso do Atendimento com IA."
 canonical: "https://www.v2o5.com.br/automacao-com-ia"
 robots: null
 h1: "Automação de processos com IA e n8n."
-extraido_em: "2026-11-17T15:24:58.492Z"
-fonte: "build local da branch claude/kind-tesla-eefroe em 17/11/2026 (case Motors com o Ney, números de 17/11), antes da publicação"
+extraido_em: "2026-11-25T15:38:59.225Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 25/11/2026 (foco em pequenos negócios), antes da publicação"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 # Automação de processos com IA e n8n.
@@ -17,11 +17,11 @@ A tarefa que alguém faz à mão toda semana passa a rodar sozinha entre os sist
 
 [Pedir diagnóstico gratuito](/diagnostico)
 
-[Ver como entra num Sprint](#titulo-no-sprint)
+[Ver como entra no Atendimento com IA](#titulo-na-solucao)
 
-No Sprint
+Na solução
 
-Intervenção para quando o gargalo é tarefa repetida entre sistemas
+Entra no Atendimento com IA quando uma tarefa repetida trava o atendimento ou a venda
 
 Manutenção
 
@@ -91,54 +91,6 @@ Manutenção
 
 Ajustes e correções dentro do período e do escopo definidos na proposta.
 
-## Um exemplo: o caminho de um contato num Sprint Integrado. Cada Sprint liga só as peças que o gargalo pede.
-
-Cinco paradas, na ordem do funil: atração, atendimento, gestão e venda. Duas camadas acompanham o caminho inteiro: a automação, que liga as peças, e o rastreamento, que grava a origem na entrada e devolve a venda ao anúncio. Escolha uma peça para ver o caminho; outros Sprints ligam outras peças.
-
-Site
-
-Atração
-
-WhatsApp
-
-Atendimento
-
-Agente de IA
-
-Atendimento
-
-CRM
-
-Gestão
-
-Venda
-
-Venda
-
-Em todo o caminho
-
-n8n
-
-Liga as peças
-
-Rastreamento
-
-Origem na entrada, venda de volta ao anúncio
-
-Atração
-
-### Site
-
-Recebe o visitante e guarda de onde ele veio antes de levá-lo ao WhatsApp ou ao formulário.
-
-Caminho que passa por aqui <!-- só leitor de tela -->
-
-- Site <!-- só leitor de tela -->
-- WhatsApp <!-- só leitor de tela -->
-- Agente de IA <!-- só leitor de tela -->
-- CRM <!-- só leitor de tela -->
-- Venda <!-- só leitor de tela -->
-
 ## Rodando na Motors Store.
 
 Sincronização do estoque com o Revenda Mais, entrada das conversas do WhatsApp pela Evolution API, rodada do atendimento a cada 15 minutos e alerta de falha de integração.
@@ -151,25 +103,25 @@ Banco de dados da Motors Store, lido em 17/11/2026. Leads contados de 05/09 a 17
 
 [Ler o case completo](/cases/motors-store)
 
-## Automação de processos num Sprint de Eficiência.
+## Automação de processos no Atendimento com IA.
 
-A automação entra num Sprint quando o gargalo é uma tarefa repetida entre sistemas. O Sprint mapeia o processo real, tira as etapas desnecessárias antes de automatizar e mede o tempo e o retrabalho antes e depois.
+A automação entra no Atendimento com IA quando uma tarefa repetida trava o atendimento: avisar a equipe, registrar o contato, atualizar o estoque ou o catálogo do site. A proposta diz quantos fluxos entram e o que cada um faz.
 
-[Ver os Sprints e os valores](/sprint-de-eficiencia#titulo-pacotes)
+[Ver os pacotes e os valores](/agente-de-ia-para-whatsapp#titulo-pacotes)
 
 O preço final
 
-Sai da proposta do Sprint, depois de delimitar o gargalo, o escopo, os entregáveis e o prazo.
+Sai da proposta do Atendimento com IA, depois de conhecer o atendimento de hoje, o escopo e os sistemas envolvidos.
 
 O diagnóstico inicial, de 45 minutos, é gratuito.
 
 ## O que perguntam sobre automação de processos antes de fechar.
 
-O que entra, onde encaixa num Sprint e o que fica de fora. O resto cabe no diagnóstico.
+O que entra, onde encaixa no Atendimento com IA e o que fica de fora. O resto cabe no diagnóstico.
 
 O que conta como um fluxo?
 
-Uma rotina do começo ao fim. A venda marcada no CRM que tira o carro do site, avisa o grupo e manda o obrigado ao cliente é um fluxo. O escopo do Sprint diz quantos fluxos entram.
+Uma rotina do começo ao fim. A venda marcada no CRM que tira o produto do site, avisa o grupo e manda o obrigado ao cliente é um fluxo. A proposta diz quantos fluxos entram.
 
 Preciso trocar o sistema de gestão que já uso?
 
@@ -187,13 +139,13 @@ Por que n8n?
 
 Roda na infraestrutura da V2O5, sem cobrança por tarefa executada, e o fluxo é exportável em arquivo se você sair.
 
-## Intervenções que combinam com esta.
+## Recursos que combinam com este.
 
 [Gestão CRM e sistemas sob medida Nenhum contato esquecido numa conversa: cada um num funil, com a origem, a etapa e o próximo passo à vista.](/crm-com-whatsapp)
 
 [Atendimento Agente de IA no WhatsApp Responde na hora, a qualquer hora, com as informações do seu negócio. Quando a conversa pede uma pessoa, chama alguém da equipe.](/agente-de-ia-para-whatsapp)
 
-[Venda Pós-venda e recorrência Revisão, troca, seguro ou recompra: a régua de retorno manda a mensagem na data certa e devolve o cliente ao funil.](/diagnostico)
+[Venda Pós-venda e recorrência Revisão, recompra ou retorno: a régua manda a mensagem na data certa e traz o cliente de volta.](/diagnostico)
 
 ## Comece pelo diagnóstico, que é gratuito.
 
@@ -223,9 +175,8 @@ O · 4,8 <!-- texto em SVG; decorativo, aria-hidden -->
 - "O problema" (section)
 - "O que entra" (section)
 - "Como funciona" (section)
-- "Diagrama: como as peças do sistema se ligam" (ol)
 - "Case" (section)
-- "No Sprint" (section)
+- "Na solução" (section)
 - "Antes de contratar" (section)
 - "Conversa no WhatsApp" (aside)
 -->

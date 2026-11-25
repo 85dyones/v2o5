@@ -90,8 +90,9 @@ describe("case 16ª Vara Cível", () => {
     const cases = NAVEGACAO.find((i) => i.rotulo === "Cases");
     expect(cases && "itens" in cases ? cases.itens?.map((i) => i.href) : []).toEqual(["/cases/motors-store", CASE_16VC.rota]);
     expect(ler("src/components/layout/Rodape.tsx")).toContain(`href: "${CASE_16VC.rota}"`);
-    expect(PROJETO.outro.href).toBe(CASE_16VC.rota);
-    expect(ler("src/components/home/ProjetoReal.tsx")).toContain("PROJETO.outro.href");
+    // Os dois cases com o mesmo peso na home (25/11/2026).
+    expect(PROJETO.cases.map((c) => c.href)).toEqual(["/cases/motors-store", CASE_16VC.rota]);
+    expect(ler("src/components/home/ProjetoReal.tsx")).toContain("PROJETO.cases.map");
     expect(ler("src/app/llms.txt/route.ts")).toContain("## Case 16ª Vara Cível");
   });
 });

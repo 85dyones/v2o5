@@ -2,7 +2,7 @@ import LinkOuAncora from "@/components/LinkOuAncora";
 import { Parada, Trecho } from "@/components/rota/Rota";
 import { ESCADA } from "@/conteudo/home";
 
-/** Os três degraus da oferta, com o Sprint em destaque. Sem preço: o escopo vem depois da conversa. */
+/** Os três degraus da oferta, com a solução em destaque. Sem preço: o escopo vem depois da conversa. */
 export default function Escada() {
   return (
     <Trecho id="como-trabalhamos" aria-labelledby="titulo-escada" etapa="ambar">
@@ -34,7 +34,6 @@ export default function Escada() {
           </li>
         ))}
       </ol>
-      <p className="mt-8 max-w-[44rem] text-[0.9375rem] leading-relaxed text-texto-secundario">{ESCADA.nota}</p>
     </Trecho>
   );
 }
