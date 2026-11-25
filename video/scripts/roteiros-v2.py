@@ -11,7 +11,7 @@ TELA = {"L1-06", "L1-08", "L1-10", "L1-17", "L1-21", "L1-25"}
 def limpo(t):
     return re.sub(r"[\[\]]", "", t).replace("|", " / ")
 
-linhas = ["# Roteiros do lote 1 no padrão v2 (para leitura, 24/11/2026)\n"]
+linhas = ["# Roteiros do lote 1 no padrão v2 (para leitura, 24/11/2026; foco em pequenos negócios desde 25/11/2026)\n"]
 linhas.append("Cada reel ganha: gancho escuro (digitado, com pausa entre as frases e o destaque âmbar depois), beats curtos com um destaque, frase de efeito em fundo escuro com a chamada de compartilhar e a logo no fim. As cenas e as gravações de tela continuam as mesmas do lote 1. Entre colchetes, o trecho que recebe o destaque; `/` é a quebra de linha. Fonte dos dados: `video/v2.json`.\n")
 linhas.append("Legenda de leitura: *cena de exemplo* = a nota discreta no gancho porque o reel usa horários, números ou conversas ilustrativos.\n")
 for c in sorted(v2, key=lambda k: int(k.split("-")[1])):

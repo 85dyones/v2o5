@@ -1,167 +1,521 @@
 {
   "L1-01": {
-    "hook": { "texto": "Seu cliente pediu o preço às 14h02.|[Quando você respondeu?]", "nota": "Cena de exemplo" },
-    "beats": ["Ele perguntou o preço.", "Você estava [ocupado].", "Ninguém [respondeu].", "Quando você [voltou],", "ele já tinha [fechado]."],
-    "punch": { "linha1": "Seu preço nem entrou", "linha2": "na [disputa]." },
+    "hook": {
+      "texto": "Seu cliente pediu o preço às 14h02.|[Quando você respondeu?]",
+      "nota": "Cena de exemplo"
+    },
+    "beats": [
+      "Ele perguntou o preço.",
+      "Você estava [ocupado].",
+      "Ninguém [respondeu].",
+      "Quando você [voltou],",
+      "ele já tinha [fechado]."
+    ],
+    "punch": {
+      "linha1": "Seu preço nem entrou",
+      "linha2": "na [disputa]."
+    },
     "compartilhar": "Envie para quem deixa cliente esperando"
   },
   "L1-02": {
-    "hook": { "texto": "Você investe em mais anúncio.|[Quem já chegou foi respondido?]", "nota": "Cena de exemplo" },
-    "beats": ["Mais anúncio, mais gente [chegando].", "Quem chega [fica sem resposta].", "Olhe antes quem já [chegou]."],
-    "punch": { "linha1": "Atrair sem responder", "linha2": "é [pagar para perder]." },
-    "compartilhar": "Envie para quem investe em anúncio"
+    "hook": {
+      "texto": "Você posta todo dia.|[Quem chamou foi respondido?]",
+      "nota": "Cena de exemplo"
+    },
+    "beats": [
+      "Mais post, mais gente [chamando].",
+      "Quem chama [fica sem resposta].",
+      "Olhe antes quem já [chamou]."
+    ],
+    "punch": {
+      "linha1": "Atrair sem responder",
+      "linha2": "é [perder o cliente]."
+    },
+    "compartilhar": "Envie para quem posta e não dá conta do WhatsApp"
   },
   "L1-03": {
-    "hook": { "texto": "93 de 100 conversas|com a primeira resposta em [até 1 minuto].", "nota": "Motors Store · 21/10 a 17/11/2026" },
-    "beats": ["Esse número é da [Motors Store].", "O agente de IA responde desde [21/10].", "Em 100 conversas lidas, [93] em até 1 minuto.", "A mediana é de [38 segundos]."],
-    "punch": { "linha1": "Número real da Motors,", "linha2": "com [fonte e período]." },
+    "hook": {
+      "texto": "93 de 100 conversas|com a primeira resposta em [até 1 minuto].",
+      "nota": "Motors Store · 21/10 a 17/11/2026"
+    },
+    "beats": [
+      "Esse número é da [Motors Store].",
+      "O agente de IA responde desde [21/10].",
+      "Em 100 conversas lidas, [93] em até 1 minuto.",
+      "A mediana é de [38 segundos]."
+    ],
+    "punch": {
+      "linha1": "Número real da Motors,",
+      "linha2": "com [fonte e período]."
+    },
     "compartilhar": "Envie para quem quer responder mais rápido",
-    "cfg": { "tipo": "numero", "fonte": "Motors Store · 21/10 a 17/11/2026", "valor": 93, "sufixo": " de 100", "rotulo": "primeiras respostas em até 1 minuto", "extra": "mediana: 38 segundos", "fonteA": 0, "a": 2, "extraA": 3 }
+    "cfg": {
+      "tipo": "numero",
+      "fonte": "Motors Store · 21/10 a 17/11/2026",
+      "valor": 93,
+      "sufixo": " de 100",
+      "rotulo": "primeiras respostas em até 1 minuto",
+      "extra": "mediana: 38 segundos",
+      "fonteA": 0,
+      "a": 2,
+      "extraA": 3
+    }
   },
   "L1-04": {
-    "hook": { "texto": "Seu cliente [esperou].|Você nem percebeu.", "nota": "Cena de exemplo" },
-    "beats": ["Você estava em [outra tarefa].", "O cliente sente a [espera] primeiro.", "Veja onde as conversas [param].", "Depois decida o que [mudar]."],
-    "punch": { "linha1": "Espera que ninguém vê", "linha2": "vira [cliente perdido]." },
+    "hook": {
+      "texto": "Seu cliente [esperou].|Você nem percebeu.",
+      "nota": "Cena de exemplo"
+    },
+    "beats": [
+      "Você estava em [outra tarefa].",
+      "O cliente sente a [espera] primeiro.",
+      "Veja onde as conversas [param].",
+      "Depois decida o que [mudar]."
+    ],
+    "punch": {
+      "linha1": "Espera que ninguém vê",
+      "linha2": "vira [cliente perdido]."
+    },
     "compartilhar": "Envie para quem atende no meio de tudo"
   },
   "L1-05": {
-    "hook": { "texto": "Quantas conversas ficaram|[sem resposta] esta semana?", "nota": "Cena de exemplo" },
-    "beats": ["Você sabe esse [número]?", "Sem ele, a venda [some] no caminho.", "Contar já mostra o [problema].", "No diagnóstico, [contamos juntos]."],
-    "punch": { "linha1": "Problema que aparece", "linha2": "dá para [resolver]." },
+    "hook": {
+      "texto": "Quantas conversas ficaram|[sem resposta] esta semana?",
+      "nota": "Cena de exemplo"
+    },
+    "beats": [
+      "Você sabe esse [número]?",
+      "Sem ele, a venda [some] no caminho.",
+      "Contar já mostra o [problema].",
+      "No diagnóstico, [contamos juntos]."
+    ],
+    "punch": {
+      "linha1": "Problema que aparece",
+      "linha2": "dá para [resolver]."
+    },
     "compartilhar": "Envie para quem não conta as conversas"
   },
   "L1-06": {
-    "hook": { "texto": "Chegou um pedido de diagnóstico.|[De onde veio?]", "nota": "Cena de exemplo" },
-    "beats": ["Pedido de teste, dados [fictícios].", "A origem vem [registrada].", "Quem atende já [sabe].", "Ninguém [pergunta] de novo."],
-    "punch": { "linha1": "Lead com origem", "linha2": "é lead [bem atendido]." },
-    "compartilhar": "Envie para quem pergunta de onde o cliente veio"
+    "hook": {
+      "texto": "Chegou um cliente novo.|[Como ele te achou?]",
+      "nota": "Cena de exemplo"
+    },
+    "beats": [
+      "Ficha de [exemplo], dados fictícios.",
+      "Ele achou você [no Google].",
+      "Quem atende já [sabe].",
+      "Ninguém [pergunta] de novo."
+    ],
+    "punch": {
+      "linha1": "Saber como te acharam",
+      "linha2": "é saber onde [aparecer]."
+    },
+    "compartilhar": "Envie para quem não sabe como o cliente chegou"
   },
   "L1-07": {
-    "hook": { "texto": "O cliente pediu desconto.|[Quem respondeu?]", "nota": "Cena de exemplo" },
-    "beats": ["Conversa de [exemplo].", "O agente acolhe e [chama o consultor].", "Na Motors, desde [21/10/2026]."],
-    "punch": { "linha1": "O agente acolhe.", "linha2": "O consultor [fecha]." },
+    "hook": {
+      "texto": "O cliente pediu desconto.|[Quem respondeu?]",
+      "nota": "Cena de exemplo"
+    },
+    "beats": [
+      "Conversa de [exemplo].",
+      "O agente acolhe e [chama uma pessoa].",
+      "Na Motors, desde [21/10/2026]."
+    ],
+    "punch": {
+      "linha1": "O agente atende.",
+      "linha2": "Sua equipe [fecha]."
+    },
     "compartilhar": "Envie para quem responde tudo sozinho"
   },
   "L1-08": {
-    "hook": { "texto": "O visitante preencheu o formulário.|[Onde o dado foi parar?]" },
-    "beats": ["O visitante [preenche].", "O dado chega ao [CRM].", "A equipe [segue] pelo WhatsApp.", "Isso é [Sites e Integrações]."],
-    "punch": { "linha1": "Formulário que chega ao CRM", "linha2": "é lead [com dono]." },
-    "compartilhar": "Envie para quem tem site sem CRM"
+    "hook": {
+      "texto": "O cliente preencheu o formulário.|[Onde o pedido foi parar?]"
+    },
+    "beats": [
+      "O cliente [preenche].",
+      "O contato chega [à equipe].",
+      "A conversa [segue] pelo WhatsApp.",
+      "Nada fica [parado no e-mail]."
+    ],
+    "punch": {
+      "linha1": "Formulário que chega à equipe",
+      "linha2": "é cliente [com dono]."
+    },
+    "compartilhar": "Envie para quem tem site e não sabe quem preencheu"
   },
   "L1-09": {
-    "hook": { "texto": "Qual link trouxe|[esse cliente]?" },
-    "beats": ["Todo link leva uma [etiqueta].", "Ela vai junto com o [contato].", "Você sabe [qual post] trouxe.", "A V2O5 usa nos [próprios reels]."],
-    "punch": { "linha1": "Sem etiqueta,", "linha2": "a origem é [palpite]." },
-    "compartilhar": "Envie para quem posta sem medir"
+    "hook": {
+      "texto": "Pesquise o nome do seu negócio.|[O horário está certo?]",
+      "nota": "Cena de exemplo"
+    },
+    "beats": [
+      "O cliente pesquisa [no sábado].",
+      "O Google mostra [fechado].",
+      "A foto é de [anos atrás].",
+      "Ele vai [no concorrente]."
+    ],
+    "punch": {
+      "linha1": "Google desatualizado",
+      "linha2": "manda o cliente [para outro]."
+    },
+    "compartilhar": "Envie para quem nunca conferiu o próprio Google"
   },
   "L1-10": {
-    "hook": { "texto": "Você sabe o que acontece|nos [45 minutos]?" },
-    "beats": ["Antes: [dois minutos] de formulário.", "Depois: [45 minutos] com o fundador.", "Havendo caso: proposta [por escrito].", "Sem caso: a conversa [termina ali]."],
-    "punch": { "linha1": "Sem custo.", "linha2": "Sem [compromisso]." },
+    "hook": {
+      "texto": "Você sabe o que acontece|nos [45 minutos]?"
+    },
+    "beats": [
+      "Antes: [dois minutos] de formulário.",
+      "Depois: [45 minutos] com o fundador.",
+      "Havendo caso: proposta [por escrito].",
+      "Sem caso: a conversa [termina ali]."
+    ],
+    "punch": {
+      "linha1": "Sem custo.",
+      "linha2": "Sem [compromisso]."
+    },
     "compartilhar": "Envie para quem quer um diagnóstico sem compromisso"
   },
   "L1-12": {
-    "hook": { "texto": "De qual anúncio veio|o seu [último cliente]?", "nota": "Cena de exemplo" },
-    "beats": ["Sem origem, tudo vira [palpite].", "Com origem, você [corta o que não traz].", "O dado precisa existir [desde o início].", "No diagnóstico, [conferimos]."],
-    "punch": { "linha1": "Resultado sem origem", "linha2": "é [chute]." },
-    "compartilhar": "Envie para quem anuncia sem saber o retorno"
+    "hook": {
+      "texto": "Quem comprou e gostou|[avaliou você no Google?]",
+      "nota": "Cena de exemplo"
+    },
+    "beats": [
+      "Cliente satisfeito [não avalia] sozinho.",
+      "Ninguém [pediu].",
+      "Um link e uma [mensagem pronta].",
+      "Enviados [depois da compra]."
+    ],
+    "punch": {
+      "linha1": "Avaliação que ninguém pede",
+      "linha2": "[não chega]."
+    },
+    "compartilhar": "Envie para quem tem cliente satisfeito e pouca avaliação"
   },
   "L1-14": {
-    "hook": { "texto": "Todo mundo pode responder.|[Ninguém respondeu.]" },
-    "beats": ["Cada um acha que o outro [respondeu].", "Defina [quem atende] e em que ordem.", "Simples. E a conversa [não para]."],
-    "punch": { "linha1": "WhatsApp sem dono", "linha2": "é [conversa parada]." },
+    "hook": {
+      "texto": "Todo mundo pode responder.|[Ninguém respondeu.]"
+    },
+    "beats": [
+      "Cada um acha que o outro [respondeu].",
+      "Defina [quem atende] e em que ordem.",
+      "Simples. E a conversa [não para]."
+    ],
+    "punch": {
+      "linha1": "WhatsApp sem dono",
+      "linha2": "é [conversa parada]."
+    },
     "compartilhar": "Envie para quem divide o WhatsApp com a equipe"
   },
   "L1-15": {
-    "hook": { "texto": "Você pagou por um site novo.|[O problema era outro.]", "nota": "Cena de exemplo" },
-    "beats": ["Site bonito não [corrige] atendimento lento.", "Ache onde o cliente [trava].", "É para isso que serve o [diagnóstico]."],
-    "punch": { "linha1": "Antes de trocar o site,", "linha2": "ache o [gargalo]." },
+    "hook": {
+      "texto": "Você pagou por um site novo.|[O problema era outro.]",
+      "nota": "Cena de exemplo"
+    },
+    "beats": [
+      "Site bonito não [corrige] atendimento lento.",
+      "Veja onde o cliente [desiste].",
+      "É para isso que serve o [diagnóstico]."
+    ],
+    "punch": {
+      "linha1": "Antes de trocar o site,",
+      "linha2": "veja onde você [perde cliente]."
+    },
     "compartilhar": "Envie para quem pensa em refazer o site"
   },
   "L1-16": {
-    "hook": { "texto": "Planilha e WhatsApp manual:|[até quando]?" },
-    "beats": ["Com poucos contatos, [funciona].", "Com volume, alguém [esquece].", "Um fluxo conectado [guarda tudo].", "Sua operação já [passou do ponto]?"],
-    "punch": { "linha1": "Contato esquecido", "linha2": "é venda [parada]." },
+    "hook": {
+      "texto": "Planilha e WhatsApp manual:|[até quando]?"
+    },
+    "beats": [
+      "Com poucos contatos, [funciona].",
+      "Com volume, alguém [esquece].",
+      "Uma lista conectada [guarda tudo].",
+      "Seu negócio já [passou do ponto]?"
+    ],
+    "punch": {
+      "linha1": "Contato esquecido",
+      "linha2": "é venda [parada]."
+    },
     "compartilhar": "Envie para quem controla tudo em planilha"
   },
   "L1-17": {
-    "hook": { "texto": "Orçamento escondido|ou [preço público]?" },
-    "beats": ["Escopo fechado e preço de [referência].", "Presença: a partir de [R$ 790].", "Sites: a partir de [R$ 2.900].", "Sprint: a partir de [R$ 3.900].", "Nenhuma [obriga] a seguinte."],
-    "punch": { "linha1": "Preço claro", "linha2": "antes da [reunião]." },
+    "hook": {
+      "texto": "Orçamento escondido|ou [preço público]?"
+    },
+    "beats": [
+      "Escopo fechado e preço de [referência].",
+      "Presença: a partir de [R$ 790].",
+      "Sites: a partir de [R$ 2.900].",
+      "Atendimento com IA: a partir de [R$ 3.900].",
+      "Nenhuma [obriga] a seguinte."
+    ],
+    "punch": {
+      "linha1": "Preço claro",
+      "linha2": "antes da [reunião]."
+    },
     "compartilhar": "Envie para quem odeia pedir orçamento"
   },
   "L1-18": {
-    "hook": { "texto": "Seu CRM ainda é|[um caderno]?" },
-    "beats": ["Anotação solta esconde o contato [esquecido].", "CRM com WhatsApp mostra a [fila] e o prazo.", "O primeiro ganho é [organização]."],
-    "punch": { "linha1": "Quem não anota", "linha2": "[perde o contato]." },
+    "hook": {
+      "texto": "Sua lista de clientes|[ainda é um caderno?]"
+    },
+    "beats": [
+      "Anotação solta esconde o contato [esquecido].",
+      "Uma lista ligada ao WhatsApp mostra [quem chamar].",
+      "Quem já comprou [volta a ser lembrado]."
+    ],
+    "punch": {
+      "linha1": "Quem não anota",
+      "linha2": "[perde o contato]."
+    },
     "compartilhar": "Envie para quem ainda anota no caderno"
   },
   "L1-19": {
-    "hook": { "texto": "Você respondeu a mesma pergunta|[de novo] hoje?", "nota": "Cena de exemplo" },
-    "beats": ["Preço, horário e prazo [se repetem].", "O agente responde e [chama uma pessoa].", "A equipe fica com o que [importa]."],
-    "punch": { "linha1": "Pergunta repetida", "linha2": "é trabalho do [agente]." },
+    "hook": {
+      "texto": "Você respondeu a mesma pergunta|[de novo] hoje?",
+      "nota": "Cena de exemplo"
+    },
+    "beats": [
+      "Preço, horário e prazo [se repetem].",
+      "O agente responde e [chama uma pessoa].",
+      "A equipe fica com o que [importa]."
+    ],
+    "punch": {
+      "linha1": "Pergunta repetida",
+      "linha2": "é trabalho do [agente]."
+    },
     "compartilhar": "Envie para quem responde tudo no WhatsApp"
   },
   "L1-21": {
-    "hook": { "texto": "45 minutos para achar|o que [trava a sua venda]." },
-    "beats": ["Conversa com o [fundador] sobre sua venda.", "Ele identifica o gargalo que [mais pesa].", "Grátis, sem [compromisso]."],
-    "punch": { "linha1": "Um gargalo,", "linha2": "uma [recomendação]." },
-    "compartilhar": "Envie para quem sente que a venda trava"
+    "hook": {
+      "texto": "45 minutos para ver|onde seu negócio [perde cliente]."
+    },
+    "beats": [
+      "Conversa com o [fundador] sobre o seu negócio.",
+      "Ele vê o que [pesa mais] hoje.",
+      "Ser achado, responder ou [fazer voltar].",
+      "Grátis, sem [compromisso]."
+    ],
+    "punch": {
+      "linha1": "Um ponto,",
+      "linha2": "uma [recomendação]."
+    },
+    "compartilhar": "Envie para quem sente que perde cliente"
   },
   "L1-22": {
-    "hook": { "texto": "O que a V2O5|[olha primeiro] numa empresa." },
-    "beats": ["Como o cliente [chega].", "Quem [responde].", "Para onde vai o [contato].", "Onde a venda [esfria]."],
-    "punch": { "linha1": "Um problema por vez.", "linha2": "Quem decide é [você]." },
-    "compartilhar": "Envie para quem quer ver o funil inteiro",
-    "cfg": { "tipo": "caminho", "nos": [
-      { "rotulo": "Como o cliente chega", "a": 0 },
-      { "rotulo": "Quem responde", "a": 1 },
-      { "rotulo": "Para onde vai o contato", "a": 2 },
-      { "rotulo": "Onde a venda esfria", "a": 3, "destaque": true } ] }
+    "hook": {
+      "texto": "O que a V2O5|[olha primeiro] num pequeno negócio."
+    },
+    "beats": [
+      "Como o cliente [te acha].",
+      "Quem [responde].",
+      "Para onde vai o [contato].",
+      "Quem [volta a comprar]."
+    ],
+    "punch": {
+      "linha1": "Um problema por vez.",
+      "linha2": "Quem decide é [você]."
+    },
+    "compartilhar": "Envie para quem quer ver o caminho do cliente",
+    "cfg": {
+      "tipo": "caminho",
+      "nos": [
+        {
+          "rotulo": "Como o cliente chega",
+          "a": 0
+        },
+        {
+          "rotulo": "Quem responde",
+          "a": 1
+        },
+        {
+          "rotulo": "Para onde vai o contato",
+          "a": 2
+        },
+        {
+          "rotulo": "Onde a venda esfria",
+          "a": 3,
+          "destaque": true
+        }
+      ]
+    }
   },
   "L1-23": {
-    "hook": { "texto": "Mapear a empresa inteira?|[Um problema por vez.]", "nota": "Cena de exemplo" },
-    "beats": ["O diagnóstico olha um [gargalo].", "Ele [prioriza] o que mais pesa.", "Depois, solução com [escopo e preço]."],
-    "punch": { "linha1": "Um problema por vez", "linha2": "e [preço por escrito]." },
-    "compartilhar": "Envie para quem quer começar pequeno"
+    "hook": {
+      "texto": "Ele comprou em março.|[Alguém chamou de novo?]",
+      "nota": "Cena de exemplo"
+    },
+    "beats": [
+      "Comprou e [gostou].",
+      "Ninguém [lembrou dele].",
+      "O concorrente [lembrou].",
+      "Com consentimento, [uma mensagem] resolve."
+    ],
+    "punch": {
+      "linha1": "Cliente que ninguém chama",
+      "linha2": "[compra de outro]."
+    },
+    "compartilhar": "Envie para quem vive de cliente que volta"
   },
   "L1-24": {
-    "hook": { "texto": "Por onde começar?|[A V2O5 escolhe com você.]" },
-    "beats": ["Primeiro: onde o cliente [se perde].", "Depois: o [impacto] desse ponto.", "Só então a [solução] que cabe.", "Sem custo e sem [compromisso]."],
-    "punch": { "linha1": "Você decide", "linha2": "o [próximo passo]." },
+    "hook": {
+      "texto": "Por onde começar?|[A V2O5 escolhe com você.]"
+    },
+    "beats": [
+      "Primeiro: onde o cliente [se perde].",
+      "Depois: o [impacto] desse ponto.",
+      "Só então a [solução] que cabe.",
+      "Sem custo e sem [compromisso]."
+    ],
+    "punch": {
+      "linha1": "Você decide",
+      "linha2": "o [próximo passo]."
+    },
     "compartilhar": "Envie para quem não sabe por onde começar"
   },
   "L1-25": {
-    "hook": { "texto": "Em 45 minutos,|você descobre [por onde começar]." },
-    "beats": ["Analisamos como sua empresa [funciona].", "Achamos os [gargalos] e as oportunidades.", "Você sai com o [primeiro passo].", "Sem custo. Peça [agora]."],
-    "punch": { "linha1": "Peça seu diagnóstico", "linha2": "[gratuito] agora." },
+    "hook": {
+      "texto": "Em 45 minutos,|você descobre [por onde começar]."
+    },
+    "beats": [
+      "Vemos como o cliente [te acha].",
+      "E como ele é [atendido].",
+      "Você sai com o [primeiro passo].",
+      "Sem custo. Peça [agora]."
+    ],
+    "punch": {
+      "linha1": "Peça seu diagnóstico",
+      "linha2": "[gratuito] agora."
+    },
     "compartilhar": "Toque no link da bio e peça o seu"
   },
   "L1-13": {
-    "hook": { "texto": "O cliente preencheu o formulário.|[Quem viu?]", "nota": "Cena de exemplo" },
-    "beats": ["O cliente preencheu o formulário.", "O aviso caiu num e-mail [parado].", "Ele esperou. [Ninguém] respondeu.", "Procurou [outro]."],
-    "relogio": [ { "a": 0, "t": "14:00" }, { "a": 1, "t": "14:01" }, { "a": 2, "t": "Quinta", "selo": "+3 DIAS" } ],
-    "punch": { "linha1": "Contato sem dono", "linha2": "vira [venda perdida]." },
+    "hook": {
+      "texto": "O cliente preencheu o formulário.|[Quem viu?]",
+      "nota": "Cena de exemplo"
+    },
+    "beats": [
+      "O cliente preencheu o formulário.",
+      "O aviso caiu num e-mail [parado].",
+      "Ele esperou. [Ninguém] respondeu.",
+      "Procurou [outro]."
+    ],
+    "relogio": [
+      {
+        "a": 0,
+        "t": "14:00"
+      },
+      {
+        "a": 1,
+        "t": "14:01"
+      },
+      {
+        "a": 2,
+        "t": "Quinta",
+        "selo": "+3 DIAS"
+      }
+    ],
+    "punch": {
+      "linha1": "Contato sem dono",
+      "linha2": "vira [venda perdida]."
+    },
     "compartilhar": "Envie para quem cuida do site",
-    "cfg": { "tipo": "caminho", "nos": [
-      { "rotulo": "Formulário do site", "sub": "pedido enviado", "a": 0 },
-      { "rotulo": "Caixa de e-mail", "sub": "parado, sem responsável", "a": 1, "destaque": true },
-      { "rotulo": "Cliente esperou", "a": 2 },
-      { "rotulo": "Procurou outro", "a": 3 } ] }
+    "cfg": {
+      "tipo": "caminho",
+      "nos": [
+        {
+          "rotulo": "Formulário do site",
+          "sub": "pedido enviado",
+          "a": 0
+        },
+        {
+          "rotulo": "Caixa de e-mail",
+          "sub": "parado, sem responsável",
+          "a": 1,
+          "destaque": true
+        },
+        {
+          "rotulo": "Cliente esperou",
+          "a": 2
+        },
+        {
+          "rotulo": "Procurou outro",
+          "a": 3
+        }
+      ]
+    }
   },
   "L1-20": {
-    "hook": { "texto": "Você digitou a mesma venda|[três vezes].", "nota": "Cena de exemplo" },
-    "beats": ["Segunda: digitou no [sistema].", "Terça: digitou na [planilha].", "Quarta: digitou no [WhatsApp].", "Integrado: digitou [uma vez]."],
-    "punch": { "linha1": "Digitar à mão", "linha2": "é erro esperando|[para acontecer]." },
+    "hook": {
+      "texto": "Você digitou a mesma venda|[três vezes].",
+      "nota": "Cena de exemplo"
+    },
+    "beats": [
+      "Segunda: digitou no [sistema].",
+      "Terça: digitou na [planilha].",
+      "Quarta: digitou no [WhatsApp].",
+      "Integrado: digitou [uma vez]."
+    ],
+    "punch": {
+      "linha1": "Digitar à mão",
+      "linha2": "é erro esperando|[para acontecer]."
+    },
     "compartilhar": "Envie para quem digita tudo duas vezes",
-    "cfg": { "tipo": "comparar", "colunas": [
-      { "titulo": "Sistemas separados", "a": 0, "itens": [ { "texto": "Digita no sistema", "a": 0 }, { "texto": "Digita de novo na planilha", "a": 1 }, { "texto": "Digita de novo no WhatsApp", "a": 2 } ] },
-      { "titulo": "Sistemas integrados", "a": 3, "itens": [ { "texto": "Digita uma vez", "a": 3 }, { "texto": "O dado chega ao site e ao WhatsApp", "a": 3.5 } ] } ] }
+    "cfg": {
+      "tipo": "comparar",
+      "colunas": [
+        {
+          "titulo": "Sistemas separados",
+          "a": 0,
+          "itens": [
+            {
+              "texto": "Digita no sistema",
+              "a": 0
+            },
+            {
+              "texto": "Digita de novo na planilha",
+              "a": 1
+            },
+            {
+              "texto": "Digita de novo no WhatsApp",
+              "a": 2
+            }
+          ]
+        },
+        {
+          "titulo": "Sistemas integrados",
+          "a": 3,
+          "itens": [
+            {
+              "texto": "Digita uma vez",
+              "a": 3
+            },
+            {
+              "texto": "O dado chega ao site e ao WhatsApp",
+              "a": 3.5
+            }
+          ]
+        }
+      ]
+    }
   },
   "L1-11": {
-    "hook": { "texto": "Seu site está no ar.|[Quem entrou nele?]" },
-    "beats": ["Seu site está no ar.", "Você não vê [quem passou].", "Sem dado, investir vira [palpite].", "Medir é o [primeiro passo]."],
-    "punch": { "linha1": "Site sem medição", "linha2": "é [vitrine sem câmera]." },
-    "compartilhar": "Envie para quem investe sem medir"
+    "hook": {
+      "texto": "Seu site está no ar.|[O cliente acha o seu WhatsApp?]"
+    },
+    "beats": [
+      "Seu site está [no ar].",
+      "O WhatsApp fica [no rodapé].",
+      "O cliente [desiste] antes.",
+      "Um botão à vista [resolve]."
+    ],
+    "punch": {
+      "linha1": "Site que não leva ao WhatsApp",
+      "linha2": "é [vitrine fechada]."
+    },
+    "compartilhar": "Envie para quem tem site e pouco contato"
   }
 }

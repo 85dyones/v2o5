@@ -7,7 +7,7 @@ Prazo desejado: sexta 20/11/2026. O primeiro post sai sábado 21/11.
 ## Antes de começar
 1. Leia `CLAUDE.md` (regras do projeto), `docs/social/perfis.md` inteiro e `docs/reels/cronograma.md`.
 2. Branch: nova, `claude/...`, a partir do `main`; PR contra `main`; push só nela.
-3. Regras de texto: português do Brasil, sem travessão, sem "não é X, é Y", sem tríades de efeito; nome fixo "V2O5 Vendas e Tecnologia"; assinatura "V2O5 | Eficiência comercial e operacional com tecnologia."; preço só do que está em `src/conteudo/ofertas.ts` e `sprint.ts`; número de resultado só com fonte e período.
+3. Regras de texto: português do Brasil, sem travessão, sem "não é X, é Y", sem tríades de efeito; nome fixo "V2O5 Vendas e Tecnologia"; assinatura "V2O5 | Digitalização para pequenos negócios." (25/11/2026; os textos dos perfis de 25/11 estão em `docs/social/perfis.md`, que vale sobre este arquivo); preço só do que está em `src/conteudo/ofertas.ts`; número de resultado só com fonte e período.
 
 ## O que o agente não faz sem o Dyones
 - Publicar post ou mudar nome de usuário dos perfis (o `@v2o5_consultoria` e o endereço `v2o5-consutoria` do LinkedIn são o `sameAs` do site; trocá-los exige mudar o schema junto).
@@ -22,7 +22,7 @@ Para cada rede, registre em uma linha o que está no ar (nome, tagline ou bio, s
 
 ### Instagram (@v2o5_consultoria)
 - [ ] Conta profissional, categoria "Consultoria empresarial".
-- [ ] Nome pesquisável "V2O5 | Consultoria e tecnologia" e a bio do `perfis.md`.
+- [ ] Nome pesquisável e bio do `perfis.md` (revisto em 25/11: sugestão "V2O5 | Sites, Google e WhatsApp").
 - [ ] Link: `https://www.v2o5.com.br/diagnostico?utm_source=instagram&utm_medium=bio` (o link da bio carrega UTM de `bio`; os do reel vêm do `scripts/utm-reels.mjs`).
 - [ ] Foto `design/marca/bloco-1080.png`; cinco destaques com as capas de `design/marca/redes/instagram-destaque-*.png` (Método, Soluções, Preços, Case, Diagnóstico).
 - [ ] Botão de contato por WhatsApp e vínculo à página do Facebook.

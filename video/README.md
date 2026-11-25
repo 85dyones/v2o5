@@ -44,9 +44,15 @@ Limite: eu não ouvi o áudio (só medi nível e conferi os quadros); a escolha 
 ## Telas dos reels
 `gravacoes/gravar-telas.mjs` captura as telas do site (Playwright, dados fictícios, nada é enviado) em `gravacoes/telas/` (fora do git). `gravacoes/ficha-exemplo.html` é um cartão de exemplo, com selo "EXEMPLO", para o L1-06. Com o site no ar (`npm run build && npx next start -p 3100`, na raiz): `SITE=http://localhost:3100 node gravacoes/gravar-telas.mjs`. Mapa tela por reel: L1-06 `ficha-exemplo`, L1-08 `formulario-completo`, L1-10 `diagnostico-passos`, L1-17 `precos-valores`, L1-21 `diagnostico-topo`, L1-25 `formulario-parcial`.
 
+**Lote 1 no foco em pequenos negócios (25/11/2026).** Textos em `v2.json`, cenas em `cenas.json`, CTA no `lote-1.csv` ("Descubra onde seu negócio perde cliente. Gratuitamente: link na bio."). As telas foram regravadas do site com o `/diagnostico` e os `/precos` novos (`SITE=http://localhost:3100 node gravacoes/gravar-videos.mjs`), e a ficha de exemplo do L1-06 virou um cliente novo com a origem anotada. Comando do lote inteiro, padrão v2, qualidade final:
+```bash
+node scripts/renderizar-lote.mjs ../docs/reels/lote-1.csv --v2 --tela L1-06=gravacoes/telas/v-ficha-exemplo.mp4 --tela L1-08=gravacoes/telas/v-08-sites.mp4 --tela L1-10=gravacoes/telas/v-10-diagnostico.mp4 --tela L1-17=gravacoes/telas/v-precos.mp4 --tela L1-21=gravacoes/telas/v-21-fundador.mp4 --tela L1-25=gravacoes/telas/v-25-passeio.mp4
+```
+Sem `--so`, o script renderiza os 25 (até 25/11, sem `--so` o primeiro argumento virava filtro e nada saía). Os arquivos saem como `saida/L1-XX.v2.mp4`; na entrega viram `L1-XX-v3.mp4`, para não misturar com os de 24/11. A música continua por fora (`scripts/musica.sh`, com as trilhas de `docs/reels/musica-por-reel.md`), porque as trilhas não estão no repositório.
+
 ## O que falta
 - Animar os reels de motion (a cena do meio hoje é só texto) e gravar vídeo, não só imagem, das telas.
-- L1-07 (conversa de exemplo do agente) e L1-09 (link com etiqueta) pedem animação própria, sem tela do site.
+- L1-07 (conversa de exemplo do agente) pede animação própria, sem tela do site. O L1-09 virou o reel do Google (25/11), com a cena "comparar".
 - Aprovar o visual do modelo com o Dyones (papel, tinta e âmbar da marca).
 
 ## Música de fundo (24/11/2026)

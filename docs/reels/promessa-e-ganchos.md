@@ -1,5 +1,7 @@
 # Promessa, gancho e CTA: seis opções para escolher (17/11/2026)
 
+> **Decisão de 25/11 (Dyones), que vale sobre tudo abaixo:** no foco em pequenos negócios, a promessa passa a ser "Descubra onde seu negócio perde cliente. Gratuitamente.", no título do `/diagnostico`, nos reels e nos carrosséis. O subtítulo é "Em 45 minutos, vemos como o cliente acha o seu negócio e como ele é atendido, e recomendamos por onde começar." As seis opções de 17/11 e a frase de 17/11 ficam como histórico (`docs/reels/handoff-foco-pequenos-negocios.md`).
+
 > **Decisão do Dyones (17/11):** o texto da landing e dos reels é o dele, não uma das seis opções. Título "Descubra onde sua empresa pode funcionar melhor. Gratuitamente."; subtítulo "Em 45 minutos, identificamos o gargalo que mais pesa na sua empresa e recomendamos por onde começar."; botão "Pedir diagnóstico gratuito"; microtexto "Sem custo e sem compromisso de contratação." Já aplicado em `/diagnostico` (`src/conteudo/diagnostico.ts`). O CTA dos reels repete a promessa: "Descubra onde sua empresa pode funcionar melhor. Gratuitamente. O link está na bio." Os ganchos específicos das opções abaixo carregam a força do reel; a promessa só fecha o vídeo e abre a landing. Abaixo, a análise original.
 
 A promessa é uma só para todos os reels e para o título do `/diagnostico`, palavra por palavra. O gancho muda de reel para reel. O CTA leva sempre ao mesmo destino (o link na bio). Por isso a escolha mais pesada é a promessa; os ganchos das outras opções viram ângulos do lote 1.

@@ -82,7 +82,7 @@ await gravar("v-precos", async (p) => {
   await p.waitForTimeout(1200);
   await rolar(p, 560, 2600); await p.waitForTimeout(800);
   await ir(p, "text=Sites & Integrações", 1000); await p.waitForTimeout(900);
-  await ir(p, "text=Sprint de Eficiência", 700); await p.waitForTimeout(1500);
+  await ir(p, "text=Atendimento com IA", 700); await p.waitForTimeout(1500);
 }, { pagina: "/precos" });
 await gravar("v-ficha-exemplo", async (p) => { await p.waitForTimeout(6800); }, { arquivo: pathToFileURL(join(aqui, "ficha-exemplo.html")).href });
 

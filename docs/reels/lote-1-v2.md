@@ -1,4 +1,4 @@
-# Roteiros do lote 1 no padrão v2 (para leitura, 24/11/2026)
+# Roteiros do lote 1 no padrão v2 (para leitura, 24/11/2026; foco em pequenos negócios desde 25/11/2026)
 
 Cada reel ganha: gancho escuro (digitado, com pausa entre as frases e o destaque âmbar depois), beats curtos com um destaque, frase de efeito em fundo escuro com a chamada de compartilhar e a logo no fim. As cenas e as gravações de tela continuam as mesmas do lote 1. Entre colchetes, o trecho que recebe o destaque; `/` é a quebra de linha. Fonte dos dados: `video/v2.json`.
 
@@ -19,14 +19,14 @@ Legenda de leitura: *cena de exemplo* = a nota discreta no gancho porque o reel 
 
 ## L1-02 · Dor do dia a dia · cena: barras
 
-- **Gancho (v1):** Mais anúncio não resolve venda que se perde no WhatsApp.
-- **Gancho v2:** Você investe em mais anúncio. / Quem já chegou foi respondido?  
+- **Gancho (v1):** Você posta todo dia. Quem chamou foi respondido?
+- **Gancho v2:** Você posta todo dia. / Quem chamou foi respondido?  
   *nota na tela: Cena de exemplo*
-- **Beat 1:** Mais anúncio, mais gente [chegando].
-- **Beat 2:** Quem chega [fica sem resposta].
-- **Beat 3:** Olhe antes quem já [chegou].
-- **Frase de efeito:** Atrair sem responder / é pagar para perder.
-- **Compartilhar:** Envie para quem investe em anúncio
+- **Beat 1:** Mais post, mais gente [chamando].
+- **Beat 2:** Quem chama [fica sem resposta].
+- **Beat 3:** Olhe antes quem já [chamou].
+- **Frase de efeito:** Atrair sem responder / é perder o cliente.
+- **Compartilhar:** Envie para quem posta e não dá conta do WhatsApp
 
 ## L1-03 · Dor do dia a dia · cena: numero
 
@@ -66,15 +66,15 @@ Legenda de leitura: *cena de exemplo* = a nota discreta no gancho porque o reel 
 
 ## L1-06 · Demonstração · cena: tela
 
-- **Gancho (v1):** Veja o caminho de um lead, do formulário ao atendimento.
-- **Gancho v2:** Chegou um pedido de diagnóstico. / De onde veio?  
+- **Gancho (v1):** Chegou um cliente novo. Como ele te achou?
+- **Gancho v2:** Chegou um cliente novo. / Como ele te achou?  
   *nota na tela: Cena de exemplo*
-- **Beat 1:** Pedido de teste, dados [fictícios].
-- **Beat 2:** A origem vem [registrada].
+- **Beat 1:** Ficha de [exemplo], dados fictícios.
+- **Beat 2:** Ele achou você [no Google].
 - **Beat 3:** Quem atende já [sabe].
 - **Beat 4:** Ninguém [pergunta] de novo.
-- **Frase de efeito:** Lead com origem / é lead bem atendido.
-- **Compartilhar:** Envie para quem pergunta de onde o cliente veio
+- **Frase de efeito:** Saber como te acharam / é saber onde aparecer.
+- **Compartilhar:** Envie para quem não sabe como o cliente chegou
 
 ## L1-07 · Demonstração · cena: chat
 
@@ -82,32 +82,33 @@ Legenda de leitura: *cena de exemplo* = a nota discreta no gancho porque o reel 
 - **Gancho v2:** O cliente pediu desconto. / Quem respondeu?  
   *nota na tela: Cena de exemplo*
 - **Beat 1:** Conversa de [exemplo].
-- **Beat 2:** O agente acolhe e [chama o consultor].
+- **Beat 2:** O agente acolhe e [chama uma pessoa].
 - **Beat 3:** Na Motors, desde [21/10/2026].
-- **Frase de efeito:** O agente acolhe. / O consultor fecha.
+- **Frase de efeito:** O agente atende. / Sua equipe fecha.
 - **Compartilhar:** Envie para quem responde tudo sozinho
 
 ## L1-08 · Demonstração · cena: tela
 
-- **Gancho (v1):** Um site que grava o lead no CRM. Veja como.
-- **Gancho v2:** O visitante preencheu o formulário. / Onde o dado foi parar?
-- **Beat 1:** O visitante [preenche].
-- **Beat 2:** O dado chega ao [CRM].
-- **Beat 3:** A equipe [segue] pelo WhatsApp.
-- **Beat 4:** Isso é [Sites e Integrações].
-- **Frase de efeito:** Formulário que chega ao CRM / é lead com dono.
-- **Compartilhar:** Envie para quem tem site sem CRM
+- **Gancho (v1):** O cliente preencheu o formulário. Onde o pedido foi parar?
+- **Gancho v2:** O cliente preencheu o formulário. / Onde o pedido foi parar?
+- **Beat 1:** O cliente [preenche].
+- **Beat 2:** O contato chega [à equipe].
+- **Beat 3:** A conversa [segue] pelo WhatsApp.
+- **Beat 4:** Nada fica [parado no e-mail].
+- **Frase de efeito:** Formulário que chega à equipe / é cliente com dono.
+- **Compartilhar:** Envie para quem tem site e não sabe quem preencheu
 
-## L1-09 · Demonstração · cena: caminho
+## L1-09 · Demonstração · cena: comparar
 
-- **Gancho (v1):** Qual link trouxe esse cliente? Veja onde fica a resposta.
-- **Gancho v2:** Qual link trouxe / esse cliente?
-- **Beat 1:** Todo link leva uma [etiqueta].
-- **Beat 2:** Ela vai junto com o [contato].
-- **Beat 3:** Você sabe [qual post] trouxe.
-- **Beat 4:** A V2O5 usa nos [próprios reels].
-- **Frase de efeito:** Sem etiqueta, / a origem é palpite.
-- **Compartilhar:** Envie para quem posta sem medir
+- **Gancho (v1):** Pesquise o nome do seu negócio. O horário está certo?
+- **Gancho v2:** Pesquise o nome do seu negócio. / O horário está certo?  
+  *nota na tela: Cena de exemplo*
+- **Beat 1:** O cliente pesquisa [no sábado].
+- **Beat 2:** O Google mostra [fechado].
+- **Beat 3:** A foto é de [anos atrás].
+- **Beat 4:** Ele vai [no concorrente].
+- **Frase de efeito:** Google desatualizado / manda o cliente para outro.
+- **Compartilhar:** Envie para quem nunca conferiu o próprio Google
 
 ## L1-10 · Demonstração · cena: tela
 
@@ -122,26 +123,26 @@ Legenda de leitura: *cena de exemplo* = a nota discreta no gancho porque o reel 
 
 ## L1-11 · Erro comum · cena: comparar
 
-- **Gancho (v1):** Seu site está no ar. Você sabe quem entrou nele?
-- **Gancho v2:** Seu site está no ar. / Quem entrou nele?
-- **Beat 1:** Seu site está no ar.
-- **Beat 2:** Você não vê [quem passou].
-- **Beat 3:** Sem dado, investir vira [palpite].
-- **Beat 4:** Medir é o [primeiro passo].
-- **Frase de efeito:** Site sem medição / é vitrine sem câmera.
-- **Compartilhar:** Envie para quem investe sem medir
+- **Gancho (v1):** Seu site está no ar. O cliente acha o seu WhatsApp?
+- **Gancho v2:** Seu site está no ar. / O cliente acha o seu WhatsApp?
+- **Beat 1:** Seu site está [no ar].
+- **Beat 2:** O WhatsApp fica [no rodapé].
+- **Beat 3:** O cliente [desiste] antes.
+- **Beat 4:** Um botão à vista [resolve].
+- **Frase de efeito:** Site que não leva ao WhatsApp / é vitrine fechada.
+- **Compartilhar:** Envie para quem tem site e pouco contato
 
 ## L1-12 · Erro comum · cena: caminho
 
-- **Gancho (v1):** Você sabe de qual anúncio veio o seu último cliente?
-- **Gancho v2:** De qual anúncio veio / o seu último cliente?  
+- **Gancho (v1):** Quem comprou e gostou avaliou você no Google?
+- **Gancho v2:** Quem comprou e gostou / avaliou você no Google?  
   *nota na tela: Cena de exemplo*
-- **Beat 1:** Sem origem, tudo vira [palpite].
-- **Beat 2:** Com origem, você [corta o que não traz].
-- **Beat 3:** O dado precisa existir [desde o início].
-- **Beat 4:** No diagnóstico, [conferimos].
-- **Frase de efeito:** Resultado sem origem / é chute.
-- **Compartilhar:** Envie para quem anuncia sem saber o retorno
+- **Beat 1:** Cliente satisfeito [não avalia] sozinho.
+- **Beat 2:** Ninguém [pediu].
+- **Beat 3:** Um link e uma [mensagem pronta].
+- **Beat 4:** Enviados [depois da compra].
+- **Frase de efeito:** Avaliação que ninguém pede / não chega.
+- **Compartilhar:** Envie para quem tem cliente satisfeito e pouca avaliação
 
 ## L1-13 · Erro comum · cena: caminho
 
@@ -172,9 +173,9 @@ Legenda de leitura: *cena de exemplo* = a nota discreta no gancho porque o reel 
 - **Gancho v2:** Você pagou por um site novo. / O problema era outro.  
   *nota na tela: Cena de exemplo*
 - **Beat 1:** Site bonito não [corrige] atendimento lento.
-- **Beat 2:** Ache onde o cliente [trava].
+- **Beat 2:** Veja onde o cliente [desiste].
 - **Beat 3:** É para isso que serve o [diagnóstico].
-- **Frase de efeito:** Antes de trocar o site, / ache o gargalo.
+- **Frase de efeito:** Antes de trocar o site, / veja onde você perde cliente.
 - **Compartilhar:** Envie para quem pensa em refazer o site
 
 ## L1-16 · Contra o jeito antigo · cena: comparar
@@ -183,8 +184,8 @@ Legenda de leitura: *cena de exemplo* = a nota discreta no gancho porque o reel 
 - **Gancho v2:** Planilha e WhatsApp manual: / até quando?
 - **Beat 1:** Com poucos contatos, [funciona].
 - **Beat 2:** Com volume, alguém [esquece].
-- **Beat 3:** Um fluxo conectado [guarda tudo].
-- **Beat 4:** Sua operação já [passou do ponto]?
+- **Beat 3:** Uma lista conectada [guarda tudo].
+- **Beat 4:** Seu negócio já [passou do ponto]?
 - **Frase de efeito:** Contato esquecido / é venda parada.
 - **Compartilhar:** Envie para quem controla tudo em planilha
 
@@ -195,18 +196,18 @@ Legenda de leitura: *cena de exemplo* = a nota discreta no gancho porque o reel 
 - **Beat 1:** Escopo fechado e preço de [referência].
 - **Beat 2:** Presença: a partir de [R$ 790].
 - **Beat 3:** Sites: a partir de [R$ 2.900].
-- **Beat 4:** Sprint: a partir de [R$ 3.900].
+- **Beat 4:** Atendimento com IA: a partir de [R$ 3.900].
 - **Beat 5:** Nenhuma [obriga] a seguinte.
 - **Frase de efeito:** Preço claro / antes da reunião.
 - **Compartilhar:** Envie para quem odeia pedir orçamento
 
 ## L1-18 · Contra o jeito antigo · cena: comparar
 
-- **Gancho (v1):** Seu CRM ainda é um caderno?
-- **Gancho v2:** Seu CRM ainda é / um caderno?
+- **Gancho (v1):** Sua lista de clientes ainda é um caderno?
+- **Gancho v2:** Sua lista de clientes / ainda é um caderno?
 - **Beat 1:** Anotação solta esconde o contato [esquecido].
-- **Beat 2:** CRM com WhatsApp mostra a [fila] e o prazo.
-- **Beat 3:** O primeiro ganho é [organização].
+- **Beat 2:** Uma lista ligada ao WhatsApp mostra [quem chamar].
+- **Beat 3:** Quem já comprou [volta a ser lembrado].
 - **Frase de efeito:** Quem não anota / perde o contato.
 - **Compartilhar:** Envie para quem ainda anota no caderno
 
@@ -235,35 +236,37 @@ Legenda de leitura: *cena de exemplo* = a nota discreta no gancho porque o reel 
 
 ## L1-21 · Bastidor do diagnóstico · cena: tela
 
-- **Gancho (v1):** 45 minutos para achar o que trava a sua venda.
-- **Gancho v2:** 45 minutos para achar / o que trava a sua venda.
-- **Beat 1:** Conversa com o [fundador] sobre sua venda.
-- **Beat 2:** Ele identifica o gargalo que [mais pesa].
-- **Beat 3:** Grátis, sem [compromisso].
-- **Frase de efeito:** Um gargalo, / uma recomendação.
-- **Compartilhar:** Envie para quem sente que a venda trava
+- **Gancho (v1):** 45 minutos para ver onde seu negócio perde cliente.
+- **Gancho v2:** 45 minutos para ver / onde seu negócio perde cliente.
+- **Beat 1:** Conversa com o [fundador] sobre o seu negócio.
+- **Beat 2:** Ele vê o que [pesa mais] hoje.
+- **Beat 3:** Ser achado, responder ou [fazer voltar].
+- **Beat 4:** Grátis, sem [compromisso].
+- **Frase de efeito:** Um ponto, / uma recomendação.
+- **Compartilhar:** Envie para quem sente que perde cliente
 
 ## L1-22 · Bastidor do diagnóstico · cena: caminho
 
-- **Gancho (v1):** O que a V2O5 olha primeiro numa empresa.
-- **Gancho v2:** O que a V2O5 / olha primeiro numa empresa.
-- **Beat 1:** Como o cliente [chega].
+- **Gancho (v1):** O que a V2O5 olha primeiro num pequeno negócio.
+- **Gancho v2:** O que a V2O5 / olha primeiro num pequeno negócio.
+- **Beat 1:** Como o cliente [te acha].
 - **Beat 2:** Quem [responde].
 - **Beat 3:** Para onde vai o [contato].
-- **Beat 4:** Onde a venda [esfria].
+- **Beat 4:** Quem [volta a comprar].
 - **Frase de efeito:** Um problema por vez. / Quem decide é você.
-- **Compartilhar:** Envie para quem quer ver o funil inteiro
+- **Compartilhar:** Envie para quem quer ver o caminho do cliente
 
-## L1-23 · Bastidor do diagnóstico · cena: barras
+## L1-23 · Bastidor do diagnóstico · cena: caminho
 
-- **Gancho (v1):** Um problema por vez: é assim que a V2O5 começa.
-- **Gancho v2:** Mapear a empresa inteira? / Um problema por vez.  
+- **Gancho (v1):** Ele comprou em março. Alguém chamou de novo?
+- **Gancho v2:** Ele comprou em março. / Alguém chamou de novo?  
   *nota na tela: Cena de exemplo*
-- **Beat 1:** O diagnóstico olha um [gargalo].
-- **Beat 2:** Ele [prioriza] o que mais pesa.
-- **Beat 3:** Depois, solução com [escopo e preço].
-- **Frase de efeito:** Um problema por vez / e preço por escrito.
-- **Compartilhar:** Envie para quem quer começar pequeno
+- **Beat 1:** Comprou e [gostou].
+- **Beat 2:** Ninguém [lembrou dele].
+- **Beat 3:** O concorrente [lembrou].
+- **Beat 4:** Com consentimento, [uma mensagem] resolve.
+- **Frase de efeito:** Cliente que ninguém chama / compra de outro.
+- **Compartilhar:** Envie para quem vive de cliente que volta
 
 ## L1-24 · Bastidor do diagnóstico · cena: caminho
 
@@ -278,10 +281,10 @@ Legenda de leitura: *cena de exemplo* = a nota discreta no gancho porque o reel 
 
 ## L1-25 · Bastidor do diagnóstico · cena: tela
 
-- **Gancho (v1):** Quer saber o que o diagnóstico vai olhar na sua empresa?
+- **Gancho (v1):** Quer saber o que o diagnóstico vai olhar no seu negócio?
 - **Gancho v2:** Em 45 minutos, / você descobre por onde começar.
-- **Beat 1:** Analisamos como sua empresa [funciona].
-- **Beat 2:** Achamos os [gargalos] e as oportunidades.
+- **Beat 1:** Vemos como o cliente [te acha].
+- **Beat 2:** E como ele é [atendido].
 - **Beat 3:** Você sai com o [primeiro passo].
 - **Beat 4:** Sem custo. Peça [agora].
 - **Frase de efeito:** Peça seu diagnóstico / gratuito agora.

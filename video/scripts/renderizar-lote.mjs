@@ -14,7 +14,7 @@ const [csv, ...flags] = process.argv.slice(2);
 if (!csv) { console.error("Uso: node scripts/renderizar-lote.mjs <lote.csv> [--draft] [--so L1-01,...] [--print L1-06=img.png] [--cena L1-01=conversa] [--sem-som]"); process.exit(1); }
 const draft = flags.includes("--draft");
 const semSom = flags.includes("--sem-som");
-const so = (flags[flags.indexOf("--so") + 1] ?? "").split(",").filter(Boolean);
+const so = flags.includes("--so") ? flags[flags.indexOf("--so") + 1].split(",").filter(Boolean) : []; // sem --so, todos (antes, sem --so, o primeiro argumento virava filtro)
 const pares = (nome) => Object.fromEntries(flags.flatMap((f, i) => (f === nome ? [flags[i + 1].split("=")] : [])));
 const prints = pares("--print");
 const cenas = pares("--cena");

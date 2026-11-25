@@ -10,6 +10,15 @@
 - Não muda o método do PR #52. Lotes, leitura, UTM, padrão v2 dos vídeos e gerador dos carrosséis continuam iguais.
 - Muda o que os vídeos e as lâminas **dizem**.
 
+## Execução (25/11/2026, mesma sessão)
+
+O Dyones respondeu às quatro decisões: D1, "quero o melhor para este novo posicionamento"; D2, "altere para o posicionamento atual"; D3, "perfeito, fazemos isso"; D4, "combinado". Feito na branch `claude/kind-tesla-eefroe`, que trouxe o PR #52 por merge (o PR #52 pode ser fechado depois do merge desta):
+- Promessa "Descubra onde seu negócio perde cliente. Gratuitamente." no `/diagnostico` (título, sobretítulo "Diagnóstico gratuito", passos, formulário sem "Rever a marca"), no fecho das páginas, nos CTAs dos cases e na vitrine (PR #13 de `v2o5-diagnosticos`). Mensagem automática ao lead no n8n: rascunho `72b8cf62` do fluxo "V2O5 · Lead do diagnóstico", a publicar com o merge.
+- Fixos 1, 2 e 3 refeitos (`docs/social/posts-fixos.md`), para 27, 28 e 29/11.
+- Os 25 reels no texto novo (`video/v2.json`, `video/cenas.json`, `docs/reels/lote-1.csv`, `docs/reels/lote-1-v2.md`), com L1-09 (Google), L1-12 (avaliação) e L1-23 (recompra) novos; telas regravadas; lote renderizado como `L1-XX-v3.mp4`.
+- Carrosséis de dor (D1 a D10, com `dor-site-sem-whatsapp`, `dor-recompra` e `dor-avaliacoes` novos), "Atendimento com IA, por dentro" no lugar do Sprint, agenda da semana 1 regerada (L1-09 e L1-12 entram no sábado de Presença; L1-04 e L1-24 vão para 08/12).
+- Ficha do produto, prompts, calendário, cronograma e notas de histórico nos arquivos antigos.
+
 ## 0. Antes de tudo: o que está marcado para sair
 
 1. **Os três carrosséis fixos estavam marcados para 26, 27 e 28/11** (`docs/reels/calendario-misto.md`, `docs/social/posts-fixos.md`). Os fixos 1 e 2 vendem o Sprint de Eficiência e "o gargalo da sua empresa", e se apresentam como "consultoria on-line para pequenas e médias empresas". **Não publicar como estão.** O fixo 3 (case Motors) precisa de ajuste menor (seção 4).

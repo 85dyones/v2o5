@@ -24,7 +24,7 @@ Ao colar números, responda com os 3 melhores e por que, os 3 piores e por que, 
 Quero fechar a ficha do produto da V2O5. Leia a ficha-do-produto.md em rascunho e me entreviste só sobre o que está em [CONFERIR], uma pergunta por vez, no máximo 12 perguntas. Depois entregue a ficha completa em markdown com os mesmos títulos, mantendo [CONFERIR] no que eu disse sem número ou prova.
 
 ## 3. Os 25 ganchos do lote 1, em 5 ângulos
-Leia a ficha e monte o lote 1: 5 ângulos, 5 ganchos por ângulo, 25 no total. Ângulos de partida: a dor do dia a dia (lead esfriando no WhatsApp); a demonstração em menos de 10 segundos (agente respondendo, site gravando o lead no CRM); o erro comum; a comparação com o jeito antigo (planilha e WhatsApp manual); o bastidor do diagnóstico, sem identificar cliente.
+Leia a ficha e monte o lote 1: 5 ângulos, 5 ganchos por ângulo, 25 no total. Ângulos de partida (foco em pequenos negócios desde 25/11/2026): a dor do dia a dia (cliente que espera no WhatsApp, informação errada no Google, cliente que não volta); a demonstração em menos de 10 segundos (agente respondendo, contato chegando com a origem anotada); o erro comum; a comparação com o jeito antigo (caderno, planilha e WhatsApp manual); o bastidor do diagnóstico, sem identificar cliente. Pelo menos 5 dos 25 falam de ser encontrado (Google, avaliações, site que leva ao WhatsApp). Sem anúncio, sem rastreamento, sem "gargalo" e sem Sprint.
 
 Em cada ângulo, varie o tipo de gancho: pergunta, número, afirmação contra o senso comum, antes e depois, "você está fazendo isso errado". Nenhum gancho mostra o fundador falando.
 

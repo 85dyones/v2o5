@@ -17,7 +17,7 @@ Medida por quadros a cada 2 s e por análise do áudio.
 | 10 a 14 s | 09:14 com o selo "+1 DIA", "Sem resposta há 1 dia", depois 09:20, "Já fechei com outra empresa. Obrigado.", legenda "Ele já tinha fechado." | A consequência, no dia seguinte |
 | 14 a 16 s | Fundo escuro: "Seu preço nem entrou na disputa." | A frase de efeito (punchline) |
 | 16 a 18 s | O mesmo, mais "Levou quem respondeu primeiro." em destaque e a pílula de compartilhar: "Envie para quem deixa cliente esperando →" | Moral da história e chamada para compartilhar |
-| 18 a 22 s | A logo da V2O5 se constrói, depois "Vendas e Tecnologia" e "Descubra onde sua empresa pode funcionar melhor. Gratuitamente" digitado | Marca e promessa |
+| 18 a 22 s | A logo da V2O5 se constrói, depois "Vendas e Tecnologia" e a promessa digitada (desde 25/11, "Descubra onde seu negócio perde cliente. Gratuitamente") | Marca e promessa |
 
 Áudio: não há narração. A análise espectral mostra um grave contínuo baixo, estalos e toques curtos nas mudanças de cena, e uma batida forte na entrada da logo (cerca de 18,5 s). Nível de -20,8 LUFS integrado, pico em -2 dBFS.
 
@@ -48,7 +48,7 @@ Medida por quadros a cada 2 s e por análise do áudio.
 - **Número só com fonte e medido.** A referência usa horas e minutos de **cena ilustrativa** (14:02, "4 minutos", "RESPONDIDO EM 1 MIN"). Isso só vale com a marcação "EXEMPLO" visível nos cartões. No quadro do gancho não há selo: coloque uma nota discreta ("Cena de exemplo") ou mantenha o selo nos cartões desde o primeiro quadro em que aparecem. Número real só o do case Motors, com fonte e período (`memory/projects/case-motors.md`). Nunca "em menos de 1 minuto" para a Motors: a frase da fonte é "em até 1 minuto".
 - Zonas seguras: nada importante nos 250 px de cima e nos 420 px de baixo.
 - Marca: papel `#F2F1EC`, tinta `#121418`, âmbar `#F2A516`, Geist, logo da V2O5 vinda de `src/lib/marca-vetor.ts`.
-- Cada reel leva a mesma promessa final: "Descubra onde sua empresa pode funcionar melhor. Gratuitamente." e o link na bio.
+- Cada reel leva a mesma promessa final e o link na bio. Desde 25/11: "Descubra onde seu negócio perde cliente. Gratuitamente." (`docs/reels/handoff-foco-pequenos-negocios.md`).
 
 ## Como implementar (pipeline `video/`)
 Leia `video/README.md`. O gerador é o HyperFrames 0.9.63, local, já com o modelo vertical, o final animado da logo, o texto digitado e a conversa de exemplo. Para o padrão da referência faltam quatro tipos de cena em `video/modelos/reel/index.html`, dirigidos por `video/cenas.json`:

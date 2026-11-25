@@ -1,5 +1,7 @@
 # Lote 1: 25 ganchos e roteiros (17/11/2026)
 
+> **Histórico (17/11).** Os roteiros que valem são os do padrão v2, no foco em pequenos negócios: `docs/reels/lote-1-v2.md` (gerado de `video/v2.json`) e `docs/reels/lote-1.csv`. Este arquivo tem o CTA antigo e reels que saíram em 25/11 (L1-09, L1-12 e L1-23 foram trocados); não use o texto daqui para gravar nem para legenda.
+
 Gerado com as regras do Projeto (`docs/reels/prompts.md`, prompts 3 e 4). Promessa travada em `docs/reels/promessa-e-ganchos.md`. O CTA é o mesmo nos 25 reels de propósito: o reel testa só o ângulo e o gancho. Nenhum reel mostra o fundador. Telas e conversas são de exemplo ou do site da V2O5, nunca dados reais da Motors; os números da Motors vêm de `memory/projects/case-motors.md`, com o período dito no vídeo.
 
 **CTA falado nos 25:** "Descubra onde sua empresa pode funcionar melhor. Gratuitamente: link na bio."  

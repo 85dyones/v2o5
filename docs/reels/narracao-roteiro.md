@@ -1,5 +1,7 @@
 # Roteiro de narração do lote 1 (para gravar a própria voz)
 
+> **Atenção (25/11).** O padrão v2 sai sem narração; este roteiro é da versão de 17/11 e não foi refeito no foco em pequenos negócios. Antes de gravar a voz, gerar o roteiro de novo a partir de `video/v2.json` (os reels L1-09, L1-12 e L1-23 mudaram de assunto e a promessa mudou).
+
 Cada reel tem trechos numerados. Grave **um arquivo por trecho**, com o nome indicado, e deixe em `gravacoes-voz/<codigo>/`. O script de vídeo corta o silêncio do começo e do fim de cada arquivo e ajusta a digitação, as legendas e o final ao tempo da sua fala (`node scripts/renderizar-lote.mjs ../docs/reels/lote-1.csv --voz-pasta gravacoes-voz`).
 
 ## Como gravar

@@ -28,7 +28,7 @@ Se o ritmo se mostrar pesado na primeira semana, o lote 2 cai para 15 reels (10 
 | até sex 27 | Aprova a promessa única (texto abaixo) e a ficha do produto | Roteiros dos 25 ganchos do lote 1 (prompts 3 e 4) |
 
 **Sequência de fundação, 12 dias (sáb 21 a qui 26/11 e sex 27 a dom 29/11, sem reel de teste):**
-apresentação da V2O5; como funciona o diagnóstico de 45 minutos; o case Motors (números só com período); Sites e Integrações; Presença Digital Local; Sprint de Eficiência; o agente de IA no WhatsApp; as perguntas mais comuns; bastidor do método; carrossel com os 3 erros mais comuns; depoimento ou print, só com autorização; convite para o diagnóstico. Visual: os modelos de `design/marca/redes/`.
+apresentação da V2O5; como funciona o diagnóstico de 45 minutos; o case Motors (números só com período); Sites e Integrações; Presença Digital Local; Atendimento com IA (desde 25/11, no lugar do Sprint de Eficiência); o agente de IA no WhatsApp; as perguntas mais comuns; bastidor do método; carrossel com os 3 erros mais comuns; depoimento ou print, só com autorização; convite para o diagnóstico. Visual: os modelos de `design/marca/redes/`.
 
 **Como crescer de 7 para 200 sem prometer um número:** convite pessoal por WhatsApp a clientes, parceiros e à rede do Dyones (os primeiros seguidores têm que ser gente real do setor); link do perfil na assinatura de e-mail e no WhatsApp Business; página do Facebook vinculada ao Instagram; perfil pessoal do Dyones no LinkedIn apontando para a página; o `sameAs` do site já aponta para o Instagram e o LinkedIn. Quando o botão Teste aparecer, os lotes passam a sair como teste.
 
@@ -51,7 +51,7 @@ Regras: o vídeo repetido vale entre redes diferentes; no Instagram nunca se rep
 | dom | Leitura do lote: insights do Instagram, GA4 e leads por `utm_content`, no prompt 6; escolha dos 3 vencedores |
 
 ## O que falta de decisão do Dyones
-- ~~Aprovar a promessa única.~~ Feito em 17/11: "Descubra onde sua empresa pode funcionar melhor. Gratuitamente." Os roteiros e o título do `/diagnostico` usam a frase, palavra por palavra.
+- ~~Aprovar a promessa única.~~ Feito em 17/11 e trocado em 25/11 pelo foco em pequenos negócios: "Descubra onde seu negócio perde cliente. Gratuitamente." Os roteiros, os carrosséis e o título do `/diagnostico` usam a frase, palavra por palavra.
 - Autorizar telas e conversas da Motors nos vídeos (nome, logo e números já estão autorizados desde 08/10; telas do painel e do Ney exigem dados mascarados).
 
 ## Lote 1 pronto (17/11)
