@@ -18,11 +18,11 @@ Criada em 28/10/2026. Perfis: Instagram https://www.instagram.com/v2o5_consultor
 
 | Pilar | O que entra | Fonte permitida |
 |---|---|---|
-| Bastidor do método | Como o diagnóstico de 45 minutos funciona, o Sprint de Eficiência por dentro, o que fica de fora do escopo | `src/conteudo/` |
+| Bastidor do método | Como o diagnóstico de 45 minutos funciona, o Atendimento com IA por dentro (o que o agente responde e quando chama uma pessoa), o que fica de fora do escopo | `src/conteudo/` |
 | Caso real | Motors Store, com número e período (inclusive o Ney: 93 de 100 primeiras mensagens em até um minuto, mediana de 38 segundos, 21/10 a 17/11/2026); 16ª Vara Cível, sem número | só `memory/projects/case-motors.md` e `memory/projects/case-16-vara-civel.md` |
-| Erro comum | Sintoma que o dono da loja reconhece (lead que esfria, venda que some no balcão) | experiência do fundador; sem dado inventado |
+| Erro comum | Sintoma que o dono do pequeno negócio reconhece (horário errado no Google, cliente que chama no WhatsApp e espera, cliente que não volta) | experiência do fundador; sem dado inventado |
 | Guia | Um trecho de guia já publicado, com link | `/guias`, quando houver |
-| Preço e escopo | Preço de referência de uma solução, com "a partir de" | só `src/conteudo/ofertas.ts` e `sprint.ts` |
+| Preço e escopo | Preço de referência de uma solução, com "a partir de" | só `src/conteudo/ofertas.ts` |
 | Marca | Construção do símbolo, as quatro cores do vanádio, o nome | `memory/context/marca.md` |
 
 Cada semana usa pelo menos três pilares diferentes e não repete o da semana anterior.
@@ -32,7 +32,7 @@ Cada semana usa pelo menos três pilares diferentes e não repete o da semana an
 - Português do Brasil. Passa pelo humanizer: sem travessão, sem "não é X, é Y", sem tríades de efeito, sem emoji de enfeite.
 - Nenhum número sem fonte e sem período. Nada de resultado prometido ("aumente suas vendas em X%"); o que se mede é combinado antes (CLAUDE.md).
 - Nada de dado de cliente sem autorização; Motors Store já autorizada para nome, logo e números; 16ª Vara Cível autorizada para o nome (17/11), sem número nem dado pessoal.
-- Assinatura quando couber: "V2O5 | Eficiência comercial e operacional com tecnologia."
+- Assinatura quando couber: "V2O5 | Digitalização para pequenos negócios." (desde 25/11/2026; o público é o negócio local que vende pelo WhatsApp e vive de recompra).
 - Uma chamada por peça: diagnóstico gratuito (`https://www.v2o5.com.br/diagnostico`) ou WhatsApp. Link vai no story (adesivo) ou na bio, não na legenda do feed.
 - Hashtags: até 5, em português, ligadas ao tema. Sem hashtag genérica de viral.
 
