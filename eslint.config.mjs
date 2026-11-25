@@ -18,6 +18,10 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Gerador de vídeo dos reels: projeto isolado, com dependências próprias.
+    "video/**",
+    // Gerador dos carrosséis fixos (scripts soltos, sem tipos do site).
+    "social/**",
   ]),
 ]);
 
