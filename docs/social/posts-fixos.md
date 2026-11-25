@@ -1,54 +1,85 @@
-# Os 3 posts fixos: carrosséis para Instagram, Facebook e LinkedIn (versão 2, 18/11/2026)
+# Os 3 posts fixos: carrosséis para Instagram, Facebook e LinkedIn (versão 3, 25/11/2026)
 
-Três carrosséis de 7 slides que apresentam a V2O5, os serviços e a forma de trabalhar, na versão otimizada de 18/11 (capa com gancho, "para quem é", resultado antes do pacote, combinado cedo, case aberto pelo número). Texto tirado do site (`src/conteudo/ofertas.ts`, `sprint.ts`, `content/home.md` e o case Motors); número só com fonte e período; a frase do tempo de resposta fica "em até 1 minuto", como na fonte. A versão 1 foi substituída. Gerados por `node social/carrosseis/gerar.mjs` a partir de `social/carrosseis/conteudo-fixos-v2.json` (saída fora do git, em `social/carrosseis/saida/`).
+**O que são.** Três carrosséis de 7 slides que apresentam a V2O5, a forma de trabalhar e a prova.
+
+**Versão 3 (25/11/2026).** Refeitos no foco em pequenos negócios (`docs/2026-11-25-foco-pequenos-negocios.md`, handoff `docs/reels/handoff-foco-pequenos-negocios.md`):
+- três soluções: Presença, Sites e Atendimento com IA;
+- os quatro passos de `/sobre`;
+- o case Motors sem anúncio;
+- a promessa "Descubra onde seu negócio perde cliente. Gratuitamente.", igual ao título do `/diagnostico`.
+
+A versão 2, de 18/11, com o Sprint de Eficiência e "o gargalo da sua empresa", não é publicada.
+
+**Fontes.** O texto sai do site: `src/conteudo/ofertas.ts`, `src/conteudo/sobre.ts` e `src/conteudo/case.ts`. Número só com fonte e período.
+
+**Como gerar.** `SO=o-que-fazemos-v2,como-atuamos-v2,case-motors-v2 node social/carrosseis/gerar.mjs`, a partir de `social/carrosseis/conteudo-fixos-v2.json`. A saída fica fora do git, em `social/carrosseis/saida/`.
+
+**Como entregar.** O pacote de entrega renomeia os arquivos para os nomes abaixo.
 
 | Fixo | Carrossel | Arquivos | Papel |
 |---|---|---|---|
-| 1 | O que fazemos | `fixo-1-o-que-fazemos-01.png` a `-07.png` e `fixo-1-o-que-fazemos.pdf` | Quem somos, para quem é, as três frentes com resultado e preço de entrada, como começa |
-| 2 | Como trabalhamos | `fixo-2-como-trabalhamos-01.png` a `-07.png` e `fixo-2-como-trabalhamos.pdf` | O diagnóstico, o combinado, os seis passos, os limites e as três soluções |
-| 3 | Case Motors Store | `fixo-3-case-motors-01.png` a `-07.png` e `fixo-3-case-motors.pdf` | A prova: 93 de 100 conversas com a primeira resposta em até 1 minuto, mediana de 38 segundos, e o que dá para levar |
+| 1 | O que fazemos | `fixo-1-o-que-fazemos-01.png` a `-07.png` e `fixo-1-o-que-fazemos.pdf` | Para quem é, as três soluções (ser encontrado, ter o seu site, cuidar de quem chega) com preço de entrada, como começa |
+| 2 | Como trabalhamos | `fixo-2-como-trabalhamos-01.png` a `-07.png` e `fixo-2-como-trabalhamos.pdf` | O diagnóstico, o combinado, os quatro passos, os limites e as três soluções |
+| 3 | Case Motors Store | `fixo-3-case-motors-01.png` a `-07.png` e `fixo-3-case-motors.pdf` | A prova: 93 de 100 conversas com a primeira resposta em até 1 minuto, o que foi montado (site, agente, CRM) e o que dá para levar |
 
 ## Formatos
-A chamada final muda por rede, porque cada uma tem um lugar diferente para o link. O pacote vem em três pastas.
-- **Instagram (`instagram/`):** 7 imagens PNG 1080x1350 (4:5), na ordem numerada. A chamada é "Link na bio". Publicar como carrossel e fixar os três no perfil (o Instagram permite até 3 fixados). Conferir na grade a ordem em que ficam; se sair invertida, desafixar e fixar de novo.
-- **Facebook (`facebook/`):** as mesmas 7 imagens, com a chamada "Peça pelo link na legenda" (o link clicável vai na legenda). Publicação com várias fotos na página, e fixar na página.
-- **LinkedIn (`linkedin/`):** o carrossel do LinkedIn é o **documento em PDF**: cada página vira uma lâmina que se passa para o lado. O PDF tem 7 páginas, texto selecionável, e a chamada mostra o endereço `v2o5.com.br/diagnostico` em vez de "link na bio". O link clicável vai no primeiro comentário, com UTM de LinkedIn.
 
-## Quando publicar
-Quinta 26/11 o fixo 3, sexta 27/11 o fixo 2 e sábado 28/11 o fixo 1; domingo 29/11, fixar os três e trocar o link da bio. Assim ficam na grade do perfil na ordem 1, 2, 3 quando a semana de 01/12 começar. A ordem de fixação (qual aparece primeiro) é uma aposta sem dado: 1 "O que fazemos", depois o case e depois o método; o dado dos primeiros dias diz se muda.
+A chamada final muda por rede, porque cada uma tem um lugar diferente para o link. O pacote vem em três pastas.
+
+- **Instagram (`instagram/`):**
+  - 7 imagens PNG 1080x1350 (4:5), na ordem numerada. A chamada é "Link na bio".
+  - Publicar como carrossel e fixar os três no perfil (o Instagram permite até 3 fixados).
+- **Facebook (`facebook/`):**
+  - As mesmas 7 imagens, com a chamada "Peça pelo link na legenda". O link clicável vai na legenda.
+  - Publicação com várias fotos na página, e fixar na página.
+- **LinkedIn (`linkedin/`):**
+  - O carrossel do LinkedIn é o **documento em PDF**: 7 páginas com texto selecionável.
+  - A chamada mostra `v2o5.com.br/diagnostico`. O link clicável vai no primeiro comentário, com UTM de LinkedIn.
+
+## Quando publicar (decisão de 25/11)
+
+| Dia | O que fazer |
+|---|---|
+| Sexta 27/11 | Fixo 3 |
+| Sábado 28/11 | Fixo 2 |
+| Domingo 29/11 | Fixo 1, depois fixar os três e trocar o link da bio |
+
+Assim eles ficam na grade na ordem 1, 2, 3 quando a semana de 01/12 começar. Se algum ainda não estiver aprovado, o lote 1 começa sem ele.
+
+Publicação antiga que fale de Sprint, gargalo, tráfego, Branding ou Presença Assistida é arquivada, não apagada (`docs/social/perfis.md`).
 
 ## Fixo 1: O que fazemos
 
 **Instagram (legenda)**
 ```
-Quanto custa resolver o gargalo da sua empresa? Aqui o preço aparece.
+Quanto custa colocar seu negócio no mapa? Aqui o preço aparece.
 
-A V2O5 é uma consultoria on-line para pequenas e médias empresas, em todo o Brasil. São três frentes, com escopo fechado e preço de entrada público: Presença Digital Local, Sites & Integrações e Sprint de Eficiência. Tudo começa por um diagnóstico gratuito de 45 minutos, sem compromisso de contratação.
+A V2O5 digitaliza pequenos negócios que vendem pelo WhatsApp. Coloca o negócio no Google com a informação certa, faz um site que leva o cliente até a conversa e organiza o atendimento com um agente de IA que responde na hora. Cada solução tem escopo fechado e preço de entrada público, e tudo começa por um diagnóstico gratuito de 45 minutos.
 
-Descubra onde sua empresa pode funcionar melhor. Gratuitamente.
+Descubra onde seu negócio perde cliente. Gratuitamente.
 Link na bio.
 
-#v2o5 #consultoriaempresarial #pequenasempresas #presencadigital #sitesprofissionais #automacao
+#pequenosnegocios #negociolocal #whatsappbusiness #googlemeunegocio #v2o5
 ```
 **Facebook (legenda)**
 ```
-Quanto custa resolver o gargalo da sua empresa? Aqui o preço aparece.
+Quanto custa colocar seu negócio no mapa? Aqui o preço aparece.
 
-A V2O5 é uma consultoria on-line para pequenas e médias empresas, em todo o Brasil. Três frentes, com escopo fechado e preço de referência público: Presença Digital Local (a partir de R$ 790), Sites & Integrações (a partir de R$ 2.900) e Sprint de Eficiência (a partir de R$ 3.900). Tudo começa por um diagnóstico gratuito de 45 minutos, sem compromisso de contratação.
+A V2O5 digitaliza pequenos negócios que vendem pelo WhatsApp, on-line, em todo o Brasil. Três soluções, com escopo fechado e preço de referência público: Presença Digital Local (a partir de R$ 790), Sites & Integrações (a partir de R$ 2.900) e Atendimento com IA (a partir de R$ 3.900). Tudo começa por um diagnóstico gratuito de 45 minutos, sem compromisso de contratação.
 
-Descubra onde sua empresa pode funcionar melhor. Gratuitamente: https://www.v2o5.com.br/diagnostico?utm_source=facebook&utm_medium=post-fixo&utm_campaign=posts-fixos&utm_content=fixo-1
+Descubra onde seu negócio perde cliente. Gratuitamente: https://www.v2o5.com.br/diagnostico?utm_source=facebook&utm_medium=post-fixo&utm_campaign=posts-fixos&utm_content=fixo-1
 ```
 **LinkedIn (texto do post, com o PDF `linkedin/fixo-1-o-que-fazemos.pdf`; título do documento: "V2O5: o que fazemos")**
 ```
-Quanto custa resolver o gargalo da sua empresa? Aqui o preço aparece.
+Quanto custa colocar seu negócio no mapa? Aqui o preço aparece.
 
-A V2O5 é uma consultoria on-line que ajuda pequenas e médias empresas a vender e operar com menos atrito. Três frentes, cada uma com escopo fechado e preço de referência público: Presença Digital Local (a partir de R$ 790), Sites & Integrações (a partir de R$ 2.900) e Sprint de Eficiência (a partir de R$ 3.900). Depois do projeto, a continuidade é opcional, a partir de R$ 349 por mês.
+A V2O5 digitaliza pequenos negócios: faz o cliente encontrar a empresa e faz a empresa atender bem quem chega. Três soluções, cada uma com escopo fechado e preço de referência público: Presença Digital Local (a partir de R$ 790), Sites & Integrações (a partir de R$ 2.900) e Atendimento com IA (a partir de R$ 3.900). Depois do projeto, a continuidade é opcional, a partir de R$ 349 por mês.
 
-Tudo começa por um diagnóstico gratuito de 45 minutos. Descubra onde sua empresa pode funcionar melhor. Gratuitamente.
+Tudo começa por um diagnóstico gratuito de 45 minutos. Descubra onde seu negócio perde cliente. Gratuitamente.
 
 Link no primeiro comentário.
 
-#PequenasEmpresas #Automação #Consultoria
+#PequenosNegócios #Atendimento #WhatsApp
 ```
 Primeiro comentário: `https://www.v2o5.com.br/diagnostico?utm_source=linkedin&utm_medium=post-fixo&utm_campaign=posts-fixos&utm_content=fixo-1`
 
@@ -58,32 +89,32 @@ Primeiro comentário: `https://www.v2o5.com.br/diagnostico?utm_source=linkedin&u
 ```
 O que acontece depois que você pede um diagnóstico?
 
-São 45 minutos com o fundador, gratuitos e sem compromisso. O combinado vale antes de qualquer projeto: escopo fechado, preço de referência público, nenhum escopo ilimitado e nenhuma solução que obrigue a seguinte. O método tem seis passos, do processo real à próxima decisão.
+São 45 minutos com o fundador, gratuitos e sem compromisso. A gente vê como o cliente acha o seu negócio e como ele é atendido no WhatsApp. O combinado vale antes de qualquer projeto: escopo fechado, preço de referência público, nenhum escopo ilimitado e nenhuma solução que obrigue a seguinte. Depois, um projeto anda em quatro passos, do diagnóstico ao acompanhamento.
 
-Descubra onde sua empresa pode funcionar melhor. Gratuitamente.
+Descubra onde seu negócio perde cliente. Gratuitamente.
 Link na bio.
 
-#v2o5 #gestaoempresarial #processos #eficiencia #consultoria #pme
+#pequenosnegocios #negociolocal #atendimentoaocliente #whatsappbusiness #v2o5
 ```
 **Facebook (legenda)**
 ```
 O que acontece depois que você pede um diagnóstico?
 
-São 45 minutos com o fundador, gratuitos e sem compromisso. O combinado vale antes de qualquer projeto: escopo fechado, preço de referência público, nenhum escopo ilimitado e nenhuma solução que obrigue a seguinte. O método tem seis passos, do processo real à próxima decisão.
+São 45 minutos com o fundador, gratuitos e sem compromisso. A gente vê como o cliente acha o seu negócio e como ele é atendido no WhatsApp. O combinado vale antes de qualquer projeto: escopo fechado, preço de referência público, nenhum escopo ilimitado e nenhuma solução que obrigue a seguinte.
 
-Descubra onde sua empresa pode funcionar melhor. Gratuitamente: https://www.v2o5.com.br/diagnostico?utm_source=facebook&utm_medium=post-fixo&utm_campaign=posts-fixos&utm_content=fixo-2
+Descubra onde seu negócio perde cliente. Gratuitamente: https://www.v2o5.com.br/diagnostico?utm_source=facebook&utm_medium=post-fixo&utm_campaign=posts-fixos&utm_content=fixo-2
 ```
 **LinkedIn (texto do post, com o PDF `linkedin/fixo-2-como-trabalhamos.pdf`; título do documento: "V2O5: como trabalhamos")**
 ```
 O que acontece depois que você pede um diagnóstico?
 
-Primeiro, 45 minutos gratuitos com o fundador: olhamos presença, atendimento, operação e funil com os números da empresa. O diagnóstico não inclui mapeamento completo, implementação nem acompanhamento. Se houver um bom caso, a proposta vem por escrito, com escopo, prazo e investimento; se não houver, a conversa termina ali.
+Primeiro, 45 minutos gratuitos com o fundador. A pergunta é o que pesa mais hoje no negócio: ser achado, responder ou fazer o cliente voltar. O diagnóstico não inclui mapeamento completo, implementação nem acompanhamento. Se houver um bom caso, a proposta vem por escrito, com escopo, prazo e investimento; se não houver, a conversa termina ali.
 
-O combinado vale antes de qualquer projeto: escopo fechado, preço de referência público, nenhum escopo ilimitado, nenhuma solução obriga a seguinte e nenhuma promessa de percentual de resultado. O método tem seis passos: mapear o processo real, simplificar antes de automatizar, escolher a intervenção proporcional, implementar, comparar antes e depois e decidir o próximo passo.
+O combinado vale antes de qualquer projeto: escopo fechado, preço de referência público, nenhum escopo ilimitado, nenhuma solução obriga a seguinte e nenhuma promessa de percentual de resultado. Um projeto anda em quatro passos: diagnóstico, proposta, implantação e acompanhamento.
 
 Link no primeiro comentário.
 
-#Processos #Eficiência #PequenasEmpresas
+#PequenosNegócios #Atendimento #Diagnóstico
 ```
 Primeiro comentário: `https://www.v2o5.com.br/diagnostico?utm_source=linkedin&utm_medium=post-fixo&utm_campaign=posts-fixos&utm_content=fixo-2`
 
@@ -93,18 +124,18 @@ Primeiro comentário: `https://www.v2o5.com.br/diagnostico?utm_source=linkedin&u
 ```
 93 de 100 conversas com a primeira resposta em até 1 minuto. A mediana é de 38 segundos.
 
-É o que o agente de IA da Motors Store, revenda de seminovos em Curitiba, registrou no WhatsApp entre 21/10 e 17/11/2026 (conversas lidas no banco de dados da loja). A V2O5 montou o site de estoque, o agente, o rastreamento até a venda, o painel e as automações.
+É o que o agente de IA da Motors Store, revenda de seminovos em Curitiba, registrou no WhatsApp entre 21/10 e 17/11/2026 (conversas lidas no banco de dados da loja). A V2O5 montou o site de estoque ligado ao sistema da loja, o agente que atende e qualifica, a entrega do lead ao CRM e as automações.
 
-São contagens do sistema, não vendas, e a resposta humana não é medida. O resultado é o da Motors; o que cabe na sua empresa o diagnóstico mostra.
+São contagens do sistema, não vendas, e a resposta humana não é medida. O resultado é o da Motors; o que cabe no seu negócio o diagnóstico mostra.
 
-Descubra onde sua empresa pode funcionar melhor. Gratuitamente.
+Descubra onde seu negócio perde cliente. Gratuitamente.
 Case completo: v2o5.com.br/cases/motors-store (link na bio).
 
-#v2o5 #automacao #inteligenciaartificial #crm #whatsappbusiness #seminovos
+#atendimentoaocliente #whatsappbusiness #inteligenciaartificial #pequenosnegocios #v2o5
 ```
 **Facebook (legenda)**
 ```
-93 de 100 conversas com a primeira resposta em até 1 minuto, mediana de 38 segundos: o que o agente de IA da Motors Store registrou no WhatsApp entre 21/10 e 17/11/2026. A V2O5 montou o site de estoque, o agente, o rastreamento até a venda, o painel e as automações.
+93 de 100 conversas com a primeira resposta em até 1 minuto, mediana de 38 segundos: o que o agente de IA da Motors Store registrou no WhatsApp entre 21/10 e 17/11/2026. A V2O5 montou o site de estoque ligado ao sistema da loja, o agente que atende e qualifica, a entrega do lead ao CRM e as automações.
 
 São contagens lidas no banco de dados da loja, não vendas, e a resposta humana não é medida. O resultado é o da Motors. Case completo: https://www.v2o5.com.br/cases/motors-store?utm_source=facebook&utm_medium=post-fixo&utm_campaign=posts-fixos&utm_content=fixo-3
 ```
@@ -112,18 +143,22 @@ São contagens lidas no banco de dados da loja, não vendas, e a resposta humana
 ```
 93 de 100 conversas com a primeira resposta em até 1 minuto, mediana de 38 segundos. É o agente de IA da Motors Store, revenda de seminovos em Curitiba, no WhatsApp, entre 21/10 e 17/11/2026.
 
-A Motors tinha gargalos de visibilidade, de leads qualificados e de acompanhamento comercial. A V2O5 montou o site de estoque, o agente, o rastreamento até a venda, o painel e as automações, ligados pela mesma base de dados. O banco da loja mostra 237 leads no funil desde 05/09/2026 e, desde 21/10/2026, 125 clientes atendidos pelo agente.
+A V2O5 montou o site de estoque ligado ao Revenda Mais, o agente que atende e qualifica, a entrega do lead qualificado ao CRM e as automações, na mesma base de dados. O banco da loja mostra 237 leads no funil de 05/09 a 17/11/2026 e, desde 21/10, 125 clientes atendidos pelo agente; desde 04/11, 37 leads qualificados entregues ao CRM.
 
-Os números são contagens lidas no banco de dados da loja em 17/11/2026. Não são números de venda, a resposta humana não é medida e o resultado é o da Motors. O diagnóstico mostra o que cabe em outra empresa.
+Os números são contagens lidas no banco de dados da loja em 17/11/2026. Não são números de venda, a resposta humana não é medida e o resultado é o da Motors. O diagnóstico mostra o que cabe em outro negócio.
 
 Case completo no primeiro comentário.
 
-#Automação #CRM #WhatsAppBusiness
+#Atendimento #WhatsAppBusiness #InteligênciaArtificial
 ```
 Primeiro comentário: `https://www.v2o5.com.br/cases/motors-store?utm_source=linkedin&utm_medium=post-fixo&utm_campaign=posts-fixos&utm_content=fixo-3`
 
 ## Conferências antes de publicar
-- Os preços dos slides saem de `ofertas.ts` e `sprint.ts`; se mudarem, atualizar `social/carrosseis/conteudo-fixos-v2.json` e gerar de novo.
-- Os números do fixo 3 vêm de `memory/projects/case-motors.md` (leitura de 17/11/2026) e de `src/conteudo/case.ts`. A frase é "em até 1 minuto", igual à fonte e ao site. Se o case for atualizado, repetir a leitura antes de republicar.
-- O nome, o logo e os números da Motors têm autorização desde 08/10/2026.
-- Texto alternativo: o Instagram aceita descrição por imagem; a dica é colar o texto do slide.
+- **Preços:** os dos slides saem de `src/conteudo/ofertas.ts`. Se mudarem, atualizar `social/carrosseis/conteudo-fixos-v2.json` e gerar de novo.
+- **Números do fixo 3:** vêm de `src/conteudo/case.ts` e de `memory/projects/case-motors.md` (leitura de 17/11/2026).
+  - A frase é "em até 1 minuto", igual à fonte e ao site.
+  - Saíram os números de rastreamento de anúncio (identificador de clique e UTM). Ficam os do site e do estoque (237 e 113 de 131) e os do Ney (125 e 37).
+  - Se o case for atualizado, repetir a leitura antes de republicar.
+- **Autorização:** o nome, o logo e os números da Motors têm autorização desde 08/10/2026.
+- **Hashtags:** até 5 por post, como pede `docs/social/rotina.md`.
+- **Texto alternativo:** o Instagram aceita descrição por imagem; a dica é colar o texto do slide.

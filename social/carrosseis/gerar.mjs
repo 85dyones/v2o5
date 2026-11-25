@@ -3,6 +3,7 @@
 // Uso: node social/carrosseis/gerar.mjs   (precisa do Playwright global; saída em social/carrosseis/saida/)
 //   CAPA=papel|ambar|tinta|escuro  troca o estilo de todas as capas (padrão: o "estilo" de cada capa em conteudo.json)
 //   OPCOES=1                       gera só as quatro opções de capa do primeiro carrossel
+//   SO=chave1,chave2               gera só esses carrosséis
 import { createRequire } from "node:module";
 import { readFileSync, mkdirSync } from "node:fs";
 import { fileURLToPath } from "node:url";
@@ -208,7 +209,9 @@ async function ajustar(pagina, rotulo) {
 const nomePasta = { instagram: saida, facebook: join(saida, "facebook"), linkedin: join(saida, "linkedin") };
 mkdirSync(nomePasta.facebook, { recursive: true });
 mkdirSync(nomePasta.linkedin, { recursive: true });
-for (const [nome, c] of Object.entries(dados)) {
+// SO=chave1,chave2 gera só esses carrosséis (os outros ficam como estão em saida/).
+const SO = process.env.SO ? process.env.SO.split(",") : null;
+for (const [nome, c] of Object.entries(dados).filter(([k]) => !SO || SO.includes(k))) {
   for (const rede of ["instagram", "facebook", "linkedin"]) {
     await p.setContent(html(adaptar(c.slides, rede)));
     await p.waitForTimeout(300);
