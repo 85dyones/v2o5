@@ -19,25 +19,27 @@ import { EMPRESA, VISAO_360 } from "@/conteudo/home";
 export const SOBRE = {
   rota: "/sobre",
   sobretitulo: "Sobre a V2O5",
-  titulo: "Simplificar o que é complexo.",
+  /** 25/11/2026 (foco em pequenos negócios, aprovado pelo Dyones); antes, "Simplificar o que é complexo." (26/10). */
+  titulo: "Tecnologia que o pequeno negócio consegue usar.",
   /** Curto de propósito: o LCP é o H1 (medido em 13/10: com 131 caracteres o parágrafo roubava o posto). */
-  resumo: "Eu gosto de entender como algo complexo funciona e de desenhar o caminho mais simples até o resultado.",
+  resumo: "Ajudo pequenos negócios a serem achados no Google e a atenderem bem quem chega, com o que dá para manter no dia a dia.",
   /**
    * 26/10/2026 (Dyones: "sem falar em terceira pessoa, precisa ser pessoal"): a
    * página inteira passa à primeira pessoa; a V2O5 é a empresa que carrega a
-   * visão dele. O propósito vem do roast, na voz dele.
+   * visão dele. O propósito vem do roast, na voz dele; desde 25/11/2026,
+   * voltado ao pequeno negócio (o título de três frases de efeito saiu).
    */
   proposito: {
-    titulo: "A tecnologia é o meio. A melhoria é o trabalho. O resultado é a prova.",
+    titulo: "O cliente bem atendido é o resultado.",
     texto:
-      "Meu gosto é pegar algo complexo, entender como funciona e desenhar o caminho mais simples entre o problema e o resultado. Esse caminho nem sempre passa por construir alguma coisa.",
+      "Pequeno negócio não precisa de sistema grande. Precisa ser achado por quem procura perto, responder rápido e lembrar de quem já comprou. Eu escolho o caminho mais simples para cada uma dessas coisas.",
     decisao: [
-      "Às vezes a melhor solução é desenvolver um sistema.",
-      "Às vezes é integrar duas ferramentas que a empresa já tem.",
-      "Às vezes é eliminar uma etapa inútil do processo.",
+      "Às vezes basta arrumar o perfil no Google.",
+      "Às vezes é organizar o WhatsApp com um agente que responde na hora.",
+      "Às vezes é ligar o site ao sistema que a empresa já usa.",
     ],
     fecho:
-      "O que eu procuro é descobrir qual delas resolve com menos desperdício. Automatizar com IA um processo que não precisava existir só gasta recurso em velocidade.",
+      "O que eu procuro é o que resolve com menos custo e menos esforço para quem vai usar todo dia. Pôr IA onde um perfil arrumado bastaria só gasta dinheiro.",
   },
   /**
    * RASCUNHO para o Dyones reescrever com as palavras dele (pendência 32): a
@@ -48,24 +50,23 @@ export const SOBRE = {
   visao: {
     titulo: "O que eu quero construir.",
     texto:
-      "A V2O5 é o jeito que encontrei de juntar o que aprendi em marca, marketing, vendas e gestão com o que a tecnologia permite hoje. Eu penso em sistemas: gosto de entender uma operação por inteiro, achar onde o esforço se perde e desenhar um caminho melhor.",
+      "Quero que o dono de um negócio de bairro tenha o atendimento que as grandes redes têm, num tamanho que ele consegue pagar e manter.",
     sonho:
-      "Quero que a V2O5 seja lembrada por identificar problemas importantes, resolver alguns muito bem e provar o resultado, e não por prometer resolver tudo. Cada projeto deve deixar algo funcionando, uma evidência do que melhorou e uma decisão clara sobre o próximo passo.",
+      "A V2O5 é o jeito que encontrei de juntar o que aprendi em marca, marketing, vendas e gestão com o que a tecnologia permite hoje, para que cada projeto deixe algo funcionando no dia a dia e um cliente mais bem atendido.",
   },
-  /** O método em cinco perguntas, que cada projeto responde por escrito. */
+  /** Como um projeto anda, em quatro passos (25/11/2026; antes, o método em cinco perguntas do Sprint). */
   metodo: {
-    titulo: "O método em cinco perguntas.",
-    texto: "Todo projeto meu passa pelas mesmas cinco etapas, e cada uma tem uma pergunta que precisa de resposta antes de seguir.",
+    titulo: "Como um projeto anda, em quatro passos.",
+    texto: "Cada passo tem uma pergunta que precisa de resposta antes do seguinte.",
     etapas: [
-      { etapa: "Diagnóstico", pergunta: "Qual problema estamos tentando resolver?" },
-      { etapa: "Linha de base", pergunta: "Como funciona hoje e quanto custa?" },
-      { etapa: "Intervenção", pergunta: "O que será alterado e por quê?" },
-      { etapa: "Medição", pergunta: "Qual indicador deve mudar?" },
-      { etapa: "Revisão", pergunta: "O resultado justificou o investimento?" },
+      { etapa: "Diagnóstico", pergunta: "O que pesa mais hoje: ser achado, responder ou fazer o cliente voltar?" },
+      { etapa: "Proposta", pergunta: "O que muda, quanto custa e em quanto tempo?" },
+      { etapa: "Implantação", pergunta: "O que fica pronto e quem da equipe usa?" },
+      { etapa: "Acompanhamento", pergunta: "O cliente está sendo mais bem atendido?" },
     ],
     saida: {
       titulo: "Todo projeto sai com três coisas.",
-      itens: ["Algo funcionando", "Evidência do que melhorou", "Uma decisão sobre o próximo passo"],
+      itens: ["Algo funcionando no dia a dia", "A equipe sabendo usar", "O que medir daqui para a frente"],
     },
   },
   fundador: {
@@ -95,7 +96,7 @@ export const SOBRE = {
   equipe: {
     titulo: "Quem faz o trabalho",
     texto:
-      "Eu conduzo o diagnóstico e respondo por cada projeto, do mapeamento da operação à entrega. O que muda no processo e o que medir são decisões minhas; a IA e as automações entram como ferramenta, onde ajudam. Quando o projeto pede, indico parceiros especializados, como fotografia, contratados à parte.",
+      "Eu conduzo o diagnóstico e respondo por cada projeto, do diagnóstico à entrega. O que muda e o que medir são decisões minhas; a IA e as automações entram como ferramenta, onde ajudam. Quando o projeto pede, indico parceiros especializados, como fotografia, contratados à parte.",
   },
   nome: {
     titulo: "O nome vem de um catalisador.",
@@ -111,7 +112,7 @@ export const SOBRE = {
     regras: [
       {
         titulo: "Começo pelo diagnóstico",
-        texto: "45 minutos comigo para identificar e priorizar um gargalo, sem compromisso. O que vem depois só proponho se houver um bom caso.",
+        texto: "45 minutos comigo para ver o que mais pesa no seu negócio, sem compromisso. O que vem depois só proponho se houver um bom caso.",
       },
       {
         titulo: "Preço de referência, valor em proposta",
@@ -131,27 +132,31 @@ export const SOBRE = {
       },
     ],
   },
+  /** 25/11/2026: a Motors é um dos dois cases, e a 16ª Vara Cível entra como cliente (case autorizado em 17/11), sem detalhe de contrato. */
   motors: {
-    titulo: "A relação com a Motors Store.",
+    titulo: "A relação com os dois cases.",
     texto:
-      "A Motors Store, revenda de seminovos em Curitiba, é cliente da V2O5 e o case principal do site. A relação é de fornecedora: montei e mantenho o sistema da loja, e assino os guias publicados nela. Os números do case são lidos no banco de dados da Motors, com fonte e período, e a loja autorizou a publicação do nome, do logo e dos números.",
+      "A Motors Store, revenda de seminovos em Curitiba, é cliente da V2O5 e um dos dois cases do site. A relação é de fornecedora: montei e mantenho o sistema da loja, e assino os guias publicados nela. Os números do case são lidos no banco de dados da Motors, com fonte e período, e a loja autorizou a publicação do nome, do logo e dos números. A 16ª Vara Cível de Curitiba também é cliente: montei a triagem do WhatsApp da serventia, e a vara autorizou o case.",
     href: CASE_MOTORS.rota,
     botao: "Ler o case da Motors Store",
   },
   /**
    * 26/10/2026 (Dyones, referência "Organizar ferramentas V2O5"): a lista vira
-   * "Tecnologias e ecossistemas", em nove categorias que mostram entregas e não
+   * "Tecnologias e ecossistemas", em categorias que mostram entregas e não
    * marcas. Só entra o que o Dyones usa ou tem experiência: o grupo "compatível,
    * sob avaliação técnica" do rascunho saiu (Dyones: "sobra"), e o Canva não
    * aparece em branding (ferramenta de pós-criação). Kenlo e Revenda Mais são
    * experiência dele (confirmado em 26/10). Itens só das credenciais do n8n
    * (Gemini, Google Sheets, Redis, PostgreSQL, SMTP) aguardam confirmação
-   * (pendência 30). Sem nome de cliente.
+   * (pendência 30). Sem nome de cliente. 25/11/2026 (foco em pequenos
+   * negócios): saem "Branding, design e comunicação" (deixou de ser solução
+   * em 12/11) e "Dados, inteligência e mensuração" (tom gerencial); o GA4 fica
+   * em "Presença, busca e medição". Sete categorias.
    */
   ferramentas: {
     titulo: "Tecnologias e ecossistemas",
     texto:
-      "Eu escolho a combinação para cada operação. A ferramenta vem do problema, das integrações e do resultado esperado, e cada projeto usa só o que o gargalo pede. Automação, atendimento e WhatsApp rodam no meu servidor.",
+      "Eu escolho a combinação para cada operação. A ferramenta vem do problema, das integrações e do resultado esperado, e cada projeto usa só o que o problema pede. Automação, atendimento e WhatsApp rodam no meu servidor.",
     categorias: [
       {
         titulo: "Sites, aplicações e dados",
@@ -163,11 +168,6 @@ export const SOBRE = {
         descricao: "Onde as soluções rodam, como são publicadas e mantidas.",
         itens: ["VPS", "Docker", "Easypanel", "Traefik", "Portainer", "GitHub Container Registry", "MinIO", "Hostinger", "DNS", "SSL/TLS", "Backups", "Monitoramento", "Gestão de domínios e hospedagem"],
         nota: "VPS é uma modalidade de infraestrutura, não uma ferramenta; Docker é a tecnologia, Easypanel a plataforma de gestão e Hostinger o provedor.",
-      },
-      {
-        titulo: "Branding, design e comunicação",
-        descricao: "Da estratégia de marca aos materiais aplicados no negócio.",
-        itens: ["Estratégia e posicionamento", "Naming", "Identidade visual e logotipo", "Sistema e manual de marca", "Comunicação visual", "Aplicação da marca no site, nas redes e nos materiais"],
       },
       {
         titulo: "Inteligência artificial e agentes",
@@ -193,12 +193,7 @@ export const SOBRE = {
       {
         titulo: "Presença, busca e medição",
         descricao: "Ser encontrado por quem procura e saber de onde veio cada contato.",
-        itens: ["Perfil da Empresa no Google", "Google Search Console", "Google Analytics 4", "Instagram", "Facebook"],
-      },
-      {
-        titulo: "Dados, inteligência e mensuração",
-        descricao: "Transformar informações dispersas em indicadores para decidir e melhorar processos.",
-        itens: ["SQL", "PostgreSQL", "Google Sheets", "GA4", "Dashboards operacionais", "Indicadores de eficiência", "Análise antes e depois"],
+        itens: ["Perfil da Empresa no Google", "Google Search Console", "GA4", "Instagram", "Facebook"],
       },
     ],
   },
@@ -213,7 +208,7 @@ export const SOBRE = {
   },
   chamada: {
     titulo: "Quer conversar comigo?",
-    texto: "O diagnóstico é comigo: 45 minutos sobre presença, atendimento, operação e funil, para priorizar um gargalo.",
+    texto: "O diagnóstico é comigo: 45 minutos sobre como o cliente acha o seu negócio, como é atendido e se volta a comprar.",
     botao: "Pedir diagnóstico gratuito",
   },
 };

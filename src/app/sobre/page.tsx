@@ -86,7 +86,7 @@ export default function Pagina() {
           </div>
         </Trecho>
 
-        {/* O propósito: a tecnologia é o meio; as três saídas possíveis em lista, com o fio fino da rota. */}
+        {/* O propósito: o cliente bem atendido; as três saídas possíveis em lista, com o fio fino da rota. */}
         <Trecho aria-labelledby="titulo-proposito">
           <div className="relative grid grid-cols-12 gap-x-6 gap-y-8">
             <Parada />
@@ -179,7 +179,7 @@ export default function Pagina() {
           </div>
         </Trecho>
 
-        {/* O método em cinco perguntas e as três coisas que todo projeto entrega. */}
+        {/* Como um projeto anda, em quatro passos (25/11/2026), e as três coisas que todo projeto entrega. */}
         <Trecho aria-labelledby="titulo-metodo" etapa="verde">
           <div className="relative grid grid-cols-12 gap-x-6 gap-y-6">
             <Parada />
@@ -280,7 +280,7 @@ export default function Pagina() {
           </Link>
         </Trecho>
 
-        {/* A relação com a Motors: cliente, case principal, autorização registrada. */}
+        {/* A relação com os dois cases: Motors Store e 16ª Vara Cível, clientes, com autorização registrada. */}
         <Trecho aria-label="Case">
           <div className="relative grid grid-cols-12 gap-x-6 gap-y-6">
             <Parada />

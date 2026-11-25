@@ -2,32 +2,32 @@
 rota: "/sobre"
 url: "https://www.v2o5.com.br/sobre"
 status: 200
-title: "Sobre a V2O5: quem faz, o método e a promessa de saída | V2O5 Vendas e Tecnologia"
-description: "Quem é a V2O5 Vendas e Tecnologia, o método em cinco perguntas, o fundador que conduz o diagnóstico, de onde vem o nome e a relação com a Motors Store."
+title: "Sobre a V2O5: quem faz e como trabalha | V2O5 Vendas e Tecnologia"
+description: "Quem é a V2O5 Vendas e Tecnologia, o fundador que conduz o diagnóstico, como um projeto anda, de onde vem o nome e a relação com os dois cases."
 canonical: "https://www.v2o5.com.br/sobre"
 robots: null
-h1: "Simplificar o que é complexo."
-extraido_em: "2026-11-25T15:38:59.225Z"
-fonte: "build local da branch claude/kind-tesla-eefroe em 25/11/2026 (foco em pequenos negócios), antes da publicação"
+h1: "Tecnologia que o pequeno negócio consegue usar."
+extraido_em: "2026-11-25T16:18:26.598Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 25/11/2026 (foco em pequenos negócios, Sobre alinhada), antes da publicação"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
-# Simplificar o que é complexo.
+# Tecnologia que o pequeno negócio consegue usar.
 
-Eu gosto de entender como algo complexo funciona e de desenhar o caminho mais simples até o resultado.
+Ajudo pequenos negócios a serem achados no Google e a atenderem bem quem chega, com o que dá para manter no dia a dia.
 
 [Pedir diagnóstico gratuito](/diagnostico)
 
 [Quem sou eu](#autor)
 
-## A tecnologia é o meio. A melhoria é o trabalho. O resultado é a prova.
+## O cliente bem atendido é o resultado.
 
-Meu gosto é pegar algo complexo, entender como funciona e desenhar o caminho mais simples entre o problema e o resultado. Esse caminho nem sempre passa por construir alguma coisa.
+Pequeno negócio não precisa de sistema grande. Precisa ser achado por quem procura perto, responder rápido e lembrar de quem já comprou. Eu escolho o caminho mais simples para cada uma dessas coisas.
 
-- Às vezes a melhor solução é desenvolver um sistema.
-- Às vezes é integrar duas ferramentas que a empresa já tem.
-- Às vezes é eliminar uma etapa inútil do processo.
+- Às vezes basta arrumar o perfil no Google.
+- Às vezes é organizar o WhatsApp com um agente que responde na hora.
+- Às vezes é ligar o site ao sistema que a empresa já usa.
 
-O que eu procuro é descobrir qual delas resolve com menos desperdício. Automatizar com IA um processo que não precisava existir só gasta recurso em velocidade.
+O que eu procuro é o que resolve com menos custo e menos esforço para quem vai usar todo dia. Pôr IA onde um perfil arrumado bastaria só gasta dinheiro.
 
 ![Dyones Oliveira, fundador da V2O5, em Londres](/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fdyones-pb.2fmfx13-9ad2q.webp&w=3840&q=75)
 
@@ -63,7 +63,7 @@ Até os sete anos o meu mundo era de livros. Em 1992, um concurso da escola me r
 
 ### Quem faz o trabalho
 
-Eu conduzo o diagnóstico e respondo por cada projeto, do mapeamento da operação à entrega. O que muda no processo e o que medir são decisões minhas; a IA e as automações entram como ferramenta, onde ajudam. Quando o projeto pede, indico parceiros especializados, como fotografia, contratados à parte.
+Eu conduzo o diagnóstico e respondo por cada projeto, do diagnóstico à entrega. O que muda e o que medir são decisões minhas; a IA e as automações entram como ferramenta, onde ajudam. Quando o projeto pede, indico parceiros especializados, como fotografia, contratados à parte.
 
 Marca
 
@@ -83,49 +83,43 @@ Formação: Administração na FAE Business School
 
 ## O que eu quero construir.
 
-A V2O5 é o jeito que encontrei de juntar o que aprendi em marca, marketing, vendas e gestão com o que a tecnologia permite hoje. Eu penso em sistemas: gosto de entender uma operação por inteiro, achar onde o esforço se perde e desenhar um caminho melhor.
+Quero que o dono de um negócio de bairro tenha o atendimento que as grandes redes têm, num tamanho que ele consegue pagar e manter.
 
-Quero que a V2O5 seja lembrada por identificar problemas importantes, resolver alguns muito bem e provar o resultado, e não por prometer resolver tudo. Cada projeto deve deixar algo funcionando, uma evidência do que melhorou e uma decisão clara sobre o próximo passo.
+A V2O5 é o jeito que encontrei de juntar o que aprendi em marca, marketing, vendas e gestão com o que a tecnologia permite hoje, para que cada projeto deixe algo funcionando no dia a dia e um cliente mais bem atendido.
 
-## O método em cinco perguntas.
+## Como um projeto anda, em quatro passos.
 
-Todo projeto meu passa pelas mesmas cinco etapas, e cada uma tem uma pergunta que precisa de resposta antes de seguir.
+Cada passo tem uma pergunta que precisa de resposta antes do seguinte.
 
 01
 
 ### Diagnóstico
 
-Qual problema estamos tentando resolver?
+O que pesa mais hoje: ser achado, responder ou fazer o cliente voltar?
 
 02
 
-### Linha de base
+### Proposta
 
-Como funciona hoje e quanto custa?
+O que muda, quanto custa e em quanto tempo?
 
 03
 
-### Intervenção
+### Implantação
 
-O que será alterado e por quê?
+O que fica pronto e quem da equipe usa?
 
 04
 
-### Medição
+### Acompanhamento
 
-Qual indicador deve mudar?
-
-05
-
-### Revisão
-
-O resultado justificou o investimento?
+O cliente está sendo mais bem atendido?
 
 ### Todo projeto sai com três coisas.
 
-- Algo funcionando
-- Evidência do que melhorou
-- Uma decisão sobre o próximo passo
+- Algo funcionando no dia a dia
+- A equipe sabendo usar
+- O que medir daqui para a frente
 
 ## O nome vem de um catalisador.
 
@@ -175,7 +169,7 @@ Cinco regras que valem para todo projeto.
 
 ### Começo pelo diagnóstico
 
-45 minutos comigo para identificar e priorizar um gargalo, sem compromisso. O que vem depois só proponho se houver um bom caso.
+45 minutos comigo para ver o que mais pesa no seu negócio, sem compromisso. O que vem depois só proponho se houver um bom caso.
 
 02
 
@@ -203,15 +197,15 @@ Toda proposta define problema, entregáveis, exclusões, prazo, responsabilidade
 
 [Ver a tabela de preços](/precos)
 
-## A relação com a Motors Store.
+## A relação com os dois cases.
 
-A Motors Store, revenda de seminovos em Curitiba, é cliente da V2O5 e o case principal do site. A relação é de fornecedora: montei e mantenho o sistema da loja, e assino os guias publicados nela. Os números do case são lidos no banco de dados da Motors, com fonte e período, e a loja autorizou a publicação do nome, do logo e dos números.
+A Motors Store, revenda de seminovos em Curitiba, é cliente da V2O5 e um dos dois cases do site. A relação é de fornecedora: montei e mantenho o sistema da loja, e assino os guias publicados nela. Os números do case são lidos no banco de dados da Motors, com fonte e período, e a loja autorizou a publicação do nome, do logo e dos números. A 16ª Vara Cível de Curitiba também é cliente: montei a triagem do WhatsApp da serventia, e a vara autorizou o case.
 
 [Ler o case da Motors Store](/cases/motors-store)
 
 ## Tecnologias e ecossistemas
 
-Eu escolho a combinação para cada operação. A ferramenta vem do problema, das integrações e do resultado esperado, e cada projeto usa só o que o gargalo pede. Automação, atendimento e WhatsApp rodam no meu servidor.
+Eu escolho a combinação para cada operação. A ferramenta vem do problema, das integrações e do resultado esperado, e cada projeto usa só o que o problema pede. Automação, atendimento e WhatsApp rodam no meu servidor.
 
 01
 
@@ -258,21 +252,6 @@ VPS é uma modalidade de infraestrutura, não uma ferramenta; Docker é a tecnol
 
 03
 
-Branding, design e comunicação
-
-+ <!-- decorativo, aria-hidden -->
-
-Da estratégia de marca aos materiais aplicados no negócio.
-
-- Estratégia e posicionamento
-- Naming
-- Identidade visual e logotipo
-- Sistema e manual de marca
-- Comunicação visual
-- Aplicação da marca no site, nas redes e nos materiais
-
-04
-
 Inteligência artificial e agentes
 
 + <!-- decorativo, aria-hidden -->
@@ -286,7 +265,7 @@ Assistentes, modelos, agentes especializados e desenvolvimento assistido por IA.
 
 Modelos de linguagem, assistentes de produtividade, pesquisa e ferramentas de desenvolvimento não são a mesma coisa. Custo, privacidade e adequação técnica decidem o que entra em cada projeto.
 
-05
+04
 
 Automação, integrações e processos
 
@@ -299,7 +278,7 @@ Conectar sistemas, eliminar tarefas manuais e estruturar fluxos.
 - APIs REST
 - Webhooks
 
-06
+05
 
 Atendimento, comunicação e relacionamento
 
@@ -313,7 +292,7 @@ WhatsApp, centralização de canais, triagem e atendimento com IA.
 - Typebot
 - E-mail (SMTP)
 
-07
+06
 
 CRM, vendas e sistemas de gestão
 
@@ -325,7 +304,7 @@ Gestão comercial, funil de vendas, operação e relacionamento.
 - Kenlo
 - CRM sob medida
 
-08
+07
 
 Presença, busca e medição
 
@@ -335,25 +314,9 @@ Ser encontrado por quem procura e saber de onde veio cada contato.
 
 - Perfil da Empresa no Google
 - Google Search Console
-- Google Analytics 4
+- GA4
 - Instagram
 - Facebook
-
-09
-
-Dados, inteligência e mensuração
-
-+ <!-- decorativo, aria-hidden -->
-
-Transformar informações dispersas em indicadores para decidir e melhorar processos.
-
-- SQL
-- PostgreSQL
-- Google Sheets
-- GA4
-- Dashboards operacionais
-- Indicadores de eficiência
-- Análise antes e depois
 
 ## A empresa
 
@@ -387,7 +350,7 @@ E-mail
 
 ## Quer conversar comigo?
 
-O diagnóstico é comigo: 45 minutos sobre presença, atendimento, operação e funil, para priorizar um gargalo.
+O diagnóstico é comigo: 45 minutos sobre como o cliente acha o seu negócio, como é atendido e se volta a comprar.
 
 [Pedir diagnóstico gratuito](/diagnostico)
 

@@ -112,10 +112,10 @@ export const PAGINAS: Pagina[] = [
   },
   {
     rota: "/sobre",
-    titulo: "Sobre a V2O5: quem faz, o método e a promessa de saída",
+    titulo: "Sobre a V2O5: quem faz e como trabalha",
     descricao:
-      "Quem é a V2O5 Vendas e Tecnologia, o método em cinco perguntas, o fundador que conduz o diagnóstico, de onde vem o nome e a relação com a Motors Store.",
-    atualizadaEm: "2026-10-26",
+      "Quem é a V2O5 Vendas e Tecnologia, o fundador que conduz o diagnóstico, como um projeto anda, de onde vem o nome e a relação com os dois cases.",
+    atualizadaEm: "2026-11-25",
     pronta: true,
   },
   {

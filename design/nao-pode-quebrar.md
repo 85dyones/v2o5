@@ -116,7 +116,7 @@ Como o site serve hoje. Saem de `PAGINAS` em `src/conteudo/paginas.ts` (`metadat
 | `/segmentos/revendas-de-veiculos` | Sistema de vendas para revendas de veículos \| V2O5 Vendas e Tecnologia | Site de estoque ligado ao sistema da loja (Revenda Mais, Autoconf e outros), agente de IA no WhatsApp, CRM e rastreamento até a venda, a partir de R$ 14.900. |
 | `/cases/motors-store` | Case Motors Store \| V2O5 Vendas e Tecnologia | O que a V2O5 montou para a Motors Store, revenda de seminovos em Curitiba, e os números do sistema rodando, lidos no banco de dados da loja. |
 | `/precos` | Preços e planos \| V2O5 Vendas e Tecnologia | Três planos com preço fechado: Presença a partir de R$ 8.900 + R$ 990/mês, Atendimento com agente de IA e CRM, e o Completo. Sem fidelidade. |
-| `/sobre` | Sobre a V2O5: quem faz e como trabalha \| V2O5 Vendas e Tecnologia | Quem é a V2O5 Vendas e Tecnologia, de onde vem o nome, o fundador que conduz o diagnóstico, a relação com a Motors Store e as regras de todo projeto. |
+| `/sobre` | Sobre a V2O5: quem faz e como trabalha \| V2O5 Vendas e Tecnologia | Quem é a V2O5 Vendas e Tecnologia, o fundador que conduz o diagnóstico, como um projeto anda, de onde vem o nome e a relação com os dois cases. |
 | `/diagnostico` | Diagnóstico gratuito \| V2O5 Vendas e Tecnologia | 45 minutos de conversa com o fundador e, em até 24 horas, um mapa do que fazer primeiro na sua empresa, com custo e prazo. Sem compromisso. |
 | `/diagnostico/recebido` | Pedido recebido \| V2O5 Vendas e Tecnologia | Recebemos o seu pedido de diagnóstico. O que acontece agora e como a V2O5 entra em contato. |
 | `/guias` | Guias \| V2O5 Vendas e Tecnologia | Guias com dados de operação real para quem vende pelo WhatsApp e pela internet. |
@@ -447,4 +447,5 @@ Decisão do Dyones (`memory/decisoes.md` e `docs/2026-11-25-foco-pequenos-negoci
 - `/segmentos/revendas-de-veiculos`: H1 "Site de estoque e atendimento com IA para revendas de veículos."; três peças (site, agente, integração com o sistema da loja); os caminhos são o Site Conectado e o Atendimento Integrado.
 - Medição: `LINHA_DA_ROTA` perde `sprint` e `rastreamento`, e o agente passa a `atendimento`. As regras de "Modificar evento" do GA4 ficam em 15 (`docs/handoff-ga4.md`).
 - Formulário, `/api/leads`, eventos e o trecho "site da V2O5" das mensagens: sem mudança.
+- `/sobre` (aprovado pelo Dyones no mesmo dia): H1 "Tecnologia que o pequeno negócio consegue usar."; propósito "O cliente bem atendido é o resultado."; o método passa a quatro passos (Diagnóstico, Proposta, Implantação, Acompanhamento); a visão tem rascunho novo (pendência 32); as tecnologias ficam em sete categorias (saem Branding e Dados); a seção da Motors vira "A relação com os dois cases" e cita a 16ª Vara Cível como cliente; `<title>` "Sobre a V2O5: quem faz e como trabalha". Âncoras (`#autor`, `#titulo-proposito`, `#titulo-metodo`, `#titulo-visao`, `#titulo-motors`) sem mudança.
 
