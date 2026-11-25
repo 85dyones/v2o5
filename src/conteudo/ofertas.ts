@@ -3,15 +3,16 @@
  * reposicionamento comercial, portfólio e política inicial de preços"):
  * soluções com preço de referência público e a continuidade, à parte e
  * opcional. Desde 12/11/2026 são três (Dyones: "vamos focar nos serviços
- * ainda mais"; Branding & Identidade e o tráfego pago saíram). Este arquivo
- * tem Presença, Sites e a continuidade; o Sprint mora em `sprint.ts` e entra
- * aqui pela mesma interface.
+ * ainda mais"; Branding & Identidade e o tráfego pago saíram). Desde
+ * 25/11/2026 o foco é o pequeno negócio (`docs/2026-11-25-foco-pequenos-negocios.md`):
+ * o Atendimento com IA substitui o Sprint de Eficiência, com os mesmos preços
+ * de entrada, e a Presença Assistida saiu.
  *
  * Regras que valem para tudo: preço de referência para testar
  * comercialmente, com o valor fechado em proposta para um escopo conhecido;
  * nenhum escopo ilimitado; cada pacote diz para quem é, o que inclui e o que
  * fica de fora; nenhuma solução obriga a comprar a seguinte. Todo "R$"
- * público sai daqui ou de `sprint.ts` (`tests/precos-publicos.test.ts`), e
+ * público sai daqui (`tests/precos-publicos.test.ts`), e
  * `memory/context/oferta.md` repete os mesmos números (`tests/ofertas.test.ts`).
  *
  * As quantidades de revisões, peças, canais, páginas, horas e prazos de
@@ -19,7 +20,6 @@
  * (`oferta.md`, "Quantidades redigidas em 27/10").
  */
 import { mensalEmTexto, type Preco } from "@/conteudo/precos";
-import { SPRINT_DE_PRECOS } from "@/conteudo/sprint";
 import type { Etapa } from "@/lib/tokens";
 
 export { mensalEmTexto, precoEmTexto, type Preco } from "@/conteudo/precos";
@@ -29,15 +29,13 @@ export interface Pacote {
   preco: Preco;
   /** A mensalidade opcional que acompanha o pacote (Presença) e o que ela cobre. */
   mensal?: { valor: number; cobre: string };
-  /** Duração de referência (Sprint), nunca promessa. */
-  duracao?: string;
   para: string;
   inclui: string[];
-  /** O pacote em destaque no cartão (só o Sprint Integrado, a oferta principal do Sprint). */
+  /** O pacote em destaque no cartão (só o Atendimento Integrado, a oferta principal do Atendimento com IA). */
   principal?: boolean;
 }
 
-export type IdOferta = "presenca" | "sites" | "sprint";
+export type IdOferta = "presenca" | "sites" | "atendimento";
 
 export interface Oferta {
   id: IdOferta;
@@ -64,7 +62,7 @@ const PRESENCA: Oferta = {
   rota: "/presenca-digital-local",
   etapa: "verde",
   resolve: "Quando o cliente procura e encontra informação errada, perfil parado ou nenhum jeito fácil de chamar.",
-  recebe: "Perfil no Google, redes e WhatsApp organizados, com modelos de conteúdo e, se quiser, a rotina mensal.",
+  recebe: "Perfil no Google, redes e WhatsApp organizados, com pedido de avaliação, modelos de conteúdo e, se quiser, a rotina mensal.",
   pacotes: [
     {
       nome: "Presença Essencial",
@@ -76,6 +74,7 @@ const PRESENCA: Oferta = {
         "Uma rede social organizada: Instagram ou Facebook",
         "WhatsApp Business com perfil, horário e mensagens de saudação e ausência",
         "Informações, contatos e botões de chamada revisados em todos os canais",
+        "Pedido de avaliação no Google: link direto e mensagem pronta para mandar a quem comprou",
         "Três modelos de publicação com a identidade da empresa",
         "Uma rodada de revisão",
       ],
@@ -93,21 +92,6 @@ const PRESENCA: Oferta = {
         "Uma rodada de revisão por entrega",
       ],
     },
-    {
-      nome: "Presença Assistida",
-      preco: { valor: 1990 },
-      mensal: {
-        valor: 890,
-        cobre: "Operação assistida: calendário do mês, oito peças de referência, programação nas redes e uma campanha. O volume final sai na proposta.",
-      },
-      para: "Para quem quer a rotina de conteúdo feita junto, com programação e acompanhamento.",
-      inclui: [
-        "Tudo da Presença Estruturada",
-        "Ferramenta de agendamento e fluxo de aprovação configurados",
-        "Calendário de três meses aprovado antes de começar",
-        "Orientação para a equipe sobre fotos, vídeos e o atendimento nos canais",
-      ],
-    },
   ],
   fora: [
     "Verba de anúncios",
@@ -121,7 +105,7 @@ const PRESENCA: Oferta = {
     "Você envia fotos, informações e ofertas, aprova as peças no prazo combinado e dá acesso aos perfis.",
     "Campanha por mensagem só para quem consentiu em receber, e toda campanha dentro das regras de cada plataforma.",
   ],
-  continuidade: "As mensalidades da Presença são a frente de conteúdo e campanhas recorrentes da continuidade.",
+  continuidade: "A mensalidade opcional da Presença é contratada com ela. Se a empresa tiver site, ele segue com o Cuidado Técnico.",
 };
 
 const SITES: Oferta = {
@@ -183,30 +167,58 @@ const SITES: Oferta = {
   continuidade: "Site e página costumam seguir com o Cuidado Técnico; site com integração, com as Integrações Monitoradas.",
 };
 
-/** O Sprint pela mesma interface, com os níveis e o método de `sprint.ts`. */
-const SPRINT: Oferta = {
-  id: "sprint",
-  nome: "Sprint de Eficiência",
-  rota: "/sprint-de-eficiencia",
+/**
+ * Atendimento com IA (25/11/2026): o que era recurso do Sprint vira solução,
+ * com os preços de entrada que eram do Sprint Essencial e do Integrado. Mora
+ * na página do agente (`/agente-de-ia-para-whatsapp`), que já trazia a busca.
+ */
+const ATENDIMENTO: Oferta = {
+  id: "atendimento",
+  nome: "Atendimento com IA",
+  rota: "/agente-de-ia-para-whatsapp",
   etapa: "ambar",
-  resolve: "Quando um processo trava a operação: retrabalho, contato perdido, sistemas que não conversam.",
-  recebe: "Um gargalo resolvido, com a solução implantada e os indicadores comparados antes e depois.",
-  pacotes: SPRINT_DE_PRECOS.niveis.map((n) => ({
-    nome: n.nome,
-    preco: n.preco,
-    duracao: n.duracao,
-    para: n.para,
-    inclui: [n.escopo, n.exemplos],
-    principal: "principal" in n ? n.principal : undefined,
-  })),
-  fora: [
-    "Desenvolvimento ilimitado",
-    "Novos gargalos, integrações ou produtos fora da proposta",
-    "Garantia de resultado comercial",
-    "Custos de terceiros: APIs, infraestrutura, licenças e mídia, discriminados na proposta",
+  resolve: "Quando o cliente chama no WhatsApp e espera, se perde entre as conversas ou some sem que ninguém retome.",
+  recebe: "WhatsApp organizado e um agente de IA que responde e qualifica, com cada contato passado à pessoa certa ou ao sistema que você já usa.",
+  pacotes: [
+    {
+      nome: "Atendimento Essencial",
+      preco: { valor: 3900, aPartirDe: true },
+      para: "Para o negócio que atende pelo WhatsApp e perde cliente na demora ou na confusão das conversas.",
+      inclui: [
+        "WhatsApp organizado numa caixa de atendimento, com etiquetas e respostas prontas",
+        "Agente de IA que responde as dúvidas frequentes a qualquer hora, só com o que a empresa aprovou",
+        "Passagem para a pessoa certa da equipe, com o resumo da conversa",
+        "Lista de contatos com a origem de cada um",
+        "Treinamento da equipe e uma rodada de ajustes com as conversas reais",
+      ],
+    },
+    {
+      nome: "Atendimento Integrado",
+      preco: { valor: 6900, aPartirDe: true },
+      para: "Para quem precisa qualificar cada contato e levá-lo ao sistema que já usa.",
+      inclui: [
+        "Tudo do Atendimento Essencial",
+        "Agente de IA que qualifica com as perguntas do seu negócio e agenda ou encaminha",
+        "Integração com um sistema que a empresa já usa (CRM, agenda, estoque ou catálogo), depois de verificar a documentação e o acesso",
+        "Contato de volta com quem parou de responder ou já comprou, só para quem consentiu e dentro das regras do WhatsApp",
+        "Uma rodada de ajustes com as conversas reais",
+      ],
+      principal: true,
+    },
   ],
-  regras: [SPRINT_DE_PRECOS.texto, SPRINT_DE_PRECOS.revisao, SPRINT_DE_PRECOS.descoberta],
-  continuidade: "O que continua rodando depois do Sprint pode seguir com as Integrações Monitoradas ou a Evolução Contínua.",
+  fora: [
+    "Consumo de IA e mensagens do WhatsApp, pelo valor do provedor",
+    "Resposta da equipe: o agente passa a conversa, e a sua equipe atende",
+    "Respostas sobre o que a empresa não aprovou",
+    "Mensagem em massa para quem não consentiu",
+    "Integrações novas depois da entrega",
+  ],
+  regras: [
+    "O agente responde só com o que a empresa aprovou e chama uma pessoa quando não sabe ou quando o cliente pede.",
+    "Integração só entra na proposta depois de verificar documentação, credenciais, limites e custos do sistema.",
+    "IA e mensagens vêm pelo valor do provedor, discriminados, com teto mensal combinado e aviso antes de ultrapassá-lo. A V2O5 gerencia.",
+  ],
+  continuidade: "O atendimento costuma seguir com as Integrações Monitoradas. Quem quer melhorar o agente mês a mês segue com a Evolução Contínua.",
 };
 
 /** As regras de preço que valem para as três soluções (`/precos`, `llms.txt`). */
@@ -220,7 +232,7 @@ export const REGRAS_DE_PRECO = [
 ];
 
 /** A ordem da home, do menu e de `/precos`. */
-export const OFERTAS: Oferta[] = [PRESENCA, SITES, SPRINT];
+export const OFERTAS: Oferta[] = [PRESENCA, SITES, ATENDIMENTO];
 
 export function ofertaDa(id: IdOferta): Oferta {
   const o = OFERTAS.find((x) => x.id === id);
@@ -235,7 +247,7 @@ export const precoDeEntrada = (o: Oferta) => Math.min(...o.pacotes.map((p) => p.
 // Continuidade
 // ---------------------------------------------------------------------------
 
-export type IdFrente = "manutencao-tecnica" | "conteudo-e-campanhas" | "monitoramento-e-otimizacao";
+export type IdFrente = "manutencao-tecnica" | "monitoramento-e-otimizacao";
 
 export interface PlanoDeContinuidade {
   nome: string;
@@ -299,11 +311,6 @@ export const CONTINUIDADE = {
       texto: "Hospedagem, segurança, backup e suporte para o site ou a página continuarem no ar.",
     },
     {
-      id: "conteudo-e-campanhas" as IdFrente,
-      nome: "Conteúdo e campanhas recorrentes",
-      texto: "As mensalidades da Presença Digital Local: atualizações, kit mensal de conteúdo ou a rotina assistida.",
-    },
-    {
       id: "monitoramento-e-otimizacao" as IdFrente,
       nome: "Monitoramento e otimização",
       texto: "Integrações vigiadas, erros registrados e, se quiser, horas reservadas para melhorar o que roda.",
@@ -355,7 +362,7 @@ export const PERGUNTAS_DA_CONTINUIDADE = [
   },
   {
     pergunta: "Quanto custa?",
-    resposta: `${PLANOS_DE_CONTINUIDADE.map((p) => `${p.nome}, ${mensalEmTexto(p.mensal)}`).join("; ")}. As mensalidades de conteúdo da Presença Digital Local vão de ${mensalEmTexto(Math.min(...mensaisDaPresenca()))} a ${mensalEmTexto(Math.max(...mensaisDaPresenca()))}.`,
+    resposta: `${PLANOS_DE_CONTINUIDADE.map((p) => `${p.nome}, ${mensalEmTexto(p.mensal)}`).join("; ")}. A mensalidade opcional da Presença Digital Local, de ${mensalEmTexto(Math.min(...mensaisDaPresenca()))} a ${mensalEmTexto(Math.max(...mensaisDaPresenca()))}, é contratada com ela.`,
   },
   {
     pergunta: "O que acontece se eu usar mais horas do que o plano tem?",

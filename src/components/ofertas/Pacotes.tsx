@@ -8,7 +8,7 @@ import { mensalEmTexto, precoEmTexto, type Oferta, type Pacote } from "@/conteud
  * referência, para quem é, o que inclui e, na Presença, a mensalidade
  * opcional. Embaixo, o que nenhum pacote cobre e como o preço funciona. O
  * `id="titulo-pacotes"` é a âncora do botão "Ver os pacotes" da abertura.
- * Preço só de `ofertas.ts` e `sprint.ts`, no marca-texto âmbar.
+ * Preço só de `ofertas.ts`, no marca-texto âmbar.
  */
 export default function Pacotes({ oferta }: { oferta: Oferta }) {
   const colunas = oferta.pacotes.length === 4 ? "md:grid-cols-2" : "md:grid-cols-2 lg:grid-cols-3";
@@ -83,7 +83,7 @@ function CartaoDoPacote({ pacote: p, oferta }: { pacote: Pacote; oferta: Oferta 
         <ComMarcas texto={preco.replace(/^a/, "A")} marcas={[preco.replace(/^a/, "A")]} etapa="ambar" />
       </p>
       <p className="mt-1 text-[0.8125rem] text-texto-secundario">
-        {p.duracao ? `Preço de referência. Duração de referência: ${p.duracao}.` : "Preço de referência da implantação."}
+        Preço de referência da implantação.
       </p>
       <p className="mt-4 text-[0.9375rem] leading-relaxed">{p.para}</p>
       <ul className="mt-4 grid flex-1 content-start gap-2 border-t border-linha pt-4">

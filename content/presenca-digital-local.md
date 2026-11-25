@@ -3,17 +3,17 @@ rota: "/presenca-digital-local"
 url: "https://www.v2o5.com.br/presenca-digital-local"
 status: 200
 title: "Presença digital para negócios locais | V2O5 Vendas e Tecnologia"
-description: "Perfil da Empresa no Google, redes sociais e WhatsApp Business organizados, com modelos de conteúdo, calendário e rotina mensal opcional."
+description: "Perfil da Empresa no Google, redes sociais e WhatsApp Business organizados, com pedido de avaliação, modelos de conteúdo e rotina mensal opcional."
 canonical: "https://www.v2o5.com.br/presenca-digital-local"
 robots: null
 h1: "Presença digital para negócios locais: Google, redes e WhatsApp."
-extraido_em: "2026-10-27T18:10:55.133Z"
-fonte: "build local da branch claude/kind-tesla-eefroe em 27/10/2026 (mensalidades de entrada da tarde de 27/10), antes da publicação"
+extraido_em: "2026-11-25T15:38:59.225Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 25/11/2026 (foco em pequenos negócios), antes da publicação"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 # Presença digital para negócios locais: Google, redes e WhatsApp.
 
-Perfil no Google, redes e WhatsApp organizados, com modelos de conteúdo e, se quiser, a rotina mensal de publicações.
+Perfil no Google, redes e WhatsApp organizados, com pedido de avaliação, modelos de conteúdo e, se quiser, a rotina mensal de publicações.
 
 [Pedir diagnóstico gratuito](/diagnostico)
 
@@ -51,13 +51,17 @@ Uma ou duas redes organizadas, com descrição, destaques e link de contato.
 
 Perfil, horário e mensagens de saudação e ausência, para quem chama saber que vai ser atendido.
 
+### Avaliações no Google
+
+Link direto e mensagem pronta para pedir a avaliação a quem comprou. Avaliação recente pesa na busca do bairro.
+
 ### Modelos de conteúdo
 
 Modelos com a identidade da empresa, para publicar sem começar do zero.
 
 ### Calendário e campanhas
 
-As datas e as épocas do ramo, com campanhas prontas, na Presença Estruturada e na Assistida.
+As datas e as épocas do ramo, com campanhas prontas, na Presença Estruturada.
 
 ## Do diagnóstico ao ar.
 
@@ -85,7 +89,7 @@ Os modelos de publicação e, conforme o pacote, o calendário e a campanha de l
 
 Rotina, se quiser
 
-A mensalidade opcional: atualizações, o kit mensal de conteúdo ou a operação assistida.
+A mensalidade opcional: atualizações nos canais ou o kit mensal de conteúdo.
 
 ## Os pacotes. Preço de referência, com o valor fechado em proposta.
 
@@ -103,6 +107,7 @@ Para o negócio local que precisa ser encontrado com as informações certas.
 - Uma rede social organizada: Instagram ou Facebook
 - WhatsApp Business com perfil, horário e mensagens de saudação e ausência
 - Informações, contatos e botões de chamada revisados em todos os canais
+- Pedido de avaliação no Google: link direto e mensagem pronta para mandar a quem comprou
 - Três modelos de publicação com a identidade da empresa
 - Uma rodada de revisão
 
@@ -134,27 +139,6 @@ R$ 490/mês
 
 Kit mensal com quatro peças de conteúdo e uma campanha, prontas para publicar.
 
-Presença Digital Local
-
-### Presença Assistida
-
-R$ 1.990
-
-Preço de referência da implantação.
-
-Para quem quer a rotina de conteúdo feita junto, com programação e acompanhamento.
-
-- Tudo da Presença Estruturada
-- Ferramenta de agendamento e fluxo de aprovação configurados
-- Calendário de três meses aprovado antes de começar
-- Orientação para a equipe sobre fotos, vídeos e o atendimento nos canais
-
-Continuidade opcional
-
-R$ 890/mês
-
-Operação assistida: calendário do mês, oito peças de referência, programação nas redes e uma campanha. O volume final sai na proposta.
-
 ### Fora dos pacotes
 
 - Verba de anúncios
@@ -169,7 +153,7 @@ Operação assistida: calendário do mês, oito peças de referência, programa�
 - Você envia fotos, informações e ofertas, aprova as peças no prazo combinado e dá acesso aos perfis.
 - Campanha por mensagem só para quem consentiu em receber, e toda campanha dentro das regras de cada plataforma.
 
-As mensalidades da Presença são a frente de conteúdo e campanhas recorrentes da continuidade. [Ver a continuidade](/continuidade).
+A mensalidade opcional da Presença é contratada com ela. Se a empresa tiver site, ele segue com o Cuidado Técnico. [Ver a continuidade](/continuidade).
 
 [Pedir diagnóstico gratuito](/diagnostico)
 
@@ -181,7 +165,7 @@ O que entra, quanto custa e o que fica de fora. O resto cabe no diagnóstico.
 
 Quanto custa?
 
-Os pacotes: Presença Essencial, R$ 790, com mensalidade opcional de R$ 390/mês; Presença Estruturada, R$ 1.490, com mensalidade opcional de R$ 490/mês; Presença Assistida, R$ 1.990, com mensalidade opcional de R$ 890/mês. São preços de referência: o valor fechado sai em proposta.
+Os pacotes: Presença Essencial, R$ 790, com mensalidade opcional de R$ 390/mês; Presença Estruturada, R$ 1.490, com mensalidade opcional de R$ 490/mês. São preços de referência: o valor fechado sai em proposta.
 
 A mensalidade é obrigatória?
 
@@ -189,11 +173,15 @@ Não. Dá para contratar só a implantação. A mensalidade entra quando você q
 
 Quantas publicações por mês?
 
-No kit da Presença Estruturada, quatro peças e uma campanha por mês. Na Assistida, oito peças de referência, com o volume final na proposta. Nenhum pacote tem publicação ilimitada.
+No kit da Presença Estruturada, quatro peças e uma campanha por mês. Nenhum pacote tem publicação ilimitada.
 
 Vocês respondem os comentários e as mensagens?
 
-A resposta a comentários e mensagens fica com a sua equipe. A V2O5 organiza os canais e, na Presença Assistida, orienta o atendimento.
+A resposta a comentários e mensagens fica com a sua equipe. A V2O5 organiza os canais. Para o WhatsApp responder sozinho, existe o Atendimento com IA.
+
+Vocês pedem as avaliações por mim?
+
+A V2O5 prepara o link direto e a mensagem, e a sua equipe manda para quem comprou. Avaliação comprada ou trocada por brinde vai contra as regras do Google.
 
 A verba de anúncio está incluída?
 

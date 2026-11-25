@@ -10,7 +10,7 @@ import Perguntas from "@/components/home/Perguntas";
 import Fechamento from "@/components/home/Fechamento";
 import { ComMarcas, Parada, Trecho } from "@/components/rota/Rota";
 import { metadataDa } from "@/conteudo/paginas";
-import { CONTINUIDADE, mensalEmTexto, ofertaDa, PERGUNTAS_DA_CONTINUIDADE, planoDaFrente, type PlanoDeContinuidade } from "@/conteudo/ofertas";
+import { CONTINUIDADE, mensalEmTexto, PERGUNTAS_DA_CONTINUIDADE, planoDaFrente, type PlanoDeContinuidade } from "@/conteudo/ofertas";
 import { grafoDaContinuidade } from "@/lib/schema";
 import type { Etapa } from "@/lib/tokens";
 
@@ -56,15 +56,15 @@ function CartaoDoPlano({ plano }: { plano: PlanoDeContinuidade }) {
 }
 
 /**
- * A continuidade (27/10/2026): à parte das soluções e opcional. Três
- * frentes, que são o submenu "Continuidade" do topo: manutenção técnica (o
- * Cuidado Técnico), conteúdo e campanhas recorrentes (as mensalidades da
- * Presença) e monitoramento e otimização (Integrações Monitoradas e Evolução
- * Contínua). Os limites valem para todos os planos. Tudo de `ofertas.ts`.
+ * A continuidade (27/10/2026): à parte das soluções e opcional. Duas
+ * frentes desde 25/11/2026, que são o submenu "Continuidade" do topo:
+ * manutenção técnica (o Cuidado Técnico) e monitoramento e otimização
+ * (Integrações Monitoradas e Evolução Contínua). A frente de conteúdo e
+ * campanhas saiu: a mensalidade da Presença é contratada com ela. Os limites
+ * valem para todos os planos. Tudo de `ofertas.ts`.
  */
 export default function Pagina() {
-  const [manutencao, conteudo, monitoramento] = CONTINUIDADE.frentes;
-  const presenca = ofertaDa("presenca");
+  const [manutencao, monitoramento] = CONTINUIDADE.frentes;
   return (
     <>
       <Topo />
@@ -105,29 +105,6 @@ export default function Pagina() {
               <CartaoDoPlano key={p.nome} plano={p} />
             ))}
           </ul>
-        </Frente>
-
-        <Frente id={conteudo.id} etapa="verde" titulo={conteudo.nome} texto={conteudo.texto}>
-          <ul className="border-t-2 border-texto">
-            {presenca.pacotes.map((p) =>
-              p.mensal ? (
-                <li key={p.nome} className="grid grid-cols-12 gap-x-6 gap-y-2 border-b border-linha py-6">
-                  <h3 className="titulo-cartao col-span-12 md:col-span-4">{p.nome}</h3>
-                  <p className="col-span-12 font-semibold tabular-nums md:col-span-3">
-                    <ComMarcas texto={mensalEmTexto(p.mensal.valor)} marcas={[mensalEmTexto(p.mensal.valor)]} etapa="ambar" />
-                  </p>
-                  <p className="col-span-12 text-[0.9375rem] leading-relaxed text-texto-secundario md:col-span-5">{p.mensal.cobre}</p>
-                </li>
-              ) : null,
-            )}
-          </ul>
-          <p className="mt-4 text-[0.9375rem] leading-relaxed text-texto-secundario">
-            Cada mensalidade acompanha o pacote de implantação de mesmo nome.{" "}
-            <Link href={presenca.rota} className="link-sublinhado font-medium text-texto" data-evento="cta_click" data-local="continuidade">
-              Ver a Presença Digital Local
-            </Link>
-            .
-          </p>
         </Frente>
 
         <Frente id={monitoramento.id} etapa="ambar" titulo={monitoramento.nome} texto={monitoramento.texto}>

@@ -1,7 +1,7 @@
 ---
 conteudo: "Topo, rodapé e peças presentes em todas as rotas"
-extraido_em: "2026-11-17T14:48:14.330Z"
-fonte: "build local da branch claude/kind-tesla-eefroe em 17/11/2026 (case da 16ª Vara Cível, revenda como exemplo), antes da publicação"
+extraido_em: "2026-11-25T15:38:59.225Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 25/11/2026 (foco em pequenos negócios), antes da publicação"
 ---
 
 <!-- Topo e rodapé são idênticos nas 16 rotas extraídas (conferido no script). -->
@@ -20,15 +20,13 @@ Soluções
 
 [Sites & Integrações](/criacao-de-sites)
 
-[Sprint de Eficiência](/sprint-de-eficiencia)
+[Atendimento com IA](/agente-de-ia-para-whatsapp)
 
 [Ver as três soluções](/#solucoes)
 
 Continuidade
 
 [Manutenção técnica](/continuidade#manutencao-tecnica)
-
-[Conteúdo e campanhas recorrentes](/continuidade#conteudo-e-campanhas)
 
 [Monitoramento e otimização](/continuidade#monitoramento-e-otimizacao)
 
@@ -54,13 +52,11 @@ Menu <!-- oculto no desktop 1440 -->
 
 [Sites & Integrações](/criacao-de-sites) <!-- oculto no desktop 1440 -->
 
-[Sprint de Eficiência](/sprint-de-eficiencia) <!-- oculto no desktop 1440 -->
+[Atendimento com IA](/agente-de-ia-para-whatsapp) <!-- oculto no desktop 1440 -->
 
 [Continuidade](/continuidade) <!-- oculto no desktop 1440 -->
 
 [Manutenção técnica](/continuidade#manutencao-tecnica) <!-- oculto no desktop 1440 -->
-
-[Conteúdo e campanhas recorrentes](/continuidade#conteudo-e-campanhas) <!-- oculto no desktop 1440 -->
 
 [Monitoramento e otimização](/continuidade#monitoramento-e-otimizacao) <!-- oculto no desktop 1440 -->
 
@@ -80,7 +76,7 @@ Menu <!-- oculto no desktop 1440 -->
 
 V2O5 Vendas e Tecnologia
 
-V2O5 | Eficiência comercial e operacional com tecnologia.
+V2O5 | Digitalização para pequenos negócios.
 
 [Pedir diagnóstico](/diagnostico)
 
@@ -88,15 +84,13 @@ V2O5 | Eficiência comercial e operacional com tecnologia.
 
 - [Presença Digital Local](/presenca-digital-local)
 - [Sites & Integrações](/criacao-de-sites)
-- [Sprint de Eficiência](/sprint-de-eficiencia)
+- [Atendimento com IA](/agente-de-ia-para-whatsapp)
 - [Continuidade](/continuidade)
 
 ### Recursos
 
-- [Agente de IA no WhatsApp](/agente-de-ia-para-whatsapp)
 - [CRM com WhatsApp](/crm-com-whatsapp)
 - [Automação com IA](/automacao-com-ia)
-- [Rastreamento até a venda](/rastreamento-de-conversoes)
 
 ## Empresa
 

@@ -372,11 +372,10 @@ a { color: inherit; }
 /* Case: mosaico de números em células (tinta, papel, hachura), com a fonte embaixo. */
 .case-cab { position: relative; display: grid; grid-template-columns: minmax(0, 1fr); gap: 1.25rem 1.5rem; margin-bottom: var(--titulo-conteudo); }
 .case-cab .guia-case { display: grid; gap: 1rem; justify-items: start; }
-.numeros { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border: 2px solid var(--color-texto); }
+.numeros { display: grid; grid-template-columns: minmax(0, 1fr); border: 2px solid var(--color-texto); }
 .numeros div { display: flex; flex-direction: column; justify-content: space-between; gap: 1.5rem; min-height: 11rem; padding: 1.5rem; min-width: 0; }
 .numeros div:first-child { grid-column: 1 / -1; background: var(--color-texto); color: var(--color-fundo); }
 .numeros div:first-child p, .numeros div:first-child small { color: var(--color-faixa-escura-secundario); }
-.numeros div:nth-child(2) { border-right: 1px solid var(--color-linha); }
 .numeros div:nth-child(n + 2) { border-top: 1px solid var(--color-linha); }
 .numeros strong { font-size: var(--text-numero); font-weight: 600; letter-spacing: -0.045em; line-height: 1; font-variant-numeric: tabular-nums; }
 .numeros strong small { font-size: 1.25rem; font-weight: 500; letter-spacing: -0.02em; color: var(--color-texto-secundario); }
@@ -384,12 +383,11 @@ a { color: inherit; }
 .numeros .hachura { display: none; }
 .fonte { margin-top: 1rem; font-size: .875rem; color: var(--color-texto-secundario); }
 @media (min-width: 48rem) {
-  .numeros { grid-template-columns: 1.3fr 1fr 1fr .55fr; }
+  .numeros { grid-template-columns: 1.3fr 1fr .55fr; }
   .numeros div { min-height: 15rem; padding: 1.75rem; }
   .numeros div:first-child { grid-column: auto; }
   .numeros div + div { border-left: 1px solid var(--color-linha); }
   .numeros div:nth-child(n + 2) { border-top: 0; }
-  .numeros div:nth-child(2) { border-right: 0; }
   .numeros .hachura { display: block; min-height: 0; padding: 0; background-image: repeating-linear-gradient(135deg, transparent 0 7px, var(--color-linha) 7px 8px); }
 }
 @media (min-width: 64rem) {
@@ -450,7 +448,7 @@ a { color: inherit; }
     <nav class="menu" aria-label="Seções">
       <a href="#verificacoes">O que é verificado</a>
       <a href="#solucoes">Soluções</a>
-      <a href="#sprint">Como começar</a>
+      <a href="#como-comecar">Como começar</a>
       <a href="#case">Case</a>
     </nav>
     <a class="botao botao-primario botao-compacto" href="https://www.v2o5.com.br/diagnostico?utm_source=diagnostico.v2o5.com.br&amp;utm_medium=referral&amp;utm_content=topo"><span>Pedir <span class="longo">diagnóstico</span></span><svg class="seta" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10m-4-4 4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/></svg></a>
@@ -706,11 +704,11 @@ a { color: inherit; }
         </div>
         <div class="faixa-solucao e4">
           <span class="parada" aria-hidden="true"></span>
-          <div class="qual"><span class="rotulo">Medir e proteger</span><p>Saber o que vende e deixar a operação rodar sozinha.</p></div>
+          <div class="qual"><span class="rotulo">Fazer o cliente voltar</span><p>Lembrar de quem comprou e deixar a rotina rodar sozinha.</p></div>
           <div class="cartoes">
-            <a class="cartao" href="https://www.v2o5.com.br/rastreamento-de-conversoes?utm_source=diagnostico.v2o5.com.br&amp;utm_medium=referral&amp;utm_content=solucoes">
-              <h3>Rastreamento até a venda</h3>
-              <p>Cada venda com a origem: qual anúncio, qual busca, qual página. Sem isso, a verba vai para onde parece funcionar.</p>
+            <a class="cartao" href="https://www.v2o5.com.br/diagnostico?utm_source=diagnostico.v2o5.com.br&amp;utm_medium=referral&amp;utm_content=solucoes">
+              <h3>Pós-venda e recorrência</h3>
+              <p>Revisão, recompra ou retorno: a régua manda a mensagem na data certa e traz o cliente de volta.</p>
               <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M5 11 11 5M6 5h5v5" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/></svg>
             </a>
             <a class="cartao" href="https://www.v2o5.com.br/automacao-com-ia?utm_source=diagnostico.v2o5.com.br&amp;utm_medium=referral&amp;utm_content=solucoes">
@@ -724,11 +722,11 @@ a { color: inherit; }
     </div>
   </section>
 
-  <section class="trecho fino" id="sprint" aria-labelledby="t-sprint">
+  <section class="trecho fino" id="como-comecar" aria-labelledby="t-comecar">
     <div class="conteiner conteiner-rota">
       <div class="cab">
         <span class="parada" aria-hidden="true"></span>
-        <h2 id="t-sprint" class="titulo-secao">Do diagnóstico ao resultado, pelo caminho mais simples.</h2>
+        <h2 id="t-comecar" class="titulo-secao">Do diagnóstico ao cliente bem atendido.</h2>
         <p class="texto-guia">Uma conversa, uma solução e, se precisar, a continuidade. Escopo, valor e prazo ficam por escrito antes de começar.</p>
       </div>
       <ol class="principios" aria-label="Como a V2O5 trabalha">
@@ -738,14 +736,14 @@ a { color: inherit; }
         </li>
         <li class="principio">
           <h3 class="titulo-cartao">Três soluções</h3>
-          <p>Presença Digital Local a partir de R$ 790, Sites &amp; Integrações a partir de R$ 2.900 e Sprint de Eficiência a partir de R$ 3.900. São preços de referência: o valor fechado sai em proposta.</p>
+          <p>Presença Digital Local a partir de R$ 790, Sites &amp; Integrações a partir de R$ 2.900 e Atendimento com IA a partir de R$ 3.900. São preços de referência: o valor fechado sai em proposta.</p>
         </li>
         <li class="principio">
           <h3 class="titulo-cartao">Continuidade, se precisar</h3>
           <p>Planos opcionais a partir de R$ 349/mês para manter e evoluir o que foi entregue, com horas e prazo de resposta escritos. IA, mensagens e nuvem de sistemas ficam por fora, pelo valor do provedor, e a V2O5 gerencia.</p>
         </li>
       </ol>
-      <p class="texto-guia"><a class="link-sublinhado" href="https://www.v2o5.com.br/precos?utm_source=diagnostico.v2o5.com.br&amp;utm_medium=referral&amp;utm_content=sprint">Ver todos os preços</a></p>
+      <p class="texto-guia"><a class="link-sublinhado" href="https://www.v2o5.com.br/precos?utm_source=diagnostico.v2o5.com.br&amp;utm_medium=referral&amp;utm_content=comecar">Ver todos os preços</a></p>
     </div>
   </section>
 
@@ -753,14 +751,13 @@ a { color: inherit; }
     <div class="conteiner conteiner-rota">
       <div class="case-cab">
         <span class="parada" aria-hidden="true"></span>
-        <h2 id="t-case" class="titulo-secao">O sistema inteiro roda na Motors Store.</h2>
+        <h2 id="t-case" class="titulo-secao">O atendimento com IA roda na Motors Store.</h2>
         <div class="guia-case">
-          <p class="texto-guia">A V2O5 montou para a Motors Store, em Curitiba, o site de estoque, o agente de IA no WhatsApp, o rastreamento até a venda e as automações.</p>
+          <p class="texto-guia">A V2O5 montou para a Motors Store, em Curitiba, o site de estoque, o agente de IA no WhatsApp, a entrega do lead ao CRM e as automações.</p>
           <a class="link-sublinhado" href="https://www.v2o5.com.br/cases/motors-store?utm_source=diagnostico.v2o5.com.br&amp;utm_medium=referral&amp;utm_content=case">Ver o case<svg class="seta" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10m-4-4 4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/></svg></a>
         </div>
       </div>
       <div class="numeros">
-        <div><strong class="num">129 <small>de 131</small></strong><p>leads do site chegaram com identificador para não contar a mesma conversão duas vezes</p></div>
         <div><strong class="num">26</strong><p>guias publicados, assinados pelo fundador da V2O5</p></div>
         <div><strong class="num">148</strong><p>veículos sincronizados com o estoque do Revenda Mais</p></div>
         <div class="hachura" aria-hidden="true"></div>
@@ -791,7 +788,7 @@ a { color: inherit; }
   <div class="conteiner">
     <div class="empresa">
       <strong>V2O5 Vendas e Tecnologia</strong>
-      <span>V2O5 | Eficiência comercial e operacional com tecnologia.</span>
+      <span>V2O5 | Digitalização para pequenos negócios.</span>
       <span>V2O5 Tecnologia da Informação Ltda. · CNPJ <span class="num">68.490.470/0001-14</span></span>
     </div>
     <nav aria-label="Site da V2O5">

@@ -7,8 +7,8 @@ description: "Landing page, site personalizado e site conectado ao sistema que v
 canonical: "https://www.v2o5.com.br/criacao-de-sites"
 robots: null
 h1: "Criação de sites profissionais, ligados ao sistema que você já usa."
-extraido_em: "2026-11-17T15:24:58.492Z"
-fonte: "build local da branch claude/kind-tesla-eefroe em 17/11/2026 (case Motors com o Ney, números de 17/11), antes da publicação"
+extraido_em: "2026-11-25T15:38:59.225Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 25/11/2026 (foco em pequenos negócios), antes da publicação"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 # Criação de sites profissionais, ligados ao sistema que você já usa.
@@ -37,7 +37,7 @@ Motors Store: site de estoque com 148 veículos sincronizados e 26 guias
 
 ## O site de template aparece bonito e some na busca.
 
-Carrega devagar no celular, tem uma página só para todos os modelos ou serviços, e quem chega por um anúncio vira um contato sem origem. O Google só acha o que existe como página, e o contato que chega pelo site não aparece no sistema da empresa.
+Carrega devagar no celular, tem uma página só para todos os produtos ou serviços, e quem chega pelo Google vira um contato sem origem. O Google só acha o que existe como página, e o contato que chega pelo site não aparece no sistema da empresa.
 
 Gestão
 
@@ -61,7 +61,7 @@ O antigo Google Meu Negócio, criado ou ajustado e ligado ao site, para quem bus
 
 ### Origem de cada contato
 
-Cada botão de WhatsApp e cada formulário gravam a campanha, o anúncio e a página de entrada, com GA4, Pixel e API de Conversões prontos para ligar.
+Cada botão de WhatsApp e cada formulário gravam de onde a pessoa veio (Google, Instagram, indicação) e a página de entrada, com o GA4 pronto para ligar.
 
 ### Contato que chega à equipe
 
@@ -270,11 +270,11 @@ Não. Loja com pagamento fica fora dos pacotes. O site vende por WhatsApp, formu
 
 ## Recursos que combinam com esta solução.
 
-[Atração Rastreamento até a venda Cada venda com a origem: qual anúncio, qual busca, qual página. Sem isso, a verba vai para onde parece funcionar.](/rastreamento-de-conversoes)
+[Atendimento Agente de IA no WhatsApp Responde na hora, a qualquer hora, com as informações do seu negócio. Quando a conversa pede uma pessoa, chama alguém da equipe.](/agente-de-ia-para-whatsapp)
+
+[Venda Avaliações no Google Depois da venda, o cliente recebe no WhatsApp o pedido de avaliação com o link certo, e o painel mostra quem respondeu.](/diagnostico)
 
 [Gestão CRM e sistemas sob medida Nenhum contato esquecido numa conversa: cada um num funil, com a origem, a etapa e o próximo passo à vista.](/crm-com-whatsapp)
-
-[Atendimento Agente de IA no WhatsApp Responde na hora, a qualquer hora, com as informações do seu negócio. Quando a conversa pede uma pessoa, chama alguém da equipe.](/agente-de-ia-para-whatsapp)
 
 ## Comece pelo diagnóstico, que é gratuito.
 

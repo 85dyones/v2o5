@@ -3,17 +3,17 @@ rota: "/segmentos/revendas-de-veiculos"
 url: "https://www.v2o5.com.br/segmentos/revendas-de-veiculos"
 status: 200
 title: "Sistema de vendas para revendas de veículos | V2O5 Vendas e Tecnologia"
-description: "Site ligado ao estoque do sistema da loja (Revenda Mais, Autoconf e outros), agente de IA no WhatsApp, CRM e rastreamento até a venda, como na Motors Store."
+description: "Site ligado ao estoque do sistema da loja (Revenda Mais, Autoconf e outros) e agente de IA no WhatsApp que qualifica e entrega o lead ao CRM da loja."
 canonical: "https://www.v2o5.com.br/segmentos/revendas-de-veiculos"
 robots: null
-h1: "O que roda na Motors Store, aplicado à sua revenda."
-extraido_em: "2026-11-17T14:48:14.330Z"
-fonte: "build local da branch claude/kind-tesla-eefroe em 17/11/2026 (case da 16ª Vara Cível, revenda como exemplo), antes da publicação"
+h1: "Site de estoque e atendimento com IA para revendas de veículos."
+extraido_em: "2026-11-25T15:38:59.225Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 25/11/2026 (foco em pequenos negócios), antes da publicação"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
-# O que roda na Motors Store, aplicado à sua revenda.
+# Site de estoque e atendimento com IA para revendas de veículos.
 
-Site de estoque ligado ao sistema que a loja já usa, agente de IA no WhatsApp, CRM e rastreamento até a venda, com preço de referência.
+Site de estoque ligado ao sistema da loja e um agente de IA que atende, qualifica e entrega o lead pronto ao CRM, com preço de referência.
 
 [Pedir diagnóstico gratuito](/diagnostico)
 
@@ -32,7 +32,7 @@ Revenda Mais · em produção
 
 Dois caminhos
 
-O Site Conectado e a Operação com IA, juntos ou um de cada vez
+O Site Conectado e o Atendimento Integrado, juntos ou um de cada vez
 
 Integração em produção
 
@@ -48,7 +48,7 @@ Motors Store, revenda de seminovos em Curitiba, com números lidos do banco
 
 ## O que a V2O5 monta para revendas.
 
-Quatro peças na mesma base: o que entra por uma aparece nas outras. Site, rastreamento, painel e automações rodam na Motors Store; o agente de IA no WhatsApp completa o sistema. O escopo de cada projeto sai em proposta.
+Três peças na mesma base: o que entra por uma aparece nas outras. As três rodam na Motors Store. O escopo de cada projeto sai em proposta.
 
 Sites e presença
 
@@ -72,19 +72,13 @@ Agente de IA no WhatsApp
 
 ### Atende à noite e no fim de semana
 
-Responde com o estoque real, qualifica o interesse, agenda a visita e passa ao vendedor a conversa e a origem do contato.
+Responde com o estoque real, qualifica com as perguntas da loja (interesse, prazo, forma de pagamento) e agenda a visita.
 
-CRM e sistemas sob medida
+Integração com o sistema da loja
 
-### Funil com origem e próximo passo
+### Lead pronto no CRM da loja
 
-Cada lead com o carro de interesse, o anúncio que trouxe a pessoa e o responsável.
-
-Rastreamento até a venda
-
-### A venda volta para o Google e a Meta
-
-Pixel, API de Conversões e GA4 com um identificador único por lead. A campanha passa a otimizar pelo carro vendido.
+O lead qualificado entra no CRM que a loja já usa, com o carro de interesse, a origem e a conversa, e o vendedor segue dali. Em produção com o Revenda Mais.
 
 ## Dois caminhos para revendas.
 
@@ -109,26 +103,26 @@ Continuidade opcional
 
 Integrações Monitoradas, R$ 590/mês
 
-Sprint Integrado
+Atendimento com IA
 
-### Operação com IA
+### Atendimento Integrado
 
-Responder na hora, a qualquer hora, sem perder o contato que chegou.
+Para responder na hora, a qualquer hora, qualificar e entregar o lead pronto ao vendedor.
 
 - Agente de IA no WhatsApp com o estoque real
-- CRM com funil, origem do contato e aviso de lead parado
-- Passagem do agente para o vendedor na mesma conversa
+- Qualificação com as perguntas da loja: interesse, prazo e forma de pagamento
+- Lead entregue ao CRM da loja, com a ficha e a conversa
 - Treinamento da equipe
 
-Preço de referência
+Implantação
 
-R$ 6.900
+A partir de R$ 6.900
 
 Continuidade opcional
 
 Integrações Monitoradas, R$ 590/mês, ou Evolução Contínua, R$ 990/mês
 
-Uso da IA e mensagens do WhatsApp ficam por fora, pelo valor do provedor, discriminados na fatura, com teto mensal combinado e aviso antes de ultrapassá-lo; a V2O5 gerencia. A campanha de anúncios fica com a loja ou com a agência dela.
+Uso da IA e mensagens do WhatsApp ficam por fora, pelo valor do provedor, discriminados na fatura, com teto mensal combinado e aviso antes de ultrapassá-lo; a V2O5 gerencia.
 
 ## A prova está no case.
 
@@ -150,11 +144,11 @@ Sim. Ele consulta o mesmo estoque do site, sincronizado com o sistema da loja, e
 
 Preciso de fotógrafo?
 
-Se a loja já tem equipe ou fotógrafo, o site, o feed de anúncios e o agente usam as fotos que estão no sistema. Se não tem, a V2O5 pode indicar parceiros de fotografia, contratados à parte.
+Se a loja já tem equipe ou fotógrafo, o site e o agente usam as fotos que estão no sistema. Se não tem, a V2O5 pode indicar parceiros de fotografia, contratados à parte.
 
 Posso começar só pelo site de estoque?
 
-Pode. O Site Conectado funciona sozinho: o estoque no site e a origem dos contatos primeiro, e a Operação com IA entra depois, na mesma base.
+Pode. O Site Conectado funciona sozinho: o estoque no site e a origem dos contatos primeiro, e o Atendimento Integrado entra depois, na mesma base.
 
 O site e os dados são meus?
 

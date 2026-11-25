@@ -7,13 +7,13 @@ description: "O que a V2O5 montou para a Motors Store, revenda de seminovos em C
 canonical: "https://www.v2o5.com.br/cases/motors-store"
 robots: null
 h1: "Motors Store: o sistema inteiro numa revenda de seminovos."
-extraido_em: "2026-11-17T15:24:58.492Z"
-fonte: "build local da branch claude/kind-tesla-eefroe em 17/11/2026 (case Motors com o Ney, números de 17/11), antes da publicação"
+extraido_em: "2026-11-25T15:38:59.225Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 25/11/2026 (foco em pequenos negócios), antes da publicação"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 # Motors Store: o sistema inteiro numa revenda de seminovos.
 
-A V2O5 montou para a Motors Store, em Curitiba, o site de estoque, o agente de IA no WhatsApp, o rastreamento até a venda e as automações.
+A V2O5 montou para a Motors Store, em Curitiba, o site de estoque, o agente de IA no WhatsApp, a entrega do lead ao CRM e as automações.
 
 Revenda de seminovos em Curitiba/PR.
 
@@ -25,7 +25,7 @@ Motors Store, revenda de seminovos em Curitiba
 
 Entrega
 
-site de estoque, agente de IA, guias, rastreamento, painel e automações
+site de estoque, agente de IA, guias, painel, integração com o CRM e automações
 
 Fonte
 
@@ -90,12 +90,6 @@ SEO e busca por IA
 
 Hub de conteúdo assinado pelo fundador da V2O5, com dados estruturados por página, llms.txt e IndexNow, para o Google e as IAs encontrarem cada guia.
 
-Rastreamento até a venda
-
-### Cada lead com a origem
-
-Camada de dados versionada e testada; Meta Pixel com API de Conversões deduplicada por event_id; GA4 e GTM; UTM e click IDs gravados no lead.
-
 Atendimento com IA
 
 ### O Ney, agente da loja no WhatsApp
@@ -106,13 +100,13 @@ Integrações entre sistemas
 
 ### Lead qualificado no CRM do Revenda Mais
 
-Na passagem, o lead vai ao CRM do Revenda Mais com a origem da mídia, o carro de interesse e a qualificação do Ney, e o CRM distribui ao vendedor.
+Na passagem, o lead vai ao CRM do Revenda Mais com a origem do contato, o carro de interesse e a qualificação do Ney, e o CRM distribui ao vendedor.
 
 CRM e sistemas sob medida
 
 ### Painel da loja
 
-A mesa do Ney: quem está com o agente, quem já foi ao CRM e quem precisa do dono, junto do estoque, da mídia paga e das consultas de placa.
+A mesa do Ney: quem está com o agente, quem já foi ao CRM e quem precisa do dono, junto do estoque e das consultas de placa.
 
 Automação de processos
 
@@ -134,21 +128,9 @@ leads no funil de 05/09 a 17/11: 131 pelos formulários do site e 106 pelo Whats
 
 237
 
-leads do site com o identificador que impede a Meta de contar a mesma conversão duas vezes
-
-129
-
-de 131
-
 leads do site ligados ao veículo que motivou o contato
 
 113
-
-de 131
-
-leads do site com gclid ou fbclid: o anúncio exato que trouxe a pessoa
-
-96
 
 de 131
 
@@ -162,61 +144,11 @@ veículos no estoque sincronizado com o Revenda Mais, 60 já marcados como vendi
 
 Banco de dados da Motors Store, lido em 17/11/2026. Leads contados de 05/09 a 17/11/2026.
 
-## Como a venda fica rastreável.
-
-Cada lead do site sai com um identificador que o navegador e o servidor compartilham. A Meta e o Google recebem a mesma conversão pelos dois caminhos e contam uma vez só. O lead chega com a origem, o anúncio e o carro, e leva os três até o CRM do Revenda Mais.
-
-Formato real dos eventos; os valores são ilustrativos.
-
-eventos do sistema
-
-exemplo
-
-03:00:12
-
-estoque.sync
-
-fonte=revenda-mais
-
-alterados=3
-
-14:32:07
-
-lead.recebido
-
-origem=google/cpc
-
-gclid=sim
-
-14:32:07
-
-meta.capi.Lead
-
-event_id=Lead.3f9c2a7e
-
-status=200
-
-14:32:08
-
-ga4.generate_lead
-
-event_id=Lead.3f9c2a7e
-
-status=204
-
-14:32:08
-
-n8n.novo_lead
-
-aviso=equipe
-
-canal=whatsapp
-
 Atendimento com IA
 
 ## O Ney qualifica, o Revenda Mais distribui.
 
-O Ney é o agente de IA da Motors Store no WhatsApp, feito sob medida para a loja. Ele conversa com quem chega pelo anúncio, pelo site ou direto, e só passa o cliente à equipe quando a conversa está pronta para o vendedor.
+O Ney é o agente de IA da Motors Store no WhatsApp, feito sob medida para a loja. Ele conversa com quem chega pelo site ou direto pelo WhatsApp, e só passa o cliente à equipe quando a conversa está pronta para o vendedor.
 
 01
 
@@ -240,7 +172,7 @@ Quando o cliente marca a visita, chega à simulação do financiamento, pede uma
 
 ### Entrega no CRM do Revenda Mais
 
-O lead vai ao CRM com a origem da mídia, o carro de interesse e a qualificação do Ney, e o CRM escolhe o vendedor. Se o CRM recusar, o envio tenta de novo e o dono é avisado.
+O lead vai ao CRM com a origem do contato, o carro de interesse e a qualificação do Ney, e o CRM escolhe o vendedor. Se o CRM recusar, o envio tenta de novo e o dono é avisado.
 
 05
 
@@ -276,7 +208,7 @@ Gol 2015
 
 Origem
 
-Site da Loja - Meta ADS, com a campanha e o anúncio
+Site da Loja
 
 Resumo da conversa
 
@@ -307,8 +239,6 @@ Banco de dados da Motors Store, lido em 17/11/2026. Conversas de 21/10 a 17/11/2
 - Supabase
 - n8n
 - Evolution API
-- Meta Pixel e API de Conversões
-- GA4 e GTM
 - Revenda Mais (estoque e CRM)
 
 Quem assina os 26 guias da Motors Store é o fundador da V2O5, [Dyones Oliveira](/sobre). É ele quem conduz o diagnóstico gratuito.
@@ -336,5 +266,4 @@ O · 4,8 <!-- texto em SVG; decorativo, aria-hidden -->
 <!-- rótulos de acessibilidade (aria-label) desta rota, fora topo e rodapé:
 - "Case" (section)
 - "Motors Store" (svg role=img)
-- "Registro de eventos do sistema, exemplo" (div role=region)
 -->

@@ -4,20 +4,19 @@ import { CASE_MOTORS } from "@/conteudo/case";
 import { CASE, MARCA_DO_SITE, VISAO_360, type Vinheta } from "@/conteudo/home";
 import { capacidade, mensalEmTexto, precoEmTexto, type Pilar } from "@/conteudo/precos";
 import { ofertaDa, PLANOS_DE_CONTINUIDADE, precoDeEntrada, type IdOferta } from "@/conteudo/ofertas";
-import { CONDICOES, METODO, SPRINT_DE_PRECOS } from "@/conteudo/sprint";
 import type { Etapa } from "@/lib/tokens";
 
 /**
  * As páginas de solução (plano, seções 3.2 e 4.2): uma por linha do
  * cardápio, com o H1 igual à busca-alvo, a resposta em duas frases no
  * primeiro parágrafo, o problema, o que entra, como funciona, o que roda na
- * Motors Store (só o que roda, com número do case), como a linha entra num
- * Sprint e as perguntas, que viram FAQPage. Desde 27/10/2026 há dois tipos:
- * as páginas das soluções (`oferta`: Presença, Sites e o Sprint; Branding
- * saiu em 12/11/2026), com os pacotes e o preço de referência de `ofertas.ts`; e as
- * páginas de recurso (agente, CRM, automação, rastreamento), sem valor, que
- * dizem como a linha entra num Sprint. Todo preço citado aqui sai de
- * `ofertas.ts` ou `sprint.ts`, nunca digitado. Tudo que é número
+ * Motors Store (só o que roda, com número do case) e as perguntas, que viram
+ * FAQPage. Há dois tipos: as páginas das soluções (`oferta`: Presença, Sites
+ * e, desde 25/11/2026, o Atendimento com IA na página do agente, no lugar do
+ * Sprint), com os pacotes e o preço de referência de `ofertas.ts`; e as
+ * páginas de recurso (CRM e automação), sem valor, que dizem como a linha
+ * entra no Atendimento com IA. Todo preço citado aqui sai de `ofertas.ts`,
+ * nunca digitado. Tudo que é número
  * sai de `CASE`, `CASE_MOTORS` ou da evidência da Visão 360, com fonte. `tests/solucoes.test.ts` confere.
  *
  * Sobre o agente: desde 17/11/2026 a página cita o Ney, agente de IA da
@@ -49,9 +48,9 @@ export interface Solucao {
   comoFunciona: { titulo: string; texto: string }[];
   /** Só quando a linha roda na Motors Store; os números são os do case, por referência. */
   naMotors?: { titulo: string; texto: string; numeros: Numero[]; /** Quando os números não são os do funil (o Ney). */ fonte?: string };
-  /** Página de recurso: como a linha entra num Sprint de Eficiência, a ficha "No Sprint" (sem valor). */
-  noSprint?: string;
-  /** Página de solução (27/10/2026): os pacotes de `ofertas.ts` no lugar da ficha "No Sprint". */
+  /** Página de recurso: como a linha entra no Atendimento com IA, a ficha "Na solução" (sem valor). */
+  naSolucao?: string;
+  /** Página de solução (27/10/2026): os pacotes de `ofertas.ts` no lugar da ficha "Na solução". */
   oferta?: IdOferta;
   /** Título e texto da seção "como funciona", quando não é "Do diagnóstico ao ar.". */
   como?: { titulo: string; apagado: string; texto: string };
@@ -62,7 +61,7 @@ export interface Solucao {
 
 const SITES = ofertaDa("sites");
 const PRESENCA = ofertaDa("presenca");
-const SPRINT = ofertaDa("sprint");
+const ATENDIMENTO = ofertaDa("atendimento");
 const continuidade = (i: number) => PLANOS_DE_CONTINUIDADE[i];
 
 /** "a partir de R$ 2.900": o preço de entrada da solução. */
@@ -92,13 +91,13 @@ export const SOLUCOES: Solucao[] = [
       { rotulo: "Entrega-base", valor: "Onze itens iguais em todo site da V2O5, das páginas que o Google entende à entrega documentada" },
       {
         rotulo: "Em produção",
-        valor: `Motors Store: site de estoque com ${CASE.numeros[2].valor} veículos sincronizados e ${CASE.numeros[1].valor} guias`,
+        valor: `Motors Store: site de estoque com ${CASE.numeros[1].valor} veículos sincronizados e ${CASE.numeros[0].valor} guias`,
       },
     ],
     problema: {
       titulo: "O site de template aparece bonito e some na busca.",
       texto:
-        "Carrega devagar no celular, tem uma página só para todos os modelos ou serviços, e quem chega por um anúncio vira um contato sem origem. O Google só acha o que existe como página, e o contato que chega pelo site não aparece no sistema da empresa.",
+        "Carrega devagar no celular, tem uma página só para todos os produtos ou serviços, e quem chega pelo Google vira um contato sem origem. O Google só acha o que existe como página, e o contato que chega pelo site não aparece no sistema da empresa.",
     },
     entregas: SITE_PADRAO.itens,
     comoFunciona: [
@@ -123,7 +122,7 @@ export const SOLUCOES: Solucao[] = [
       titulo: "No ar na Motors Store.",
       texto:
         "Site de estoque com vitrine, ficha de veículo, páginas por marca e modelo e seis páginas locais. O estoque entra sozinho do Revenda Mais.",
-      numeros: [CASE.numeros[2], CASE.numeros[1]],
+      numeros: [CASE.numeros[1], CASE.numeros[0]],
     },
     perguntas: [
       {
@@ -159,22 +158,23 @@ export const SOLUCOES: Solucao[] = [
           "Não. Loja com pagamento fica fora dos pacotes. O site vende por WhatsApp, formulário e telefone, com a origem de cada contato gravada.",
       },
     ],
-    relacionadas: ["rastreamento", "crm", "agente"],
+    relacionadas: ["agente", "avaliacoes", "crm"],
   },
   {
     rota: "/agente-de-ia-para-whatsapp",
-    linha: "agente",
+    linha: "atendimento",
+    oferta: "atendimento",
     pilar: "operacao",
-    etapa: "verde",
+    etapa: "ambar",
     vinheta: "agente",
-    sobretitulo: "Agente de IA no WhatsApp",
+    sobretitulo: "Atendimento com IA",
     titulo: "Agente de IA para WhatsApp que responde, qualifica e agenda.",
     resumo:
-      "Responde na hora, a qualquer hora, com as informações do seu negócio. Quando a conversa pede uma pessoa, chama alguém da equipe.",
+      "WhatsApp organizado e um agente de IA que responde na hora. Quando a conversa pede uma pessoa, chama alguém da equipe.",
     fatos: [
-      { rotulo: "No Sprint", valor: "Intervenção para quando o gargalo é responder rápido e não perder o contato que chegou" },
-      { rotulo: "O que entra", valor: "Agente treinado com a base de conhecimento da empresa, registro no CRM, ajustes de roteiro e passagem para a equipe, conforme o escopo" },
-      { rotulo: "Custos de terceiros", valor: "Uso do modelo de IA e mensagens da API oficial do WhatsApp, discriminados na proposta" },
+      { rotulo: "Resolve", valor: ATENDIMENTO.resolve },
+      { rotulo: "Preço de entrada", valor: `${entrada(ATENDIMENTO)}, do Atendimento Essencial ao Integrado` },
+      { rotulo: "Custos de terceiros", valor: "Uso do modelo de IA e mensagens do WhatsApp, pelo valor do provedor, discriminados na proposta" },
     ],
     problema: {
       titulo: "O contato chega às 21h e é respondido no dia seguinte.",
@@ -186,7 +186,7 @@ export const SOLUCOES: Solucao[] = [
       {
         titulo: "Responde com o que a empresa sabe",
         texto:
-          "Base de conhecimento com estoque, serviços, horários, condições e perguntas frequentes. O agente só fala do que está lá, e diz quando não sabe.",
+          "Base de conhecimento com produtos, serviços, horários, condições e perguntas frequentes. O agente só fala do que está lá, e diz quando não sabe.",
       },
       {
         titulo: "Qualifica antes de passar",
@@ -195,12 +195,12 @@ export const SOLUCOES: Solucao[] = [
       },
       {
         titulo: "Agenda e avisa",
-        texto: "Marca visita, test drive ou reunião na agenda da equipe e avisa o responsável no WhatsApp.",
+        texto: "Marca horário, visita ou reunião na agenda da equipe e avisa o responsável no WhatsApp.",
       },
       {
         titulo: "Passa para uma pessoa",
         texto:
-          "Quando a conversa pede alguém, o agente chama o vendedor com o histórico inteiro. Ninguém pergunta tudo de novo.",
+          "Quando a conversa pede alguém, o agente chama a pessoa certa da equipe com o histórico inteiro. Ninguém pergunta tudo de novo.",
       },
       {
         titulo: "API oficial do WhatsApp",
@@ -236,9 +236,11 @@ export const SOLUCOES: Solucao[] = [
       numeros: [CASE_MOTORS.atendimento.numeros[1], CASE_MOTORS.atendimento.numeros[2]],
       fonte: CASE_MOTORS.atendimento.fonte,
     },
-    noSprint:
-      "O agente entra num Sprint quando o gargalo é a resposta lenta ou o contato que se perde fora do horário. O Sprint mapeia o atendimento de hoje, define o que o agente responde e quando chama uma pessoa, implementa e compara o tempo de resposta e os contatos acompanhados antes e depois.",
     perguntas: [
+      {
+        pergunta: "Quanto custa?",
+        resposta: `${listaDePrecos(ATENDIMENTO)}. São preços de referência: o valor fechado sai em proposta, depois de conhecer o atendimento de hoje e o sistema que o agente precisa ligar.`,
+      },
       {
         pergunta: "O agente de IA atende sozinho?",
         resposta:
@@ -257,7 +259,7 @@ export const SOLUCOES: Solucao[] = [
       {
         pergunta: "Quanto custam a IA e as mensagens?",
         resposta:
-          "São custos de terceiros: o modelo de IA e as mensagens da API oficial do WhatsApp. Ficam discriminados na proposta do Sprint, separados do valor do projeto.",
+          "São custos de terceiros: o modelo de IA e as mensagens do WhatsApp. Ficam discriminados na proposta, separados do valor da implantação, com teto mensal combinado e aviso antes de ultrapassá-lo.",
       },
       {
         pergunta: "Preciso de um CRM?",
@@ -265,7 +267,7 @@ export const SOLUCOES: Solucao[] = [
           "O agente registra cada conversa no CRM da V2O5 ou, por integração, no sistema que você já usa. Sem um lugar para registrar, a origem e o desfecho se perdem.",
       },
     ],
-    relacionadas: ["crm", "automacao", "sites"],
+    relacionadas: ["crm", "automacao", "posvenda"],
   },
   {
     rota: "/automacao-com-ia",
@@ -278,9 +280,9 @@ export const SOLUCOES: Solucao[] = [
     resumo:
       "A tarefa que alguém faz à mão toda semana passa a rodar sozinha entre os sistemas que você já usa, com registro de cada execução.",
     fatos: [
-      { rotulo: "No Sprint", valor: "Intervenção para quando o gargalo é tarefa repetida entre sistemas" },
+      { rotulo: "Na solução", valor: "Entra no Atendimento com IA quando uma tarefa repetida trava o atendimento ou a venda" },
       { rotulo: "Manutenção", valor: "definida na proposta ou na continuidade, se contratada" },
-      { rotulo: "Em produção", valor: `Motors Store: ${CASE.numeros[2].valor} veículos sincronizados com o Revenda Mais` },
+      { rotulo: "Em produção", valor: `Motors Store: ${CASE.numeros[1].valor} veículos sincronizados com o Revenda Mais` },
     ],
     problema: {
       titulo: "O processo existe, mas mora na cabeça de uma pessoa.",
@@ -324,14 +326,14 @@ export const SOLUCOES: Solucao[] = [
       titulo: "Rodando na Motors Store.",
       texto:
         "Sincronização do estoque com o Revenda Mais, entrada das conversas do WhatsApp pela Evolution API, rodada do atendimento a cada 15 minutos e alerta de falha de integração.",
-      numeros: [CASE.numeros[2]],
+      numeros: [CASE.numeros[1]],
     },
-    noSprint:
-      "A automação entra num Sprint quando o gargalo é uma tarefa repetida entre sistemas. O Sprint mapeia o processo real, tira as etapas desnecessárias antes de automatizar e mede o tempo e o retrabalho antes e depois.",
+    naSolucao:
+      "A automação entra no Atendimento com IA quando uma tarefa repetida trava o atendimento: avisar a equipe, registrar o contato, atualizar o estoque ou o catálogo do site. A proposta diz quantos fluxos entram e o que cada um faz.",
     perguntas: [
       {
         pergunta: "O que conta como um fluxo?",
-        resposta: `Uma rotina do começo ao fim. A venda marcada no CRM que tira o carro do site, avisa o grupo e manda o obrigado ao cliente é um fluxo. O escopo do Sprint diz quantos fluxos entram.`,
+        resposta: `Uma rotina do começo ao fim. A venda marcada no CRM que tira o produto do site, avisa o grupo e manda o obrigado ao cliente é um fluxo. A proposta diz quantos fluxos entram.`,
       },
       {
         pergunta: "Preciso trocar o sistema de gestão que já uso?",
@@ -367,7 +369,7 @@ export const SOLUCOES: Solucao[] = [
     resumo:
       "Cada contato num funil, com a origem, a etapa e o próximo passo à vista, no nome da sua empresa.",
     fatos: [
-      { rotulo: "No Sprint", valor: "Intervenção para quando o gargalo é o funil espalhado entre conversas e planilhas" },
+      { rotulo: "Na solução", valor: "Entra no Atendimento com IA quando os contatos ficam espalhados entre conversas e planilhas" },
       { rotulo: "O que entra", valor: "Funil e campos do seu negócio, WhatsApp dentro do CRM, banco próprio, backups e treinamento da equipe, conforme o escopo" },
       { rotulo: "Em produção", valor: "Motors Store: lead qualificado pelo agente de IA no CRM do Revenda Mais, com a origem e a ficha" },
     ],
@@ -379,7 +381,7 @@ export const SOLUCOES: Solucao[] = [
     entregas: [
       {
         titulo: "Funil com origem",
-        texto: "Cada lead entra com a campanha, o anúncio e a página que trouxe a pessoa. A venda sai com a origem conhecida.",
+        texto: "Cada contato entra com a origem: Google, Instagram, site ou indicação. A venda sai com a origem conhecida.",
       },
       {
         titulo: "WhatsApp dentro do CRM",
@@ -400,7 +402,7 @@ export const SOLUCOES: Solucao[] = [
       },
       {
         titulo: "Usuários e volume de dados",
-        texto: "Quantos usuários e quanto de dado entram é definido na proposta do Sprint, conforme o tamanho da equipe e da base.",
+        texto: "Quantos usuários e quanto de dado entram é definido na proposta, conforme o tamanho da equipe e da base.",
       },
     ],
     comoFunciona: [
@@ -415,16 +417,16 @@ export const SOLUCOES: Solucao[] = [
         "O lead qualificado pelo Ney vai ao CRM do Revenda Mais com a origem, o carro e a ficha, e o painel da loja mostra quem está com o agente, quem já foi ao CRM e quem precisa do dono.",
       numeros: [CASE_MOTORS.numeros.itens[0], CASE_MOTORS.atendimento.numeros[2]],
     },
-    noSprint:
-      "O CRM entra num Sprint quando o gargalo é o funil espalhado entre conversas e planilhas. O Sprint mapeia como a venda acontece, desenha as etapas e os campos com a equipe, implanta e compara a proporção de contatos acompanhados e a conversão de etapa.",
+    naSolucao:
+      "O CRM entra no Atendimento com IA quando os contatos se perdem entre conversas e planilhas. No Essencial, a lista de contatos com a origem; no Integrado, a ligação com o CRM ou o sistema que a empresa já usa, com as etapas e os campos desenhados com a equipe.",
     perguntas: [
       {
         pergunta: "Como ficam os usuários e o volume de dados?",
-        resposta: "Definidos na proposta do Sprint, conforme o tamanho da equipe e da base de contatos.",
+        resposta: "Definidos na proposta, conforme o tamanho da equipe e da base de contatos.",
       },
       {
         pergunta: "Posso integrar com o sistema que já uso?",
-        resposta: `Sim, por integração dentro de um Sprint. Em produção hoje: o estoque do Revenda Mais. Para revendas, ${listaDeSistemasIntegraveis()} entram do mesmo jeito.`,
+        resposta: `Sim, por integração, no Atendimento Integrado. Em produção hoje: o estoque do Revenda Mais. Para revendas, ${listaDeSistemasIntegraveis()} entram do mesmo jeito.`,
       },
       {
         pergunta: "O WhatsApp fica dentro do CRM?",
@@ -437,104 +439,10 @@ export const SOLUCOES: Solucao[] = [
       },
       {
         pergunta: "Serve para qualquer setor?",
-        resposta: "Serve. Os campos e as etapas são desenhados com você. O automotivo é o primeiro segmento com pacote pronto.",
+        resposta: "Serve. Os campos e as etapas são desenhados com você. Revenda de veículos é o segmento com case: a Motors Store.",
       },
     ],
-    relacionadas: ["agente", "dados", "automacao"],
-  },
-  {
-    rota: "/rastreamento-de-conversoes",
-    linha: "rastreamento",
-    pilar: "mapa",
-    etapa: "violeta",
-    vinheta: "jornada",
-    sobretitulo: "Rastreamento até a venda",
-    titulo: "Rastreamento de conversões até a venda.",
-    resumo:
-      "GA4, API de Conversões da Meta e conversões offline do Google Ads, ligando cada venda ao anúncio que trouxe o cliente.",
-    fatos: [
-      { rotulo: "No Sprint", valor: "Intervenção para quando o gargalo é não saber de onde vem cada venda" },
-      { rotulo: "O que entra", valor: "GA4 e GTM arrumados, API de Conversões da Meta, conversão offline do Google Ads e relatório de origem das vendas, conforme o escopo" },
-      {
-        rotulo: "Em produção",
-        valor: `Motors Store: ${CASE.numeros[0].valor} ${CASE.numeros[0].complemento} leads do site com identificador único`,
-      },
-    ],
-    problema: {
-      titulo: "A campanha aprende com o formulário preenchido, e vende pouco.",
-      texto:
-        "Sem a venda de volta na plataforma, o Google e a Meta levam a verba para o anúncio que gera contato barato. O lead que virou venda e o que sumiu valem o mesmo para o algoritmo.",
-    },
-    entregas: [
-      {
-        titulo: "Camada de dados testada",
-        texto:
-          "Cada evento do site (clique no WhatsApp, formulário, ficha vista) com nome fixo e teste automático. Quando o site muda, o teste avisa.",
-      },
-      {
-        titulo: "Identificador único por lead",
-        texto: "O navegador e o servidor mandam a mesma conversão com o mesmo identificador. A Meta e o Google contam uma vez só.",
-      },
-      {
-        titulo: "API de Conversões da Meta",
-        texto: "Pelo servidor, com os parâmetros que o Pixel sozinho perde no celular.",
-      },
-      {
-        titulo: "Conversões offline do Google Ads",
-        texto: "A venda registrada no CRM volta para o Google Ads com o clique de origem. A campanha passa a otimizar por venda.",
-      },
-      {
-        titulo: "GA4 e GTM arrumados",
-        texto: "Eventos com nome certo, conversões marcadas e o relatório de origem das vendas no fim do mês.",
-      },
-      {
-        titulo: "Conferência mensal",
-        texto: "Todo mês a V2O5 confere a qualidade do dado: deduplicação, cobertura, parâmetros. Faz parte da continuidade, quando contratada.",
-      },
-    ],
-    comoFunciona: [
-      { titulo: "Auditoria", texto: "O que já existe (GA4, Pixel, GTM), o que duplica e o que falta." },
-      { titulo: "Camada de dados", texto: "Eventos definidos com você e implementados no site, com teste." },
-      {
-        titulo: "Servidor",
-        texto: "API de Conversões e identificador único; conversão offline quando o CRM registra a venda.",
-      },
-      { titulo: "Relatório", texto: "Origem de cada venda no relatório mensal, e a verba movida para onde a venda aparece." },
-    ],
-    naMotors: {
-      titulo: "Medido na Motors Store.",
-      texto:
-        "Camada de dados versionada e testada; Meta Pixel com API de Conversões deduplicada por identificador; GA4 e GTM; UTM e click IDs gravados no lead.",
-      numeros: [CASE.numeros[0]],
-    },
-    noSprint:
-      "O rastreamento entra num Sprint quando o gargalo é não saber de onde vem cada venda. O Sprint audita o que já existe, implementa a camada de dados e compara a cobertura da origem nas vendas antes e depois.",
-    perguntas: [
-      {
-        pergunta: "Vocês fazem tráfego pago?",
-        resposta:
-          "Não. A V2O5 liga cada venda ao anúncio que trouxe o cliente, e a campanha fica com você ou com a sua agência, que passa a otimizar pela venda registrada no CRM.",
-      },
-      {
-        pergunta: "Isso está de acordo com a LGPD?",
-        resposta:
-          "Trabalhamos com interesse legítimo e direito de oposição: a página de privacidade diz o que é guardado, por quanto tempo e como pedir para apagar, e o controle fica lá. É o modelo deste site.",
-      },
-      {
-        pergunta: "Preciso trocar de ferramenta de anúncios?",
-        resposta: "Não. GA4, Google Ads e Meta continuam os mesmos. O que muda é o dado que chega neles.",
-      },
-      {
-        pergunta: "O que é conversão offline?",
-        resposta:
-          "A venda que acontece fora do site, na loja ou por telefone, volta para o Google Ads ligada ao clique que trouxe o cliente. O CRM registra a venda e um fluxo manda para o Google.",
-      },
-      {
-        pergunta: "Funciona com o meu site atual?",
-        resposta: "Funciona se o site aceitar tags e o formulário puder gravar a origem. O diagnóstico responde isso em 45 minutos.",
-      },
-    ],
-    relacionadas: ["sites", "crm", "dados"],
+    relacionadas: ["agente", "automacao", "posvenda"],
   },
   {
     rota: "/presenca-digital-local",
@@ -545,7 +453,7 @@ export const SOLUCOES: Solucao[] = [
     vinheta: "perfil",
     sobretitulo: "Presença Digital Local",
     titulo: "Presença digital para negócios locais: Google, redes e WhatsApp.",
-    resumo: "Perfil no Google, redes e WhatsApp organizados, com modelos de conteúdo e, se quiser, a rotina mensal de publicações.",
+    resumo: "Perfil no Google, redes e WhatsApp organizados, com pedido de avaliação, modelos de conteúdo e, se quiser, a rotina mensal de publicações.",
     fatos: [
       { rotulo: "Resolve", valor: PRESENCA.resolve },
       {
@@ -573,12 +481,16 @@ export const SOLUCOES: Solucao[] = [
         texto: "Perfil, horário e mensagens de saudação e ausência, para quem chama saber que vai ser atendido.",
       },
       {
+        titulo: "Avaliações no Google",
+        texto: "Link direto e mensagem pronta para pedir a avaliação a quem comprou. Avaliação recente pesa na busca do bairro.",
+      },
+      {
         titulo: "Modelos de conteúdo",
         texto: "Modelos com a identidade da empresa, para publicar sem começar do zero.",
       },
       {
         titulo: "Calendário e campanhas",
-        texto: "As datas e as épocas do ramo, com campanhas prontas, na Presença Estruturada e na Assistida.",
+        texto: "As datas e as épocas do ramo, com campanhas prontas, na Presença Estruturada.",
       },
     ],
     comoFunciona: [
@@ -596,7 +508,7 @@ export const SOLUCOES: Solucao[] = [
       },
       {
         titulo: "Rotina, se quiser",
-        texto: "A mensalidade opcional: atualizações, o kit mensal de conteúdo ou a operação assistida.",
+        texto: "A mensalidade opcional: atualizações nos canais ou o kit mensal de conteúdo.",
       },
     ],
     perguntas: [
@@ -612,12 +524,17 @@ export const SOLUCOES: Solucao[] = [
       {
         pergunta: "Quantas publicações por mês?",
         resposta:
-          "No kit da Presença Estruturada, quatro peças e uma campanha por mês. Na Assistida, oito peças de referência, com o volume final na proposta. Nenhum pacote tem publicação ilimitada.",
+          "No kit da Presença Estruturada, quatro peças e uma campanha por mês. Nenhum pacote tem publicação ilimitada.",
       },
       {
         pergunta: "Vocês respondem os comentários e as mensagens?",
         resposta:
-          "A resposta a comentários e mensagens fica com a sua equipe. A V2O5 organiza os canais e, na Presença Assistida, orienta o atendimento.",
+          "A resposta a comentários e mensagens fica com a sua equipe. A V2O5 organiza os canais. Para o WhatsApp responder sozinho, existe o Atendimento com IA.",
+      },
+      {
+        pergunta: "Vocês pedem as avaliações por mim?",
+        resposta:
+          "A V2O5 prepara o link direto e a mensagem, e a sua equipe manda para quem comprou. Avaliação comprada ou trocada por brinde vai contra as regras do Google.",
       },
       {
         pergunta: "A verba de anúncio está incluída?",
@@ -629,65 +546,6 @@ export const SOLUCOES: Solucao[] = [
       },
     ],
     relacionadas: ["avaliacoes", "redes", "sites"],
-  },
-  {
-    rota: "/sprint-de-eficiencia",
-    linha: "sprint",
-    oferta: "sprint",
-    pilar: "operacao",
-    etapa: "ambar",
-    vinheta: "jornada",
-    sobretitulo: "Sprint de Eficiência",
-    titulo: "Sprint de Eficiência: um gargalo da operação resolvido e medido.",
-    resumo: "Um projeto fechado para um gargalo: mapear, simplificar, implementar e comparar os indicadores antes e depois.",
-    fatos: [
-      { rotulo: "Resolve", valor: SPRINT.resolve },
-      { rotulo: "Preço de entrada", valor: `${entrada(SPRINT)}, do Sprint Essencial ao Avançado` },
-      { rotulo: "Método", valor: `${METODO.length} passos, do processo real à próxima decisão` },
-    ],
-    problema: {
-      titulo: "A operação trava entre as ferramentas que já existem.",
-      texto:
-        "Dados copiados de um sistema para outro, contato que espera resposta, tarefa repetida todo dia. O Sprint começa pelo processo e só automatiza o que sobra depois de simplificar.",
-    },
-    entregas: [
-      { titulo: "Mapa do fluxo e linha de base", texto: "Como o processo acontece hoje, onde trava e os indicadores do ponto de partida." },
-      { titulo: "Fluxo simplificado", texto: "As etapas que sobram depois de tirar o que não precisa existir." },
-      { titulo: "Solução implantada", texto: "Integrações, automações ou agentes que o gargalo pede, testados e documentados." },
-      { titulo: "Antes e depois", texto: "Os indicadores disponíveis comparados com a linha de base." },
-      { titulo: "Próxima decisão", texto: "O registro do que mudou e o próximo passo, ou o encerramento." },
-    ],
-    como: {
-      titulo: "O método,",
-      apagado: "em seis passos.",
-      texto: "Vale para os três Sprints. Muda o tamanho do gargalo e o número de sistemas envolvidos.",
-    },
-    comoFunciona: METODO,
-    perguntas: [
-      {
-        pergunta: "Quanto custa um Sprint?",
-        resposta: `${listaDePrecos(SPRINT)}. ${SPRINT_DE_PRECOS.texto}`,
-      },
-      {
-        pergunta: "O que um Sprint entrega?",
-        resposta:
-          "Um projeto fechado para um gargalo delimitado: mapeamento do fluxo atual, priorização, implementação da solução acordada, testes e comparação dos indicadores disponíveis antes e depois. A proposta define o problema, os entregáveis, as exclusões, o prazo, as responsabilidades do cliente e os critérios de aceite.",
-      },
-      {
-        pergunta: "Como funciona o pagamento?",
-        resposta: CONDICOES.itens[1].texto,
-      },
-      {
-        pergunta: "E depois que o Sprint termina?",
-        resposta: `O Sprint termina na entrega. Se a solução continua rodando, ela pode seguir com as ${continuidade(1).nome} (${mensalEmTexto(continuidade(1).mensal)}) ou a ${continuidade(2).nome} (${mensalEmTexto(continuidade(2).mensal)}), opcionais. IA, mensagens e nuvem de sistemas ficam por fora, pelo valor do provedor.`,
-      },
-      {
-        pergunta: "Vocês prometem aumento de vendas?",
-        resposta:
-          "Não. O preço remunera a entrega acordada. O que se mede é o indicador combinado antes de começar, comparado com a linha de base.",
-      },
-    ],
-    relacionadas: ["agente", "crm", "automacao"],
   },
 ];
 

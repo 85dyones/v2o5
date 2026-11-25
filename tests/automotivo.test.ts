@@ -3,7 +3,6 @@ import { HUB_AUTOMOTIVO } from "@/conteudo/automotivo";
 import { BRL } from "@/conteudo/precos";
 import { NAVEGACAO } from "@/conteudo/home";
 import { OFERTAS, ofertaDa, PLANOS_DE_CONTINUIDADE } from "@/conteudo/ofertas";
-import { SPRINT_DE_PRECOS } from "@/conteudo/sprint";
 import { paginaDa } from "@/conteudo/paginas";
 import { grafoDoHubAutomotivo, servicoAutomotivo } from "@/lib/schema";
 import { ler, semComentarios } from "./fonte";
@@ -11,8 +10,8 @@ import { ler, semComentarios } from "./fonte";
 /**
  * O hub automotivo mostra os dois caminhos para revendas com os valores da
  * tabela de 27/10/2026; não repete os números nem o caminho do lead do case,
- * só aponta para ele. Sobre o agente, não afirma que roda na Motors (pendência 13). A
- * área de repasse não é produto da V2O5 (`V2O5_CORE.md`).
+ * só aponta para ele. Desde 25/11/2026 fala de site, atendimento com IA e
+ * integração, sem anúncio. A área de repasse não é produto da V2O5 (`V2O5_CORE.md`).
  */
 
 const texto = JSON.stringify(HUB_AUTOMOTIVO);
@@ -39,17 +38,17 @@ describe("hub automotivo", () => {
     expect(faq.mainEntity.map((p) => p.name)).toEqual(HUB_AUTOMOTIVO.perguntas.map((p) => p.pergunta));
   });
 
-  it("mostra os dois caminhos com os pacotes de qualquer negócio (Site Conectado e Sprint Integrado), sem plano antigo, módulo ou repasse (17/11/2026)", () => {
-    expect(HUB_AUTOMOTIVO.planos.itens.map((p) => [p.nome, p.sprint])).toEqual([
+  it("mostra os dois caminhos com os pacotes de qualquer negócio (Site Conectado e Atendimento Integrado, 25/11/2026), sem plano antigo, módulo ou repasse", () => {
+    expect(HUB_AUTOMOTIVO.planos.itens.map((p) => [p.nome, p.solucao])).toEqual([
       ["Site Conectado", "Sites & Integrações"],
-      ["Operação com IA", "Sprint Integrado"],
+      ["Atendimento Integrado", "Atendimento com IA"],
     ]);
     const site = ofertaDa("sites").pacotes.find((p) => p.nome === "Site Conectado")!;
     expect(HUB_AUTOMOTIVO.planos.itens[0].preco).toBe(`A partir de ${BRL(site.preco.valor)}`);
     expect(HUB_AUTOMOTIVO.planos.itens[0].inclui.join(" ")).toMatch(/Tudo do Site Personalizado/);
     expect(texto).not.toMatch(/Automotivo Integrado|11\.900|Tráfego pago entra/);
-    const integrado = SPRINT_DE_PRECOS.niveis.find((n) => n.nome === "Sprint Integrado")!;
-    expect(HUB_AUTOMOTIVO.planos.itens[1].preco).toBe(BRL(integrado.preco.valor));
+    const integrado = ofertaDa("atendimento").pacotes.find((p) => p.nome === "Atendimento Integrado")!;
+    expect(HUB_AUTOMOTIVO.planos.itens[1].preco).toBe(`A partir de ${BRL(integrado.preco.valor)}`);
     // A continuidade é opcional e sai da tabela.
     for (const p of HUB_AUTOMOTIVO.planos.itens) {
       expect(p.rotuloDaContinuidade).toMatch(/opcional/);
@@ -76,9 +75,10 @@ describe("hub automotivo", () => {
     expect(pagina).not.toContain("CompletoParaRevendas");
   });
 
-  it("não afirma que o agente roda na Motors e não promete resultado sem medir", () => {
-    expect(HUB_AUTOMOTIVO.pacote.texto).toMatch(/o agente de IA no WhatsApp completa o sistema/);
-    expect(texto).not.toMatch(/agente (de IA )?(da|na) Motors/i);
+  it("fala de site, atendimento com IA e integração, sem anúncio, e não promete resultado sem medir (25/11/2026)", () => {
+    expect(HUB_AUTOMOTIVO.pacote.pecas.map((p) => p.linha)).toEqual(["Sites e presença", "Agente de IA no WhatsApp", "Integração com o sistema da loja"]);
+    expect(HUB_AUTOMOTIVO.pacote.texto).toMatch(/As três rodam na Motors Store/);
+    expect(texto).not.toMatch(/anúncio|Meta|Google Ads|rastreamento|Sprint/i);
     expect(texto).not.toMatch(/\d+%|\d+x /);
     expect(texto).not.toMatch(/ainda não|em breve|vai aumentar|garantimos/i);
   });

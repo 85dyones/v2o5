@@ -1,10 +1,12 @@
 # Oferta e preços
 
+> **Desde 25/11/2026 o foco é o pequeno negócio** (Dyones: "continuo com um produto amplo demais [...] esquecendo os sprints de eficiência"; à proposta: "aprovo"; `docs/2026-11-25-foco-pequenos-negocios.md`). O **Atendimento com IA** substitui o Sprint de Eficiência, com os preços de entrada que eram do Sprint Essencial e do Integrado; saem o Sprint Avançado e a Presença Assistida; a continuidade perde a frente de conteúdo. Sprint e Assistida foram para "Histórico", no fim.
+>
 > **Desde 12/11/2026 são três soluções e a continuidade** (Dyones: "vamos focar nos serviços ainda mais, vou remover o trafego pago do kit, quero ser focado nas soluções que não há muitos entregando"; e, à proposta de foco: "Trafego e Branding... presença digital é simples e pode ser trabalhado num pacote acessível"). Saíram a gestão de tráfego pago e o Branding & Identidade; a Presença Digital Local fica como a porta acessível. Branding foi para "Histórico", no fim.
 >
 > **Desde 27/10/2026 a V2O5 vende soluções com preço de referência público e a continuidade** (eram quatro até 12/11) (Dyones, "Handoff mestre: reposicionamento comercial, portfólio e política inicial de preços", aprovado em 27/10 com "sim" às substituições). Substitui o guarda-chuva dos três Sprints (25/10), a regra "só o Sprint tem valor público" (25/10), os valores do Sprint de 26/10, a recorrência de R$ 1.200 a R$ 5.000 (25/10), os planos do hub automotivo e a oferta do Completo até 31/12/2026 (15/10 e 25/10), o piso de mensalidade de R$ 690 (12/10) e o Start Digital fora do cardápio. O que ficou para trás está em "Histórico", no fim.
 
-Fonte em código: `src/conteudo/ofertas.ts` (Branding, Presença, Sites e continuidade) e `src/conteudo/sprint.ts` (Sprint). Esta página repete os mesmos números e `tests/ofertas.test.ts` confere os dois lados. Todo "R$" público sai dessas duas fontes: `tests/precos-publicos.test.ts` recusa qualquer outro valor no site, no `llms.txt`, no schema, na vitrine e no agente do n8n.
+Fonte em código: `src/conteudo/ofertas.ts` (as três soluções e a continuidade; `sprint.ts` saiu em 25/11). Esta página repete os mesmos números e `tests/ofertas.test.ts` confere os dois lados. Todo "R$" público sai dessa fonte: `tests/precos-publicos.test.ts` recusa qualquer outro valor no site, no `llms.txt`, no schema, na vitrine e no agente do n8n.
 
 ## Princípios (não mudam)
 - Processo antes da ferramenta; resultado antes da complexidade.
@@ -19,13 +21,13 @@ Fonte em código: `src/conteudo/ofertas.ts` (Branding, Presença, Sites e contin
 |---|---|---|
 | Presença Digital Local | a partir de R$ 790 | `/presenca-digital-local` |
 | Sites & Integrações | a partir de R$ 2.900 | `/criacao-de-sites` |
-| Sprint de Eficiência | a partir de R$ 3.900 | `/sprint-de-eficiencia` |
+| Atendimento com IA | a partir de R$ 3.900 | `/agente-de-ia-para-whatsapp` |
 | Continuidade | planos a partir de R$ 349/mês | `/continuidade` |
 
 O que cada uma resolve (nenhuma obriga a comprar a seguinte):
 - Presença Digital Local estrutura os canais e a comunicação digital. Substitui o antigo Start Digital.
 - Sites & Integrações constrói canais próprios ligados à operação que já existe. Não é outro ERP nem outro CRM.
-- Sprint de Eficiência resolve um gargalo específico com processo, tecnologia e medição.
+- Atendimento com IA organiza o WhatsApp, responde e qualifica com um agente de IA e leva cada contato à pessoa certa ou ao sistema que a empresa já usa.
 - Continuidade mantém funcionando e evoluindo o que foi contratado, dentro de limites definidos. É opcional.
 
 ## Presença Digital Local
@@ -33,9 +35,8 @@ O que cada uma resolve (nenhuma obriga a comprar a seguinte):
 |---|---|---|---|
 | Presença Essencial | R$ 790 | R$ 390/mês | suporte e até quatro pequenas atualizações por mês nos canais |
 | Presença Estruturada | R$ 1.490 | R$ 490/mês | kit mensal com quatro peças de conteúdo e uma campanha |
-| Presença Assistida | R$ 1.990 | R$ 890/mês | operação assistida de conteúdo, calendário e programação, com oito peças de referência e volume final na proposta |
 
-Para pequenos e médios negócios usarem melhor os canais digitais, com investimento inicial baixo (padaria com o pão saindo do forno, distribuidora com oferta sazonal, oficina com serviço e campanha, comércio local organizando perfis e relacionamento). Fora: verba de anúncios, gravação presencial, gestão de comentários e mensagens, serviços externos sem contratação específica, publicações ilimitadas. Responsabilidades do cliente: enviar fotos, informações e ofertas; aprovar as peças no prazo combinado; dar acesso aos perfis. Campanhas respeitam consentimento, privacidade e as regras de cada plataforma.
+A Presença Essencial inclui, desde 25/11, o pedido de avaliação no Google (link direto e mensagem pronta; quem manda é a equipe do cliente, para quem comprou). Para pequenos e médios negócios usarem melhor os canais digitais, com investimento inicial baixo (padaria com o pão saindo do forno, distribuidora com oferta sazonal, oficina com serviço e campanha, comércio local organizando perfis e relacionamento). Fora: verba de anúncios, gravação presencial, gestão de comentários e mensagens, serviços externos sem contratação específica, publicações ilimitadas. Responsabilidades do cliente: enviar fotos, informações e ofertas; aprovar as peças no prazo combinado; dar acesso aos perfis. Campanhas respeitam consentimento, privacidade e as regras de cada plataforma.
 
 Substitui, como oferta, o "Conteúdo e gestão de redes sociais" (R$ 1.500 + R$ 1.699/mês, 12 publicações), aposentado em 27/10 para as duas não concorrerem (Dyones).
 
@@ -48,14 +49,13 @@ Substitui, como oferta, o "Conteúdo e gestão de redes sociais" (R$ 1.500 + R$ 
 
 Revenda de veículos compra o Site Conectado (17/11/2026): não há pacote automotivo na tabela. Referência interna para a revenda: perto de R$ 9.900 quando o sistema da loja já tem integração pronta (Revenda Mais em produção) e o escopo é o do pacote; R$ 11.900 a R$ 16.900 quando o sistema ainda não tem integração, quando contatos vão para um CRM separado do gestor ou quando o escopo pede mais (a faixa do antigo Site Automotivo Integrado, 27/10). O público vê só o "a partir de R$ 9.900". Entrega-base de todo site em `src/conteudo/sitePadrao.ts`. Regras: preço fechado só para escopo conhecido; integração só depois de verificar documentação, credenciais, limites e custos do sistema; integração padrão é diferente de desenvolvimento específico; sem promessa de compatibilidade universal; prever veículo vendido, atualização, falha e contato que não chega ao CRM. Fora: domínio, e-mail, APIs pagas e licenças de terceiros, mídia paga, loja com pagamento, fotos e vídeos.
 
-## Sprint de Eficiência
-| Pacote | Preço de referência | Duração de referência | Escopo |
-|---|---|---|---|
-| Sprint Essencial | R$ 3.900 | 1 a 2 semanas | Um gargalo delimitado, intervenção principal e validação |
-| Sprint Integrado | R$ 6.900 | 2 a 4 semanas | Um fluxo envolvendo sistemas, validação, documentação e indicadores |
-| Sprint Avançado | a partir de R$ 12.900 | 4 a 8 semanas ou mais | Integrações complexas, desenvolvimento específico, regras de negócio ou IA |
+## Atendimento com IA
+| Pacote | Implantação | Escopo de referência |
+|---|---|---|
+| Atendimento Essencial | a partir de R$ 3.900 | WhatsApp organizado numa caixa de atendimento, agente de IA para as dúvidas frequentes (só com o que a empresa aprovou), passagem para a pessoa certa com resumo, lista de contatos com a origem, treinamento e uma rodada de ajustes |
+| Atendimento Integrado | a partir de R$ 6.900 | Tudo do Essencial, agente que qualifica e agenda ou encaminha, integração com um sistema que a empresa já usa (CRM, agenda, estoque ou catálogo), contato de volta com quem sumiu ou já comprou (só com consentimento) e uma rodada de ajustes |
 
-Nomes no masculino desde 27/10 ("o Sprint"); antes, Sprint Integrada e Sprint Avançada. Método obrigatório, em seis passos: mapear o processo real e a situação inicial; simplificar o fluxo antes de automatizar; escolher a intervenção proporcional; implementar a solução acordada; comparar os indicadores disponíveis antes e depois; registrar o que mudou e definir a próxima decisão. Automação, IA, dados, painéis e copilotos são recursos da solução, não produtos do menu. O diagnóstico gratuito de 45 minutos continua a porta de entrada (`/diagnostico`). Levantamento técnico detalhado pode virar etapa de descoberta paga, com preço acordado antes (sem valor público). Pagamento: 50% na contratação, 30% na validação intermediária e 20% no aceite final; Sprints pequenos, 50% e 50%.
+Mora em `/agente-de-ia-para-whatsapp` (a página que já trazia a busca *chatbot whatsapp*); CRM e automação seguem como páginas de recurso dela, sem preço. Os dois preços são os públicos do Sprint Essencial e do Integrado (25/11, aprovado pelo Dyones), agora "a partir de". Fora: consumo de IA e mensagens (valor do provedor, com teto mensal e aviso antes de ultrapassá-lo; a V2O5 gerencia), a resposta da equipe, respostas sobre o que a empresa não aprovou, mensagem em massa sem consentimento e integrações novas depois da entrega. Costuma seguir com as Integrações Monitoradas; quem quer melhorar o agente mês a mês, com a Evolução Contínua. Pagamento e prazo saem na proposta.
 
 ## Continuidade
 | Plano | Mensalidade | Entrega |
@@ -75,10 +75,10 @@ Os três são opcionais; a necessidade e o escopo decidem. Publicados os três p
 
 As horas não acumulam de um mês para o outro. Correção é fazer voltar a funcionar o que foi entregue e parou; nova funcionalidade muda ou acrescenta algo, e é orçada à parte. Fora de todos: desenvolvimento ilimitado, novas funcionalidades e integrações, plantão fora do horário comercial, nuvem de sistemas (banco de dados, servidor dedicado), consumo de IA e mensagens (pelo valor do provedor, discriminados, com teto mensal combinado e aviso antes de ultrapassá-lo; a V2O5 gerencia), domínio e e-mail. Responsabilidades do cliente: manter em dia os acessos e os pagamentos dos serviços de terceiros e avisar quando mudar o sistema dele. Backup: código versionado e cópia do conteúdo, com restauração da última versão publicada. Encerramento: aviso prévio, com código, dados e acessos entregues nos termos do contrato.
 
-As três frentes do menu: Manutenção técnica (Cuidado Técnico), Conteúdo e campanhas recorrentes (as mensalidades da Presença) e Monitoramento e otimização (Integrações Monitoradas e Evolução Contínua).
+As duas frentes do menu, desde 25/11: Manutenção técnica (Cuidado Técnico) e Monitoramento e otimização (Integrações Monitoradas e Evolução Contínua). A frente Conteúdo e campanhas recorrentes saiu: a mensalidade da Presença é contratada com ela.
 
 ### Política de preço das mensalidades (27/10, tarde)
-O plano de entrada de cada frente custa perto do degrau seguinte, para que o mais barato pareça pouco pela entrega e o cliente suba um degrau, como os tamanhos de bebida nas redes de fast food (Dyones: "na continuidade, use a política de preços que o macdonalds e outras redes usam, onde contratar o mais barato parece não valer a pena, pela entrega recebida"). Os pontos de partida são dele: Cuidado Técnico de R$ 249 para R$ 349/mês, a mensalidade da Presença Essencial de R$ 290 para R$ 390/mês e Integrações Monitoradas de R$ 490 para R$ 590/mês. Os degraus de cima ficam: Presença Estruturada R$ 490/mês, Presença Assistida R$ 890/mês e Evolução Contínua R$ 990/mês.
+O plano de entrada de cada frente custa perto do degrau seguinte, para que o mais barato pareça pouco pela entrega e o cliente suba um degrau, como os tamanhos de bebida nas redes de fast food (Dyones: "na continuidade, use a política de preços que o macdonalds e outras redes usam, onde contratar o mais barato parece não valer a pena, pela entrega recebida"). Os pontos de partida são dele: Cuidado Técnico de R$ 249 para R$ 349/mês, a mensalidade da Presença Essencial de R$ 290 para R$ 390/mês e Integrações Monitoradas de R$ 490 para R$ 590/mês. Os degraus de cima ficam: Presença Estruturada R$ 490/mês e Evolução Contínua R$ 990/mês (a Presença Assistida, R$ 890/mês, saiu em 25/11).
 
 | Frente | Entrada | Degrau seguinte | Diferença | O que a diferença compra |
 |---|---|---|---|---|
@@ -89,26 +89,38 @@ O plano de entrada de cada frente custa perto do degrau seguinte, para que o mai
 Regras: o escopo de cada plano não muda para criar a isca, só o preço; o efeito vem dos números lado a lado em `/precos`, `/continuidade` e nas páginas, sem frase de comparação no texto público. A isca é mais forte na Presença (R$ 100 de distância). No Cuidado Técnico ela depende de o site ter integração: site sem integração não usa as Integrações Monitoradas, e o degrau seguinte para ele é a Evolução Contínua.
 
 ## Segmento automotivo
-Desde 17/11/2026 não há produto para revenda: o hub `/segmentos/revendas-de-veiculos` é página de exemplo, com os mesmos pacotes aplicados à revenda a partir do que roda na Motors Store, e a home não tem mais seção automotiva. Dois caminhos: o Site Conectado (a partir de R$ 9.900, com Integrações Monitoradas a R$ 590/mês, opcional) e a Operação com IA, um Sprint Integrado (R$ 6.900 de referência: agente de IA no WhatsApp, CRM com funil, passagem para a equipe e treinamento; IA e mensagens pelo valor do provedor). Os modelos Mapa e Completo saíram com a tabela de 15/10. Revenda Mais em produção; Autoconf, BNDV, Boom, Altimus e Syonet integráveis depois de verificar a API ou a exportação de cada um.
+Desde 17/11/2026 não há produto para revenda: o hub `/segmentos/revendas-de-veiculos` é página de exemplo, com os mesmos pacotes aplicados à revenda a partir do que roda na Motors Store, e a home não tem mais seção automotiva. Dois caminhos: o Site Conectado (a partir de R$ 9.900, com Integrações Monitoradas a R$ 590/mês, opcional) e, desde 25/11, o Atendimento Integrado (a partir de R$ 6.900: agente de IA no WhatsApp com o estoque real, qualificação com as perguntas da loja, lead entregue ao CRM da loja e treinamento; IA e mensagens pelo valor do provedor). Até 25/11 o segundo caminho era a Operação com IA, um Sprint Integrado. A página não fala de anúncio desde 25/11. Os modelos Mapa e Completo saíram com a tabela de 15/10. Revenda Mais em produção; Autoconf, BNDV, Boom, Altimus e Syonet integráveis depois de verificar a API ou a exportação de cada um.
 
 ## Regras comerciais
 - Os preços de entrada correspondem a uma entrega que pode ser contratada por aquele valor. Se as propostas reais passarem sempre do preço de entrada, ele sai da chamada.
 - Coerência entre home, páginas das soluções, formulário, propostas e materiais. Sem comparação depreciativa com concorrentes e sem "mais por menos" sem evidência.
 - Custos de terceiros, mídia paga e serviços externos só com previsão no contrato.
 - Integração só é anunciada como "em produção" quando existe (hoje: Revenda Mais).
-- Tráfego pago: ~~fica fora do preço público e entra como capacidade dentro de um Sprint ou da Presença (27/10)~~. Desde 12/11 a V2O5 não faz gestão de tráfego (Google Ads e Meta Ads). Para quem anuncia, entrega o rastreamento até a venda e o catálogo ligado ao estoque; a campanha fica com o cliente ou com a agência dele.
+- Tráfego pago: ~~fica fora do preço público e entra como capacidade dentro de um Sprint ou da Presença (27/10)~~. Desde 12/11 a V2O5 não faz gestão de tráfego (Google Ads e Meta Ads). ~~Para quem anuncia, entrega o rastreamento até a venda e o catálogo ligado ao estoque (12/11).~~ Desde 25/11 o rastreamento até o anúncio e o catálogo saíram do discurso: o site grava a origem de cada contato, e quem anuncia segue com a própria campanha.
 - Reativação só com base própria, com registro de origem e saída fácil; lista comprada ou raspada não entra.
 - Propostas já enviadas (os diagnósticos de 15 a 19/10 em diagnostico.v2o5.com.br) passam à tabela nova: "faça tudo, mesmo as propostas enviadas, podem virar upsell com o preço" (Dyones, 27/10). Contrato assinado não muda.
 - **Desconto fidelidade (interno, fora do site):** clientes antigos pagam a tabela com 27,5% de desconto, arredondado (Dyones, 14/10/2026, na renovação do atendimento da 16ª Vara Cível).
 
 ## Quantidades redigidas em 27/10 (aprovadas pelo Dyones no mesmo dia)
 O handoff deixou estas quantidades para definir antes de publicar; o Dyones pediu um rascunho ("você aprova antes de publicar") e, depois do preview, aprovou como está ("siga sua recomendação, faça o merge na ordem"). Cada uma está no código e muda num lugar só:
-- Presença: Essencial com Perfil da Empresa no Google, uma rede social, WhatsApp Business e três modelos; Estruturada com até duas redes, oito modelos, calendário de três meses e uma campanha de lançamento; Assistida com ferramenta de agendamento, fluxo de aprovação e oito peças de referência por mês. Uma rodada de revisão por entrega.
+- Presença: Essencial com Perfil da Empresa no Google, uma rede social, WhatsApp Business e três modelos; Estruturada com até duas redes, oito modelos, calendário de três meses e uma campanha de lançamento; ~~Assistida com ferramenta de agendamento, fluxo de aprovação e oito peças de referência por mês~~ (saiu em 25/11). Uma rodada de revisão por entrega.
 - Sites: Site Personalizado com até seis páginas; duas rodadas de revisão na Landing Page e no Site Personalizado.
 - Continuidade: as horas, os prazos de resposta e o canal da tabela acima.
 
 ## Viabilidade (estimativa, 27/10)
 Hora do fundador valorada em R$ 150 e infra por cliente da tabela de 12/10 (horas estimadas, não medidas): o Cuidado Técnico paga cerca de 1 hora e a infra de um site estático (~R$ 40); as Integrações Monitoradas, cerca de 2,5 horas; a Evolução Contínua, cerca de 6 horas brutas para 4,5 horas de compromisso (4 horas e a conversa mensal). A Presença Essencial (R$ 790) equivale a cerca de 5 horas e o kit de R$ 490 a cerca de 2 horas com ferramentas. Fecha se a entrega for padronizada e o limite estiver no contrato. Com a política da tarde de 27/10, os três planos de entrada pagam R$ 100 a mais por mês, cerca de 40 minutos da hora do fundador: o Cuidado Técnico (R$ 349) passa a cobrir cerca de 2 horas além da infra, para 1 hora de compromisso.
+
+## Histórico: Sprint de Eficiência e Presença Assistida de 27/10 a 25/11/2026 (saíram em 25/11)
+Saíram com o foco em pequenos negócios (`docs/2026-11-25-foco-pequenos-negocios.md`): o Sprint tinha cunho gerencial e pedia credencial de gestão; a Assistida era produção de conteúdo mensal, trabalho de agência.
+
+| Pacote | Preço de referência | Duração de referência | Escopo |
+|---|---|---|---|
+| Sprint Essencial | 3.900 reais | 1 a 2 semanas | Um gargalo delimitado, intervenção principal e validação |
+| Sprint Integrado | 6.900 reais | 2 a 4 semanas | Um fluxo envolvendo sistemas, validação, documentação e indicadores |
+| Sprint Avançado | a partir de 12.900 reais | 4 a 8 semanas ou mais | Integrações complexas, desenvolvimento específico, regras de negócio ou IA |
+| Presença Assistida | 1.990 reais, mais 890 reais/mês opcional | | Operação assistida de conteúdo, calendário e programação, com oito peças de referência |
+
+Método do Sprint, em seis passos: mapear o processo real e a situação inicial; simplificar o fluxo antes de automatizar; escolher a intervenção proporcional; implementar a solução acordada; comparar os indicadores antes e depois; registrar o que mudou e definir a próxima decisão. Pagamento: 50% na contratação, 30% na validação intermediária e 20% no aceite final; Sprints pequenos, 50% e 50%. Rotas: `/sprint-de-eficiencia` faz 301 para `/agente-de-ia-para-whatsapp`.
 
 ## Histórico: Site Automotivo Integrado de 27/10 a 17/11/2026 (saiu em 17/11)
 

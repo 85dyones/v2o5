@@ -43,7 +43,10 @@ describe("página Sobre", () => {
   it("declara a relação com a Motors como fornecedora (Dyones, 13/10), com a autorização registrada", () => {
     expect(SOBRE.motors.texto).toMatch(/cliente da V2O5/);
     expect(SOBRE.motors.texto).toMatch(/fornecedora/);
-    expect(SOBRE.motors.texto).toMatch(/case principal/);
+    expect(SOBRE.motors.texto).toMatch(/um dos dois cases/);
+    // A 16ª Vara Cível entra como cliente desde 25/11/2026 (case autorizado em 17/11), sem detalhe de contrato.
+    expect(SOBRE.motors.texto).toMatch(/16ª Vara Cível de Curitiba também é cliente/);
+    expect(SOBRE.motors.texto).not.toMatch(/contrato|renova/i);
     expect(SOBRE.motors.texto).toMatch(/autorizou a publicação/);
     expect(ler("memory/projects/case-motors.md")).toMatch(/Autorizado em 08\/10: nome, logo e números/);
     expect(SOBRE.motors.href).toBe("/cases/motors-store");
@@ -62,36 +65,36 @@ describe("página Sobre", () => {
 
   it("o nome vem do catalisador, e a assinatura é a da marca", () => {
     expect(SOBRE.nome.texto).toMatch(/pentóxido de vanádio/);
-    expect(SOBRE.nome.assinatura).toBe("V2O5 | Eficiência comercial e operacional com tecnologia.");
-    expect(ler("memory/context/marca.md")).toContain("V2O5 | Eficiência comercial e operacional com tecnologia.");
+    expect(SOBRE.nome.assinatura).toBe("V2O5 | Digitalização para pequenos negócios.");
+    expect(ler("memory/context/marca.md")).toContain("V2O5 | Digitalização para pequenos negócios.");
   });
 
   it("o resumo fica curto para o H1 continuar sendo o LCP", () => {
     expect(SOBRE.resumo.length).toBeLessThanOrEqual(140);
   });
 
-  it("abre com o propósito e o método em cinco perguntas, na voz da V2O5 (25/10, a partir do roast do Dyones)", () => {
-    expect(SOBRE.titulo).toBe("Simplificar o que é complexo.");
+  it("abre com o propósito e o jeito de um projeto andar, voltados ao pequeno negócio (25/11/2026)", () => {
+    expect(SOBRE.titulo).toBe("Tecnologia que o pequeno negócio consegue usar.");
+    expect(SOBRE.proposito.titulo).toBe("O cliente bem atendido é o resultado.");
     expect(SOBRE.proposito.decisao).toHaveLength(3);
-    expect(SOBRE.metodo.etapas.map((e) => e.etapa)).toEqual(["Diagnóstico", "Linha de base", "Intervenção", "Medição", "Revisão"]);
-    expect(SOBRE.metodo.saida.itens).toEqual(["Algo funcionando", "Evidência do que melhorou", "Uma decisão sobre o próximo passo"]);
+    expect(SOBRE.metodo.etapas.map((e) => e.etapa)).toEqual(["Diagnóstico", "Proposta", "Implantação", "Acompanhamento"]);
+    expect(SOBRE.metodo.saida.itens).toEqual(["Algo funcionando no dia a dia", "A equipe sabendo usar", "O que medir daqui para a frente"]);
+    expect(texto).not.toMatch(/Sprint|Linha de base|gargalo/);
     expect(pagina).toContain('id="titulo-proposito"');
     expect(pagina).toContain('id="titulo-metodo"');
   });
 
-  it("as tecnologias vêm em nove categorias, só com o que uso ou tenho experiência, sem Canva e sem cliente (26/10/2026)", () => {
+  it("as tecnologias vêm em sete categorias (25/11/2026; eram nove), só com o que uso ou tenho experiência, sem Canva e sem cliente", () => {
     const cats = SOBRE.ferramentas.categorias;
     expect(SOBRE.ferramentas.titulo).toBe("Tecnologias e ecossistemas");
     expect(cats.map((c) => c.titulo)).toEqual([
       "Sites, aplicações e dados",
       "Infraestrutura, hospedagem e DevOps",
-      "Branding, design e comunicação",
       "Inteligência artificial e agentes",
       "Automação, integrações e processos",
       "Atendimento, comunicação e relacionamento",
       "CRM, vendas e sistemas de gestão",
-      "Marketing, aquisição e conversão",
-      "Dados, inteligência e mensuração",
+      "Presença, busca e medição",
     ]);
     for (const c of cats) {
       expect(new Set(c.itens).size, c.titulo).toBe(c.itens.length);
@@ -103,20 +106,18 @@ describe("página Sobre", () => {
     expect(texto).not.toMatch(/sob avaliação|Compatível|compatíveis|Canva|Autoconf|BNDV|Boom|Altimus|Syonet|Motors|16VC|Vara/);
   });
 
-  it("no CRM, Revenda Mais e Kenlo são a experiência do Dyones (26/10/2026), e o branding mostra entregas, sem ferramenta e sem se vender como solução (12/11/2026)", () => {
+  it("no CRM, Revenda Mais e Kenlo são a experiência do Dyones (26/10/2026); branding e indicadores de eficiência saíram da lista (25/11/2026)", () => {
     const crm = SOBRE.ferramentas.categorias.find((c) => c.titulo.startsWith("CRM"))!;
     expect(crm.itens).toEqual(["Revenda Mais", "Kenlo", "CRM sob medida"]);
-    const branding = SOBRE.ferramentas.categorias.find((c) => c.titulo.startsWith("Branding"))!;
-    expect(branding.nota ?? "").not.toMatch(/soluç/);
-    expect(branding.itens).toContain("Naming");
-    expect(branding.itens.join(" ")).not.toMatch(/Adobe|Figma|Canva/);
+    expect(SOBRE.ferramentas.categorias.map((c) => c.titulo).join(" ")).not.toMatch(/Branding|Dados, inteligência/);
+    expect(JSON.stringify(SOBRE.ferramentas)).not.toMatch(/Indicadores de eficiência|Análise antes e depois|Naming/);
   });
 
   it("a página inteira fala em primeira pessoa, sem o fundador em terceira (26/10/2026)", () => {
     const visivel = JSON.stringify({ ...SOBRE, empresa: undefined });
     expect(visivel).not.toMatch(/o fundador|do fundador|Dyones conduz|ele conduz|É ele quem|o meu mundo dele|dele\b/i);
-    expect(SOBRE.titulo).toBe("Simplificar o que é complexo.");
-    expect(SOBRE.resumo).toMatch(/^Eu gosto de entender/);
+    expect(SOBRE.resumo).toMatch(/^Ajudo pequenos negócios/);
+    expect(SOBRE.resumo.length).toBeLessThanOrEqual(140);
     expect(SOBRE.fundador.titulo).toBe("Eu conduzo o diagnóstico");
     expect(SOBRE.chamada.titulo).toBe("Quer conversar comigo?");
     expect(SOBRE.jeito.titulo).toBe("Como eu trabalho.");
@@ -126,12 +127,13 @@ describe("página Sobre", () => {
 
   it("a visão é um rascunho em primeira pessoa, sem promessa de resultado e sem número", () => {
     expect(SOBRE.visao.titulo).toBe("O que eu quero construir.");
-    expect(`${SOBRE.visao.texto} ${SOBRE.visao.sonho}`).toMatch(/Eu penso em sistemas/);
+    expect(`${SOBRE.visao.texto} ${SOBRE.visao.sonho}`).toMatch(/negócio de bairro/);
     expect(pagina).toContain('id="titulo-visao"');
   });
 
   it("não publica o que é estratégia interna ou pessoal do fundador", () => {
-    expect(texto).not.toMatch(/Repasse|16ª Vara|16VC|NOMU|CPU|ChatGPT|roast|família|receita/i);
+    // A 16ª Vara Cível pode aparecer como cliente (25/11/2026); o código interno e a renovação, não.
+    expect(texto).not.toMatch(/Repasse|16VC|NOMU|CPU|ChatGPT|roast|família|receita|renova/i);
   });
 
   it("sem travessão, sem tríade de efeito, sem número sem fonte e sem citação inventada", () => {

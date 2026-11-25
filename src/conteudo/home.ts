@@ -2,131 +2,106 @@
  * Textos e dados da home, num lugar só para revisar o texto (humanizer) e os
  * números (fonte e período) sem caçar pelos componentes.
  *
- * Regras: português, frases curtas, sem travessão; preço só de `ofertas.ts`
- * e `sprint.ts`, nunca digitado; número do case só com fonte e período
+ * Regras: português, frases curtas, sem travessão; preço só de `ofertas.ts`,
+ * nunca digitado; número do case só com fonte e período
  * (`memory/projects/case-motors.md`), travado por `tests/conteudo.test.ts`.
  */
 import { listaDeSistemasIntegraveis } from "@/conteudo/diagnostico";
 import type { Etapa } from "@/lib/tokens";
-import { CONDICOES, METODO } from "@/conteudo/sprint";
 import { mensalEmTexto, precoEmTexto } from "@/conteudo/precos";
 import { continuidadeAPartirDe, OFERTAS, precoDeEntrada } from "@/conteudo/ofertas";
 
 /**
- * O H1 da home, desde 25/10/2026 (reposicionamento em torno do Sprint de
- * Eficiência, `V2O5_CORE.md`). O de 09/10 e a decisão estão em
- * `memory/decisoes.md`.
+ * O H1 da home, desde 25/11/2026 (foco em pequenos negócios,
+ * `docs/2026-11-25-foco-pequenos-negocios.md`). Os de 09/10 e 25/10 e as
+ * decisões estão em `memory/decisoes.md`.
  */
-export const TITULO_DA_HOME = "Do problema ao resultado, pelo caminho mais simples.";
+export const TITULO_DA_HOME = "Coloque seu negócio no mapa e cuide de cada cliente que chega.";
 
 export const HERO = {
-  eyebrow: "Estratégia, processos e tecnologia",
-  /** A mensagem central do handoff de 27/10/2026, na voz do site. */
+  eyebrow: "Digitalização para pequenos negócios",
+  /** O foco de 25/11/2026, na voz do site. */
   subtitulo:
-    "A V2O5 ajuda empresas a melhorar a presença digital e a operação, ligando processos e tecnologia ao que o negócio precisa de verdade.",
+    "A V2O5 deixa o seu negócio fácil de achar no Google e organiza o WhatsApp para nenhum cliente ficar sem resposta.",
   /** A vitrine de diagnostico.v2o5.com.br repete esta nota (`tests/subdominio-diagnostico.test.ts`). */
   nota: "Diagnóstico gratuito: 45 minutos de conversa com o fundador para identificar e priorizar um gargalo.",
-  principio: "Começamos pelo processo e pelo resultado desejado. A ferramenta vem depois.",
+  principio: "Começamos pelo cliente que você quer atender melhor. A ferramenta vem depois.",
   cta: "Pedir diagnóstico gratuito",
   ctaSecundario: "Ver as três soluções",
   conectamos: { rotulo: "Três soluções", itens: OFERTAS.map((o) => o.nome) },
 };
 
-/** O problema, antes da ferramenta (`V2O5_CORE.md`, seção 4). */
+/** O problema do pequeno negócio, antes da ferramenta (25/11/2026). */
 export const DORES = {
-  titulo: "O problema raramente é falta de ferramenta.",
-  apagado: "Quase sempre é atrito entre as que já existem.",
+  titulo: "O cliente procura, chama e às vezes desiste.",
+  apagado: "Quase sempre por um detalhe que dá para arrumar.",
   texto:
-    "A operação perde tempo entre sistemas que não conversam, tarefas repetidas e decisões tomadas sem informação suficiente. É por aí que a gente começa.",
+    "Perfil desatualizado, mensagem que demora, cliente que comprou uma vez e nunca mais apareceu. A V2O5 começa por esses detalhes.",
   itens: [
     {
-      titulo: "Informação espalhada",
-      texto: "Dados em planilhas, mensagens e sistemas diferentes impedem uma visão confiável do que está acontecendo.",
+      titulo: "Difícil de achar",
+      texto: "Perfil no Google sem horário, sem foto ou com o telefone antigo. Quem procura perto de casa acaba no vizinho.",
     },
     {
-      titulo: "Retrabalho que virou rotina",
+      titulo: "Resposta que demora",
       texto:
-        "Gente copiando dados, cobrando retorno e repetindo etapas que poderiam ser eliminadas, integradas ou automatizadas.",
+        "A mensagem chega no WhatsApp à noite ou no meio do movimento e fica para depois. Quando a resposta sai, o cliente já comprou em outro lugar.",
     },
     {
-      titulo: "Atividade sem resultado visível",
-      texto:
-        "A operação funciona, mas ninguém mede com clareza o tempo gasto, onde trava e o que de fato melhorou.",
+      titulo: "Cliente que não volta",
+      texto: "Ninguém lembra de quem comprou nem de chamar de novo na hora certa. A venda seguinte fica por conta do acaso.",
     },
   ],
-};
-
-/** O método do Sprint na home, em seis passos (`METODO` em `sprint.ts`), com o que cada passo deixa. */
-const ENTREGAS_DO_METODO = [
-  ["Mapa do fluxo", "Linha de base"],
-  ["Fluxo proposto"],
-  ["Escopo acordado", "Critérios de aceite"],
-  ["Integrações", "Automação", "Testes"],
-  ["Indicadores"],
-  ["Documentação", "Próxima decisão"],
-];
-
-export const SPRINT = {
-  rotulo: "Sprint de Eficiência",
-  titulo: "O método: do processo real à próxima decisão.",
-  texto:
-    "Um projeto com escopo definido para um gargalo específico. Processo, integração, automação e IA entram como meios, conforme o problema.",
-  principio:
-    "Comprar, integrar, automatizar ou desenvolver: a decisão depende do problema, não da preferência por uma ferramenta.",
-  cta: "Escolher um processo",
-  link: "Ver os Sprints e os preços",
-  etapas: METODO.map((m, i) => ({ ...m, entregas: ENTREGAS_DO_METODO[i] })),
 };
 
 /** Indicadores possíveis. Nenhum percentual: `V2O5_CORE.md`, seção 2. */
 export const INDICADORES = {
   sobretitulo: "Resultado antes de vaidade técnica",
-  titulo: "O que conta é o que mudou na operação.",
+  titulo: "O que conta é o cliente bem atendido.",
   texto:
     "O indicador depende do problema escolhido. Antes de implementar, combinamos o que acompanhar e como o resultado será observado.",
   itens: [
-    { titulo: "Tempo", texto: "Quanto demora para concluir uma tarefa ou mover uma solicitação entre etapas." },
-    { titulo: "Retrabalho", texto: "Quantas vezes a informação precisa ser recopiada, corrigida ou pedida de novo." },
-    {
-      titulo: "Conversão e resposta",
-      texto: "Onde os contatos se perdem, quanto demora a resposta e quais oportunidades avançam.",
-    },
-    {
-      titulo: "Visibilidade",
-      texto: "Se a equipe entende o estado da operação e age com dados confiáveis.",
-    },
+    { titulo: "Tempo de resposta", texto: "Quanto demora a primeira resposta no WhatsApp, no horário e fora dele." },
+    { titulo: "Contatos perdidos", texto: "Quantas conversas ficam sem resposta ou sem próximo passo." },
+    { titulo: "Avaliações", texto: "Quantas avaliações novas chegam ao Google e o que os clientes contam nelas." },
+    { titulo: "Clientes que voltam", texto: "Quantos clientes compram de novo depois do primeiro contato." },
   ],
   regra:
     "Não prometemos um percentual de melhoria igual para todos. Definimos uma linha de base, implementamos dentro do escopo acordado e medimos o que os dados disponíveis permitem medir.",
 };
 
 /**
- * O resumo do case na home: só o que o case já publica (estoque sincronizado,
- * origem dos leads, integrações comerciais). Os números ficam em `CASE` e na
- * página do case, com fonte e período. A 16ª Vara Cível não aparece aqui.
+ * Os dois cases na home, com o mesmo peso (25/11/2026), os dois como
+ * atendimento: só o que cada case já publica. Os números ficam nas páginas
+ * dos cases, com fonte e período.
  */
 export const PROJETO = {
-  rotulo: "Projeto em ambiente real",
-  titulo: "Motors Store",
-  texto:
-    "Revenda de seminovos em Curitiba, com gargalos diagnosticados em busca, leads, site e acompanhamento comercial. O case mostra o diagnóstico como o antes, o que a V2O5 implementou como o depois e, à parte, o que foi medido.",
-  pilulas: ["Sincronização de estoque", "Rastreamento de leads", "Agente de IA no WhatsApp", "Lead no CRM do Revenda Mais"],
-  sobretitulo: "Construir, observar, melhorar",
-  chamada: "A tecnologia precisa deixar rastro de valor.",
-  paragrafo:
-    "Os projetos da V2O5 testam hipóteses em operações reais. Implementar é uma parte do trabalho; registrar a linha de base, acompanhar o comportamento e aprender com os dados também é entrega.",
-  provas: [
-    "Começamos por um gargalo específico, não por uma lista de funcionalidades.",
-    "Usamos os sistemas que já existem sempre que resolvem com menos atrito.",
-    "Separamos o que foi implementado do que já tem resultado comprovado.",
+  rotulo: "Projetos em ambiente real",
+  titulo: "Dois atendimentos no ar.",
+  apagado: "Um no comércio, outro no serviço público.",
+  cases: [
+    {
+      nome: "Motors Store",
+      texto:
+        "Revenda de seminovos em Curitiba. O site se liga ao estoque, o agente de IA atende e qualifica no WhatsApp, e o lead pronto chega ao CRM do Revenda Mais.",
+      pilulas: ["Site ligado ao estoque", "Agente de IA no WhatsApp", "Lead no CRM do Revenda Mais"],
+      link: "Ler o case da Motors Store",
+      href: "/cases/motors-store",
+    },
+    {
+      nome: "16ª Vara Cível de Curitiba",
+      texto:
+        "Um WhatsApp para os onze setores e o gabinete. A triagem pergunta o assunto e entrega cada conversa ao setor certo, com os dados preenchidos.",
+      pilulas: ["Triagem no WhatsApp", "Conversa no setor certo", "Sempre com saída para uma pessoa"],
+      link: "Ler o case da 16ª Vara Cível",
+      href: "/cases/16-vara-civel",
+    },
   ],
-  link: "Ler o case completo",
-  /** O segundo case, fora do varejo (17/11/2026). */
-  outro: {
-    texto: "Fora do varejo, a triagem do WhatsApp da 16ª Vara Cível de Curitiba.",
-    link: "Ler o case da 16ª Vara Cível",
-    href: "/cases/16-vara-civel",
-  },
+  provas: [
+    "Começamos pelo cliente que precisa ser atendido, não por uma lista de funcionalidades.",
+    "Usamos os sistemas que já existem sempre que resolvem com menos atrito.",
+    "Separamos o que foi implementado do que já tem resultado medido.",
+  ],
 };
 
 const entradas = OFERTAS.map(precoDeEntrada);
@@ -151,7 +126,7 @@ export const ESCADA = {
       tipo: "A solução",
       titulo: "Uma das três soluções",
       texto:
-        "Presença, Sites ou Sprint, com pacotes de escopo claro. O valor fechado sai em proposta, com entregáveis, exclusões, prazo e custos de terceiros.",
+        "Presença, Sites ou Atendimento com IA, com pacotes de escopo claro. O valor fechado sai em proposta, com entregáveis, exclusões, prazo e custos de terceiros.",
       saida: `Preços de entrada de ${precoEmTexto({ valor: Math.min(...entradas) })} a ${precoEmTexto({ valor: Math.max(...entradas) })}. Nenhuma solução obriga a comprar a seguinte.`,
       href: "/precos",
       destaque: true,
@@ -164,7 +139,6 @@ export const ESCADA = {
       href: "/continuidade",
     },
   ],
-  nota: "Bônus por desempenho fica como opção futura do Sprint, só com linha de base, regra de atribuição acordada e dados auditáveis. Não faz parte da oferta padrão.",
 };
 
 /** De onde vem o nome (também em `/sobre`). */
@@ -192,7 +166,7 @@ export const FECHO = {
  */
 export const FERRAMENTAS = {
   rotulo: "Em produção na Motors Store",
-  nomes: ["WhatsApp", "Meta Ads", "GA4", "n8n", "Revenda Mais"],
+  nomes: ["WhatsApp", "n8n", "Revenda Mais"],
 } as const;
 
 export interface ItemDaNavegacao {
@@ -220,7 +194,6 @@ export const NAVEGACAO: ItemDaNavegacao[] = [
     todos: "Ver a continuidade",
     itens: [
       { rotulo: "Manutenção técnica", href: "/continuidade#manutencao-tecnica" },
-      { rotulo: "Conteúdo e campanhas recorrentes", href: "/continuidade#conteudo-e-campanhas" },
       { rotulo: "Monitoramento e otimização", href: "/continuidade#monitoramento-e-otimizacao" },
     ],
   },
@@ -288,23 +261,6 @@ export const LINHAS: Linha[] = [
     vinheta: "site",
   },
   {
-    linha: "rastreamento",
-    titulo: "Rastreamento até a venda",
-    frase: "Cada venda com a origem: qual anúncio, qual busca, qual página. Sem isso, a verba vai para onde parece funcionar.",
-    href: "/rastreamento-de-conversoes",
-    etapa: "violeta",
-    vinheta: "jornada",
-  },
-  {
-    linha: "catalogo",
-    titulo: "Catálogo de anúncios ligado ao estoque",
-    frase:
-      "O estoque ou os produtos viram catálogo no Google (anúncios de veículos e Shopping) e na Meta, e saem quando o item é vendido. A V2O5 faz a integração, e a campanha fica com você ou com a sua agência.",
-    href: "/diagnostico",
-    etapa: "violeta",
-    vinheta: "catalogo",
-  },
-  {
     linha: "redes",
     titulo: "Conteúdo e redes sociais",
     frase:
@@ -351,7 +307,7 @@ export const LINHAS: Linha[] = [
     linha: "posvenda",
     titulo: "Pós-venda e recorrência",
     frase:
-      "Revisão, troca, seguro ou recompra: a régua de retorno manda a mensagem na data certa e devolve o cliente ao funil.",
+      "Revisão, recompra ou retorno: a régua manda a mensagem na data certa e traz o cliente de volta.",
     href: "/diagnostico",
     etapa: "ambar",
     vinheta: "posvenda",
@@ -360,26 +316,10 @@ export const LINHAS: Linha[] = [
     linha: "diagnostico",
     titulo: "Diagnóstico e análise de operação",
     frase:
-      "Onde o contato se perde, quanto tempo cada etapa leva e o que pesa na rotina. O diagnóstico de presença e a análise do fluxo viram o mapa que decide o escopo do Sprint.",
+      "Como o cliente acha a empresa hoje, quanto espera pela resposta e onde desiste. O diagnóstico de presença vira o mapa que decide por onde começar.",
     href: "/diagnostico",
     etapa: "verde",
     vinheta: "jornada",
-  },
-  {
-    linha: "consultoria",
-    titulo: "Consultoria de processos",
-    frase: "Desenho do fluxo, regras de passagem entre equipes e rotina de acompanhamento, com o que a equipe já usa antes de comprar qualquer ferramenta.",
-    href: "/diagnostico",
-    etapa: "azul",
-    vinheta: "fluxo",
-  },
-  {
-    linha: "dados",
-    titulo: "Indicadores e painéis",
-    frase: "Funil, tempo de resposta, custo por contato e vendas por origem numa tela só, atualizada a partir do CRM, do rastreamento e das contas de anúncio.",
-    href: "/diagnostico",
-    etapa: "azul",
-    vinheta: "painel",
   },
 ];
 
@@ -423,42 +363,17 @@ export const SOLUCOES = {
  */
 export const PILARES: { id: string; sobretitulo: string; titulo: string; frase: string; servicos: Servico[] }[] = [
   {
-    id: "operacao",
-    sobretitulo: "Organizar a operação",
-    titulo: "Responder rápido e organizar a operação.",
-    frase:
-      "O contato que chega fora do horário recebe resposta na hora e entra no funil com a origem. A equipe começa o dia com o próximo passo pronto, e o dono vê o mês numa tela.",
-    servicos: [
-      linha("agente"),
-      linha("diagnostico"),
-      linha("consultoria"),
-      linha("crm"),
-      linha("dados"),
-      linha("automacao"),
-      {
-        linha: "automacao",
-        titulo: "Integrações entre sistemas",
-        frase: "Site, CRM, ERP e os sistemas do seu setor trocando dados sozinhos. Em produção hoje: o estoque do Revenda Mais.",
-        href: "/automacao-com-ia",
-        etapa: "azul",
-        vinheta: "integracoes",
-      },
-      // A venda e o pós-venda fecham o grupo: a rota da margem só sobe de etapa (26/10/2026).
-      linha("posvenda"),
-    ],
-  },
-  {
     id: "mapa",
-    sobretitulo: "Trazer mais gente",
-    titulo: "De que adianta trazer mais gente se a operação não está pronta?",
+    sobretitulo: "Colocar no mapa",
+    titulo: "Ser encontrado por quem procura perto.",
     frase:
-      "Por isso esta parte vem depois da operação. Com o atendimento respondendo, estas capacidades cuidam de ser você no Google, no Maps, nas redes e nas respostas das IAs de busca, com a origem de cada contato registrada, inclusive a dos anúncios.",
+      "O negócio aparece certo no Google, no Maps, nas redes e nas respostas das IAs de busca, com a origem de cada contato registrada.",
     servicos: [
       {
         titulo: "Perfil da Empresa no Google",
         frase:
           "Quem busca perto de casa vê o Maps antes do site. O antigo Google Meu Negócio, completo e verificado, com a empresa aparecendo na sua região.",
-        href: "/criacao-de-sites",
+        href: "/presenca-digital-local",
         etapa: "violeta",
         vinheta: "perfil",
       },
@@ -470,10 +385,30 @@ export const PILARES: { id: string; sobretitulo: string; titulo: string; frase: 
         vinheta: "busca",
       },
       linha("sites"),
-      linha("rastreamento"),
-      linha("catalogo"),
       linha("redes"),
       linha("avaliacoes"),
+    ],
+  },
+  {
+    id: "operacao",
+    sobretitulo: "Cuidar de cada cliente",
+    titulo: "Responder rápido e não perder ninguém.",
+    frase:
+      "A mensagem que chega fora do horário recebe resposta na hora e vai para a pessoa certa, com a origem. Quem já comprou recebe o contato de volta na hora certa.",
+    servicos: [
+      linha("agente"),
+      linha("diagnostico"),
+      linha("crm"),
+      linha("automacao"),
+      {
+        linha: "automacao",
+        titulo: "Integrações entre sistemas",
+        frase: "Site, CRM, agenda e os sistemas do seu setor trocando dados sozinhos. Em produção hoje: o estoque do Revenda Mais.",
+        href: "/automacao-com-ia",
+        etapa: "azul",
+        vinheta: "integracoes",
+      },
+      linha("posvenda"),
     ],
   },
 ];
@@ -504,14 +439,14 @@ export const VISAO_360 = {
     {
       nome: "Marca",
       pergunta: "Por que escolher você?",
-      acao: "Uma promessa só, dita do mesmo jeito no Google, no anúncio, no site e na conversa com o agente.",
+      acao: "Uma promessa só, dita do mesmo jeito no Google, nas redes, no site e na conversa com o agente.",
       base: { tipo: "Experiência", texto: "Rebranding da Top Imóveis para Top Soluções Imobiliárias" },
     },
     {
       nome: "Marketing",
       pergunta: "Quem encontra você?",
-      acao: "SEO e anúncios no Google e na Meta para quem já procura o que você vende, com a verba indo para o que virou venda.",
-      base: { tipo: "Prática", texto: "Conteúdo, SEO e tráfego da Motors Store" },
+      acao: "Google, Maps e redes com a informação certa para quem já procura o que você vende.",
+      base: { tipo: "Prática", texto: "Conteúdo e SEO da Motors Store" },
     },
     {
       nome: "Vendas",
@@ -553,7 +488,7 @@ export const VINHETAS = {
     contato: {
       iniciais: "MR",
       nome: "Marina R.",
-      origem: "veio do Google Ads",
+      origem: "veio do Google",
       campos: [
         { rotulo: "Interesse", valor: "Visita no sábado" },
         { rotulo: "Próximo passo", valor: "Sábado, 10h" },
@@ -580,15 +515,15 @@ export const VINHETAS = {
     respostaDaIa: "Resposta de IA",
   },
   crm: [
-    { coluna: "Novo", etapa: "violeta", cartoes: [["HB20 2021", "Meta Ads"], ["Kicks 2022", "Site"]] },
-    { coluna: "Atendimento", etapa: "verde", cartoes: [["Onix LT 2022", "Google Ads"]] },
-    { coluna: "Venda", etapa: "ambar", cartoes: [["Corolla 2020", "Google Ads"]] },
+    { coluna: "Novo", etapa: "violeta", cartoes: [["Banho e tosa", "Instagram"], ["Ração 15 kg", "Site"]] },
+    { coluna: "Atendimento", etapa: "verde", cartoes: [["Consulta de rotina", "Google"]] },
+    { coluna: "Venda", etapa: "ambar", cartoes: [["Pacote mensal", "Indicação"]] },
   ],
   fluxo: [
     { icone: "raio", texto: "Venda marcada no CRM" },
-    { icone: "janela", texto: "Carro sai da vitrine do site" },
+    { icone: "janela", texto: "Produto sai da vitrine do site" },
     { icone: "conversa", texto: "Cliente recebe o obrigado" },
-    { icone: "sinal", texto: "Google e Meta recebem a venda" },
+    { icone: "sinal", texto: "Pedido de avaliação no dia seguinte" },
   ],
   jornada: {
     passos: ["Anúncio", "Site", "Lead", "Venda"],
@@ -661,7 +596,7 @@ export const VINHETAS = {
   avaliacoes: {
     mensagem: "Obrigado pela compra, Marina! Se puder, conta como foi o atendimento:",
     link: "g.page/sua-empresa/review",
-    avaliacao: { nome: "Marina R.", estrelas: 5, texto: "Atendimento rápido e o carro igual ao anúncio." },
+    avaliacao: { nome: "Marina R.", estrelas: 5, texto: "Atendimento rápido e tudo como combinado." },
   },
   catalogo: {
     feed: "Feed do estoque",
@@ -704,36 +639,42 @@ export interface Frente {
   crm: CartaoDoCrm;
 }
 
+/**
+ * A demonstração da página do Atendimento com IA, desde 25/11/2026 num pet
+ * shop de exemplo (antes, uma revenda com anúncio): a resposta fora do
+ * horário, o que acontece sozinho depois e o contato de volta com quem já
+ * comprou. Dados fictícios, sem preço.
+ */
 export const FRENTES: Frente[] = [
   {
     id: "agente",
     aba: "Agente de IA",
-    resumo: "Uma mensagem chega no WhatsApp da loja às 21h e é respondida na hora.",
+    resumo: "Uma mensagem chega no WhatsApp do pet shop às 21h e é respondida na hora.",
     passos: [
       {
         tipo: "entrada",
         autor: "Cliente",
         hora: "21:14",
-        texto: "Boa noite! O Onix 2022 do anúncio ainda está disponível?",
+        texto: "Boa noite! Vocês têm horário de banho e tosa no sábado?",
       },
       {
         tipo: "sistema",
         titulo: "Agente consulta a base",
-        detalhes: ["Estoque: Onix LT 1.0 turbo 2022, disponível", "Agenda: test drive amanhã às 10h e às 15h"],
+        detalhes: ["Agenda: sábado às 9h e às 14h livres", "Serviço: banho e tosa, porte pequeno ou médio"],
         etapa: "verde",
       },
       {
         tipo: "saida",
         autor: "Agente de IA",
         hora: "21:14",
-        texto: "Está sim! É o LT 1.0 turbo, com 41 mil km. Quer agendar um test drive? Tenho amanhã às 10h ou às 15h.",
+        texto: "Temos sim! Sábado às 9h ou às 14h. Qual é o porte do seu pet?",
       },
     ],
     crm: {
-      titulo: "Onix LT 2022",
+      titulo: "Banho e tosa",
       campos: [
-        { rotulo: "Origem", valor: "Google Ads, campanha Seminovos" },
-        { rotulo: "Interesse", valor: "Test drive" },
+        { rotulo: "Origem", valor: "Google, Perfil da Empresa" },
+        { rotulo: "Interesse", valor: "Sábado às 9h" },
         { rotulo: "Responsável", valor: "Agente de IA" },
       ],
       etapa: "verde",
@@ -743,175 +684,86 @@ export const FRENTES: Frente[] = [
   {
     id: "automacao",
     aba: "Automação",
-    resumo: "A venda é marcada no CRM e o resto acontece sem ninguém digitar nada.",
+    resumo: "O banho termina e o resto acontece sem ninguém digitar nada.",
     passos: [
       {
         tipo: "sistema",
-        titulo: "CRM: negócio marcado como ganho",
-        detalhes: ["Onix LT 2022, vendido por Carla"],
+        titulo: "Agenda: atendimento concluído",
+        detalhes: ["Banho e tosa da Luna, por Carla"],
         etapa: "azul",
       },
       {
         tipo: "sistema",
         titulo: "Fluxo no n8n começa",
-        detalhes: ["Site: carro sai da vitrine", "Equipe: aviso no grupo de vendas"],
+        detalhes: ["Equipe: aviso de pet pronto", "Cliente: horário de retirada"],
         etapa: "azul",
       },
       {
         tipo: "saida",
         autor: "WhatsApp automático",
-        hora: "09:02",
-        texto: "Obrigado pela compra! Se puder, conta pra gente como foi o atendimento.",
+        hora: "16:02",
+        texto: "A Luna está pronta! Pode buscar até as 18h.",
       },
       {
         tipo: "sistema",
-        titulo: "Conversão enviada",
-        detalhes: ["Google Ads e Meta recebem a venda", "Com o identificador do lead, ela conta uma vez só"],
+        titulo: "Pedido de avaliação",
+        detalhes: ["No dia seguinte, com o link direto do Google"],
         etapa: "ambar",
       },
     ],
     crm: {
-      titulo: "Onix LT 2022",
+      titulo: "Banho e tosa",
       campos: [
-        { rotulo: "Origem", valor: "Google Ads, campanha Seminovos" },
-        { rotulo: "Desfecho", valor: "Ganho" },
-        { rotulo: "Venda atribuída", valor: "Anúncio de 02/10" },
+        { rotulo: "Origem", valor: "Google, Perfil da Empresa" },
+        { rotulo: "Desfecho", valor: "Concluído" },
+        { rotulo: "Próximo contato", valor: "Daqui a um mês" },
       ],
       etapa: "ambar",
       etiqueta: "Venda",
     },
   },
   {
-    id: "rastreamento",
-    aba: "Site e rastreamento",
-    resumo: "Do clique no anúncio ao lead no CRM, com a origem registrada em cada passo.",
+    id: "retorno",
+    aba: "Contato de volta",
+    resumo: "Quem comprou ração no mês passado recebe a lembrança na hora certa.",
     passos: [
       {
         tipo: "sistema",
-        titulo: "Visitante chega de um anúncio",
-        detalhes: ["Origem e clique do Google guardados"],
-        etapa: "violeta",
+        titulo: "Lembrete do mês",
+        detalhes: ["Ração comprada há um mês", "Cliente aceitou receber lembretes"],
+        etapa: "ambar",
+      },
+      {
+        tipo: "saida",
+        autor: "WhatsApp automático",
+        hora: "10:00",
+        texto: "Oi, Ana! A ração da Luna deve estar acabando. Quer que a gente separe outro saco?",
+      },
+      {
+        tipo: "entrada",
+        autor: "Cliente",
+        hora: "10:12",
+        texto: "Quero sim, busco amanhã.",
       },
       {
         tipo: "sistema",
-        titulo: "Abre a ficha e preenche o formulário",
-        detalhes: ["Lead gravado com um identificador único"],
-        etapa: "violeta",
-      },
-      {
-        tipo: "sistema",
-        titulo: "Lead enviado para Meta e Google",
-        detalhes: ["Pelo servidor, com o mesmo identificador do navegador", "Meta e Google contam o lead uma vez só"],
-        etapa: "violeta",
-      },
-      {
-        tipo: "sistema",
-        titulo: "Lead entra no CRM",
-        detalhes: ["Com origem, campanha e veículo de interesse"],
+        titulo: "Pedido separado",
+        detalhes: ["Equipe avisada no WhatsApp", "Retirada de amanhã registrada"],
         etapa: "azul",
       },
     ],
     crm: {
-      titulo: "Novo lead",
+      titulo: "Ração",
       campos: [
-        { rotulo: "Origem", valor: "Google Ads, campanha Seminovos" },
-        { rotulo: "Veículo", valor: "Onix LT 2022" },
-        { rotulo: "Identificador", valor: "Lead.3f9c2a7e" },
+        { rotulo: "Origem", valor: "Cliente da loja" },
+        { rotulo: "Desfecho", valor: "Recompra" },
+        { rotulo: "Próximo contato", valor: "Daqui a um mês" },
       ],
-      etapa: "violeta",
-      etiqueta: "Novo",
+      etapa: "ambar",
+      etiqueta: "Venda",
     },
   },
 ];
-
-// ---------------------------------------------------------------------------
-// Como tudo se liga
-// ---------------------------------------------------------------------------
-
-export type IdDaPeca = "site" | "whatsapp" | "agente" | "n8n" | "crm" | "rastreamento" | "venda";
-
-export interface Peca {
-  id: IdDaPeca;
-  nome: string;
-  /** A etapa do funil. Nas camadas, a mais próxima: ela não aparece, só o rótulo da camada. */
-  etapa: Etapa;
-  /**
-   * Camada: acompanha o caminho inteiro em vez de ser uma parada nele. A
-   * ordem das paradas é a do funil (atração, atendimento, gestão, venda); o
-   * rastreamento não é uma parada: grava a origem na entrada e devolve a
-   * venda ao anúncio (atribuição em ciclo fechado), e a automação liga as peças.
-   */
-  camada?: string;
-  texto: string;
-  /** O caminho que acende quando esta peça é escolhida (só paradas). */
-  caminho: IdDaPeca[];
-}
-
-/**
- * Corrigido em 26/10/2026 (Dyones: "não pode haver atração na ponta final do
- * funil"). As cinco paradas seguem a ordem do funil de mercado (consciência e
- * consideração, qualificação, oportunidade, conversão); as duas camadas vêm
- * depois, separadas. Referências: ciclo de vida do lead (lead, qualificado,
- * oportunidade, cliente) e atribuição em ciclo fechado.
- */
-export const PECAS: Peca[] = [
-  {
-    id: "site",
-    nome: "Site",
-    etapa: "violeta",
-    texto: "Recebe o visitante e guarda de onde ele veio antes de levá-lo ao WhatsApp ou ao formulário.",
-    caminho: ["site", "whatsapp", "agente", "crm", "venda"],
-  },
-  {
-    id: "whatsapp",
-    nome: "WhatsApp",
-    etapa: "verde",
-    texto: "É onde a conversa acontece. Cada mensagem chega ao agente com o histórico do contato.",
-    caminho: ["site", "whatsapp", "agente", "crm"],
-  },
-  {
-    id: "agente",
-    nome: "Agente de IA",
-    etapa: "verde",
-    texto: "Responde com as informações do seu negócio e qualifica o contato antes de passar para a equipe.",
-    caminho: ["whatsapp", "agente", "crm"],
-  },
-  {
-    id: "crm",
-    nome: "CRM",
-    etapa: "azul",
-    texto: "O funil onde cada lead aparece com a origem e o próximo passo, de contato qualificado a oportunidade.",
-    caminho: ["agente", "crm", "venda"],
-  },
-  {
-    id: "venda",
-    nome: "Venda",
-    etapa: "ambar",
-    texto: "O fechamento registrado no CRM, com a origem conhecida. É daqui que a conversão volta para o anúncio.",
-    caminho: ["crm", "venda"],
-  },
-  {
-    id: "n8n",
-    nome: "n8n",
-    etapa: "azul",
-    camada: "Liga as peças",
-    texto: "É a automação entre os sistemas. Atualiza o estoque no site e avisa a equipe quando entra um lead.",
-    caminho: ["site", "agente", "crm"],
-  },
-  {
-    id: "rastreamento",
-    nome: "Rastreamento",
-    etapa: "violeta",
-    camada: "Origem na entrada, venda de volta ao anúncio",
-    texto:
-      "Grava de onde veio cada contato na entrada e, quando a venda é registrada no CRM, devolve a conversão para Google e Meta. Fecha o ciclo: a verba aprende com o que virou venda.",
-    caminho: ["site", "whatsapp", "crm", "venda"],
-  },
-];
-
-/** As cinco paradas, na ordem do funil, e as duas camadas que acompanham o caminho inteiro. */
-export const PARADAS = PECAS.filter((p) => !p.camada);
-export const CAMADAS = PECAS.filter((p) => p.camada);
 
 // ---------------------------------------------------------------------------
 // Case Motors Store
@@ -925,21 +777,8 @@ export const CAMADAS = PECAS.filter((p) => p.camada);
 export const CASE = {
   fonte: "Banco de dados da Motors Store, lido em 17/11/2026. Leads contados de 05/09 a 17/11/2026.",
   numeros: [
-    {
-      valor: 129,
-      complemento: "de 131",
-      texto: "leads do site chegaram com identificador para não contar a mesma conversão duas vezes",
-    },
     { valor: 26, complemento: "", texto: "guias publicados, assinados pelo fundador da V2O5" },
     { valor: 148, complemento: "", texto: "veículos sincronizados com o estoque do Revenda Mais" },
-  ],
-  /** Formato real dos eventos; valores ilustrativos. */
-  terminal: [
-    "03:00:12  estoque.sync       fonte=revenda-mais  alterados=3",
-    "14:32:07  lead.recebido      origem=google/cpc   gclid=sim",
-    "14:32:07  meta.capi.Lead     event_id=Lead.3f9c2a7e  status=200",
-    "14:32:08  ga4.generate_lead  event_id=Lead.3f9c2a7e  status=204",
-    "14:32:08  n8n.novo_lead      aviso=equipe  canal=whatsapp",
   ],
 };
 
@@ -951,7 +790,7 @@ export const CASE = {
 export const AUTOMOTIVO = {
   titulo: "Para revendas de veículos",
   texto:
-    "As mesmas soluções aplicadas a revendas, a partir do que roda na Motors Store: site ligado ao estoque do sistema da loja (Revenda Mais, Autoconf e outros), agente de IA no WhatsApp, CRM e rastreamento até a venda.",
+    "As mesmas soluções aplicadas a revendas, a partir do que roda na Motors Store: site ligado ao estoque do sistema da loja (Revenda Mais, Autoconf e outros), atendimento e qualificação com IA no WhatsApp e o lead entregue ao CRM da loja.",
   href: "/segmentos/revendas-de-veiculos",
 };
 
@@ -996,8 +835,8 @@ export const EMAIL = {
  */
 export const MARCA_DO_SITE = "site da V2O5";
 
-/** A assinatura institucional desde 25/10/2026 (rodapé, `/sobre`, schema, `llms.txt`). */
-export const ASSINATURA = "V2O5 | Eficiência comercial e operacional com tecnologia.";
+/** A assinatura institucional desde 25/11/2026 (rodapé, `/sobre`, schema, `llms.txt`); a de 25/10 está em `memory/decisoes.md`. */
+export const ASSINATURA = "V2O5 | Digitalização para pequenos negócios.";
 
 /** Mensagem pré-preenchida do WhatsApp, por página (plano, seção 6.1). */
 export const WHATSAPP = {
@@ -1018,19 +857,19 @@ export const WHATSAPP = {
 /** Chamada curta entre seções: a pergunta que o dono está se fazendo e o botão. */
 export const CHAMADA = {
   depoisDasSolucoes: {
-    titulo: "Quer saber qual gargalo atacar primeiro?",
-    texto: "O diagnóstico é gratuito: 45 minutos com o fundador para identificar e priorizar um gargalo, sem compromisso.",
+    titulo: "Quer saber por onde começar?",
+    texto: "O diagnóstico é gratuito: 45 minutos com o fundador para ver o que mais pesa no seu negócio, sem compromisso.",
   },
   depoisDoCase: {
-    titulo: "Quer o mesmo sistema na sua empresa?",
-    texto: "A conversa de 45 minutos é com o fundador, que montou o da Motors Store.",
+    titulo: "Quer o mesmo cuidado com os seus clientes?",
+    texto: "A conversa de 45 minutos é com o fundador, que montou o atendimento dos dois cases.",
   },
   botao: "Pedir diagnóstico gratuito",
 };
 
 /**
  * As perguntas que o dono faz antes de contratar. Viram FAQPage no schema.
- * Desde 27/10/2026 os valores saem de `ofertas.ts` e `sprint.ts`; nenhuma
+ * Desde 27/10/2026 os valores saem de `ofertas.ts`; nenhuma
  * resposta digita preço (`tests/precos-publicos.test.ts`).
  */
 export const PERGUNTAS = [
@@ -1044,13 +883,13 @@ export const PERGUNTAS = [
       "Não. Cada solução resolve um tipo de problema e funciona sozinha. Elas se completam, e o diagnóstico ajuda a escolher por onde começar. A continuidade também é opcional.",
   },
   {
-    pergunta: "O que um Sprint entrega?",
+    pergunta: "O que o Atendimento com IA entrega?",
     resposta:
-      "Um projeto fechado para um gargalo delimitado: mapeamento do fluxo atual, priorização, implementação da solução acordada, testes e comparação dos indicadores disponíveis antes e depois. A proposta define o problema, os entregáveis, as exclusões, o prazo, as responsabilidades do cliente e os critérios de aceite.",
+      "O WhatsApp organizado, um agente de IA que responde com as informações do seu negócio e passa a conversa à pessoa certa, e a lista de contatos com a origem. No Atendimento Integrado, o agente também qualifica e leva cada contato ao sistema que você já usa.",
   },
   {
     pergunta: "Como funciona o pagamento?",
-    resposta: `No Sprint: ${CONDICOES.itens[1].texto.replace(/^E/, "e")} Nas outras soluções, as condições saem na proposta.`,
+    resposta: "As condições saem na proposta, com o escopo, os entregáveis, o prazo e os custos de terceiros por escrito.",
   },
   {
     pergunta: "E depois da entrega?",
@@ -1068,12 +907,12 @@ export const PERGUNTAS = [
   {
     pergunta: "Vocês fazem tráfego pago?",
     resposta:
-      "Não. A V2O5 liga cada venda ao anúncio que trouxe o cliente, e quem roda a campanha é você ou a sua agência. Com a venda registrada no CRM voltando para o Google e a Meta, a campanha otimiza pelo que vende.",
+      "Não. A V2O5 cuida de o negócio ser encontrado no Google e de atender bem quem chega. Quem anuncia segue com a própria campanha, e o site grava de onde veio cada contato.",
   },
   {
     pergunta: "Como funciona o diagnóstico gratuito?",
     resposta:
-      "São 45 minutos de conversa com o fundador sobre marca, presença, atendimento, operação e funil, para identificar e priorizar o problema e avaliar se existe um projeto viável. A sessão não inclui mapeamento completo do processo, implementação nem acompanhamento de resultados. Havendo um bom caso, o próximo passo é a proposta da solução que cabe no problema, com escopo, entregáveis, prazo e investimento.",
+      "São 45 minutos de conversa com o fundador sobre presença, atendimento e os sistemas que você já usa, para identificar e priorizar o problema e avaliar se existe um projeto viável. A sessão não inclui mapeamento completo do processo, implementação nem acompanhamento de resultados. Havendo um bom caso, o próximo passo é a proposta da solução que cabe no problema, com escopo, entregáveis, prazo e investimento.",
   },
   {
     pergunta: "A V2O5 atende fora de Curitiba?",

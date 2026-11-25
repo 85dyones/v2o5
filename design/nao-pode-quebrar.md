@@ -11,11 +11,11 @@ Já existem testes que travam boa parte disto (`npm test`): `paginas`, `schema`,
 | Rota | Status | Indexa | No sitemap | `page_type` na medição | Texto |
 |---|---|---|---|---|---|
 | `/` | 200 | sim | sim | `home` | `content/home.md` |
-| `/agente-de-ia-para-whatsapp` | 200 | sim | sim | `solucao · service_line=agente` | `content/agente-de-ia-para-whatsapp.md` |
+| `/agente-de-ia-para-whatsapp` | 200 | sim | sim | `solucao · service_line=atendimento` (era `agente` até 25/11/2026) | `content/agente-de-ia-para-whatsapp.md` |
 | `/automacao-com-ia` | 200 | sim | sim | `solucao · service_line=automacao` | `content/automacao-com-ia.md` |
 | `/criacao-de-sites` | 200 | sim | sim | `solucao · service_line=sites` | `content/criacao-de-sites.md` |
 | `/crm-com-whatsapp` | 200 | sim | sim | `solucao · service_line=crm` | `content/crm-com-whatsapp.md` |
-| `/rastreamento-de-conversoes` | 200 | sim | sim | `solucao · service_line=rastreamento` | `content/rastreamento-de-conversoes.md` |
+| `/rastreamento-de-conversoes` | 301 para `/criacao-de-sites` (25/11/2026) | · | não | · | · (o texto saiu de `content/`) |
 | `/gestao-de-trafego` | 307 para `/precos#titulo-trafego` (19/10, Dyones, até ganhar texto) | · | não | · | `content/gestao-de-trafego.md` (texto da versão provisória) |
 | `/segmentos/revendas-de-veiculos` | 200 | sim | sim | `segmento · segment=revendas-de-veiculos` | `content/segmentos/revendas-de-veiculos.md` |
 | `/cases/motors-store` | 200 | sim | sim | `case` | `content/cases/motors-store.md` |
@@ -116,7 +116,7 @@ Como o site serve hoje. Saem de `PAGINAS` em `src/conteudo/paginas.ts` (`metadat
 | `/segmentos/revendas-de-veiculos` | Sistema de vendas para revendas de veículos \| V2O5 Vendas e Tecnologia | Site de estoque ligado ao sistema da loja (Revenda Mais, Autoconf e outros), agente de IA no WhatsApp, CRM e rastreamento até a venda, a partir de R$ 14.900. |
 | `/cases/motors-store` | Case Motors Store \| V2O5 Vendas e Tecnologia | O que a V2O5 montou para a Motors Store, revenda de seminovos em Curitiba, e os números do sistema rodando, lidos no banco de dados da loja. |
 | `/precos` | Preços e planos \| V2O5 Vendas e Tecnologia | Três planos com preço fechado: Presença a partir de R$ 8.900 + R$ 990/mês, Atendimento com agente de IA e CRM, e o Completo. Sem fidelidade. |
-| `/sobre` | Sobre a V2O5: quem faz e como trabalha \| V2O5 Vendas e Tecnologia | Quem é a V2O5 Vendas e Tecnologia, de onde vem o nome, o fundador que conduz o diagnóstico, a relação com a Motors Store e as regras de todo projeto. |
+| `/sobre` | Sobre a V2O5: quem faz e como trabalha \| V2O5 Vendas e Tecnologia | Quem é a V2O5 Vendas e Tecnologia, o fundador que conduz o diagnóstico, como um projeto anda, de onde vem o nome e a relação com os dois cases. |
 | `/diagnostico` | Diagnóstico gratuito \| V2O5 Vendas e Tecnologia | 45 minutos de conversa com o fundador e, em até 24 horas, um mapa do que fazer primeiro na sua empresa, com custo e prazo. Sem compromisso. |
 | `/diagnostico/recebido` | Pedido recebido \| V2O5 Vendas e Tecnologia | Recebemos o seu pedido de diagnóstico. O que acontece agora e como a V2O5 entra em contato. |
 | `/guias` | Guias \| V2O5 Vendas e Tecnologia | Guias com dados de operação real para quem vende pelo WhatsApp e pela internet. |
@@ -432,3 +432,20 @@ Decisão do Dyones (`memory/decisoes.md`, 12/11): saem a gestão de tráfego pag
 - Âncoras, formulário, `/api/leads`, WhatsApp e eventos: sem mudança. `/#solucoes` continua (agora também destino de `/branding-e-identidade`).
 - `content/` reextraído do build local da branch nas rotas que mudaram; o de `/agente-de-ia-para-whatsapp` traz também o título com "Chatbot com IA", que estava no ar desde 31/10 e ainda não tinha sido reextraído.
 - `/agente-de-ia-para-whatsapp`: o H1 volta a "Agente de IA para WhatsApp que responde, qualifica e agenda." (`<title>` e descrição seguem com "Chatbot com IA", para a busca); `atualizadaEm` 2026-11-12 no sitemap.
+
+## Atualização de 25/11/2026 (foco em pequenos negócios)
+
+Decisão do Dyones (`memory/decisoes.md` e `docs/2026-11-25-foco-pequenos-negocios.md`, 25/11): a V2O5 digitaliza pequenos negócios; o Atendimento com IA substitui o Sprint de Eficiência; saem a Presença Assistida, a frente de conteúdo da continuidade e o anúncio na fala da Motors.
+
+- Rotas: `/sprint-de-eficiencia` → 301 `/agente-de-ia-para-whatsapp`; `/rastreamento-de-conversoes` → 301 `/criacao-de-sites`; `/gestao-de-trafego` passa a ir direto para `/criacao-de-sites` (sem cadeia). As duas rotas saíram do sitemap, de `PAGINAS`, do extrator e de `content/` (`REDIRECIONAMENTOS_DO_PORTFOLIO`, `tests/redirecionamentos.test.ts`).
+- `/agente-de-ia-para-whatsapp` vira a página da solução Atendimento com IA: `oferta: "atendimento"`, `#titulo-pacotes` com Atendimento Essencial (a partir de R$ 3.900) e Atendimento Integrado (a partir de R$ 6.900), `Service` com `hasOfferCatalog`, `service_line=atendimento`. `<title>` e H1 seguem ("Chatbot com IA..." e "Agente de IA para WhatsApp..."). A mensagem do botão fixo passa a "Olá! Vi a página de Atendimento com IA no site da V2O5 e quero conversar sobre a minha empresa.". A demonstração (`Orquestrador`) troca a revenda com anúncio por um pet shop de exemplo; as abas são "Agente de IA", "Automação" e "Contato de volta".
+- `/crm-com-whatsapp` e `/automacao-com-ia`: a ficha "No Sprint" vira "Na solução" e a âncora `#titulo-no-sprint` vira `#titulo-na-solucao` (o botão da abertura aponta para ela); o botão da ficha leva a `/agente-de-ia-para-whatsapp#titulo-pacotes`. `/automacao-com-ia` perde o diagrama "Como se liga".
+- Home: H1 "Coloque seu negócio no mapa e cuide de cada cliente que chega."; `<title>` padrão "V2O5 Vendas e Tecnologia | Digitalização para pequenos negócios"; assinatura "V2O5 | Digitalização para pequenos negócios." (rodapé, `/sobre`, schema, `llms.txt`, vitrine). Saem a seção do método do Sprint e o diagrama `#como-se-liga` (e com eles `#metodo`); as dores, os indicadores e a seção `#case` (os dois cases em cartões iguais) foram reescritos; o FAQ troca "O que um Sprint entrega?" por "O que o Atendimento com IA entrega?".
+- Menu e rodapé: Soluções lista Presença, Sites e Atendimento com IA; Continuidade perde "Conteúdo e campanhas recorrentes" (a âncora `/continuidade#conteudo-e-campanhas` sai); o grupo Recursos do rodapé fica com CRM e Automação.
+- `/precos`: a âncora `#titulo-sprint` vira `#titulo-atendimento` (cada solução tem `#titulo-<id>`). `/continuidade`: duas frentes.
+- `/cases/motors-store`: sai a seção "Como a venda fica rastreável" (`#titulo-rastreio`) e o terminal de eventos; os números ficam 237, 113 de 131, 26 e 148 (saem 129 de 131 e 96 de 131, que eram de anúncio); a ficha do lead e a pilha de ferramentas perdem Meta e Google Ads.
+- `/segmentos/revendas-de-veiculos`: H1 "Site de estoque e atendimento com IA para revendas de veículos."; três peças (site, agente, integração com o sistema da loja); os caminhos são o Site Conectado e o Atendimento Integrado.
+- Medição: `LINHA_DA_ROTA` perde `sprint` e `rastreamento`, e o agente passa a `atendimento`. As regras de "Modificar evento" do GA4 ficam em 15 (`docs/handoff-ga4.md`).
+- Formulário, `/api/leads`, eventos e o trecho "site da V2O5" das mensagens: sem mudança.
+- `/sobre` (aprovado pelo Dyones no mesmo dia): H1 "Tecnologia que o pequeno negócio consegue usar."; propósito "O cliente bem atendido é o resultado."; o método passa a quatro passos (Diagnóstico, Proposta, Implantação, Acompanhamento); a visão tem rascunho novo (pendência 32); as tecnologias ficam em sete categorias (saem Branding e Dados); a seção da Motors vira "A relação com os dois cases" e cita a 16ª Vara Cível como cliente; `<title>` "Sobre a V2O5: quem faz e como trabalha". Âncoras (`#autor`, `#titulo-proposito`, `#titulo-metodo`, `#titulo-visao`, `#titulo-motors`) sem mudança.
+

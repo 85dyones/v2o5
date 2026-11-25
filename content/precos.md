@@ -3,12 +3,12 @@ rota: "/precos"
 url: "https://www.v2o5.com.br/precos"
 status: 200
 title: "Preços: três soluções e a continuidade | V2O5 Vendas e Tecnologia"
-description: "Preços de referência de Presença Digital Local, Sites & Integrações, Sprint de Eficiência e dos planos de continuidade. Diagnóstico gratuito."
+description: "Preços de referência de Presença Digital Local, Sites & Integrações, Atendimento com IA e dos planos de continuidade. Diagnóstico gratuito."
 canonical: "https://www.v2o5.com.br/precos"
 robots: null
 h1: "Três soluções, com preço de referência."
-extraido_em: "2026-11-17T14:48:14.330Z"
-fonte: "build local da branch claude/kind-tesla-eefroe em 17/11/2026 (case da 16ª Vara Cível, revenda como exemplo), antes da publicação"
+extraido_em: "2026-11-25T15:38:59.225Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 25/11/2026 (foco em pequenos negócios), antes da publicação"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 # Três soluções, com preço de referência.
@@ -25,7 +25,7 @@ O diagnóstico inicial é gratuito. Cada solução tem pacotes com escopo claro,
 
 [Sites & Integrações Quando a empresa depende de perfil de terceiros, ou o site não conversa com o sistema que ela já usa. A partir de R$ 2.900](/criacao-de-sites)
 
-[Sprint de Eficiência Quando um processo trava a operação: retrabalho, contato perdido, sistemas que não conversam. A partir de R$ 3.900](/sprint-de-eficiencia)
+[Atendimento com IA Quando o cliente chama no WhatsApp e espera, se perde entre as conversas ou some sem que ninguém retome. A partir de R$ 3.900](/agente-de-ia-para-whatsapp)
 
 [Continuidade Manter funcionando e evoluindo o que foi entregue, com limites escritos. Opcional. Planos a partir de R$ 349/mês](/continuidade)
 
@@ -47,12 +47,6 @@ Mensalidade opcional: R$ 490/mês
 
 R$ 1.490
 
-Presença Assistida
-
-Mensalidade opcional: R$ 890/mês
-
-R$ 1.990
-
 [Ver Presença Digital Local](/presenca-digital-local)
 
 ### Sites & Integrações
@@ -71,21 +65,17 @@ A partir de R$ 9.900
 
 [Ver Sites & Integrações](/criacao-de-sites)
 
-### Sprint de Eficiência
+### Atendimento com IA
 
-Sprint Essencial
+Atendimento Essencial
 
-R$ 3.900
+A partir de R$ 3.900
 
-Sprint Integrado
+Atendimento Integrado
 
-R$ 6.900
+A partir de R$ 6.900
 
-Sprint Avançado
-
-A partir de R$ 12.900
-
-[Ver Sprint de Eficiência](/sprint-de-eficiencia)
+[Ver Atendimento com IA](/agente-de-ia-para-whatsapp)
 
 ### Continuidade
 
@@ -118,19 +108,19 @@ Preço, pagamento, o que cada solução entrega e o que vem depois. Se a sua per
 
 Quanto custa?
 
-O diagnóstico inicial, de 45 minutos, é gratuito. Os preços de entrada são Presença Digital Local a partir de R$ 790, Sites & Integrações a partir de R$ 2.900, Sprint de Eficiência a partir de R$ 3.900, e a continuidade tem planos a partir de R$ 349/mês. São preços de referência: o valor fechado sai em proposta, para um escopo conhecido.
+O diagnóstico inicial, de 45 minutos, é gratuito. Os preços de entrada são Presença Digital Local a partir de R$ 790, Sites & Integrações a partir de R$ 2.900, Atendimento com IA a partir de R$ 3.900, e a continuidade tem planos a partir de R$ 349/mês. São preços de referência: o valor fechado sai em proposta, para um escopo conhecido.
 
 Preciso contratar tudo?
 
 Não. Cada solução resolve um tipo de problema e funciona sozinha. Elas se completam, e o diagnóstico ajuda a escolher por onde começar. A continuidade também é opcional.
 
-O que um Sprint entrega?
+O que o Atendimento com IA entrega?
 
-Um projeto fechado para um gargalo delimitado: mapeamento do fluxo atual, priorização, implementação da solução acordada, testes e comparação dos indicadores disponíveis antes e depois. A proposta define o problema, os entregáveis, as exclusões, o prazo, as responsabilidades do cliente e os critérios de aceite.
+O WhatsApp organizado, um agente de IA que responde com as informações do seu negócio e passa a conversa à pessoa certa, e a lista de contatos com a origem. No Atendimento Integrado, o agente também qualifica e leva cada contato ao sistema que você já usa.
 
 Como funciona o pagamento?
 
-No Sprint: em projetos, 50% na contratação, 30% na validação intermediária e 20% no aceite final. Em Sprints pequenos, 50% na contratação e 50% na entrega. Nas outras soluções, as condições saem na proposta.
+As condições saem na proposta, com o escopo, os entregáveis, o prazo e os custos de terceiros por escrito.
 
 E depois da entrega?
 
@@ -146,11 +136,11 @@ Responde na hora com as informações do seu negócio e, quando a conversa pede 
 
 Vocês fazem tráfego pago?
 
-Não. A V2O5 liga cada venda ao anúncio que trouxe o cliente, e quem roda a campanha é você ou a sua agência. Com a venda registrada no CRM voltando para o Google e a Meta, a campanha otimiza pelo que vende.
+Não. A V2O5 cuida de o negócio ser encontrado no Google e de atender bem quem chega. Quem anuncia segue com a própria campanha, e o site grava de onde veio cada contato.
 
 Como funciona o diagnóstico gratuito?
 
-São 45 minutos de conversa com o fundador sobre marca, presença, atendimento, operação e funil, para identificar e priorizar o problema e avaliar se existe um projeto viável. A sessão não inclui mapeamento completo do processo, implementação nem acompanhamento de resultados. Havendo um bom caso, o próximo passo é a proposta da solução que cabe no problema, com escopo, entregáveis, prazo e investimento.
+São 45 minutos de conversa com o fundador sobre presença, atendimento e os sistemas que você já usa, para identificar e priorizar o problema e avaliar se existe um projeto viável. A sessão não inclui mapeamento completo do processo, implementação nem acompanhamento de resultados. Havendo um bom caso, o próximo passo é a proposta da solução que cabe no problema, com escopo, entregáveis, prazo e investimento.
 
 A V2O5 atende fora de Curitiba?
 

@@ -35,11 +35,10 @@ describe("case Motors Store", () => {
     expect(memoria).toMatch(/com gclid ou fbclid \| 103 \/ 96 de 131/);
     expect(memoria).toMatch(/\| Guias publicados \| 26 \|/);
     expect(memoria).toMatch(/\| Estoque sincronizado \| 148 veículos, 60 marcados como vendidos/);
+    // Sem os números de anúncio (identificador da Meta, gclid ou fbclid) desde 25/11/2026.
     expect(CASE_MOTORS.numeros.itens.map((n) => `${n.valor}${n.complemento ? ` ${n.complemento}` : ""}`)).toEqual([
       "237",
-      "129 de 131",
       "113 de 131",
-      "96 de 131",
       "26",
       "148",
     ]);

@@ -63,14 +63,18 @@ export const REDIRECIONAMENTOS_DO_WORDPRESS = [
 ];
 
 /**
- * O que saiu do portfólio em 12/11/2026 (Dyones: "vamos focar nos serviços
- * ainda mais"; tráfego pago e Branding & Identidade fora). 301 porque não
- * volta: o tráfego leva ao rastreamento até a venda, que a V2O5 entrega para
- * quem anuncia, e o Branding à seção de soluções da home.
+ * O que saiu do portfólio. 301 porque não volta. Em 12/11/2026 (Dyones:
+ * "vamos focar nos serviços ainda mais") saíram o tráfego pago e o Branding &
+ * Identidade; em 25/11/2026 (foco em pequenos negócios) saíram o Sprint de
+ * Eficiência, que leva ao Atendimento com IA, e o rastreamento até o anúncio,
+ * que leva a Sites & Integrações (onde fica a origem de cada contato). O
+ * tráfego vai direto para Sites, sem redirecionamento em cadeia.
  */
 export const REDIRECIONAMENTOS_DO_PORTFOLIO = [
-  { source: "/gestao-de-trafego", destination: "/rastreamento-de-conversoes" },
+  { source: "/gestao-de-trafego", destination: "/criacao-de-sites" },
   { source: "/branding-e-identidade", destination: "/#solucoes" },
+  { source: "/sprint-de-eficiencia", destination: "/agente-de-ia-para-whatsapp" },
+  { source: "/rastreamento-de-conversoes", destination: "/criacao-de-sites" },
 ];
 
 const nextConfig: NextConfig = {

@@ -8,15 +8,14 @@ import * as ofertas from "@/conteudo/ofertas";
 import * as paginas from "@/conteudo/paginas";
 import * as sobre from "@/conteudo/sobre";
 import * as solucoes from "@/conteudo/solucoes";
-import * as sprint from "@/conteudo/sprint";
 import { BRL } from "@/conteudo/precos";
 import { grafoDaContinuidade, grafoDaHome, grafoDaSolucao, grafoDoHubAutomotivo, grafoDosPrecos } from "@/lib/schema";
 import { arquivos, ler } from "./fonte";
 
 /**
  * Decisão de 27/10/2026: todo valor em real que o visitante, o Google, os
- * assistentes de IA e o agente do n8n leem sai de `ofertas.ts` ou de
- * `sprint.ts`. Este teste varre tudo isso e só aceita valores dessa lista
+ * assistentes de IA e o agente do n8n leem sai de `ofertas.ts` (até
+ * 25/11/2026, também de `sprint.ts`). Este teste varre tudo isso e só aceita valores dessa lista
  * (antes, de 25/10 a 26/10, o teste proibia o cardápio interno; o cardápio
  * saiu do código). Vale para texto, schema, vitrine e fluxos do n8n.
  */
@@ -38,7 +37,6 @@ const visivel = (html: string) =>
 const publicos: Record<string, string> = {
   "conteudo/home": JSON.stringify(home),
   "conteudo/ofertas": JSON.stringify(ofertas),
-  "conteudo/sprint": JSON.stringify(sprint),
   "conteudo/solucoes": JSON.stringify(solucoes),
   "conteudo/automotivo": JSON.stringify(automotivo),
   "conteudo/sobre": JSON.stringify(sobre),
@@ -53,8 +51,8 @@ const publicos: Record<string, string> = {
 for (const f of [...arquivos("src/app"), ...arquivos("src/components"), ...arquivos("src/lib")]) publicos[f] = ler(f);
 
 describe("preços públicos", () => {
-  it("a lista de permitidos é a tabela de 27/10/2026", () => {
-    expect(VALORES_PUBLICOS).toEqual([349, 390, 490, 590, 790, 890, 990, 1490, 1990, 2900, 3900, 5900, 6900, 9900, 12900]);
+  it("a lista de permitidos é a tabela de 27/10/2026, sem a Presença Assistida e o Sprint Avançado (25/11/2026)", () => {
+    expect(VALORES_PUBLICOS).toEqual([349, 390, 490, 590, 790, 990, 1490, 2900, 3900, 5900, 6900, 9900]);
   });
 
   it("nenhum texto público, código de página, vitrine, llms.txt ou fluxo do n8n traz valor fora da tabela", () => {
@@ -63,7 +61,7 @@ describe("preços públicos", () => {
     }
   });
 
-  it("o código das páginas não digita preço: os valores chegam de ofertas.ts e sprint.ts", () => {
+  it("o código das páginas não digita preço: os valores chegam de ofertas.ts", () => {
     for (const f of [...arquivos("src/app"), ...arquivos("src/components"), ...arquivos("src/lib")]) {
       expect(valoresEm(ler(f)), f).toEqual([]);
     }
@@ -76,9 +74,9 @@ describe("preços públicos", () => {
     for (const n of numeros) expect(VALORES_PUBLICOS, n).toContain(Number(n.split(":")[1]));
   });
 
-  it("o cardápio de 15/10, as faixas de 25/10, as mensalidades de entrada da manhã de 27/10 e o Branding (12/11) saíram de tudo que é público", () => {
+  it("o cardápio de 15/10, as faixas de 25/10, as mensalidades de entrada da manhã de 27/10, o Branding (12/11), a Presença Assistida e o Sprint Avançado (25/11) saíram de tudo que é público", () => {
     const todos = Object.values(publicos).join("\n");
-    for (const velho of ["R$ 8.900", "R$ 14.900", "R$ 1.590", "R$ 2.290", "R$ 1.699", "R$ 3.000", "R$ 6.000", "R$ 12.000", "R$ 1.200", "R$ 5.000", "R$ 49,90", "R$ 690", "R$ 249", "R$ 290", "R$ 2.400", "R$ 4.900", "R$ 7.900", "R$ 11.900"]) {
+    for (const velho of ["R$ 8.900", "R$ 14.900", "R$ 1.590", "R$ 2.290", "R$ 1.699", "R$ 3.000", "R$ 6.000", "R$ 12.000", "R$ 1.200", "R$ 5.000", "R$ 49,90", "R$ 690", "R$ 249", "R$ 290", "R$ 2.400", "R$ 4.900", "R$ 7.900", "R$ 11.900", "R$ 1.990", "R$ 890", "R$ 12.900"]) {
       expect(todos, velho).not.toContain(velho);
     }
     expect(todos).not.toMatch(/sob consulta|por tempo limitado/i);

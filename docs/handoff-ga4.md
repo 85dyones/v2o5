@@ -35,7 +35,7 @@ O `page_view` de entrada sai da própria tag do GA4 e chega sem `page_type`, `se
 
 A tag manda o `page_view` automático quando processa o `gtag('js')` e não aplica parâmetro de `config` nem de `set`. Só chega o que vai no próprio evento. Por isso não vale mandar as três chaves vazias nas trocas de rota: nenhum parâmetro da entrada fica guardado para vazar no evento seguinte.
 
-**O que fazer no GA4.** Admin → Exibição de dados → Eventos → Modificar evento → Criar. O Google aplica as modificações no navegador, antes do envio. Elas valem para o `page_view` automático, levam cerca de uma hora para entrar e não mudam o passado. O limite é 50 modificações por propriedade; aqui são 17.
+**O que fazer no GA4.** Admin → Exibição de dados → Eventos → Modificar evento → Criar. O Google aplica as modificações no navegador, antes do envio. Elas valem para o `page_view` automático, levam cerca de uma hora para entrar e não mudam o passado. O limite é 50 modificações por propriedade; aqui são 15.
 
 Em cada linha da tabela, crie uma modificação:
 - condição 1: `event_name` é igual a `page_view`;
@@ -48,12 +48,10 @@ O valor que a regra põe é o mesmo que o site já manda nas trocas de rota (`co
 |---|---|---|---|---|
 | Entrada home | `^https://(www\.)?v2o5\.com\.br/?([?#].*)?$` | `home` | | |
 | Entrada Presença Digital Local | `^https://(www\.)?v2o5\.com\.br/presenca-digital-local/?([?#].*)?$` | `solucao` | `presenca` | |
-| Entrada Sprint de Eficiência | `^https://(www\.)?v2o5\.com\.br/sprint-de-eficiencia/?([?#].*)?$` | `solucao` | `sprint` | |
 | Entrada Criação de sites | `^https://(www\.)?v2o5\.com\.br/criacao-de-sites/?([?#].*)?$` | `solucao` | `sites` | |
-| Entrada Agente de IA | `^https://(www\.)?v2o5\.com\.br/agente-de-ia-para-whatsapp/?([?#].*)?$` | `solucao` | `agente` | |
+| Entrada Atendimento com IA | `^https://(www\.)?v2o5\.com\.br/agente-de-ia-para-whatsapp/?([?#].*)?$` | `solucao` | `atendimento` | |
 | Entrada Automação com IA | `^https://(www\.)?v2o5\.com\.br/automacao-com-ia/?([?#].*)?$` | `solucao` | `automacao` | |
 | Entrada CRM com WhatsApp | `^https://(www\.)?v2o5\.com\.br/crm-com-whatsapp/?([?#].*)?$` | `solucao` | `crm` | |
-| Entrada Rastreamento | `^https://(www\.)?v2o5\.com\.br/rastreamento-de-conversoes/?([?#].*)?$` | `solucao` | `rastreamento` | |
 | Entrada Revendas de veículos | `^https://(www\.)?v2o5\.com\.br/segmentos/revendas-de-veiculos/?([?#].*)?$` | `segmento` | | `revendas-de-veiculos` |
 | Entrada cases | `^https://(www\.)?v2o5\.com\.br/cases/[^/?#]+/?([?#].*)?$` | `case` | | |
 | Entrada Preços | `^https://(www\.)?v2o5\.com\.br/precos/?([?#].*)?$` | `precos` | | |
@@ -63,6 +61,8 @@ O valor que a regra põe é o mesmo que o site já manda nas trocas de rota (`co
 | Entrada Sobre | `^https://(www\.)?v2o5\.com\.br/sobre/?([?#].*)?$` | `sobre` | | |
 | Entrada Guias | `^https://(www\.)?v2o5\.com\.br/guias(/[^?#]*)?([?#].*)?$` | `guia` | | |
 | Entrada Privacidade | `^https://(www\.)?v2o5\.com\.br/privacidade/?([?#].*)?$` | `privacidade` | | |
+
+Desde 25/11/2026 (foco em pequenos negócios) a tabela tem 15 regras: saíram as do Sprint de Eficiência e do rastreamento, cujas rotas redirecionam, e a página do agente virou a do Atendimento com IA, com `service_line=atendimento`. Se as regras já estiverem criadas no GA4, troque o valor da regra do agente de `agente` para `atendimento` e apague as duas que saíram (sem isso elas só deixam de casar).
 
 A página de erro (`nao-encontrada`) fica sem regra: ela não tem endereço próprio, aparece no endereço que não existe. Endereço sem regra segue com "(not set)" na entrada.
 

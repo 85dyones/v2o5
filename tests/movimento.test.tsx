@@ -113,7 +113,7 @@ describe("entradas ao rolar: a rota e os blocos", () => {
 
 describe("case: o número parado", () => {
   it("o número do case é texto do servidor: nenhum contador sobrou no site", () => {
-    expect(ler("src/components/home/CaseMotors.tsx")).toMatch(/\{n\.valor\}/);
+    expect(ler("src/app/cases/motors-store/page.tsx")).toMatch(/\{n\.valor\}/);
     for (const arquivo of arquivos("src", /\.tsx$/)) {
       expect(semComentarios(ler(arquivo)), arquivo).not.toMatch(/NumeroQueConta/);
     }
@@ -191,30 +191,6 @@ describe("case da 16ª: a janela da triagem", () => {
     prepararJanela(false);
     const { tela } = await montar();
     expect(tela.querySelectorAll("ol.sr-only > li")).toHaveLength(mensagens.length);
-  });
-});
-
-describe("diagrama: a peça escolhida", () => {
-  async function clicarNoCrm() {
-    const { default: DiagramaInterativo } = await import("@/components/home/diagrama/DiagramaInterativo");
-    render(<DiagramaInterativo />);
-    await act(async () => {
-      fireEvent.click(screen.getByRole("button", { name: /^CRM/ }));
-      await vi.runAllTimersAsync();
-    });
-  }
-
-  it("o clique escolhe a peça e acende o caminho dela, sem nada correr sozinho", async () => {
-    for (const menos of [true, false]) {
-      prepararJanela(menos);
-      await clicarNoCrm();
-      expect(screen.getByRole("button", { name: /^CRM/ }).getAttribute("aria-pressed")).toBe("true");
-      expect(screen.getByRole("button", { name: /^Site/ }).hasAttribute("data-no-caminho")).toBe(false);
-      expect(screen.getByRole("button", { name: /^Agente de IA/ }).hasAttribute("data-no-caminho")).toBe(true);
-      expect(animate).not.toHaveBeenCalled();
-      expect(vi.getTimerCount()).toBe(0);
-      cleanup();
-    }
   });
 });
 

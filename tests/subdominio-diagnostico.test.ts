@@ -124,11 +124,11 @@ describe("raiz de diagnostico.v2o5.com.br", () => {
   });
 
   it("a seção 'Como começar' repete os preços de entrada e o escopo do diagnóstico do site, sem mapa nem 24 horas", () => {
-    const comeco = texto(raiz.getElementById("sprint"));
+    const comeco = texto(raiz.getElementById("como-comecar"));
     for (const o of OFERTAS) expect(comeco, o.nome).toContain(`${o.nome} a partir de ${BRL(precoDeEntrada(o))}`);
     expect(comeco).toContain(`a partir de ${mensalEmTexto(continuidadeAPartirDe())}`);
     expect(comeco).not.toMatch(/16\.900|ou mais/);
-    expect(texto(raiz)).not.toMatch(/24 horas|Catalisador de vendas|Sprint Integrada|R\$ 3\.000|R\$ 1\.200/);
+    expect(texto(raiz)).not.toMatch(/24 horas|Catalisador de vendas|Sprint|Rastreamento até a venda|R\$ 3\.000|R\$ 1\.200/);
   });
 
   it("a vitrine não publica os planos antigos nem valor fora da tabela de 27/10/2026", () => {
@@ -148,7 +148,7 @@ describe("raiz de diagnostico.v2o5.com.br", () => {
 
   it("os cartões de solução repetem a frase do site e levam a páginas que existem", () => {
     const t = texto(raiz);
-    for (const linha of ["sites", "rastreamento", "agente", "crm", "automacao"]) {
+    for (const linha of ["sites", "agente", "crm", "automacao", "posvenda"]) {
       const l = LINHAS.find((x) => x.linha === linha);
       expect(l, linha).toBeDefined();
       expect(t, linha).toContain(l!.frase);

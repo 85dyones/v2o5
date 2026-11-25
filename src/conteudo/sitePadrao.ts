@@ -31,7 +31,7 @@ export const SITE_PADRAO = {
     {
       titulo: "Origem de cada contato",
       texto:
-        "Cada botão de WhatsApp e cada formulário gravam a campanha, o anúncio e a página de entrada, com GA4, Pixel e API de Conversões prontos para ligar.",
+        "Cada botão de WhatsApp e cada formulário gravam de onde a pessoa veio (Google, Instagram, indicação) e a página de entrada, com o GA4 pronto para ligar.",
     },
     {
       titulo: "Contato que chega à equipe",

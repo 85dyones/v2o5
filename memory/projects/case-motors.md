@@ -54,3 +54,5 @@ Respostas humanas no Chatwoot deixaram de gerar `contato` no funil desde 23/09 (
 
 ## Referência de mídia
 Plano de mídia da Motors usa margem bruta média de R$ 7.000 por carro e conversão lead→venda de 6% (premissas, não medição).
+
+**25/11/2026, foco em pequenos negócios:** o site deixa de publicar os números de anúncio (129 de 131 com `event_id` e 96 de 131 com gclid ou fbclid), a seção "Como a venda fica rastreável" e o terminal de eventos. Os números seguem registrados aqui, com a leitura e o período; o case público fica com 237 leads, 113 de 131 ligados ao veículo, 26 guias, 148 veículos e os três números do Ney.

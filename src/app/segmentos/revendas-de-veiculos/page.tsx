@@ -21,9 +21,9 @@ const ROTA = HUB_AUTOMOTIVO.rota;
 export const metadata = metadataDa(ROTA);
 
 /** A etapa de cada peça do pacote, na ordem dele (rastreamento é atração, como na home). */
-const ETAPA_DA_PECA: Etapa[] = ["violeta", "verde", "azul", "violeta"];
+const ETAPA_DA_PECA: Etapa[] = ["violeta", "verde", "azul"];
 
-/** A etapa de cada modelo: Mapa é atração, Operação com IA é atendimento, Completo é gestão. */
+/** A etapa de cada caminho: o Site Conectado na cor de Sites, o Atendimento Integrado na do Atendimento com IA. */
 const ETAPA_DO_PLANO: Etapa[] = ["azul", "ambar"];
 
 /**
@@ -64,8 +64,8 @@ function Linha({ etapa, className = "", children }: { etapa: Etapa; className?: 
 
 /**
  * O hub do segmento automotivo na direção B (19/10): a rota começa no H1,
- * passa pelas quatro peças que um Sprint para revendas costuma juntar (cada
- * uma na cor da sua etapa) e pelos três pacotes com valor (25/10/2026); um
+ * passa pelas três peças que a V2O5 junta para revendas (cada uma na cor da
+ * sua etapa) e pelos dois caminhos com valor; um
  * bloco aponta para o case; as perguntas ligam com o fio fino e a rota
  * termina, em âmbar, no botão da chamada. Conteúdo em `conteudo/automotivo.ts`.
  */
@@ -144,7 +144,7 @@ export default function Pagina() {
           </div>
         </section>
 
-        {/* As quatro peças, cada uma na cor da sua etapa: do violeta da presença ao azul da gestão. */}
+        {/* As três peças, cada uma na cor da sua etapa: do violeta da presença ao azul da integração. */}
         <Trecho aria-labelledby="titulo-pacote" etapa="violeta">
           <Cabeca id="titulo-pacote" titulo={h.pacote.titulo} texto={h.pacote.texto} />
           <ul className="mt-titulo-conteudo border-t-2 border-texto">
@@ -168,7 +168,7 @@ export default function Pagina() {
           </ul>
         </Trecho>
 
-        {/* Os dois caminhos para revendas (27/10/2026), com os valores de `ofertas.ts` e `sprint.ts`: cada um na cor da sua etapa. */}
+        {/* Os dois caminhos para revendas (27/10/2026; Atendimento Integrado desde 25/11), com os valores de `ofertas.ts`: cada um na cor da sua etapa. */}
         <Trecho aria-labelledby="titulo-planos" etapa="verde">
           <Cabeca id="titulo-planos" titulo={h.planos.titulo} texto={h.planos.texto} />
           <ul className="mt-titulo-conteudo border-t-2 border-texto">
@@ -176,7 +176,7 @@ export default function Pagina() {
               <Linha key={p.id} etapa={ETAPA_DO_PLANO[i]}>
                 <div className="col-span-12 md:col-span-4">
                   <p className="rotulo" style={{ color: TEXTO_DA_ETAPA[ETAPA_DO_PLANO[i]] }}>
-                    {p.sprint}
+                    {p.solucao}
                   </p>
                   <h3 className="titulo-cartao mt-2">{p.nome}</h3>
                   <p className="mt-2 text-[0.9375rem] leading-relaxed text-texto-secundario">{p.para}</p>

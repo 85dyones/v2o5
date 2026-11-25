@@ -1,9 +1,9 @@
 /**
  * Formatação de preço e os nomes das capacidades. Desde 27/10/2026 os preços
- * moram em `ofertas.ts` (Presença, Sites e continuidade) e em `sprint.ts`
- * (Sprint). O cardápio de 15/10 (planos Presença, Atendimento e Completo,
- * tráfego, módulos e serviços) e o Branding de 27/10 saíram do código; o registro dele está
- * em `memory/context/oferta.md`, "Histórico".
+ * moram em `ofertas.ts` (as soluções e a continuidade). O cardápio de 15/10
+ * (planos Presença, Atendimento e Completo, tráfego, módulos e serviços), o
+ * Branding de 27/10 e o Sprint de Eficiência (saiu em 25/11) saíram do
+ * código; o registro está em `memory/context/oferta.md`, "Histórico".
  */
 
 /** "R$ 7.900"; com centavos só quando houver ("R$ 49,90"). */
@@ -33,13 +33,11 @@ export type Pilar = "mapa" | "operacao";
 
 /**
  * O nome de cada capacidade, das páginas de recurso e das soluções. Nenhuma
- * tem preço próprio: o preço é o do pacote da solução (`ofertas.ts`) ou do
- * Sprint em que a capacidade entra.
+ * tem preço próprio: o preço é o do pacote da solução em que a capacidade
+ * entra (`ofertas.ts`).
  */
 export const CAPACIDADES: Record<string, { nome: string }> = {
   sites: { nome: "Sites & Integrações" },
-  rastreamento: { nome: "Rastreamento até a venda" },
-  catalogo: { nome: "Catálogo de anúncios ligado ao estoque" },
   redes: { nome: "Conteúdo e redes sociais" },
   avaliacoes: { nome: "Avaliações no Google" },
   agente: { nome: "Agente de IA no WhatsApp" },
@@ -49,10 +47,8 @@ export const CAPACIDADES: Record<string, { nome: string }> = {
   posvenda: { nome: "Pós-venda e recorrência" },
   reativacao: { nome: "Reativação de base" },
   diagnostico: { nome: "Diagnóstico e análise de operação" },
-  consultoria: { nome: "Consultoria de processos" },
-  dados: { nome: "Indicadores e painéis" },
   presenca: { nome: "Presença Digital Local" },
-  sprint: { nome: "Sprint de Eficiência" },
+  atendimento: { nome: "Atendimento com IA" },
 };
 
 export function capacidade(id: string): { nome: string } {

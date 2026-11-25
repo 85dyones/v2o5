@@ -109,7 +109,7 @@ const reais = (n: number) => `${n.toLocaleString("pt-BR")} reais`;
 const ofertaDoPacote = (o: Oferta, p: Pacote): No => ({
   "@type": "Offer",
   name: p.nome,
-  description: `${p.para} ${p.preco.aPartirDe ? `A partir de ${reais(p.preco.valor)}` : `Preço de referência: ${reais(p.preco.valor)}`}${p.duracao ? `. Duração de referência: ${p.duracao}` : ""}. O valor fechado sai em proposta.`,
+  description: `${p.para} ${p.preco.aPartirDe ? `A partir de ${reais(p.preco.valor)}` : `Preço de referência: ${reais(p.preco.valor)}`}. O valor fechado sai em proposta.`,
   priceSpecification: {
     "@type": "PriceSpecification",
     ...(p.preco.aPartirDe ? { minPrice: p.preco.valor } : { price: p.preco.valor }),
@@ -144,7 +144,7 @@ const ofertaDoPlano = (p: PlanoDeContinuidade): No =>
 
 /**
  * O catálogo de `/precos` desde 27/10/2026: os pacotes das soluções
- * (`ofertas.ts` e `sprint.ts`) e os planos de continuidade, com os mesmos
+ * (`ofertas.ts`) e os planos de continuidade, com os mesmos
  * valores da página.
  */
 export function catalogo(): No {

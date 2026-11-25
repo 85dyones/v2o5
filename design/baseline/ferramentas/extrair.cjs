@@ -9,10 +9,10 @@ const SAIDA = process.argv[2];
 const BASE = process.env.BASE_URL || "https://www.v2o5.com.br";
 const ROTAS = [
   "/", "/agente-de-ia-para-whatsapp", "/automacao-com-ia", "/criacao-de-sites", "/crm-com-whatsapp",
-  "/rastreamento-de-conversoes", "/segmentos/revendas-de-veiculos", "/cases/motors-store",
+  "/segmentos/revendas-de-veiculos", "/cases/motors-store",
   "/cases/16-vara-civel",
   "/precos", "/sobre", "/diagnostico", "/diagnostico/recebido", "/guias", "/privacidade",
-  "/presenca-digital-local", "/sprint-de-eficiencia", "/continuidade",
+  "/presenca-digital-local", "/continuidade",
   "/esta-rota-nao-existe-baseline",
 ];
 

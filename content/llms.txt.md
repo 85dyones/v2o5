@@ -3,15 +3,15 @@ rota: "/llms.txt"
 url: "https://www.v2o5.com.br/llms.txt"
 status: 200
 content_type: "text/plain; charset=utf-8"
-extraido_em: "2026-11-17T17:12:45.537Z"
-fonte: "build local da branch claude/kind-tesla-eefroe em 17/11/2026 (case da 16ª Vara Cível com os números medidos), antes da publicação"
+extraido_em: "2026-11-25T15:38:59.225Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 25/11/2026 (foco em pequenos negócios), antes da publicação"
 ---
 
 <!-- Corpo de /llms.txt exatamente como servido (gerado por src/app/llms.txt/route.ts). -->
 
 # V2O5 Vendas e Tecnologia
 
-> V2O5 | Eficiência comercial e operacional com tecnologia. A V2O5 ajuda empresas a melhorar a presença digital e a operação, ligando processos e tecnologia ao que o negócio precisa de verdade.
+> V2O5 | Digitalização para pequenos negócios. A V2O5 deixa o seu negócio fácil de achar no Google e organiza o WhatsApp para nenhum cliente ficar sem resposta.
 
 V2O5 Tecnologia da Informação Ltda., CNPJ 68.490.470/0001-14. Atende empresas em todo o Brasil.
 
@@ -21,10 +21,9 @@ Fundador: Dyones Oliveira. Formado em Administração pela FAE Business School, 
 A V2O5 vende três soluções, cada uma com pacotes de escopo claro, e a continuidade, opcional. São preços de referência para começar a conversa. O valor fechado sai em proposta e vale para um escopo conhecido. Cada pacote diz o que inclui e o que fica de fora. Nenhum tem escopo ilimitado. Custos de terceiros, como domínio, licenças, APIs, mídia paga, IA e mensagens, ficam por fora e aparecem discriminados na proposta. Nenhuma solução obriga a comprar outra, e a continuidade é opcional. Aumento de vendas não é prometido. O que se mede é combinado antes de começar, com uma linha de base. O diagnóstico inicial, de 45 minutos, é gratuito e serve para escolher a solução que cabe no problema.
 
 ### [Presença Digital Local](https://www.v2o5.com.br/presenca-digital-local)
-Quando o cliente procura e encontra informação errada, perfil parado ou nenhum jeito fácil de chamar. Perfil no Google, redes e WhatsApp organizados, com modelos de conteúdo e, se quiser, a rotina mensal.
+Quando o cliente procura e encontra informação errada, perfil parado ou nenhum jeito fácil de chamar. Perfil no Google, redes e WhatsApp organizados, com pedido de avaliação, modelos de conteúdo e, se quiser, a rotina mensal.
 - Presença Essencial: R$ 790; mensalidade opcional de R$ 390/mês (Suporte e até quatro pequenas atualizações por mês nos canais: horário, contato, foto ou informação.). Para o negócio local que precisa ser encontrado com as informações certas.
 - Presença Estruturada: R$ 1.490; mensalidade opcional de R$ 490/mês (Kit mensal com quatro peças de conteúdo e uma campanha, prontas para publicar.). Para quem quer usar os canais para vender, com calendário e campanhas.
-- Presença Assistida: R$ 1.990; mensalidade opcional de R$ 890/mês (Operação assistida: calendário do mês, oito peças de referência, programação nas redes e uma campanha. O volume final sai na proposta.). Para quem quer a rotina de conteúdo feita junto, com programação e acompanhamento.
 Fora dos pacotes: Verba de anúncios; Gravação presencial de fotos e vídeos; Resposta a comentários e mensagens; Ferramentas pagas e serviços externos sem contratação específica; Publicações ilimitadas.
 
 ### [Sites & Integrações](https://www.v2o5.com.br/criacao-de-sites)
@@ -34,14 +33,11 @@ Quando a empresa depende de perfil de terceiros, ou o site não conversa com o s
 - Site Conectado: a partir de R$ 9.900. Para quem precisa do site ligado ao sistema que já usa.
 Fora dos pacotes: Domínio, e-mail, APIs pagas e licenças de terceiros; Mídia paga; Loja virtual com pagamento; Fotos e vídeos; Integrações novas depois da entrega.
 
-### [Sprint de Eficiência](https://www.v2o5.com.br/sprint-de-eficiencia)
-Quando um processo trava a operação: retrabalho, contato perdido, sistemas que não conversam. Um gargalo resolvido, com a solução implantada e os indicadores comparados antes e depois.
-- Sprint Essencial: R$ 3.900; duração de referência 1 a 2 semanas. Um problema específico, resolvido por uma intervenção pequena.
-- Sprint Integrado: R$ 6.900; duração de referência 2 a 4 semanas. Um gargalo que pede mudanças ligadas em processo, tecnologia e operação.
-- Sprint Avançado: a partir de R$ 12.900; duração de referência 4 a 8 semanas ou mais. Vários sistemas, regras de negócio, migrações ou maior risco técnico.
-Fora dos pacotes: Desenvolvimento ilimitado; Novos gargalos, integrações ou produtos fora da proposta; Garantia de resultado comercial; Custos de terceiros: APIs, infraestrutura, licenças e mídia, discriminados na proposta.
-
-Método do Sprint: 1. Mapear o processo real; 2. Simplificar antes de automatizar; 3. Escolher a intervenção proporcional; 4. Implementar a solução acordada; 5. Comparar antes e depois; 6. Registrar e decidir o próximo passo. Pagamento do Sprint: Em projetos, 50% na contratação, 30% na validação intermediária e 20% no aceite final. Em Sprints pequenos, 50% na contratação e 50% na entrega.
+### [Atendimento com IA](https://www.v2o5.com.br/agente-de-ia-para-whatsapp)
+Quando o cliente chama no WhatsApp e espera, se perde entre as conversas ou some sem que ninguém retome. WhatsApp organizado e um agente de IA que responde e qualifica, com cada contato passado à pessoa certa ou ao sistema que você já usa.
+- Atendimento Essencial: a partir de R$ 3.900. Para o negócio que atende pelo WhatsApp e perde cliente na demora ou na confusão das conversas.
+- Atendimento Integrado: a partir de R$ 6.900. Para quem precisa qualificar cada contato e levá-lo ao sistema que já usa.
+Fora dos pacotes: Consumo de IA e mensagens do WhatsApp, pelo valor do provedor; Resposta da equipe: o agente passa a conversa, e a sua equipe atende; Respostas sobre o que a empresa não aprovou; Mensagem em massa para quem não consentiu; Integrações novas depois da entrega.
 
 ### [Continuidade](https://www.v2o5.com.br/continuidade)
 A implantação termina na entrega. Se o que foi entregue continua rodando, a continuidade cuida dele, com limites que cabem no contrato. Nenhum plano é obrigatório: a necessidade e o escopo decidem.
@@ -56,33 +52,28 @@ A implantação termina na entrega. Se o que foi entregue continua rodando, a co
 - Saída: Com aviso prévio, a V2O5 entrega o código, os dados e os acessos nos termos do contrato.
 
 ## Recursos que um projeto pode usar
-Automação, IA, dados, painéis e integrações entram como recursos de uma solução, quase sempre de um Sprint, sem preço próprio.
+CRM, automação e integrações entram como recursos de uma solução, quase sempre do Atendimento com IA, sem preço próprio.
 
-### Responder rápido e organizar a operação
-- [Agente de IA no WhatsApp](https://www.v2o5.com.br/agente-de-ia-para-whatsapp): Responde na hora, a qualquer hora, com as informações do seu negócio. Quando a conversa pede uma pessoa, chama alguém da equipe.
-- [Diagnóstico e análise de operação](https://www.v2o5.com.br/diagnostico): Onde o contato se perde, quanto tempo cada etapa leva e o que pesa na rotina. O diagnóstico de presença e a análise do fluxo viram o mapa que decide o escopo do Sprint.
-- [Consultoria de processos](https://www.v2o5.com.br/diagnostico): Desenho do fluxo, regras de passagem entre equipes e rotina de acompanhamento, com o que a equipe já usa antes de comprar qualquer ferramenta.
-- [CRM e sistemas sob medida](https://www.v2o5.com.br/crm-com-whatsapp): Nenhum contato esquecido numa conversa: cada um num funil, com a origem, a etapa e o próximo passo à vista.
-- [Indicadores e painéis](https://www.v2o5.com.br/diagnostico): Funil, tempo de resposta, custo por contato e vendas por origem numa tela só, atualizada a partir do CRM, do rastreamento e das contas de anúncio.
-- [Automação de processos](https://www.v2o5.com.br/automacao-com-ia): A tarefa que alguém faz à mão toda semana passa a rodar sozinha entre os sistemas que você já usa.
-- [Integrações entre sistemas](https://www.v2o5.com.br/automacao-com-ia): Site, CRM, ERP e os sistemas do seu setor trocando dados sozinhos. Em produção hoje: o estoque do Revenda Mais.
-- [Pós-venda e recorrência](https://www.v2o5.com.br/diagnostico): Revisão, troca, seguro ou recompra: a régua de retorno manda a mensagem na data certa e devolve o cliente ao funil.
-
-### De que adianta trazer mais gente se a operação não está pronta?
-- [Perfil da Empresa no Google](https://www.v2o5.com.br/criacao-de-sites): Quem busca perto de casa vê o Maps antes do site. O antigo Google Meu Negócio, completo e verificado, com a empresa aparecendo na sua região.
+### Ser encontrado por quem procura perto
+- [Perfil da Empresa no Google](https://www.v2o5.com.br/presenca-digital-local): Quem busca perto de casa vê o Maps antes do site. O antigo Google Meu Negócio, completo e verificado, com a empresa aparecendo na sua região.
 - [SEO e busca por IA](https://www.v2o5.com.br/criacao-de-sites): Para ranquear no Google e ser citado nas respostas das IAs: SEO técnico, conteúdo e dados estruturados no site.
 - [Sites & Integrações](https://www.v2o5.com.br/criacao-de-sites): Site próprio, rápido no celular e achado no Google, que grava de onde veio cada contato e se liga ao sistema que você já usa.
-- [Rastreamento até a venda](https://www.v2o5.com.br/rastreamento-de-conversoes): Cada venda com a origem: qual anúncio, qual busca, qual página. Sem isso, a verba vai para onde parece funcionar.
-- [Catálogo de anúncios ligado ao estoque](https://www.v2o5.com.br/diagnostico): O estoque ou os produtos viram catálogo no Google (anúncios de veículos e Shopping) e na Meta, e saem quando o item é vendido. A V2O5 faz a integração, e a campanha fica com você ou com a sua agência.
 - [Conteúdo e redes sociais](https://www.v2o5.com.br/presenca-digital-local): Perfis organizados, modelos com a identidade da empresa e, se quiser, a rotina mensal de conteúdo e campanhas, na Presença Digital Local.
 - [Avaliações no Google](https://www.v2o5.com.br/diagnostico): Depois da venda, o cliente recebe no WhatsApp o pedido de avaliação com o link certo, e o painel mostra quem respondeu.
 
+### Responder rápido e não perder ninguém
+- [Agente de IA no WhatsApp](https://www.v2o5.com.br/agente-de-ia-para-whatsapp): Responde na hora, a qualquer hora, com as informações do seu negócio. Quando a conversa pede uma pessoa, chama alguém da equipe.
+- [Diagnóstico e análise de operação](https://www.v2o5.com.br/diagnostico): Como o cliente acha a empresa hoje, quanto espera pela resposta e onde desiste. O diagnóstico de presença vira o mapa que decide por onde começar.
+- [CRM e sistemas sob medida](https://www.v2o5.com.br/crm-com-whatsapp): Nenhum contato esquecido numa conversa: cada um num funil, com a origem, a etapa e o próximo passo à vista.
+- [Automação de processos](https://www.v2o5.com.br/automacao-com-ia): A tarefa que alguém faz à mão toda semana passa a rodar sozinha entre os sistemas que você já usa.
+- [Integrações entre sistemas](https://www.v2o5.com.br/automacao-com-ia): Site, CRM, agenda e os sistemas do seu setor trocando dados sozinhos. Em produção hoje: o estoque do Revenda Mais.
+- [Pós-venda e recorrência](https://www.v2o5.com.br/diagnostico): Revisão, recompra ou retorno: a régua manda a mensagem na data certa e traz o cliente de volta.
+
 ## Exemplo por segmento: revendas de veículos
-- [Para revendas de veículos](https://www.v2o5.com.br/segmentos/revendas-de-veiculos): As mesmas soluções aplicadas a revendas, a partir do que roda na Motors Store: site ligado ao estoque do sistema da loja (Revenda Mais, Autoconf e outros), agente de IA no WhatsApp, CRM e rastreamento até a venda.
+- [Para revendas de veículos](https://www.v2o5.com.br/segmentos/revendas-de-veiculos): As mesmas soluções aplicadas a revendas, a partir do que roda na Motors Store: site ligado ao estoque do sistema da loja (Revenda Mais, Autoconf e outros), atendimento e qualificação com IA no WhatsApp e o lead entregue ao CRM da loja.
 
 ## Case Motors Store
 Revenda de seminovos em Curitiba. Banco de dados da Motors Store, lido em 17/11/2026. Leads contados de 05/09 a 17/11/2026. [Case completo](https://www.v2o5.com.br/cases/motors-store).
-- 129 de 131 leads do site chegaram com identificador para não contar a mesma conversão duas vezes.
 - 26 guias publicados, assinados pelo fundador da V2O5.
 - 148 veículos sincronizados com o estoque do Revenda Mais.
 

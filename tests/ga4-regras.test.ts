@@ -52,8 +52,8 @@ function enderecos(rota: string): string[] {
 }
 
 describe("regras de Modificar evento do GA4 (página de entrada)", () => {
-  it("são 17, dentro do limite de 50 do GA4, com nomes únicos", () => {
-    expect(regras).toHaveLength(17);
+  it("são 15, dentro do limite de 50 do GA4, com nomes únicos (25/11/2026: sem Sprint e sem rastreamento)", () => {
+    expect(regras).toHaveLength(15);
     expect(new Set(regras.map((r) => r.nome)).size).toBe(regras.length);
   });
 
