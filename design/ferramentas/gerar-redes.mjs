@@ -35,8 +35,8 @@ const grade = (w, h, passo, inicio = 0) => {
   return `<svg class="abs" style="left:0;top:0" width="${w}" height="${h}">${l}</svg>`;
 };
 
-/** Faixa das soluções, uma célula por solução, com fio no topo na cor da etapa (a tira de soluções do site; três desde 12/11/2026). */
-const CELULAS = [["Presença", COR.verde], ["Sites", COR.azul], ["Sprint", COR.ambar]];
+/** Faixa das soluções, uma célula por solução, com fio no topo na cor da etapa (a tira de soluções do site; desde 25/11/2026, Presença, Sites e Atendimento com IA). */
+const CELULAS = [["Presença", COR.verde], ["Sites", COR.azul], ["Atendimento", COR.ambar]];
 const faixa = (x, y, larg, alt, fonte_) => {
   const c = larg / CELULAS.length;
   return CELULAS.map(([t, cor], i) => `<div class="abs" style="left:${x + i * c}px;top:${y}px;width:${c}px;height:${alt}px;border:1px solid ${COR.regua};${i ? "border-left:none;" : ""}background:${COR.cartao}">
@@ -64,8 +64,8 @@ PEÇAS.push({ arquivo: "avatar-1080.png", w: 1080, h: 1080, html: `<div class="b
 PEÇAS.push({ arquivo: "linkedin-banner-empresa-1128x191.png", w: 1128, h: 191, escala: 2, html: base(1128, 191, `
   ${grade(1128, 191, 96, 48)}
   <div class="abs" style="left:0;bottom:0;width:100%;height:3px;background:${COR.tinta}"></div>
-  <div class="abs rot" style="left:296px;top:22px;font-size:11px">Estratégia, processos e tecnologia</div>
-  <div class="abs h" style="left:296px;top:44px;font-size:36px">Do problema ao resultado,<br>pelo caminho mais simples.</div>
+  <div class="abs rot" style="left:296px;top:22px;font-size:11px">Digitalização para pequenos negócios</div>
+  <div class="abs h" style="left:296px;top:44px;font-size:36px">Coloque seu negócio no mapa<br>e cuide de cada cliente que chega.</div>
   ${faixa(296, 132, 440, 40, 10)}
   <div class="abs rot" style="right:48px;top:22px;font-size:11px;text-align:right">Diagnóstico gratuito · on-line · Brasil todo</div>
   ${botao(792, 126, 46, "www.v2o5.com.br", 15)}`) });
@@ -75,7 +75,7 @@ PEÇAS.push({ arquivo: "linkedin-banner-pessoal-1584x396.png", w: 1584, h: 396, 
   ${grade(1584, 396, 132, 66)}
   <div class="abs" style="left:0;bottom:0;width:100%;height:4px;background:${COR.tinta}"></div>
   <div class="abs rot" style="left:560px;top:52px;font-size:15px">Dyones Oliveira · Fundador</div>
-  <div class="abs h" style="left:560px;top:90px;font-size:68px">Do problema ao resultado,<br>pelo caminho mais simples.</div>
+  <div class="abs h" style="left:560px;top:90px;font-size:56px">Coloque seu negócio no mapa<br>e cuide de cada cliente que chega.</div>
   ${faixa(560, 266, 600, 64, 14)}
   ${botao(1212, 258, 80, "www.v2o5.com.br", 20)}`) });
 
@@ -83,8 +83,8 @@ PEÇAS.push({ arquivo: "linkedin-banner-pessoal-1584x396.png", w: 1584, h: 396, 
 PEÇAS.push({ arquivo: "facebook-capa-1640x624.png", w: 820, h: 312, escala: 2, html: base(820, 312, `
   ${grade(820, 312, 82, 41)}
   <div class="abs" style="left:0;bottom:0;width:100%;height:3px;background:${COR.tinta}"></div>
-  <div class="abs rot" style="left:215px;top:36px;font-size:10px">Estratégia, processos e tecnologia</div>
-  <div class="abs h" style="left:215px;top:58px;font-size:41px">Do problema ao resultado,<br>pelo caminho mais simples.</div>
+  <div class="abs rot" style="left:215px;top:36px;font-size:10px">Digitalização para pequenos negócios</div>
+  <div class="abs h" style="left:215px;top:58px;font-size:34px">Coloque seu negócio no mapa<br>e cuide de cada cliente<br>que chega.</div>
   ${faixa(215, 186, 360, 38, 9)}
   ${botao(215, 242, 38, "www.v2o5.com.br", 13)}
   <div class="abs rot" style="left:445px;top:254px;font-size:10px">Diagnóstico gratuito · on-line</div>`) });
@@ -95,8 +95,8 @@ PEÇAS.push({ arquivo: "google-capa-1024x576.png", w: 1024, h: 576, escala: 2, h
   ${grade(1024, 576, 96, 64)}
   <div class="abs" style="left:0;bottom:0;width:100%;height:4px;background:${COR.tinta}"></div>
   ${margem(64, 88, 400, 8)}
-  <div class="abs rot" style="left:128px;top:76px;font-size:15px">Estratégia, processos e tecnologia</div>
-  <div class="abs h" style="left:128px;top:112px;font-size:70px">Do problema ao<br>resultado, pelo<br>caminho mais simples.</div>
+  <div class="abs rot" style="left:128px;top:76px;font-size:15px">Digitalização para pequenos negócios</div>
+  <div class="abs h" style="left:128px;top:112px;font-size:70px">Coloque seu negócio<br>no mapa e cuide de<br>cada cliente que chega.</div>
   ${faixa(128, 396, 600, 62, 13)}
   ${botao(128, 484, 56, "www.v2o5.com.br", 18)}
   <div class="abs rot" style="left:440px;top:502px;font-size:14px">Diagnóstico gratuito · on-line · Brasil todo</div>`) });
@@ -138,7 +138,7 @@ PEÇAS.push({ arquivo: "instagram-modelo-story-1080x1920.png", w: 1080, h: 1920,
   ${marcaPe(150, 1500)}`) });
 
 
-// LinkedIn, Service Page: cartões de exemplo (1200 x 627) com os pacotes e preços de referência de `src/conteudo/ofertas.ts` e `sprint.ts`.
+// LinkedIn, Service Page: cartões de exemplo (1200 x 627) com os pacotes e preços de referência de `src/conteudo/ofertas.ts`.
 const dataUri = (arq, mime) => `data:${mime};base64,${readFileSync(join(raiz, "src", "assets", "motors", arq)).toString("base64")}`;
 const cartao = ({ arquivo, etiqueta, cor, titulo, linhas, rodape, lateral = "" }) => PEÇAS.push({ arquivo, w: 1200, h: 627, escala: 1, html: base(1200, 627, `
   ${grade(1200, 627, 100, 50)}
@@ -152,29 +152,29 @@ const cartao = ({ arquivo, etiqueta, cor, titulo, linhas, rodape, lateral = "" }
   <div class="abs rot" style="left:64px;bottom:34px;font-size:15px">${rodape}</div>
   <div class="abs" style="right:64px;bottom:26px;font-weight:700;font-size:20px">www.v2o5.com.br</div>`) });
 
-cartao({ arquivo: "linkedin-servico-sprint-1200x627.png", etiqueta: "Sprint de Eficiência", cor: COR.ambar, titulo: "Um gargalo resolvido, com antes e depois medidos.",
-  linhas: [["Sprint Essencial", "1 a 2 semanas · um gargalo delimitado", "R$ 3.900"], ["Sprint Integrado", "2 a 4 semanas · um fluxo entre sistemas", "R$ 6.900"], ["Sprint Avançado", "Escopo sob medida, em proposta", "a partir de R$ 12.900"]],
-  rodape: "Preços de referência. O valor fechado sai em proposta." });
+cartao({ arquivo: "linkedin-servico-atendimento-1200x627.png", etiqueta: "Atendimento com IA", cor: COR.ambar, titulo: "WhatsApp organizado e um agente que responde e qualifica.",
+  linhas: [["Atendimento Essencial", "Caixa organizada e agente de IA", "a partir de R$ 3.900"], ["Atendimento Integrado", "Qualifica e leva ao seu sistema", "a partir de R$ 6.900"]],
+  rodape: "IA e mensagens pelo valor do provedor. O valor fechado sai em proposta." });
 cartao({ arquivo: "linkedin-servico-sites-1200x627.png", etiqueta: "Sites & Integrações", cor: COR.azul, titulo: "Site próprio, rápido e ligado ao seu sistema.",
   linhas: [["Landing Page", "Uma oferta, uma página", "R$ 2.900"], ["Site Personalizado", "Estrutura comercial", "R$ 5.900"], ["Site Conectado", "CRM ou estoque", "a partir de R$ 9.900"]],
   rodape: "Case: Motors Store · capturas de 26/10/2026",
   lateral: `<div class="abs" style="right:64px;top:44px;display:flex;gap:18px"><img src="${dataUri("vitrine.webp", "image/webp")}" style="width:190px;height:411px;object-fit:cover;object-position:top;border:2px solid ${COR.tinta}"><img src="${dataUri("veiculo.webp", "image/webp")}" style="width:190px;height:411px;object-fit:cover;object-position:top;border:2px solid ${COR.tinta};margin-top:56px"></div>` });
 cartao({ arquivo: "linkedin-servico-presenca-1200x627.png", etiqueta: "Presença Digital Local", cor: COR.verde, titulo: "Ser encontrado com a informação certa.",
-  linhas: [["Presença Essencial", "Mensalidade opcional de R$ 390", "R$ 790"], ["Presença Estruturada", "Mensalidade opcional de R$ 490", "R$ 1.490"], ["Presença Assistida", "Mensalidade opcional de R$ 890", "R$ 1.990"]],
-  rodape: "Perfil no Google, redes e WhatsApp organizados" });
+  linhas: [["Presença Essencial", "Mensalidade opcional de R$ 390", "R$ 790"], ["Presença Estruturada", "Mensalidade opcional de R$ 490", "R$ 1.490"]],
+  rodape: "Perfil no Google, redes, WhatsApp e pedido de avaliação" });
 cartao({ arquivo: "linkedin-servico-continuidade-1200x627.png", etiqueta: "Continuidade", cor: COR.grafite, titulo: "Manter e evoluir o que foi entregue, com limites escritos.",
   linhas: [["Cuidado Técnico", "Hospedagem, backup e suporte", "R$ 349/mês"], ["Integrações Monitoradas", "Monitora e corrige as integrações", "R$ 590/mês"], ["Evolução Contínua", "Melhorias mensais priorizadas", "R$ 990/mês"]],
   rodape: "Opcional. Nenhuma solução obriga a comprar outra." });
 const passos = [["1", "Responde na hora", COR.violeta], ["2", "Qualifica", COR.verde], ["3", "Agenda", COR.azul], ["4", "Chama a equipe", COR.ambar]];
 PEÇAS.push({ arquivo: "linkedin-servico-agente-whatsapp-1200x627.png", w: 1200, h: 627, html: base(1200, 627, `
   ${grade(1200, 627, 100, 50)}
-  <div class="abs" style="left:0;top:0;width:12px;height:100%;background:${COR.verde}"></div>
+  <div class="abs" style="left:0;top:0;width:12px;height:100%;background:${COR.ambar}"></div>
   <div class="abs" style="left:0;bottom:0;width:100%;height:4px;background:${COR.tinta}"></div>
   <div class="bloco abs" style="width:56px;height:56px;left:64px;top:44px">${bloco}</div>
-  <div class="abs rot" style="left:138px;top:62px;font-size:16px">Agente de IA para WhatsApp</div>
+  <div class="abs rot" style="left:138px;top:62px;font-size:16px">Atendimento com IA · agente para WhatsApp</div>
   <div class="abs h" style="left:64px;top:128px;width:1000px;font-size:62px">Um agente que atende com o que a empresa sabe.</div>
   ${passos.map(([n, t, c], i) => `<div class="abs" style="left:${64 + i * 275}px;top:330px;width:255px;height:130px;border:1px solid ${COR.regua};background:${COR.cartao}"><div class="abs" style="left:20px;top:-1px;width:44px;height:5px;background:${c}"></div><div class="abs rot" style="left:20px;top:26px;font-size:14px">Passo ${n}</div><div class="abs" style="left:20px;top:64px;font-weight:600;font-size:26px;letter-spacing:-0.02em">${t}</div></div>`).join("")}
-  <div class="abs rot" style="left:64px;bottom:34px;font-size:15px">Entra num Sprint de Eficiência</div>
+  <div class="abs rot" style="left:64px;bottom:34px;font-size:15px">Responde só com o que a empresa aprovou</div>
   <div class="abs" style="right:64px;bottom:26px;font-weight:700;font-size:20px">www.v2o5.com.br</div>`) });
 
 const nav = await chromium.launch();

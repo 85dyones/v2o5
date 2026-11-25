@@ -1,16 +1,16 @@
-# LinkedIn: Service Page da V2O5 (31/10/2026; revisada em 12/11/2026)
+# LinkedIn: Service Page da V2O5 (31/10/2026; revisada em 12/11 e em 25/11/2026)
 
-A Service Page lista o que a empresa vende, com descrição e exemplos de trabalho. Todo preço vem de `src/conteudo/ofertas.ts` e `sprint.ts` (travado por `tests/precos-publicos.test.ts`) e é "preço de referência", como no site. Desde 12/11/2026 não há Branding nem tráfego pago (saíram do portfólio), e o serviço do agente se chama "Agente de IA para WhatsApp" ("chatbot" ficou só no título da página do site, para a busca). Antes de colar, confira no LinkedIn o limite de caracteres de cada campo e escolha, na lista do LinkedIn, a categoria mais próxima de cada serviço.
+A Service Page lista o que a empresa vende, com descrição e exemplos de trabalho. Todo preço vem de `src/conteudo/ofertas.ts` (travado por `tests/precos-publicos.test.ts`) e é "preço de referência", como no site. Desde 12/11/2026 não há Branding nem tráfego pago; desde 25/11/2026 a V2O5 digitaliza pequenos negócios (`docs/2026-11-25-foco-pequenos-negocios.md`): sai o Sprint de Eficiência, sai a Presença Assistida, e o agente de IA vira a solução "Atendimento com IA" ("chatbot" fica só no título da página do site, para a busca). Antes de colar, confira no LinkedIn o limite de caracteres de cada campo e escolha, na lista do LinkedIn, a categoria mais próxima de cada serviço.
 
 Imagens de exemplo (1200 x 627) em `design/marca/redes/`, uma por serviço. As capturas da Motors Store são de 26/10/2026, com a autorização do case.
 
-## Serviços, na ordem sugerida
+## Serviços, na ordem sugerida (a do site: colocar no mapa, ter o site, cuidar de quem chega)
 
-### 1. Sprint de Eficiência
-- **Categoria sugerida:** consultoria de processos / gestão de operações
-- **Descrição:** Quando um processo trava a operação (retrabalho, contato perdido, sistemas que não conversam), o Sprint resolve um gargalo por vez. A V2O5 faz o diagnóstico, implanta a solução e compara os indicadores antes e depois. Três níveis: Essencial (1 a 2 semanas, um gargalo delimitado, R$ 3.900), Integrado (2 a 4 semanas, um fluxo entre sistemas, R$ 6.900) e Avançado (escopo sob medida, a partir de R$ 12.900). Preços de referência; o valor fechado sai em proposta.
-- **Link:** https://www.v2o5.com.br/sprint-de-eficiencia
-- **Exemplo:** `linkedin-servico-sprint-1200x627.png`
+### 1. Presença Digital Local
+- **Categoria sugerida:** marketing digital
+- **Descrição:** Para o negócio que o cliente procura e encontra informação errada, perfil parado ou nenhum jeito fácil de chamar. Organizamos o perfil no Google, as redes e o WhatsApp, com link e mensagem prontos para pedir avaliação a quem comprou e, se quiser, a rotina mensal. Presença Essencial (R$ 790; mensalidade opcional de R$ 390) e Presença Estruturada (R$ 1.490; mensalidade opcional de R$ 490).
+- **Link:** https://www.v2o5.com.br/presenca-digital-local
+- **Exemplo:** `linkedin-servico-presenca-1200x627.png`
 
 ### 2. Sites & Integrações
 - **Categoria sugerida:** desenvolvimento web
@@ -18,27 +18,25 @@ Imagens de exemplo (1200 x 627) em `design/marca/redes/`, uma por serviço. As c
 - **Link:** https://www.v2o5.com.br/criacao-de-sites
 - **Exemplo:** `linkedin-servico-sites-1200x627.png` (capturas da Motors Store)
 
-### 3. Agente de IA para WhatsApp
-- **Categoria sugerida:** automação / atendimento ao cliente
-- **Descrição:** Um agente de IA no WhatsApp que responde na hora com as informações do negócio, qualifica o contato, agenda e chama a equipe quando a conversa pede uma pessoa. Na Motors Store, o agente responde 93 de 100 primeiras mensagens em até um minuto, com mediana de 38 segundos (21/10 a 17/11/2026). Entra num Sprint de Eficiência, com escopo e preço fechados em proposta.
+### 3. Atendimento com IA
+- **Categoria sugerida:** atendimento ao cliente / automação
+- **Descrição:** Para o negócio que atende pelo WhatsApp e perde cliente na demora ou na confusão das conversas. Organizamos o WhatsApp numa caixa de atendimento e colocamos um agente de IA que responde só com o que a empresa aprovou, qualifica o contato e passa a conversa para a pessoa certa da equipe. Na Motors Store, o agente responde 93 de 100 primeiras mensagens em até um minuto, com mediana de 38 segundos (21/10 a 17/11/2026). Atendimento Essencial a partir de R$ 3.900 e Atendimento Integrado, ligado ao sistema que a empresa já usa, a partir de R$ 6.900. IA e mensagens ficam pelo valor do provedor.
 - **Link:** https://www.v2o5.com.br/agente-de-ia-para-whatsapp
-- **Exemplo:** `linkedin-servico-agente-whatsapp-1200x627.png`
+- **Exemplos:** `linkedin-servico-atendimento-1200x627.png` (pacotes) e `linkedin-servico-agente-whatsapp-1200x627.png` (os quatro passos do agente)
 
-### 4. Presença Digital Local
-- **Categoria sugerida:** marketing digital
-- **Descrição:** Para quem o cliente procura e encontra informação errada, perfil parado ou nenhum jeito fácil de chamar. Organizamos o perfil no Google, as redes e o WhatsApp, com modelos de conteúdo e, se quiser, a rotina mensal. Presença Essencial (R$ 790; mensalidade opcional de R$ 390), Estruturada (R$ 1.490; R$ 490/mês) e Assistida (R$ 1.990; R$ 890/mês).
-- **Link:** https://www.v2o5.com.br/presenca-digital-local
-- **Exemplo:** `linkedin-servico-presenca-1200x627.png`
-
-### 5. Continuidade (opcional)
+### 4. Continuidade (opcional)
 - **Categoria sugerida:** suporte e manutenção de TI
 - **Descrição:** Depois da entrega, planos opcionais para manter e evoluir o que foi entregue, com limites escritos: Cuidado Técnico (R$ 349/mês), Integrações Monitoradas (R$ 590/mês) e Evolução Contínua (R$ 990/mês). Nenhuma solução obriga a contratar outra.
 - **Link:** https://www.v2o5.com.br/continuidade
 - **Exemplo:** `linkedin-servico-continuidade-1200x627.png`
 
+### Se a página já tem os serviços de 12/11
+
+Apague o "Sprint de Eficiência" e a imagem dele, troque o serviço "Agente de IA para WhatsApp" pelo "Atendimento com IA" acima e tire a Presença Assistida da descrição da Presença.
+
 ## Cuidados
 
 - **Nenhum resultado prometido.** A Service Page não diz "aumente suas vendas": o que se mede é combinado antes, com linha de base (regra do site).
-- **Case Motors:** só os números de `memory/projects/case-motors.md`, com período. Esta página usa um só, o do Ney no serviço 3 (aprovado pelo Dyones em 17/11); se o case for relido, o número e o período mudam juntos.
+- **Case Motors:** só os números de `memory/projects/case-motors.md`, com período. Esta página usa um só, o do Ney no Atendimento com IA (aprovado pelo Dyones em 17/11); se o case for relido, o número e o período mudam juntos.
 - **Avaliações e recomendações:** LinkedIn permite pedir a clientes; só de clientes reais e autorizados.
 - **Atualização:** se um preço mudar em `ofertas.ts`, regere os cartões (`node design/ferramentas/gerar-redes.mjs`) e troque a descrição aqui.

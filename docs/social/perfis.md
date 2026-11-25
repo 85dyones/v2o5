@@ -1,12 +1,12 @@
-# Alinhamento dos perfis da V2O5 (31/10/2026)
+# Alinhamento dos perfis da V2O5 (31/10/2026; revisado em 25/11/2026)
 
-Posicionamento único, para repetir em todo lugar: **"V2O5 | Eficiência comercial e operacional com tecnologia."** Consultoria on-line, atendimento em todo o Brasil (decisão do Dyones, 31/10), diagnóstico gratuito de 45 minutos. Nome fixo: **V2O5 Vendas e Tecnologia**. Site: `https://www.v2o5.com.br`. Sem endereço de rua em nenhum perfil. Nada de "Curitiba e região" nos textos; Curitiba aparece só onde a plataforma exige um local.
+Posicionamento único, para repetir em todo lugar: **"V2O5 | Digitalização para pequenos negócios."** (desde 25/11/2026, `docs/2026-11-25-foco-pequenos-negocios.md`; antes, "Eficiência comercial e operacional com tecnologia"). Título da home, que os banners repetem: "Coloque seu negócio no mapa e cuide de cada cliente que chega." Público: o negócio local que vende pelo WhatsApp e vive de recompra. Consultoria on-line, atendimento em todo o Brasil (decisão do Dyones, 31/10), diagnóstico gratuito de 45 minutos. Nome fixo: **V2O5 Vendas e Tecnologia**. Site: `https://www.v2o5.com.br`. Sem endereço de rua em nenhum perfil. Nada de "Curitiba e região" nos textos; Curitiba aparece só onde a plataforma exige um local.
 
 Eu não consigo editar esses perfis: o Windsor só tem Meta Ads e Perfil da Empresa conectados, e a Meta recusou o acesso da conta de anúncios ao conector de IA. Tudo abaixo está pronto para colar.
 
 ## Criativos prontos (`design/marca/redes/`)
 
-Gerados por `node design/ferramentas/gerar-redes.mjs` (Geist, papel, tinta e as quatro cores do vanádio; a rota com quatro paradas é o motivo da marca).
+Gerados por `node design/ferramentas/gerar-redes.mjs` (Geist, papel, tinta e as quatro cores do vanádio; a rota com quatro paradas é o motivo da marca). Regerados em 25/11/2026: banners e capas com o título novo e a faixa Presença, Sites e Atendimento. Os cartões da Service Page do LinkedIn estão em `linkedin-servicos.md`.
 
 | Rede | Peça | Arquivo | Onde usar |
 |---|---|---|---|
@@ -34,27 +34,27 @@ O endereço do LinkedIn precisa continuar `v2o5-consutoria` (é o que está no `
 ## LinkedIn (página da empresa)
 
 - **Nome:** V2O5 Vendas e Tecnologia
-- **Tagline (115 caracteres):** Eficiência comercial e operacional com tecnologia. Diagnóstico gratuito de 45 minutos, on-line, para todo o Brasil.
+- **Tagline (107 caracteres):** Digitalização para pequenos negócios: Google, site e WhatsApp. Diagnóstico gratuito de 45 minutos, on-line.
 - **Site:** https://www.v2o5.com.br
 - **Setor:** Serviços e consultoria de TI (ou manter Tecnologia, informação e internet)
 - **Botão:** "Fale conosco" para https://www.v2o5.com.br/diagnostico
 - **Sobre:**
-  > A V2O5 ajuda pequenas e médias empresas a vender e operar com menos atrito. Começamos por um diagnóstico gratuito de 45 minutos com o fundador, achamos o gargalo e resolvemos um de cada vez: presença digital, sites integrados ao CRM e ao WhatsApp, agentes de IA e automação.
+  > A V2O5 digitaliza pequenos negócios. Colocamos a empresa no mapa, com perfil no Google, redes e site, e organizamos o atendimento pelo WhatsApp, com agente de IA e integração com o sistema que a empresa já usa. Começa por um diagnóstico gratuito de 45 minutos com o fundador.
   >
   > Cada solução tem escopo fechado e preço de referência público em v2o5.com.br/precos. O método roda em produção na Motors Store, revenda de seminovos, e na triagem do WhatsApp da 16ª Vara Cível, as duas em Curitiba. Atendimento on-line em todo o Brasil.
-- **Especialidades:** Presença digital local, Sites e integrações, Agente de IA para WhatsApp, Automação de processos, CRM com WhatsApp, Rastreamento de conversões
-- **Logo:** `design/marca/bloco-1080.png`. **Banner** 1128 x 191 px: ainda não existe; pedir ao design.
+- **Especialidades:** Presença digital local, Perfil da Empresa no Google, Criação de sites, Sites e integrações, Atendimento com IA, Agente de IA para WhatsApp, CRM com WhatsApp
+- **Logo:** `design/marca/bloco-1080.png`. **Banner** 1128 x 191 px: `design/marca/redes/linkedin-banner-empresa-1128x191.png`.
 - **Primeira publicação (apresentação):** o que a V2O5 faz, como o diagnóstico funciona e o link. Sem número que não seja do case.
 - **Perfil do fundador (Dyones Oliveira):** cargo "Fundador, V2O5 Vendas e Tecnologia", empresa atual ligada à página, mesmo sobre curto e o link do site; ele é o autor dos guias e o canal de maior alcance.
 
 ## Instagram (@v2o5_consultoria)
 
-- **Nome (campo pesquisável, 31 caracteres):** V2O5 | Consultoria e tecnologia
+- **Nome (campo pesquisável, 31 caracteres):** V2O5 | Sites, Google e WhatsApp (palavras que o dono de negócio digita na busca; antes, "V2O5 | Consultoria e tecnologia")
 - **Usuário:** manter `v2o5_consultoria` (está no `sameAs`).
 - **Categoria:** Consultoria empresarial (igual ao Perfil da Empresa).
-- **Bio (131 caracteres):**
+- **Bio (143 caracteres):**
   ```
-  Eficiência comercial e operacional com tecnologia.
+  Coloque seu negócio no mapa e cuide de cada cliente que chega.
   Diagnóstico gratuito de 45 minutos, on-line, em todo o Brasil.
   Agende pelo link.
   ```
@@ -63,7 +63,7 @@ O endereço do LinkedIn precisa continuar `v2o5-consutoria` (é o que está no `
 - **Destaques (capas no papel #F2F1EC com o símbolo):** Método, Soluções, Preços, Case Motors, Case 16ª Vara, Diagnóstico. O da 16ª (17/11) junta os stories do case `/cases/16-vara-civel`, sem número. A capa `instagram-destaque-16-vara-1080x1920.png` leva a marca do TJPR com "16ª VARA CÍVEL" embaixo, na D-DIN PRO (DIN aberta, da linha da URW DIN do manual do TJPR), no arranjo da assinatura setorial do manual; uso da marca autorizado pela vara (Dyones, 17/11). Gerada por `design/ferramentas/gerar-16-vara.py`; a versão quadrada é `16-vara-civel-1080.png`.
 - **Fixados (3):** o que fazemos, como funciona o diagnóstico, o case da Motors.
 - **Conta profissional:** conectar à página do Facebook (a mesma, abaixo), ativar botão de contato por WhatsApp.
-- **Publicações antigas:** arquivar as que usam a marca ou o texto de "ConsultorIA" e preços antigos; não apagar o que não for conflitante.
+- **Publicações antigas:** arquivar as que usam a marca ou o texto de "ConsultorIA", preços antigos ou serviços que saíram (Sprint de Eficiência, tráfego pago, Branding, Presença Assistida); não apagar o que não for conflitante.
 
 ## Facebook (criar a página)
 
@@ -72,8 +72,8 @@ Eu não consigo criar a página. Passo a passo (Meta Business Suite ou facebook.
 - **Nome:** V2O5 Vendas e Tecnologia
 - **Nome de usuário:** `v2o5vendasetecnologia` (se estiver ocupado, `v2o5consultoria`)
 - **Categoria:** Consultoria empresarial
-- **Sobre (193 caracteres, o limite da bio é maior no campo Descrição):**
-  > Eficiência comercial e operacional com tecnologia. A V2O5 acha o gargalo, simplifica o processo e implementa site, automação e IA. Diagnóstico gratuito de 45 minutos, on-line, em todo o Brasil.
+- **Sobre (209 caracteres, o limite da bio é maior no campo Descrição):**
+  > Digitalização para pequenos negócios. A V2O5 coloca o negócio no mapa e organiza o atendimento pelo WhatsApp, com site, agente de IA e integração. Diagnóstico gratuito de 45 minutos, on-line, em todo o Brasil.
 - **Contato:** WhatsApp (41) 99808-9550, diagnostico@v2o5.com.br, site https://www.v2o5.com.br
 - **Endereço:** não preencher (negócio on-line). Horário: o mesmo do atendimento.
 - **Botão de ação:** "Enviar mensagem" pelo WhatsApp, ou "Agendar" para /diagnostico.
@@ -82,8 +82,8 @@ Eu não consigo criar a página. Passo a passo (Meta Business Suite ou facebook.
 
 ## Perfil da Empresa no Google (precisa da sua confirmação para eu alterar)
 
-Texto novo para o campo "Descrição" (hoje fala em Curitiba):
-> A V2O5 Vendas e Tecnologia é uma consultoria on-line que ajuda pequenas e médias empresas de todo o Brasil a vender e operar com menos atrito. Começamos por um diagnóstico gratuito de 45 minutos e resolvemos um gargalo de cada vez: presença digital, sites integrados ao CRM e ao WhatsApp, agentes de IA e automação. Cada solução tem escopo fechado e preço de referência público. O método já roda em produção na Motors Store, revenda de seminovos, e na triagem do WhatsApp da 16ª Vara Cível, as duas em Curitiba.
+Texto novo para o campo "Descrição" (512 caracteres, dentro do limite de 750; revisto em 25/11/2026):
+> A V2O5 Vendas e Tecnologia digitaliza pequenos negócios de todo o Brasil, com atendimento on-line. Coloca a empresa no mapa, com perfil no Google, redes e site, e organiza o atendimento pelo WhatsApp, com agente de IA e integração com o sistema que a empresa já usa. Começa por um diagnóstico gratuito de 45 minutos. Cada solução tem escopo fechado e preço de referência público. O método já roda em produção na Motors Store, revenda de seminovos, e na triagem do WhatsApp da 16ª Vara Cível, as duas em Curitiba.
 
 - **Área de atendimento:** Brasil (negócio sem atendimento no local). Endereço de rua oculto.
 - **Verificação:** continua pendente; sem ela o resto não aparece.
