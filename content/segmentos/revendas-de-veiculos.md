@@ -7,8 +7,8 @@ description: "Site ligado ao estoque do sistema da loja (Revenda Mais, Autoconf 
 canonical: "https://www.v2o5.com.br/segmentos/revendas-de-veiculos"
 robots: null
 h1: "Site de estoque e atendimento com IA para revendas de veículos."
-extraido_em: "2026-11-25T15:38:59.225Z"
-fonte: "build local da branch claude/kind-tesla-eefroe em 25/11/2026 (foco em pequenos negócios), antes da publicação"
+extraido_em: "2026-11-25T20:33:22.653Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 25/11/2026 (diagnóstico no foco em pequenos negócios), antes da publicação"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 # Site de estoque e atendimento com IA para revendas de veículos.
@@ -156,7 +156,7 @@ Sim. Domínio, hospedagem e código ficam no nome da loja, e os dados ficam num 
 
 ## Quer ver o sistema rodando na sua revenda?
 
-O diagnóstico é gratuito: 45 minutos com o fundador, que montou o sistema da Motors Store, para identificar e priorizar o gargalo da sua revenda.
+O diagnóstico é gratuito: 45 minutos com o fundador, que montou o sistema da Motors Store, para ver onde a sua revenda perde cliente.
 
 [Pedir diagnóstico gratuito](/diagnostico)
 

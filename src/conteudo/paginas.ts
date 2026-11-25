@@ -122,8 +122,8 @@ export const PAGINAS: Pagina[] = [
     rota: "/diagnostico",
     titulo: "Diagnóstico gratuito",
     descricao:
-      "Sessão inicial gratuita de 45 minutos com o fundador para identificar e priorizar um gargalo. Sem mapeamento completo, implementação ou acompanhamento.",
-    atualizadaEm: "2026-10-25",
+      "Diagnóstico gratuito de 45 minutos com o fundador para ver onde o seu negócio perde cliente: no Google, no site ou no WhatsApp.",
+    atualizadaEm: "2026-11-25",
     pronta: true,
   },
   {

@@ -3,8 +3,8 @@ rota: "/llms.txt"
 url: "https://www.v2o5.com.br/llms.txt"
 status: 200
 content_type: "text/plain; charset=utf-8"
-extraido_em: "2026-11-25T15:38:59.225Z"
-fonte: "build local da branch claude/kind-tesla-eefroe em 25/11/2026 (foco em pequenos negócios), antes da publicação"
+extraido_em: "2026-11-25T20:33:22.653Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 25/11/2026 (diagnóstico no foco em pequenos negócios), antes da publicação"
 ---
 
 <!-- Corpo de /llms.txt exatamente como servido (gerado por src/app/llms.txt/route.ts). -->
@@ -84,7 +84,7 @@ Um WhatsApp para onze setores e o gabinete. A V2O5 desenhou com a serventia a tr
 - 118 pedidos encaminhados direto a um de oito setores específicos, de petições e alvarás a audiências e decurso de prazo.
 
 ## Como começar
-- [Diagnóstico gratuito](https://www.v2o5.com.br/diagnostico): Diagnóstico gratuito: 45 minutos de conversa com o fundador para identificar e priorizar um gargalo.
+- [Diagnóstico gratuito](https://www.v2o5.com.br/diagnostico): Diagnóstico gratuito: 45 minutos de conversa com o fundador para ver onde o seu negócio perde cliente.
 - WhatsApp: (41) 99808-9550
 - E-mail: diagnostico@v2o5.com.br
 - [Preços](https://www.v2o5.com.br/precos) e [privacidade](https://www.v2o5.com.br/privacidade).

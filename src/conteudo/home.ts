@@ -24,7 +24,7 @@ export const HERO = {
   subtitulo:
     "A V2O5 deixa o seu negócio fácil de achar no Google e organiza o WhatsApp para nenhum cliente ficar sem resposta.",
   /** A vitrine de diagnostico.v2o5.com.br repete esta nota (`tests/subdominio-diagnostico.test.ts`). */
-  nota: "Diagnóstico gratuito: 45 minutos de conversa com o fundador para identificar e priorizar um gargalo.",
+  nota: "Diagnóstico gratuito: 45 minutos de conversa com o fundador para ver onde o seu negócio perde cliente.",
   principio: "Começamos pelo cliente que você quer atender melhor. A ferramenta vem depois.",
   cta: "Pedir diagnóstico gratuito",
   ctaSecundario: "Ver as três soluções",
