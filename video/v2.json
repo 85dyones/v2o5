@@ -107,8 +107,8 @@
       "Ninguém [pergunta] de novo."
     ],
     "punch": {
-      "linha1": "Saber como te acharam",
-      "linha2": "é saber onde [aparecer]."
+      "linha1": "Como te acharam",
+      "linha2": "mostra onde [aparecer]."
     },
     "compartilhar": "Envie para quem não sabe como o cliente chegou"
   },
@@ -139,8 +139,8 @@
       "Nada fica [parado no e-mail]."
     ],
     "punch": {
-      "linha1": "Formulário que chega à equipe",
-      "linha2": "é cliente [com dono]."
+      "linha1": "Formulário com dono",
+      "linha2": "vira [cliente atendido]."
     },
     "compartilhar": "Envie para quem tem site e não sabe quem preencheu"
   },
@@ -157,7 +157,7 @@
     ],
     "punch": {
       "linha1": "Google desatualizado",
-      "linha2": "manda o cliente [para outro]."
+      "linha2": "[perde o cliente]."
     },
     "compartilhar": "Envie para quem nunca conferiu o próprio Google"
   },
@@ -189,7 +189,7 @@
       "Enviados [depois da compra]."
     ],
     "punch": {
-      "linha1": "Avaliação que ninguém pede",
+      "linha1": "Avaliação não pedida",
       "linha2": "[não chega]."
     },
     "compartilhar": "Envie para quem tem cliente satisfeito e pouca avaliação"
@@ -221,7 +221,7 @@
     ],
     "punch": {
       "linha1": "Antes de trocar o site,",
-      "linha2": "veja onde você [perde cliente]."
+      "linha2": "ache o [problema]."
     },
     "compartilhar": "Envie para quem pensa em refazer o site"
   },
@@ -355,7 +355,7 @@
       "Com consentimento, [uma mensagem] resolve."
     ],
     "punch": {
-      "linha1": "Cliente que ninguém chama",
+      "linha1": "Cliente esquecido",
       "linha2": "[compra de outro]."
     },
     "compartilhar": "Envie para quem vive de cliente que volta"
@@ -513,7 +513,7 @@
       "Um botão à vista [resolve]."
     ],
     "punch": {
-      "linha1": "Site que não leva ao WhatsApp",
+      "linha1": "Site sem WhatsApp",
       "linha2": "é [vitrine fechada]."
     },
     "compartilhar": "Envie para quem tem site e pouco contato"

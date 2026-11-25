@@ -30,7 +30,7 @@ Legenda de leitura: *cena de exemplo* = a nota discreta no gancho porque o reel 
 
 ## L1-03 · Dor do dia a dia · cena: numero
 
-- **Gancho (v1):** Antes: lead esfriando. Depois: 93 de 100 respondidos em um minuto.
+- **Gancho (v1):** Antes: cliente esperando. Depois: 93 de 100 respondidos em até 1 minuto.
 - **Gancho v2:** 93 de 100 conversas / com a primeira resposta em até 1 minuto.  
   *nota na tela: Motors Store · 21/10 a 17/11/2026*
 - **Beat 1:** Esse número é da [Motors Store].
@@ -73,7 +73,7 @@ Legenda de leitura: *cena de exemplo* = a nota discreta no gancho porque o reel 
 - **Beat 2:** Ele achou você [no Google].
 - **Beat 3:** Quem atende já [sabe].
 - **Beat 4:** Ninguém [pergunta] de novo.
-- **Frase de efeito:** Saber como te acharam / é saber onde aparecer.
+- **Frase de efeito:** Como te acharam / mostra onde aparecer.
 - **Compartilhar:** Envie para quem não sabe como o cliente chegou
 
 ## L1-07 · Demonstração · cena: chat
@@ -95,7 +95,7 @@ Legenda de leitura: *cena de exemplo* = a nota discreta no gancho porque o reel 
 - **Beat 2:** O contato chega [à equipe].
 - **Beat 3:** A conversa [segue] pelo WhatsApp.
 - **Beat 4:** Nada fica [parado no e-mail].
-- **Frase de efeito:** Formulário que chega à equipe / é cliente com dono.
+- **Frase de efeito:** Formulário com dono / vira cliente atendido.
 - **Compartilhar:** Envie para quem tem site e não sabe quem preencheu
 
 ## L1-09 · Demonstração · cena: comparar
@@ -107,7 +107,7 @@ Legenda de leitura: *cena de exemplo* = a nota discreta no gancho porque o reel 
 - **Beat 2:** O Google mostra [fechado].
 - **Beat 3:** A foto é de [anos atrás].
 - **Beat 4:** Ele vai [no concorrente].
-- **Frase de efeito:** Google desatualizado / manda o cliente para outro.
+- **Frase de efeito:** Google desatualizado / perde o cliente.
 - **Compartilhar:** Envie para quem nunca conferiu o próprio Google
 
 ## L1-10 · Demonstração · cena: tela
@@ -129,7 +129,7 @@ Legenda de leitura: *cena de exemplo* = a nota discreta no gancho porque o reel 
 - **Beat 2:** O WhatsApp fica [no rodapé].
 - **Beat 3:** O cliente [desiste] antes.
 - **Beat 4:** Um botão à vista [resolve].
-- **Frase de efeito:** Site que não leva ao WhatsApp / é vitrine fechada.
+- **Frase de efeito:** Site sem WhatsApp / é vitrine fechada.
 - **Compartilhar:** Envie para quem tem site e pouco contato
 
 ## L1-12 · Erro comum · cena: caminho
@@ -141,12 +141,12 @@ Legenda de leitura: *cena de exemplo* = a nota discreta no gancho porque o reel 
 - **Beat 2:** Ninguém [pediu].
 - **Beat 3:** Um link e uma [mensagem pronta].
 - **Beat 4:** Enviados [depois da compra].
-- **Frase de efeito:** Avaliação que ninguém pede / não chega.
+- **Frase de efeito:** Avaliação não pedida / não chega.
 - **Compartilhar:** Envie para quem tem cliente satisfeito e pouca avaliação
 
 ## L1-13 · Erro comum · cena: caminho
 
-- **Gancho (v1):** Formulário que cai num e-mail esquecido é lead perdido.
+- **Gancho (v1):** Formulário que cai num e-mail esquecido é cliente perdido.
 - **Gancho v2:** O cliente preencheu o formulário. / Quem viu?  
   *nota na tela: Cena de exemplo*
 - **Beat 1:** O cliente preencheu o formulário.
@@ -175,7 +175,7 @@ Legenda de leitura: *cena de exemplo* = a nota discreta no gancho porque o reel 
 - **Beat 1:** Site bonito não [corrige] atendimento lento.
 - **Beat 2:** Veja onde o cliente [desiste].
 - **Beat 3:** É para isso que serve o [diagnóstico].
-- **Frase de efeito:** Antes de trocar o site, / veja onde você perde cliente.
+- **Frase de efeito:** Antes de trocar o site, / ache o problema.
 - **Compartilhar:** Envie para quem pensa em refazer o site
 
 ## L1-16 · Contra o jeito antigo · cena: comparar
@@ -213,7 +213,7 @@ Legenda de leitura: *cena de exemplo* = a nota discreta no gancho porque o reel 
 
 ## L1-19 · Contra o jeito antigo · cena: chat
 
-- **Gancho (v1):** Responder um por um, todo dia, ainda é o seu processo?
+- **Gancho (v1):** Você responde a mesma pergunta todo dia, um por um?
 - **Gancho v2:** Você respondeu a mesma pergunta / de novo hoje?  
   *nota na tela: Cena de exemplo*
 - **Beat 1:** Preço, horário e prazo [se repetem].
@@ -265,7 +265,7 @@ Legenda de leitura: *cena de exemplo* = a nota discreta no gancho porque o reel 
 - **Beat 2:** Ninguém [lembrou dele].
 - **Beat 3:** O concorrente [lembrou].
 - **Beat 4:** Com consentimento, [uma mensagem] resolve.
-- **Frase de efeito:** Cliente que ninguém chama / compra de outro.
+- **Frase de efeito:** Cliente esquecido / compra de outro.
 - **Compartilhar:** Envie para quem vive de cliente que volta
 
 ## L1-24 · Bastidor do diagnóstico · cena: caminho
