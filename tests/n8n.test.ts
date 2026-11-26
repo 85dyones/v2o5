@@ -291,7 +291,7 @@ describe("fluxo do diagnóstico", () => {
     const codigo = js(diagnostico, "Lead");
     expect(codigo).not.toMatch(/[—–]/);
     expect(codigo).toContain("45 minutos com o Dyones");
-    expect(codigo).toContain("identificar e priorizar um gargalo");
+    expect(codigo).toContain("ver onde o seu negócio perde cliente");
     expect(codigo).not.toContain("24 horas");
   });
 });

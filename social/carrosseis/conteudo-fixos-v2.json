@@ -1,0 +1,236 @@
+{
+  "o-que-fazemos-v2": {
+    "titulo": "V2O5: o que fazemos",
+    "slides": [
+      {
+        "tipo": "capa",
+        "estilo": "papel",
+        "etiqueta": "V2O5 Vendas e Tecnologia",
+        "titulo": "Quanto custa colocar seu negócio no mapa? Aqui o preço aparece.",
+        "sub": "Três soluções para pequenos negócios, com escopo fechado e preço de referência público.",
+        "rodape": "Deslize para ver o que fazemos"
+      },
+      {
+        "tipo": "lista",
+        "etiqueta": "Para quem é",
+        "titulo": "Sinais de que vale conversar.",
+        "itens": [
+          "O cliente procura no Google e acha horário errado, ou nada.",
+          "No WhatsApp, a resposta demora ou se perde.",
+          "O site não leva o cliente até o WhatsApp.",
+          "Quem comprou uma vez não volta, e ninguém chama de novo."
+        ],
+        "nota": "Para o pequeno negócio que vende pelo WhatsApp. On-line, em todo o Brasil."
+      },
+      {
+        "tipo": "frente",
+        "cor": "#17773F",
+        "etiqueta": "Ser encontrado",
+        "nome": "Presença Digital Local",
+        "resultado": "O cliente acha o seu negócio com a informação certa e consegue chamar.",
+        "como": "Perfil no Google, redes e WhatsApp organizados, com o pedido de avaliação para quem comprou.",
+        "preco": "A partir de R$ 790"
+      },
+      {
+        "tipo": "frente",
+        "cor": "#2457C5",
+        "etiqueta": "Ter o seu site",
+        "nome": "Sites & Integrações",
+        "resultado": "Um site próprio, rápido no celular, que leva o cliente até o WhatsApp.",
+        "como": "Ligado à agenda, ao estoque ou ao sistema que você já usa, quando o escopo pede.",
+        "preco": "A partir de R$ 2.900"
+      },
+      {
+        "tipo": "frente",
+        "cor": "#F2A516",
+        "etiqueta": "Cuidar de quem chega",
+        "nome": "Atendimento com IA",
+        "resultado": "Cada cliente respondido na hora e passado para a pessoa certa.",
+        "como": "WhatsApp organizado e um agente de IA que responde só com o que a empresa aprovou.",
+        "preco": "A partir de R$ 3.900"
+      },
+      {
+        "tipo": "lista",
+        "etiqueta": "Como começa",
+        "titulo": "Sempre por um diagnóstico gratuito.",
+        "itens": [
+          "45 minutos com o fundador, por vídeo ou WhatsApp.",
+          "Vemos onde o seu negócio perde cliente e por onde começar.",
+          "Havendo um bom caso, a proposta vem por escrito."
+        ],
+        "nota": "Sem custo e sem compromisso. Depois do projeto, a continuidade é opcional, a partir de R$ 349 por mês."
+      },
+      {
+        "tipo": "cta",
+        "titulo": "Descubra onde seu negócio perde cliente.",
+        "destaque": "Gratuitamente.",
+        "botao": "Link na bio",
+        "rodape": "Diagnóstico de 45 minutos. Preços em v2o5.com.br/precos; o valor fechado sai em proposta."
+      }
+    ]
+  },
+  "como-atuamos-v2": {
+    "titulo": "V2O5: como trabalhamos",
+    "slides": [
+      {
+        "tipo": "capa",
+        "estilo": "papel",
+        "etiqueta": "Como a V2O5 trabalha",
+        "titulo": "O que acontece depois que você pede um diagnóstico?",
+        "sub": "O caminho da V2O5, passo a passo, com o combinado desde o início.",
+        "rodape": "Deslize para ver o caminho"
+      },
+      {
+        "tipo": "lista",
+        "etiqueta": "Primeiro passo",
+        "titulo": "45 minutos, gratuitos.",
+        "itens": [
+          "Você conta como vende hoje, num formulário de dois minutos.",
+          "Com o fundador, vemos como o cliente acha o seu negócio e como ele é atendido no WhatsApp.",
+          "Por vídeo ou WhatsApp, no dia combinado."
+        ],
+        "nota": "Sem custo e sem compromisso de contratação."
+      },
+      {
+        "tipo": "lista",
+        "etiqueta": "O combinado",
+        "titulo": "Antes de qualquer projeto.",
+        "itens": [
+          "Escopo fechado e preço de referência público.",
+          "Nenhum escopo ilimitado.",
+          "Nenhuma solução obriga a seguinte.",
+          "Sem promessa de percentual de resultado."
+        ],
+        "nota": "O valor fechado de cada projeto sai em proposta, por escrito."
+      },
+      {
+        "tipo": "lista",
+        "etiqueta": "Como um projeto anda",
+        "titulo": "Quatro passos, cada um com uma pergunta.",
+        "itens": [
+          "Diagnóstico: o que pesa mais hoje?",
+          "Proposta: o que muda, quanto custa e em quanto tempo?",
+          "Implantação: o que fica pronto e quem da equipe usa?",
+          "Acompanhamento: o cliente está sendo mais bem atendido?"
+        ],
+        "nota": "No diagnóstico, a pergunta é se o que pesa é ser achado, responder ou fazer o cliente voltar."
+      },
+      {
+        "tipo": "lista",
+        "etiqueta": "Os limites",
+        "titulo": "O que o diagnóstico não inclui.",
+        "itens": [
+          "Mapeamento completo.",
+          "Implementação.",
+          "Acompanhamento e mensuração de resultados."
+        ],
+        "nota": "Esses passos vêm depois, se houver projeto. Se não houver um bom caso, a conversa termina ali."
+      },
+      {
+        "tipo": "lista",
+        "etiqueta": "Depois do diagnóstico",
+        "titulo": "Três soluções, com preço de entrada público.",
+        "itens": [
+          "Presença Digital Local, a partir de R$ 790",
+          "Sites & Integrações, a partir de R$ 2.900",
+          "Atendimento com IA, a partir de R$ 3.900"
+        ],
+        "nota": "Nenhuma obriga a seguinte."
+      },
+      {
+        "tipo": "cta",
+        "titulo": "Descubra onde seu negócio perde cliente.",
+        "destaque": "Gratuitamente.",
+        "botao": "Link na bio",
+        "rodape": "45 minutos, sem custo e sem compromisso. v2o5.com.br/diagnostico"
+      }
+    ]
+  },
+  "case-motors-v2": {
+    "titulo": "V2O5: case Motors Store",
+    "slides": [
+      {
+        "tipo": "capa",
+        "estilo": "papel",
+        "etiqueta": "Case · Motors Store",
+        "titulo": "93 de 100 conversas com a primeira resposta em até 1 minuto.",
+        "sub": "Mediana de 38 segundos, medida nas mensagens do agente de IA da Motors Store, de 21/10 a 17/11/2026.",
+        "rodape": "Deslize para ver como foi feito"
+      },
+      {
+        "tipo": "lista",
+        "etiqueta": "Antes: diagnosticado",
+        "titulo": "O que travava a Motors Store.",
+        "itens": [
+          "Baixa visibilidade nas buscas e nas IAs.",
+          "Falta de leads qualificados.",
+          "Presença digital fraca e site lento.",
+          "Acompanhamento comercial inconsistente."
+        ],
+        "nota": "Problemas identificados antes da intervenção, não resultados."
+      },
+      {
+        "tipo": "lista",
+        "etiqueta": "Depois: implementado",
+        "titulo": "O que a V2O5 montou.",
+        "itens": [
+          "Site de estoque ligado ao Revenda Mais, com 26 guias publicados.",
+          "O Ney, agente de IA no WhatsApp, que atende e qualifica.",
+          "O lead qualificado entregue ao CRM do Revenda Mais.",
+          "Painel e automações, na mesma base de dados."
+        ],
+        "nota": "Cada peça é uma das soluções da V2O5."
+      },
+      {
+        "tipo": "numeros",
+        "etiqueta": "O site e o estoque",
+        "titulo": "De 05/09 a 17/11/2026.",
+        "numeros": [
+          {
+            "valor": "237",
+            "rotulo": "leads no funil: 131 pelo site e 106 pelo WhatsApp direto"
+          },
+          {
+            "valor": "113 de 131",
+            "rotulo": "leads do site ligados ao veículo que motivou o contato"
+          }
+        ],
+        "nota": "Fonte: banco de dados da Motors, lido em 17/11/2026."
+      },
+      {
+        "tipo": "numeros",
+        "etiqueta": "O Ney, desde 21/10/2026",
+        "titulo": "O agente no WhatsApp.",
+        "numeros": [
+          {
+            "valor": "125",
+            "rotulo": "clientes atendidos pelo agente"
+          },
+          {
+            "valor": "37",
+            "rotulo": "leads qualificados entregues ao CRM do Revenda Mais desde 04/11"
+          }
+        ],
+        "nota": "Conversas de 21/10 a 17/11/2026; envios ao CRM de 04/11 a 17/11/2026. A resposta humana não é medida."
+      },
+      {
+        "tipo": "lista",
+        "etiqueta": "Para o seu negócio",
+        "titulo": "O que dá para levar deste case.",
+        "itens": [
+          "Responder na hora, a qualquer hora, com o que a empresa aprovou.",
+          "Passar a conversa a uma pessoa no momento certo.",
+          "Registrar cada contato no sistema que você já usa."
+        ],
+        "nota": "Contagens, não vendas. O que cabe no seu negócio, o diagnóstico mostra."
+      },
+      {
+        "tipo": "cta",
+        "titulo": "Quer ver o que cabe no seu negócio?",
+        "destaque": "Peça o diagnóstico gratuito.",
+        "botao": "Link na bio",
+        "rodape": "45 minutos, sem custo e sem compromisso. Case completo em v2o5.com.br/cases/motors-store"
+      }
+    ]
+  }
+}

@@ -1,0 +1,726 @@
+{
+  "dor-lead-esfria": {
+    "titulo": "V2O5: cliente que espera no WhatsApp",
+    "slides": [
+      {
+        "tipo": "capa",
+        "estilo": "ambar",
+        "etiqueta": "Autoteste",
+        "titulo": "O cliente perguntou o preço às 19h. Quando você respondeu?",
+        "sub": "Cinco sinais de que o cliente espera no seu WhatsApp.",
+        "rodape": "Deslize e conte quantos você reconhece"
+      },
+      {
+        "tipo": "lista",
+        "etiqueta": "Sinais 1 a 3",
+        "titulo": "Três sinais de que a conversa esfria.",
+        "itens": [
+          "A primeira resposta ao cliente demora.",
+          "Ninguém sabe quem responde cada conversa.",
+          "Conversas ficam paradas sem aviso."
+        ],
+        "nota": "Mais dois sinais no próximo card."
+      },
+      {
+        "tipo": "lista",
+        "etiqueta": "Sinais 4 e 5",
+        "titulo": "Mais dois, e uma conta.",
+        "itens": [
+          "O contato some e ninguém lembra de retomar.",
+          "Você não sabe de onde veio cada cliente."
+        ],
+        "nota": "Conte quantos você marcou. O resultado vem no card 5."
+      },
+      {
+        "tipo": "cena",
+        "etiqueta": "Cena ilustrativa",
+        "titulo": "Veja como a venda escapa.",
+        "linhas": [
+          {
+            "q": "Terça, 19h12",
+            "t": "Cliente: “Oi, quanto custa?”"
+          },
+          {
+            "q": "Quarta, 9h40",
+            "t": "Ninguém respondeu ainda."
+          },
+          {
+            "q": "Quarta, 10h05",
+            "t": "Cliente: “Obrigado, já fechei com outra empresa.”",
+            "d": true
+          }
+        ]
+      },
+      {
+        "tipo": "escala",
+        "etiqueta": "O resultado",
+        "titulo": "Quantos sinais você marcou?",
+        "linhas": [
+          {
+            "faixa": "0 a 1",
+            "texto": "Ponto de atenção. Vale acompanhar."
+          },
+          {
+            "faixa": "2 a 3",
+            "texto": "Você já perde cliente na espera."
+          },
+          {
+            "faixa": "4 a 5",
+            "texto": "Vale organizar o WhatsApp e pôr um agente para responder."
+          }
+        ],
+        "nota": "Resultado de autoteste, não diagnóstico."
+      },
+      {
+        "tipo": "solucao",
+        "cor": "#F2A516",
+        "etiqueta": "O que resolve",
+        "nome": "Atendimento com IA",
+        "quando": "Quando o cliente chama no WhatsApp e espera, se perde entre as conversas ou some sem que ninguém retome.",
+        "recebe": "WhatsApp organizado e um agente de IA que responde e qualifica, com cada contato passado à pessoa certa.",
+        "preco": "A partir de R$ 3.900"
+      },
+      {
+        "tipo": "cta",
+        "titulo": "Marcou dois ou mais?",
+        "destaque": "Peça o diagnóstico gratuito.",
+        "botao": "Link na bio",
+        "rodape": "45 minutos, sem custo e sem compromisso. Salve e envie para quem cuida do atendimento."
+      }
+    ]
+  },
+  "dor-sistemas-separados": {
+    "titulo": "V2O5: sistemas que não conversam",
+    "slides": [
+      {
+        "tipo": "capa",
+        "estilo": "ambar",
+        "etiqueta": "Autoteste",
+        "titulo": "Quantas vezes você digita o mesmo dado esta semana?",
+        "sub": "Cinco sinais de que os seus sistemas não conversam.",
+        "rodape": "Deslize e conte quantos você reconhece"
+      },
+      {
+        "tipo": "lista",
+        "etiqueta": "Sinais 1 a 3",
+        "titulo": "Três sinais de sistemas separados.",
+        "itens": [
+          "Você digita o mesmo dado em dois lugares.",
+          "A planilha e o sistema mostram números diferentes.",
+          "O site, o WhatsApp e o sistema não trocam informação."
+        ],
+        "nota": "Mais dois sinais no próximo card."
+      },
+      {
+        "tipo": "lista",
+        "etiqueta": "Sinais 4 e 5",
+        "titulo": "Mais dois, e uma conta.",
+        "itens": [
+          "Só uma pessoa sabe onde está cada coisa.",
+          "Quando ela falta, tudo para."
+        ],
+        "nota": "Conte quantos você marcou. O resultado vem no card 5."
+      },
+      {
+        "tipo": "cena",
+        "etiqueta": "Cena ilustrativa",
+        "titulo": "Veja como o número deixa de bater.",
+        "linhas": [
+          {
+            "q": "Segunda",
+            "t": "A venda fecha no WhatsApp."
+          },
+          {
+            "q": "Terça",
+            "t": "Alguém digita a venda no sistema."
+          },
+          {
+            "q": "Quarta",
+            "t": "E digita de novo na planilha."
+          },
+          {
+            "q": "Sexta",
+            "t": "O relatório não bate com o sistema.",
+            "d": true
+          }
+        ]
+      },
+      {
+        "tipo": "escala",
+        "etiqueta": "O resultado",
+        "titulo": "Quantos sinais você marcou?",
+        "linhas": [
+          {
+            "faixa": "0 a 1",
+            "texto": "Ponto de atenção. Vale acompanhar."
+          },
+          {
+            "faixa": "2 a 3",
+            "texto": "Você perde tempo digitando duas vezes."
+          },
+          {
+            "faixa": "4 a 5",
+            "texto": "Vale ligar o WhatsApp ao sistema que você já usa."
+          }
+        ],
+        "nota": "Resultado de autoteste, não diagnóstico."
+      },
+      {
+        "tipo": "solucao",
+        "cor": "#F2A516",
+        "etiqueta": "O que resolve",
+        "nome": "Atendimento com IA",
+        "quando": "Quando a venda fecha no WhatsApp e alguém digita tudo de novo no sistema.",
+        "recebe": "No Atendimento Integrado, o agente qualifica e leva cada contato ao sistema que você já usa: CRM, agenda, estoque ou catálogo.",
+        "preco": "Integrado: a partir de R$ 6.900"
+      },
+      {
+        "tipo": "cta",
+        "titulo": "Marcou dois ou mais?",
+        "destaque": "Peça o diagnóstico gratuito.",
+        "botao": "Link na bio",
+        "rodape": "45 minutos, sem custo e sem compromisso. Salve e envie para quem cuida dos sistemas."
+      }
+    ]
+  },
+  "dor-formulario": {
+    "titulo": "V2O5: o caminho do formulário",
+    "slides": [
+      {
+        "tipo": "capa",
+        "estilo": "tinta",
+        "etiqueta": "Autoteste",
+        "titulo": "O cliente preencheu o formulário do seu site. Quem viu?",
+        "sub": "Cinco sinais de um contato sem dono.",
+        "rodape": "Deslize e conte quantos você reconhece"
+      },
+      {
+        "tipo": "lista",
+        "etiqueta": "Sinais 1 a 3",
+        "titulo": "Três sinais de um contato sem dono.",
+        "itens": [
+          "O formulário envia para um e-mail que ninguém olha.",
+          "Ninguém sabe quem responde o contato do site.",
+          "O cliente espera dias por uma resposta."
+        ],
+        "nota": "Mais dois sinais no próximo card."
+      },
+      {
+        "tipo": "lista",
+        "etiqueta": "Sinais 4 e 5",
+        "titulo": "Mais dois, e uma conta.",
+        "itens": [
+          "O contato chega sem a origem.",
+          "A equipe pergunta de novo o que o cliente já preencheu."
+        ],
+        "nota": "Conte quantos você marcou. O resultado vem no card 5."
+      },
+      {
+        "tipo": "cena",
+        "etiqueta": "Cena ilustrativa",
+        "titulo": "Veja onde o contato se perde.",
+        "linhas": [
+          {
+            "q": "Segunda, 14h00",
+            "t": "O cliente preenche o formulário do site."
+          },
+          {
+            "q": "Segunda, 14h01",
+            "t": "O aviso cai numa caixa de e-mail que ninguém olha."
+          },
+          {
+            "q": "Quinta",
+            "t": "O cliente fecha com outra empresa.",
+            "d": true
+          }
+        ]
+      },
+      {
+        "tipo": "escala",
+        "etiqueta": "O resultado",
+        "titulo": "Quantos sinais você marcou?",
+        "linhas": [
+          {
+            "faixa": "0 a 1",
+            "texto": "Ponto de atenção. Vale acompanhar."
+          },
+          {
+            "faixa": "2 a 3",
+            "texto": "O contato do site se perde no caminho."
+          },
+          {
+            "faixa": "4 a 5",
+            "texto": "O contato do site precisa chegar a uma pessoa."
+          }
+        ],
+        "nota": "Resultado de autoteste, não diagnóstico."
+      },
+      {
+        "tipo": "solucao",
+        "cor": "#2457C5",
+        "etiqueta": "O que resolve",
+        "nome": "Sites & Integrações",
+        "quando": "Quando a empresa depende de perfil de terceiros, ou o site não conversa com o sistema que ela já usa.",
+        "recebe": "No Site Conectado, o contato chega ao sistema com a origem anotada e aviso quando a integração falha.",
+        "preco": "A partir de R$ 9.900"
+      },
+      {
+        "tipo": "cta",
+        "titulo": "Marcou dois ou mais?",
+        "destaque": "Peça o diagnóstico gratuito.",
+        "botao": "Link na bio",
+        "rodape": "45 minutos, sem custo e sem compromisso. Salve e envie para quem recebe os contatos do site."
+      }
+    ]
+  },
+  "dor-google": {
+    "titulo": "V2O5: o que o cliente encontra no Google",
+    "slides": [
+      {
+        "tipo": "capa",
+        "estilo": "verde",
+        "etiqueta": "Autoteste",
+        "titulo": "Sábado, 10h: o cliente pesquisa o seu negócio. O que o Google mostra?",
+        "sub": "Cinco sinais de presença local desatualizada.",
+        "rodape": "Deslize e conte quantos você reconhece"
+      },
+      {
+        "tipo": "lista",
+        "etiqueta": "Sinais 1 a 3",
+        "titulo": "Três sinais de um perfil desatualizado.",
+        "itens": [
+          "O horário do Perfil da Empresa no Google está errado.",
+          "O telefone ou o endereço mudaram e o perfil não.",
+          "As fotos são antigas."
+        ],
+        "nota": "Mais dois sinais no próximo card."
+      },
+      {
+        "tipo": "lista",
+        "etiqueta": "Sinais 4 e 5",
+        "titulo": "Mais dois, e uma conta.",
+        "itens": [
+          "O perfil nunca foi verificado.",
+          "Não há botão de WhatsApp para chamar."
+        ],
+        "nota": "Conte quantos você marcou. O resultado vem no card 5."
+      },
+      {
+        "tipo": "cena",
+        "etiqueta": "Cena ilustrativa",
+        "titulo": "Veja como a busca termina.",
+        "linhas": [
+          {
+            "q": "Sábado, 10h00",
+            "t": "O cliente pesquisa a empresa no Google."
+          },
+          {
+            "q": "No perfil",
+            "t": "O horário está errado e não há botão de WhatsApp."
+          },
+          {
+            "q": "Sábado, 10h03",
+            "t": "Ele chama o próximo resultado da lista.",
+            "d": true
+          }
+        ]
+      },
+      {
+        "tipo": "escala",
+        "etiqueta": "O resultado",
+        "titulo": "Quantos sinais você marcou?",
+        "linhas": [
+          {
+            "faixa": "0 a 1",
+            "texto": "Ponto de atenção. Vale acompanhar."
+          },
+          {
+            "faixa": "2 a 3",
+            "texto": "Há informação a corrigir no Google."
+          },
+          {
+            "faixa": "4 a 5",
+            "texto": "A presença local precisa ser reorganizada."
+          }
+        ],
+        "nota": "Resultado de autoteste, não diagnóstico."
+      },
+      {
+        "tipo": "solucao",
+        "cor": "#17773F",
+        "etiqueta": "O que resolve",
+        "nome": "Presença Digital Local",
+        "quando": "Quando o cliente procura e encontra informação errada, perfil parado ou nenhum jeito fácil de chamar.",
+        "recebe": "Perfil no Google, uma rede e o WhatsApp Business organizados, com informações revisadas e o pedido de avaliação.",
+        "preco": "A partir de R$ 790"
+      },
+      {
+        "tipo": "cta",
+        "titulo": "Marcou dois ou mais?",
+        "destaque": "Peça o diagnóstico gratuito.",
+        "botao": "Link na bio",
+        "rodape": "45 minutos, sem custo e sem compromisso. Salve e envie para quem cuida do perfil da empresa."
+      }
+    ]
+  },
+  "dor-perfil-parado": {
+    "titulo": "V2O5: perfil parado",
+    "slides": [
+      {
+        "tipo": "capa",
+        "estilo": "verde",
+        "etiqueta": "Autoteste",
+        "titulo": "A última publicação do seu perfil tem quantos meses?",
+        "sub": "Cinco sinais de perfil parado.",
+        "rodape": "Deslize e conte quantos você reconhece"
+      },
+      {
+        "tipo": "lista",
+        "etiqueta": "Sinais 1 a 3",
+        "titulo": "Três sinais de perfil parado.",
+        "itens": [
+          "A última publicação tem meses.",
+          "O perfil diz uma coisa e o site diz outra.",
+          "Ninguém sabe quem cuida das redes."
+        ],
+        "nota": "Mais dois sinais no próximo card."
+      },
+      {
+        "tipo": "lista",
+        "etiqueta": "Sinais 4 e 5",
+        "titulo": "Mais dois, e uma conta.",
+        "itens": [
+          "O nome, a foto e a bio não seguem a identidade da empresa.",
+          "Você publica só quando lembra."
+        ],
+        "nota": "Conte quantos você marcou. O resultado vem no card 5."
+      },
+      {
+        "tipo": "cena",
+        "etiqueta": "Cena ilustrativa",
+        "titulo": "Veja o que o visitante encontra.",
+        "linhas": [
+          {
+            "q": "Passo 1",
+            "t": "Um cliente novo abre o perfil da empresa."
+          },
+          {
+            "q": "Passo 2",
+            "t": "A última publicação tem meses."
+          },
+          {
+            "q": "Passo 3",
+            "t": "Ele chama a empresa do perfil seguinte.",
+            "d": true
+          }
+        ]
+      },
+      {
+        "tipo": "escala",
+        "etiqueta": "O resultado",
+        "titulo": "Quantos sinais você marcou?",
+        "linhas": [
+          {
+            "faixa": "0 a 1",
+            "texto": "Ponto de atenção. Vale acompanhar."
+          },
+          {
+            "faixa": "2 a 3",
+            "texto": "Há uma rotina de perfil a montar."
+          },
+          {
+            "faixa": "4 a 5",
+            "texto": "O perfil precisa de uma rotina nova, com calendário."
+          }
+        ],
+        "nota": "Resultado de autoteste, não diagnóstico."
+      },
+      {
+        "tipo": "solucao",
+        "cor": "#17773F",
+        "etiqueta": "O que resolve",
+        "nome": "Presença Digital Local",
+        "quando": "Quando o cliente procura e encontra informação errada, perfil parado ou nenhum jeito fácil de chamar.",
+        "recebe": "No pacote Estruturada, até duas redes, oito modelos de posts e stories, calendário de três meses e uma campanha de lançamento.",
+        "preco": "Estruturada: R$ 1.490"
+      },
+      {
+        "tipo": "cta",
+        "titulo": "Marcou dois ou mais?",
+        "destaque": "Peça o diagnóstico gratuito.",
+        "botao": "Link na bio",
+        "rodape": "45 minutos, sem custo e sem compromisso. Salve e envie para quem cuida das redes."
+      }
+    ]
+  },
+  "dor-site-sem-whatsapp": {
+    "titulo": "V2O5: site que não leva ao WhatsApp",
+    "slides": [
+      {
+        "tipo": "capa",
+        "estilo": "tinta",
+        "etiqueta": "Autoteste",
+        "titulo": "Seu site está no ar. O cliente acha como chamar você?",
+        "sub": "Cinco sinais de um site que não leva à conversa.",
+        "rodape": "Deslize e conte quantos você reconhece"
+      },
+      {
+        "tipo": "lista",
+        "etiqueta": "Sinais 1 a 3",
+        "titulo": "Três sinais de um site que não leva à conversa.",
+        "itens": [
+          "O botão do WhatsApp fica escondido no rodapé.",
+          "O horário e o endereço não aparecem no celular.",
+          "O site demora a abrir no celular."
+        ],
+        "nota": "Mais dois sinais no próximo card."
+      },
+      {
+        "tipo": "lista",
+        "etiqueta": "Sinais 4 e 5",
+        "titulo": "Mais dois, e uma conta.",
+        "itens": [
+          "O site não diz o que você vende nem quanto custa.",
+          "O formulário não diz quando você responde."
+        ],
+        "nota": "Conte quantos você marcou. O resultado vem no card 5."
+      },
+      {
+        "tipo": "cena",
+        "etiqueta": "Cena ilustrativa",
+        "titulo": "Veja como o cliente desiste.",
+        "linhas": [
+          {
+            "q": "Sábado, 10h00",
+            "t": "O cliente acha o seu site no Google."
+          },
+          {
+            "q": "Sábado, 10h01",
+            "t": "Procura como chamar e não acha o WhatsApp."
+          },
+          {
+            "q": "Sábado, 10h03",
+            "t": "Volta para a busca e chama o próximo.",
+            "d": true
+          }
+        ]
+      },
+      {
+        "tipo": "escala",
+        "etiqueta": "O resultado",
+        "titulo": "Quantos sinais você marcou?",
+        "linhas": [
+          {
+            "faixa": "0 a 1",
+            "texto": "Ponto de atenção. Vale acompanhar."
+          },
+          {
+            "faixa": "2 a 3",
+            "texto": "O site atrapalha o caminho até a conversa."
+          },
+          {
+            "faixa": "4 a 5",
+            "texto": "O site precisa ser refeito para levar ao WhatsApp."
+          }
+        ],
+        "nota": "Resultado de autoteste, não diagnóstico."
+      },
+      {
+        "tipo": "solucao",
+        "cor": "#2457C5",
+        "etiqueta": "O que resolve",
+        "nome": "Sites & Integrações",
+        "quando": "Quando a empresa depende de perfil de terceiros, ou o site não conversa com o sistema que ela já usa.",
+        "recebe": "Site próprio, rápido no celular, com o WhatsApp à vista e a origem de cada contato anotada.",
+        "preco": "A partir de R$ 2.900"
+      },
+      {
+        "tipo": "cta",
+        "titulo": "Marcou dois ou mais?",
+        "destaque": "Peça o diagnóstico gratuito.",
+        "botao": "Link na bio",
+        "rodape": "45 minutos, sem custo e sem compromisso. Salve e envie para quem cuida do site."
+      }
+    ]
+  },
+  "dor-recompra": {
+    "titulo": "V2O5: cliente que não volta",
+    "slides": [
+      {
+        "tipo": "capa",
+        "estilo": "ambar",
+        "etiqueta": "Autoteste",
+        "titulo": "Quem comprou em março voltou a comprar?",
+        "sub": "Cinco sinais de que ninguém chama o cliente de volta.",
+        "rodape": "Deslize e conte quantos você reconhece"
+      },
+      {
+        "tipo": "lista",
+        "etiqueta": "Sinais 1 a 3",
+        "titulo": "Três sinais de cliente esquecido.",
+        "itens": [
+          "Você não tem uma lista de quem já comprou.",
+          "Ninguém sabe quando o cliente costuma voltar.",
+          "Você só fala com o cliente quando ele chama."
+        ],
+        "nota": "Mais dois sinais no próximo card."
+      },
+      {
+        "tipo": "lista",
+        "etiqueta": "Sinais 4 e 5",
+        "titulo": "Mais dois, e uma conta.",
+        "itens": [
+          "O contato de quem comprou fica perdido no WhatsApp.",
+          "Você manda a mesma mensagem para todo mundo, ou não manda nenhuma."
+        ],
+        "nota": "Conte quantos você marcou. O resultado vem no card 5."
+      },
+      {
+        "tipo": "cena",
+        "etiqueta": "Cena ilustrativa",
+        "titulo": "Veja como o cliente vai embora.",
+        "linhas": [
+          {
+            "q": "Março",
+            "t": "A cliente compra e gosta do atendimento."
+          },
+          {
+            "q": "Junho",
+            "t": "Ninguém chama de novo."
+          },
+          {
+            "q": "Julho",
+            "t": "Ela compra do concorrente, que lembrou dela.",
+            "d": true
+          }
+        ]
+      },
+      {
+        "tipo": "escala",
+        "etiqueta": "O resultado",
+        "titulo": "Quantos sinais você marcou?",
+        "linhas": [
+          {
+            "faixa": "0 a 1",
+            "texto": "Ponto de atenção. Vale acompanhar."
+          },
+          {
+            "faixa": "2 a 3",
+            "texto": "Você perde cliente que voltaria."
+          },
+          {
+            "faixa": "4 a 5",
+            "texto": "Vale montar a lista e o contato de volta."
+          }
+        ],
+        "nota": "Resultado de autoteste, não diagnóstico."
+      },
+      {
+        "tipo": "solucao",
+        "cor": "#F2A516",
+        "etiqueta": "O que resolve",
+        "nome": "Atendimento com IA",
+        "quando": "Quando o cliente chama no WhatsApp e espera, se perde entre as conversas ou some sem que ninguém retome.",
+        "recebe": "No Atendimento Integrado, contato de volta com quem parou de responder ou já comprou, só para quem consentiu e dentro das regras do WhatsApp.",
+        "preco": "Integrado: a partir de R$ 6.900"
+      },
+      {
+        "tipo": "cta",
+        "titulo": "Marcou dois ou mais?",
+        "destaque": "Peça o diagnóstico gratuito.",
+        "botao": "Link na bio",
+        "rodape": "45 minutos, sem custo e sem compromisso. Salve e envie para quem vive de cliente que volta."
+      }
+    ]
+  },
+  "dor-avaliacoes": {
+    "titulo": "V2O5: avaliações no Google",
+    "slides": [
+      {
+        "tipo": "capa",
+        "estilo": "verde",
+        "etiqueta": "Autoteste",
+        "titulo": "Quantas avaliações você pediu este mês?",
+        "sub": "Cinco sinais de que o Google não mostra o que o cliente acha de você.",
+        "rodape": "Deslize e conte quantos você reconhece"
+      },
+      {
+        "tipo": "lista",
+        "etiqueta": "Sinais 1 a 3",
+        "titulo": "Três sinais de avaliação esquecida.",
+        "itens": [
+          "Você nunca pediu avaliação a quem comprou.",
+          "Você não tem o link direto para avaliar no Google.",
+          "As últimas avaliações são antigas."
+        ],
+        "nota": "Mais dois sinais no próximo card."
+      },
+      {
+        "tipo": "lista",
+        "etiqueta": "Sinais 4 e 5",
+        "titulo": "Mais dois, e uma conta.",
+        "itens": [
+          "Avaliação ruim fica sem resposta.",
+          "Você não sabe a sua nota no Google."
+        ],
+        "nota": "Conte quantos você marcou. O resultado vem no card 5."
+      },
+      {
+        "tipo": "cena",
+        "etiqueta": "Cena ilustrativa",
+        "titulo": "Veja o que o próximo cliente lê.",
+        "linhas": [
+          {
+            "q": "Segunda",
+            "t": "O cliente compra e sai satisfeito."
+          },
+          {
+            "q": "Terça",
+            "t": "Ninguém pede a avaliação."
+          },
+          {
+            "q": "No Google",
+            "t": "A avaliação mais recente é de um cliente insatisfeito, de meses atrás.",
+            "d": true
+          }
+        ]
+      },
+      {
+        "tipo": "escala",
+        "etiqueta": "O resultado",
+        "titulo": "Quantos sinais você marcou?",
+        "linhas": [
+          {
+            "faixa": "0 a 1",
+            "texto": "Ponto de atenção. Vale acompanhar."
+          },
+          {
+            "faixa": "2 a 3",
+            "texto": "Há avaliação a pedir e a responder."
+          },
+          {
+            "faixa": "4 a 5",
+            "texto": "Vale pedir a avaliação depois de cada venda."
+          }
+        ],
+        "nota": "Resultado de autoteste, não diagnóstico."
+      },
+      {
+        "tipo": "solucao",
+        "cor": "#17773F",
+        "etiqueta": "O que resolve",
+        "nome": "Presença Digital Local",
+        "quando": "Quando o cliente procura e encontra informação errada, perfil parado ou nenhum jeito fácil de chamar.",
+        "recebe": "Na Presença Essencial, o pedido de avaliação no Google: link direto e mensagem pronta para mandar a quem comprou.",
+        "preco": "A partir de R$ 790"
+      },
+      {
+        "tipo": "cta",
+        "titulo": "Marcou dois ou mais?",
+        "destaque": "Peça o diagnóstico gratuito.",
+        "botao": "Link na bio",
+        "rodape": "45 minutos, sem custo e sem compromisso. Salve e envie para quem cuida do perfil no Google."
+      }
+    ]
+  }
+}

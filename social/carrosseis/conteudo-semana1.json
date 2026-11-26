@@ -1,0 +1,289 @@
+{
+  "diagnostico-diferencial": {
+    "titulo": "V2O5: o diagnóstico",
+    "slides": [
+      {
+        "tipo": "capa",
+        "estilo": "papel",
+        "etiqueta": "O diferencial",
+        "titulo": "Antes de vender a solução, a V2O5 entende o problema.",
+        "sub": "O diagnóstico gratuito de 45 minutos é a porta de entrada.",
+        "rodape": "Deslize para ver como funciona"
+      },
+      {
+        "tipo": "lista",
+        "etiqueta": "Como funciona",
+        "titulo": "45 minutos com o fundador.",
+        "itens": [
+          "Você conta como vende hoje, em um formulário de dois minutos.",
+          "A conversa vê como o cliente acha o seu negócio e como ele é atendido no WhatsApp.",
+          "Por vídeo ou WhatsApp, no dia combinado."
+        ],
+        "nota": "Sem custo e sem compromisso de contratação."
+      },
+      {
+        "tipo": "lista",
+        "etiqueta": "O que você leva",
+        "titulo": "O ponto que mais pesa e um próximo passo.",
+        "itens": [
+          "O que pesa mais hoje: ser achado, responder ou fazer o cliente voltar.",
+          "Uma recomendação de por onde começar.",
+          "Havendo um bom caso, a proposta por escrito, com escopo, entregáveis, prazo e investimento."
+        ],
+        "nota": "Se não houver um bom caso, a conversa termina ali."
+      },
+      {
+        "tipo": "lista",
+        "etiqueta": "Os limites combinados",
+        "titulo": "O que o diagnóstico não inclui.",
+        "itens": [
+          "Mapeamento completo.",
+          "Implementação.",
+          "Acompanhamento e mensuração de resultados."
+        ],
+        "nota": "Esses passos vêm depois, se houver projeto."
+      },
+      {
+        "tipo": "texto",
+        "etiqueta": "A lógica",
+        "titulo": "A decisão parte do problema.",
+        "corpo": [
+          "Comprar, integrar, automatizar ou desenvolver: a escolha depende do que o diagnóstico encontra.",
+          "Nem todo problema pede um agente de IA ou um software novo."
+        ]
+      },
+      {
+        "tipo": "lista",
+        "etiqueta": "Depois do diagnóstico",
+        "titulo": "Três soluções, com preço de entrada público.",
+        "itens": [
+          "Presença Digital Local, a partir de R$ 790",
+          "Sites & Integrações, a partir de R$ 2.900",
+          "Atendimento com IA, a partir de R$ 3.900"
+        ],
+        "nota": "Nenhuma solução obriga a seguinte."
+      },
+      {
+        "tipo": "cta",
+        "titulo": "Descubra onde seu negócio perde cliente.",
+        "destaque": "Gratuitamente.",
+        "botao": "Pedir diagnóstico gratuito",
+        "rodape": "Link na bio. v2o5.com.br/diagnostico"
+      }
+    ]
+  },
+  "presenca-por-dentro": {
+    "titulo": "V2O5: Presença Digital Local",
+    "slides": [
+      {
+        "tipo": "capa",
+        "estilo": "verde",
+        "etiqueta": "Solução 1",
+        "titulo": "Presença Digital Local, por dentro.",
+        "sub": "Para o cliente que procura a empresa e encontra a informação certa.",
+        "rodape": "Deslize para ver o que está incluído"
+      },
+      {
+        "tipo": "texto",
+        "etiqueta": "O problema",
+        "titulo": "O cliente procura e encontra informação errada.",
+        "corpo": [
+          "Perfil parado, horário desatualizado ou nenhum jeito fácil de chamar.",
+          "A V2O5 entrega o perfil no Google, as redes e o WhatsApp organizados, com o pedido de avaliação para quem comprou e, se quiser, a rotina mensal."
+        ]
+      },
+      {
+        "tipo": "lista",
+        "etiqueta": "Os dois pacotes",
+        "titulo": "Escolha pelo ponto de partida.",
+        "itens": [
+          "Presença Essencial, R$ 790: Google, uma rede e WhatsApp Business organizados, com o pedido de avaliação.",
+          "Presença Estruturada, R$ 1.490: até duas redes, calendário de três meses e uma campanha de lançamento."
+        ]
+      },
+      {
+        "tipo": "lista",
+        "etiqueta": "Dentro do Essencial",
+        "titulo": "O que o Essencial entrega.",
+        "itens": [
+          "Perfil da Empresa no Google configurado ou otimizado (a verificação depende do Google).",
+          "Uma rede social organizada: Instagram ou Facebook.",
+          "WhatsApp Business com perfil, horário e mensagens de saudação e ausência.",
+          "Pedido de avaliação no Google: link direto e mensagem pronta para quem comprou."
+        ],
+        "nota": "Também traz três modelos de publicação e uma rodada de revisão."
+      },
+      {
+        "tipo": "lista",
+        "etiqueta": "Mensalidade opcional",
+        "titulo": "Dá para contratar só a implantação.",
+        "itens": [
+          "Essencial: R$ 390 por mês, com suporte e até quatro pequenas atualizações.",
+          "Estruturada: R$ 490 por mês, com um kit de quatro peças e uma campanha."
+        ],
+        "nota": "A mensalidade é opcional e se contrata junto com a Presença."
+      },
+      {
+        "tipo": "lista",
+        "etiqueta": "O que fica de fora",
+        "titulo": "Limites do escopo.",
+        "itens": [
+          "Verba de anúncios.",
+          "Gravação presencial de fotos e vídeos.",
+          "Resposta a comentários e mensagens.",
+          "Publicações ilimitadas."
+        ],
+        "nota": "Preço de referência; o valor fechado sai em proposta."
+      },
+      {
+        "tipo": "cta",
+        "titulo": "Descubra onde seu negócio perde cliente.",
+        "destaque": "Gratuitamente.",
+        "botao": "Pedir diagnóstico gratuito",
+        "rodape": "Link na bio. v2o5.com.br/presenca-digital-local"
+      }
+    ]
+  },
+  "sites-por-dentro": {
+    "titulo": "V2O5: Sites & Integrações",
+    "slides": [
+      {
+        "tipo": "capa",
+        "estilo": "tinta",
+        "etiqueta": "Solução 2",
+        "titulo": "Sites & Integrações, por dentro.",
+        "sub": "Site próprio, rápido no celular, que leva o cliente até o WhatsApp.",
+        "rodape": "Deslize para ver o que está incluído"
+      },
+      {
+        "tipo": "texto",
+        "etiqueta": "O problema",
+        "titulo": "A empresa depende de perfil de terceiros, ou o site não conversa com o sistema.",
+        "corpo": [
+          "A V2O5 entrega um site próprio, rápido e medido, ligado ao CRM, ao estoque ou ao sistema de gestão quando o escopo pede."
+        ]
+      },
+      {
+        "tipo": "lista",
+        "etiqueta": "Os três pacotes",
+        "titulo": "Do mais simples ao conectado.",
+        "itens": [
+          "Landing Page, R$ 2.900: uma página comercial que leva ao contato.",
+          "Site Personalizado, R$ 5.900: site institucional com até seis páginas.",
+          "Site Conectado, a partir de R$ 9.900: o site ligado a um sistema que a empresa já usa."
+        ]
+      },
+      {
+        "tipo": "lista",
+        "etiqueta": "Em todo site",
+        "titulo": "O que vem em qualquer pacote.",
+        "itens": [
+          "Contatos funcionando: WhatsApp, formulário e telefone.",
+          "Origem de cada contato anotada: de onde ele veio.",
+          "SEO técnico e publicação no domínio da empresa.",
+          "Duas rodadas de revisão."
+        ]
+      },
+      {
+        "tipo": "lista",
+        "etiqueta": "O Site Conectado",
+        "titulo": "O que a integração liga.",
+        "itens": [
+          "Um sistema que a empresa já usa: CRM, agenda, estoque, catálogo ou ERP.",
+          "Contatos medidos até o sistema, com a origem gravada.",
+          "Aviso quando a integração falha."
+        ],
+        "nota": "A integração entra depois de verificar a documentação e o acesso."
+      },
+      {
+        "tipo": "lista",
+        "etiqueta": "Como o preço fecha",
+        "titulo": "Escopo conhecido, preço fechado.",
+        "itens": [
+          "O preço fechado vale para um escopo conhecido.",
+          "Integração só entra na proposta depois de verificar documentação, credenciais, limites e custos do sistema.",
+          "O site se liga ao que a empresa já usa e não substitui o CRM nem o sistema de gestão."
+        ],
+        "nota": "Fora do escopo: domínio e e-mail, mídia paga e loja virtual com pagamento."
+      },
+      {
+        "tipo": "cta",
+        "titulo": "Descubra onde seu negócio perde cliente.",
+        "destaque": "Gratuitamente.",
+        "botao": "Pedir diagnóstico gratuito",
+        "rodape": "Link na bio. v2o5.com.br/criacao-de-sites"
+      }
+    ]
+  },
+  "atendimento-por-dentro": {
+    "titulo": "V2O5: Atendimento com IA",
+    "slides": [
+      {
+        "tipo": "capa",
+        "estilo": "ambar",
+        "etiqueta": "Solução 3",
+        "titulo": "Atendimento com IA, por dentro.",
+        "sub": "Cada cliente respondido na hora e passado para a pessoa certa.",
+        "rodape": "Deslize para ver o que está incluído"
+      },
+      {
+        "tipo": "texto",
+        "etiqueta": "O problema",
+        "titulo": "O cliente chama no WhatsApp e espera.",
+        "corpo": [
+          "Ele se perde entre as conversas ou some sem que ninguém retome.",
+          "A V2O5 organiza o WhatsApp e coloca um agente de IA que responde e qualifica, com cada contato passado à pessoa certa ou ao sistema que você já usa."
+        ]
+      },
+      {
+        "tipo": "lista",
+        "etiqueta": "Os dois pacotes",
+        "titulo": "Do WhatsApp organizado ao integrado.",
+        "itens": [
+          "Atendimento Essencial, a partir de R$ 3.900: caixa organizada e um agente que responde as dúvidas frequentes a qualquer hora.",
+          "Atendimento Integrado, a partir de R$ 6.900: o agente qualifica, agenda ou encaminha e leva o contato ao sistema que a empresa já usa."
+        ]
+      },
+      {
+        "tipo": "lista",
+        "etiqueta": "Dentro do Essencial",
+        "titulo": "O que o Essencial entrega.",
+        "itens": [
+          "WhatsApp numa caixa de atendimento, com etiquetas e respostas prontas.",
+          "Agente de IA que responde só com o que a empresa aprovou.",
+          "Passagem para a pessoa certa, com o resumo da conversa.",
+          "Lista de contatos com a origem de cada um."
+        ],
+        "nota": "Com treinamento da equipe e uma rodada de ajustes com as conversas reais."
+      },
+      {
+        "tipo": "lista",
+        "etiqueta": "As regras",
+        "titulo": "Como o agente trabalha.",
+        "itens": [
+          "Responde só com o que a empresa aprovou e chama uma pessoa quando não sabe.",
+          "Contato de volta só para quem consentiu, dentro das regras do WhatsApp.",
+          "Integração só entra na proposta depois de verificar documentação e acesso."
+        ]
+      },
+      {
+        "tipo": "lista",
+        "etiqueta": "O que fica de fora",
+        "titulo": "Limites do escopo.",
+        "itens": [
+          "Consumo de IA e mensagens do WhatsApp, pelo valor do provedor.",
+          "A resposta da equipe: o agente passa a conversa e a sua equipe atende.",
+          "Mensagem em massa para quem não consentiu."
+        ],
+        "nota": "IA e mensagens vêm discriminadas, com teto mensal combinado. Preço de referência; o valor fechado sai em proposta."
+      },
+      {
+        "tipo": "cta",
+        "titulo": "Descubra onde seu negócio perde cliente.",
+        "destaque": "Gratuitamente.",
+        "botao": "Pedir diagnóstico gratuito",
+        "rodape": "Link na bio. v2o5.com.br/agente-de-ia-para-whatsapp"
+      }
+    ]
+  }
+}

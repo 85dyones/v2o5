@@ -3,17 +3,17 @@ rota: "/diagnostico"
 url: "https://www.v2o5.com.br/diagnostico"
 status: 200
 title: "Diagnóstico gratuito | V2O5 Vendas e Tecnologia"
-description: "Sessão inicial gratuita de 45 minutos com o fundador para identificar e priorizar um gargalo. Sem mapeamento completo, implementação ou acompanhamento."
+description: "Diagnóstico gratuito de 45 minutos com o fundador para ver onde o seu negócio perde cliente: no Google, no site ou no WhatsApp."
 canonical: "https://www.v2o5.com.br/diagnostico"
 robots: null
-h1: "Em 45 minutos, qual gargalo atacar primeiro. Sessão inicial gratuita, sem compromisso."
-extraido_em: "2026-11-25T15:38:59.225Z"
-fonte: "build local da branch claude/kind-tesla-eefroe em 25/11/2026 (foco em pequenos negócios), antes da publicação"
+h1: "Descubra onde seu negócio perde cliente. Gratuitamente."
+extraido_em: "2026-11-25T20:33:22.653Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 25/11/2026 (diagnóstico no foco em pequenos negócios), antes da publicação"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
-# Em 45 minutos, qual gargalo atacar primeiro. Sessão inicial gratuita, sem compromisso.
+# Descubra onde seu negócio perde cliente. Gratuitamente.
 
-Uma conversa com o fundador sobre como a sua empresa aparece, atende e vende hoje. Serve para entender o problema, estimar o impacto e decidir se existe um projeto viável.
+Em 45 minutos, vemos como o cliente acha o seu negócio e como ele é atendido, e recomendamos por onde começar.
 
 ## Pedir o diagnóstico
 
@@ -54,21 +54,21 @@ O que você quer resolver primeiro
 
 Aparecer no Google e no Maps
 
-Mais contatos do site e dos anúncios
+Receber mais contatos pelo site
 
 Responder mais rápido no WhatsApp
 
-Organizar o funil e o CRM
+Organizar os contatos e fazer o cliente voltar
 
 Integrar os sistemas que já uso
-
-Rever a marca
 
 Algo mais que a gente deva saber (opcional)
 
 Site <!-- armadilha para robôs (campo site), aria-hidden -->
 
 Pedir diagnóstico gratuito
+
+Sem custo e sem compromisso de contratação.
 
 Ao enviar, você concorda em receber o contato da V2O5 pelo WhatsApp e pelo e-mail informados, para marcar a conversa. [Como tratamos os dados](/privacidade).
 
@@ -84,7 +84,7 @@ O formulário ao lado leva dois minutos. Com ele, a conversa já começa no que 
 
 45 minutos com o fundador
 
-Por chamada de vídeo ou WhatsApp. Olhamos presença, atendimento, operação e funil, com os seus números.
+Por chamada de vídeo ou WhatsApp. Vemos como o cliente acha o seu negócio no Google, nas redes e no site, e como ele é atendido no WhatsApp.
 
 3
 
@@ -92,9 +92,9 @@ O próximo passo, se houver
 
 Havendo um bom caso, a V2O5 propõe a solução que cabe no problema (Presença, Sites ou Atendimento com IA), com escopo, entregáveis, prazo e investimento por escrito. Se não houver, a conversa termina ali.
 
-Para quem tem uma empresa que vende pelo WhatsApp, pela internet ou pela loja, e quer saber onde o cliente se perde antes de gastar em anúncio, site ou sistema.
+Para o pequeno negócio que vende pelo WhatsApp ou no balcão e quer saber onde perde cliente antes de gastar com site ou sistema.
 
-O Diagnóstico de Gargalo é a sessão inicial, gratuita, de 45 minutos. Ele identifica e prioriza um gargalo, mas não inclui mapeamento completo do processo, implementação nem acompanhamento ou mensuração de resultados. Esses passos vêm depois, na solução contratada e, se fizer sentido, na continuidade, com escopo, valor e prazo definidos em proposta.
+O diagnóstico é a sessão inicial, gratuita, de 45 minutos. Ele mostra o que pesa mais hoje (ser achado, responder ou fazer o cliente voltar) e por onde começar, mas não inclui mapeamento completo, implementação nem acompanhamento ou mensuração de resultados. Esses passos vêm depois, na solução contratada e, se fizer sentido, na continuidade, com escopo, valor e prazo definidos em proposta.
 
 <!-- ===== Campos que aparecem quando o segmento escolhido é "Revenda de veículos" (entram depois de "Quantas pessoas trabalham na empresa") ===== -->
 Tamanho do estoque
@@ -162,5 +162,5 @@ Marque pelo menos um objetivo.
 <!-- campo armadilha "site": rótulo "Site" fora da tela e do tab, para robôs; não é texto para pessoas -->
 
 <!-- rótulos de acessibilidade (aria-label) desta rota, fora topo e rodapé:
-- "Diagnóstico de Gargalo, gratuito" (section)
+- "Diagnóstico gratuito" (section)
 -->

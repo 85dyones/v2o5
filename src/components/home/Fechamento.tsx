@@ -11,7 +11,7 @@ import { COR_DA_ROTA, Parada } from "@/components/rota/Rota";
  */
 export default function Fechamento({
   titulo = "Comece pelo diagnóstico, que é gratuito.",
-  texto = "Em 45 minutos de conversa com o fundador, a gente entende como a sua empresa vende hoje e identifica o gargalo que vale priorizar. A sessão é gratuita e sem compromisso.",
+  texto = "Em 45 minutos de conversa com o fundador, a gente vê como o cliente acha o seu negócio e como ele é atendido, e mostra por onde começar. A sessão é gratuita e sem compromisso.",
   botao = "Pedir diagnóstico",
   secundario = { href: "/precos", texto: "Ver os preços" },
 }: {

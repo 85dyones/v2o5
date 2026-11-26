@@ -4,11 +4,11 @@
  */
 
 export const DIAGNOSTICO = {
-  sobretitulo: "Diagnóstico de Gargalo, gratuito",
-  titulo: "Em 45 minutos, qual gargalo atacar primeiro.",
-  apagado: "Sessão inicial gratuita, sem compromisso.",
+  sobretitulo: "Diagnóstico gratuito",
+  titulo: "Descubra onde seu negócio perde cliente.",
+  apagado: "Gratuitamente.",
   texto:
-    "Uma conversa com o fundador sobre como a sua empresa aparece, atende e vende hoje. Serve para entender o problema, estimar o impacto e decidir se existe um projeto viável.",
+    "Em 45 minutos, vemos como o cliente acha o seu negócio e como ele é atendido, e recomendamos por onde começar.",
   passos: [
     {
       titulo: "Você conta como vende hoje",
@@ -16,7 +16,7 @@ export const DIAGNOSTICO = {
     },
     {
       titulo: "45 minutos com o fundador",
-      texto: "Por chamada de vídeo ou WhatsApp. Olhamos presença, atendimento, operação e funil, com os seus números.",
+      texto: "Por chamada de vídeo ou WhatsApp. Vemos como o cliente acha o seu negócio no Google, nas redes e no site, e como ele é atendido no WhatsApp.",
     },
     {
       titulo: "O próximo passo, se houver",
@@ -24,13 +24,14 @@ export const DIAGNOSTICO = {
     },
   ],
   paraQuem:
-    "Para quem tem uma empresa que vende pelo WhatsApp, pela internet ou pela loja, e quer saber onde o cliente se perde antes de gastar em anúncio, site ou sistema.",
-  /** O que a sessão inicial não inclui (decisão de 25/10/2026). */
+    "Para o pequeno negócio que vende pelo WhatsApp ou no balcão e quer saber onde perde cliente antes de gastar com site ou sistema.",
+  /** O que a sessão inicial não inclui (decisão de 25/10/2026; texto no foco em pequenos negócios desde 25/11/2026). */
   escopo:
-    "O Diagnóstico de Gargalo é a sessão inicial, gratuita, de 45 minutos. Ele identifica e prioriza um gargalo, mas não inclui mapeamento completo do processo, implementação nem acompanhamento ou mensuração de resultados. Esses passos vêm depois, na solução contratada e, se fizer sentido, na continuidade, com escopo, valor e prazo definidos em proposta.",
+    "O diagnóstico é a sessão inicial, gratuita, de 45 minutos. Ele mostra o que pesa mais hoje (ser achado, responder ou fazer o cliente voltar) e por onde começar, mas não inclui mapeamento completo, implementação nem acompanhamento ou mensuração de resultados. Esses passos vêm depois, na solução contratada e, se fizer sentido, na continuidade, com escopo, valor e prazo definidos em proposta.",
   formulario: {
     titulo: "Pedir o diagnóstico",
     enviar: "Pedir diagnóstico gratuito",
+    microtexto: "Sem custo e sem compromisso de contratação.",
     enviando: "Enviando...",
     consentimento:
       "Ao enviar, você concorda em receber o contato da V2O5 pelo WhatsApp e pelo e-mail informados, para marcar a conversa.",
@@ -64,11 +65,10 @@ export const PORTES = [
 
 export const OBJETIVOS = [
   { valor: "aparecer", rotulo: "Aparecer no Google e no Maps" },
-  { valor: "contatos", rotulo: "Mais contatos do site e dos anúncios" },
+  { valor: "contatos", rotulo: "Receber mais contatos pelo site" },
   { valor: "responder", rotulo: "Responder mais rápido no WhatsApp" },
-  { valor: "funil", rotulo: "Organizar o funil e o CRM" },
+  { valor: "funil", rotulo: "Organizar os contatos e fazer o cliente voltar" },
   { valor: "integrar", rotulo: "Integrar os sistemas que já uso" },
-  { valor: "marca", rotulo: "Rever a marca" },
 ] as const;
 
 export const ESTOQUES = [

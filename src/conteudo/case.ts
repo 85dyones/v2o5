@@ -40,7 +40,7 @@ export const CASE_MOTORS = {
   diagnosticado: {
     sobretitulo: "Antes: diagnosticado",
     titulo: "O que travava a Motors Store.",
-    texto: "Os gargalos identificados antes da intervenção, na ordem da jornada do comprador.",
+    texto: "Os problemas identificados antes da intervenção, na ordem da jornada do comprador.",
     itens: [
       "Baixa visibilidade nas buscas orgânicas, nos buscadores e nas IAs.",
       "Falta de leads qualificados.",
@@ -374,7 +374,7 @@ export const CASE_16VC = {
   assinatura: "O projeto é conduzido pelo fundador da V2O5, Dyones Oliveira. É ele quem conduz o diagnóstico gratuito.",
   chamada: {
     titulo: "Sua equipe tria pedidos um por um no WhatsApp?",
-    texto: "O diagnóstico é gratuito: 45 minutos com o fundador para identificar e priorizar o gargalo do seu atendimento.",
+    texto: "O diagnóstico é gratuito: 45 minutos com o fundador para ver onde o seu negócio perde cliente.",
     botao: "Pedir diagnóstico gratuito",
     secundario: "Ver todos os preços",
   },

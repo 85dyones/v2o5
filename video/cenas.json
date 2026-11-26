@@ -1,0 +1,553 @@
+{
+  "L1-01": {
+    "tipo": "conversa"
+  },
+  "L1-02": {
+    "tipo": "barras",
+    "tag": "EXEMPLO · sem escala",
+    "linhas": [
+      {
+        "rotulo": "Visitas ao perfil",
+        "v": 100,
+        "a": 0
+      },
+      {
+        "rotulo": "Cliques no WhatsApp",
+        "v": 82,
+        "a": 0.2
+      },
+      {
+        "rotulo": "Conversas abertas",
+        "v": 64,
+        "a": 0.4
+      },
+      {
+        "rotulo": "Respondidas a tempo",
+        "v": 22,
+        "a": 0.6,
+        "cor": "acao",
+        "nota": "aqui se perde",
+        "na": 1
+      }
+    ]
+  },
+  "L1-03": {
+    "tipo": "numero",
+    "fonte": "Motors Store · 21/10 a 17/11/2026",
+    "valor": 93,
+    "sufixo": " de 100",
+    "rotulo": "primeiras respostas em até 1 minuto",
+    "extra": "mediana: 38 segundos",
+    "fonteA": 0,
+    "a": 2,
+    "extraA": 2
+  },
+  "L1-04": {
+    "tipo": "barras",
+    "tag": "EXEMPLO · tempo de espera",
+    "linhas": [
+      {
+        "rotulo": "Pedido de orçamento",
+        "v": 92,
+        "a": 0,
+        "cresce": 1,
+        "nota": "2 h",
+        "na": 1.5,
+        "destaque": 2
+      },
+      {
+        "rotulo": "Dúvida de prazo",
+        "v": 70,
+        "a": 0.2,
+        "cresce": 1,
+        "nota": "1 h",
+        "na": 1.6
+      },
+      {
+        "rotulo": "Pedido de preço",
+        "v": 46,
+        "a": 0.4,
+        "cresce": 1,
+        "nota": "35 min",
+        "na": 1.7
+      },
+      {
+        "rotulo": "Horário de atendimento",
+        "v": 22,
+        "a": 0.6,
+        "cresce": 1,
+        "nota": "10 min",
+        "na": 1.8
+      }
+    ]
+  },
+  "L1-05": {
+    "tipo": "grade",
+    "tag": "EXEMPLO · 24 conversas",
+    "linhas": 4,
+    "colunas": 6,
+    "marcadas": [
+      2,
+      5,
+      7,
+      10,
+      13,
+      14,
+      17,
+      20,
+      22
+    ],
+    "aMarcar": 1,
+    "valor": "?",
+    "rotulo": "sem resposta esta semana",
+    "aValor": 0
+  },
+  "L1-07": {
+    "tipo": "chat",
+    "nome": "Cliente",
+    "msgs": [
+      {
+        "de": "c",
+        "texto": "Oi! Vocês fazem desconto à vista?",
+        "a": 0.3
+      },
+      {
+        "de": "a",
+        "texto": "Oi, tudo bem? Claro, vou te ajudar. Qual carro te interessou?",
+        "a": 0.9
+      },
+      {
+        "de": "c",
+        "texto": "O Corolla. E o desconto?",
+        "a": 1.2
+      },
+      {
+        "de": "a",
+        "texto": "Anotei seu interesse no Corolla. Vou chamar um consultor para combinar o melhor valor com você.",
+        "a": 1.5
+      }
+    ],
+    "selo": {
+      "texto": "Consultor chamado",
+      "a": 1.85
+    }
+  },
+  "L1-09": {
+    "tipo": "comparar",
+    "colunas": [
+      {
+        "titulo": "O que o Google mostra",
+        "a": 0,
+        "itens": [
+          {
+            "texto": "Fechado no sábado",
+            "a": 0
+          },
+          {
+            "texto": "Foto de anos atrás",
+            "a": 0.5
+          },
+          {
+            "texto": "Telefone antigo",
+            "a": 0.9
+          }
+        ]
+      },
+      {
+        "titulo": "O que é verdade",
+        "a": 1.4,
+        "itens": [
+          {
+            "texto": "Aberto até as 13h",
+            "a": 1.4
+          },
+          {
+            "texto": "Loja reformada",
+            "a": 1.8
+          },
+          {
+            "texto": "WhatsApp novo",
+            "a": 2.2
+          }
+        ]
+      }
+    ]
+  },
+  "L1-11": {
+    "tipo": "comparar",
+    "colunas": [
+      {
+        "titulo": "Site que só mostra",
+        "a": 0,
+        "itens": [
+          {
+            "texto": "Bonito e no ar",
+            "a": 1
+          },
+          {
+            "texto": "WhatsApp no rodapé",
+            "a": 1.5
+          },
+          {
+            "texto": "O cliente desiste",
+            "a": 2
+          }
+        ]
+      },
+      {
+        "titulo": "Site que leva à conversa",
+        "a": 3,
+        "itens": [
+          {
+            "texto": "Botão do WhatsApp à vista",
+            "a": 3
+          },
+          {
+            "texto": "Horário e endereço certos",
+            "a": 3.4
+          }
+        ]
+      }
+    ]
+  },
+  "L1-12": {
+    "tipo": "caminho",
+    "nos": [
+      {
+        "rotulo": "Cliente satisfeito",
+        "sub": "comprou e gostou",
+        "a": 0
+      },
+      {
+        "rotulo": "Ninguém pediu",
+        "sub": "a avaliação não chega",
+        "a": 0.6,
+        "destaque": true
+      },
+      {
+        "rotulo": "Link e mensagem prontos",
+        "sub": "enviados depois da compra",
+        "a": 1.2
+      }
+    ]
+  },
+  "L1-13": {
+    "tipo": "caminho",
+    "nos": [
+      {
+        "rotulo": "Formulário do site",
+        "sub": "pedido enviado",
+        "a": 0
+      },
+      {
+        "rotulo": "Caixa de e-mail",
+        "sub": "parado, sem responsável",
+        "a": 0.5,
+        "destaque": true
+      },
+      {
+        "rotulo": "Cliente esperou",
+        "a": 1
+      },
+      {
+        "rotulo": "Procurou outro",
+        "a": 1.4
+      }
+    ],
+    "chips": {
+      "a": 2,
+      "itens": [
+        "Formulário",
+        "Responsável",
+        "Resposta"
+      ]
+    }
+  },
+  "L1-14": {
+    "tipo": "comparar",
+    "colunas": [
+      {
+        "titulo": "Sem dono",
+        "a": 0,
+        "itens": [
+          {
+            "texto": "Todos podem responder",
+            "a": 0
+          },
+          {
+            "texto": "Cada um acha que o outro respondeu",
+            "a": 0.5
+          },
+          {
+            "texto": "Conversa parada",
+            "a": 0.9
+          }
+        ]
+      },
+      {
+        "titulo": "Com dono",
+        "a": 1,
+        "itens": [
+          {
+            "texto": "Quem atende",
+            "a": 1
+          },
+          {
+            "texto": "Em que ordem",
+            "a": 1.4
+          },
+          {
+            "texto": "O que passa para a equipe",
+            "a": 1.8
+          }
+        ]
+      }
+    ]
+  },
+  "L1-15": {
+    "tipo": "caminho",
+    "nos": [
+      {
+        "rotulo": "Site novo",
+        "sub": "bonito e no ar",
+        "a": 0
+      },
+      {
+        "rotulo": "Atendimento lento",
+        "sub": "o problema de verdade",
+        "a": 0.5,
+        "destaque": true
+      },
+      {
+        "rotulo": "Venda perdida",
+        "a": 1.2
+      }
+    ]
+  },
+  "L1-16": {
+    "tipo": "comparar",
+    "colunas": [
+      {
+        "titulo": "Planilha e WhatsApp manual",
+        "a": 0,
+        "itens": [
+          {
+            "texto": "Poucos contatos: funciona",
+            "a": 0
+          },
+          {
+            "texto": "O volume cresce: alguém esquece",
+            "a": 1
+          },
+          {
+            "texto": "Ninguém sabe quem",
+            "a": 1.5
+          }
+        ]
+      },
+      {
+        "titulo": "Lista conectada",
+        "a": 2,
+        "itens": [
+          {
+            "texto": "Guarda cada contato",
+            "a": 2
+          },
+          {
+            "texto": "Mostra o que está parado",
+            "a": 2.5
+          }
+        ]
+      }
+    ]
+  },
+  "L1-18": {
+    "tipo": "comparar",
+    "colunas": [
+      {
+        "titulo": "Caderno",
+        "a": 0,
+        "itens": [
+          {
+            "texto": "Anotação solta",
+            "a": 0
+          },
+          {
+            "texto": "Contato esquecido, sem aviso",
+            "a": 0.5
+          }
+        ]
+      },
+      {
+        "titulo": "Lista ligada ao WhatsApp",
+        "a": 1,
+        "itens": [
+          {
+            "texto": "A fila de contatos",
+            "a": 1
+          },
+          {
+            "texto": "A origem de cada um",
+            "a": 1.4
+          },
+          {
+            "texto": "Quem comprou e quando",
+            "a": 1.8
+          }
+        ]
+      }
+    ]
+  },
+  "L1-19": {
+    "tipo": "chat",
+    "nome": "Cliente",
+    "msgs": [
+      {
+        "de": "c",
+        "texto": "Qual o horário de vocês?",
+        "a": 0
+      },
+      {
+        "de": "a",
+        "texto": "Seg a sex, das 9h às 18h.",
+        "a": 0.3
+      },
+      {
+        "de": "c",
+        "texto": "E o prazo?",
+        "a": 0.6
+      },
+      {
+        "de": "a",
+        "texto": "Em geral, até 5 dias úteis.",
+        "a": 0.9
+      },
+      {
+        "de": "c",
+        "texto": "Dá para negociar o valor?",
+        "a": 1.2
+      },
+      {
+        "de": "a",
+        "texto": "Isso a equipe decide.",
+        "a": 1.5
+      }
+    ],
+    "selo": {
+      "texto": "Passou para uma pessoa",
+      "a": 1.8
+    }
+  },
+  "L1-20": {
+    "tipo": "comparar",
+    "colunas": [
+      {
+        "titulo": "Sistemas separados",
+        "a": 0,
+        "itens": [
+          {
+            "texto": "Digita no sistema",
+            "a": 0
+          },
+          {
+            "texto": "Digita de novo na planilha",
+            "a": 0.4
+          },
+          {
+            "texto": "Digita de novo no WhatsApp",
+            "a": 0.8
+          }
+        ]
+      },
+      {
+        "titulo": "Sistemas integrados",
+        "a": 1,
+        "itens": [
+          {
+            "texto": "Digita uma vez",
+            "a": 1
+          },
+          {
+            "texto": "O dado chega ao site e ao WhatsApp",
+            "a": 1.5
+          }
+        ]
+      }
+    ]
+  },
+  "L1-22": {
+    "tipo": "caminho",
+    "nos": [
+      {
+        "rotulo": "Como o cliente te acha",
+        "a": 0
+      },
+      {
+        "rotulo": "Quem responde",
+        "a": 0.3
+      },
+      {
+        "rotulo": "Para onde vai o contato",
+        "a": 0.6
+      },
+      {
+        "rotulo": "Quem volta a comprar",
+        "a": 1,
+        "destaque": true
+      }
+    ]
+  },
+  "L1-23": {
+    "tipo": "caminho",
+    "nos": [
+      {
+        "rotulo": "Comprou em março",
+        "sub": "gostou do atendimento",
+        "a": 0
+      },
+      {
+        "rotulo": "Ninguém chamou de novo",
+        "sub": "o contato ficou parado",
+        "a": 0.6,
+        "destaque": true
+      },
+      {
+        "rotulo": "Comprou do concorrente",
+        "a": 1.2
+      }
+    ],
+    "chips": {
+      "a": 2,
+      "itens": [
+        "Lista de clientes",
+        "Consentimento",
+        "Mensagem na hora certa"
+      ]
+    }
+  },
+  "L1-24": {
+    "tipo": "caminho",
+    "nos": [
+      {
+        "rotulo": "Onde o cliente se perde",
+        "a": 0
+      },
+      {
+        "rotulo": "O impacto desse ponto",
+        "a": 1
+      },
+      {
+        "rotulo": "A solução que cabe",
+        "a": 2
+      }
+    ],
+    "chips": {
+      "a": 2.2,
+      "itens": [
+        "Presença Digital Local",
+        "Sites & Integrações",
+        "Atendimento com IA"
+      ]
+    }
+  }
+}

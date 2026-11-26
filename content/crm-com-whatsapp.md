@@ -7,8 +7,8 @@ description: "CRM sob medida com WhatsApp dentro do funil: cada contato com orig
 canonical: "https://www.v2o5.com.br/crm-com-whatsapp"
 robots: null
 h1: "CRM com WhatsApp integrado e IA."
-extraido_em: "2026-11-25T15:38:59.225Z"
-fonte: "build local da branch claude/kind-tesla-eefroe em 25/11/2026 (foco em pequenos negócios), antes da publicação"
+extraido_em: "2026-11-25T20:33:22.653Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 25/11/2026 (diagnóstico no foco em pequenos negócios), antes da publicação"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 # CRM com WhatsApp integrado e IA.
@@ -177,7 +177,7 @@ Serve. Os campos e as etapas são desenhados com você. Revenda de veículos é 
 
 ## Comece pelo diagnóstico, que é gratuito.
 
-Em 45 minutos de conversa com o fundador, a gente entende como a sua empresa vende hoje e identifica o gargalo que vale priorizar. A sessão é gratuita e sem compromisso.
+Em 45 minutos de conversa com o fundador, a gente vê como o cliente acha o seu negócio e como ele é atendido, e mostra por onde começar. A sessão é gratuita e sem compromisso.
 
 [Pedir diagnóstico](/diagnostico)
 
