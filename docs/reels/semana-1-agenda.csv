@@ -1,90 +1,136 @@
-data,dia,hora,rede,tipo,codigo,arquivos,capa,legenda,legenda_facebook,comentario
-2026-12-01,terça,08:30,Instagram + Facebook,reel,L1-01,L1-01-v3.mp4,capas/L1-01-v3.jpg,"Seu cliente pediu o preço às 14h02. Quando você respondeu?
+data,dia,hora,rede,tipo,codigo,arquivos,capa,legenda,comentario
+2026-11-26,quinta,1º,Instagram,carrossel fixo,fixo-1-o-que-fazemos,instagram/fixo-1-o-que-fazemos-01.png a -07.png,instagram/fixo-1-o-que-fazemos-01.png,"Quanto custa colocar seu negócio no mapa? Aqui o preço aparece.
+
+A V2O5 digitaliza pequenos negócios que vendem pelo WhatsApp. Coloca o negócio no Google com a informação certa, faz um site que leva o cliente até a conversa e organiza o atendimento com um agente de IA que responde na hora. Cada solução tem escopo fechado e preço de entrada público, e tudo começa por um diagnóstico gratuito de 45 minutos.
+
+Descubra onde seu negócio perde cliente. Gratuitamente.
+Link na bio.
+
+#pequenosnegocios #negociolocal #whatsappbusiness #googlemeunegocio #v2o5",
+2026-11-26,quinta,1º,Facebook,carrossel fixo (várias fotos),fixo-1-o-que-fazemos,facebook/fixo-1-o-que-fazemos-01.png a -07.png,facebook/fixo-1-o-que-fazemos-01.png,"Quanto custa colocar seu negócio no mapa? Aqui o preço aparece.
+
+A V2O5 digitaliza pequenos negócios que vendem pelo WhatsApp, on-line, em todo o Brasil. Três soluções, com escopo fechado e preço de referência público: Presença Digital Local (a partir de R$ 790), Sites & Integrações (a partir de R$ 2.900) e Atendimento com IA (a partir de R$ 3.900). Tudo começa por um diagnóstico gratuito de 45 minutos, sem compromisso de contratação.
+
+Descubra onde seu negócio perde cliente. Gratuitamente: https://www.v2o5.com.br/diagnostico?utm_source=facebook&utm_medium=post-fixo&utm_campaign=posts-fixos&utm_content=fixo-1",
+2026-11-26,quinta,1º,LinkedIn,carrossel fixo (PDF),fixo-1-o-que-fazemos,linkedin/fixo-1-o-que-fazemos.pdf,,"Quanto custa colocar seu negócio no mapa? Aqui o preço aparece.
+
+A V2O5 digitaliza pequenos negócios: faz o cliente encontrar a empresa e faz a empresa atender bem quem chega. Três soluções, cada uma com escopo fechado e preço de referência público: Presença Digital Local (a partir de R$ 790), Sites & Integrações (a partir de R$ 2.900) e Atendimento com IA (a partir de R$ 3.900). Depois do projeto, a continuidade é opcional, a partir de R$ 349 por mês.
+
+Tudo começa por um diagnóstico gratuito de 45 minutos. Descubra onde seu negócio perde cliente. Gratuitamente.
+
+Link no primeiro comentário.
+
+#PequenosNegócios #Atendimento #WhatsApp",https://www.v2o5.com.br/diagnostico?utm_source=linkedin&utm_medium=post-fixo&utm_campaign=posts-fixos&utm_content=fixo-1
+2026-11-26,quinta,2º,Instagram,carrossel fixo,fixo-2-como-trabalhamos,instagram/fixo-2-como-trabalhamos-01.png a -07.png,instagram/fixo-2-como-trabalhamos-01.png,"O que acontece depois que você pede um diagnóstico?
+
+São 45 minutos com o fundador, gratuitos e sem compromisso. A gente vê como o cliente acha o seu negócio e como ele é atendido no WhatsApp. O combinado vale antes de qualquer projeto: escopo fechado, preço de referência público, nenhum escopo ilimitado e nenhuma solução que obrigue a seguinte. Depois, um projeto anda em quatro passos, do diagnóstico ao acompanhamento.
+
+Descubra onde seu negócio perde cliente. Gratuitamente.
+Link na bio.
+
+#pequenosnegocios #negociolocal #atendimentoaocliente #whatsappbusiness #v2o5",
+2026-11-26,quinta,2º,Facebook,carrossel fixo (várias fotos),fixo-2-como-trabalhamos,facebook/fixo-2-como-trabalhamos-01.png a -07.png,facebook/fixo-2-como-trabalhamos-01.png,"O que acontece depois que você pede um diagnóstico?
+
+São 45 minutos com o fundador, gratuitos e sem compromisso. A gente vê como o cliente acha o seu negócio e como ele é atendido no WhatsApp. O combinado vale antes de qualquer projeto: escopo fechado, preço de referência público, nenhum escopo ilimitado e nenhuma solução que obrigue a seguinte.
+
+Descubra onde seu negócio perde cliente. Gratuitamente: https://www.v2o5.com.br/diagnostico?utm_source=facebook&utm_medium=post-fixo&utm_campaign=posts-fixos&utm_content=fixo-2",
+2026-11-26,quinta,3º,Instagram,carrossel fixo,fixo-3-case-motors,instagram/fixo-3-case-motors-01.png a -07.png,instagram/fixo-3-case-motors-01.png,"93 de 100 conversas com a primeira resposta em até 1 minuto. A mediana é de 38 segundos.
+
+É o que o agente de IA da Motors Store, revenda de seminovos em Curitiba, registrou no WhatsApp entre 21/10 e 17/11/2026 (conversas lidas no banco de dados da loja). A V2O5 montou o site de estoque ligado ao sistema da loja, o agente que atende e qualifica, a entrega do lead ao CRM e as automações.
+
+São contagens do sistema, não vendas, e a resposta humana não é medida. O resultado é o da Motors; o que cabe no seu negócio o diagnóstico mostra.
+
+Descubra onde seu negócio perde cliente. Gratuitamente.
+Link na bio.
+
+O case completo está em v2o5.com.br/cases/motors-store.
+
+#atendimentoaocliente #whatsappbusiness #inteligenciaartificial #pequenosnegocios #v2o5",
+2026-11-26,quinta,3º,Facebook,carrossel fixo (várias fotos),fixo-3-case-motors,facebook/fixo-3-case-motors-01.png a -07.png,facebook/fixo-3-case-motors-01.png,"93 de 100 conversas com a primeira resposta em até 1 minuto, mediana de 38 segundos: o que o agente de IA da Motors Store registrou no WhatsApp entre 21/10 e 17/11/2026. A V2O5 montou o site de estoque ligado ao sistema da loja, o agente que atende e qualifica, a entrega do lead ao CRM e as automações.
+
+São contagens lidas no banco de dados da loja, não vendas, e a resposta humana não é medida. O resultado é o da Motors. Case completo: https://www.v2o5.com.br/cases/motors-store?utm_source=facebook&utm_medium=post-fixo&utm_campaign=posts-fixos&utm_content=fixo-3",
+2026-11-27,sexta,09:00,Instagram,reel,L1-01,L1-01-v3.mp4,capas/L1-01-v3.jpg,"Seu cliente pediu o preço às 14h02. Quando você respondeu?
 Cena de exemplo.
 
 Descubra onde seu negócio perde cliente. Gratuitamente.
 Link na bio.
 
-#whatsappbusiness #atendimentoaocliente #pequenosnegocios #negociolocal #v2o5",,
-2026-12-01,terça,11:30,Instagram + Facebook,carrossel,diagnostico-diferencial,diagnostico-diferencial-01.png a diagnostico-diferencial-07.png,diagnostico-diferencial-01.png,"Antes de vender a solução, a V2O5 entende o problema.
+#whatsappbusiness #atendimentoaocliente #pequenosnegocios #negociolocal #v2o5",
+2026-11-27,sexta,09:00,Facebook,reel,L1-01,L1-01-v3.mp4,capas/L1-01-v3.jpg,"Seu cliente pediu o preço às 14h02. Quando você respondeu?
+Cena de exemplo.
+
+Descubra onde seu negócio perde cliente. Gratuitamente.: https://www.v2o5.com.br/diagnostico?utm_source=facebook&utm_medium=reel&utm_campaign=semana-1&utm_content=L1-01",
+2026-11-27,sexta,10:00,LinkedIn,carrossel fixo (PDF),fixo-3-case-motors,linkedin/fixo-3-case-motors.pdf,,"93 de 100 conversas com a primeira resposta em até 1 minuto, mediana de 38 segundos. É o agente de IA da Motors Store, revenda de seminovos em Curitiba, no WhatsApp, entre 21/10 e 17/11/2026.
+
+A V2O5 montou o site de estoque ligado ao Revenda Mais, o agente que atende e qualifica, a entrega do lead qualificado ao CRM e as automações, na mesma base de dados. O banco da loja mostra 237 leads no funil de 05/09 a 17/11/2026 e, desde 21/10, 125 clientes atendidos pelo agente; desde 04/11, 37 leads qualificados entregues ao CRM.
+
+Os números são contagens lidas no banco de dados da loja em 17/11/2026. Não são números de venda, a resposta humana não é medida e o resultado é o da Motors. O diagnóstico mostra o que cabe em outro negócio.
+
+Case completo no primeiro comentário.
+
+#Atendimento #WhatsAppBusiness #InteligênciaArtificial",https://www.v2o5.com.br/cases/motors-store?utm_source=linkedin&utm_medium=post-fixo&utm_campaign=posts-fixos&utm_content=fixo-3
+2026-11-27,sexta,11:30,Instagram,carrossel,diagnostico-diferencial,instagram/diagnostico-diferencial-01.png a -07.png,instagram/diagnostico-diferencial-01.png,"Antes de vender a solução, a V2O5 entende o problema.
 
 O diagnóstico gratuito de 45 minutos vê como o cliente acha o seu negócio e como ele é atendido, mostra o que pesa mais hoje e recomenda por onde começar. Havendo um bom caso, a proposta vem por escrito, com escopo, entregáveis, prazo e investimento. Se não houver, a conversa termina ali.
 
 Descubra onde seu negócio perde cliente. Gratuitamente.
 Link na bio.
 
-#pequenosnegocios #negociolocal #atendimentoaocliente #empreendedorismo #v2o5","Antes de vender a solução, a V2O5 entende o problema.
+#pequenosnegocios #negociolocal #atendimentoaocliente #empreendedorismo #v2o5",
+2026-11-27,sexta,11:30,Facebook,carrossel (várias fotos),diagnostico-diferencial,facebook/diagnostico-diferencial-01.png a -07.png,facebook/diagnostico-diferencial-01.png,"Antes de vender a solução, a V2O5 entende o problema.
 
 O diagnóstico gratuito de 45 minutos vê como o cliente acha o seu negócio e como ele é atendido, mostra o que pesa mais hoje e recomenda por onde começar. Havendo um bom caso, a proposta vem por escrito, com escopo, entregáveis, prazo e investimento. Se não houver, a conversa termina ali.
 
-Descubra onde seu negócio perde cliente. Gratuitamente: https://www.v2o5.com.br/diagnostico?utm_source=facebook&utm_medium=post&utm_campaign=semana-1&utm_content=diagnostico-diferencial",
-2026-12-01,terça,10:00,LinkedIn,carrossel (PDF),diagnostico-diferencial,linkedin/diagnostico-diferencial.pdf,,"Antes de vender a solução, a V2O5 entende o problema.
-
-O diagnóstico gratuito de 45 minutos é a nossa porta de entrada: vemos como o cliente acha o negócio e como ele é atendido no WhatsApp, o que pesa mais hoje (ser achado, responder ou fazer o cliente voltar) e por onde começar. O diagnóstico não inclui mapeamento completo, implementação nem acompanhamento. Se houver um bom caso, a proposta vem por escrito; se não houver, a conversa termina ali.
-
-Link no primeiro comentário.
-
-#Diagnóstico #PequenosNegócios #Atendimento",,https://www.v2o5.com.br/diagnostico?utm_source=linkedin&utm_medium=post&utm_campaign=semana-1&utm_content=diagnostico-diferencial
-2026-12-01,terça,14:00,Instagram,reel,L1-21,L1-21-v3.mp4,capas/L1-21-v3.jpg,"45 minutos para ver onde seu negócio perde cliente.
+Descubra onde seu negócio perde cliente. Gratuitamente.: https://www.v2o5.com.br/diagnostico?utm_source=facebook&utm_medium=post&utm_campaign=semana-1&utm_content=diagnostico-diferencial",
+2026-11-27,sexta,14:00,Instagram,reel,L1-21,L1-21-v3.mp4,capas/L1-21-v3.jpg,"45 minutos para ver onde seu negócio perde cliente.
 
 Descubra onde seu negócio perde cliente. Gratuitamente.
 Link na bio.
 
-#pequenosnegocios #negociolocal #empreendedorismo #comerciolocal #v2o5",,
-2026-12-01,terça,17:30,Instagram,carrossel,presenca-por-dentro,presenca-por-dentro-01.png a presenca-por-dentro-07.png,presenca-por-dentro-01.png,"Presença Digital Local, por dentro: os dois pacotes, o que o Essencial entrega, a mensalidade opcional e o que fica de fora.
+#pequenosnegocios #negociolocal #empreendedorismo #comerciolocal #v2o5",
+2026-11-27,sexta,17:30,Instagram,carrossel,presenca-por-dentro,instagram/presenca-por-dentro-01.png a -07.png,instagram/presenca-por-dentro-01.png,"Presença Digital Local, por dentro: os dois pacotes, o que o Essencial entrega, a mensalidade opcional e o que fica de fora.
 
 Para o cliente procurar o seu negócio e achar a informação certa, com o pedido de avaliação para quem comprou. A partir de R$ 790, com o valor fechado em proposta.
 
 Descubra onde seu negócio perde cliente. Gratuitamente.
 Link na bio.
 
-#googlemeunegocio #negociolocal #pequenosnegocios #whatsappbusiness #v2o5",,
-2026-12-01,terça,20:00,Instagram,reel,L1-17,L1-17-v3.mp4,capas/L1-17-v3.jpg,"Orçamento escondido ou preço público?
+#googlemeunegocio #negociolocal #pequenosnegocios #whatsappbusiness #v2o5",
+2026-11-27,sexta,20:00,Instagram,reel,L1-17,L1-17-v3.mp4,capas/L1-17-v3.jpg,"Orçamento escondido ou preço público?
 
 Descubra onde seu negócio perde cliente. Gratuitamente.
 Link na bio.
 
-#pequenosnegocios #negociolocal #empreendedorismo #comerciolocal #v2o5",,
-2026-12-02,quarta,08:30,Instagram + Facebook,reel,L1-11,L1-11-v3.mp4,capas/L1-11-v3.jpg,"Seu site está no ar. O cliente acha o seu WhatsApp?
+#pequenosnegocios #negociolocal #empreendedorismo #comerciolocal #v2o5",
+2026-11-28,sábado,09:00,Instagram,reel,L1-11,L1-11-v3.mp4,capas/L1-11-v3.jpg,"Seu site está no ar. O cliente acha o seu WhatsApp?
 
 Descubra onde seu negócio perde cliente. Gratuitamente.
 Link na bio.
 
-#sitesprofissionais #whatsappbusiness #pequenosnegocios #negociolocal #v2o5",,
-2026-12-02,quarta,11:30,Instagram + Facebook,carrossel,sites-por-dentro,sites-por-dentro-01.png a sites-por-dentro-07.png,sites-por-dentro-01.png,"Sites & Integrações, por dentro: Landing Page, Site Personalizado e Site Conectado.
+#sitesprofissionais #whatsappbusiness #pequenosnegocios #negociolocal #v2o5",
+2026-11-28,sábado,09:00,Facebook,reel,L1-11,L1-11-v3.mp4,capas/L1-11-v3.jpg,"Seu site está no ar. O cliente acha o seu WhatsApp?
+
+Descubra onde seu negócio perde cliente. Gratuitamente.: https://www.v2o5.com.br/diagnostico?utm_source=facebook&utm_medium=reel&utm_campaign=semana-1&utm_content=L1-11",
+2026-11-28,sábado,11:30,Instagram,carrossel,sites-por-dentro,instagram/sites-por-dentro-01.png a -07.png,instagram/sites-por-dentro-01.png,"Sites & Integrações, por dentro: Landing Page, Site Personalizado e Site Conectado.
 
 Site próprio, rápido no celular, que leva o cliente até o WhatsApp e se liga à agenda, ao estoque ou ao sistema que você já usa quando o escopo pede. A partir de R$ 2.900, com o valor fechado em proposta.
 
 Descubra onde seu negócio perde cliente. Gratuitamente.
 Link na bio.
 
-#sitesprofissionais #whatsappbusiness #pequenosnegocios #negociolocal #v2o5","Sites & Integrações, por dentro: Landing Page, Site Personalizado e Site Conectado.
+#sitesprofissionais #whatsappbusiness #pequenosnegocios #negociolocal #v2o5",
+2026-11-28,sábado,11:30,Facebook,carrossel (várias fotos),sites-por-dentro,facebook/sites-por-dentro-01.png a -07.png,facebook/sites-por-dentro-01.png,"Sites & Integrações, por dentro: Landing Page, Site Personalizado e Site Conectado.
 
 Site próprio, rápido no celular, que leva o cliente até o WhatsApp e se liga à agenda, ao estoque ou ao sistema que você já usa quando o escopo pede. A partir de R$ 2.900, com o valor fechado em proposta.
 
-Descubra onde seu negócio perde cliente. Gratuitamente: https://www.v2o5.com.br/diagnostico?utm_source=facebook&utm_medium=post&utm_campaign=semana-1&utm_content=sites-por-dentro",
-2026-12-02,quarta,10:00,LinkedIn,carrossel (PDF),sites-por-dentro,linkedin/sites-por-dentro.pdf,,"Sites & Integrações, por dentro.
-
-Três pacotes: Landing Page (R$ 2.900), Site Personalizado (R$ 5.900) e Site Conectado (a partir de R$ 9.900), este ligado a um sistema que a empresa já usa. Integração só entra na proposta depois de verificar documentação, credenciais, limites e custos do sistema. O site se liga ao que a empresa já usa e não substitui o CRM nem o sistema de gestão.
-
-Link no primeiro comentário.
-
-#Sites #Integração #PequenosNegócios",,https://www.v2o5.com.br/diagnostico?utm_source=linkedin&utm_medium=post&utm_campaign=semana-1&utm_content=sites-por-dentro
-2026-12-02,quarta,12:00,LinkedIn,reel,L1-13,L1-13-v3.mp4,capas/L1-13-v3.jpg,"O cliente preencheu o formulário. Quem viu?
-Cena de exemplo.
-
-Muito site recebe o pedido e deixa ele parado numa caixa de entrada. O cliente esperou, ninguém respondeu e ele procurou outro. O caminho do formulário até uma pessoa precisa estar desenhado. É um dos pontos que olhamos no diagnóstico gratuito de 45 minutos.
-
-Link do diagnóstico gratuito no primeiro comentário.
-
-#Atendimento #Sites #PequenosNegócios",,https://www.v2o5.com.br/diagnostico?utm_source=linkedin&utm_medium=reel&utm_campaign=semana-1&utm_content=L1-13
-2026-12-02,quarta,14:00,Instagram,reel,L1-08,L1-08-v3.mp4,capas/L1-08-v3.jpg,"O cliente preencheu o formulário. Onde o pedido foi parar?
+Descubra onde seu negócio perde cliente. Gratuitamente.: https://www.v2o5.com.br/diagnostico?utm_source=facebook&utm_medium=post&utm_campaign=semana-1&utm_content=sites-por-dentro",
+2026-11-28,sábado,14:00,Instagram,reel,L1-08,L1-08-v3.mp4,capas/L1-08-v3.jpg,"O cliente preencheu o formulário. Onde o pedido foi parar?
 
 Descubra onde seu negócio perde cliente. Gratuitamente.
 Link na bio.
 
-#sitesprofissionais #whatsappbusiness #pequenosnegocios #negociolocal #v2o5",,
-2026-12-02,quarta,17:30,Instagram,carrossel,dor-lead-esfria,dor-lead-esfria-01.png a dor-lead-esfria-07.png,dor-lead-esfria-01.png,"O cliente perguntou o preço às 19h. Quando você respondeu? Cinco sinais para conferir no seu negócio.
+#sitesprofissionais #whatsappbusiness #pequenosnegocios #negociolocal #v2o5",
+2026-11-28,sábado,17:30,Instagram,carrossel,dor-lead-esfria,instagram/dor-lead-esfria-01.png a -07.png,instagram/dor-lead-esfria-01.png,"O cliente perguntou o preço às 19h. Quando você respondeu? Cinco sinais para conferir no seu negócio.
 
 Marcou dois ou mais? Vale um diagnóstico. O Atendimento com IA organiza o WhatsApp e responde na hora, a partir de R$ 3.900.
 
@@ -93,55 +139,44 @@ Salve este carrossel para conferir com a equipe e envie para quem cuida disso.
 Descubra onde seu negócio perde cliente. Gratuitamente.
 Link na bio.
 
-#whatsappbusiness #atendimentoaocliente #pequenosnegocios #negociolocal #v2o5",,
-2026-12-02,quarta,20:00,Instagram,reel,L1-07,L1-07-v3.mp4,capas/L1-07-v3.jpg,"O cliente pediu desconto. Quem respondeu?
+#whatsappbusiness #atendimentoaocliente #pequenosnegocios #negociolocal #v2o5",
+2026-11-28,sábado,20:00,Instagram,reel,L1-07,L1-07-v3.mp4,capas/L1-07-v3.jpg,"O cliente pediu desconto. Quem respondeu?
 Cena de exemplo.
 
 Descubra onde seu negócio perde cliente. Gratuitamente.
 Link na bio.
 
-#whatsappbusiness #atendimentoaocliente #pequenosnegocios #negociolocal #v2o5",,
-2026-12-03,quinta,08:30,Instagram + Facebook,reel,L1-22,L1-22-v3.mp4,capas/L1-22-v3.jpg,"O que a V2O5 olha primeiro num pequeno negócio.
+#whatsappbusiness #atendimentoaocliente #pequenosnegocios #negociolocal #v2o5",
+2026-11-29,domingo,09:00,Instagram,reel,L1-22,L1-22-v3.mp4,capas/L1-22-v3.jpg,"O que a V2O5 olha primeiro num pequeno negócio.
 
 Descubra onde seu negócio perde cliente. Gratuitamente.
 Link na bio.
 
-#pequenosnegocios #negociolocal #empreendedorismo #comerciolocal #v2o5",,
-2026-12-03,quinta,11:30,Instagram + Facebook,carrossel,atendimento-por-dentro,atendimento-por-dentro-01.png a atendimento-por-dentro-07.png,atendimento-por-dentro-01.png,"Atendimento com IA, por dentro: os dois pacotes, o que o Essencial entrega, as regras do agente e o que fica de fora.
+#pequenosnegocios #negociolocal #empreendedorismo #comerciolocal #v2o5",
+2026-11-29,domingo,09:00,Facebook,reel,L1-22,L1-22-v3.mp4,capas/L1-22-v3.jpg,"O que a V2O5 olha primeiro num pequeno negócio.
+
+Descubra onde seu negócio perde cliente. Gratuitamente.: https://www.v2o5.com.br/diagnostico?utm_source=facebook&utm_medium=reel&utm_campaign=semana-1&utm_content=L1-22",
+2026-11-29,domingo,11:30,Instagram,carrossel,atendimento-por-dentro,instagram/atendimento-por-dentro-01.png a -07.png,instagram/atendimento-por-dentro-01.png,"Atendimento com IA, por dentro: os dois pacotes, o que o Essencial entrega, as regras do agente e o que fica de fora.
 
 WhatsApp organizado e um agente de IA que responde só com o que a empresa aprovou e passa cada conversa para a pessoa certa. A partir de R$ 3.900, com o valor fechado em proposta. IA e mensagens ficam pelo valor do provedor.
 
 Descubra onde seu negócio perde cliente. Gratuitamente.
 Link na bio.
 
-#whatsappbusiness #atendimentoaocliente #inteligenciaartificial #pequenosnegocios #v2o5","Atendimento com IA, por dentro: os dois pacotes, o que o Essencial entrega, as regras do agente e o que fica de fora.
+#whatsappbusiness #atendimentoaocliente #inteligenciaartificial #pequenosnegocios #v2o5",
+2026-11-29,domingo,11:30,Facebook,carrossel (várias fotos),atendimento-por-dentro,facebook/atendimento-por-dentro-01.png a -07.png,facebook/atendimento-por-dentro-01.png,"Atendimento com IA, por dentro: os dois pacotes, o que o Essencial entrega, as regras do agente e o que fica de fora.
 
 WhatsApp organizado e um agente de IA que responde só com o que a empresa aprovou e passa cada conversa para a pessoa certa. A partir de R$ 3.900, com o valor fechado em proposta. IA e mensagens ficam pelo valor do provedor.
 
-Descubra onde seu negócio perde cliente. Gratuitamente: https://www.v2o5.com.br/diagnostico?utm_source=facebook&utm_medium=post&utm_campaign=semana-1&utm_content=atendimento-por-dentro",
-2026-12-03,quinta,10:00,LinkedIn,carrossel (PDF),atendimento-por-dentro,linkedin/atendimento-por-dentro.pdf,,"Atendimento com IA, por dentro.
-
-Para o negócio que atende pelo WhatsApp e perde cliente na demora ou na confusão das conversas. Dois pacotes: Atendimento Essencial (a partir de R$ 3.900), com a caixa organizada e um agente que responde as dúvidas frequentes, e Atendimento Integrado (a partir de R$ 6.900), que qualifica, agenda ou encaminha e leva o contato ao sistema que a empresa já usa. O agente responde só com o que a empresa aprovou e chama uma pessoa quando não sabe. IA e mensagens vêm pelo valor do provedor, com teto mensal combinado.
-
-Link no primeiro comentário.
-
-#Atendimento #WhatsAppBusiness #InteligênciaArtificial",,https://www.v2o5.com.br/diagnostico?utm_source=linkedin&utm_medium=post&utm_campaign=semana-1&utm_content=atendimento-por-dentro
-2026-12-03,quinta,12:00,LinkedIn,reel,L1-20,L1-20-v3.mp4,capas/L1-20-v3.jpg,"Você digitou a mesma venda três vezes.
-Cena de exemplo.
-
-Cada dado digitado à mão em mais de um lugar é um erro esperando para acontecer. No Atendimento Integrado, o contato que chega pelo WhatsApp vai direto para o sistema que você já usa.
-
-Link do diagnóstico gratuito no primeiro comentário.
-
-#Integração #WhatsAppBusiness #PequenosNegócios",,https://www.v2o5.com.br/diagnostico?utm_source=linkedin&utm_medium=reel&utm_campaign=semana-1&utm_content=L1-20
-2026-12-03,quinta,14:00,Instagram,reel,L1-02,L1-02-v3.mp4,capas/L1-02-v3.jpg,"Você posta todo dia. Quem chamou foi respondido?
+Descubra onde seu negócio perde cliente. Gratuitamente.: https://www.v2o5.com.br/diagnostico?utm_source=facebook&utm_medium=post&utm_campaign=semana-1&utm_content=atendimento-por-dentro",
+2026-11-29,domingo,14:00,Instagram,reel,L1-02,L1-02-v3.mp4,capas/L1-02-v3.jpg,"Você posta todo dia. Quem chamou foi respondido?
 Cena de exemplo.
 
 Descubra onde seu negócio perde cliente. Gratuitamente.
 Link na bio.
 
-#whatsappbusiness #atendimentoaocliente #pequenosnegocios #negociolocal #v2o5",,
-2026-12-03,quinta,17:30,Instagram,carrossel,dor-site-sem-whatsapp,dor-site-sem-whatsapp-01.png a dor-site-sem-whatsapp-07.png,dor-site-sem-whatsapp-01.png,"Seu site está no ar. O cliente acha como chamar você? Cinco sinais para conferir.
+#whatsappbusiness #atendimentoaocliente #pequenosnegocios #negociolocal #v2o5",
+2026-11-29,domingo,17:30,Instagram,carrossel,dor-site-sem-whatsapp,instagram/dor-site-sem-whatsapp-01.png a -07.png,instagram/dor-site-sem-whatsapp-01.png,"Seu site está no ar. O cliente acha como chamar você? Cinco sinais para conferir.
 
 Site bonito que esconde o WhatsApp é vitrine fechada. Sites & Integrações, a partir de R$ 2.900: site próprio, rápido no celular, com o WhatsApp à vista.
 
@@ -150,21 +185,31 @@ Salve este carrossel para conferir com a equipe e envie para quem cuida disso.
 Descubra onde seu negócio perde cliente. Gratuitamente.
 Link na bio.
 
-#sitesprofissionais #whatsappbusiness #pequenosnegocios #negociolocal #v2o5",,
-2026-12-03,quinta,20:00,Instagram,reel,L1-13,L1-13-v3.mp4,capas/L1-13-v3.jpg,"O cliente preencheu o formulário. Quem viu?
+#sitesprofissionais #whatsappbusiness #pequenosnegocios #negociolocal #v2o5",
+2026-11-29,domingo,20:00,Instagram,reel,L1-13,L1-13-v3.mp4,capas/L1-13-v3.jpg,"O cliente preencheu o formulário. Quem viu?
 Cena de exemplo.
 
 Descubra onde seu negócio perde cliente. Gratuitamente.
 Link na bio.
 
-#sitesprofissionais #whatsappbusiness #pequenosnegocios #negociolocal #v2o5",,
-2026-12-04,sexta,08:30,Instagram + Facebook,reel,L1-10,L1-10-v3.mp4,capas/L1-10-v3.jpg,"Você sabe o que acontece nos 45 minutos?
+#sitesprofissionais #whatsappbusiness #pequenosnegocios #negociolocal #v2o5",
+2026-11-30,segunda,09:00,Instagram,reel,L1-10,L1-10-v3.mp4,capas/L1-10-v3.jpg,"Você sabe o que acontece nos 45 minutos?
 
 Descubra onde seu negócio perde cliente. Gratuitamente.
 Link na bio.
 
-#pequenosnegocios #negociolocal #empreendedorismo #comerciolocal #v2o5",,
-2026-12-04,sexta,11:30,Instagram + Facebook,carrossel,dor-formulario,dor-formulario-01.png a dor-formulario-07.png,dor-formulario-01.png,"Para onde vai o contato que chega pelo seu site? Cinco sinais para conferir no seu negócio.
+#pequenosnegocios #negociolocal #empreendedorismo #comerciolocal #v2o5",
+2026-11-30,segunda,09:00,Facebook,reel,L1-10,L1-10-v3.mp4,capas/L1-10-v3.jpg,"Você sabe o que acontece nos 45 minutos?
+
+Descubra onde seu negócio perde cliente. Gratuitamente.: https://www.v2o5.com.br/diagnostico?utm_source=facebook&utm_medium=reel&utm_campaign=semana-1&utm_content=L1-10",
+2026-11-30,segunda,10:00,LinkedIn,carrossel (PDF),atendimento-por-dentro,linkedin/atendimento-por-dentro.pdf,,"Atendimento com IA, por dentro.
+
+Para o negócio que atende pelo WhatsApp e perde cliente na demora ou na confusão das conversas. Dois pacotes: Atendimento Essencial (a partir de R$ 3.900), com a caixa organizada e um agente que responde as dúvidas frequentes, e Atendimento Integrado (a partir de R$ 6.900), que qualifica, agenda ou encaminha e leva o contato ao sistema que a empresa já usa. O agente responde só com o que a empresa aprovou e chama uma pessoa quando não sabe. IA e mensagens vêm pelo valor do provedor, com teto mensal combinado.
+
+Link no primeiro comentário.
+
+#Atendimento #WhatsAppBusiness #InteligênciaArtificial",https://www.v2o5.com.br/diagnostico?utm_source=linkedin&utm_medium=post&utm_campaign=semana-1&utm_content=atendimento-por-dentro
+2026-11-30,segunda,11:30,Instagram,carrossel,dor-formulario,instagram/dor-formulario-01.png a -07.png,instagram/dor-formulario-01.png,"Para onde vai o contato que chega pelo seu site? Cinco sinais para conferir no seu negócio.
 
 O caminho do formulário até uma pessoa precisa estar desenhado. No Site Conectado, o contato chega ao sistema com a origem anotada e aviso quando a integração falha. A partir de R$ 9.900.
 
@@ -173,18 +218,27 @@ Salve este carrossel para conferir com a equipe e envie para quem cuida disso.
 Descubra onde seu negócio perde cliente. Gratuitamente.
 Link na bio.
 
-#sitesprofissionais #atendimentoaocliente #pequenosnegocios #negociolocal #v2o5","Para onde vai o contato que chega pelo seu site? Cinco sinais para conferir no seu negócio.
+#sitesprofissionais #atendimentoaocliente #pequenosnegocios #negociolocal #v2o5",
+2026-11-30,segunda,11:30,Facebook,carrossel (várias fotos),dor-formulario,facebook/dor-formulario-01.png a -07.png,facebook/dor-formulario-01.png,"Para onde vai o contato que chega pelo seu site? Cinco sinais para conferir no seu negócio.
 
 O caminho do formulário até uma pessoa precisa estar desenhado. No Site Conectado, o contato chega ao sistema com a origem anotada e aviso quando a integração falha. A partir de R$ 9.900.
 
-Descubra onde seu negócio perde cliente. Gratuitamente: https://www.v2o5.com.br/diagnostico?utm_source=facebook&utm_medium=post&utm_campaign=semana-1&utm_content=dor-formulario",
-2026-12-04,sexta,14:00,Instagram,reel,L1-14,L1-14-v3.mp4,capas/L1-14-v3.jpg,"Todo mundo pode responder. Ninguém respondeu.
+Descubra onde seu negócio perde cliente. Gratuitamente.: https://www.v2o5.com.br/diagnostico?utm_source=facebook&utm_medium=post&utm_campaign=semana-1&utm_content=dor-formulario",
+2026-11-30,segunda,12:00,LinkedIn,reel,L1-13,L1-13-v3.mp4,capas/L1-13-v3.jpg,"O cliente preencheu o formulário. Quem viu?
+Cena de exemplo.
+
+Muito site recebe o pedido e deixa ele parado numa caixa de entrada. O cliente esperou, ninguém respondeu e ele procurou outro. O caminho do formulário até uma pessoa precisa estar desenhado. É um dos pontos que olhamos no diagnóstico gratuito de 45 minutos.
+
+Link do diagnóstico gratuito no primeiro comentário.
+
+#Atendimento #Sites #PequenosNegócios",https://www.v2o5.com.br/diagnostico?utm_source=linkedin&utm_medium=reel&utm_campaign=semana-1&utm_content=L1-13
+2026-11-30,segunda,14:00,Instagram,reel,L1-14,L1-14-v3.mp4,capas/L1-14-v3.jpg,"Todo mundo pode responder. Ninguém respondeu.
 
 Descubra onde seu negócio perde cliente. Gratuitamente.
 Link na bio.
 
-#whatsappbusiness #atendimentoaocliente #pequenosnegocios #negociolocal #v2o5",,
-2026-12-04,sexta,17:30,Instagram,carrossel,dor-sistemas-separados,dor-sistemas-separados-01.png a dor-sistemas-separados-07.png,dor-sistemas-separados-01.png,"Quantas vezes você digita o mesmo dado esta semana? Cinco sinais para conferir no seu negócio.
+#whatsappbusiness #atendimentoaocliente #pequenosnegocios #negociolocal #v2o5",
+2026-11-30,segunda,17:30,Instagram,carrossel,dor-sistemas-separados,instagram/dor-sistemas-separados-01.png a -07.png,instagram/dor-sistemas-separados-01.png,"Quantas vezes você digita o mesmo dado esta semana? Cinco sinais para conferir no seu negócio.
 
 Cada dado digitado à mão em mais de um lugar é um erro esperando para acontecer. No Atendimento Integrado, o contato que chega pelo WhatsApp vai direto para o sistema que você já usa. A partir de R$ 6.900.
 
@@ -193,22 +247,35 @@ Salve este carrossel para conferir com a equipe e envie para quem cuida disso.
 Descubra onde seu negócio perde cliente. Gratuitamente.
 Link na bio.
 
-#whatsappbusiness #integracao #pequenosnegocios #negociolocal #v2o5",,
-2026-12-04,sexta,20:00,Instagram,reel,L1-20,L1-20-v3.mp4,capas/L1-20-v3.jpg,"Você digitou a mesma venda três vezes.
+#whatsappbusiness #integracao #pequenosnegocios #negociolocal #v2o5",
+2026-11-30,segunda,20:00,Instagram,reel,L1-20,L1-20-v3.mp4,capas/L1-20-v3.jpg,"Você digitou a mesma venda três vezes.
 Cena de exemplo.
 
 Descubra onde seu negócio perde cliente. Gratuitamente.
 Link na bio.
 
-#whatsappbusiness #integracao #pequenosnegocios #negociolocal #v2o5",,
-2026-12-05,sábado,08:30,Instagram + Facebook,reel,L1-09,L1-09-v3.mp4,capas/L1-09-v3.jpg,"Pesquise o nome do seu negócio. O horário está certo?
+#whatsappbusiness #integracao #pequenosnegocios #negociolocal #v2o5",
+2026-12-01,terça,09:00,Instagram,reel,L1-09,L1-09-v3.mp4,capas/L1-09-v3.jpg,"Pesquise o nome do seu negócio. O horário está certo?
 Cena de exemplo.
 
 Descubra onde seu negócio perde cliente. Gratuitamente.
 Link na bio.
 
-#googlemeunegocio #negociolocal #pequenosnegocios #comerciolocal #v2o5",,
-2026-12-05,sábado,11:30,Instagram + Facebook,carrossel,dor-google,dor-google-01.png a dor-google-07.png,dor-google-01.png,"O seu cliente procura o seu negócio no Google. O que ele encontra? Cinco sinais para conferir.
+#googlemeunegocio #negociolocal #pequenosnegocios #comerciolocal #v2o5",
+2026-12-01,terça,09:00,Facebook,reel,L1-09,L1-09-v3.mp4,capas/L1-09-v3.jpg,"Pesquise o nome do seu negócio. O horário está certo?
+Cena de exemplo.
+
+Descubra onde seu negócio perde cliente. Gratuitamente.: https://www.v2o5.com.br/diagnostico?utm_source=facebook&utm_medium=reel&utm_campaign=semana-1&utm_content=L1-09",
+2026-12-01,terça,10:00,LinkedIn,carrossel fixo (PDF),fixo-2-como-trabalhamos,linkedin/fixo-2-como-trabalhamos.pdf,,"O que acontece depois que você pede um diagnóstico?
+
+Primeiro, 45 minutos gratuitos com o fundador. A pergunta é o que pesa mais hoje no negócio: ser achado, responder ou fazer o cliente voltar. O diagnóstico não inclui mapeamento completo, implementação nem acompanhamento. Se houver um bom caso, a proposta vem por escrito, com escopo, prazo e investimento; se não houver, a conversa termina ali.
+
+O combinado vale antes de qualquer projeto: escopo fechado, preço de referência público, nenhum escopo ilimitado, nenhuma solução obriga a seguinte e nenhuma promessa de percentual de resultado. Um projeto anda em quatro passos: diagnóstico, proposta, implantação e acompanhamento.
+
+Link no primeiro comentário.
+
+#PequenosNegócios #Atendimento #Diagnóstico",https://www.v2o5.com.br/diagnostico?utm_source=linkedin&utm_medium=post-fixo&utm_campaign=posts-fixos&utm_content=fixo-2
+2026-12-01,terça,11:30,Instagram,carrossel,dor-google,instagram/dor-google-01.png a -07.png,instagram/dor-google-01.png,"O seu cliente procura o seu negócio no Google. O que ele encontra? Cinco sinais para conferir.
 
 Horário errado, telefone antigo, fotos velhas, perfil sem verificação e nenhum botão de WhatsApp. A Presença Digital Local organiza o perfil, uma rede e o WhatsApp Business, com o pedido de avaliação, a partir de R$ 790.
 
@@ -217,19 +284,28 @@ Salve este carrossel para conferir com a equipe e envie para quem cuida disso.
 Descubra onde seu negócio perde cliente. Gratuitamente.
 Link na bio.
 
-#googlemeunegocio #negociolocal #pequenosnegocios #comerciolocal #v2o5","O seu cliente procura o seu negócio no Google. O que ele encontra? Cinco sinais para conferir.
+#googlemeunegocio #negociolocal #pequenosnegocios #comerciolocal #v2o5",
+2026-12-01,terça,11:30,Facebook,carrossel (várias fotos),dor-google,facebook/dor-google-01.png a -07.png,facebook/dor-google-01.png,"O seu cliente procura o seu negócio no Google. O que ele encontra? Cinco sinais para conferir.
 
 Horário errado, telefone antigo, fotos velhas, perfil sem verificação e nenhum botão de WhatsApp. A Presença Digital Local organiza o perfil, uma rede e o WhatsApp Business, com o pedido de avaliação, a partir de R$ 790.
 
-Descubra onde seu negócio perde cliente. Gratuitamente: https://www.v2o5.com.br/diagnostico?utm_source=facebook&utm_medium=post&utm_campaign=semana-1&utm_content=dor-google",
-2026-12-05,sábado,14:00,Instagram,reel,L1-12,L1-12-v3.mp4,capas/L1-12-v3.jpg,"Quem comprou e gostou avaliou você no Google?
+Descubra onde seu negócio perde cliente. Gratuitamente.: https://www.v2o5.com.br/diagnostico?utm_source=facebook&utm_medium=post&utm_campaign=semana-1&utm_content=dor-google",
+2026-12-01,terça,12:00,LinkedIn,reel,L1-20,L1-20-v3.mp4,capas/L1-20-v3.jpg,"Você digitou a mesma venda três vezes.
+Cena de exemplo.
+
+Cada dado digitado à mão em mais de um lugar é um erro esperando para acontecer. No Atendimento Integrado, o contato que chega pelo WhatsApp vai direto para o sistema que você já usa.
+
+Link do diagnóstico gratuito no primeiro comentário.
+
+#Integração #WhatsAppBusiness #PequenosNegócios",https://www.v2o5.com.br/diagnostico?utm_source=linkedin&utm_medium=reel&utm_campaign=semana-1&utm_content=L1-20
+2026-12-01,terça,14:00,Instagram,reel,L1-12,L1-12-v3.mp4,capas/L1-12-v3.jpg,"Quem comprou e gostou avaliou você no Google?
 Cena de exemplo.
 
 Descubra onde seu negócio perde cliente. Gratuitamente.
 Link na bio.
 
-#googlemeunegocio #negociolocal #pequenosnegocios #comerciolocal #v2o5",,
-2026-12-05,sábado,17:30,Instagram,carrossel,dor-avaliacoes,dor-avaliacoes-01.png a dor-avaliacoes-07.png,dor-avaliacoes-01.png,"Quantas avaliações você pediu este mês? Cinco sinais para conferir no seu negócio.
+#googlemeunegocio #negociolocal #pequenosnegocios #comerciolocal #v2o5",
+2026-12-01,terça,17:30,Instagram,carrossel,dor-avaliacoes,instagram/dor-avaliacoes-01.png a -07.png,instagram/dor-avaliacoes-01.png,"Quantas avaliações você pediu este mês? Cinco sinais para conferir no seu negócio.
 
 Cliente satisfeito quase nunca avalia sozinho. Na Presença Essencial, o pedido de avaliação vem pronto: link direto e mensagem para mandar a quem comprou. A partir de R$ 790.
 
@@ -238,11 +314,11 @@ Salve este carrossel para conferir com a equipe e envie para quem cuida disso.
 Descubra onde seu negócio perde cliente. Gratuitamente.
 Link na bio.
 
-#googlemeunegocio #avaliacoes #negociolocal #pequenosnegocios #v2o5",,
-2026-12-05,sábado,20:00,Instagram,reel,L1-23,L1-23-v3.mp4,capas/L1-23-v3.jpg,"Ele comprou em março. Alguém chamou de novo?
+#googlemeunegocio #avaliacoes #negociolocal #pequenosnegocios #v2o5",
+2026-12-01,terça,20:00,Instagram,reel,L1-23,L1-23-v3.mp4,capas/L1-23-v3.jpg,"Ele comprou em março. Alguém chamou de novo?
 Cena de exemplo.
 
 Descubra onde seu negócio perde cliente. Gratuitamente.
 Link na bio.
 
-#fidelizacao #atendimentoaocliente #pequenosnegocios #negociolocal #v2o5",,
+#fidelizacao #atendimentoaocliente #pequenosnegocios #negociolocal #v2o5",

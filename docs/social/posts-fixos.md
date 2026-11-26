@@ -36,15 +36,17 @@ A chamada final muda por rede, porque cada uma tem um lugar diferente para o lin
   - O carrossel do LinkedIn é o **documento em PDF**: 7 páginas com texto selecionável.
   - A chamada mostra `v2o5.com.br/diagnostico`. O link clicável vai no primeiro comentário, com UTM de LinkedIn.
 
-## Quando publicar (decisão de 25/11)
+## Quando publicar (decisão de 26/11)
 
-| Dia | O que fazer |
-|---|---|
-| Sexta 27/11 | Fixo 3 |
-| Sábado 28/11 | Fixo 2 |
-| Domingo 29/11 | Fixo 1, depois fixar os três e trocar o link da bio |
+Dyones, 26/11: "vou soltar os 3 fixos hoje". A agenda completa, com as legendas de cada rede, está em `docs/reels/semana-1-agenda.md`; a semana de reels e carrosséis começa na sexta 27/11 às 09:00.
 
-Assim eles ficam na grade na ordem 1, 2, 3 quando a semana de 01/12 começar. Se algum ainda não estiver aprovado, o lote 1 começa sem ele.
+| Quando | Instagram e Facebook | LinkedIn |
+|---|---|---|
+| Quinta 26/11 (hoje) | Fixo 1, depois o fixo 2, depois o fixo 3 | Fixo 1 (PDF), junto com o Instagram |
+| Sexta 27/11, 10:00 | | Fixo 3 (PDF) |
+| Terça 01/12, 10:00 | | Fixo 2 (PDF) |
+
+Depois do terceiro, fixe os três no Instagram na ordem fixo 3, fixo 2 e fixo 1, e confira a grade. No Facebook, fixe o fixo 1 no topo da página. O link da bio de hoje é `https://www.v2o5.com.br/diagnostico?utm_source=instagram&utm_medium=bio&utm_campaign=posts-fixos&utm_content=fixos`.
 
 Publicação antiga que fale de Sprint, gargalo, tráfego, Branding ou Presença Assistida é arquivada, não apagada (`docs/social/perfis.md`).
 
@@ -129,7 +131,9 @@ Primeiro comentário: `https://www.v2o5.com.br/diagnostico?utm_source=linkedin&u
 São contagens do sistema, não vendas, e a resposta humana não é medida. O resultado é o da Motors; o que cabe no seu negócio o diagnóstico mostra.
 
 Descubra onde seu negócio perde cliente. Gratuitamente.
-Case completo: v2o5.com.br/cases/motors-store (link na bio).
+Link na bio.
+
+O case completo está em v2o5.com.br/cases/motors-store.
 
 #atendimentoaocliente #whatsappbusiness #inteligenciaartificial #pequenosnegocios #v2o5
 ```
