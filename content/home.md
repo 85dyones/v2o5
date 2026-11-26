@@ -7,8 +7,8 @@ description: "Digitalização para pequenos negócios: presença no Google, site
 canonical: "https://www.v2o5.com.br"
 robots: null
 h1: "Coloque seu negócio no mapa e cuide de cada cliente que chega."
-extraido_em: "2026-11-25T15:38:59.225Z"
-fonte: "build local da branch claude/kind-tesla-eefroe em 25/11/2026 (foco em pequenos negócios), antes da publicação"
+extraido_em: "2026-11-26T21:26:01.140Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 26/11/2026 (fecho da home no foco em pequenos negócios), antes da publicação"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 Digitalização para pequenos negócios
@@ -191,13 +191,13 @@ Por que V2O5?
 
 ## Um catalisador para a mudança.
 
-O nome vem do pentóxido de vanádio, usado como catalisador em processos químicos. A imagem resume como a V2O5 pensa tecnologia: ela não precisa ser o centro da operação, precisa ajudar a mudança a acontecer com menos esforço.
+O nome vem do pentóxido de vanádio, usado como catalisador em processos químicos. A imagem resume como a V2O5 pensa tecnologia: ela não precisa ser o centro do negócio, precisa ajudar a mudança a acontecer com menos esforço.
 
-O trabalho começa entendendo como o negócio funciona de fato. Depois a gente liga estratégia, processos e tecnologia para achar o caminho mais simples entre o problema e o resultado.
+O trabalho começa entendendo como o negócio funciona de fato: como o cliente acha a empresa e como ele é atendido. Depois a gente põe a tecnologia que resolve isso, num formato que a equipe consegue usar no dia a dia.
 
-## Por onde a sua empresa precisa começar?
+## Onde o seu negócio está perdendo cliente?
 
-Não precisa chegar com um briefing grande nem saber qual solução escolher. Traga o problema, como ele acontece hoje e o que deveria melhorar. A primeira conversa serve para avaliar se existe um bom caso para trabalhar.
+Não precisa saber qual solução escolher. Conte como o cliente acha o seu negócio e como ele é atendido no WhatsApp. Em 45 minutos, o fundador mostra onde você perde cliente e por onde começar, sem custo e sem compromisso.
 
 [Pedir diagnóstico gratuito](/diagnostico)
 

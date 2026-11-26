@@ -146,16 +146,16 @@ export const NOME = {
   rotulo: "Por que V2O5?",
   titulo: "Um catalisador para a mudança.",
   paragrafos: [
-    "O nome vem do pentóxido de vanádio, usado como catalisador em processos químicos. A imagem resume como a V2O5 pensa tecnologia: ela não precisa ser o centro da operação, precisa ajudar a mudança a acontecer com menos esforço.",
-    "O trabalho começa entendendo como o negócio funciona de fato. Depois a gente liga estratégia, processos e tecnologia para achar o caminho mais simples entre o problema e o resultado.",
+    "O nome vem do pentóxido de vanádio, usado como catalisador em processos químicos. A imagem resume como a V2O5 pensa tecnologia: ela não precisa ser o centro do negócio, precisa ajudar a mudança a acontecer com menos esforço.",
+    "O trabalho começa entendendo como o negócio funciona de fato: como o cliente acha a empresa e como ele é atendido. Depois a gente põe a tecnologia que resolve isso, num formato que a equipe consegue usar no dia a dia.",
   ],
 };
 
-/** O fecho da home: o CTA leva ao formulário de `/diagnostico`. */
+/** O fecho da home: o CTA leva ao formulário de `/diagnostico` (texto no foco em pequenos negócios desde 26/11/2026). */
 export const FECHO = {
-  titulo: "Por onde a sua empresa precisa começar?",
+  titulo: "Onde o seu negócio está perdendo cliente?",
   texto:
-    "Não precisa chegar com um briefing grande nem saber qual solução escolher. Traga o problema, como ele acontece hoje e o que deveria melhorar. A primeira conversa serve para avaliar se existe um bom caso para trabalhar.",
+    "Não precisa saber qual solução escolher. Conte como o cliente acha o seu negócio e como ele é atendido no WhatsApp. Em 45 minutos, o fundador mostra onde você perde cliente e por onde começar, sem custo e sem compromisso.",
   botao: "Pedir diagnóstico gratuito",
 };
 
