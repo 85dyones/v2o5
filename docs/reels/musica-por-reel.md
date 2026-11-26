@@ -9,7 +9,7 @@ Os arquivos de áudio ficam fora do repositório. São as cinco faixas que o Dyo
 - alexgrohl, breathing upbeat corporate;
 - spoot, soft corporate, que entra no lugar da "digital prototype flow" do plano de 24/11.
 
-**Regra da distribuição (26/11):** na semana de 27/11 a 01/12 nenhum trecho se repete e nenhum dia leva a mesma faixa duas vezes. Os 10 reels da semana de 07/12 reaproveitam trechos da semana anterior.
+**Regra da distribuição (26/11):** na semana de 27/11 a 01/12 nenhum trecho se repete e nenhum dia leva a mesma faixa duas vezes. Os 10 reels de 02/12 a 06/12 reaproveitam trechos dos cinco dias anteriores.
 
 | Reel | Quando sai | Trilha | Início (s) |
 |---|---|---|---|
@@ -28,16 +28,16 @@ Os arquivos de áudio ficam fora do repositório. São as cinco faixas que o Dyo
 | L1-09 | ter 01/12, 09:00 | spoot, soft corporate | 62.2 |
 | L1-12 | ter 01/12, 14:00 | ronaldoreyz, innovation pulsewave | 4.7 |
 | L1-23 | ter 01/12, 20:00 | kulakovka, minimal electronica | 78.05 |
-| L1-03 | semana de 07/12 | alexgrohl, breathing upbeat corporate | 7.3 |
-| L1-04 | semana de 07/12 | kulakovka, minimal electronica | 6.05 |
-| L1-05 | semana de 07/12 | ronaldoreyz, innovation pulsewave | 39.9 |
-| L1-06 | semana de 07/12 | spoot, soft corporate | 34.2 |
-| L1-15 | semana de 07/12 | the_mountain, instrumental minimal | 21.3 |
-| L1-16 | semana de 07/12 | kulakovka, minimal electronica | 106.05 |
-| L1-18 | semana de 07/12 | spoot, soft corporate | 98.2 |
-| L1-19 | semana de 07/12 | ronaldoreyz, innovation pulsewave | 92.7 |
-| L1-24 | semana de 07/12 | the_mountain, instrumental minimal | 72.3 |
-| L1-25 | semana de 07/12 | alexgrohl, breathing upbeat corporate | 45.1 |
+| L1-03 | qui 03/12, 09:00 | alexgrohl, breathing upbeat corporate | 7.3 |
+| L1-04 | sáb 05/12, 09:00 | kulakovka, minimal electronica | 6.05 |
+| L1-05 | sáb 05/12, 20:00 | ronaldoreyz, innovation pulsewave | 39.9 |
+| L1-06 | sex 04/12, 09:00 | spoot, soft corporate | 34.2 |
+| L1-15 | sex 04/12, 20:00 | the_mountain, instrumental minimal | 21.3 |
+| L1-16 | qua 02/12, 20:00 | kulakovka, minimal electronica | 106.05 |
+| L1-18 | qua 02/12, 09:00 | spoot, soft corporate | 98.2 |
+| L1-19 | qui 03/12, 20:00 | ronaldoreyz, innovation pulsewave | 92.7 |
+| L1-24 | dom 06/12, 09:00 | the_mountain, instrumental minimal | 72.3 |
+| L1-25 | dom 06/12, 20:00 | alexgrohl, breathing upbeat corporate | 45.1 |
 
 **Para refazer um reel,** a partir de `video/`:
 ```bash

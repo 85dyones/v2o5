@@ -39,7 +39,10 @@ O D9 antigo ("Cinco sinais de que um processo da sua empresa pede um Sprint") sa
 |---|---|---|---|
 | qua 18 a qua 25/11 | preparação: GA4, perfis conferidos, vídeos aprovados | | |
 | qui 26/11 | os 3 fixos (hoje); fixar os 3 no perfil | os 3 fixos; fixar o fixo 1 na página | fixo 1 (PDF) |
-| sex 27/11 a ter 01/12 (lote 1) | 3 reels e 2 carrosséis por dia, o primeiro às 09:00 (`semana-1-agenda.md`) | o reel das 09:00 e o carrossel das 11:30 de cada dia | só em dia útil: fixo 3 (sex 27/11), atendimento por dentro e L1-13 (seg 30/11), fixo 2 e L1-20 (ter 01/12) |
+| sex 27/11 a ter 01/12 (lote 1) | 3 reels e 2 carrosséis por dia, o primeiro às 09:00 | o reel das 09:00 e o carrossel das 11:30 | fixo 3 (sex 27/11), atendimento por dentro e L1-13 (seg 30/11), fixo 2 e L1-20 (ter 01/12) |
+| qua 02/12 a dom 06/12 | os 10 reels e os 2 carrosséis restantes (2 reels por dia, 09:00 e 20:00) | o reel das 09:00 e o carrossel das 11:30 | diagnóstico como diferencial (qua 02/12), Google (qui 03/12), avaliações (sex 04/12), formulário (seg 07/12) |
+
+A agenda completa, com as legendas de cada rede, é `semana-1-agenda.md`.
 | 08/12 a 12/12 (lote 2, versão intercalada) | por dia: reel 09:00, **carrossel 12:30**, reel 16:00 e reel 19:30 (15 reels e 5 carrosséis) | 1 reel e 1 carrossel por dia, alternados | 3 posts, vindos dos carrosséis |
 | 14/12 | portão: leitura dos dois lotes e decisão da rotina fixa | | |
 

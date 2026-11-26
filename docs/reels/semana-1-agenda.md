@@ -1,15 +1,31 @@
-# Agenda de 26/11 a 01/12/2026: os fixos e a semana 1 (3 reels e 2 carrosséis por dia)
+# Agenda completa de 26/11 a 07/12/2026: fixos, 25 reels e 12 carrosséis
 
-Gerada por `social/carrosseis/agenda-semana1.py` (não edite à mão). Horários de Brasília. Decisão de 26/11: os três fixos saem hoje, quinta 26/11; de sexta 27/11 a terça 01/12, 3 reels e 2 carrosséis por dia, com o primeiro post sempre às 09:00 em ponto.
+Gerada por `social/carrosseis/agenda-semana1.py` (não edite à mão). Horários de Brasília. Cobre todo o material atualizado em 25/11: os 3 fixos (hoje, 26/11), os 25 reels e os 12 carrosséis. De 27/11 a 01/12 saem 3 reels e 2 carrosséis por dia; de 02/12 a 06/12, os 10 reels e os 2 carrosséis restantes. O primeiro post de cada dia é sempre às 09:00 em ponto.
 
 ## Como ler
 
 - **Instagram:** todos os posts. A legenda termina com "Link na bio." e até 5 hashtags. Troque o link da bio antes do primeiro post de cada dia (o endereço está no começo do dia).
-- **Facebook:** os três fixos (hoje) e, em cada dia da semana, o reel das 09:00 e o carrossel das 11:30. A legenda do Facebook tem o link clicável no fim, porque lá não existe link na bio. O carrossel vai como publicação com várias fotos, na ordem 01 a 07 (no feed aparece em mosaico; quem clica vê cada slide inteiro).
-- **LinkedIn:** só em dia útil. Os carrosséis vão como documento em PDF e os reels como vídeo; o link vai no primeiro comentário, logo depois de publicar.
+- **Facebook:** os três fixos e, em cada dia, o reel das 09:00 e o carrossel das 11:30 (quando houver). A legenda tem o link clicável no fim, porque lá não existe link na bio. O carrossel vai como publicação com várias fotos, na ordem 01 a 07 (no feed aparece em mosaico; quem clica vê cada slide inteiro).
+- **LinkedIn:** só em dia útil, um documento por dia às 10:00: os três fixos e os cinco PDFs `atendimento-por-dentro`, `diagnostico-diferencial`, `dor-google`, `dor-avaliacoes` e `dor-formulario`; mais os reels L1-13 e L1-20 às 12:00. O link vai no primeiro comentário, logo depois de publicar.
 - **"Cena de exemplo."** na legenda de um reel avisa que horários, números ou conversas do vídeo são ilustrativos. Não tire.
-- **Arquivos:** fixos no pacote `V2O5-fixos-25-11.zip` (pastas `instagram/`, `facebook/`, `linkedin/`); carrosséis da semana em `carrosseis-semana-1.zip` (mesmas pastas); reels em `reels-lote-1-v3-com-musica.zip` (`L1-XX-v3.mp4` e `capas/L1-XX-v3.jpg`). Os arquivos `-v2` de 24/11 não devem ser publicados.
-- **Ficam para a semana seguinte (a partir de 07/12):** os reels L1-03, 04, 05, 06, 15, 16, 18, 19, 24 e 25; os carrosséis `dor-perfil-parado` e `dor-recompra`; no LinkedIn, os documentos `diagnostico-diferencial` e `sites-por-dentro`.
+- **Arquivos:** fixos em `V2O5-fixos-26-11.zip` (pastas `instagram/`, `facebook/`, `linkedin/`); carrosséis em `carrosseis-semana-1.zip` (mesmas pastas); reels em `reels-lote-1-v3-com-musica.zip` (`L1-XX-v3.mp4` e `capas/L1-XX-v3.jpg`). Não publique arquivos de pacotes anteriores (`-v2`, fixos de 18/11 ou de 25/11).
+
+## Resumo
+
+| Dia | Instagram | Facebook | LinkedIn |
+|---|---|---|---|
+| qui 26/11 | 3 fixos | 3 fixos | fixo 1 |
+| sex 27/11 | 3 reels e 2 carrosséis | L1-01, diagnostico-diferencial | fixo-3 |
+| sáb 28/11 | 3 reels e 2 carrosséis | L1-11, sites-por-dentro | - |
+| dom 29/11 | 3 reels e 2 carrosséis | L1-22, atendimento-por-dentro | - |
+| seg 30/11 | 3 reels e 2 carrosséis | L1-10, dor-formulario | atendimento-por-dentro, L1-13 |
+| ter 01/12 | 3 reels e 2 carrosséis | L1-09, dor-google | fixo-2, L1-20 |
+| qua 02/12 | 2 reels e 1 carrossel | L1-18, dor-recompra | diagnostico-diferencial |
+| qui 03/12 | 2 reels | L1-03 | dor-google |
+| sex 04/12 | 2 reels e 1 carrossel | L1-06, dor-perfil-parado | dor-avaliacoes |
+| sáb 05/12 | 2 reels | L1-04 | - |
+| dom 06/12 | 2 reels | L1-24 | - |
+| seg 07/12 | - | - | dor-formulario |
 
 ## Quinta 26/11 (hoje): os três fixos
 
@@ -419,7 +435,7 @@ Descubra onde seu negócio perde cliente. Gratuitamente.: https://www.v2o5.com.b
 ```
 
 ### 10:00 · LinkedIn: Atendimento com IA, por dentro
-Documento `linkedin/atendimento-por-dentro.pdf` (título do documento: "V2O5: atendimento com ia, por dentro")
+Documento `linkedin/atendimento-por-dentro.pdf` (do pacote dos carrosséis; título do documento: "V2O5: atendimento com ia, por dentro")
 
 ```
 Atendimento com IA, por dentro.
@@ -641,4 +657,301 @@ Link na bio.
 
 #fidelizacao #atendimentoaocliente #pequenosnegocios #negociolocal #v2o5
 ```
+
+## Quarta 02/12
+
+Link da bio do dia (trocar antes das 09:00): `https://www.v2o5.com.br/diagnostico?utm_source=instagram&utm_medium=reel-bio&utm_campaign=100-reels&utm_content=L1-D6`
+
+### 09:00 · Reel L1-18
+Arquivo `L1-18-v3.mp4` · Capa `capas/L1-18-v3.jpg`
+
+**Instagram** (reel)
+```
+Sua lista de clientes ainda é um caderno?
+
+Descubra onde seu negócio perde cliente. Gratuitamente.
+Link na bio.
+
+#fidelizacao #atendimentoaocliente #pequenosnegocios #negociolocal #v2o5
+```
+**Facebook** (reel, 09:00)
+```
+Sua lista de clientes ainda é um caderno?
+
+Descubra onde seu negócio perde cliente. Gratuitamente.: https://www.v2o5.com.br/diagnostico?utm_source=facebook&utm_medium=reel&utm_campaign=semana-1&utm_content=L1-18
+```
+
+### 10:00 · LinkedIn: O diagnóstico como diferencial
+Documento `linkedin/diagnostico-diferencial.pdf` (do pacote dos carrosséis; título do documento: "V2O5: o diagnóstico como diferencial")
+
+```
+Antes de vender a solução, a V2O5 entende o problema.
+
+O diagnóstico gratuito de 45 minutos é a nossa porta de entrada: vemos como o cliente acha o negócio e como ele é atendido no WhatsApp, o que pesa mais hoje (ser achado, responder ou fazer o cliente voltar) e por onde começar. O diagnóstico não inclui mapeamento completo, implementação nem acompanhamento. Se houver um bom caso, a proposta vem por escrito; se não houver, a conversa termina ali.
+
+Link no primeiro comentário.
+
+#Diagnóstico #PequenosNegócios #Atendimento
+```
+Primeiro comentário: `https://www.v2o5.com.br/diagnostico?utm_source=linkedin&utm_medium=post&utm_campaign=semana-1&utm_content=diagnostico-diferencial`
+
+### 11:30 · Carrossel: Cliente que não volta
+Arquivos `instagram/dor-recompra-01.png` a `-07.png`
+
+**Instagram** (carrossel)
+```
+Quem comprou em março voltou a comprar? Cinco sinais para conferir no seu negócio.
+
+Cliente que ninguém chama compra de outro. No Atendimento Integrado, o contato de volta com quem já comprou, só para quem consentiu e dentro das regras do WhatsApp. A partir de R$ 6.900.
+
+Salve este carrossel para conferir com a equipe e envie para quem cuida disso.
+
+Descubra onde seu negócio perde cliente. Gratuitamente.
+Link na bio.
+
+#fidelizacao #atendimentoaocliente #whatsappbusiness #pequenosnegocios #v2o5
+```
+**Facebook** (várias fotos, 11:30; arquivos `facebook/dor-recompra-01.png` a `-07.png`)
+```
+Quem comprou em março voltou a comprar? Cinco sinais para conferir no seu negócio.
+
+Cliente que ninguém chama compra de outro. No Atendimento Integrado, o contato de volta com quem já comprou, só para quem consentiu e dentro das regras do WhatsApp. A partir de R$ 6.900.
+
+Descubra onde seu negócio perde cliente. Gratuitamente.: https://www.v2o5.com.br/diagnostico?utm_source=facebook&utm_medium=post&utm_campaign=semana-1&utm_content=dor-recompra
+```
+
+### 20:00 · Reel L1-16
+Arquivo `L1-16-v3.mp4` · Capa `capas/L1-16-v3.jpg`
+
+**Instagram** (reel)
+```
+Planilha e WhatsApp manual: até quando?
+
+Descubra onde seu negócio perde cliente. Gratuitamente.
+Link na bio.
+
+#fidelizacao #atendimentoaocliente #pequenosnegocios #negociolocal #v2o5
+```
+
+## Quinta 03/12
+
+Link da bio do dia (trocar antes das 09:00): `https://www.v2o5.com.br/diagnostico?utm_source=instagram&utm_medium=reel-bio&utm_campaign=100-reels&utm_content=L1-D7`
+
+### 09:00 · Reel L1-03
+Arquivo `L1-03-v3.mp4` · Capa `capas/L1-03-v3.jpg`
+
+**Instagram** (reel)
+```
+93 de 100 conversas com a primeira resposta em até 1 minuto.
+Fonte do número: Motors Store, de 21/10 a 17/11/2026.
+
+Descubra onde seu negócio perde cliente. Gratuitamente.
+Link na bio.
+
+#whatsappbusiness #atendimentoaocliente #pequenosnegocios #negociolocal #v2o5
+```
+**Facebook** (reel, 09:00)
+```
+93 de 100 conversas com a primeira resposta em até 1 minuto.
+Fonte do número: Motors Store, de 21/10 a 17/11/2026.
+
+Descubra onde seu negócio perde cliente. Gratuitamente.: https://www.v2o5.com.br/diagnostico?utm_source=facebook&utm_medium=reel&utm_campaign=semana-1&utm_content=L1-03
+```
+
+### 10:00 · LinkedIn: O que o cliente encontra no Google
+Documento `linkedin/dor-google.pdf` (do pacote dos carrosséis; título do documento: "V2O5: o que o cliente encontra no google")
+
+```
+O seu cliente procura o seu negócio no Google. O que ele encontra?
+
+Horário errado, telefone ou endereço desatualizados, fotos antigas, perfil nunca verificado e nenhum botão de WhatsApp: cinco sinais de presença local a corrigir. A Presença Digital Local começa a partir de R$ 790, com o valor fechado em proposta.
+
+Link no primeiro comentário.
+
+#PresençaDigital #NegóciosLocais #PequenosNegócios
+```
+Primeiro comentário: `https://www.v2o5.com.br/diagnostico?utm_source=linkedin&utm_medium=post&utm_campaign=semana-1&utm_content=dor-google`
+
+### 20:00 · Reel L1-19
+Arquivo `L1-19-v3.mp4` · Capa `capas/L1-19-v3.jpg`
+
+**Instagram** (reel)
+```
+Você respondeu a mesma pergunta de novo hoje?
+Cena de exemplo.
+
+Descubra onde seu negócio perde cliente. Gratuitamente.
+Link na bio.
+
+#whatsappbusiness #atendimentoaocliente #pequenosnegocios #negociolocal #v2o5
+```
+
+## Sexta 04/12
+
+Link da bio do dia (trocar antes das 09:00): `https://www.v2o5.com.br/diagnostico?utm_source=instagram&utm_medium=reel-bio&utm_campaign=100-reels&utm_content=L1-D8`
+
+### 09:00 · Reel L1-06
+Arquivo `L1-06-v3.mp4` · Capa `capas/L1-06-v3.jpg`
+
+**Instagram** (reel)
+```
+Chegou um cliente novo. Como ele te achou?
+Cena de exemplo.
+
+Descubra onde seu negócio perde cliente. Gratuitamente.
+Link na bio.
+
+#googlemeunegocio #negociolocal #pequenosnegocios #comerciolocal #v2o5
+```
+**Facebook** (reel, 09:00)
+```
+Chegou um cliente novo. Como ele te achou?
+Cena de exemplo.
+
+Descubra onde seu negócio perde cliente. Gratuitamente.: https://www.v2o5.com.br/diagnostico?utm_source=facebook&utm_medium=reel&utm_campaign=semana-1&utm_content=L1-06
+```
+
+### 10:00 · LinkedIn: Avaliações no Google
+Documento `linkedin/dor-avaliacoes.pdf` (do pacote dos carrosséis; título do documento: "V2O5: avaliações no google")
+
+```
+Quantas avaliações você pediu este mês?
+
+Nunca pedir avaliação a quem comprou, não ter o link direto, avaliações antigas, avaliação ruim sem resposta e não saber a própria nota: cinco sinais de que o Google não mostra o que o cliente acha do seu negócio. A Presença Essencial traz o pedido de avaliação pronto.
+
+Link no primeiro comentário.
+
+#Avaliações #NegóciosLocais #PequenosNegócios
+```
+Primeiro comentário: `https://www.v2o5.com.br/diagnostico?utm_source=linkedin&utm_medium=post&utm_campaign=semana-1&utm_content=dor-avaliacoes`
+
+### 11:30 · Carrossel: Perfil parado
+Arquivos `instagram/dor-perfil-parado-01.png` a `-07.png`
+
+**Instagram** (carrossel)
+```
+Perfil parado: o cliente acha que o seu negócio fechou? Cinco sinais para conferir.
+
+Um perfil organizado e atualizado é o primeiro passo para o cliente chamar. No pacote Estruturada da Presença Digital Local: até duas redes, oito modelos de posts e stories, calendário de três meses e uma campanha de lançamento. R$ 1.490.
+
+Salve este carrossel para conferir com a equipe e envie para quem cuida disso.
+
+Descubra onde seu negócio perde cliente. Gratuitamente.
+Link na bio.
+
+#redessociais #negociolocal #pequenosnegocios #comerciolocal #v2o5
+```
+**Facebook** (várias fotos, 11:30; arquivos `facebook/dor-perfil-parado-01.png` a `-07.png`)
+```
+Perfil parado: o cliente acha que o seu negócio fechou? Cinco sinais para conferir.
+
+Um perfil organizado e atualizado é o primeiro passo para o cliente chamar. No pacote Estruturada da Presença Digital Local: até duas redes, oito modelos de posts e stories, calendário de três meses e uma campanha de lançamento. R$ 1.490.
+
+Descubra onde seu negócio perde cliente. Gratuitamente.: https://www.v2o5.com.br/diagnostico?utm_source=facebook&utm_medium=post&utm_campaign=semana-1&utm_content=dor-perfil-parado
+```
+
+### 20:00 · Reel L1-15
+Arquivo `L1-15-v3.mp4` · Capa `capas/L1-15-v3.jpg`
+
+**Instagram** (reel)
+```
+Você pagou por um site novo. O problema era outro.
+Cena de exemplo.
+
+Descubra onde seu negócio perde cliente. Gratuitamente.
+Link na bio.
+
+#sitesprofissionais #whatsappbusiness #pequenosnegocios #negociolocal #v2o5
+```
+
+## Sábado 05/12
+
+Link da bio do dia (trocar antes das 09:00): `https://www.v2o5.com.br/diagnostico?utm_source=instagram&utm_medium=reel-bio&utm_campaign=100-reels&utm_content=L1-D9`
+
+### 09:00 · Reel L1-04
+Arquivo `L1-04-v3.mp4` · Capa `capas/L1-04-v3.jpg`
+
+**Instagram** (reel)
+```
+Seu cliente esperou. Você nem percebeu.
+Cena de exemplo.
+
+Descubra onde seu negócio perde cliente. Gratuitamente.
+Link na bio.
+
+#whatsappbusiness #atendimentoaocliente #pequenosnegocios #negociolocal #v2o5
+```
+**Facebook** (reel, 09:00)
+```
+Seu cliente esperou. Você nem percebeu.
+Cena de exemplo.
+
+Descubra onde seu negócio perde cliente. Gratuitamente.: https://www.v2o5.com.br/diagnostico?utm_source=facebook&utm_medium=reel&utm_campaign=semana-1&utm_content=L1-04
+```
+
+### 20:00 · Reel L1-05
+Arquivo `L1-05-v3.mp4` · Capa `capas/L1-05-v3.jpg`
+
+**Instagram** (reel)
+```
+Quantas conversas ficaram sem resposta esta semana?
+Cena de exemplo.
+
+Descubra onde seu negócio perde cliente. Gratuitamente.
+Link na bio.
+
+#whatsappbusiness #atendimentoaocliente #pequenosnegocios #negociolocal #v2o5
+```
+
+## Domingo 06/12
+
+Link da bio do dia (trocar antes das 09:00): `https://www.v2o5.com.br/diagnostico?utm_source=instagram&utm_medium=reel-bio&utm_campaign=100-reels&utm_content=L1-D10`
+
+### 09:00 · Reel L1-24
+Arquivo `L1-24-v3.mp4` · Capa `capas/L1-24-v3.jpg`
+
+**Instagram** (reel)
+```
+Por onde começar? A V2O5 escolhe com você.
+
+Descubra onde seu negócio perde cliente. Gratuitamente.
+Link na bio.
+
+#pequenosnegocios #negociolocal #empreendedorismo #comerciolocal #v2o5
+```
+**Facebook** (reel, 09:00)
+```
+Por onde começar? A V2O5 escolhe com você.
+
+Descubra onde seu negócio perde cliente. Gratuitamente.: https://www.v2o5.com.br/diagnostico?utm_source=facebook&utm_medium=reel&utm_campaign=semana-1&utm_content=L1-24
+```
+
+### 20:00 · Reel L1-25
+Arquivo `L1-25-v3.mp4` · Capa `capas/L1-25-v3.jpg`
+
+**Instagram** (reel)
+```
+Em 45 minutos, você descobre por onde começar.
+
+Descubra onde seu negócio perde cliente. Gratuitamente.
+Link na bio.
+
+#pequenosnegocios #negociolocal #empreendedorismo #comerciolocal #v2o5
+```
+
+## Segunda 07/12
+
+### 10:00 · LinkedIn: Para onde vai o contato que chega pelo site
+Documento `linkedin/dor-formulario.pdf` (do pacote dos carrosséis; título do documento: "V2O5: para onde vai o contato que chega pelo site")
+
+```
+Para onde vai o contato que chega pelo seu site?
+
+O formulário que envia para um e-mail que ninguém olha, a falta de dono para o contato e a pergunta repetida ao cliente são sinais de que o caminho até uma pessoa não está desenhado. No Site Conectado, o contato chega ao sistema com a origem anotada.
+
+Link no primeiro comentário.
+
+#Sites #Atendimento #PequenosNegócios
+```
+Primeiro comentário: `https://www.v2o5.com.br/diagnostico?utm_source=linkedin&utm_medium=post&utm_campaign=semana-1&utm_content=dor-formulario`
 

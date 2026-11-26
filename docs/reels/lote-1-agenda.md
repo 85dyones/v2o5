@@ -1,6 +1,6 @@
-# Lote 1: link da bio e banco de legendas (agenda de 26/11 a 01/12/2026)
+# Lote 1: link da bio e banco de legendas (agenda de 26/11 a 07/12/2026)
 
-> **Atualização de 26/11:** os três fixos saem hoje, quinta 26/11, e a semana de reels e carrosséis vai de sexta 27/11 a terça 01/12, sempre com o primeiro post às 09:00 (`semana-1-agenda.md`).
+> **Atualização de 26/11:** os três fixos saem hoje, quinta 26/11; os 25 reels e os 12 carrosséis saem de sexta 27/11 a domingo 06/12, sempre com o primeiro post às 09:00, e o LinkedIn vai até segunda 07/12 (`semana-1-agenda.md`, a agenda completa).
 >
 > **Atualização de 25/11 (foco em pequenos negócios):** as legendas e os textos de 18/11 que estavam aqui saíram, porque vendiam o Sprint e usavam a promessa antiga. O banco das legendas dos reels é `lote-1-agenda.csv` (versão de 25/11, promessa "Descubra onde seu negócio perde cliente. Gratuitamente." e até 5 hashtags), e a agenda da semana de 01/12 é `semana-1-agenda.md`, gerada por `social/carrosseis/agenda-semana1.py`. Os arquivos são `L1-XX-v3.mp4` e `capas/L1-XX-v3.jpg`.
 >
@@ -17,8 +17,13 @@ O Instagram não tem link clicável na legenda: o link de todos os posts é o da
 - **domingo 29/11:** `https://www.v2o5.com.br/diagnostico?utm_source=instagram&utm_medium=reel-bio&utm_campaign=100-reels&utm_content=L1-D3`
 - **segunda 30/11:** `https://www.v2o5.com.br/diagnostico?utm_source=instagram&utm_medium=reel-bio&utm_campaign=100-reels&utm_content=L1-D4`
 - **terça 01/12:** `https://www.v2o5.com.br/diagnostico?utm_source=instagram&utm_medium=reel-bio&utm_campaign=100-reels&utm_content=L1-D5`
+- **quarta 02/12:** `https://www.v2o5.com.br/diagnostico?utm_source=instagram&utm_medium=reel-bio&utm_campaign=100-reels&utm_content=L1-D6`
+- **quinta 03/12:** `https://www.v2o5.com.br/diagnostico?utm_source=instagram&utm_medium=reel-bio&utm_campaign=100-reels&utm_content=L1-D7`
+- **sexta 04/12:** `https://www.v2o5.com.br/diagnostico?utm_source=instagram&utm_medium=reel-bio&utm_campaign=100-reels&utm_content=L1-D8`
+- **sábado 05/12:** `https://www.v2o5.com.br/diagnostico?utm_source=instagram&utm_medium=reel-bio&utm_campaign=100-reels&utm_content=L1-D9`
+- **domingo 06/12:** `https://www.v2o5.com.br/diagnostico?utm_source=instagram&utm_medium=reel-bio&utm_campaign=100-reels&utm_content=L1-D10`
 
-A leitura por reel (visualizações, retenção, seguidores) vem dos insights do Instagram. Os cliques e leads vêm por dia, no GA4 e no CRM, pelo `utm_content` (`fixos` e L1-D1 a L1-D5).
+A leitura por reel (visualizações, retenção, seguidores) vem dos insights do Instagram. Os cliques e leads vêm por dia, no GA4 e no CRM, pelo `utm_content` (`fixos` e L1-D1 a L1-D10).
 
 ## Legendas
 

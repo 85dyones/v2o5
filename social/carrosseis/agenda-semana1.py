@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Gera a agenda de 27/11 a 02/12/2026: os três fixos na sexta 27/11 e a semana 1 (3 reels e 2 carrosséis por dia), com a legenda de cada rede.
+"""Gera a agenda completa de 26/11 a 07/12/2026: os 3 fixos, os 25 reels e os 12 carrosséis, com a legenda de cada rede.
 Saída: docs/reels/semana-1-agenda.md e docs/reels/semana-1-agenda.csv
 """
 import csv, datetime, os, re
@@ -98,30 +98,51 @@ C = {
 
 # ---------------------------------------------------------------- calendário (26/11/2026)
 # Dyones, 26/11: "ajuste a data para começarmos amanhã, o horário do primeiro sendo às 09h em ponto";
-# à pergunta sobre os fixos, "Fixos no 1º dia"; depois, "vou soltar os 3 fixos hoje". Os três fixos saem na
-# quinta 26/11, pelo Dyones; a semana de reels e carrosséis vai de sexta 27/11 a terça 01/12, sempre com o
-# primeiro post às 09:00.
+# "vou soltar os 3 fixos hoje"; "a agenda não programou os posts do linkedin que já haviam sido
+# desenvolvidos, preciso da agenda completa, com os materiais que já atualizamos", e, sobre os PDFs do
+# LinkedIn, "são estes": atendimento-por-dentro, diagnostico-diferencial, dor-avaliacoes, dor-formulario e
+# dor-google. A agenda cobre todo o material de 25/11: os 3 fixos (26/11), os 25 reels e os 12 carrosséis.
 PROMESSA = "Descubra onde seu negócio perde cliente. Gratuitamente."
 DIA_FIXOS = datetime.date(2026, 11, 26)
-dias = [datetime.date(2026, 11, 27) + datetime.timedelta(d) for d in range(5)]
 NOMES = ["segunda", "terça", "quarta", "quinta", "sexta", "sábado", "domingo"]
 nome = lambda d: NOMES[d.weekday()]
-plano = [  # por dia: reel 09:00, carrossel 11:30, reel 14:00, carrossel 17:30, reel 20:00
- ("L1-01", "diagnostico-diferencial", "L1-21", "presenca-por-dentro", "L1-17"),
- ("L1-11", "sites-por-dentro", "L1-08", "dor-lead-esfria", "L1-07"),
- ("L1-22", "atendimento-por-dentro", "L1-02", "dor-site-sem-whatsapp", "L1-13"),
- ("L1-10", "dor-formulario", "L1-14", "dor-sistemas-separados", "L1-20"),
- ("L1-09", "dor-google", "L1-12", "dor-avaliacoes", "L1-23"),
-]
-horas = ["09:00", "11:30", "14:00", "17:30", "20:00"]
+D = lambda dia, mes: datetime.date(2026, mes, dia)
+
+# Instagram, dia a dia: (hora, código). Código "L1-.." é reel; o resto é carrossel. O primeiro de cada dia às 09:00.
+# Bloco 1 (27/11 a 01/12): 3 reels e 2 carrosséis por dia. Bloco 2 (02/12 a 06/12): os 10 reels e os 2 carrosséis restantes.
+INSTAGRAM = {
+    D(27, 11): [("09:00", "L1-01"), ("11:30", "diagnostico-diferencial"), ("14:00", "L1-21"), ("17:30", "presenca-por-dentro"), ("20:00", "L1-17")],
+    D(28, 11): [("09:00", "L1-11"), ("11:30", "sites-por-dentro"), ("14:00", "L1-08"), ("17:30", "dor-lead-esfria"), ("20:00", "L1-07")],
+    D(29, 11): [("09:00", "L1-22"), ("11:30", "atendimento-por-dentro"), ("14:00", "L1-02"), ("17:30", "dor-site-sem-whatsapp"), ("20:00", "L1-13")],
+    D(30, 11): [("09:00", "L1-10"), ("11:30", "dor-formulario"), ("14:00", "L1-14"), ("17:30", "dor-sistemas-separados"), ("20:00", "L1-20")],
+    D(1, 12): [("09:00", "L1-09"), ("11:30", "dor-google"), ("14:00", "L1-12"), ("17:30", "dor-avaliacoes"), ("20:00", "L1-23")],
+    D(2, 12): [("09:00", "L1-18"), ("11:30", "dor-recompra"), ("20:00", "L1-16")],
+    D(3, 12): [("09:00", "L1-03"), ("20:00", "L1-19")],
+    D(4, 12): [("09:00", "L1-06"), ("11:30", "dor-perfil-parado"), ("20:00", "L1-15")],
+    D(5, 12): [("09:00", "L1-04"), ("20:00", "L1-05")],
+    D(6, 12): [("09:00", "L1-24"), ("20:00", "L1-25")],
+}
+# Facebook: o reel das 09:00 e o carrossel das 11:30 de cada dia (os fixos, no dia deles)
+FACEBOOK_HORAS = {"09:00", "11:30"}
+# LinkedIn, só em dia útil, um documento por dia às 10:00 (os fixos e os 5 PDFs que o Dyones indicou) e dois reels às 12:00
+LINKEDIN = {
+    D(27, 11): [("10:00", "fixo-3")],
+    D(30, 11): [("10:00", "atendimento-por-dentro"), ("12:00", "L1-13")],
+    D(1, 12): [("10:00", "fixo-2"), ("12:00", "L1-20")],
+    D(2, 12): [("10:00", "diagnostico-diferencial")],
+    D(3, 12): [("10:00", "dor-google")],
+    D(4, 12): [("10:00", "dor-avaliacoes")],
+    D(7, 12): [("10:00", "dor-formulario")],
+}
+DIAS = sorted(set(INSTAGRAM) | set(LINKEDIN))
 
 # os três fixos: textos de docs/social/posts-fixos.md (fonte única), arquivos com o nome do pacote dos fixos
 FIXOS_MD = open(os.path.join(raiz, "docs/social/posts-fixos.md"), encoding="utf-8").read()
-FIXOS = [
-    ("Fixo 1: O que fazemos", "fixo-1-o-que-fazemos", "1º", "V2O5: o que fazemos"),
-    ("Fixo 2: Como trabalhamos", "fixo-2-como-trabalhamos", "2º", "V2O5: como trabalhamos"),
-    ("Fixo 3: Case Motors Store", "fixo-3-case-motors", "3º", "V2O5: case Motors Store"),
-]
+FIXOS = {
+    "fixo-1": ("Fixo 1: O que fazemos", "fixo-1-o-que-fazemos", "1º", "V2O5: o que fazemos"),
+    "fixo-2": ("Fixo 2: Como trabalhamos", "fixo-2-como-trabalhamos", "2º", "V2O5: como trabalhamos"),
+    "fixo-3": ("Fixo 3: Case Motors Store", "fixo-3-case-motors", "3º", "V2O5: case Motors Store"),
+}
 
 def secao_fixo(titulo):
     i = FIXOS_MD.index(f"## {titulo}")
@@ -136,20 +157,19 @@ def bloco(sec, rotulo):
 def comentario_fixo(sec):
     return re.search(r"Primeiro comentário: `([^`]+)`", sec).group(1)
 
-# LinkedIn só em dia útil: o fixo 1 junto com os fixos; depois um documento em PDF às 10:00 e, em dois dias, um reel às 12:00
-linkedin_docs = {0: "fixo-3", 3: "atendimento-por-dentro", 4: "fixo-2"}  # índice em `dias` (sex 27/11, seg 30/11, ter 01/12)
-linkedin_reels = {
-    3: ("L1-13", "Muito site recebe o pedido e deixa ele parado numa caixa de entrada. O cliente esperou, ninguém respondeu e ele procurou outro. O caminho do formulário até uma pessoa precisa estar desenhado. É um dos pontos que olhamos no diagnóstico gratuito de 45 minutos.", "#Atendimento #Sites #PequenosNegócios"),
-    4: ("L1-20", "Cada dado digitado à mão em mais de um lugar é um erro esperando para acontecer. No Atendimento Integrado, o contato que chega pelo WhatsApp vai direto para o sistema que você já usa.", "#Integração #WhatsAppBusiness #PequenosNegócios"),
+LINKEDIN_REELS = {
+    "L1-13": ("Muito site recebe o pedido e deixa ele parado numa caixa de entrada. O cliente esperou, ninguém respondeu e ele procurou outro. O caminho do formulário até uma pessoa precisa estar desenhado. É um dos pontos que olhamos no diagnóstico gratuito de 45 minutos.", "#Atendimento #Sites #PequenosNegócios"),
+    "L1-20": ("Cada dado digitado à mão em mais de um lugar é um erro esperando para acontecer. No Atendimento Integrado, o contato que chega pelo WhatsApp vai direto para o sistema que você já usa.", "#Integração #WhatsAppBusiness #PequenosNegócios"),
 }
 
 def link(src, med, cont, dest=BASE, campanha="semana-1"):
     return f"{dest}?utm_source={src}&utm_medium={med}&utm_campaign={campanha}&utm_content={cont}"
 
-def bio(dia_k):
-    return f"{BASE}?utm_source=instagram&utm_medium=reel-bio&utm_campaign=100-reels&utm_content=L1-D{dia_k + 1}"
-
 BIO_FIXOS = f"{BASE}?utm_source=instagram&utm_medium=bio&utm_campaign=posts-fixos&utm_content=fixos"
+DIAS_IG = sorted(INSTAGRAM)
+
+def bio(d):
+    return f"{BASE}?utm_source=instagram&utm_medium=reel-bio&utm_campaign=100-reels&utm_content=L1-D{DIAS_IG.index(d) + 1}"
 
 def fonte_da_nota(c):
     n = v2[c]["hook"].get("nota")
@@ -158,91 +178,103 @@ def fonte_da_nota(c):
 def legenda_facebook_reel(c):
     return f"{abertura_v2(c)}{fonte_da_nota(c)}\n\n{PROMESSA}: {link('facebook', 'reel', c)}"
 
+def texto_linkedin_doc(li):
+    return li if "primeiro comentário" in li.lower() else f"{li}\n\nLink no primeiro comentário."
+
 linhas = []
-md = ["# Agenda de 26/11 a 01/12/2026: os fixos e a semana 1 (3 reels e 2 carrosséis por dia)\n"]
-md.append("Gerada por `social/carrosseis/agenda-semana1.py` (não edite à mão). Horários de Brasília. Decisão de 26/11: os três fixos saem hoje, quinta 26/11; de sexta 27/11 a terça 01/12, 3 reels e 2 carrosséis por dia, com o primeiro post sempre às 09:00 em ponto.\n")
+def add(d, hora, rede, tipo, codigo, arquivos, capa="", legenda="", comentario=""):
+    linhas.append(dict(data=d.isoformat(), dia=nome(d), hora=hora, rede=rede, tipo=tipo, codigo=codigo, arquivos=arquivos, capa=capa, legenda=legenda, comentario=comentario))
+
+md = ["# Agenda completa de 26/11 a 07/12/2026: fixos, 25 reels e 12 carrosséis\n"]
+md.append("Gerada por `social/carrosseis/agenda-semana1.py` (não edite à mão). Horários de Brasília. Cobre todo o material atualizado em 25/11: os 3 fixos (hoje, 26/11), os 25 reels e os 12 carrosséis. De 27/11 a 01/12 saem 3 reels e 2 carrosséis por dia; de 02/12 a 06/12, os 10 reels e os 2 carrosséis restantes. O primeiro post de cada dia é sempre às 09:00 em ponto.\n")
 md.append("""## Como ler
 
 - **Instagram:** todos os posts. A legenda termina com "Link na bio." e até 5 hashtags. Troque o link da bio antes do primeiro post de cada dia (o endereço está no começo do dia).
-- **Facebook:** os três fixos (hoje) e, em cada dia da semana, o reel das 09:00 e o carrossel das 11:30. A legenda do Facebook tem o link clicável no fim, porque lá não existe link na bio. O carrossel vai como publicação com várias fotos, na ordem 01 a 07 (no feed aparece em mosaico; quem clica vê cada slide inteiro).
-- **LinkedIn:** só em dia útil. Os carrosséis vão como documento em PDF e os reels como vídeo; o link vai no primeiro comentário, logo depois de publicar.
+- **Facebook:** os três fixos e, em cada dia, o reel das 09:00 e o carrossel das 11:30 (quando houver). A legenda tem o link clicável no fim, porque lá não existe link na bio. O carrossel vai como publicação com várias fotos, na ordem 01 a 07 (no feed aparece em mosaico; quem clica vê cada slide inteiro).
+- **LinkedIn:** só em dia útil, um documento por dia às 10:00: os três fixos e os cinco PDFs `atendimento-por-dentro`, `diagnostico-diferencial`, `dor-google`, `dor-avaliacoes` e `dor-formulario`; mais os reels L1-13 e L1-20 às 12:00. O link vai no primeiro comentário, logo depois de publicar.
 - **"Cena de exemplo."** na legenda de um reel avisa que horários, números ou conversas do vídeo são ilustrativos. Não tire.
-- **Arquivos:** fixos no pacote `V2O5-fixos-25-11.zip` (pastas `instagram/`, `facebook/`, `linkedin/`); carrosséis da semana em `carrosseis-semana-1.zip` (mesmas pastas); reels em `reels-lote-1-v3-com-musica.zip` (`L1-XX-v3.mp4` e `capas/L1-XX-v3.jpg`). Os arquivos `-v2` de 24/11 não devem ser publicados.
-- **Ficam para a semana seguinte (a partir de 07/12):** os reels L1-03, 04, 05, 06, 15, 16, 18, 19, 24 e 25; os carrosséis `dor-perfil-parado` e `dor-recompra`; no LinkedIn, os documentos `diagnostico-diferencial` e `sites-por-dentro`.
+- **Arquivos:** fixos em `V2O5-fixos-26-11.zip` (pastas `instagram/`, `facebook/`, `linkedin/`); carrosséis em `carrosseis-semana-1.zip` (mesmas pastas); reels em `reels-lote-1-v3-com-musica.zip` (`L1-XX-v3.mp4` e `capas/L1-XX-v3.jpg`). Não publique arquivos de pacotes anteriores (`-v2`, fixos de 18/11 ou de 25/11).
 """)
+md.append("## Resumo\n\n| Dia | Instagram | Facebook | LinkedIn |\n|---|---|---|---|")
+for d in [DIA_FIXOS] + DIAS:
+    if d == DIA_FIXOS:
+        md.append(f"| {nome(d)[:3]} {d.strftime('%d/%m')} | 3 fixos | 3 fixos | fixo 1 |")
+        continue
+    ig = INSTAGRAM.get(d, [])
+    nr = sum(1 for _, c in ig if c.startswith("L1-")); nc = len(ig) - nr
+    fb = [c for h, c in ig if h in FACEBOOK_HORAS]
+    li = ", ".join(c for _, c in LINKEDIN.get(d, [])) or "-"
+    igt = f"{nr} reels" + (f" e {nc} carrosséis" if nc > 1 else " e 1 carrossel" if nc == 1 else "") if ig else "-"
+    md.append(f"| {nome(d)[:3]} {d.strftime('%d/%m')} | {igt} | {', '.join(fb) or '-'} | {li} |")
+md.append("")
 
-# ---- sexta 27/11: os fixos
+# ---- hoje: os fixos
 md.append(f"## {nome(DIA_FIXOS).capitalize()} {DIA_FIXOS.strftime('%d/%m')} (hoje): os três fixos\n")
 md.append(f"Publique na ordem fixo 1, fixo 2 e fixo 3, de preferência com algumas horas entre um e outro. Link da bio do dia (trocar antes do primeiro): `{BIO_FIXOS}`\n")
-for titulo, arq, h, titulo_doc in FIXOS:
+for chave in ["fixo-1", "fixo-2", "fixo-3"]:
+    titulo, arq, ordem, titulo_doc = FIXOS[chave]
     sec = secao_fixo(titulo)
     ig, fb, li = bloco(sec, "**Instagram (legenda)**"), bloco(sec, "**Facebook (legenda)**"), bloco(sec, "**LinkedIn")
     com = comentario_fixo(sec)
-    md.append(f"### {h} post · {titulo}\nArquivos: `instagram/{arq}-01.png` a `-07.png` · `facebook/{arq}-01.png` a `-07.png` · `linkedin/{arq}.pdf`\n")
+    md.append(f"### {ordem} post · {titulo}\nArquivos: `instagram/{arq}-01.png` a `-07.png` · `facebook/{arq}-01.png` a `-07.png` · `linkedin/{arq}.pdf`\n")
     md.append(f"**Instagram** (carrossel)\n```\n{ig}\n```\n")
     md.append(f"**Facebook** (várias fotos)\n```\n{fb}\n```\n")
-    if arq.startswith("fixo-1"):
+    add(DIA_FIXOS, ordem, "Instagram", "carrossel fixo", arq, f"instagram/{arq}-01.png a -07.png", f"instagram/{arq}-01.png", ig)
+    add(DIA_FIXOS, ordem, "Facebook", "carrossel fixo (várias fotos)", arq, f"facebook/{arq}-01.png a -07.png", f"facebook/{arq}-01.png", fb)
+    if chave == "fixo-1":
         md.append(f"**LinkedIn** (documento `linkedin/{arq}.pdf`, junto com o Instagram; título do documento: \"{titulo_doc}\")\n```\n{li}\n```\nPrimeiro comentário: `{com}`\n")
+        add(DIA_FIXOS, ordem, "LinkedIn", "carrossel fixo (PDF)", arq, f"linkedin/{arq}.pdf", legenda=li, comentario=com)
     else:
-        quando = "sexta 27/11, 10:00" if arq.startswith("fixo-3") else "terça 01/12, 10:00"
+        quando = next(f"{nome(d)} {d.strftime('%d/%m')}, {h}" for d, its in LINKEDIN.items() for h, c in its if c == chave)
         md.append(f"**LinkedIn:** sai na {quando} (texto no dia).\n")
-    d = DIA_FIXOS.isoformat()
-    linhas.append(dict(data=d, dia=nome(DIA_FIXOS), hora=h, rede="Instagram", tipo="carrossel fixo", codigo=arq, arquivos=f"instagram/{arq}-01.png a -07.png", capa=f"instagram/{arq}-01.png", legenda=ig))
-    linhas.append(dict(data=d, dia=nome(DIA_FIXOS), hora=h, rede="Facebook", tipo="carrossel fixo (várias fotos)", codigo=arq, arquivos=f"facebook/{arq}-01.png a -07.png", capa=f"facebook/{arq}-01.png", legenda=fb))
-    if arq.startswith("fixo-1"):
-        linhas.append(dict(data=d, dia=nome(DIA_FIXOS), hora=h, rede="LinkedIn", tipo="carrossel fixo (PDF)", codigo=arq, arquivos=f"linkedin/{arq}.pdf", legenda=li, comentario=com))
 md.append("**Depois do terceiro:** fixe os três no Instagram, na ordem fixo 3, fixo 2 e fixo 1, e confira a grade (se a ordem sair invertida, desafixe e fixe de novo). No Facebook, fixe o fixo 1 no topo da página.\n")
 
-# ---- sábado 28/11 a quarta 02/12
-for k, d in enumerate(dias):
+# ---- os outros dias
+for d in DIAS:
     md.append(f"## {nome(d).capitalize()} {d.strftime('%d/%m')}\n")
-    md.append(f"Link da bio do dia (trocar antes das 09:00): `{bio(k)}`\n")
-    itens = []  # (hora, texto)
-    for i, item in enumerate(plano[k]):
-        h = horas[i]
-        if i % 2 == 0:
-            c = item
+    if d in INSTAGRAM:
+        md.append(f"Link da bio do dia (trocar antes das 09:00): `{bio(d)}`\n")
+    itens = []
+    for h, c in INSTAGRAM.get(d, []):
+        if c.startswith("L1-"):
             ig = legenda_reel(c)
             t = f"### {h} · Reel {c}\nArquivo `{c}-v3.mp4` · Capa `capas/{c}-v3.jpg`\n\n**Instagram** (reel)\n```\n{ig}\n```\n"
-            linhas.append(dict(data=d.isoformat(), dia=nome(d), hora=h, rede="Instagram", tipo="reel", codigo=c, arquivos=f"{c}-v3.mp4", capa=f"capas/{c}-v3.jpg", legenda=ig))
-            if i == 0:
+            add(d, h, "Instagram", "reel", c, f"{c}-v3.mp4", f"capas/{c}-v3.jpg", ig)
+            if h in FACEBOOK_HORAS:
                 fb = legenda_facebook_reel(c)
                 t += f"**Facebook** (reel, {h})\n```\n{fb}\n```\n"
-                linhas.append(dict(data=d.isoformat(), dia=nome(d), hora=h, rede="Facebook", tipo="reel", codigo=c, arquivos=f"{c}-v3.mp4", capa=f"capas/{c}-v3.jpg", legenda=fb))
-            itens.append((h, t))
+                add(d, h, "Facebook", "reel", c, f"{c}-v3.mp4", f"capas/{c}-v3.jpg", fb)
         else:
-            n = item
-            titulo, texto, tags, li, litags = C[n]
-            salvar = "Salve este carrossel para conferir com a equipe e envie para quem cuida disso.\n\n" if n.startswith("dor-") else ""
+            titulo, texto, tags, li, litags = C[c]
+            salvar = "Salve este carrossel para conferir com a equipe e envie para quem cuida disso.\n\n" if c.startswith("dor-") else ""
             ig = f"{texto}\n\n{salvar}{CTA_IG}\n\n{tags}"
-            t = f"### {h} · Carrossel: {titulo}\nArquivos `instagram/{n}-01.png` a `-07.png`\n\n**Instagram** (carrossel)\n```\n{ig}\n```\n"
-            linhas.append(dict(data=d.isoformat(), dia=nome(d), hora=h, rede="Instagram", tipo="carrossel", codigo=n, arquivos=f"instagram/{n}-01.png a -07.png", capa=f"instagram/{n}-01.png", legenda=ig))
-            if i == 1:
-                fb = f"{texto}\n\n{PROMESSA}: {link('facebook', 'post', n)}"
-                t += f"**Facebook** (várias fotos, {h}; arquivos `facebook/{n}-01.png` a `-07.png`)\n```\n{fb}\n```\n"
-                linhas.append(dict(data=d.isoformat(), dia=nome(d), hora=h, rede="Facebook", tipo="carrossel (várias fotos)", codigo=n, arquivos=f"facebook/{n}-01.png a -07.png", capa=f"facebook/{n}-01.png", legenda=fb))
-            itens.append((h, t))
-    if k in linkedin_docs:
-        n = linkedin_docs[k]
-        if n.startswith("fixo-"):
-            titulo, arq, _, titulo_doc = FIXOS[2] if n == "fixo-3" else FIXOS[1]
+            t = f"### {h} · Carrossel: {titulo}\nArquivos `instagram/{c}-01.png` a `-07.png`\n\n**Instagram** (carrossel)\n```\n{ig}\n```\n"
+            add(d, h, "Instagram", "carrossel", c, f"instagram/{c}-01.png a -07.png", f"instagram/{c}-01.png", ig)
+            if h in FACEBOOK_HORAS:
+                fb = f"{texto}\n\n{PROMESSA}: {link('facebook', 'post', c)}"
+                t += f"**Facebook** (várias fotos, {h}; arquivos `facebook/{c}-01.png` a `-07.png`)\n```\n{fb}\n```\n"
+                add(d, h, "Facebook", "carrossel (várias fotos)", c, f"facebook/{c}-01.png a -07.png", f"facebook/{c}-01.png", fb)
+        itens.append((h, t))
+    for h, c in LINKEDIN.get(d, []):
+        if c in FIXOS:
+            titulo, arq, _, titulo_doc = FIXOS[c]
             sec = secao_fixo(titulo)
             li, com = bloco(sec, "**LinkedIn"), comentario_fixo(sec)
-            t = f"### 10:00 · LinkedIn: {titulo}\nDocumento `linkedin/{arq}.pdf` (do pacote dos fixos; título do documento: \"{titulo_doc}\")\n\n```\n{li}\n```\nPrimeiro comentário: `{com}`\n"
-            linhas.append(dict(data=d.isoformat(), dia=nome(d), hora="10:00", rede="LinkedIn", tipo="carrossel fixo (PDF)", codigo=arq, arquivos=f"linkedin/{arq}.pdf", legenda=li, comentario=com))
+            t = f"### {h} · LinkedIn: {titulo}\nDocumento `linkedin/{arq}.pdf` (do pacote dos fixos; título do documento: \"{titulo_doc}\")\n\n```\n{li}\n```\nPrimeiro comentário: `{com}`\n"
+            add(d, h, "LinkedIn", "carrossel fixo (PDF)", arq, f"linkedin/{arq}.pdf", legenda=li, comentario=com)
+        elif c.startswith("L1-"):
+            corpo, tags_li = LINKEDIN_REELS[c]
+            leg = f"{abertura_v2(c)}\n\n{corpo}\n\nLink do diagnóstico gratuito no primeiro comentário.\n\n{tags_li}"
+            com = link("linkedin", "reel", c)
+            t = f"### {h} · LinkedIn: Reel {c}\nArquivo `{c}-v3.mp4` (vertical, o mesmo do Instagram)\n\n```\n{leg}\n```\nPrimeiro comentário: `{com}`\n"
+            add(d, h, "LinkedIn", "reel", c, f"{c}-v3.mp4", f"capas/{c}-v3.jpg", leg, com)
         else:
-            titulo, texto, tags, li, litags = C[n]
-            com = link("linkedin", "post", n)
-            t = f"### 10:00 · LinkedIn: {titulo}\nDocumento `linkedin/{n}.pdf` (título do documento: \"V2O5: {titulo.lower()}\")\n\n```\n{li}\n\n{litags}\n```\nPrimeiro comentário: `{com}`\n"
-            linhas.append(dict(data=d.isoformat(), dia=nome(d), hora="10:00", rede="LinkedIn", tipo="carrossel (PDF)", codigo=n, arquivos=f"linkedin/{n}.pdf", legenda=f"{li}\n\n{litags}", comentario=com))
-        itens.append(("10:00", t))
-    if k in linkedin_reels:
-        c, corpo, tags_li = linkedin_reels[k]
-        leg = f"{abertura_v2(c)}\n\n{corpo}\n\nLink do diagnóstico gratuito no primeiro comentário.\n\n{tags_li}"
-        com = link("linkedin", "reel", c)
-        t = f"### 12:00 · LinkedIn: Reel {c}\nArquivo `{c}-v3.mp4` (vertical, o mesmo do Instagram)\n\n```\n{leg}\n```\nPrimeiro comentário: `{com}`\n"
-        linhas.append(dict(data=d.isoformat(), dia=nome(d), hora="12:00", rede="LinkedIn", tipo="reel", codigo=c, arquivos=f"{c}-v3.mp4", capa=f"capas/{c}-v3.jpg", legenda=leg, comentario=com))
-        itens.append(("12:00", t))
+            titulo, texto, tags, li, litags = C[c]
+            leg = f"{texto_linkedin_doc(li)}\n\n{litags}"
+            com = link("linkedin", "post", c)
+            t = f"### {h} · LinkedIn: {titulo}\nDocumento `linkedin/{c}.pdf` (do pacote dos carrosséis; título do documento: \"V2O5: {titulo.lower()}\")\n\n```\n{leg}\n```\nPrimeiro comentário: `{com}`\n"
+            add(d, h, "LinkedIn", "carrossel (PDF)", c, f"linkedin/{c}.pdf", legenda=leg, comentario=com)
+        itens.append((h, t))
     for _, t in sorted(itens, key=lambda x: x[0]):
         md.append(t)
 
@@ -256,3 +288,6 @@ with open(os.path.join(raiz, "docs/reels/semana-1-agenda.csv"), "w", newline="",
 open(os.path.join(raiz, "docs/reels/semana-1-agenda.md"), "w", encoding="utf-8").write("\n".join(md) + "\n")
 from collections import Counter
 print(len(linhas), "posts", dict(Counter(l["rede"] for l in linhas)))
+reels = {l["codigo"] for l in linhas if l["codigo"].startswith("L1-")}
+carr = {l["codigo"] for l in linhas if l["rede"] == "Instagram" and l["tipo"] == "carrossel"}
+print("reels:", len(reels), "| carrosséis no Instagram:", len(carr), "| sem data:", sorted(set(C) - carr))
