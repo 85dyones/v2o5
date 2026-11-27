@@ -56,7 +56,7 @@
         "itens": [
           "45 minutos com o fundador, por vídeo ou WhatsApp.",
           "Vemos onde o seu negócio perde cliente e por onde começar.",
-          "Havendo um bom caso, a proposta vem por escrito."
+          "Se fizer sentido seguir, a proposta vem por escrito."
         ],
         "nota": "Sem custo e sem compromisso. Depois do projeto, a continuidade é opcional, a partir de R$ 349 por mês."
       },
@@ -76,7 +76,7 @@
         "tipo": "capa",
         "estilo": "papel",
         "etiqueta": "Como a V2O5 trabalha",
-        "titulo": "O que acontece depois que você pede um diagnóstico?",
+        "titulo": "Pedir o diagnóstico não obriga você a nada. Veja o que vem depois.",
         "sub": "O caminho da V2O5, passo a passo, com o combinado desde o início.",
         "rodape": "Deslize para ver o caminho"
       },
@@ -123,7 +123,7 @@
           "Implantação.",
           "Acompanhamento de resultados."
         ],
-        "nota": "Esses passos vêm depois, se houver projeto. Se não houver um bom caso, a conversa termina ali."
+        "nota": "Esses passos vêm depois, se houver projeto. Se não fizer sentido, a conversa termina ali."
       },
       {
         "tipo": "lista",
@@ -182,7 +182,7 @@
       },
       {
         "tipo": "numeros",
-        "etiqueta": "O site e o estoque",
+        "etiqueta": "O site e o WhatsApp",
         "titulo": "De 05/09 a 17/11/2026.",
         "numeros": [
           {

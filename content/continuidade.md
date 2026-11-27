@@ -7,8 +7,8 @@ description: "Planos opcionais para manter e melhorar o que foi entregue: Cuidad
 canonical: "https://www.v2o5.com.br/continuidade"
 robots: null
 h1: "Continuidade: o que segue depois da entrega."
-extraido_em: "2026-11-27T12:45:09.800Z"
-fonte: "build local da branch claude/kind-tesla-eefroe em 27/11/2026 (revisão de português do site), antes da publicação"
+extraido_em: "2026-11-27T15:35:39.615Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 27/11/2026 (revisão de ganchos e conversão aprovada), antes da publicação"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 # Continuidade: o que segue depois da entrega.
@@ -67,7 +67,7 @@ Para quem quer melhorar o que foi entregue mês a mês, como as respostas do age
 
 - Tudo das Integrações Monitoradas
 - Uma conversa mensal de 30 minutos para priorizar as melhorias
-- Até 2 horas por mês reservadas para pequenas intervenções, além do suporte
+- Até 2 horas por mês reservadas para pequenas melhorias, além do suporte
 - Registro do que mudou e da próxima prioridade
 
 ## Os limites. Valem para todos os planos e vão no contrato.
@@ -94,7 +94,7 @@ Manter em dia os acessos e os pagamentos dos serviços de terceiros e avisar a V
 
 Saída
 
-Com aviso prévio, a V2O5 entrega o código, os dados e os acessos nos termos do contrato.
+Se quiser sair, é só avisar antes: a V2O5 entrega o código, os dados e os acessos, nos termos do contrato.
 
 ## O que perguntam sobre a continuidade antes de fechar.
 
@@ -120,11 +120,11 @@ IA, mensagens e servidor estão incluídos?
 
 Não. A hospedagem do site entra no Cuidado Técnico, mas banco de dados, servidor dedicado, consumo de IA e mensagens vêm pelo valor do provedor, discriminados, com teto mensal combinado e aviso antes de ultrapassá-lo.
 
-## Comece pelo diagnóstico, que é gratuito.
+## Descubra onde seu negócio perde cliente.
 
-Em 45 minutos de conversa com o fundador, a gente vê como o cliente acha o seu negócio e como ele é atendido, e mostra por onde começar. A sessão é gratuita e sem compromisso.
+Em 45 minutos de conversa, o fundador vê com você como o cliente acha o seu negócio e como ele é atendido, e mostra por onde começar. Sem custo e sem compromisso.
 
-[Pedir diagnóstico](/diagnostico)
+[Pedir diagnóstico gratuito](/diagnostico)
 
 [Ver todos os preços](/precos)
 

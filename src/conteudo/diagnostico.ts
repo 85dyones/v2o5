@@ -19,8 +19,8 @@ export const DIAGNOSTICO = {
       texto: "Por chamada de vídeo ou WhatsApp. Vemos como o cliente acha o seu negócio no Google, nas redes e no site, e como ele é atendido no WhatsApp.",
     },
     {
-      titulo: "O próximo passo, se houver",
-      texto: "Havendo um bom caso, a V2O5 propõe a solução que cabe no problema (Presença, Sites ou Atendimento com IA), com escopo, entregáveis, prazo e investimento por escrito. Se não houver, a conversa termina ali.",
+      titulo: "Uma proposta, se fizer sentido",
+      texto: "Se fizer sentido seguir, você recebe por escrito a solução que cabe no problema (Presença, Sites ou Atendimento com IA), o que entra, o prazo e o valor. Se não fizer, a conversa termina ali, sem custo.",
     },
   ],
   paraQuem:
@@ -35,8 +35,8 @@ export const DIAGNOSTICO = {
     enviando: "Enviando...",
     consentimento:
       "Ao enviar, você concorda em receber o contato da V2O5 pelo WhatsApp e pelo e-mail informados, para marcar a conversa.",
-    erroGeral: "Não deu para enviar agora. Tente de novo em instantes.",
-    erroCanal: "O envio está em configuração. Tente de novo mais tarde.",
+    erroGeral: "Não deu para enviar agora. Tente de novo ou chame no WhatsApp.",
+    erroCanal: "O formulário está fora do ar agora. Chame no WhatsApp, que a gente marca por lá.",
   },
   recebido: {
     titulo: "Pedido recebido.",

@@ -7,8 +7,8 @@ description: "Guias práticos para quem vende pelo WhatsApp: como aparecer no Go
 canonical: "https://www.v2o5.com.br/guias"
 robots: "noindex, follow"
 h1: "Guias"
-extraido_em: "2026-11-27T12:06:59.650Z"
-fonte: "build local da branch claude/kind-tesla-eefroe em 27/11/2026 (revisão do texto do site no foco em pequenos negócios), antes da publicação"
+extraido_em: "2026-11-27T15:35:39.615Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 27/11/2026 (revisão de ganchos e conversão aprovada), antes da publicação"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 Em construção
@@ -16,6 +16,8 @@ Em construção
 # Guias
 
 Guias práticos para quem vende pelo WhatsApp: como aparecer no Google e atender bem quem chega.
+
+[Pedir diagnóstico gratuito](/diagnostico)
 
 [Voltar para a página inicial](/)
 

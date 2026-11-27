@@ -7,8 +7,8 @@ description: "Dyones Oliveira, fundador da V2O5, ajuda pequenos negócios a sere
 canonical: "https://www.v2o5.com.br/sobre"
 robots: null
 h1: "Tecnologia que o pequeno negócio consegue usar."
-extraido_em: "2026-11-27T12:45:09.800Z"
-fonte: "build local da branch claude/kind-tesla-eefroe em 27/11/2026 (revisão de português do site), antes da publicação"
+extraido_em: "2026-11-27T15:35:39.615Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 27/11/2026 (revisão de ganchos e conversão aprovada), antes da publicação"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 # Tecnologia que o pequeno negócio consegue usar.
@@ -21,11 +21,11 @@ Ajudo pequenos negócios a serem achados no Google e a atenderem bem quem chega,
 
 ## O cliente bem atendido é o resultado.
 
-Pequeno negócio não precisa de sistema grande. Precisa ser achado por quem procura perto, responder rápido e lembrar de quem já comprou. Eu escolho o caminho mais simples para cada uma dessas coisas.
+O pequeno negócio vive de quem procura perto e de quem volta a comprar. Para cuidar disso, quase nunca precisa de sistema grande. Eu escolho o caminho mais simples.
 
 - Às vezes basta arrumar o perfil no Google.
-- Às vezes é organizar o WhatsApp com um agente que responde na hora.
-- Às vezes é ligar o site ao sistema que a empresa já usa.
+- Em outros casos, um agente que responde na hora no WhatsApp.
+- Ou ligar o site ao sistema que você já usa.
 
 O que eu procuro é o que resolve com menos custo e menos esforço para quem vai usar todo dia. Pôr IA onde um perfil arrumado bastaria só gasta dinheiro.
 
@@ -248,8 +248,6 @@ Onde as soluções rodam, como são publicadas e mantidas.
 - Monitoramento
 - Gestão de domínios e hospedagem
 
-VPS é uma modalidade de infraestrutura, não uma ferramenta; Docker é a tecnologia, Easypanel a plataforma de gestão e Hostinger o provedor.
-
 03
 
 Inteligência artificial e agentes
@@ -262,8 +260,6 @@ Assistentes, modelos, agentes especializados e desenvolvimento assistido por IA.
 - Anthropic Claude
 - Claude Code
 - Google Gemini
-
-Modelos de linguagem, assistentes de produtividade, pesquisa e ferramentas de desenvolvimento não são a mesma coisa. Custo, privacidade e adequação técnica decidem o que entra em cada projeto.
 
 04
 
@@ -348,9 +344,9 @@ E-mail
 
 [diagnostico@v2o5.com.br](mailto:diagnostico@v2o5.com.br?subject=Quero%20o%20diagn%C3%B3stico%20gratuito)
 
-## Quer conversar comigo?
+## Vamos ver onde o seu negócio perde cliente?
 
-O diagnóstico é comigo: 45 minutos sobre como o cliente acha o seu negócio, como é atendido e se volta a comprar.
+São 45 minutos comigo, sem custo: como o cliente acha o seu negócio, como é atendido e se volta a comprar.
 
 [Pedir diagnóstico gratuito](/diagnostico)
 

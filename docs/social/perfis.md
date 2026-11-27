@@ -52,10 +52,10 @@ O endereço do LinkedIn precisa continuar `v2o5-consutoria` (é o que está no `
 - **Nome (campo pesquisável, 31 caracteres):** V2O5 | Sites, Google e WhatsApp (palavras que o dono de negócio digita na busca; antes, "V2O5 | Consultoria e tecnologia")
 - **Usuário:** manter `v2o5_consultoria` (está no `sameAs`).
 - **Categoria:** Consultoria empresarial (igual ao Perfil da Empresa).
-- **Bio (143 caracteres):**
+- **Bio (127 caracteres; 27/11/2026, com a promessa de todos os botões):**
   ```
-  Coloque seu negócio no mapa e cuide de cada cliente que chega.
-  Diagnóstico gratuito de 45 minutos, on-line, em todo o Brasil.
+  Descubra onde seu negócio perde cliente. Gratuitamente.
+  Diagnóstico de 45 minutos, on-line, em todo o Brasil.
   Agende pelo link.
   ```
 - **Link:** https://www.v2o5.com.br/diagnostico?utm_source=instagram&utm_medium=bio

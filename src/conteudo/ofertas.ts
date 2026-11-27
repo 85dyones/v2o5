@@ -292,7 +292,7 @@ export const PLANOS_DE_CONTINUIDADE: PlanoDeContinuidade[] = [
     inclui: [
       "Tudo das Integrações Monitoradas",
       "Uma conversa mensal de 30 minutos para priorizar as melhorias",
-      "Até 2 horas por mês reservadas para pequenas intervenções, além do suporte",
+      "Até 2 horas por mês reservadas para pequenas melhorias, além do suporte",
       "Registro do que mudou e da próxima prioridade",
     ],
   },
@@ -341,7 +341,7 @@ export const CONTINUIDADE = {
     },
     {
       titulo: "Saída",
-      texto: "Com aviso prévio, a V2O5 entrega o código, os dados e os acessos nos termos do contrato.",
+      texto: "Se quiser sair, é só avisar antes: a V2O5 entrega o código, os dados e os acessos, nos termos do contrato.",
     },
   ],
 };

@@ -7,8 +7,8 @@ description: "Diagnóstico gratuito de 45 minutos com o fundador para ver onde o
 canonical: "https://www.v2o5.com.br/diagnostico"
 robots: null
 h1: "Descubra onde seu negócio perde cliente. Gratuitamente."
-extraido_em: "2026-11-27T12:45:09.800Z"
-fonte: "build local da branch claude/kind-tesla-eefroe em 27/11/2026 (revisão de português do site), antes da publicação"
+extraido_em: "2026-11-27T15:35:39.615Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 27/11/2026 (revisão de ganchos e conversão aprovada), antes da publicação"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 # Descubra onde seu negócio perde cliente. Gratuitamente.
@@ -27,7 +27,7 @@ WhatsApp com DDD
 
 E-mail
 
-Segmento
+Ramo do negócio
 
 <!-- opções do campo segmento -->
 
@@ -88,9 +88,9 @@ Por chamada de vídeo ou WhatsApp. Vemos como o cliente acha o seu negócio no G
 
 3
 
-O próximo passo, se houver
+Uma proposta, se fizer sentido
 
-Havendo um bom caso, a V2O5 propõe a solução que cabe no problema (Presença, Sites ou Atendimento com IA), com escopo, entregáveis, prazo e investimento por escrito. Se não houver, a conversa termina ali.
+Se fizer sentido seguir, você recebe por escrito a solução que cabe no problema (Presença, Sites ou Atendimento com IA), o que entra, o prazo e o valor. Se não fizer, a conversa termina ali, sem custo.
 
 Para o pequeno negócio que vende pelo WhatsApp ou no balcão e quer saber onde perde cliente antes de gastar com site ou sistema.
 
@@ -129,11 +129,11 @@ Enviando...
 
 <!-- falha no envio -->
 
-Não deu para enviar agora. Tente de novo em instantes.
+Não deu para enviar agora. Tente de novo ou chame no WhatsApp.
 
 <!-- canal de entrega sem configuração (503) -->
 
-O envio está em configuração. Tente de novo mais tarde.
+O formulário está fora do ar agora. Chame no WhatsApp, que a gente marca por lá.
 
 <!-- erro do campo nome -->
 
@@ -153,7 +153,7 @@ Diga o nome do negócio.
 
 <!-- erro do campo segmento -->
 
-Escolha o segmento.
+Escolha o ramo do negócio.
 
 <!-- erro do campo objetivos -->
 

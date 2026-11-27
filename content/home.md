@@ -7,8 +7,8 @@ description: "Digitalização para pequenos negócios: presença no Google, site
 canonical: "https://www.v2o5.com.br"
 robots: null
 h1: "Coloque seu negócio no mapa e cuide de cada cliente que chega."
-extraido_em: "2026-11-27T12:45:09.800Z"
-fonte: "build local da branch claude/kind-tesla-eefroe em 27/11/2026 (revisão de português do site), antes da publicação"
+extraido_em: "2026-11-27T15:35:39.615Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 27/11/2026 (revisão de ganchos e conversão aprovada), antes da publicação"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 Digitalização para pequenos negócios
@@ -28,6 +28,22 @@ Três soluções
 - Presença Digital Local
 - Sites & Integrações
 - Atendimento com IA
+
+## O cliente procura, chama e às vezes desiste. Quase sempre por um detalhe que dá para arrumar.
+
+Perfil desatualizado, mensagem que demora, cliente que comprou uma vez e nunca mais apareceu. A V2O5 começa por esses detalhes.
+
+### Difícil de achar
+
+Perfil no Google sem horário, sem foto ou com o telefone antigo. Quem procura perto de casa acaba no vizinho.
+
+### Resposta que demora
+
+A mensagem chega pelo WhatsApp à noite ou no meio do movimento e fica para depois. Quando a resposta sai, o cliente já comprou em outro lugar.
+
+### Cliente que não volta
+
+Ninguém lembra de quem comprou nem de chamar de novo na hora certa. A venda seguinte fica por conta do acaso.
 
 ## Três soluções. Escolha pelo problema que você tem.
 
@@ -51,9 +67,11 @@ Etapa inicial
 
 ### Diagnóstico gratuito
 
-45 minutos com o fundador para ver onde o seu negócio perde cliente e por onde começar. Se não houver um bom caso, a conversa termina ali.
+45 minutos com o fundador para ver onde o seu negócio perde cliente e por onde começar. Se não fizer sentido contratar, a conversa termina ali.
 
-Não inclui implementação nem acompanhamento de resultados.
+Sem custo e sem compromisso.
+
+[Pedir diagnóstico gratuito](/diagnostico)
 
 A solução
 
@@ -63,7 +81,7 @@ Presença, Sites ou Atendimento com IA, com pacotes de escopo claro. O valor fec
 
 Preços de entrada de R$ 790 a R$ 3.900. Nenhuma solução obriga a comprar a seguinte.
 
-[Ver valores e condições](/precos)
+[Ver os preços das soluções](/precos)
 
 Depois da entrega
 
@@ -73,25 +91,9 @@ Planos opcionais para manter e melhorar o que foi entregue, com horas e prazo de
 
 Planos a partir de R$ 349/mês. Não inclui desenvolvimento ilimitado nem novas integrações sem orçamento.
 
-[Ver valores e condições](/continuidade)
+[Ver os planos de continuidade](/continuidade)
 
-## O cliente procura, chama e às vezes desiste. Quase sempre por um detalhe que dá para arrumar.
-
-Perfil desatualizado, mensagem que demora, cliente que comprou uma vez e nunca mais apareceu. A V2O5 começa por esses detalhes.
-
-### Difícil de achar
-
-Perfil no Google sem horário, sem foto ou com o telefone antigo. Quem procura perto de casa acaba no vizinho.
-
-### Resposta que demora
-
-A mensagem chega pelo WhatsApp à noite ou no meio do movimento e fica para depois. Quando a resposta sai, o cliente já comprou em outro lugar.
-
-### Cliente que não volta
-
-Ninguém lembra de quem comprou nem de chamar de novo na hora certa. A venda seguinte fica por conta do acaso.
-
-Resultado antes de vaidade técnica
+Como saber se funcionou
 
 ## O que conta é o cliente bem atendido.
 
@@ -117,7 +119,7 @@ Ninguém aqui promete um percentual de melhoria. A gente anota como está hoje e
 
 Cases
 
-## Dois atendimentos no ar. Um no comércio, outro no serviço público.
+## Funcionando hoje em dois clientes. Um no comércio, outro no serviço público.
 
 ### Motors Store
 
@@ -139,7 +141,6 @@ Um WhatsApp para os onze setores e o gabinete. A triagem pergunta o assunto e en
 
 [Ler o case da 16ª Vara Cível](/cases/16-vara-civel)
 
-- Começamos pelo cliente que precisa ser atendido, não por uma lista de funcionalidades.
 - Usamos os sistemas que já existem sempre que resolvem com menos atrito.
 - Separamos o que foi implementado do que já tem resultado medido.
 
@@ -169,11 +170,11 @@ A implantação termina na entrega. Se o que foi entregue continua rodando, a co
 
 Preciso trocar o sistema que já uso?
 
-Não. A V2O5 liga o que você já usa: a agenda, o catálogo, o estoque ou o CRM, depois de verificar a documentação e o acesso de cada um. Em produção hoje: o estoque do Revenda Mais sincronizado com o site e o agente da Motors Store. Na revenda de veículos, Autoconf, BNDV, Boom, Altimus e Syonet entram do mesmo jeito.
+Não. A V2O5 liga o que você já usa: a agenda, o catálogo, o estoque ou o CRM, depois de verificar a documentação e o acesso de cada um. Já funciona hoje: o estoque do Revenda Mais sincronizado com o site e o agente da Motors Store. Na revenda de veículos, Autoconf, BNDV, Boom, Altimus e Syonet entram do mesmo jeito.
 
 O agente de IA atende sozinho?
 
-Responde na hora com as informações do seu negócio e, quando a conversa pede uma pessoa, chama alguém da equipe. A conversa fica registrada na lista de contatos, com a origem de cada um.
+Em parte. Responde sozinho na hora, com as informações do seu negócio, e chama alguém da equipe quando a conversa pede uma pessoa. A conversa fica registrada na lista de contatos, com a origem de cada um.
 
 Vocês fazem tráfego pago?
 
@@ -181,7 +182,7 @@ Não. A V2O5 cuida para o negócio ser achado no Google e para quem chega ser be
 
 Como funciona o diagnóstico gratuito?
 
-São 45 minutos de conversa com o fundador sobre como o cliente acha o seu negócio, como ele é atendido no WhatsApp e os sistemas que você já usa, para ver onde você perde cliente e por onde começar. A sessão não inclui implementação nem acompanhamento de resultados. Havendo um bom caso, o próximo passo é a proposta da solução que cabe no problema, com escopo, entregáveis, prazo e investimento.
+São 45 minutos de conversa com o fundador sobre como o cliente acha o seu negócio, como ele é atendido no WhatsApp e os sistemas que você já usa, para ver onde você perde cliente e por onde começar. A sessão não inclui implementação nem acompanhamento de resultados. Se fizer sentido seguir, o próximo passo é a proposta da solução que cabe no problema, com escopo, entregáveis, prazo e investimento.
 
 A V2O5 atende fora de Curitiba?
 

@@ -23,10 +23,10 @@ export const CASE_MOTORS = {
     ramo: "revenda de seminovos",
   },
   sobretitulo: "Case",
-  titulo: "Motors Store: o sistema inteiro numa revenda de seminovos.",
+  titulo: "Motors Store: o caminho do cliente, do Google ao vendedor.",
   /** Curto de propósito: o LCP da página é o H1, e um parágrafo maior que ele rouba o posto (regra do CLAUDE.md; `tests/case.test.ts`). */
   resumo:
-    "A V2O5 montou para a Motors Store, em Curitiba, o site de estoque, o agente de IA no WhatsApp, a entrega do lead ao CRM e as automações.",
+    "A V2O5 montou para a Motors Store, em Curitiba, o site de estoque, o agente de IA no WhatsApp, a passagem do cliente ao CRM e as automações.",
   fatos: [
     { rotulo: "Cliente", valor: "Motors Store, revenda de seminovos em Curitiba" },
     { rotulo: "Entrega", valor: "site de estoque, agente de IA, guias, painel, integração com o CRM e automações" },
@@ -71,13 +71,13 @@ export const CASE_MOTORS = {
         linha: "Atendimento com IA",
         titulo: "O Ney, agente da loja no WhatsApp",
         texto:
-          "Agente de IA feito para a Motors: responde com o estoque real, qualifica pela régua da loja e passa o cliente à equipe na hora certa.",
+          "Agente de IA feito para a Motors: responde com o estoque real, dá a nota pela régua da loja e passa o cliente à equipe na hora certa.",
       },
       {
         linha: "Integrações entre sistemas",
-        titulo: "Lead qualificado no CRM do Revenda Mais",
+        titulo: "Cliente pronto no CRM do Revenda Mais",
         texto:
-          "Na passagem, o lead vai ao CRM do Revenda Mais com a origem do contato, o carro de interesse e a qualificação do Ney, e o CRM distribui ao vendedor.",
+          "Na passagem, o cliente vai ao CRM do Revenda Mais com a origem do contato, o carro de interesse e a nota do Ney, e o CRM distribui ao vendedor.",
       },
       {
         linha: "CRM com WhatsApp",
@@ -127,7 +127,7 @@ export const CASE_MOTORS = {
    */
   atendimento: {
     sobretitulo: "Atendimento com IA",
-    titulo: "O Ney qualifica, o Revenda Mais distribui.",
+    titulo: "O Ney atende, o Revenda Mais distribui.",
     texto:
       "O Ney é o agente de IA da Motors Store no WhatsApp, feito sob medida para a loja. Ele conversa com quem chega pelo site ou direto pelo WhatsApp, e só passa o cliente à equipe quando a conversa está pronta para o vendedor.",
     passos: [
@@ -136,7 +136,7 @@ export const CASE_MOTORS = {
         texto: "Lê o estoque que o Revenda Mais sincroniza, com o link de cada carro, e manda as fotos aos poucos: primeiro de fora, o interior se o cliente quiser.",
       },
       {
-        titulo: "Preenche a ficha e soma o aquecimento",
+        titulo: "Preenche a ficha e dá a nota",
         texto: "Carro, forma de pagamento, entrada, troca, prazo e visita. Uma régua de pesos dá a nota de 0 a 100 e mostra o motivo de cada ponto.",
       },
       {
@@ -145,7 +145,7 @@ export const CASE_MOTORS = {
       },
       {
         titulo: "Entrega no CRM do Revenda Mais",
-        texto: "O lead vai ao CRM com a origem do contato, o carro de interesse e a qualificação do Ney, e o CRM escolhe o vendedor. Se o CRM recusar, o envio tenta de novo e o dono é avisado.",
+        texto: "O cliente vai ao CRM com a origem do contato, o carro de interesse e a nota do Ney, e o CRM escolhe o vendedor. Se o CRM recusar, o sistema tenta de novo e avisa o dono.",
       },
       {
         titulo: "Retoma sem atropelar a equipe",
@@ -186,7 +186,7 @@ export const CASE_MOTORS = {
   chamada: {
     titulo: "Quer o mesmo atendimento no seu negócio?",
     texto:
-      "Não precisa ser revenda. Em qualquer loja ou serviço que vende pelo WhatsApp, o agente responde na hora com as suas informações e passa cada cliente para a pessoa certa, com o resumo da conversa. O diagnóstico é gratuito: 45 minutos com o fundador para ver onde o seu negócio perde cliente.",
+      "Vale para qualquer loja ou serviço que vende pelo WhatsApp: o agente responde na hora com o que você aprovou e passa cada cliente para a pessoa certa, com o resumo da conversa. O diagnóstico é gratuito: 45 minutos com o fundador para ver onde o seu negócio perde cliente.",
     botao: "Pedir diagnóstico gratuito",
     secundario: "Ver os preços",
   },

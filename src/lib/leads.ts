@@ -132,7 +132,7 @@ export function validarLead(dados: unknown): Validacao {
   if (empresa.length < 2) erros.empresa = "Diga o nome do negócio.";
 
   const segmento = entre(SEGMENTOS, d.segmento);
-  if (!segmento) erros.segmento = "Escolha o segmento.";
+  if (!segmento) erros.segmento = "Escolha o ramo do negócio.";
 
   const objetivosBrutos = Array.isArray(d.objetivos) ? d.objetivos : [];
   const objetivos = [...new Set(objetivosBrutos.map((o) => entre(OBJETIVOS, o)).filter((o): o is NonNullable<typeof o> => !!o))];

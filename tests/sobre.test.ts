@@ -119,7 +119,7 @@ describe("página Sobre", () => {
     expect(SOBRE.resumo).toMatch(/^Ajudo pequenos negócios/);
     expect(SOBRE.resumo.length).toBeLessThanOrEqual(140);
     expect(SOBRE.fundador.titulo).toBe("Eu conduzo o diagnóstico");
-    expect(SOBRE.chamada.titulo).toBe("Quer conversar comigo?");
+    expect(SOBRE.chamada.titulo).toBe("Vamos ver onde o seu negócio perde cliente?");
     expect(SOBRE.jeito.titulo).toBe("Como eu trabalho.");
     for (const r of SOBRE.jeito.regras) expect(r.titulo).not.toMatch(/^Começa|^Só número/);
     expect(pagina).not.toMatch(/Conhecer o fundador/);

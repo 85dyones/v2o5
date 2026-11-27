@@ -203,7 +203,7 @@ function Entregas({ s }: { s: Solucao }) {
       <div className="relative grid grid-cols-12 gap-x-6">
         <Parada />
         <h2 id="titulo-entregas" className="titulo-secao col-span-12 lg:col-span-8">
-          O que a V2O5 entrega <span className="apagado">nesta linha.</span>
+          O que você recebe.
         </h2>
       </div>
       <ul className="mt-12 border-t-2 border-texto md:mt-14">
@@ -229,7 +229,7 @@ function ComoFunciona({ s }: { s: Solucao }) {
             {s.como?.titulo ?? "Do diagnóstico"} <span className="apagado">{s.como?.apagado ?? "ao ar."}</span>
           </h2>
           <p className="texto-guia mt-6 max-w-[30rem]">
-            {s.como?.texto ?? "Começa pelo diagnóstico gratuito, com o escopo fechado antes da implantação. Sem fidelidade."}
+            {s.como?.texto ?? "Começa pelo diagnóstico gratuito. O que entra e o preço ficam por escrito antes de começar. Sem fidelidade."}
           </p>
         </div>
         <ol className="col-span-12 border-t-2 border-texto lg:col-span-7">

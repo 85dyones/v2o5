@@ -35,7 +35,7 @@ export const HUB_AUTOMOTIVO = {
   },
   fatos: [
     { rotulo: "Dois caminhos", valor: "O Site Conectado e o Atendimento Integrado, juntos ou um de cada vez" },
-    { rotulo: "Integração em produção", valor: "Revenda Mais: o estoque entra sozinho no site e no agente" },
+    { rotulo: "Integração funcionando", valor: "Revenda Mais: o estoque entra sozinho no site e no agente" },
     { rotulo: "Integráveis por fluxo", valor: listaDeSistemasIntegraveis() },
     { rotulo: "Referência", valor: "Motors Store, revenda de seminovos em Curitiba, com números lidos do banco de dados da loja" },
   ],
@@ -48,7 +48,7 @@ export const HUB_AUTOMOTIVO = {
         linha: "Sites e presença",
         titulo: "Site de estoque integrado ao sistema da loja",
         texto:
-          `Vitrine, ficha de veículo, páginas por marca e modelo e páginas locais. O carro entra no site quando entra no sistema de gestão e sai quando é vendido. Em produção com o Revenda Mais. ${listaDeSistemasIntegraveis()} entram por fluxo de integração.`,
+          `Vitrine, ficha de veículo, páginas por marca e modelo e páginas locais. O carro entra no site quando entra no sistema de gestão e sai quando é vendido. Já funciona com o Revenda Mais. ${listaDeSistemasIntegraveis()} entram por fluxo de integração.`,
       },
       {
         linha: "Agente de IA no WhatsApp",
@@ -60,7 +60,7 @@ export const HUB_AUTOMOTIVO = {
         linha: "Integração com o sistema da loja",
         titulo: "Cliente pronto no CRM da loja",
         texto:
-          "O cliente entra no CRM que a loja já usa, com o carro de interesse, a origem e a conversa, e o vendedor segue dali. Em produção com o Revenda Mais.",
+          "O cliente entra no CRM que a loja já usa, com o carro de interesse, a origem e a conversa, e o vendedor segue dali. Já funciona com o Revenda Mais.",
       },
     ],
   },
@@ -77,7 +77,7 @@ export const HUB_AUTOMOTIVO = {
         para: "Para a revenda que quer o site ligado ao estoque do sistema de gestão, com os contatos medidos.",
         inclui: [
           "Tudo do Site Personalizado, com a página de cada veículo e o tratamento dos vendidos",
-          "Estoque alimentado pelo sistema de gestão, por feed, API ou outro meio autorizado (Revenda Mais em produção)",
+          "Estoque alimentado pelo sistema de gestão, por feed, API ou outro meio autorizado (Revenda Mais já funcionando)",
           "Contatos medidos até o sistema da loja, com a origem gravada",
           "Aviso quando a integração falha",
         ],
@@ -115,7 +115,7 @@ export const HUB_AUTOMOTIVO = {
     {
       pergunta: "Minha loja usa outro sistema de gestão. Funciona?",
       resposta:
-        `O site lê o estoque do sistema que a loja já usa. Com o Revenda Mais a integração está em produção. ${listaDeSistemasIntegraveis()} entram como integração definida na proposta, depois de ver a API ou a exportação que cada um oferece; o mesmo vale para outro sistema.`,
+        `O site lê o estoque do sistema que a loja já usa. Com o Revenda Mais, a integração já funciona. ${listaDeSistemasIntegraveis()} entram como integração definida na proposta, depois de ver a API ou a exportação que cada um oferece; o mesmo vale para outro sistema.`,
     },
     {
       pergunta: "O agente responde com o estoque de verdade?",

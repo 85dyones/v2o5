@@ -227,7 +227,7 @@ export default function Formulario() {
           aria-describedby={erros.email ? `${campo("email")}-erro` : undefined}
         />
       </Campo>
-      <Campo id={campo("segmento")} rotulo="Segmento" erro={erros.segmento}>
+      <Campo id={campo("segmento")} rotulo="Ramo do negócio" erro={erros.segmento}>
         <select
           id={campo("segmento")}
           name="segmento"

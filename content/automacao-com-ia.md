@@ -7,13 +7,13 @@ description: "O aviso e o pedido de avaliação que alguém manda à mão passam
 canonical: "https://www.v2o5.com.br/automacao-com-ia"
 robots: null
 h1: "Automação com IA para as tarefas repetidas do seu negócio."
-extraido_em: "2026-11-27T12:45:09.800Z"
-fonte: "build local da branch claude/kind-tesla-eefroe em 27/11/2026 (revisão de português do site), antes da publicação"
+extraido_em: "2026-11-27T15:35:39.615Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 27/11/2026 (revisão de ganchos e conversão aprovada), antes da publicação"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 # Automação com IA para as tarefas repetidas do seu negócio.
 
-A tarefa que alguém faz à mão toda semana passa a rodar sozinha entre os sistemas que você já usa, com registro de cada execução.
+O aviso de pedido pronto e o convite para avaliar passam a sair sozinhos, pelo WhatsApp e pelo sistema que você já usa.
 
 [Pedir diagnóstico gratuito](/diagnostico)
 
@@ -27,7 +27,7 @@ Manutenção
 
 definida na proposta ou na continuidade, se contratada
 
-Em produção
+Funcionando
 
 Motors Store: 148 veículos sincronizados com o Revenda Mais
 
@@ -37,7 +37,7 @@ Avisar que o pedido está pronto, mandar o obrigado, pedir a avaliação no dia 
 
 Organizar
 
-## O que a V2O5 entrega nesta linha.
+## O que você recebe.
 
 ### Um fluxo por tarefa
 
@@ -45,7 +45,7 @@ Cada rotina vira um fluxo no n8n, entregue, testado e documentado. Você vê o q
 
 ### Integração com o que você usa
 
-WhatsApp, planilha, agenda, e-mail, o CRM e o sistema de gestão que você já usa. Em produção hoje: o estoque do Revenda Mais.
+WhatsApp, planilha, agenda, e-mail, o CRM e o sistema de gestão que você já usa. Já funciona hoje: o estoque do Revenda Mais.
 
 ### IA onde faz diferença
 
@@ -65,7 +65,7 @@ Roda no n8n da infraestrutura da V2O5, com backup e monitoramento. Se sair, leva
 
 ## Do diagnóstico ao ar.
 
-Começa pelo diagnóstico gratuito, com o escopo fechado antes da implantação. Sem fidelidade.
+Começa pelo diagnóstico gratuito. O que entra e o preço ficam por escrito antes de começar. Sem fidelidade.
 
 01
 
@@ -125,7 +125,7 @@ Uma tarefa do começo ao fim. Por exemplo: quando o atendimento é concluído na
 
 Preciso trocar o sistema que já uso?
 
-Não. A V2O5 liga o que você já usa: a agenda, o catálogo, o estoque ou o CRM, depois de verificar a documentação e o acesso de cada um. Em produção hoje: o estoque do Revenda Mais sincronizado com o site da Motors Store. Na revenda de veículos, Autoconf, BNDV, Boom, Altimus e Syonet entram do mesmo jeito, como fluxo de integração.
+Não. A V2O5 liga o que você já usa: a agenda, o catálogo, o estoque ou o CRM, depois de verificar a documentação e o acesso de cada um. Já funciona hoje: o estoque do Revenda Mais sincronizado com o site da Motors Store. Na revenda de veículos, Autoconf, BNDV, Boom, Altimus e Syonet entram do mesmo jeito, como fluxo de integração.
 
 E quando o fluxo quebra?
 
@@ -147,11 +147,11 @@ Roda na infraestrutura da V2O5, sem cobrança por tarefa executada, e o fluxo é
 
 [Voltar a comprar Pós-venda e recorrência Contato de volta com quem já comprou, na hora da recompra ou do retorno, no Atendimento Integrado. Só para quem consentiu, dentro das regras do WhatsApp.](/agente-de-ia-para-whatsapp#titulo-pacotes)
 
-## Comece pelo diagnóstico, que é gratuito.
+## Descubra onde seu negócio perde cliente.
 
-Em 45 minutos de conversa com o fundador, a gente vê como o cliente acha o seu negócio e como ele é atendido, e mostra por onde começar. A sessão é gratuita e sem compromisso.
+Em 45 minutos de conversa, o fundador vê com você como o cliente acha o seu negócio e como ele é atendido, e mostra por onde começar. Sem custo e sem compromisso.
 
-[Pedir diagnóstico](/diagnostico)
+[Pedir diagnóstico gratuito](/diagnostico)
 
 [Ver os preços](/precos)
 

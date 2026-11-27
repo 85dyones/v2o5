@@ -23,7 +23,7 @@ export default function NaoEncontrada() {
         <ul className="mt-10 flex flex-wrap gap-3">
           <li>
             <Link href="/diagnostico" className="botao botao-primario" data-evento="cta_click" data-local="nao-encontrada">
-              Pedir diagnóstico
+              Pedir diagnóstico gratuito
             </Link>
           </li>
           <li>

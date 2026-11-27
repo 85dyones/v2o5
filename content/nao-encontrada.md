@@ -7,8 +7,8 @@ description: "A V2O5 digitaliza pequenos negócios: coloca o negócio no Google 
 canonical: null
 robots: "noindex"
 h1: "Esta página não existe."
-extraido_em: "2026-11-27T12:45:09.800Z"
-fonte: "build local da branch claude/kind-tesla-eefroe em 27/11/2026 (revisão de português do site), antes da publicação"
+extraido_em: "2026-11-27T15:35:39.615Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 27/11/2026 (revisão de ganchos e conversão aprovada), antes da publicação"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 Erro 404
@@ -17,6 +17,6 @@ Erro 404
 
 O endereço pode ter mudado com o site novo. Estes caminhos levam ao que mais se procura por aqui.
 
-- [Pedir diagnóstico](/diagnostico)
+- [Pedir diagnóstico gratuito](/diagnostico)
 - [Ver as soluções](/#solucoes)
 - [Ler o case da Motors Store](/cases/motors-store)

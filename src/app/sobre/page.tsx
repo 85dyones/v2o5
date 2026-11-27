@@ -321,7 +321,6 @@ export default function Pagina() {
                       </li>
                     ))}
                   </ul>
-                  {c.nota ? <p className="col-span-12 max-w-[40rem] text-sm leading-relaxed text-texto-secundario">{c.nota}</p> : null}
                 </div>
               </details>
             ))}

@@ -6,12 +6,12 @@ title: "CRM com WhatsApp integrado | V2O5 Vendas e Tecnologia"
 description: "CRM simples com o WhatsApp dentro: cada cliente com a conversa e a origem num lugar só, e o aviso de quem chamar de volta. Recurso do Atendimento com IA."
 canonical: "https://www.v2o5.com.br/crm-com-whatsapp"
 robots: null
-h1: "CRM com WhatsApp integrado e IA."
-extraido_em: "2026-11-27T12:45:09.800Z"
-fonte: "build local da branch claude/kind-tesla-eefroe em 27/11/2026 (revisão de português do site), antes da publicação"
+h1: "CRM com WhatsApp para saber quem atender e quem chamar de volta."
+extraido_em: "2026-11-27T15:35:39.615Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 27/11/2026 (revisão de ganchos e conversão aprovada), antes da publicação"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
-# CRM com WhatsApp integrado e IA.
+# CRM com WhatsApp para saber quem atender e quem chamar de volta.
 
 Seus clientes num lugar só, com a conversa do WhatsApp e a origem de cada um, para saber quem atender e quem chamar de volta.
 
@@ -27,7 +27,7 @@ O que entra
 
 Etapas e campos do seu negócio, WhatsApp dentro do CRM, banco de dados próprio, backups e treinamento da equipe, conforme o escopo
 
-Em produção
+Funcionando
 
 Motors Store: o cliente atendido pelo agente de IA chega ao CRM do Revenda Mais com a origem e a ficha
 
@@ -61,7 +61,7 @@ Pacote mensal <!-- decorativo, aria-hidden -->
 
 Indicação <!-- decorativo, aria-hidden -->
 
-## O que a V2O5 entrega nesta linha.
+## O que você recebe.
 
 ### Cada cliente com a origem
 
@@ -83,13 +83,9 @@ Os campos são os do seu ramo: o pet e o porte, o procedimento da clínica, o ca
 
 Os dados ficam num banco de dados só seu, com backup diário e exportação quando você pedir.
 
-### Quantas pessoas usam
-
-Quantas pessoas usam e quantos contatos entram fica definido na proposta, conforme o tamanho da equipe e da lista de clientes.
-
 ## Do diagnóstico ao ar.
 
-Começa pelo diagnóstico gratuito, com o escopo fechado antes da implantação. Sem fidelidade.
+Começa pelo diagnóstico gratuito. O que entra e o preço ficam por escrito antes de começar. Sem fidelidade.
 
 01
 
@@ -149,7 +145,7 @@ O que entra, onde se encaixa no Atendimento com IA e o que fica de fora. O resto
 
 Posso integrar com o sistema que já uso?
 
-Sim, no Atendimento Integrado: a agenda, o catálogo, o estoque ou o CRM que você já usa, depois de verificar a documentação e o acesso. Em produção hoje: o estoque do Revenda Mais. Na revenda de veículos, Autoconf, BNDV, Boom, Altimus e Syonet entram do mesmo jeito.
+Sim, no Atendimento Integrado: a agenda, o catálogo, o estoque ou o CRM que você já usa, depois de verificar a documentação e o acesso. Já funciona hoje: o estoque do Revenda Mais. Na revenda de veículos, Autoconf, BNDV, Boom, Altimus e Syonet entram do mesmo jeito.
 
 O WhatsApp fica dentro do CRM?
 
@@ -175,11 +171,11 @@ Quantas pessoas usam e quantos contatos entram fica definido na proposta, confor
 
 [Voltar a comprar Pós-venda e recorrência Contato de volta com quem já comprou, na hora da recompra ou do retorno, no Atendimento Integrado. Só para quem consentiu, dentro das regras do WhatsApp.](/agente-de-ia-para-whatsapp#titulo-pacotes)
 
-## Comece pelo diagnóstico, que é gratuito.
+## Descubra onde seu negócio perde cliente.
 
-Em 45 minutos de conversa com o fundador, a gente vê como o cliente acha o seu negócio e como ele é atendido, e mostra por onde começar. A sessão é gratuita e sem compromisso.
+Em 45 minutos de conversa, o fundador vê com você como o cliente acha o seu negócio e como ele é atendido, e mostra por onde começar. Sem custo e sem compromisso.
 
-[Pedir diagnóstico](/diagnostico)
+[Pedir diagnóstico gratuito](/diagnostico)
 
 [Ver os preços](/precos)
 

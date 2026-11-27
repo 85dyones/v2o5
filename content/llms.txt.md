@@ -3,8 +3,8 @@ rota: "/llms.txt"
 url: "https://www.v2o5.com.br/llms.txt"
 status: 200
 content_type: "text/plain; charset=utf-8"
-extraido_em: "2026-11-27T12:45:09.800Z"
-fonte: "build local da branch claude/kind-tesla-eefroe em 27/11/2026 (revisão de português do site), antes da publicação"
+extraido_em: "2026-11-27T15:35:39.615Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 27/11/2026 (revisão de ganchos e conversão aprovada), antes da publicação"
 ---
 
 <!-- Corpo de /llms.txt exatamente como servido (gerado por src/app/llms.txt/route.ts). -->
@@ -45,13 +45,13 @@ Fora dos pacotes: Consumo de IA e mensagens do WhatsApp, pelo valor do provedor;
 A implantação termina na entrega. Se o que foi entregue continua rodando, a continuidade cuida dele, com limites escritos no contrato. Nenhum plano é obrigatório: a necessidade e o escopo decidem.
 - Cuidado Técnico: R$ 349/mês. Para manter no ar o site ou a página entregue. Hospedagem gerenciada e certificado SSL; Backup do código e do conteúdo, com restauração da última versão publicada; Monitoramento de disponibilidade do site e do formulário; Até 1 hora de suporte técnico por mês: correções e pequenas trocas de texto ou imagem; Resposta em até 2 dias úteis, por WhatsApp ou e-mail, em horário comercial.
 - Integrações Monitoradas: R$ 590/mês. Para o atendimento com IA ou o site ligado a outros sistemas. Tudo do Cuidado Técnico; Monitoramento das integrações entregues: estoque, envio de contatos e automações; Registro de erros e aviso quando algo para; Correção de falhas nas integrações entregues; Até 2 horas de suporte técnico por mês, com resposta a falha de integração em até 1 dia útil.
-- Evolução Contínua: R$ 990/mês. Para quem quer melhorar o que foi entregue mês a mês, como as respostas do agente de IA. Tudo das Integrações Monitoradas; Uma conversa mensal de 30 minutos para priorizar as melhorias; Até 2 horas por mês reservadas para pequenas intervenções, além do suporte; Registro do que mudou e da próxima prioridade.
+- Evolução Contínua: R$ 990/mês. Para quem quer melhorar o que foi entregue mês a mês, como as respostas do agente de IA. Tudo das Integrações Monitoradas; Uma conversa mensal de 30 minutos para priorizar as melhorias; Até 2 horas por mês reservadas para pequenas melhorias, além do suporte; Registro do que mudou e da próxima prioridade.
 - As horas: As horas de cada plano valem no mês e não acumulam para o seguinte.
 - Correção ou novidade: Correção é fazer voltar a funcionar o que foi entregue e parou. Nova funcionalidade muda ou acrescenta algo e é orçada à parte.
 - Atendimento: Por WhatsApp ou e-mail, em horário comercial, no prazo de resposta de cada plano. Sem plantão fora desse horário.
 - Custos por fora: Banco de dados, servidor dedicado, consumo de IA e mensagens vêm pelo valor do provedor, discriminados, com teto mensal combinado e aviso antes de ultrapassá-lo. A V2O5 cuida dessas contas. Domínio e e-mail também ficam por fora.
 - Sua parte: Manter em dia os acessos e os pagamentos dos serviços de terceiros e avisar a V2O5 antes de trocar o sistema que a solução usa.
-- Saída: Com aviso prévio, a V2O5 entrega o código, os dados e os acessos nos termos do contrato.
+- Saída: Se quiser sair, é só avisar antes: a V2O5 entrega o código, os dados e os acessos, nos termos do contrato.
 
 ## Recursos que um projeto pode usar
 CRM, automação e integrações entram como recursos de uma solução, quase sempre do Atendimento com IA, sem preço próprio.
@@ -68,14 +68,14 @@ CRM, automação e integrações entram como recursos de uma solução, quase se
 - [Diagnóstico gratuito](https://www.v2o5.com.br/diagnostico): Como o cliente acha o seu negócio hoje, quanto espera pela resposta no WhatsApp e onde desiste. São 45 minutos com o fundador para ver por onde começar.
 - [CRM com WhatsApp](https://www.v2o5.com.br/crm-com-whatsapp): Nenhum cliente esquecido numa conversa: cada um com a origem e o histórico, e o aviso de quando chamar de novo.
 - [Automação de tarefas](https://www.v2o5.com.br/automacao-com-ia): A tarefa que alguém faz à mão toda semana passa a rodar sozinha entre os sistemas que você já usa.
-- [Integrações entre sistemas](https://www.v2o5.com.br/automacao-com-ia): Site, CRM, agenda e os sistemas do seu setor trocando dados sozinhos. Em produção hoje: o estoque do Revenda Mais.
+- [Integrações entre sistemas](https://www.v2o5.com.br/automacao-com-ia): Site, CRM, agenda e os sistemas do seu setor trocando dados sozinhos. Já funciona hoje: o estoque do Revenda Mais.
 - [Pós-venda e recorrência](https://www.v2o5.com.br/agente-de-ia-para-whatsapp#titulo-pacotes): Contato de volta com quem já comprou, na hora da recompra ou do retorno, no Atendimento Integrado. Só para quem consentiu, dentro das regras do WhatsApp.
 
 ## Exemplo por segmento: revendas de veículos
 - [Para revendas de veículos](https://www.v2o5.com.br/segmentos/revendas-de-veiculos): As mesmas soluções de qualquer negócio, na revenda, a partir do que roda na Motors Store: site ligado ao estoque do sistema da loja (Revenda Mais, Autoconf e outros) e agente de IA que atende no WhatsApp e passa cada cliente ao CRM da loja.
 
 ## Case Motors Store
-A V2O5 montou para a Motors Store, em Curitiba, o site de estoque, o agente de IA no WhatsApp, a entrega do lead ao CRM e as automações. Banco de dados da Motors Store, lido em 17/11/2026. Leads contados de 05/09 a 17/11/2026. [Case completo](https://www.v2o5.com.br/cases/motors-store).
+A V2O5 montou para a Motors Store, em Curitiba, o site de estoque, o agente de IA no WhatsApp, a passagem do cliente ao CRM e as automações. Banco de dados da Motors Store, lido em 17/11/2026. Leads contados de 05/09 a 17/11/2026. [Case completo](https://www.v2o5.com.br/cases/motors-store).
 - 26 guias publicados, assinados pelo fundador da V2O5.
 - 148 veículos sincronizados com o estoque do Revenda Mais.
 Atendimento com IA na loja: o Ney, agente de IA da Motors Store no WhatsApp. Banco de dados da Motors Store, lido em 17/11/2026. Conversas de 21/10 a 17/11/2026; envios ao CRM de 04/11 a 17/11/2026.

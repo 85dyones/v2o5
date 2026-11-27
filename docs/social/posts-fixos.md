@@ -90,7 +90,7 @@ Primeiro comentário: `https://www.v2o5.com.br/diagnostico?utm_source=linkedin&u
 
 **Instagram (legenda)**
 ```
-O que acontece depois que você pede um diagnóstico?
+Pedir o diagnóstico não obriga você a nada. Veja o que vem depois.
 
 São 45 minutos com o fundador, gratuitos e sem compromisso. A gente vê como o cliente acha o seu negócio e como ele é atendido no WhatsApp. O combinado vale antes de qualquer projeto: escopo fechado, preço de referência público, nenhum escopo ilimitado e nenhuma solução que obrigue a seguinte. Um projeto anda em quatro passos, do diagnóstico ao acompanhamento.
 
@@ -101,7 +101,7 @@ Link na bio.
 ```
 **Facebook (legenda)**
 ```
-O que acontece depois que você pede um diagnóstico?
+Pedir o diagnóstico não obriga você a nada. Veja o que vem depois.
 
 São 45 minutos com o fundador, gratuitos e sem compromisso. A gente vê como o cliente acha o seu negócio e como ele é atendido no WhatsApp. O combinado vale antes de qualquer projeto: escopo fechado, preço de referência público, nenhum escopo ilimitado e nenhuma solução que obrigue a seguinte.
 
@@ -110,13 +110,14 @@ Peça pelo link: https://www.v2o5.com.br/diagnostico?utm_source=facebook&utm_med
 ```
 **LinkedIn (texto do post, com o PDF `linkedin/fixo-2-como-trabalhamos.pdf`; título do documento: "V2O5: como trabalhamos")**
 ```
-O que acontece depois que você pede um diagnóstico?
+Pedir o diagnóstico não obriga você a nada. Veja o que vem depois.
 
-Primeiro, 45 minutos gratuitos com o fundador. A pergunta é o que pesa mais hoje no negócio: ser achado, responder ou fazer o cliente voltar. O diagnóstico não inclui implantação nem acompanhamento de resultados. Se houver um bom caso, a proposta vem por escrito, com escopo, prazo e investimento; se não houver, a conversa termina ali.
+Primeiro, 45 minutos gratuitos com o fundador. A pergunta é o que pesa mais hoje no negócio: ser achado, responder ou fazer o cliente voltar. O diagnóstico não inclui implantação nem acompanhamento de resultados. Se fizer sentido seguir, a proposta vem por escrito, com escopo, prazo e investimento; se não fizer, a conversa termina ali.
 
 O combinado vale antes de qualquer projeto: escopo fechado, preço de referência público, nenhum escopo ilimitado, nenhuma solução que obrigue a seguinte e nenhuma promessa de percentual de resultado. Um projeto anda em quatro passos: diagnóstico, proposta, implantação e acompanhamento.
 
-Link no primeiro comentário.
+Descubra onde seu negócio perde cliente. Gratuitamente.
+Link do diagnóstico gratuito no primeiro comentário.
 
 #PequenosNegócios #Atendimento #Diagnóstico
 ```

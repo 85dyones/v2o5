@@ -76,7 +76,7 @@ function CartaoDoPacote({ pacote: p, oferta }: { pacote: Pacote; oferta: Oferta 
   return (
     <li className={`flex flex-col p-6 ${p.principal ? "border-2 border-texto" : "border border-linha"}`}>
       <p className="rotulo" style={{ color: TEXTO_DA_ETAPA[oferta.etapa] }}>
-        {p.principal ? "Oferta principal" : oferta.nome}
+        {p.principal ? "Mais completo" : oferta.nome}
       </p>
       <h3 className="titulo-cartao mt-3">{p.nome}</h3>
       <p className="mt-4 text-[1.0625rem] font-semibold tabular-nums">

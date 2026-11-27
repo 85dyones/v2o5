@@ -38,7 +38,7 @@ export default function Rodape() {
             {ASSINATURA}
           </p>
           <Link href="/diagnostico" className="botao botao-primario botao-compacto mt-7" data-evento="cta_click" data-local="rodape">
-            Pedir diagnóstico
+            Pedir diagnóstico gratuito
             <Icone nome="seta" className="seta size-3.5" />
           </Link>
         </div>
@@ -88,7 +88,7 @@ export default function Rodape() {
           <ul className="mt-4 space-y-0.5 text-[0.9375rem] text-texto-secundario">
             <li>
               <Link href="/diagnostico" className={LINK} data-evento="cta_click" data-local="rodape">
-                Pedir diagnóstico
+                Pedir diagnóstico gratuito
               </Link>
             </li>
             <li>

@@ -42,7 +42,7 @@
           },
           {
             "q": "Quarta, 9h40",
-            "t": "Ninguém respondeu ainda."
+            "t": "Você responde: “Bom dia!”"
           },
           {
             "q": "Quarta, 10h05",
@@ -96,7 +96,7 @@
         "tipo": "capa",
         "estilo": "ambar",
         "etiqueta": "Autoteste",
-        "titulo": "Quantas vezes você digitou o mesmo dado esta semana?",
+        "titulo": "Quantas vezes você anotou a mesma venda esta semana?",
         "sub": "Cinco sinais de que os seus sistemas não conversam.",
         "rodape": "Deslize e conte quantos você reconhece"
       },
@@ -171,7 +171,7 @@
         "etiqueta": "O que resolve",
         "nome": "Atendimento com IA",
         "quando": "Quando a venda fecha no WhatsApp e alguém digita tudo de novo no sistema.",
-        "recebe": "No Atendimento Integrado, o agente qualifica e leva cada contato ao sistema que você já usa: lista de clientes, agenda, estoque ou catálogo.",
+        "recebe": "No Atendimento Integrado, o agente faz as perguntas do seu negócio e leva cada contato ao sistema que você já usa: lista de clientes, agenda, estoque ou catálogo.",
         "preco": "Integrado: a partir de R$ 6.900"
       },
       {
@@ -260,9 +260,9 @@
         "cor": "#2457C5",
         "etiqueta": "O que resolve",
         "nome": "Sites & Integrações",
-        "quando": "Quando o negócio depende só de rede social ou de portal, ou tem um site que não leva quem chega até a conversa.",
-        "recebe": "No Site Conectado, o contato chega ao sistema com a origem anotada e um aviso quando a integração falha.",
-        "preco": "A partir de R$ 9.900"
+        "quando": "Quando o contato do site não chega a quem atende.",
+        "recebe": "Na Landing Page, o contato do formulário chega a quem atende, com a origem gravada.",
+        "preco": "A partir de R$ 2.900"
       },
       {
         "tipo": "cta",
@@ -390,7 +390,7 @@
         "etiqueta": "Sinais 4 e 5",
         "titulo": "Mais dois, e uma conta.",
         "itens": [
-          "O nome, a foto e a bio não seguem a identidade da empresa.",
+          "O nome, a foto e a bio mudam de uma rede para outra.",
           "Você publica só quando lembra."
         ],
         "nota": "Conte quantos você marcou. O resultado vem no card 5."
@@ -530,7 +530,7 @@
         "cor": "#2457C5",
         "etiqueta": "O que resolve",
         "nome": "Sites & Integrações",
-        "quando": "Quando o negócio depende só de rede social ou de portal, ou tem um site que não leva quem chega até a conversa.",
+        "quando": "Quando o site não leva quem chega até a conversa.",
         "recebe": "Site próprio, rápido no celular, com o WhatsApp à vista e a origem de cada contato anotada.",
         "preco": "A partir de R$ 2.900"
       },
@@ -620,7 +620,7 @@
         "cor": "#F2A516",
         "etiqueta": "O que resolve",
         "nome": "Atendimento com IA",
-        "quando": "Quando o cliente chama no WhatsApp e fica esperando, ou a conversa se perde e ninguém chama de volta.",
+        "quando": "Quando quem já comprou some e ninguém chama de volta.",
         "recebe": "No Atendimento Integrado, contato de volta com quem parou de responder ou já comprou, só para quem consentiu e dentro das regras do WhatsApp.",
         "preco": "Integrado: a partir de R$ 6.900"
       },
@@ -710,7 +710,7 @@
         "cor": "#17773F",
         "etiqueta": "O que resolve",
         "nome": "Presença Digital Local",
-        "quando": "Quando o cliente procura o seu negócio e acha informação errada, perfil parado ou não acha como chamar.",
+        "quando": "Quando quem comprou sai satisfeito e ninguém pede a avaliação.",
         "recebe": "Na Presença Essencial, o pedido de avaliação no Google: link direto e mensagem pronta para mandar a quem comprou.",
         "preco": "A partir de R$ 790"
       },

@@ -223,10 +223,10 @@ describe("telas da Motors", () => {
 });
 
 describe("a ordem da home (25/11/2026)", () => {
-  it("a home segue a lógica soluções, como começar, problema, medição e prova, sem seção de segmento nem método do Sprint", () => {
+  it("a home segue a lógica problema, soluções, como começar, medição e prova (27/11/2026: o dono se reconhece na dor antes do preço), sem seção de segmento nem método do Sprint", () => {
     const home = ler("src/components/home/Home.tsx");
     expect(home).not.toMatch(/<Sprint|<ComoSeLiga/);
-    const ordem = ["<Hero ", "<Solucoes />", "<Escada />", "<Dores />", "<Indicadores />", "<ProjetoReal />"];
+    const ordem = ["<Hero ", "<Dores />", "<Solucoes />", "<Escada />", "<Indicadores />", "<ProjetoReal />"];
     const posicoes = ordem.map((c) => home.indexOf(c));
     expect(posicoes.every((p) => p > 0)).toBe(true);
     expect(posicoes).toEqual([...posicoes].sort((a, b) => a - b));

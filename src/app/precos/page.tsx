@@ -80,14 +80,14 @@ export default function Pagina() {
               <div className="relative">
                 <Parada />
                 <h1 id="titulo-precos" className="titulo-hero max-w-[18ch]">
-                  Três soluções, com preço de referência.
+                  O preço de cada solução, antes de qualquer conversa.
                 </h1>
               </div>
             </div>
             <div className="col-span-12 border-t border-linha pb-12 pt-8 md:pb-16 lg:col-span-4 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-20">
               {/* Curto de propósito: o LCP da página é o H1, e um parágrafo maior que ele rouba o posto. */}
               <p className="text-[1.0625rem] leading-relaxed">
-                O diagnóstico inicial é gratuito. Cada solução tem pacotes com escopo claro, e a continuidade é opcional.
+                Cada pacote diz o que entra e o que fica de fora. Na dúvida, o diagnóstico gratuito ajuda a escolher.
               </p>
               <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-4">
                 <Link href="/diagnostico" className="botao botao-primario" data-evento="cta_click" data-local="hero">
@@ -184,7 +184,7 @@ export default function Pagina() {
         </Secao>
 
         <Perguntas />
-        <Fechamento secundario={null} />
+        <Fechamento titulo="Não sabe qual escolher? Comece pelo diagnóstico gratuito." secundario={null} />
       </main>
       <Rodape />
       <BotaoWhatsAppFixo pagina="precos" />

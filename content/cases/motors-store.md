@@ -6,14 +6,14 @@ title: "Case Motors Store | V2O5 Vendas e Tecnologia"
 description: "O que a V2O5 montou para a Motors Store, revenda de seminovos em Curitiba, e os números do sistema rodando, lidos no banco de dados da loja."
 canonical: "https://www.v2o5.com.br/cases/motors-store"
 robots: null
-h1: "Motors Store: o sistema inteiro numa revenda de seminovos."
-extraido_em: "2026-11-27T12:45:09.800Z"
-fonte: "build local da branch claude/kind-tesla-eefroe em 27/11/2026 (revisão de português do site), antes da publicação"
+h1: "Motors Store: o caminho do cliente, do Google ao vendedor."
+extraido_em: "2026-11-27T15:35:39.615Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 27/11/2026 (revisão de ganchos e conversão aprovada), antes da publicação"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
-# Motors Store: o sistema inteiro numa revenda de seminovos.
+# Motors Store: o caminho do cliente, do Google ao vendedor.
 
-A V2O5 montou para a Motors Store, em Curitiba, o site de estoque, o agente de IA no WhatsApp, a entrega do lead ao CRM e as automações.
+A V2O5 montou para a Motors Store, em Curitiba, o site de estoque, o agente de IA no WhatsApp, a passagem do cliente ao CRM e as automações.
 
 Revenda de seminovos em Curitiba/PR.
 
@@ -94,13 +94,13 @@ Atendimento com IA
 
 ### O Ney, agente da loja no WhatsApp
 
-Agente de IA feito para a Motors: responde com o estoque real, qualifica pela régua da loja e passa o cliente à equipe na hora certa.
+Agente de IA feito para a Motors: responde com o estoque real, dá a nota pela régua da loja e passa o cliente à equipe na hora certa.
 
 Integrações entre sistemas
 
-### Lead qualificado no CRM do Revenda Mais
+### Cliente pronto no CRM do Revenda Mais
 
-Na passagem, o lead vai ao CRM do Revenda Mais com a origem do contato, o carro de interesse e a qualificação do Ney, e o CRM distribui ao vendedor.
+Na passagem, o cliente vai ao CRM do Revenda Mais com a origem do contato, o carro de interesse e a nota do Ney, e o CRM distribui ao vendedor.
 
 CRM com WhatsApp
 
@@ -146,7 +146,7 @@ Banco de dados da Motors Store, lido em 17/11/2026. Leads contados de 05/09 a 17
 
 Atendimento com IA
 
-## O Ney qualifica, o Revenda Mais distribui.
+## O Ney atende, o Revenda Mais distribui.
 
 O Ney é o agente de IA da Motors Store no WhatsApp, feito sob medida para a loja. Ele conversa com quem chega pelo site ou direto pelo WhatsApp, e só passa o cliente à equipe quando a conversa está pronta para o vendedor.
 
@@ -158,7 +158,7 @@ Lê o estoque que o Revenda Mais sincroniza, com o link de cada carro, e manda a
 
 02
 
-### Preenche a ficha e soma o aquecimento
+### Preenche a ficha e dá a nota
 
 Carro, forma de pagamento, entrada, troca, prazo e visita. Uma régua de pesos dá a nota de 0 a 100 e mostra o motivo de cada ponto.
 
@@ -172,7 +172,7 @@ Quando o cliente marca a visita, chega à simulação do financiamento, pede uma
 
 ### Entrega no CRM do Revenda Mais
 
-O lead vai ao CRM com a origem do contato, o carro de interesse e a qualificação do Ney, e o CRM escolhe o vendedor. Se o CRM recusar, o envio tenta de novo e o dono é avisado.
+O cliente vai ao CRM com a origem do contato, o carro de interesse e a nota do Ney, e o CRM escolhe o vendedor. Se o CRM recusar, o sistema tenta de novo e avisa o dono.
 
 05
 
@@ -245,7 +245,7 @@ Quem assina os 26 guias da Motors Store é o fundador da V2O5, [Dyones Oliveira]
 
 ## Quer o mesmo atendimento no seu negócio?
 
-Não precisa ser revenda. Em qualquer loja ou serviço que vende pelo WhatsApp, o agente responde na hora com as suas informações e passa cada cliente para a pessoa certa, com o resumo da conversa. O diagnóstico é gratuito: 45 minutos com o fundador para ver onde o seu negócio perde cliente.
+Vale para qualquer loja ou serviço que vende pelo WhatsApp: o agente responde na hora com o que você aprovou e passa cada cliente para a pessoa certa, com o resumo da conversa. O diagnóstico é gratuito: 45 minutos com o fundador para ver onde o seu negócio perde cliente.
 
 [Pedir diagnóstico gratuito](/diagnostico)
 

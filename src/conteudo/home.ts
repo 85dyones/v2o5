@@ -56,7 +56,7 @@ export const DORES = {
 
 /** Indicadores possíveis. Nenhum percentual: `V2O5_CORE.md`, seção 2. */
 export const INDICADORES = {
-  sobretitulo: "Resultado antes de vaidade técnica",
+  sobretitulo: "Como saber se funcionou",
   titulo: "O que conta é o cliente bem atendido.",
   texto:
     "O que acompanhar depende do problema do seu negócio. Antes de começar, a gente combina o que vai olhar e como.",
@@ -77,7 +77,7 @@ export const INDICADORES = {
  */
 export const PROJETO = {
   rotulo: "Cases",
-  titulo: "Dois atendimentos no ar.",
+  titulo: "Funcionando hoje em dois clientes.",
   apagado: "Um no comércio, outro no serviço público.",
   cases: [
     {
@@ -98,7 +98,6 @@ export const PROJETO = {
     },
   ],
   provas: [
-    "Começamos pelo cliente que precisa ser atendido, não por uma lista de funcionalidades.",
     "Usamos os sistemas que já existem sempre que resolvem com menos atrito.",
     "Separamos o que foi implementado do que já tem resultado medido.",
   ],
@@ -119,8 +118,10 @@ export const ESCADA = {
       tipo: "Etapa inicial",
       titulo: "Diagnóstico gratuito",
       texto:
-        "45 minutos com o fundador para ver onde o seu negócio perde cliente e por onde começar. Se não houver um bom caso, a conversa termina ali.",
-      saida: "Não inclui implementação nem acompanhamento de resultados.",
+        "45 minutos com o fundador para ver onde o seu negócio perde cliente e por onde começar. Se não fizer sentido contratar, a conversa termina ali.",
+      saida: "Sem custo e sem compromisso.",
+      href: "/diagnostico",
+      link: "Pedir diagnóstico gratuito",
     },
     {
       tipo: "A solução",
@@ -129,6 +130,7 @@ export const ESCADA = {
         "Presença, Sites ou Atendimento com IA, com pacotes de escopo claro. O valor fechado sai em proposta, com entregáveis, exclusões, prazo e custos de terceiros.",
       saida: `Preços de entrada de ${precoEmTexto({ valor: Math.min(...entradas) })} a ${precoEmTexto({ valor: Math.max(...entradas) })}. Nenhuma solução obriga a comprar a seguinte.`,
       href: "/precos",
+      link: "Ver os preços das soluções",
       destaque: true,
     },
     {
@@ -137,6 +139,7 @@ export const ESCADA = {
       texto: "Planos opcionais para manter e melhorar o que foi entregue, com horas e prazo de resposta escritos.",
       saida: `Planos a partir de ${mensalEmTexto(continuidadeAPartirDe())}. Não inclui desenvolvimento ilimitado nem novas integrações sem orçamento.`,
       href: "/continuidade",
+      link: "Ver os planos de continuidade",
     },
   ],
 };
@@ -188,15 +191,8 @@ export const NAVEGACAO: ItemDaNavegacao[] = [
     // (17/11/2026): a página segue no ar, ligada pelo rodapé (grupo Empresa).
     itens: OFERTAS.map((o) => ({ rotulo: o.nome, href: o.rota })),
   },
-  {
-    rotulo: "Continuidade",
-    href: "/continuidade",
-    todos: "Ver a continuidade",
-    itens: [
-      { rotulo: "Manutenção técnica", href: "/continuidade#manutencao-tecnica" },
-      { rotulo: "Monitoramento e otimização", href: "/continuidade#monitoramento-e-otimizacao" },
-    ],
-  },
+  // Continuidade é pós-venda: link simples, sem painel (27/11/2026).
+  { rotulo: "Continuidade", href: "/continuidade" },
   { rotulo: "Preços", href: "/precos" },
   {
     rotulo: "Cases",
@@ -412,7 +408,7 @@ export const PILARES: { id: string; sobretitulo: string; titulo: string; frase: 
       {
         linha: "automacao",
         titulo: "Integrações entre sistemas",
-        frase: "Site, CRM, agenda e os sistemas do seu setor trocando dados sozinhos. Em produção hoje: o estoque do Revenda Mais.",
+        frase: "Site, CRM, agenda e os sistemas do seu setor trocando dados sozinhos. Já funciona hoje: o estoque do Revenda Mais.",
         href: "/automacao-com-ia",
         etapa: "azul",
         vinheta: "integracoes",
@@ -856,6 +852,7 @@ export const WHATSAPP = {
     recebido: `Olá! Acabei de pedir o diagnóstico no ${MARCA_DO_SITE} e quero adiantar a conversa.`,
     revendas: `Olá! Vi a página de revendas no ${MARCA_DO_SITE} e quero conversar sobre a minha loja.`,
     sobre: `Olá! Vi a página Sobre no ${MARCA_DO_SITE} e quero conversar sobre a minha empresa.`,
+    privacidade: `Olá! Vim pelo ${MARCA_DO_SITE} e quero falar sobre os meus dados.`,
   },
 };
 
@@ -906,12 +903,12 @@ export const PERGUNTAS = [
   },
   {
     pergunta: "Preciso trocar o sistema que já uso?",
-    resposta: `Não. A V2O5 liga o que você já usa: a agenda, o catálogo, o estoque ou o CRM, depois de verificar a documentação e o acesso de cada um. Em produção hoje: o estoque do Revenda Mais sincronizado com o site e o agente da Motors Store. Na revenda de veículos, ${listaDeSistemasIntegraveis()} entram do mesmo jeito.`,
+    resposta: `Não. A V2O5 liga o que você já usa: a agenda, o catálogo, o estoque ou o CRM, depois de verificar a documentação e o acesso de cada um. Já funciona hoje: o estoque do Revenda Mais sincronizado com o site e o agente da Motors Store. Na revenda de veículos, ${listaDeSistemasIntegraveis()} entram do mesmo jeito.`,
   },
   {
     pergunta: "O agente de IA atende sozinho?",
     resposta:
-      "Responde na hora com as informações do seu negócio e, quando a conversa pede uma pessoa, chama alguém da equipe. A conversa fica registrada na lista de contatos, com a origem de cada um.",
+      "Em parte. Responde sozinho na hora, com as informações do seu negócio, e chama alguém da equipe quando a conversa pede uma pessoa. A conversa fica registrada na lista de contatos, com a origem de cada um.",
   },
   {
     pergunta: "Vocês fazem tráfego pago?",
@@ -921,7 +918,7 @@ export const PERGUNTAS = [
   {
     pergunta: "Como funciona o diagnóstico gratuito?",
     resposta:
-      "São 45 minutos de conversa com o fundador sobre como o cliente acha o seu negócio, como ele é atendido no WhatsApp e os sistemas que você já usa, para ver onde você perde cliente e por onde começar. A sessão não inclui implementação nem acompanhamento de resultados. Havendo um bom caso, o próximo passo é a proposta da solução que cabe no problema, com escopo, entregáveis, prazo e investimento.",
+      "São 45 minutos de conversa com o fundador sobre como o cliente acha o seu negócio, como ele é atendido no WhatsApp e os sistemas que você já usa, para ver onde você perde cliente e por onde começar. A sessão não inclui implementação nem acompanhamento de resultados. Se fizer sentido seguir, o próximo passo é a proposta da solução que cabe no problema, com escopo, entregáveis, prazo e investimento.",
   },
   {
     pergunta: "A V2O5 atende fora de Curitiba?",

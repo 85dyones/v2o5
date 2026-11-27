@@ -6,12 +6,12 @@ title: "Presença digital para negócios locais | V2O5 Vendas e Tecnologia"
 description: "Perfil da Empresa no Google, redes sociais e WhatsApp Business organizados, com pedido de avaliação, modelos de conteúdo e rotina mensal opcional."
 canonical: "https://www.v2o5.com.br/presenca-digital-local"
 robots: null
-h1: "Presença digital para negócios locais: Google, redes e WhatsApp."
-extraido_em: "2026-11-27T12:45:09.800Z"
-fonte: "build local da branch claude/kind-tesla-eefroe em 27/11/2026 (revisão de português do site), antes da publicação"
+h1: "Presença digital para negócios locais: o cliente acha você no Google e chama no WhatsApp."
+extraido_em: "2026-11-27T15:35:39.615Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 27/11/2026 (revisão de ganchos e conversão aprovada), antes da publicação"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
-# Presença digital para negócios locais: Google, redes e WhatsApp.
+# Presença digital para negócios locais: o cliente acha você no Google e chama no WhatsApp.
 
 Perfil no Google, redes e WhatsApp organizados, com pedido de avaliação, modelos de conteúdo e, se quiser, a rotina mensal de publicações.
 
@@ -33,11 +33,11 @@ Loja de bairro, pet shop, salão, clínica, oficina e outros negócios locais
 
 ## O cliente procura e encontra o horário errado.
 
-Perfil no Google sem foto nem horário, rede social parada há meses e um WhatsApp que ninguém sabe se atende. Quem procura desiste antes de chamar, e você nem fica sabendo.
+Perfil no Google com o horário antigo e sem foto, rede social parada há meses e um WhatsApp que ninguém sabe se atende. Quem procura desiste antes de chamar, e você nem fica sabendo.
 
 Ser achado
 
-## O que a V2O5 entrega nesta linha.
+## O que você recebe.
 
 ### Perfil da Empresa no Google
 
@@ -65,7 +65,7 @@ As datas e as épocas do ramo, com campanhas prontas, na Presença Estruturada.
 
 ## Do diagnóstico ao ar.
 
-Começa pelo diagnóstico gratuito, com o escopo fechado antes da implantação. Sem fidelidade.
+Começa pelo diagnóstico gratuito. O que entra e o preço ficam por escrito antes de começar. Sem fidelidade.
 
 01
 
@@ -199,11 +199,11 @@ A Presença cuida dos canais que já existem. O site próprio entra em Sites & I
 
 [Voltar a comprar Pós-venda e recorrência Contato de volta com quem já comprou, na hora da recompra ou do retorno, no Atendimento Integrado. Só para quem consentiu, dentro das regras do WhatsApp.](/agente-de-ia-para-whatsapp#titulo-pacotes)
 
-## Comece pelo diagnóstico, que é gratuito.
+## Descubra onde seu negócio perde cliente.
 
-Em 45 minutos de conversa com o fundador, a gente vê como o cliente acha o seu negócio e como ele é atendido, e mostra por onde começar. A sessão é gratuita e sem compromisso.
+Em 45 minutos de conversa, o fundador vê com você como o cliente acha o seu negócio e como ele é atendido, e mostra por onde começar. Sem custo e sem compromisso.
 
-[Pedir diagnóstico](/diagnostico)
+[Pedir diagnóstico gratuito](/diagnostico)
 
 [Ver os preços](/precos)
 

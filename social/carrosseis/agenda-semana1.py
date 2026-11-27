@@ -7,6 +7,8 @@ import csv, datetime, os, re
 raiz = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..")
 BASE = "https://www.v2o5.com.br/diagnostico"
 CTA_IG = "Descubra onde seu negócio perde cliente. Gratuitamente.\nLink na bio."  # promessa de 25/11/2026, igual ao título do /diagnostico
+# 27/11/2026 (revisão de conversão, item 30): a linha que diz o que a pessoa ganha ao tocar no link, antes da promessa.
+DIAG_45 = "Diagnóstico de 45 minutos com o fundador."
 
 # legendas dos reels, já escritas em lote-1-agenda.csv (uma por código)
 reels = {}
@@ -28,31 +30,34 @@ def abertura_v2(c):
 def legenda_reel(c):
     if c in reels:
         resto = reels[c]["legenda"].split("\n\n", 1)
-        return abertura_v2(c) + fonte_da_nota(c) + ("\n\n" + resto[1] if len(resto) > 1 else "")
+        corpo = resto[1] if len(resto) > 1 else ""
+        if "45 minutos" not in abertura_v2(c):  # o gancho que já fala dos 45 minutos não repete
+            corpo = corpo.replace(CTA_IG, f"{DIAG_45}\n{CTA_IG}", 1)
+        return abertura_v2(c) + fonte_da_nota(c) + ("\n\n" + corpo if corpo else "")
     extra = "\nFonte do número: Motors Store, de 21/10 a 17/11/2026." if c == "L1-03" else ""
     return f"{abertura_v2(c)}{extra}\n\n{CTA_IG}\n\n#v2o5"
 
 # carrosséis: (título, texto da legenda, hashtags do Instagram, texto do LinkedIn, hashtags do LinkedIn)
 C = {
  "diagnostico-diferencial": ("O diagnóstico como diferencial",
-  "Antes de vender a solução, a V2O5 entende o problema.\n\nO diagnóstico gratuito de 45 minutos vê como o cliente acha o seu negócio e como ele é atendido, mostra o que pesa mais hoje e recomenda por onde começar. Havendo um bom caso, a proposta vem por escrito, com escopo, entregáveis, prazo e investimento. Se não houver, a conversa termina ali.",
+  "Antes de gastar com tecnologia, saiba onde você perde cliente.\n\nO diagnóstico gratuito de 45 minutos vê como o cliente acha o seu negócio e como ele é atendido, mostra o que pesa mais hoje e recomenda por onde começar. Se fizer sentido seguir, a proposta vem por escrito, com escopo, entregáveis, prazo e investimento. Se não houver, a conversa termina ali.",
   "#pequenosnegocios #negociolocal #atendimentoaocliente #empreendedorismo #v2o5",
-  "Antes de vender a solução, a V2O5 entende o problema.\n\nO diagnóstico gratuito de 45 minutos é a nossa porta de entrada: vemos como o cliente acha o negócio e como ele é atendido no WhatsApp, o que pesa mais hoje (ser achado, responder ou fazer o cliente voltar) e por onde começar. O diagnóstico não inclui mapeamento completo, implementação nem acompanhamento. Se houver um bom caso, a proposta vem por escrito; se não houver, a conversa termina ali.\n\nLink no primeiro comentário.",
+  "Antes de gastar com tecnologia, saiba onde você perde cliente.\n\nO diagnóstico gratuito de 45 minutos é a nossa porta de entrada: vemos como o cliente acha o negócio e como ele é atendido no WhatsApp, o que pesa mais hoje (ser achado, responder ou fazer o cliente voltar) e por onde começar. O diagnóstico não inclui implantação nem acompanhamento de resultados. Se fizer sentido seguir, a proposta vem por escrito; se não fizer, a conversa termina ali.\n\nLink do diagnóstico gratuito no primeiro comentário.",
   "#Diagnóstico #PequenosNegócios #Atendimento"),
  "presenca-por-dentro": ("Presença Digital Local, por dentro",
-  "Presença Digital Local, por dentro: os dois pacotes, o que o Essencial entrega, a mensalidade opcional e o que fica de fora.\n\nÉ para o cliente procurar o seu negócio e achar a informação certa, com o pedido de avaliação para quem comprou. A partir de R$ 790, com o valor fechado em proposta.",
+  "Quanto custa o cliente achar seu negócio no Google?\n\nPresença Digital Local, por dentro: os dois pacotes, o que o Essencial entrega, a mensalidade opcional e o que fica de fora.\n\nÉ para o cliente procurar o seu negócio e achar a informação certa, com o pedido de avaliação para quem comprou. A partir de R$ 790, com o valor fechado em proposta.",
   "#googlemeunegocio #negociolocal #pequenosnegocios #whatsappbusiness #v2o5",
-  "Presença Digital Local, por dentro.\n\nPerfil no Google, redes e WhatsApp organizados, com o pedido de avaliação para quem comprou e, se quiser, a rotina mensal. São dois pacotes, Essencial (R$ 790) e Estruturada (R$ 1.490), com mensalidade opcional e limites de escopo escritos. Preço de referência; o valor fechado sai em proposta.\n\nLink no primeiro comentário.",
+  "Quanto custa o cliente achar seu negócio no Google?\n\nPresença Digital Local, por dentro: perfil no Google, redes e WhatsApp organizados, com o pedido de avaliação para quem comprou e, se quiser, a rotina mensal. São dois pacotes, Essencial (R$ 790) e Estruturada (R$ 1.490), com mensalidade opcional e limites de escopo escritos. Preço de referência; o valor fechado sai em proposta.\n\nLink do diagnóstico gratuito no primeiro comentário.",
   "#PresençaDigital #NegóciosLocais #PequenosNegócios"),
  "sites-por-dentro": ("Sites & Integrações, por dentro",
-  "Sites & Integrações, por dentro: Landing Page, Site Personalizado e Site Conectado.\n\nSite próprio, rápido no celular, que leva o cliente até o WhatsApp e se liga à agenda, ao estoque ou ao sistema que você já usa quando o escopo pede. A partir de R$ 2.900, com o valor fechado em proposta.",
+  "Quanto custa um site que leva o cliente até o WhatsApp?\n\nSites & Integrações, por dentro: Landing Page, Site Personalizado e Site Conectado.\n\nSite próprio, rápido no celular, que leva o cliente até o WhatsApp e se liga à agenda, ao estoque ou ao sistema que você já usa quando o escopo pede. A partir de R$ 2.900, com o valor fechado em proposta.",
   "#sitesprofissionais #whatsappbusiness #pequenosnegocios #negociolocal #v2o5",
-  "Sites & Integrações, por dentro.\n\nTrês pacotes: Landing Page (R$ 2.900), Site Personalizado (R$ 5.900) e Site Conectado (a partir de R$ 9.900), este ligado a um sistema que a empresa já usa. Integração só entra na proposta depois de verificar documentação, credenciais, limites e custos do sistema. O site se liga ao que a empresa já usa e não substitui o CRM nem o sistema de gestão.\n\nLink no primeiro comentário.",
+  "Quanto custa um site que leva o cliente até o WhatsApp?\n\nSites & Integrações, por dentro: três pacotes: Landing Page (R$ 2.900), Site Personalizado (R$ 5.900) e Site Conectado (a partir de R$ 9.900), este ligado a um sistema que a empresa já usa. Integração só entra na proposta depois de verificar documentação, credenciais, limites e custos do sistema. O site se liga ao sistema que a empresa já usa, sem substituí-lo.\n\nLink do diagnóstico gratuito no primeiro comentário.",
   "#Sites #Integração #PequenosNegócios"),
  "atendimento-por-dentro": ("Atendimento com IA, por dentro",
-  "Atendimento com IA, por dentro: os dois pacotes, o que o Essencial entrega, as regras do agente e o que fica de fora.\n\nWhatsApp organizado e um agente de IA que responde só com o que a empresa aprovou e passa a conversa para a pessoa certa quando precisa. A partir de R$ 3.900, com o valor fechado em proposta. IA e mensagens ficam pelo valor do provedor.",
+  "Quanto custa um agente de IA no seu WhatsApp?\n\nAtendimento com IA, por dentro: os dois pacotes, o que o Essencial entrega, as regras do agente e o que fica de fora.\n\nWhatsApp organizado e um agente de IA que responde só com o que a empresa aprovou e passa a conversa para a pessoa certa quando precisa. A partir de R$ 3.900, com o valor fechado em proposta. IA e mensagens ficam pelo valor do provedor.",
   "#whatsappbusiness #atendimentoaocliente #inteligenciaartificial #pequenosnegocios #v2o5",
-  "Atendimento com IA, por dentro.\n\nPara o negócio que atende pelo WhatsApp e perde cliente na demora ou na confusão das conversas. Dois pacotes: Atendimento Essencial (a partir de R$ 3.900), com a caixa organizada e um agente que responde às dúvidas frequentes, e Atendimento Integrado (a partir de R$ 6.900), que qualifica, agenda ou encaminha e leva o contato ao sistema que a empresa já usa. O agente responde só com o que a empresa aprovou e chama uma pessoa quando não sabe. IA e mensagens vêm pelo valor do provedor, com teto mensal combinado.\n\nLink no primeiro comentário.",
+  "Quanto custa um agente de IA no seu WhatsApp?\n\nAtendimento com IA, por dentro: para o negócio que atende pelo WhatsApp e perde cliente na demora ou na confusão das conversas. Dois pacotes: Atendimento Essencial (a partir de R$ 3.900), com a caixa organizada e um agente que responde às dúvidas frequentes, e Atendimento Integrado (a partir de R$ 6.900), que faz as perguntas do seu negócio, agenda ou encaminha e leva o contato ao sistema que a empresa já usa. O agente responde só com o que a empresa aprovou e chama uma pessoa quando não sabe. IA e mensagens vêm pelo valor do provedor, com teto mensal combinado.\n\nLink do diagnóstico gratuito no primeiro comentário.",
   "#Atendimento #WhatsAppBusiness #InteligênciaArtificial"),
  "dor-lead-esfria": ("Cliente que espera no WhatsApp",
   "O cliente perguntou o preço às 19h. Quando você respondeu? Cinco sinais para conferir no seu negócio.\n\nMarcou dois ou mais? Vale um diagnóstico. O Atendimento com IA organiza o WhatsApp e responde na hora, a partir de R$ 3.900.",
@@ -60,9 +65,9 @@ C = {
   "O cliente perguntou o preço às 19h. Quando você respondeu?\n\nCinco sinais para conferir: a primeira resposta demora, ninguém sabe quem responde, conversas ficam paradas, o contato some sem retomada e ninguém sabe de onde veio cada cliente. Quem reconhece dois ou mais já perde cliente na espera. O diagnóstico gratuito de 45 minutos mostra onde.",
   "#Atendimento #WhatsAppBusiness #PequenosNegócios"),
  "dor-sistemas-separados": ("Sistemas que não conversam",
-  "Quantas vezes você digitou o mesmo dado esta semana? Cinco sinais para conferir no seu negócio.\n\nCada dado digitado à mão em mais de um lugar é uma chance de erro. No Atendimento Integrado, o contato que chega pelo WhatsApp vai direto para o sistema que você já usa. A partir de R$ 6.900.",
+  "Quantas vezes você anotou a mesma venda esta semana? Cinco sinais para conferir no seu negócio.\n\nCada dado digitado à mão em mais de um lugar é uma chance de erro. No Atendimento Integrado, o contato que chega pelo WhatsApp vai direto para o sistema que você já usa. A partir de R$ 6.900.",
   "#whatsappbusiness #integracao #pequenosnegocios #negociolocal #v2o5",
-  "Quantas vezes você digitou o mesmo dado esta semana?\n\nCinco sinais: o mesmo dado em dois lugares, planilha e sistema com números diferentes, site, WhatsApp e sistema sem troca de informação, uma pessoa que sabe onde está cada coisa e o trabalho que para quando ela falta. O diagnóstico gratuito de 45 minutos mostra por onde começar.",
+  "Quantas vezes você anotou a mesma venda esta semana?\n\nCinco sinais: o mesmo dado em dois lugares, planilha e sistema com números diferentes, site, WhatsApp e sistema sem troca de informação, uma pessoa que sabe onde está cada coisa e o trabalho que para quando ela falta. O diagnóstico gratuito de 45 minutos mostra por onde começar.",
   "#Integração #WhatsAppBusiness #PequenosNegócios"),
  "dor-site-sem-whatsapp": ("Site que não leva ao WhatsApp",
   "Seu site está no ar. O cliente acha como chamar você? Cinco sinais para conferir.\n\nSite bonito que esconde o WhatsApp é vitrine fechada. Sites & Integrações, a partir de R$ 2.900: site próprio, rápido no celular, com o WhatsApp à vista.",
@@ -70,9 +75,9 @@ C = {
   "Seu site está no ar. O cliente acha como chamar você?\n\nWhatsApp escondido no rodapé, horário e endereço que não aparecem no celular, site lento, nenhuma palavra sobre o que você vende e formulário sem prazo de resposta: cinco sinais de um site que não leva à conversa. O diagnóstico gratuito de 45 minutos mostra o que mudar primeiro.",
   "#Sites #WhatsAppBusiness #PequenosNegócios"),
  "dor-formulario": ("Para onde vai o contato que chega pelo site",
-  "Para onde vai o contato que chega pelo seu site? Cinco sinais para conferir no seu negócio.\n\nO caminho do formulário até uma pessoa precisa estar desenhado. No Site Conectado, o contato chega ao sistema com a origem anotada e um aviso quando a integração falha. A partir de R$ 9.900.",
+  "Para onde vai o contato que chega pelo seu site? Cinco sinais para conferir no seu negócio.\n\nO caminho do formulário até uma pessoa precisa estar desenhado. Na Landing Page, o contato do formulário chega a quem atende, com a origem gravada. A partir de R$ 2.900.",
   "#sitesprofissionais #atendimentoaocliente #pequenosnegocios #negociolocal #v2o5",
-  "Para onde vai o contato que chega pelo seu site?\n\nO formulário que envia para um e-mail que ninguém olha, a falta de dono para o contato e a pergunta repetida ao cliente são sinais de que o caminho até uma pessoa não está desenhado. No Site Conectado, o contato chega ao sistema com a origem anotada.",
+  "Para onde vai o contato que chega pelo seu site?\n\nO formulário que envia para um e-mail que ninguém olha, a falta de dono para o contato e a pergunta repetida ao cliente são sinais de que o caminho até uma pessoa não está desenhado. Na Landing Page, o contato do formulário chega a quem atende, com a origem gravada.",
   "#Sites #Atendimento #PequenosNegócios"),
  "dor-google": ("O que o cliente encontra no Google",
   "O seu cliente procura o seu negócio no Google. O que ele encontra? Cinco sinais para conferir.\n\nHorário errado, telefone antigo, fotos velhas, perfil sem verificação e nenhum botão de WhatsApp. A Presença Digital Local organiza o perfil, uma rede e o WhatsApp Business, com o pedido de avaliação, a partir de R$ 790.",
@@ -178,10 +183,10 @@ def fonte_da_nota(c):
     return f"\nFonte do número: {n.replace(' · ', ', de ')}." if n and n != "Cena de exemplo" else ""
 
 def legenda_facebook_reel(c):
-    return f"{abertura_v2(c)}{fonte_da_nota(c)}\n\n{PROMESSA}\nPeça pelo link: {link('facebook', 'reel', c)}"
+    return f"{abertura_v2(c)}{fonte_da_nota(c)}\n\n{'' if '45 minutos' in abertura_v2(c) else DIAG_45 + chr(10)}{PROMESSA}\nPeça pelo link: {link('facebook', 'reel', c)}"
 
 def texto_linkedin_doc(li):
-    return li if "primeiro comentário" in li.lower() else f"{li}\n\nLink no primeiro comentário."
+    return li if "primeiro comentário" in li.lower() else f"{li}\n\nLink do diagnóstico gratuito no primeiro comentário."
 
 linhas = []
 def add(d, hora, rede, tipo, codigo, arquivos, capa="", legenda="", comentario=""):

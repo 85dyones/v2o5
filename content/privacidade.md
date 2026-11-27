@@ -7,8 +7,8 @@ description: "Quais dados a V2O5 Vendas e Tecnologia coleta neste site, para qu�
 canonical: "https://www.v2o5.com.br/privacidade"
 robots: null
 h1: "Política de privacidade"
-extraido_em: "2026-11-27T12:45:09.800Z"
-fonte: "build local da branch claude/kind-tesla-eefroe em 27/11/2026 (revisão de português do site), antes da publicação"
+extraido_em: "2026-11-27T15:35:39.615Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 27/11/2026 (revisão de ganchos e conversão aprovada), antes da publicação"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 Privacidade e LGPD
@@ -47,7 +47,7 @@ A controladora dos dados pessoais tratados neste site é a V2O5 Tecnologia da In
 
 Coletamos dados em três momentos.
 
-Quando você pede o diagnóstico. O formulário pede nome, WhatsApp, e-mail, nome do negócio, segmento, quantas pessoas trabalham nele e o que você quer resolver primeiro. Se o segmento for revenda de veículos, pede também o tamanho do estoque e o sistema de gestão que a loja usa. Há um campo livre, opcional. Nada disso é exigido para navegar; só para ser atendido.
+Quando você pede o diagnóstico. O formulário pede nome, WhatsApp, e-mail, nome do negócio, ramo, quantas pessoas trabalham nele e o que você quer resolver primeiro. Se o ramo for revenda de veículos, pede também o tamanho do estoque e o sistema de gestão que a loja usa. Há um campo livre, opcional. Nada disso é exigido para navegar; só para ser atendido.
 
 Enquanto você navega. Se você chegou por um anúncio ou por um link de campanha, os parâmetros desse link (utm, gclid, gbraid, wbraid, fbclid), o site de onde veio e a primeira página aberta ficam guardados no seu navegador, no armazenamento da sessão, até a aba fechar. Eles só saem do navegador se você enviar o formulário, junto com ele, para sabermos qual canal trouxe o contato. As ferramentas de medição da [seção de medição](#medicao) recebem as páginas abertas e os cliques nos botões de contato, e gravam cookies próprios. A hospedagem registra, em logs técnicos, o endereço IP e o navegador de cada acesso.
 
@@ -128,7 +128,7 @@ O site só funciona por conexão criptografada (HTTPS) e aplica uma política de
 
 ## Como falar com a V2O5
 
-Para exercer qualquer direito, tirar dúvidas ou se opor a um tratamento, escreva para [privacidade@v2o5.com.br](mailto:privacidade@v2o5.com.br?subject=Meus%20dados%20pessoais), chame no [WhatsApp (41) 99808-9550](https://wa.me/5541998089550?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20V2O5%20e%20quero%20pedir%20o%20diagn%C3%B3stico%20gratuito.) ou use o [formulário do site](/diagnostico). O pedido é respondido pelo encarregado, Dyones Oliveira.
+Para exercer qualquer direito, tirar dúvidas ou se opor a um tratamento, escreva para [privacidade@v2o5.com.br](mailto:privacidade@v2o5.com.br?subject=Meus%20dados%20pessoais), chame no [WhatsApp (41) 99808-9550](https://wa.me/5541998089550?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20V2O5%20e%20quero%20falar%20sobre%20os%20meus%20dados.) ou use o [formulário do site](/diagnostico). O pedido é respondido pelo encarregado, Dyones Oliveira.
 
 Esta política pode mudar quando o site mudar. A data no topo diz qual versão está valendo, e as mudanças que ampliam a coleta entram aqui antes de entrar no código.
 

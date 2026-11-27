@@ -102,7 +102,7 @@ export default function Pagina() {
               <p>Coletamos dados em três momentos.</p>
               <p>
                 <strong>Quando você pede o diagnóstico.</strong> O formulário pede nome, WhatsApp, e-mail, nome do
-                negócio, segmento, quantas pessoas trabalham nele e o que você quer resolver primeiro. Se o segmento
+                negócio, ramo, quantas pessoas trabalham nele e o que você quer resolver primeiro. Se o ramo
                 for revenda de veículos, pede também o tamanho do estoque e o sistema de gestão que a loja usa. Há um
                 campo livre, opcional. Nada disso é exigido para navegar; só para ser atendido.
               </p>
@@ -286,7 +286,7 @@ export default function Pagina() {
                 </a>
                 , chame no{" "}
                 <a
-                  href={linkWhatsApp(WHATSAPP.mensagens.home)}
+                  href={linkWhatsApp(WHATSAPP.mensagens.privacidade)}
                   target="_blank"
                   rel="noopener"
                   className="link-sublinhado text-texto"

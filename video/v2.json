@@ -45,8 +45,8 @@
       "A mediana é de [38 segundos]."
     ],
     "punch": {
-      "linha1": "Número real da Motors,",
-      "linha2": "com [fonte e período]."
+      "linha1": "E o seu cliente",
+      "linha2": "espera [quanto tempo]?"
     },
     "compartilhar": "Envie para quem quer responder mais rápido",
     "cfg": {
@@ -97,7 +97,7 @@
   },
   "L1-06": {
     "hook": {
-      "texto": "Chegou um cliente novo.|[Como ele te achou?]",
+      "texto": "Como o último cliente|[achou você]?",
       "nota": "Cena de exemplo"
     },
     "beats": [
@@ -130,7 +130,7 @@
   },
   "L1-08": {
     "hook": {
-      "texto": "O cliente preencheu o formulário.|[Onde o pedido foi parar?]"
+      "texto": "Pedido no site,|[resposta no WhatsApp]."
     },
     "beats": [
       "O cliente [preenche].",
@@ -163,13 +163,13 @@
   },
   "L1-10": {
     "hook": {
-      "texto": "Você sabe o que acontece|nos [45 minutos]?"
+      "texto": "Como são os 45 minutos|do [diagnóstico gratuito]?"
     },
     "beats": [
       "Antes: [dois minutos] de formulário.",
       "Depois: [45 minutos] com o fundador.",
-      "Havendo caso: proposta [por escrito].",
-      "Sem caso: a conversa [termina ali]."
+      "Se fizer sentido: proposta [por escrito].",
+      "Se não: a conversa [termina ali]."
     ],
     "punch": {
       "linha1": "Sem custo.",
@@ -268,8 +268,8 @@
       "Quem já comprou [volta a ser lembrado]."
     ],
     "punch": {
-      "linha1": "Quem não anota",
-      "linha2": "[perde o contato]."
+      "linha1": "Caderno não avisa",
+      "linha2": "[quem chamar]."
     },
     "compartilhar": "Envie para quem ainda anota no caderno"
   },
@@ -291,7 +291,7 @@
   },
   "L1-21": {
     "hook": {
-      "texto": "45 minutos para ver|onde seu negócio [perde cliente]."
+      "texto": "Você perde cliente.|[Em 45 minutos, vemos onde.]"
     },
     "beats": [
       "Conversa com o [fundador] sobre o seu negócio.",
@@ -307,7 +307,7 @@
   },
   "L1-22": {
     "hook": {
-      "texto": "O que a V2O5|[olha primeiro] num pequeno negócio."
+      "texto": "Onde olhar primeiro|[no seu negócio]?"
     },
     "beats": [
       "Como o cliente [te acha].",
@@ -362,7 +362,7 @@
   },
   "L1-24": {
     "hook": {
-      "texto": "Por onde começar?|[A V2O5 escolhe com você.]"
+      "texto": "Google ou WhatsApp?|[Por onde começar?]"
     },
     "beats": [
       "Primeiro: onde o cliente [se perde].",
@@ -384,7 +384,7 @@
       "Vemos como o cliente [te acha].",
       "E como ele é [atendido].",
       "Você sai com o [primeiro passo].",
-      "Sem custo. Peça [agora]."
+      "Sem custo e sem [compromisso]."
     ],
     "punch": {
       "linha1": "Peça seu diagnóstico",
@@ -398,7 +398,7 @@
       "nota": "Cena de exemplo"
     },
     "beats": [
-      "O cliente preencheu o formulário.",
+      "Pedido enviado às [14h].",
       "O aviso caiu num e-mail [parado].",
       "Ele esperou. [Ninguém] respondeu.",
       "Procurou [outro]."
@@ -507,7 +507,7 @@
       "texto": "Seu site está no ar.|[O cliente acha o seu WhatsApp?]"
     },
     "beats": [
-      "Seu site está [no ar].",
+      "O site é [bonito].",
       "O WhatsApp fica [no rodapé].",
       "O cliente [desiste] antes.",
       "Um botão à vista [resolve]."

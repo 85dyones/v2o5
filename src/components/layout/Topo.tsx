@@ -48,7 +48,8 @@ export default function Topo() {
         </nav>
         <div className="ml-auto flex items-center gap-2 md:border-l md:border-linha md:pl-3">
           <Link href="/diagnostico" className="botao botao-primario botao-compacto hidden sm:inline-flex" data-evento="cta_click" data-local="topo">
-            Pedir diagnóstico
+            {/* "gratuito" só a partir de lg: entre 640 e 1023 px o menu e o botão não cabem juntos (27/11/2026). */}
+            Pedir diagnóstico<span className="hidden lg:inline"> gratuito</span>
             <Icone nome="seta" className="seta size-3.5" />
           </Link>
           <MenuCelular itens={NAVEGACAO} />

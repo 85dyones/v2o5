@@ -7,13 +7,13 @@ description: "Site próprio para pequeno negócio, achado no Google e com o What
 canonical: "https://www.v2o5.com.br/criacao-de-sites"
 robots: null
 h1: "Criação de sites profissionais que levam o cliente até o seu WhatsApp."
-extraido_em: "2026-11-27T12:45:09.800Z"
-fonte: "build local da branch claude/kind-tesla-eefroe em 27/11/2026 (revisão de português do site), antes da publicação"
+extraido_em: "2026-11-27T15:35:39.615Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 27/11/2026 (revisão de ganchos e conversão aprovada), antes da publicação"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 # Criação de sites profissionais que levam o cliente até o seu WhatsApp.
 
-Site próprio, achado no Google e rápido no celular, com a origem de cada contato gravada. Ligado ao seu sistema quando o escopo pede.
+Site próprio, achado no Google e rápido no celular, que mostra de onde veio cada cliente. Se precisar, ele se liga ao seu sistema.
 
 [Pedir diagnóstico gratuito](/diagnostico)
 
@@ -31,17 +31,17 @@ Entrega-base
 
 Onze itens iguais em todo site da V2O5, das páginas que o Google entende à entrega documentada
 
-Em produção
+Funcionando
 
 Motors Store: site de estoque com 148 veículos sincronizados e 26 guias
 
-## O site de template aparece bonito e some na busca.
+## Quem procura no Google acha o concorrente.
 
-Carrega devagar no celular, junta todos os produtos ou serviços numa página só e deixa o WhatsApp escondido no rodapé. O Google só acha o que existe como página, e quem não acha o botão desiste antes de chamar.
+O site de template carrega devagar no celular, junta todos os produtos ou serviços numa página só e deixa o WhatsApp escondido no rodapé. O Google só acha o que existe como página, e quem não encontra o botão desiste antes de chamar.
 
 Ser achado
 
-## O que a V2O5 entrega nesta linha.
+## O que você recebe.
 
 ### Páginas que o Google entende
 
@@ -89,7 +89,7 @@ O que foi feito, onde está e como mudar, em linguagem de quem vai operar.
 
 ## Do diagnóstico ao ar.
 
-Começa pelo diagnóstico gratuito, com o escopo fechado antes da implantação. Sem fidelidade.
+Começa pelo diagnóstico gratuito. O que entra e o preço ficam por escrito antes de começar. Sem fidelidade.
 
 01
 
@@ -276,11 +276,11 @@ Não. Loja com pagamento fica fora dos pacotes. O site vende por WhatsApp, formu
 
 [Organizar CRM com WhatsApp Nenhum cliente esquecido numa conversa: cada um com a origem e o histórico, e o aviso de quando chamar de novo.](/crm-com-whatsapp)
 
-## Comece pelo diagnóstico, que é gratuito.
+## Descubra onde seu negócio perde cliente.
 
-Em 45 minutos de conversa com o fundador, a gente vê como o cliente acha o seu negócio e como ele é atendido, e mostra por onde começar. A sessão é gratuita e sem compromisso.
+Em 45 minutos de conversa, o fundador vê com você como o cliente acha o seu negócio e como ele é atendido, e mostra por onde começar. Sem custo e sem compromisso.
 
-[Pedir diagnóstico](/diagnostico)
+[Pedir diagnóstico gratuito](/diagnostico)
 
 [Ver os preços](/precos)
 

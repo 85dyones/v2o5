@@ -32,11 +32,11 @@ export const SOBRE = {
   proposito: {
     titulo: "O cliente bem atendido é o resultado.",
     texto:
-      "Pequeno negócio não precisa de sistema grande. Precisa ser achado por quem procura perto, responder rápido e lembrar de quem já comprou. Eu escolho o caminho mais simples para cada uma dessas coisas.",
+      "O pequeno negócio vive de quem procura perto e de quem volta a comprar. Para cuidar disso, quase nunca precisa de sistema grande. Eu escolho o caminho mais simples.",
     decisao: [
       "Às vezes basta arrumar o perfil no Google.",
-      "Às vezes é organizar o WhatsApp com um agente que responde na hora.",
-      "Às vezes é ligar o site ao sistema que a empresa já usa.",
+      "Em outros casos, um agente que responde na hora no WhatsApp.",
+      "Ou ligar o site ao sistema que você já usa.",
     ],
     fecho:
       "O que eu procuro é o que resolve com menos custo e menos esforço para quem vai usar todo dia. Pôr IA onde um perfil arrumado bastaria só gasta dinheiro.",
@@ -167,13 +167,11 @@ export const SOBRE = {
         titulo: "Infraestrutura, hospedagem e DevOps",
         descricao: "Onde as soluções rodam, como são publicadas e mantidas.",
         itens: ["VPS", "Docker", "Easypanel", "Traefik", "Portainer", "GitHub Container Registry", "MinIO", "Hostinger", "DNS", "SSL/TLS", "Backups", "Monitoramento", "Gestão de domínios e hospedagem"],
-        nota: "VPS é uma modalidade de infraestrutura, não uma ferramenta; Docker é a tecnologia, Easypanel a plataforma de gestão e Hostinger o provedor.",
       },
       {
         titulo: "Inteligência artificial e agentes",
         descricao: "Assistentes, modelos, agentes especializados e desenvolvimento assistido por IA.",
         itens: ["OpenAI", "Anthropic Claude", "Claude Code", "Google Gemini"],
-        nota: "Modelos de linguagem, assistentes de produtividade, pesquisa e ferramentas de desenvolvimento não são a mesma coisa. Custo, privacidade e adequação técnica decidem o que entra em cada projeto.",
       },
       {
         titulo: "Automação e integrações",
@@ -207,8 +205,8 @@ export const SOBRE = {
     antes: "Antes do site novo, a V2O5 se apresentava como V2O5 ConsultorIA.",
   },
   chamada: {
-    titulo: "Quer conversar comigo?",
-    texto: "O diagnóstico é comigo: 45 minutos sobre como o cliente acha o seu negócio, como é atendido e se volta a comprar.",
+    titulo: "Vamos ver onde o seu negócio perde cliente?",
+    texto: "São 45 minutos comigo, sem custo: como o cliente acha o seu negócio, como é atendido e se volta a comprar.",
     botao: "Pedir diagnóstico gratuito",
   },
 };

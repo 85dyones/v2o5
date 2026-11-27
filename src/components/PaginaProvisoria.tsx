@@ -42,9 +42,14 @@ export default function PaginaProvisoria({ rota, etapa }: { rota: string; etapa?
             </div>
             <div className="col-span-12 border-t border-linha bg-fundo pb-12 pt-8 md:pb-16 lg:col-span-4 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-20">
               <p className="text-[1.0625rem] leading-relaxed">{descricao}</p>
-              <Link href="/" className="botao botao-secundario mt-8">
-                Voltar para a página inicial
-              </Link>
+              <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-4">
+                <Link href="/diagnostico" className="botao botao-primario" data-evento="cta_click" data-local="hero">
+                  Pedir diagnóstico gratuito
+                </Link>
+                <Link href="/" className="link-sublinhado text-[0.9375rem] font-medium">
+                  Voltar para a página inicial
+                </Link>
+              </div>
             </div>
           </div>
         </Trecho>

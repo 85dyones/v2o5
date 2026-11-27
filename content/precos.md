@@ -6,14 +6,14 @@ title: "Preços: três soluções e a continuidade | V2O5 Vendas e Tecnologia"
 description: "Preços de referência de Presença Digital Local, Sites & Integrações, Atendimento com IA e dos planos de continuidade. Diagnóstico gratuito."
 canonical: "https://www.v2o5.com.br/precos"
 robots: null
-h1: "Três soluções, com preço de referência."
-extraido_em: "2026-11-27T12:45:09.800Z"
-fonte: "build local da branch claude/kind-tesla-eefroe em 27/11/2026 (revisão de português do site), antes da publicação"
+h1: "O preço de cada solução, antes de qualquer conversa."
+extraido_em: "2026-11-27T15:35:39.615Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 27/11/2026 (revisão de ganchos e conversão aprovada), antes da publicação"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
-# Três soluções, com preço de referência.
+# O preço de cada solução, antes de qualquer conversa.
 
-O diagnóstico inicial é gratuito. Cada solução tem pacotes com escopo claro, e a continuidade é opcional.
+Cada pacote diz o que entra e o que fica de fora. Na dúvida, o diagnóstico gratuito ajuda a escolher.
 
 [Pedir diagnóstico gratuito](/diagnostico)
 
@@ -128,11 +128,11 @@ A implantação termina na entrega. Se o que foi entregue continua rodando, a co
 
 Preciso trocar o sistema que já uso?
 
-Não. A V2O5 liga o que você já usa: a agenda, o catálogo, o estoque ou o CRM, depois de verificar a documentação e o acesso de cada um. Em produção hoje: o estoque do Revenda Mais sincronizado com o site e o agente da Motors Store. Na revenda de veículos, Autoconf, BNDV, Boom, Altimus e Syonet entram do mesmo jeito.
+Não. A V2O5 liga o que você já usa: a agenda, o catálogo, o estoque ou o CRM, depois de verificar a documentação e o acesso de cada um. Já funciona hoje: o estoque do Revenda Mais sincronizado com o site e o agente da Motors Store. Na revenda de veículos, Autoconf, BNDV, Boom, Altimus e Syonet entram do mesmo jeito.
 
 O agente de IA atende sozinho?
 
-Responde na hora com as informações do seu negócio e, quando a conversa pede uma pessoa, chama alguém da equipe. A conversa fica registrada na lista de contatos, com a origem de cada um.
+Em parte. Responde sozinho na hora, com as informações do seu negócio, e chama alguém da equipe quando a conversa pede uma pessoa. A conversa fica registrada na lista de contatos, com a origem de cada um.
 
 Vocês fazem tráfego pago?
 
@@ -140,17 +140,17 @@ Não. A V2O5 cuida para o negócio ser achado no Google e para quem chega ser be
 
 Como funciona o diagnóstico gratuito?
 
-São 45 minutos de conversa com o fundador sobre como o cliente acha o seu negócio, como ele é atendido no WhatsApp e os sistemas que você já usa, para ver onde você perde cliente e por onde começar. A sessão não inclui implementação nem acompanhamento de resultados. Havendo um bom caso, o próximo passo é a proposta da solução que cabe no problema, com escopo, entregáveis, prazo e investimento.
+São 45 minutos de conversa com o fundador sobre como o cliente acha o seu negócio, como ele é atendido no WhatsApp e os sistemas que você já usa, para ver onde você perde cliente e por onde começar. A sessão não inclui implementação nem acompanhamento de resultados. Se fizer sentido seguir, o próximo passo é a proposta da solução que cabe no problema, com escopo, entregáveis, prazo e investimento.
 
 A V2O5 atende fora de Curitiba?
 
 Sim. O atendimento é remoto, para pequenos negócios de todo o Brasil.
 
-## Comece pelo diagnóstico, que é gratuito.
+## Não sabe qual escolher? Comece pelo diagnóstico gratuito.
 
-Em 45 minutos de conversa com o fundador, a gente vê como o cliente acha o seu negócio e como ele é atendido, e mostra por onde começar. A sessão é gratuita e sem compromisso.
+Em 45 minutos de conversa, o fundador vê com você como o cliente acha o seu negócio e como ele é atendido, e mostra por onde começar. Sem custo e sem compromisso.
 
-[Pedir diagnóstico](/diagnostico)
+[Pedir diagnóstico gratuito](/diagnostico)
 
 r 18 <!-- texto em SVG; decorativo, aria-hidden -->
 
