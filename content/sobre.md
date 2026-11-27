@@ -85,7 +85,7 @@ Formação: Administração na FAE Business School
 
 Quero que o dono de um negócio de bairro tenha o atendimento que as grandes redes têm, num tamanho que ele consegue pagar e manter.
 
-A V2O5 é o jeito que encontrei de juntar o que aprendi em marca, marketing, vendas e gestão com o que a tecnologia permite hoje, para que cada projeto deixe algo funcionando no dia a dia e um cliente mais bem atendido.
+A V2O5 é o jeito que encontrei de juntar o que aprendi em marca, marketing, vendas e gestão com o que a tecnologia permite hoje, para que cada projeto deixe algo funcionando no dia a dia e um cliente melhor atendido.
 
 ## Como um projeto anda, em quatro passos.
 
@@ -113,7 +113,7 @@ O que fica pronto e quem da equipe usa?
 
 ### Acompanhamento
 
-O cliente está sendo mais bem atendido?
+O cliente está sendo melhor atendido?
 
 ### Todo projeto sai com três coisas.
 

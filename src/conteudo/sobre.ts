@@ -52,7 +52,7 @@ export const SOBRE = {
     texto:
       "Quero que o dono de um negócio de bairro tenha o atendimento que as grandes redes têm, num tamanho que ele consegue pagar e manter.",
     sonho:
-      "A V2O5 é o jeito que encontrei de juntar o que aprendi em marca, marketing, vendas e gestão com o que a tecnologia permite hoje, para que cada projeto deixe algo funcionando no dia a dia e um cliente mais bem atendido.",
+      "A V2O5 é o jeito que encontrei de juntar o que aprendi em marca, marketing, vendas e gestão com o que a tecnologia permite hoje, para que cada projeto deixe algo funcionando no dia a dia e um cliente melhor atendido.",
   },
   /** Como um projeto anda, em quatro passos (25/11/2026; antes, o método em cinco perguntas do Sprint). */
   metodo: {
@@ -62,7 +62,7 @@ export const SOBRE = {
       { etapa: "Diagnóstico", pergunta: "O que pesa mais hoje: ser achado, responder ou fazer o cliente voltar?" },
       { etapa: "Proposta", pergunta: "O que muda, quanto custa e em quanto tempo?" },
       { etapa: "Implantação", pergunta: "O que fica pronto e quem da equipe usa?" },
-      { etapa: "Acompanhamento", pergunta: "O cliente está sendo mais bem atendido?" },
+      { etapa: "Acompanhamento", pergunta: "O cliente está sendo melhor atendido?" },
     ],
     saida: {
       titulo: "Todo projeto sai com três coisas.",
