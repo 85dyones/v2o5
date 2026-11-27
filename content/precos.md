@@ -7,8 +7,8 @@ description: "Preços de referência de Presença Digital Local, Sites & Integra
 canonical: "https://www.v2o5.com.br/precos"
 robots: null
 h1: "Três soluções, com preço de referência."
-extraido_em: "2026-11-27T12:06:59.650Z"
-fonte: "build local da branch claude/kind-tesla-eefroe em 27/11/2026 (revisão do texto do site no foco em pequenos negócios), antes da publicação"
+extraido_em: "2026-11-27T12:45:09.800Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 27/11/2026 (revisão de português do site), antes da publicação"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 # Três soluções, com preço de referência.
@@ -19,15 +19,15 @@ O diagnóstico inicial é gratuito. Cada solução tem pacotes com escopo claro,
 
 [Ver todos os pacotes](#titulo-pacotes)
 
-## Três soluções e a continuidade. Nenhuma obriga a seguinte.
+## Três soluções e a continuidade. Nenhuma obriga a comprar a seguinte.
 
-[Presença Digital Local Quando o cliente procura e encontra informação errada, perfil parado ou nenhum jeito fácil de chamar. A partir de R$ 790](/presenca-digital-local)
+[Presença Digital Local Quando o cliente procura o seu negócio e acha informação errada, perfil parado ou não acha como chamar. A partir de R$ 790](/presenca-digital-local)
 
 [Sites & Integrações Quando o negócio depende só de rede social ou de portal, ou tem um site que não leva quem chega até a conversa. A partir de R$ 2.900](/criacao-de-sites)
 
-[Atendimento com IA Quando o cliente chama no WhatsApp e espera, se perde entre as conversas ou some sem que ninguém retome. A partir de R$ 3.900](/agente-de-ia-para-whatsapp)
+[Atendimento com IA Quando o cliente chama no WhatsApp e fica esperando, ou a conversa se perde e ninguém chama de volta. A partir de R$ 3.900](/agente-de-ia-para-whatsapp)
 
-[Continuidade Manter funcionando e evoluindo o que foi entregue, com limites escritos. Opcional. Planos a partir de R$ 349/mês](/continuidade)
+[Continuidade Manter funcionando e melhorar o que foi entregue, com limites escritos. Opcional. Planos a partir de R$ 349/mês](/continuidade)
 
 ## Todos os pacotes. O detalhe de cada um está na página da solução.
 
@@ -104,11 +104,11 @@ R$ 990/mês
 
 ## O que todo mundo pergunta antes de fechar.
 
-Preço, pagamento, o que cada solução entrega e o que vem depois. Se a sua pergunta não está aqui, ela cabe no diagnóstico.
+Preço, pagamento, o que cada solução entrega e o que vem depois. Se a sua pergunta não estiver aqui, ela cabe no diagnóstico.
 
 Quanto custa?
 
-O diagnóstico inicial, de 45 minutos, é gratuito. Os preços de entrada são Presença Digital Local a partir de R$ 790, Sites & Integrações a partir de R$ 2.900, Atendimento com IA a partir de R$ 3.900, e a continuidade tem planos a partir de R$ 349/mês. São preços de referência: o valor fechado sai em proposta, para um escopo conhecido.
+O diagnóstico inicial, de 45 minutos, é gratuito. Preços de entrada: Presença Digital Local, a partir de R$ 790; Sites & Integrações, a partir de R$ 2.900; Atendimento com IA, a partir de R$ 3.900. A continuidade tem planos a partir de R$ 349/mês. São preços de referência: o valor fechado sai em proposta, para um escopo conhecido.
 
 Preciso contratar tudo?
 
@@ -116,7 +116,7 @@ Não. Cada solução resolve um tipo de problema e funciona sozinha. Elas se com
 
 O que o Atendimento com IA entrega?
 
-O WhatsApp organizado, um agente de IA que responde com as informações do seu negócio e passa a conversa à pessoa certa, e a lista de contatos com a origem. No Atendimento Integrado, o agente também faz as perguntas do seu negócio, agenda ou encaminha, leva cada contato ao sistema que você já usa e chama de volta quem já comprou, só para quem consentiu.
+O WhatsApp organizado, um agente de IA que responde com as informações do seu negócio e passa a conversa à pessoa certa, e a lista de contatos com a origem. No Atendimento Integrado, o agente também faz as perguntas que importam para o seu negócio, agenda ou encaminha, leva cada contato ao sistema que você já usa e chama de volta quem já comprou e aceitou receber mensagem.
 
 Como funciona o pagamento?
 
@@ -124,7 +124,7 @@ As condições saem na proposta, com o escopo, os entregáveis, o prazo e os cus
 
 E depois da entrega?
 
-A implantação termina na entrega. Se o que foi entregue continua rodando, a continuidade cuida dele, em contrato à parte e com horas e prazo de resposta escritos, com planos a partir de R$ 349/mês. Banco de dados, servidor dedicado, IA e mensagens ficam por fora, pelo valor do provedor, e a V2O5 gerencia. Nenhum plano cobre desenvolvimento ilimitado.
+A implantação termina na entrega. Se o que foi entregue continua rodando, a continuidade cuida dele, em contrato à parte e com horas e prazo de resposta escritos, com planos a partir de R$ 349/mês. Banco de dados, servidor dedicado, IA e mensagens ficam por fora, pelo valor do provedor, e a V2O5 cuida dessas contas. Nenhum plano cobre desenvolvimento ilimitado.
 
 Preciso trocar o sistema que já uso?
 
@@ -136,7 +136,7 @@ Responde na hora com as informações do seu negócio e, quando a conversa pede 
 
 Vocês fazem tráfego pago?
 
-Não. A V2O5 cuida de o negócio ser encontrado no Google e de atender bem quem chega. Quem anuncia segue com a própria campanha, e o site grava de onde veio cada contato.
+Não. A V2O5 cuida para o negócio ser achado no Google e para quem chega ser bem atendido. Quem anuncia segue com a própria campanha, e o site grava de onde veio cada contato.
 
 Como funciona o diagnóstico gratuito?
 

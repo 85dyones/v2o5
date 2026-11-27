@@ -7,8 +7,8 @@ description: "Diagnóstico gratuito de 45 minutos com o fundador para ver onde o
 canonical: "https://www.v2o5.com.br/diagnostico"
 robots: null
 h1: "Descubra onde seu negócio perde cliente. Gratuitamente."
-extraido_em: "2026-11-27T12:06:59.650Z"
-fonte: "build local da branch claude/kind-tesla-eefroe em 27/11/2026 (revisão do texto do site no foco em pequenos negócios), antes da publicação"
+extraido_em: "2026-11-27T12:45:09.800Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 27/11/2026 (revisão de português do site), antes da publicação"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 # Descubra onde seu negócio perde cliente. Gratuitamente.
@@ -78,7 +78,7 @@ Prefere conversar? [Chame no WhatsApp](https://wa.me/5541998089550?text=Ol%C3%A1
 
 Você conta como vende hoje
 
-O formulário ao lado leva dois minutos. Com ele, a conversa já começa no que importa.
+O formulário desta página leva dois minutos. Com ele, a conversa já começa no que importa.
 
 2
 
@@ -137,7 +137,7 @@ O envio está em configuração. Tente de novo mais tarde.
 
 <!-- erro do campo nome -->
 
-Diga como podemos te chamar.
+Diga como podemos chamar você.
 
 <!-- erro do campo whatsapp -->
 

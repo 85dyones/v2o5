@@ -12,7 +12,7 @@ export const DIAGNOSTICO = {
   passos: [
     {
       titulo: "Você conta como vende hoje",
-      texto: "O formulário ao lado leva dois minutos. Com ele, a conversa já começa no que importa.",
+      texto: "O formulário desta página leva dois minutos. Com ele, a conversa já começa no que importa.",
     },
     {
       titulo: "45 minutos com o fundador",

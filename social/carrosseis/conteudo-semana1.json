@@ -16,7 +16,7 @@
         "titulo": "45 minutos com o fundador.",
         "itens": [
           "Você conta como vende hoje, em um formulário de dois minutos.",
-          "A conversa vê como o cliente acha o seu negócio e como ele é atendido no WhatsApp.",
+          "Na conversa, vemos como o cliente acha o seu negócio e como ele é atendido no WhatsApp.",
           "Por vídeo ou WhatsApp, no dia combinado."
         ],
         "nota": "Sem custo e sem compromisso de contratação."
@@ -37,9 +37,8 @@
         "etiqueta": "Os limites combinados",
         "titulo": "O que o diagnóstico não inclui.",
         "itens": [
-          "Mapeamento completo.",
-          "Implementação.",
-          "Acompanhamento e mensuração de resultados."
+          "Implantação.",
+          "Acompanhamento de resultados."
         ],
         "nota": "Esses passos vêm depois, se houver projeto."
       },
@@ -80,7 +79,7 @@
         "estilo": "verde",
         "etiqueta": "Solução 1",
         "titulo": "Presença Digital Local, por dentro.",
-        "sub": "Para o cliente que procura a empresa e encontra a informação certa.",
+        "sub": "Para o cliente achar a informação certa quando procura o seu negócio.",
         "rodape": "Deslize para ver o que está incluído"
       },
       {
@@ -128,7 +127,7 @@
         "etiqueta": "O que fica de fora",
         "titulo": "Limites do escopo.",
         "itens": [
-          "Verba de anúncios.",
+          "Verba de mídia paga.",
           "Gravação presencial de fotos e vídeos.",
           "Resposta a comentários e mensagens.",
           "Publicações ilimitadas."
@@ -160,7 +159,7 @@
         "etiqueta": "O problema",
         "titulo": "A empresa depende de perfil de terceiros, ou o site não conversa com o sistema.",
         "corpo": [
-          "A V2O5 entrega um site próprio, rápido e medido, ligado ao CRM, ao estoque ou ao sistema de gestão quando o escopo pede."
+          "A V2O5 entrega um site próprio, rápido e medido, ligado à agenda, ao estoque ou ao sistema de gestão quando o escopo pede."
         ]
       },
       {
@@ -179,7 +178,7 @@
         "titulo": "O que vem em qualquer pacote.",
         "itens": [
           "Contatos funcionando: WhatsApp, formulário e telefone.",
-          "Origem de cada contato anotada: de onde ele veio.",
+          "A origem de cada contato gravada: Google, Instagram ou indicação.",
           "SEO técnico e publicação no domínio da empresa.",
           "Duas rodadas de revisão."
         ]
@@ -189,8 +188,8 @@
         "etiqueta": "O Site Conectado",
         "titulo": "O que a integração liga.",
         "itens": [
-          "Um sistema que a empresa já usa: CRM, agenda, estoque, catálogo ou ERP.",
-          "Contatos medidos até o sistema, com a origem gravada.",
+          "Um sistema que a empresa já usa: lista de clientes, agenda, estoque, catálogo ou sistema de gestão.",
+          "Cada contato chega ao sistema com a origem gravada.",
           "Aviso quando a integração falha."
         ],
         "nota": "A integração entra depois de verificar a documentação e o acesso."
@@ -202,7 +201,7 @@
         "itens": [
           "O preço fechado vale para um escopo conhecido.",
           "Integração só entra na proposta depois de verificar documentação, credenciais, limites e custos do sistema.",
-          "O site se liga ao que a empresa já usa e não substitui o CRM nem o sistema de gestão."
+          "O site se liga ao sistema que a empresa já usa, sem substituí-lo."
         ],
         "nota": "Fora do escopo: domínio e e-mail, mídia paga e loja virtual com pagamento."
       },
@@ -240,7 +239,7 @@
         "etiqueta": "Os dois pacotes",
         "titulo": "Do WhatsApp organizado ao integrado.",
         "itens": [
-          "Atendimento Essencial, a partir de R$ 3.900: caixa organizada e um agente que responde as dúvidas frequentes a qualquer hora.",
+          "Atendimento Essencial, a partir de R$ 3.900: caixa organizada e um agente que responde às dúvidas frequentes a qualquer hora.",
           "Atendimento Integrado, a partir de R$ 6.900: o agente qualifica, agenda ou encaminha e leva o contato ao sistema que a empresa já usa."
         ]
       },

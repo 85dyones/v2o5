@@ -7,8 +7,8 @@ description: "Digitalização para pequenos negócios: presença no Google, site
 canonical: "https://www.v2o5.com.br"
 robots: null
 h1: "Coloque seu negócio no mapa e cuide de cada cliente que chega."
-extraido_em: "2026-11-27T12:06:59.650Z"
-fonte: "build local da branch claude/kind-tesla-eefroe em 27/11/2026 (revisão do texto do site no foco em pequenos negócios), antes da publicação"
+extraido_em: "2026-11-27T12:45:09.800Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 27/11/2026 (revisão de português do site), antes da publicação"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 Digitalização para pequenos negócios
@@ -33,13 +33,13 @@ Três soluções
 
 Cada uma resolve um tipo de problema e tem pacotes com preço de referência. Elas se completam, mas nenhuma obriga a comprar a seguinte.
 
-[Presença Digital Local → Quando o cliente procura e encontra informação errada, perfil parado ou nenhum jeito fácil de chamar. Perfil no Google, redes e WhatsApp organizados, com pedido de avaliação, modelos de conteúdo e, se quiser, a rotina mensal. A partir de R$ 790](/presenca-digital-local)
+[Presença Digital Local → Quando o cliente procura o seu negócio e acha informação errada, perfil parado ou não acha como chamar. Perfil no Google, redes e WhatsApp organizados, com pedido de avaliação, modelos de conteúdo e, se quiser, a rotina mensal. A partir de R$ 790](/presenca-digital-local)
 
 [Sites & Integrações → Quando o negócio depende só de rede social ou de portal, ou tem um site que não leva quem chega até a conversa. Site próprio, rápido no celular e achado no Google, que leva o cliente até o WhatsApp e, quando precisa, se liga ao sistema que você já usa. A partir de R$ 2.900](/criacao-de-sites)
 
-[Atendimento com IA → Quando o cliente chama no WhatsApp e espera, se perde entre as conversas ou some sem que ninguém retome. WhatsApp organizado, um agente de IA que responde na hora e passa a conversa à pessoa certa e, no Integrado, o contato de volta com quem já comprou. A partir de R$ 3.900](/agente-de-ia-para-whatsapp)
+[Atendimento com IA → Quando o cliente chama no WhatsApp e fica esperando, ou a conversa se perde e ninguém chama de volta. WhatsApp organizado e um agente de IA que responde na hora e passa a conversa à pessoa certa. No Integrado, entra também o contato de volta com quem já comprou. A partir de R$ 3.900](/agente-de-ia-para-whatsapp)
 
-[Continuidade Depois da entrega, planos opcionais para manter e evoluir o que foi entregue, com limites escritos. Planos a partir de R$ 349/mês](/continuidade)
+[Continuidade Depois do projeto, planos opcionais para manter e melhorar o que foi entregue, com limites escritos. Planos a partir de R$ 349/mês](/continuidade)
 
 Como começar
 
@@ -69,7 +69,7 @@ Depois da entrega
 
 ### Continuidade, se precisar
 
-Planos opcionais para manter e evoluir o que foi entregue, com horas e prazo de resposta escritos.
+Planos opcionais para manter e melhorar o que foi entregue, com horas e prazo de resposta escritos.
 
 Planos a partir de R$ 349/mês. Não inclui desenvolvimento ilimitado nem novas integrações sem orçamento.
 
@@ -85,7 +85,7 @@ Perfil no Google sem horário, sem foto ou com o telefone antigo. Quem procura p
 
 ### Resposta que demora
 
-A mensagem chega no WhatsApp à noite ou no meio do movimento e fica para depois. Quando a resposta sai, o cliente já comprou em outro lugar.
+A mensagem chega pelo WhatsApp à noite ou no meio do movimento e fica para depois. Quando a resposta sai, o cliente já comprou em outro lugar.
 
 ### Cliente que não volta
 
@@ -111,7 +111,7 @@ Quantas avaliações novas chegam ao Google e o que os clientes contam nelas.
 
 Clientes que voltam
 
-Quantos clientes compram de novo depois do primeiro contato.
+Quantos clientes compram de novo.
 
 Ninguém aqui promete um percentual de melhoria. A gente anota como está hoje e, depois da entrega, compara com o que os dados mostram.
 
@@ -145,11 +145,11 @@ Um WhatsApp para os onze setores e o gabinete. A triagem pergunta o assunto e en
 
 ## O que todo mundo pergunta antes de fechar.
 
-Preço, pagamento, o que cada solução entrega e o que vem depois. Se a sua pergunta não está aqui, ela cabe no diagnóstico.
+Preço, pagamento, o que cada solução entrega e o que vem depois. Se a sua pergunta não estiver aqui, ela cabe no diagnóstico.
 
 Quanto custa?
 
-O diagnóstico inicial, de 45 minutos, é gratuito. Os preços de entrada são Presença Digital Local a partir de R$ 790, Sites & Integrações a partir de R$ 2.900, Atendimento com IA a partir de R$ 3.900, e a continuidade tem planos a partir de R$ 349/mês. São preços de referência: o valor fechado sai em proposta, para um escopo conhecido.
+O diagnóstico inicial, de 45 minutos, é gratuito. Preços de entrada: Presença Digital Local, a partir de R$ 790; Sites & Integrações, a partir de R$ 2.900; Atendimento com IA, a partir de R$ 3.900. A continuidade tem planos a partir de R$ 349/mês. São preços de referência: o valor fechado sai em proposta, para um escopo conhecido.
 
 Preciso contratar tudo?
 
@@ -157,7 +157,7 @@ Não. Cada solução resolve um tipo de problema e funciona sozinha. Elas se com
 
 O que o Atendimento com IA entrega?
 
-O WhatsApp organizado, um agente de IA que responde com as informações do seu negócio e passa a conversa à pessoa certa, e a lista de contatos com a origem. No Atendimento Integrado, o agente também faz as perguntas do seu negócio, agenda ou encaminha, leva cada contato ao sistema que você já usa e chama de volta quem já comprou, só para quem consentiu.
+O WhatsApp organizado, um agente de IA que responde com as informações do seu negócio e passa a conversa à pessoa certa, e a lista de contatos com a origem. No Atendimento Integrado, o agente também faz as perguntas que importam para o seu negócio, agenda ou encaminha, leva cada contato ao sistema que você já usa e chama de volta quem já comprou e aceitou receber mensagem.
 
 Como funciona o pagamento?
 
@@ -165,7 +165,7 @@ As condições saem na proposta, com o escopo, os entregáveis, o prazo e os cus
 
 E depois da entrega?
 
-A implantação termina na entrega. Se o que foi entregue continua rodando, a continuidade cuida dele, em contrato à parte e com horas e prazo de resposta escritos, com planos a partir de R$ 349/mês. Banco de dados, servidor dedicado, IA e mensagens ficam por fora, pelo valor do provedor, e a V2O5 gerencia. Nenhum plano cobre desenvolvimento ilimitado.
+A implantação termina na entrega. Se o que foi entregue continua rodando, a continuidade cuida dele, em contrato à parte e com horas e prazo de resposta escritos, com planos a partir de R$ 349/mês. Banco de dados, servidor dedicado, IA e mensagens ficam por fora, pelo valor do provedor, e a V2O5 cuida dessas contas. Nenhum plano cobre desenvolvimento ilimitado.
 
 Preciso trocar o sistema que já uso?
 
@@ -177,7 +177,7 @@ Responde na hora com as informações do seu negócio e, quando a conversa pede 
 
 Vocês fazem tráfego pago?
 
-Não. A V2O5 cuida de o negócio ser encontrado no Google e de atender bem quem chega. Quem anuncia segue com a própria campanha, e o site grava de onde veio cada contato.
+Não. A V2O5 cuida para o negócio ser achado no Google e para quem chega ser bem atendido. Quem anuncia segue com a própria campanha, e o site grava de onde veio cada contato.
 
 Como funciona o diagnóstico gratuito?
 
@@ -193,7 +193,7 @@ Por que V2O5?
 
 O nome vem do pentóxido de vanádio, usado como catalisador em processos químicos: ele acelera a reação sem virar o produto final. É assim que a V2O5 usa a tecnologia no seu negócio, para a mudança acontecer com menos esforço.
 
-O trabalho começa entendendo como o negócio funciona de fato: como o cliente acha a empresa e como ele é atendido. Depois a gente põe a tecnologia que resolve isso, num formato que a equipe consegue usar no dia a dia.
+O trabalho começa entendendo como o negócio funciona de fato: como o cliente chega até ele e como é atendido. Depois a gente põe a tecnologia que resolve isso, num formato que a equipe consegue usar no dia a dia.
 
 ## Onde o seu negócio está perdendo cliente?
 

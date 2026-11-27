@@ -7,8 +7,8 @@ description: "Site ligado ao estoque do sistema da loja (Revenda Mais, Autoconf 
 canonical: "https://www.v2o5.com.br/segmentos/revendas-de-veiculos"
 robots: null
 h1: "Site de estoque e atendimento com IA para revendas de veículos."
-extraido_em: "2026-11-27T12:06:59.650Z"
-fonte: "build local da branch claude/kind-tesla-eefroe em 27/11/2026 (revisão do texto do site no foco em pequenos negócios), antes da publicação"
+extraido_em: "2026-11-27T12:45:09.800Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 27/11/2026 (revisão de português do site), antes da publicação"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 # Site de estoque e atendimento com IA para revendas de veículos.
@@ -36,7 +36,7 @@ O Site Conectado e o Atendimento Integrado, juntos ou um de cada vez
 
 Integração em produção
 
-Revenda Mais: o estoque entra no site e no agente sozinho
+Revenda Mais: o estoque entra sozinho no site e no agente
 
 Integráveis por fluxo
 
@@ -44,7 +44,7 @@ Autoconf, BNDV, Boom, Altimus e Syonet
 
 Referência
 
-Motors Store, revenda de seminovos em Curitiba, com números lidos do banco
+Motors Store, revenda de seminovos em Curitiba, com números lidos do banco de dados da loja
 
 ## O que a V2O5 monta para revendas.
 
@@ -122,11 +122,11 @@ Continuidade opcional
 
 Integrações Monitoradas, R$ 590/mês, ou Evolução Contínua, R$ 990/mês
 
-Uso da IA e mensagens do WhatsApp ficam por fora, pelo valor do provedor, discriminados na fatura, com teto mensal combinado e aviso antes de ultrapassá-lo; a V2O5 gerencia.
+Uso da IA e mensagens do WhatsApp ficam por fora, pelo valor do provedor, discriminados na fatura, com teto mensal combinado e aviso antes de ultrapassá-lo; a V2O5 cuida dessas contas.
 
 ## A prova está no case.
 
-O que foi construído na Motors Store, os números lidos no banco da loja e o caminho de cada cliente, da primeira mensagem ao CRM da loja, estão no case.
+O que foi construído na Motors Store, os números lidos no banco de dados da loja e o caminho de cada cliente, da primeira mensagem ao CRM da loja, estão no case.
 
 [Ler o case da Motors Store](/cases/motors-store)
 
@@ -152,7 +152,7 @@ Pode. O Site Conectado funciona sozinho: o estoque no site e a origem dos contat
 
 O site e os dados são meus?
 
-Sim. Domínio, hospedagem e código ficam no nome da loja, e os dados ficam num banco do seu negócio, com exportação quando você pedir, nos termos do contrato.
+Sim. Domínio, hospedagem e código ficam no nome da loja, e os dados ficam num banco de dados da sua loja, com exportação quando você pedir, nos termos do contrato.
 
 ## Descubra onde a sua revenda perde cliente.
 

@@ -19,7 +19,7 @@ export const metadata = metadataDa(ROTA);
 /** As saídas depois do pedido, cada uma numa célula com a seta. */
 const SAIDAS = [
   { href: "/precos", texto: "Ver os preços" },
-  { href: "/cases/motors-store", texto: "Ler o case Motors Store" },
+  { href: "/cases/motors-store", texto: "Ler o case da Motors Store" },
   { href: "/", texto: "Voltar para a página inicial" },
 ];
 

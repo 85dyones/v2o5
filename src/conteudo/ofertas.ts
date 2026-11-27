@@ -61,7 +61,7 @@ const PRESENCA: Oferta = {
   nome: "Presença Digital Local",
   rota: "/presenca-digital-local",
   etapa: "verde",
-  resolve: "Quando o cliente procura e encontra informação errada, perfil parado ou nenhum jeito fácil de chamar.",
+  resolve: "Quando o cliente procura o seu negócio e acha informação errada, perfil parado ou não acha como chamar.",
   recebe: "Perfil no Google, redes e WhatsApp organizados, com pedido de avaliação, modelos de conteúdo e, se quiser, a rotina mensal.",
   pacotes: [
     {
@@ -177,8 +177,8 @@ const ATENDIMENTO: Oferta = {
   nome: "Atendimento com IA",
   rota: "/agente-de-ia-para-whatsapp",
   etapa: "ambar",
-  resolve: "Quando o cliente chama no WhatsApp e espera, se perde entre as conversas ou some sem que ninguém retome.",
-  recebe: "WhatsApp organizado, um agente de IA que responde na hora e passa a conversa à pessoa certa e, no Integrado, o contato de volta com quem já comprou.",
+  resolve: "Quando o cliente chama no WhatsApp e fica esperando, ou a conversa se perde e ninguém chama de volta.",
+  recebe: "WhatsApp organizado e um agente de IA que responde na hora e passa a conversa à pessoa certa. No Integrado, entra também o contato de volta com quem já comprou.",
   pacotes: [
     {
       nome: "Atendimento Essencial",
@@ -186,7 +186,7 @@ const ATENDIMENTO: Oferta = {
       para: "Para o negócio que atende pelo WhatsApp e perde cliente na demora ou na confusão das conversas.",
       inclui: [
         "WhatsApp organizado numa caixa de atendimento, com etiquetas e respostas prontas",
-        "Agente de IA que responde as dúvidas frequentes a qualquer hora, só com o que a empresa aprovou",
+        "Agente de IA que responde às dúvidas frequentes a qualquer hora, só com o que a empresa aprovou",
         "Passagem para a pessoa certa da equipe, com o resumo da conversa",
         "Lista de contatos com a origem de cada um",
         "Treinamento da equipe e uma rodada de ajustes com as conversas reais",
@@ -216,7 +216,7 @@ const ATENDIMENTO: Oferta = {
   regras: [
     "O agente responde só com o que a empresa aprovou e chama uma pessoa quando não sabe ou quando o cliente pede.",
     "Integração só entra na proposta depois de verificar documentação, credenciais, limites e custos do sistema.",
-    "IA e mensagens vêm pelo valor do provedor, discriminados, com teto mensal combinado e aviso antes de ultrapassá-lo. A V2O5 gerencia.",
+    "IA e mensagens vêm pelo valor do provedor, discriminadas, com teto mensal combinado e aviso antes de ultrapassá-lo. A V2O5 cuida dessas contas.",
   ],
   continuidade: "O atendimento costuma seguir com as Integrações Monitoradas. Quem quer melhorar o agente mês a mês segue com a Evolução Contínua.",
 };
@@ -301,14 +301,14 @@ export const PLANOS_DE_CONTINUIDADE: PlanoDeContinuidade[] = [
 export const CONTINUIDADE = {
   titulo: "Continuidade: o que segue depois da entrega.",
   resumo:
-    "Planos opcionais para manter funcionando e evoluindo o que foi entregue, com horas e prazo de resposta escritos.",
+    "Planos opcionais para manter funcionando e melhorar o que foi entregue, com horas e prazo de resposta escritos.",
   texto:
-    "A implantação termina na entrega. Se o que foi entregue continua rodando, a continuidade cuida dele, com limites que cabem no contrato. Nenhum plano é obrigatório: a necessidade e o escopo decidem.",
+    "A implantação termina na entrega. Se o que foi entregue continua rodando, a continuidade cuida dele, com limites escritos no contrato. Nenhum plano é obrigatório: a necessidade e o escopo decidem.",
   frentes: [
     {
       id: "manutencao-tecnica" as IdFrente,
       nome: "Manutenção técnica",
-      texto: "Hospedagem, segurança, backup e suporte para o site ou a página continuarem no ar.",
+      texto: "Hospedagem, segurança, backup e suporte para o site ou a página continuar no ar.",
     },
     {
       id: "monitoramento-e-otimizacao" as IdFrente,
@@ -324,7 +324,7 @@ export const CONTINUIDADE = {
     {
       titulo: "Correção ou novidade",
       texto:
-        "Correção é fazer voltar a funcionar o que foi entregue e parou. Nova funcionalidade muda ou acrescenta algo, e é orçada à parte.",
+        "Correção é fazer voltar a funcionar o que foi entregue e parou. Nova funcionalidade muda ou acrescenta algo e é orçada à parte.",
     },
     {
       titulo: "Atendimento",
@@ -333,11 +333,11 @@ export const CONTINUIDADE = {
     {
       titulo: "Custos por fora",
       texto:
-        "Banco de dados, servidor dedicado, consumo de IA e mensagens vêm pelo valor do provedor, discriminados, com teto mensal combinado e aviso antes de ultrapassá-lo. A V2O5 gerencia. Domínio e e-mail também ficam por fora.",
+        "Banco de dados, servidor dedicado, consumo de IA e mensagens vêm pelo valor do provedor, discriminados, com teto mensal combinado e aviso antes de ultrapassá-lo. A V2O5 cuida dessas contas. Domínio e e-mail também ficam por fora.",
     },
     {
       titulo: "Sua parte",
-      texto: "Manter em dia os acessos e os pagamentos dos serviços de terceiros e avisar quando mudar o sistema que a solução usa.",
+      texto: "Manter em dia os acessos e os pagamentos dos serviços de terceiros e avisar a V2O5 antes de trocar o sistema que a solução usa.",
     },
     {
       titulo: "Saída",
@@ -372,12 +372,12 @@ export const PERGUNTAS_DA_CONTINUIDADE = [
   {
     pergunta: "O que é correção e o que é novidade?",
     resposta:
-      "Correção é fazer voltar a funcionar o que foi entregue e parou. Nova funcionalidade muda ou acrescenta algo, e é orçada à parte.",
+      "Correção é fazer voltar a funcionar o que foi entregue e parou. Nova funcionalidade muda ou acrescenta algo e é orçada à parte.",
   },
   {
     pergunta: "IA, mensagens e servidor estão incluídos?",
     resposta:
-      "A hospedagem do site entra no Cuidado Técnico. Banco de dados, servidor dedicado, consumo de IA e mensagens vêm pelo valor do provedor, discriminados, com teto mensal combinado e aviso antes de ultrapassá-lo.",
+      "Não. A hospedagem do site entra no Cuidado Técnico, mas banco de dados, servidor dedicado, consumo de IA e mensagens vêm pelo valor do provedor, discriminados, com teto mensal combinado e aviso antes de ultrapassá-lo.",
   },
 ];
 

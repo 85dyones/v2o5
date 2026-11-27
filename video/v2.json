@@ -19,7 +19,7 @@
   },
   "L1-02": {
     "hook": {
-      "texto": "Você posta todo dia.|[Quem chamou foi respondido?]",
+      "texto": "Você posta todo dia.|[Quem chamou teve resposta?]",
       "nota": "Cena de exemplo"
     },
     "beats": [
@@ -153,11 +153,11 @@
       "O cliente pesquisa [no sábado].",
       "O Google mostra [fechado].",
       "A foto é de [anos atrás].",
-      "Ele vai [no concorrente]."
+      "Ele vai [ao concorrente]."
     ],
     "punch": {
       "linha1": "Google desatualizado",
-      "linha2": "[perde o cliente]."
+      "linha2": "[afasta o cliente]."
     },
     "compartilhar": "Envie para quem nunca conferiu o próprio Google"
   },
@@ -275,7 +275,7 @@
   },
   "L1-19": {
     "hook": {
-      "texto": "Você respondeu a mesma pergunta|[de novo] hoje?",
+      "texto": "Você respondeu à mesma pergunta|[de novo] hoje?",
       "nota": "Cena de exemplo"
     },
     "beats": [
@@ -324,7 +324,7 @@
       "tipo": "caminho",
       "nos": [
         {
-          "rotulo": "Como o cliente chega",
+          "rotulo": "Como o cliente te acha",
           "a": 0
         },
         {
@@ -336,7 +336,7 @@
           "a": 2
         },
         {
-          "rotulo": "Onde a venda esfria",
+          "rotulo": "Quem volta a comprar",
           "a": 3,
           "destaque": true
         }
@@ -352,7 +352,7 @@
       "Comprou e [gostou].",
       "Ninguém [lembrou dele].",
       "O concorrente [lembrou].",
-      "Com consentimento, [uma mensagem] resolve."
+      "Com consentimento, [você chama de novo]."
     ],
     "punch": {
       "linha1": "Cliente esquecido",
@@ -433,7 +433,7 @@
         },
         {
           "rotulo": "Caixa de e-mail",
-          "sub": "parado, sem responsável",
+          "sub": "pedido parado, sem responsável",
           "a": 1,
           "destaque": true
         },
@@ -460,10 +460,10 @@
       "Integrado: digitou [uma vez]."
     ],
     "punch": {
-      "linha1": "Digitar à mão",
-      "linha2": "é erro esperando|[para acontecer]."
+      "linha1": "Cada digitação",
+      "linha2": "é uma [chance de erro]."
     },
-    "compartilhar": "Envie para quem digita tudo duas vezes",
+    "compartilhar": "Envie para quem digita tudo de novo",
     "cfg": {
       "tipo": "comparar",
       "colunas": [

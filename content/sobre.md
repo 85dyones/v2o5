@@ -7,8 +7,8 @@ description: "Dyones Oliveira, fundador da V2O5, ajuda pequenos negócios a sere
 canonical: "https://www.v2o5.com.br/sobre"
 robots: null
 h1: "Tecnologia que o pequeno negócio consegue usar."
-extraido_em: "2026-11-27T12:10:08.884Z"
-fonte: "build local da branch claude/kind-tesla-eefroe em 27/11/2026 (revisão do texto do site no foco em pequenos negócios), antes da publicação"
+extraido_em: "2026-11-27T12:45:09.800Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 27/11/2026 (revisão de português do site), antes da publicação"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 # Tecnologia que o pequeno negócio consegue usar.
@@ -63,7 +63,7 @@ Até os sete anos o meu mundo era de livros. Em 1992, um concurso da escola me r
 
 ### Quem faz o trabalho
 
-Eu conduzo o diagnóstico e respondo por cada projeto, do diagnóstico à entrega. O que muda e o que medir são decisões minhas; a IA e as automações entram como ferramenta, onde ajudam. Quando o projeto pede, indico parceiros especializados, como fotografia, contratados à parte.
+Eu conduzo o diagnóstico e respondo por cada projeto, do diagnóstico à entrega. O que mudar e o que medir são decisões minhas; a IA e as automações entram como ferramenta, onde ajudam. Quando o projeto pede, indico parceiros, como um fotógrafo, contratados à parte.
 
 Marca
 
@@ -83,7 +83,7 @@ Formação: Administração na FAE Business School
 
 ## O que eu quero construir.
 
-Quero que o dono de um negócio de bairro tenha o atendimento que as grandes redes têm, num tamanho que ele consegue pagar e manter.
+Quero que o dono de um negócio de bairro tenha o atendimento que as grandes redes têm, num tamanho que ele consiga pagar e manter.
 
 A V2O5 é o jeito que encontrei de juntar o que aprendi em marca, marketing, vendas e gestão com o que a tecnologia permite hoje, para que cada projeto deixe algo funcionando no dia a dia e um cliente melhor atendido.
 
@@ -199,7 +199,7 @@ Toda proposta define problema, entregáveis, exclusões, prazo, responsabilidade
 
 ## A relação com os dois cases.
 
-A Motors Store, revenda de seminovos em Curitiba, é cliente da V2O5 e um dos dois cases do site. A relação é de fornecedora: montei e mantenho o sistema da loja, e assino os guias publicados nela. Os números do case são lidos no banco de dados da Motors, com fonte e período, e a loja autorizou a publicação do nome, do logo e dos números. A 16ª Vara Cível de Curitiba também é cliente: montei a triagem do WhatsApp da serventia, e a vara autorizou o case.
+A Motors Store, revenda de seminovos em Curitiba, é cliente da V2O5 e um dos dois cases do site. A V2O5 é fornecedora da loja: montei e mantenho o sistema e assino os guias publicados no site da Motors. Os números do case são lidos no banco de dados da Motors, com fonte e período, e a loja autorizou a publicação do nome, do logo e dos números. A 16ª Vara Cível de Curitiba também é cliente: montei a triagem do WhatsApp da serventia, e a vara autorizou o case.
 
 [Ler o case da Motors Store](/cases/motors-store)
 

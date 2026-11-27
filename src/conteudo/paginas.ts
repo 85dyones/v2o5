@@ -98,7 +98,7 @@ export const PAGINAS: Pagina[] = [
     rota: "/continuidade",
     titulo: "Continuidade: manutenção e monitoramento",
     descricao:
-      "Planos opcionais para manter e evoluir o que foi entregue: Cuidado Técnico, Integrações Monitoradas e Evolução Contínua, com horas e prazos escritos.",
+      "Planos opcionais para manter e melhorar o que foi entregue: Cuidado Técnico, Integrações Monitoradas e Evolução Contínua, com horas e prazos escritos.",
     atualizadaEm: "2026-11-27",
     pronta: true,
   },

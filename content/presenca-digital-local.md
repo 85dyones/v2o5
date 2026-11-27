@@ -7,8 +7,8 @@ description: "Perfil da Empresa no Google, redes sociais e WhatsApp Business org
 canonical: "https://www.v2o5.com.br/presenca-digital-local"
 robots: null
 h1: "Presença digital para negócios locais: Google, redes e WhatsApp."
-extraido_em: "2026-11-27T12:06:59.650Z"
-fonte: "build local da branch claude/kind-tesla-eefroe em 27/11/2026 (revisão do texto do site no foco em pequenos negócios), antes da publicação"
+extraido_em: "2026-11-27T12:45:09.800Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 27/11/2026 (revisão de português do site), antes da publicação"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 # Presença digital para negócios locais: Google, redes e WhatsApp.
@@ -21,7 +21,7 @@ Perfil no Google, redes e WhatsApp organizados, com pedido de avaliação, model
 
 Resolve
 
-Quando o cliente procura e encontra informação errada, perfil parado ou nenhum jeito fácil de chamar.
+Quando o cliente procura o seu negócio e acha informação errada, perfil parado ou não acha como chamar.
 
 Preço de entrada
 
@@ -159,7 +159,7 @@ A mensalidade opcional da Presença é contratada com ela. Se a empresa tiver si
 
 [Ver todos os preços](/precos)
 
-## O que perguntam sobre Presença Digital Local antes de fechar.
+## O que perguntam sobre a Presença Digital Local antes de fechar.
 
 O que entra, quanto custa e o que fica de fora. O resto cabe no diagnóstico.
 
@@ -175,7 +175,7 @@ Quantas publicações por mês?
 
 No kit da Presença Estruturada, quatro peças e uma campanha por mês. Nenhum pacote tem publicação ilimitada.
 
-Vocês respondem os comentários e as mensagens?
+Vocês respondem aos comentários e às mensagens?
 
 A resposta a comentários e mensagens fica com a sua equipe. A V2O5 organiza os canais. Para o WhatsApp responder sozinho, existe o Atendimento com IA.
 

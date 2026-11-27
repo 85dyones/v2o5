@@ -120,7 +120,7 @@ export function validarLead(dados: unknown): Validacao {
   const erros: Partial<Record<keyof Lead, string>> = {};
 
   const nome = texto(d.nome, LIMITES.nome);
-  if (nome.length < 2) erros.nome = "Diga como podemos te chamar.";
+  if (nome.length < 2) erros.nome = "Diga como podemos chamar você.";
 
   const whatsapp = normalizarWhatsapp(d.whatsapp);
   if (!whatsapp) erros.whatsapp = "Informe o WhatsApp com DDD.";

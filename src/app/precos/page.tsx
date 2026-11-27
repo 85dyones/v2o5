@@ -102,7 +102,7 @@ export default function Pagina() {
           </div>
         </section>
 
-        <Secao id="resumo" etapa="violeta" titulo={<>Três soluções e a continuidade. <span className="apagado">Nenhuma obriga a seguinte.</span></>}>
+        <Secao id="resumo" etapa="violeta" titulo={<>Três soluções e a continuidade. <span className="apagado">Nenhuma obriga a comprar a seguinte.</span></>}>
           <ul className="border-t-2 border-texto">
             {OFERTAS.map((o) => (
               <li key={o.id} className="servico" style={{ "--cor-da-rota": COR_DA_ROTA[o.etapa] } as CSSProperties}>
@@ -125,7 +125,7 @@ export default function Pagina() {
                 <Parada />
                 <span className="titulo-cartao col-span-12 md:col-span-4">Continuidade</span>
                 <span className="col-span-12 text-[0.9375rem] leading-relaxed text-texto-secundario md:col-span-5">
-                  Manter funcionando e evoluindo o que foi entregue, com limites escritos. Opcional.
+                  Manter funcionando e melhorar o que foi entregue, com limites escritos. Opcional.
                 </span>
                 <span className="col-span-12 font-semibold tabular-nums md:col-span-3 md:text-right">
                   <ComMarcas texto={`Planos a partir de ${mensalEmTexto(continuidadeAPartirDe())}`} marcas={[`a partir de ${mensalEmTexto(continuidadeAPartirDe())}`]} etapa="ambar" />

@@ -35,9 +35,9 @@ export const HUB_AUTOMOTIVO = {
   },
   fatos: [
     { rotulo: "Dois caminhos", valor: "O Site Conectado e o Atendimento Integrado, juntos ou um de cada vez" },
-    { rotulo: "Integração em produção", valor: "Revenda Mais: o estoque entra no site e no agente sozinho" },
+    { rotulo: "Integração em produção", valor: "Revenda Mais: o estoque entra sozinho no site e no agente" },
     { rotulo: "Integráveis por fluxo", valor: listaDeSistemasIntegraveis() },
-    { rotulo: "Referência", valor: "Motors Store, revenda de seminovos em Curitiba, com números lidos do banco" },
+    { rotulo: "Referência", valor: "Motors Store, revenda de seminovos em Curitiba, com números lidos do banco de dados da loja" },
   ],
   pacote: {
     titulo: "O que a V2O5 monta para revendas.",
@@ -104,10 +104,10 @@ export const HUB_AUTOMOTIVO = {
       },
     ],
     rodape:
-      "Uso da IA e mensagens do WhatsApp ficam por fora, pelo valor do provedor, discriminados na fatura, com teto mensal combinado e aviso antes de ultrapassá-lo; a V2O5 gerencia.",
+      "Uso da IA e mensagens do WhatsApp ficam por fora, pelo valor do provedor, discriminados na fatura, com teto mensal combinado e aviso antes de ultrapassá-lo; a V2O5 cuida dessas contas.",
   },
   case: {
-    texto: "O que foi construído na Motors Store, os números lidos no banco da loja e o caminho de cada cliente, da primeira mensagem ao CRM da loja, estão no case.",
+    texto: "O que foi construído na Motors Store, os números lidos no banco de dados da loja e o caminho de cada cliente, da primeira mensagem ao CRM da loja, estão no case.",
     href: "/cases/motors-store",
     botao: "Ler o case da Motors Store",
   },
@@ -135,7 +135,7 @@ export const HUB_AUTOMOTIVO = {
     {
       pergunta: "O site e os dados são meus?",
       resposta:
-        "Sim. Domínio, hospedagem e código ficam no nome da loja, e os dados ficam num banco do seu negócio, com exportação quando você pedir, nos termos do contrato.",
+        "Sim. Domínio, hospedagem e código ficam no nome da loja, e os dados ficam num banco de dados da sua loja, com exportação quando você pedir, nos termos do contrato.",
     },
   ],
   chamada: {

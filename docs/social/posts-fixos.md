@@ -67,9 +67,10 @@ Link na bio.
 ```
 Quanto custa colocar seu negócio no mapa? Aqui o preço aparece.
 
-A V2O5 digitaliza pequenos negócios que vendem pelo WhatsApp, on-line, em todo o Brasil. Três soluções, com escopo fechado e preço de referência público: Presença Digital Local (a partir de R$ 790), Sites & Integrações (a partir de R$ 2.900) e Atendimento com IA (a partir de R$ 3.900). Tudo começa por um diagnóstico gratuito de 45 minutos, sem compromisso de contratação.
+A V2O5 digitaliza pequenos negócios que vendem pelo WhatsApp. Atende on-line, em todo o Brasil. Três soluções, com escopo fechado e preço de referência público: Presença Digital Local (a partir de R$ 790), Sites & Integrações (a partir de R$ 2.900) e Atendimento com IA (a partir de R$ 3.900). Tudo começa por um diagnóstico gratuito de 45 minutos, sem compromisso de contratação.
 
-Descubra onde seu negócio perde cliente. Gratuitamente: https://www.v2o5.com.br/diagnostico?utm_source=facebook&utm_medium=post-fixo&utm_campaign=posts-fixos&utm_content=fixo-1
+Descubra onde seu negócio perde cliente. Gratuitamente.
+Peça pelo link: https://www.v2o5.com.br/diagnostico?utm_source=facebook&utm_medium=post-fixo&utm_campaign=posts-fixos&utm_content=fixo-1
 ```
 **LinkedIn (texto do post, com o PDF `linkedin/fixo-1-o-que-fazemos.pdf`; título do documento: "V2O5: o que fazemos")**
 ```
@@ -91,7 +92,7 @@ Primeiro comentário: `https://www.v2o5.com.br/diagnostico?utm_source=linkedin&u
 ```
 O que acontece depois que você pede um diagnóstico?
 
-São 45 minutos com o fundador, gratuitos e sem compromisso. A gente vê como o cliente acha o seu negócio e como ele é atendido no WhatsApp. O combinado vale antes de qualquer projeto: escopo fechado, preço de referência público, nenhum escopo ilimitado e nenhuma solução que obrigue a seguinte. Depois, um projeto anda em quatro passos, do diagnóstico ao acompanhamento.
+São 45 minutos com o fundador, gratuitos e sem compromisso. A gente vê como o cliente acha o seu negócio e como ele é atendido no WhatsApp. O combinado vale antes de qualquer projeto: escopo fechado, preço de referência público, nenhum escopo ilimitado e nenhuma solução que obrigue a seguinte. Um projeto anda em quatro passos, do diagnóstico ao acompanhamento.
 
 Descubra onde seu negócio perde cliente. Gratuitamente.
 Link na bio.
@@ -104,15 +105,16 @@ O que acontece depois que você pede um diagnóstico?
 
 São 45 minutos com o fundador, gratuitos e sem compromisso. A gente vê como o cliente acha o seu negócio e como ele é atendido no WhatsApp. O combinado vale antes de qualquer projeto: escopo fechado, preço de referência público, nenhum escopo ilimitado e nenhuma solução que obrigue a seguinte.
 
-Descubra onde seu negócio perde cliente. Gratuitamente: https://www.v2o5.com.br/diagnostico?utm_source=facebook&utm_medium=post-fixo&utm_campaign=posts-fixos&utm_content=fixo-2
+Descubra onde seu negócio perde cliente. Gratuitamente.
+Peça pelo link: https://www.v2o5.com.br/diagnostico?utm_source=facebook&utm_medium=post-fixo&utm_campaign=posts-fixos&utm_content=fixo-2
 ```
 **LinkedIn (texto do post, com o PDF `linkedin/fixo-2-como-trabalhamos.pdf`; título do documento: "V2O5: como trabalhamos")**
 ```
 O que acontece depois que você pede um diagnóstico?
 
-Primeiro, 45 minutos gratuitos com o fundador. A pergunta é o que pesa mais hoje no negócio: ser achado, responder ou fazer o cliente voltar. O diagnóstico não inclui mapeamento completo, implementação nem acompanhamento. Se houver um bom caso, a proposta vem por escrito, com escopo, prazo e investimento; se não houver, a conversa termina ali.
+Primeiro, 45 minutos gratuitos com o fundador. A pergunta é o que pesa mais hoje no negócio: ser achado, responder ou fazer o cliente voltar. O diagnóstico não inclui implantação nem acompanhamento de resultados. Se houver um bom caso, a proposta vem por escrito, com escopo, prazo e investimento; se não houver, a conversa termina ali.
 
-O combinado vale antes de qualquer projeto: escopo fechado, preço de referência público, nenhum escopo ilimitado, nenhuma solução obriga a seguinte e nenhuma promessa de percentual de resultado. Um projeto anda em quatro passos: diagnóstico, proposta, implantação e acompanhamento.
+O combinado vale antes de qualquer projeto: escopo fechado, preço de referência público, nenhum escopo ilimitado, nenhuma solução que obrigue a seguinte e nenhuma promessa de percentual de resultado. Um projeto anda em quatro passos: diagnóstico, proposta, implantação e acompanhamento.
 
 Link no primeiro comentário.
 
@@ -126,36 +128,38 @@ Primeiro comentário: `https://www.v2o5.com.br/diagnostico?utm_source=linkedin&u
 ```
 93 de 100 conversas com a primeira resposta em até 1 minuto. A mediana é de 38 segundos.
 
-É o que o agente de IA da Motors Store, revenda de seminovos em Curitiba, registrou no WhatsApp entre 21/10 e 17/11/2026 (conversas lidas no banco de dados da loja). A V2O5 montou o site de estoque ligado ao sistema da loja, o agente que atende e qualifica, a entrega do lead ao CRM e as automações.
+É o que o agente de IA da Motors Store, revenda de seminovos em Curitiba, registrou no WhatsApp entre 21/10 e 17/11/2026 (conversas lidas no banco de dados da loja). A V2O5 montou o site de estoque ligado ao sistema da loja, o agente que atende e preenche a ficha, a passagem do cliente ao CRM e as automações.
 
-São contagens do sistema, não vendas, e a resposta humana não é medida. O resultado é o da Motors; o que cabe no seu negócio o diagnóstico mostra.
+São contagens do sistema, sem número de venda, e a resposta humana não é medida. O resultado é o da Motors; o que cabe no seu negócio, o diagnóstico mostra. O case completo está em v2o5.com.br/cases/motors-store.
 
 Descubra onde seu negócio perde cliente. Gratuitamente.
 Link na bio.
-
-O case completo está em v2o5.com.br/cases/motors-store.
 
 #atendimentoaocliente #whatsappbusiness #inteligenciaartificial #pequenosnegocios #v2o5
 ```
 **Facebook (legenda)**
 ```
-93 de 100 conversas com a primeira resposta em até 1 minuto, mediana de 38 segundos: o que o agente de IA da Motors Store registrou no WhatsApp entre 21/10 e 17/11/2026. A V2O5 montou o site de estoque ligado ao sistema da loja, o agente que atende e qualifica, a entrega do lead ao CRM e as automações.
+93 de 100 conversas com a primeira resposta em até 1 minuto, mediana de 38 segundos: o que o agente de IA da Motors Store registrou no WhatsApp entre 21/10 e 17/11/2026. A V2O5 montou o site de estoque ligado ao sistema da loja, o agente que atende e preenche a ficha, a passagem do cliente ao CRM e as automações.
 
-São contagens lidas no banco de dados da loja, não vendas, e a resposta humana não é medida. O resultado é o da Motors. Case completo: https://www.v2o5.com.br/cases/motors-store?utm_source=facebook&utm_medium=post-fixo&utm_campaign=posts-fixos&utm_content=fixo-3
+São contagens lidas no banco de dados da loja, sem número de venda, e a resposta humana não é medida. O resultado é o da Motors. Case completo: https://www.v2o5.com.br/cases/motors-store?utm_source=facebook&utm_medium=post-fixo&utm_campaign=posts-fixos&utm_content=fixo-3
+
+Descubra onde seu negócio perde cliente. Gratuitamente.
+Peça pelo link: https://www.v2o5.com.br/diagnostico?utm_source=facebook&utm_medium=post-fixo&utm_campaign=posts-fixos&utm_content=fixo-3
 ```
 **LinkedIn (texto do post, com o PDF `linkedin/fixo-3-case-motors.pdf`; título do documento: "V2O5: case Motors Store")**
 ```
-93 de 100 conversas com a primeira resposta em até 1 minuto, mediana de 38 segundos. É o agente de IA da Motors Store, revenda de seminovos em Curitiba, no WhatsApp, entre 21/10 e 17/11/2026.
+93 de 100 conversas com a primeira resposta em até 1 minuto, mediana de 38 segundos. É o que o agente de IA da Motors Store, revenda de seminovos em Curitiba, registrou no WhatsApp entre 21/10 e 17/11/2026.
 
-A V2O5 montou o site de estoque ligado ao Revenda Mais, o agente que atende e qualifica, a entrega do lead qualificado ao CRM e as automações, na mesma base de dados. O banco da loja mostra 237 leads no funil de 05/09 a 17/11/2026 e, desde 21/10, 125 clientes atendidos pelo agente; desde 04/11, 37 leads qualificados entregues ao CRM.
+A V2O5 montou o site de estoque ligado ao Revenda Mais, o agente que atende e preenche a ficha, a passagem do cliente pronto ao CRM e as automações, na mesma base de dados. O banco da loja mostra 237 contatos de 05/09 a 17/11/2026 e, desde 21/10, 125 clientes atendidos pelo agente; desde 04/11, 37 contatos qualificados entregues ao CRM.
 
-Os números são contagens lidas no banco de dados da loja em 17/11/2026. Não são números de venda, a resposta humana não é medida e o resultado é o da Motors. O diagnóstico mostra o que cabe em outro negócio.
+Os números são contagens lidas no banco de dados da loja em 17/11/2026. Não incluem vendas, a resposta humana não é medida e o resultado é o da Motors.
 
-Case completo no primeiro comentário.
+Descubra onde seu negócio perde cliente. Gratuitamente.
+Diagnóstico e case completo no primeiro comentário.
 
 #Atendimento #WhatsAppBusiness #InteligênciaArtificial
 ```
-Primeiro comentário: `https://www.v2o5.com.br/cases/motors-store?utm_source=linkedin&utm_medium=post-fixo&utm_campaign=posts-fixos&utm_content=fixo-3`
+Primeiro comentário, nesta ordem: `https://www.v2o5.com.br/diagnostico?utm_source=linkedin&utm_medium=post-fixo&utm_campaign=posts-fixos&utm_content=fixo-3` e `https://www.v2o5.com.br/cases/motors-store?utm_source=linkedin&utm_medium=post-fixo&utm_campaign=posts-fixos&utm_content=fixo-3`
 
 ## Conferências antes de publicar
 - **Preços:** os dos slides saem de `src/conteudo/ofertas.ts`. Se mudarem, atualizar `social/carrosseis/conteudo-fixos-v2.json` e gerar de novo.

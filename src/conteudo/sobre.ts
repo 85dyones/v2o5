@@ -50,7 +50,7 @@ export const SOBRE = {
   visao: {
     titulo: "O que eu quero construir.",
     texto:
-      "Quero que o dono de um negócio de bairro tenha o atendimento que as grandes redes têm, num tamanho que ele consegue pagar e manter.",
+      "Quero que o dono de um negócio de bairro tenha o atendimento que as grandes redes têm, num tamanho que ele consiga pagar e manter.",
     sonho:
       "A V2O5 é o jeito que encontrei de juntar o que aprendi em marca, marketing, vendas e gestão com o que a tecnologia permite hoje, para que cada projeto deixe algo funcionando no dia a dia e um cliente melhor atendido.",
   },
@@ -96,7 +96,7 @@ export const SOBRE = {
   equipe: {
     titulo: "Quem faz o trabalho",
     texto:
-      "Eu conduzo o diagnóstico e respondo por cada projeto, do diagnóstico à entrega. O que muda e o que medir são decisões minhas; a IA e as automações entram como ferramenta, onde ajudam. Quando o projeto pede, indico parceiros especializados, como fotografia, contratados à parte.",
+      "Eu conduzo o diagnóstico e respondo por cada projeto, do diagnóstico à entrega. O que mudar e o que medir são decisões minhas; a IA e as automações entram como ferramenta, onde ajudam. Quando o projeto pede, indico parceiros, como um fotógrafo, contratados à parte.",
   },
   nome: {
     titulo: "O nome vem de um catalisador.",
@@ -136,7 +136,7 @@ export const SOBRE = {
   motors: {
     titulo: "A relação com os dois cases.",
     texto:
-      "A Motors Store, revenda de seminovos em Curitiba, é cliente da V2O5 e um dos dois cases do site. A relação é de fornecedora: montei e mantenho o sistema da loja, e assino os guias publicados nela. Os números do case são lidos no banco de dados da Motors, com fonte e período, e a loja autorizou a publicação do nome, do logo e dos números. A 16ª Vara Cível de Curitiba também é cliente: montei a triagem do WhatsApp da serventia, e a vara autorizou o case.",
+      "A Motors Store, revenda de seminovos em Curitiba, é cliente da V2O5 e um dos dois cases do site. A V2O5 é fornecedora da loja: montei e mantenho o sistema e assino os guias publicados no site da Motors. Os números do case são lidos no banco de dados da Motors, com fonte e período, e a loja autorizou a publicação do nome, do logo e dos números. A 16ª Vara Cível de Curitiba também é cliente: montei a triagem do WhatsApp da serventia, e a vara autorizou o case.",
     href: CASE_MOTORS.rota,
     botao: "Ler o case da Motors Store",
   },

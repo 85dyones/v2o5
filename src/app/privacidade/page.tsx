@@ -56,7 +56,6 @@ const A = ({ href, children }: { href: string; children: ReactNode }) => (
  * texto na mesma rodada; `tests/privacidade.test.ts` amarra as pontas.
  */
 export default function Pagina() {
-  const razao = EMPRESA.razaoSocial.replace(/\.$/, "");
   return (
     <>
       <Topo />
@@ -88,7 +87,7 @@ export default function Pagina() {
           <div className="mt-14 grid gap-14">
             <Secao id="controlador" titulo="Quem responde pelos seus dados">
               <p>
-                A controladora dos dados pessoais tratados neste site é a <strong>{razao}</strong> (nome fantasia{" "}
+                A controladora dos dados pessoais tratados neste site é a <strong>{EMPRESA.razaoSocial}</strong> (nome fantasia{" "}
                 {EMPRESA.nome}), CNPJ {EMPRESA.cnpj}. &ldquo;Controladora&rdquo; é o termo que a
                 Lei Geral de Proteção de Dados (Lei nº 13.709/2018) usa para quem decide como e por que os dados são
                 tratados. O encarregado pelo tratamento é {VISAO_360.fundador.nome}, fundador da empresa, no endereço{" "}
@@ -102,9 +101,9 @@ export default function Pagina() {
             <Secao id="dados" titulo="Quais dados este site coleta">
               <p>Coletamos dados em três momentos.</p>
               <p>
-                <strong>Quando você pede o diagnóstico.</strong> O formulário pede nome, WhatsApp, e-mail, nome da
-                empresa, segmento, quantas pessoas trabalham nela e o que você quer resolver primeiro. Se o segmento
-                é revenda de veículos, pede também o tamanho do estoque e o sistema de gestão que a loja usa. Há um
+                <strong>Quando você pede o diagnóstico.</strong> O formulário pede nome, WhatsApp, e-mail, nome do
+                negócio, segmento, quantas pessoas trabalham nele e o que você quer resolver primeiro. Se o segmento
+                for revenda de veículos, pede também o tamanho do estoque e o sistema de gestão que a loja usa. Há um
                 campo livre, opcional. Nada disso é exigido para navegar; só para ser atendido.
               </p>
               <p>
@@ -191,7 +190,7 @@ export default function Pagina() {
                 dados vão para connect.facebook.net e facebook.com.
               </p>
               <p>
-                <strong>Pelo servidor, à Meta.</strong> Com o Pixel ligado, ao enviar o formulário o nosso servidor
+                <strong>Pelo servidor, à Meta.</strong> Com o Pixel ligado, quando você envia o formulário, o nosso servidor
                 manda à Meta o mesmo evento, com um identificador comum para a conversão contar uma vez só. Vão
                 e-mail, telefone e nome em hash (uma transformação que não se desfaz), o endereço IP, o navegador e
                 os identificadores <code>_fbp</code> e <code>_fbc</code>, que também seguem com o pedido para a
@@ -272,7 +271,7 @@ export default function Pagina() {
             <Secao id="seguranca" titulo="Segurança">
               <p>
                 O site só funciona por conexão criptografada (HTTPS) e aplica uma política de segurança de conteúdo
-                que só permite scripts dos domínios nomeados nesta política (Google e Meta). O formulário é validado
+                que só permite scripts do próprio site e dos domínios do Google e da Meta citados acima. O formulário é validado
                 no servidor, e o envio para a automação da V2O5
                 vai assinado com um segredo que só os dois lados conhecem. O acesso aos dados é restrito à equipe
                 que atende.

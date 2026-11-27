@@ -113,16 +113,15 @@
           "Implantação: o que fica pronto e quem da equipe usa?",
           "Acompanhamento: o cliente está sendo melhor atendido?"
         ],
-        "nota": "No diagnóstico, a pergunta é se o que pesa é ser achado, responder ou fazer o cliente voltar."
+        "nota": "No diagnóstico, a pergunta é o que pesa mais: ser achado, responder ou fazer o cliente voltar."
       },
       {
         "tipo": "lista",
         "etiqueta": "Os limites",
         "titulo": "O que o diagnóstico não inclui.",
         "itens": [
-          "Mapeamento completo.",
-          "Implementação.",
-          "Acompanhamento e mensuração de resultados."
+          "Implantação.",
+          "Acompanhamento de resultados."
         ],
         "nota": "Esses passos vêm depois, se houver projeto. Se não houver um bom caso, a conversa termina ali."
       },
@@ -162,12 +161,12 @@
         "etiqueta": "Antes: diagnosticado",
         "titulo": "O que travava a Motors Store.",
         "itens": [
-          "Baixa visibilidade nas buscas e nas IAs.",
-          "Falta de leads qualificados.",
-          "Presença digital fraca e site lento.",
-          "Acompanhamento comercial inconsistente."
+          "A loja aparecia pouco no Google e nas respostas das IAs.",
+          "A presença digital era fraca e o site, lento.",
+          "Chegava pouco contato pronto para comprar.",
+          "O retorno a quem chamava não seguia uma rotina."
         ],
-        "nota": "Problemas identificados antes da intervenção, não resultados."
+        "nota": "Problemas vistos antes do projeto, na ordem do caminho do cliente."
       },
       {
         "tipo": "lista",
@@ -175,8 +174,8 @@
         "titulo": "O que a V2O5 montou.",
         "itens": [
           "Site de estoque ligado ao Revenda Mais, com 26 guias publicados.",
-          "O Ney, agente de IA no WhatsApp, que atende e qualifica.",
-          "O lead qualificado entregue ao CRM do Revenda Mais.",
+          "O Ney, agente de IA no WhatsApp, que atende e preenche a ficha.",
+          "O cliente pronto entregue ao CRM do Revenda Mais.",
           "Painel e automações, na mesma base de dados."
         ],
         "nota": "Cada peça é uma das soluções da V2O5."
@@ -188,11 +187,11 @@
         "numeros": [
           {
             "valor": "237",
-            "rotulo": "leads no funil: 131 pelo site e 106 pelo WhatsApp direto"
+            "rotulo": "contatos: 131 pelo site e 106 pelo WhatsApp direto"
           },
           {
             "valor": "113 de 131",
-            "rotulo": "leads do site ligados ao veículo que motivou o contato"
+            "rotulo": "contatos do site ligados ao veículo de interesse"
           }
         ],
         "nota": "Fonte: banco de dados da Motors, lido em 17/11/2026."
@@ -208,7 +207,7 @@
           },
           {
             "valor": "37",
-            "rotulo": "leads qualificados entregues ao CRM do Revenda Mais desde 04/11"
+            "rotulo": "contatos qualificados entregues ao CRM do Revenda Mais desde 04/11"
           }
         ],
         "nota": "Conversas de 21/10 a 17/11/2026; envios ao CRM de 04/11 a 17/11/2026. A resposta humana não é medida."
@@ -222,11 +221,11 @@
           "Passar a conversa a uma pessoa no momento certo.",
           "Registrar cada contato no sistema que você já usa."
         ],
-        "nota": "Contagens, não vendas. O que cabe no seu negócio, o diagnóstico mostra."
+        "nota": "Contagens do sistema, sem número de venda. O que cabe no seu negócio, o diagnóstico mostra."
       },
       {
         "tipo": "cta",
-        "titulo": "Quer ver o que cabe no seu negócio?",
+        "titulo": "Quer o mesmo atendimento no seu negócio?",
         "destaque": "Peça o diagnóstico gratuito.",
         "botao": "Link na bio",
         "rodape": "45 minutos, sem custo e sem compromisso. Case completo em v2o5.com.br/cases/motors-store"

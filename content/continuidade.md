@@ -3,33 +3,33 @@ rota: "/continuidade"
 url: "https://www.v2o5.com.br/continuidade"
 status: 200
 title: "Continuidade: manutenção e monitoramento | V2O5 Vendas e Tecnologia"
-description: "Planos opcionais para manter e evoluir o que foi entregue: Cuidado Técnico, Integrações Monitoradas e Evolução Contínua, com horas e prazos escritos."
+description: "Planos opcionais para manter e melhorar o que foi entregue: Cuidado Técnico, Integrações Monitoradas e Evolução Contínua, com horas e prazos escritos."
 canonical: "https://www.v2o5.com.br/continuidade"
 robots: null
 h1: "Continuidade: o que segue depois da entrega."
-extraido_em: "2026-11-27T12:06:59.650Z"
-fonte: "build local da branch claude/kind-tesla-eefroe em 27/11/2026 (revisão do texto do site no foco em pequenos negócios), antes da publicação"
+extraido_em: "2026-11-27T12:45:09.800Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 27/11/2026 (revisão de português do site), antes da publicação"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 # Continuidade: o que segue depois da entrega.
 
-Planos opcionais para manter funcionando e evoluindo o que foi entregue, com horas e prazo de resposta escritos.
+Planos opcionais para manter funcionando e melhorar o que foi entregue, com horas e prazo de resposta escritos.
 
 [Pedir diagnóstico gratuito](/diagnostico)
 
 [Ver os limites](#titulo-limites)
 
-A implantação termina na entrega. Se o que foi entregue continua rodando, a continuidade cuida dele, com limites que cabem no contrato. Nenhum plano é obrigatório: a necessidade e o escopo decidem.
+A implantação termina na entrega. Se o que foi entregue continua rodando, a continuidade cuida dele, com limites escritos no contrato. Nenhum plano é obrigatório: a necessidade e o escopo decidem.
 
 ## Manutenção técnica
 
-Hospedagem, segurança, backup e suporte para o site ou a página continuarem no ar.
+Hospedagem, segurança, backup e suporte para o site ou a página continuar no ar.
 
 ### Cuidado Técnico
 
 R$ 349/mês
 
-Preço de referência. Opcional, sem obrigação de contratar.
+Preço de referência. Opcional.
 
 Para manter no ar o site ou a página entregue.
 
@@ -47,7 +47,7 @@ Integrações vigiadas, erros registrados e, se quiser, horas reservadas para me
 
 R$ 590/mês
 
-Preço de referência. Opcional, sem obrigação de contratar.
+Preço de referência. Opcional.
 
 Para o atendimento com IA ou o site ligado a outros sistemas.
 
@@ -61,7 +61,7 @@ Para o atendimento com IA ou o site ligado a outros sistemas.
 
 R$ 990/mês
 
-Preço de referência. Opcional, sem obrigação de contratar.
+Preço de referência. Opcional.
 
 Para quem quer melhorar o que foi entregue mês a mês, como as respostas do agente de IA.
 
@@ -78,7 +78,7 @@ As horas de cada plano valem no mês e não acumulam para o seguinte.
 
 Correção ou novidade
 
-Correção é fazer voltar a funcionar o que foi entregue e parou. Nova funcionalidade muda ou acrescenta algo, e é orçada à parte.
+Correção é fazer voltar a funcionar o que foi entregue e parou. Nova funcionalidade muda ou acrescenta algo e é orçada à parte.
 
 Atendimento
 
@@ -86,11 +86,11 @@ Por WhatsApp ou e-mail, em horário comercial, no prazo de resposta de cada plan
 
 Custos por fora
 
-Banco de dados, servidor dedicado, consumo de IA e mensagens vêm pelo valor do provedor, discriminados, com teto mensal combinado e aviso antes de ultrapassá-lo. A V2O5 gerencia. Domínio e e-mail também ficam por fora.
+Banco de dados, servidor dedicado, consumo de IA e mensagens vêm pelo valor do provedor, discriminados, com teto mensal combinado e aviso antes de ultrapassá-lo. A V2O5 cuida dessas contas. Domínio e e-mail também ficam por fora.
 
 Sua parte
 
-Manter em dia os acessos e os pagamentos dos serviços de terceiros e avisar quando mudar o sistema que a solução usa.
+Manter em dia os acessos e os pagamentos dos serviços de terceiros e avisar a V2O5 antes de trocar o sistema que a solução usa.
 
 Saída
 
@@ -114,11 +114,11 @@ A V2O5 avisa antes de passar do limite. O que não cabe nas horas do mês vira o
 
 O que é correção e o que é novidade?
 
-Correção é fazer voltar a funcionar o que foi entregue e parou. Nova funcionalidade muda ou acrescenta algo, e é orçada à parte.
+Correção é fazer voltar a funcionar o que foi entregue e parou. Nova funcionalidade muda ou acrescenta algo e é orçada à parte.
 
 IA, mensagens e servidor estão incluídos?
 
-A hospedagem do site entra no Cuidado Técnico. Banco de dados, servidor dedicado, consumo de IA e mensagens vêm pelo valor do provedor, discriminados, com teto mensal combinado e aviso antes de ultrapassá-lo.
+Não. A hospedagem do site entra no Cuidado Técnico, mas banco de dados, servidor dedicado, consumo de IA e mensagens vêm pelo valor do provedor, discriminados, com teto mensal combinado e aviso antes de ultrapassá-lo.
 
 ## Comece pelo diagnóstico, que é gratuito.
 

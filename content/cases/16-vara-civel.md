@@ -7,8 +7,8 @@ description: "A triagem automatizada do WhatsApp da serventia da 16ª Vara Cíve
 canonical: "https://www.v2o5.com.br/cases/16-vara-civel"
 robots: null
 h1: "16ª Vara Cível: a triagem do WhatsApp da serventia."
-extraido_em: "2026-11-27T12:06:59.650Z"
-fonte: "build local da branch claude/kind-tesla-eefroe em 27/11/2026 (revisão do texto do site no foco em pequenos negócios), antes da publicação"
+extraido_em: "2026-11-27T12:45:09.800Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 27/11/2026 (revisão de português do site), antes da publicação"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 # 16ª Vara Cível: a triagem do WhatsApp da serventia.
@@ -19,7 +19,7 @@ Um WhatsApp para onze setores e o gabinete. A V2O5 desenhou com a serventia a tr
 
 16ª Vara Cível de Curitiba
 
-Serventia da 16ª Vara Cível do Foro Central de Curitiba, serventia judicial do TJPR.
+Serventia da 16ª Vara Cível do Foro Central de Curitiba, vinculada ao TJPR.
 
 Cliente
 
@@ -150,7 +150,7 @@ Depois
 
 ## A conversa chega pronta para a equipe.
 
-Uma triagem por menu, sem resposta jurídica automática, que registra cada pedido no sistema de atendimento com o setor e os dados que o servidor precisa para responder.
+Uma triagem por menu, sem resposta jurídica automática, que registra cada pedido no sistema de atendimento com o setor e os dados de que o servidor precisa para responder.
 
 Atendimento no WhatsApp
 
@@ -174,7 +174,7 @@ Dúvida, intimação e gabinete
 
 ### Cada assunto no seu caminho
 
-A dúvida segue para a área de análises gerais e a intimação, para um atendente. O assunto do gabinete recebe a orientação de contato com o gabinete da magistrada.
+A dúvida segue para a área de análises gerais e a intimação, para um atendente. Quem tem assunto com a magistrada recebe a orientação de contato com o gabinete.
 
 Medido
 
@@ -202,7 +202,7 @@ Sistema de atendimento da serventia, lido em 14/10/2026. Conversas criadas de 07
 - n8n
 - Chatwoot
 
-O projeto é conduzido pelo fundador da V2O5, [Dyones Oliveira](/sobre). É ele quem conduz o diagnóstico gratuito.
+O projeto é liderado pelo fundador da V2O5, [Dyones Oliveira](/sobre). É ele quem conduz o diagnóstico gratuito.
 
 ## Seu WhatsApp recebe de tudo pelo mesmo número?
 

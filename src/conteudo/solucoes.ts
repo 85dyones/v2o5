@@ -114,7 +114,7 @@ export const SOLUCOES: Solucao[] = [
       },
       {
         titulo: "Construção e medição",
-        texto: "O site fica num endereço de teste, com as integrações conferidas e medido no celular antes de publicar.",
+        texto: "O site fica num endereço de teste, é medido no celular e tem as integrações conferidas antes de publicar.",
       },
       {
         titulo: "Publicação",
@@ -126,6 +126,7 @@ export const SOLUCOES: Solucao[] = [
       texto:
         "Site de estoque com vitrine, ficha de veículo, páginas por marca e modelo e seis páginas locais. O estoque entra sozinho do Revenda Mais.",
       numeros: [CASE.numeros[1], CASE.numeros[0]],
+      fonte: "Banco de dados da Motors Store, lido em 17/11/2026.",
     },
     perguntas: [
       {
@@ -144,7 +145,7 @@ export const SOLUCOES: Solucao[] = [
       },
       {
         pergunta: "E depois que o site vai ao ar?",
-        resposta: `A continuidade é opcional. O ${continuidade(0).nome} (${mensalEmTexto(continuidade(0).mensal)}) cuida da hospedagem, do SSL, do backup e de até 1 hora de suporte por mês. Site com integração costuma seguir com as ${continuidade(1).nome} (${mensalEmTexto(continuidade(1).mensal)}).`,
+        resposta: `A continuidade é opcional. O ${continuidade(0).nome} (${mensalEmTexto(continuidade(0).mensal)}) inclui hospedagem, SSL, backup e até 1 hora de suporte por mês. Site com integração costuma seguir com as ${continuidade(1).nome} (${mensalEmTexto(continuidade(1).mensal)}).`,
       },
       {
         pergunta: "O site fica no meu nome?",
@@ -195,7 +196,7 @@ export const SOLUCOES: Solucao[] = [
       {
         titulo: "Pergunta antes de passar",
         texto:
-          "Faz as perguntas que o seu negócio precisa (o que a pessoa procura, para quando, como quer pagar, o bairro) e anota no CRM com a origem do contato.",
+          "Faz as perguntas que importam para o seu negócio (o que a pessoa procura, para quando, como quer pagar, o bairro) e anota no CRM com a origem do contato.",
       },
       {
         titulo: "Agenda e avisa",
@@ -208,7 +209,7 @@ export const SOLUCOES: Solucao[] = [
       },
       {
         titulo: "API oficial do WhatsApp",
-        texto: "Número verificado no nome da empresa, modelo de mensagem aprovado e saída fácil. O custo das mensagens é da Meta e fica discriminado na proposta.",
+        texto: "Número verificado no nome da empresa, modelos de mensagem aprovados e um jeito fácil de o cliente parar de receber. As mensagens são cobradas pela Meta, e o valor fica discriminado na proposta.",
       },
       {
         titulo: "Roteiro ajustado todo mês",
@@ -236,7 +237,7 @@ export const SOLUCOES: Solucao[] = [
     naMotors: {
       titulo: "O Ney, na Motors Store.",
       texto:
-        "O agente de IA da loja responde com o estoque real, preenche a ficha do cliente e passa o cliente pronto ao CRM do Revenda Mais quando ele marca a visita, chega à simulação ou pede uma pessoa.",
+        "O agente de IA da loja responde com o estoque real, preenche a ficha e passa o cliente pronto ao CRM do Revenda Mais quando ele marca a visita, chega à simulação ou pede uma pessoa.",
       numeros: [CASE_MOTORS.atendimento.numeros[1], CASE_MOTORS.atendimento.numeros[2]],
       fonte: CASE_MOTORS.atendimento.fonte,
     },
@@ -253,10 +254,10 @@ export const SOLUCOES: Solucao[] = [
       {
         pergunta: "E se o cliente perguntar algo que a base não tem?",
         resposta:
-          "O agente diz que vai confirmar e chama uma pessoa. Inventar resposta é o que a V2O5 mais evita: ele só afirma o que a base confirma.",
+          "O agente diz que vai verificar e chama uma pessoa. Ele só afirma o que está na base: inventar resposta é o que a V2O5 mais evita.",
       },
       {
-        pergunta: "Funciona no número que a empresa já usa?",
+        pergunta: "Funciona no número que eu já uso?",
         resposta:
           "Sim, pela API oficial do WhatsApp, com o número verificado no nome da empresa. Os testes rodam num número da V2O5 até a equipe aprovar.",
       },
@@ -291,7 +292,7 @@ export const SOLUCOES: Solucao[] = [
     problema: {
       titulo: "A tarefa existe, mas mora na cabeça de uma pessoa.",
       texto:
-        "Avisar que o pedido está pronto, mandar o obrigado, pedir a avaliação no dia seguinte, lembrar quem comprou de voltar. Cada passo é feito à mão, quando dá tempo, e para quando a pessoa sai de férias.",
+        "Avisar que o pedido está pronto, mandar o obrigado, pedir a avaliação no dia seguinte, lembrar quem comprou de voltar. Cada passo é feito à mão, quando dá tempo, e trava quando a pessoa sai de férias.",
     },
     entregas: [
       {
@@ -305,11 +306,11 @@ export const SOLUCOES: Solucao[] = [
       {
         titulo: "IA onde faz diferença",
         texto:
-          "Classificar uma mensagem, resumir uma conversa, escrever um descritivo a partir da ficha. Sempre validado contra invenção de dado.",
+          "Classificar uma mensagem, resumir uma conversa, escrever um descritivo a partir da ficha. O texto da IA é conferido antes de sair, para não inventar dado.",
       },
       {
         titulo: "Alertas para a equipe",
-        texto: "O cliente sem resposta, o orçamento sem retorno, o catálogo que não atualizou: a pessoa certa recebe o aviso no WhatsApp.",
+        texto: "O cliente sem resposta, o orçamento sem retorno, o catálogo que não se atualizou: a pessoa certa recebe o aviso no WhatsApp.",
       },
       {
         titulo: "Registro de cada execução",
@@ -321,7 +322,7 @@ export const SOLUCOES: Solucao[] = [
       },
     ],
     comoFunciona: [
-      { titulo: "A tarefa como é hoje", texto: "Anotamos com quem faz hoje cada passo da tarefa e onde ela costuma travar." },
+      { titulo: "A tarefa como é hoje", texto: "Com quem faz a tarefa hoje, anotamos cada passo e onde ela costuma travar." },
       { titulo: "Fluxo em teste", texto: "O fluxo roda junto com o jeito manual até os dois darem o mesmo resultado." },
       { titulo: "No ar", texto: "Passa a rodar sozinho, com alerta de erro e registro de cada execução." },
       { titulo: "Manutenção", texto: "Ajustes e correções dentro do período e do escopo definidos na proposta." },
@@ -331,13 +332,14 @@ export const SOLUCOES: Solucao[] = [
       texto:
         "Sincronização do estoque com o Revenda Mais, entrada das conversas do WhatsApp pela Evolution API, rodada do atendimento a cada 15 minutos e alerta de falha de integração.",
       numeros: [CASE.numeros[1]],
+      fonte: "Banco de dados da Motors Store, lido em 17/11/2026.",
     },
     naSolucao:
       "A automação entra no Atendimento com IA quando uma tarefa repetida trava o atendimento: avisar a equipe, registrar o contato, atualizar o estoque ou o catálogo do site. A proposta diz quantos fluxos entram e o que cada um faz.",
     perguntas: [
       {
         pergunta: "O que conta como um fluxo?",
-        resposta: `Uma tarefa do começo ao fim. O atendimento concluído na agenda que avisa a equipe, manda ao cliente o horário de retirada e, no dia seguinte, pede a avaliação é um fluxo. A proposta diz quantos fluxos entram.`,
+        resposta: `Uma tarefa do começo ao fim. Por exemplo: quando o atendimento é concluído na agenda, o fluxo avisa a equipe, manda ao cliente o horário de retirada e, no dia seguinte, pede a avaliação. Tudo isso é um fluxo só. A proposta diz quantos fluxos entram.`,
       },
       {
         pergunta: "Preciso trocar o sistema que já uso?",
@@ -374,13 +376,13 @@ export const SOLUCOES: Solucao[] = [
       "Seus clientes num lugar só, com a conversa do WhatsApp e a origem de cada um, para saber quem atender e quem chamar de volta.",
     fatos: [
       { rotulo: "Na solução", valor: "Entra no Atendimento com IA quando os contatos ficam espalhados entre conversas e planilhas" },
-      { rotulo: "O que entra", valor: "Etapas e campos do seu negócio, WhatsApp dentro do CRM, banco próprio, backups e treinamento da equipe, conforme o escopo" },
+      { rotulo: "O que entra", valor: "Etapas e campos do seu negócio, WhatsApp dentro do CRM, banco de dados próprio, backups e treinamento da equipe, conforme o escopo" },
       { rotulo: "Em produção", valor: "Motors Store: o cliente atendido pelo agente de IA chega ao CRM do Revenda Mais com a origem e a ficha" },
     ],
     problema: {
       titulo: "Os clientes moram no celular de quem atende.",
       texto:
-        "Quem já comprou e quem pediu orçamento e sumiu ficam espalhados entre as conversas e uma planilha. Ninguém sabe de onde veio cada cliente nem quem está na hora de voltar, e quando a pessoa troca de celular ou sai, os contatos vão junto. O CRM de prateleira resolve metade e cobra por cabeça.",
+        "Quem já comprou e quem pediu orçamento e sumiu ficam espalhados entre as conversas e uma planilha. Ninguém sabe de onde veio cada cliente nem quem está na hora de voltar, e, quando quem atende troca de celular ou sai, os contatos vão junto. O CRM de prateleira resolve metade e cobra por cabeça.",
     },
     entregas: [
       {
@@ -401,8 +403,8 @@ export const SOLUCOES: Solucao[] = [
           "Os campos são os do seu ramo: o pet e o porte, o procedimento da clínica, o carro da oficina, o veículo de interesse na revenda.",
       },
       {
-        titulo: "Banco próprio e backups",
-        texto: "Os dados ficam num banco só seu, com backup diário e exportação quando pedir.",
+        titulo: "Banco de dados e backups",
+        texto: "Os dados ficam num banco de dados só seu, com backup diário e exportação quando você pedir.",
       },
       {
         titulo: "Quantas pessoas usam",
@@ -413,13 +415,14 @@ export const SOLUCOES: Solucao[] = [
       { titulo: "Diagnóstico", texto: "Como o cliente é atendido hoje, da primeira mensagem à venda, e se ele volta a comprar." },
       { titulo: "Etapas e campos", texto: "Desenhamos as etapas e os campos com você e com quem atende." },
       { titulo: "Importação", texto: "Os contatos que existem, em planilha ou no sistema antigo, entram com origem e etapa." },
-      { titulo: "Treinamento e ajuste", texto: "A equipe é treinada na implantação, e o primeiro mês ajusta o que a rotina pedir." },
+      { titulo: "Treinamento e ajuste", texto: "A equipe é treinada na implantação e, no primeiro mês, a V2O5 ajusta o que a rotina pedir." },
     ],
     naMotors: {
       titulo: "O painel da Motors Store.",
       texto:
         "O cliente que o Ney atende vai ao CRM do Revenda Mais com a origem, o carro e a ficha, e o painel da loja mostra quem está com o agente, quem já foi ao CRM e quem precisa do dono.",
       numeros: [CASE_MOTORS.numeros.itens[0], CASE_MOTORS.atendimento.numeros[2]],
+      fonte: `${CASE.fonte} Envios ao CRM de 04/11 a 17/11/2026.`,
     },
     naSolucao:
       "O CRM entra no Atendimento com IA quando os contatos se perdem entre conversas e planilhas. No Essencial, a lista de contatos com a origem; no Integrado, a ligação com o CRM ou o sistema que a empresa já usa, com as etapas e os campos desenhados com a equipe.",
@@ -435,7 +438,7 @@ export const SOLUCOES: Solucao[] = [
       },
       {
         pergunta: "E se eu sair?",
-        resposta: "Os dados ficam num banco do seu negócio, com exportação quando você pedir. Os termos de saída e de continuidade ficam no contrato.",
+        resposta: "Os dados ficam num banco de dados do seu negócio, com exportação quando você pedir. Os termos de saída e de continuidade ficam no contrato.",
       },
       {
         pergunta: "Serve para o meu tipo de negócio?",
@@ -532,7 +535,7 @@ export const SOLUCOES: Solucao[] = [
           "No kit da Presença Estruturada, quatro peças e uma campanha por mês. Nenhum pacote tem publicação ilimitada.",
       },
       {
-        pergunta: "Vocês respondem os comentários e as mensagens?",
+        pergunta: "Vocês respondem aos comentários e às mensagens?",
         resposta:
           "A resposta a comentários e mensagens fica com a sua equipe. A V2O5 organiza os canais. Para o WhatsApp responder sozinho, existe o Atendimento com IA.",
       },

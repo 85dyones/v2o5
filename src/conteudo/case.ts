@@ -43,17 +43,17 @@ export const CASE_MOTORS = {
     texto: "O que a loja tinha de problema antes do projeto, na ordem do caminho do cliente: da busca ao atendimento.",
     itens: [
       "A loja aparecia pouco no Google e nas respostas das IAs.",
+      "A presença digital era fraca.",
+      "O design do site era ruim.",
+      "O site era lento.",
       "Chegava pouco contato pronto para comprar.",
-      "Presença digital fraca.",
-      "Design do site ruim.",
-      "Site lento.",
       "O retorno a quem chamava não seguia uma rotina.",
     ],
   },
   construido: {
     sobretitulo: "Depois: implementado",
     titulo: "O que a V2O5 montou.",
-    texto: "As peças que a V2O5 montou, ligadas pela mesma base de dados: o que entra por uma aparece nas outras.",
+    texto: "Todas ligadas pela mesma base de dados: o que entra por uma peça aparece nas outras.",
     pecas: [
       {
         linha: "Sites e presença",
@@ -211,7 +211,7 @@ export const CASE_16VC = {
     completo: "Serventia da 16ª Vara Cível do Foro Central de Curitiba",
     cidade: "Curitiba",
     estado: "PR",
-    ramo: "serventia judicial do TJPR",
+    ramo: "vinculada ao TJPR",
     /** Texto alternativo da marca do tribunal na ficha do cliente. */
     marca: "Tribunal de Justiça do Estado do Paraná",
   },
@@ -318,7 +318,7 @@ export const CASE_16VC = {
     sobretitulo: "Depois",
     titulo: "A conversa chega pronta para a equipe.",
     texto:
-      "Uma triagem por menu, sem resposta jurídica automática, que registra cada pedido no sistema de atendimento com o setor e os dados que o servidor precisa para responder.",
+      "Uma triagem por menu, sem resposta jurídica automática, que registra cada pedido no sistema de atendimento com o setor e os dados de que o servidor precisa para responder.",
     pecas: [
       {
         linha: "Atendimento no WhatsApp",
@@ -341,7 +341,7 @@ export const CASE_16VC = {
         linha: "Dúvida, intimação e gabinete",
         titulo: "Cada assunto no seu caminho",
         texto:
-          "A dúvida segue para a área de análises gerais e a intimação, para um atendente. O assunto do gabinete recebe a orientação de contato com o gabinete da magistrada.",
+          "A dúvida segue para a área de análises gerais e a intimação, para um atendente. Quem tem assunto com a magistrada recebe a orientação de contato com o gabinete.",
       },
     ],
   },
@@ -372,7 +372,7 @@ export const CASE_16VC = {
     titulo: "Com o que foi feito",
     itens: ["WhatsApp", "Evolution API", "Typebot", "n8n", "Chatwoot"],
   },
-  assinatura: "O projeto é conduzido pelo fundador da V2O5, Dyones Oliveira. É ele quem conduz o diagnóstico gratuito.",
+  assinatura: "O projeto é liderado pelo fundador da V2O5, Dyones Oliveira. É ele quem conduz o diagnóstico gratuito.",
   chamada: {
     titulo: "Seu WhatsApp recebe de tudo pelo mesmo número?",
     texto:

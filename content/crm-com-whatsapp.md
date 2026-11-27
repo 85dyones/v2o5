@@ -7,8 +7,8 @@ description: "CRM simples com o WhatsApp dentro: cada cliente com a conversa e a
 canonical: "https://www.v2o5.com.br/crm-com-whatsapp"
 robots: null
 h1: "CRM com WhatsApp integrado e IA."
-extraido_em: "2026-11-27T12:06:59.650Z"
-fonte: "build local da branch claude/kind-tesla-eefroe em 27/11/2026 (revisão do texto do site no foco em pequenos negócios), antes da publicação"
+extraido_em: "2026-11-27T12:45:09.800Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 27/11/2026 (revisão de português do site), antes da publicação"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 # CRM com WhatsApp integrado e IA.
@@ -25,7 +25,7 @@ Entra no Atendimento com IA quando os contatos ficam espalhados entre conversas 
 
 O que entra
 
-Etapas e campos do seu negócio, WhatsApp dentro do CRM, banco próprio, backups e treinamento da equipe, conforme o escopo
+Etapas e campos do seu negócio, WhatsApp dentro do CRM, banco de dados próprio, backups e treinamento da equipe, conforme o escopo
 
 Em produção
 
@@ -33,7 +33,7 @@ Motors Store: o cliente atendido pelo agente de IA chega ao CRM do Revenda Mais 
 
 ## Os clientes moram no celular de quem atende.
 
-Quem já comprou e quem pediu orçamento e sumiu ficam espalhados entre as conversas e uma planilha. Ninguém sabe de onde veio cada cliente nem quem está na hora de voltar, e quando a pessoa troca de celular ou sai, os contatos vão junto. O CRM de prateleira resolve metade e cobra por cabeça.
+Quem já comprou e quem pediu orçamento e sumiu ficam espalhados entre as conversas e uma planilha. Ninguém sabe de onde veio cada cliente nem quem está na hora de voltar, e, quando quem atende troca de celular ou sai, os contatos vão junto. O CRM de prateleira resolve metade e cobra por cabeça.
 
 Organizar
 
@@ -79,9 +79,9 @@ Cliente esperando resposta, horário marcado, orçamento sem retorno: quem cuida
 
 Os campos são os do seu ramo: o pet e o porte, o procedimento da clínica, o carro da oficina, o veículo de interesse na revenda.
 
-### Banco próprio e backups
+### Banco de dados e backups
 
-Os dados ficam num banco só seu, com backup diário e exportação quando pedir.
+Os dados ficam num banco de dados só seu, com backup diário e exportação quando você pedir.
 
 ### Quantas pessoas usam
 
@@ -113,7 +113,7 @@ Os contatos que existem, em planilha ou no sistema antigo, entram com origem e e
 
 Treinamento e ajuste
 
-A equipe é treinada na implantação, e o primeiro mês ajusta o que a rotina pedir.
+A equipe é treinada na implantação e, no primeiro mês, a V2O5 ajusta o que a rotina pedir.
 
 ## O painel da Motors Store.
 
@@ -127,7 +127,7 @@ leads qualificados pelo Ney entregues ao CRM do Revenda Mais desde 04/11
 
 37
 
-Banco de dados da Motors Store, lido em 17/11/2026. Leads contados de 05/09 a 17/11/2026.
+Banco de dados da Motors Store, lido em 17/11/2026. Leads contados de 05/09 a 17/11/2026. Envios ao CRM de 04/11 a 17/11/2026.
 
 [Ler o case completo](/cases/motors-store)
 
@@ -143,9 +143,9 @@ Sai da proposta do Atendimento com IA, depois de conhecer o atendimento de hoje,
 
 O diagnóstico inicial, de 45 minutos, é gratuito.
 
-## O que perguntam sobre CRM com WhatsApp antes de fechar.
+## O que perguntam sobre o CRM com WhatsApp antes de fechar.
 
-O que entra, onde encaixa no Atendimento com IA e o que fica de fora. O resto cabe no diagnóstico.
+O que entra, onde se encaixa no Atendimento com IA e o que fica de fora. O resto cabe no diagnóstico.
 
 Posso integrar com o sistema que já uso?
 
@@ -157,7 +157,7 @@ Sim. As conversas ficam junto de cada cliente, com o histórico, pela API oficia
 
 E se eu sair?
 
-Os dados ficam num banco do seu negócio, com exportação quando você pedir. Os termos de saída e de continuidade ficam no contrato.
+Os dados ficam num banco de dados do seu negócio, com exportação quando você pedir. Os termos de saída e de continuidade ficam no contrato.
 
 Serve para o meu tipo de negócio?
 

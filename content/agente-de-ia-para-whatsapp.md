@@ -7,8 +7,8 @@ description: "Chatbot com IA no WhatsApp: um agente que responde na hora com as 
 canonical: "https://www.v2o5.com.br/agente-de-ia-para-whatsapp"
 robots: null
 h1: "Agente de IA para WhatsApp que responde na hora e chama a pessoa certa."
-extraido_em: "2026-11-27T12:10:08.884Z"
-fonte: "build local da branch claude/kind-tesla-eefroe em 27/11/2026 (revisão do texto do site no foco em pequenos negócios), antes da publicação"
+extraido_em: "2026-11-27T12:45:09.800Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 27/11/2026 (revisão de português do site), antes da publicação"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 # Agente de IA para WhatsApp que responde na hora e chama a pessoa certa.
@@ -21,7 +21,7 @@ WhatsApp organizado e um agente de IA que responde na hora. Quando a conversa pe
 
 Resolve
 
-Quando o cliente chama no WhatsApp e espera, se perde entre as conversas ou some sem que ninguém retome.
+Quando o cliente chama no WhatsApp e fica esperando, ou a conversa se perde e ninguém chama de volta.
 
 Preço de entrada
 
@@ -47,7 +47,7 @@ Base de conhecimento com produtos, serviços, horários, condições e perguntas
 
 ### Pergunta antes de passar
 
-Faz as perguntas que o seu negócio precisa (o que a pessoa procura, para quando, como quer pagar, o bairro) e anota no CRM com a origem do contato.
+Faz as perguntas que importam para o seu negócio (o que a pessoa procura, para quando, como quer pagar, o bairro) e anota no CRM com a origem do contato.
 
 ### Agenda e avisa
 
@@ -59,7 +59,7 @@ Quando a conversa pede alguém, o agente chama a pessoa certa da equipe com o hi
 
 ### API oficial do WhatsApp
 
-Número verificado no nome da empresa, modelo de mensagem aprovado e saída fácil. O custo das mensagens é da Meta e fica discriminado na proposta.
+Número verificado no nome da empresa, modelos de mensagem aprovados e um jeito fácil de o cliente parar de receber. As mensagens são cobradas pela Meta, e o valor fica discriminado na proposta.
 
 ### Roteiro ajustado todo mês
 
@@ -105,7 +105,7 @@ Contato de volta
 
 Repetir a demonstração
 
-Uma mensagem chega no WhatsApp do pet shop às 21h e é respondida na hora.
+Uma mensagem chega ao WhatsApp do pet shop às 21h e é respondida na hora.
 
 Cliente 21:14
 
@@ -148,7 +148,7 @@ Responsável
 
 ## O Ney, na Motors Store.
 
-O agente de IA da loja responde com o estoque real, preenche a ficha do cliente e passa o cliente pronto ao CRM do Revenda Mais quando ele marca a visita, chega à simulação ou pede uma pessoa.
+O agente de IA da loja responde com o estoque real, preenche a ficha e passa o cliente pronto ao CRM do Revenda Mais quando ele marca a visita, chega à simulação ou pede uma pessoa.
 
 primeiras mensagens respondidas pelo Ney em até um minuto, com mediana de 38 segundos
 
@@ -177,7 +177,7 @@ Preço de referência da implantação.
 Para o negócio que atende pelo WhatsApp e perde cliente na demora ou na confusão das conversas.
 
 - WhatsApp organizado numa caixa de atendimento, com etiquetas e respostas prontas
-- Agente de IA que responde as dúvidas frequentes a qualquer hora, só com o que a empresa aprovou
+- Agente de IA que responde às dúvidas frequentes a qualquer hora, só com o que a empresa aprovou
 - Passagem para a pessoa certa da equipe, com o resumo da conversa
 - Lista de contatos com a origem de cada um
 - Treinamento da equipe e uma rodada de ajustes com as conversas reais
@@ -210,7 +210,7 @@ Para quem quer o agente fazendo as perguntas do seu negócio e levando cada cont
 
 - O agente responde só com o que a empresa aprovou e chama uma pessoa quando não sabe ou quando o cliente pede.
 - Integração só entra na proposta depois de verificar documentação, credenciais, limites e custos do sistema.
-- IA e mensagens vêm pelo valor do provedor, discriminados, com teto mensal combinado e aviso antes de ultrapassá-lo. A V2O5 gerencia.
+- IA e mensagens vêm pelo valor do provedor, discriminadas, com teto mensal combinado e aviso antes de ultrapassá-lo. A V2O5 cuida dessas contas.
 
 O atendimento costuma seguir com as Integrações Monitoradas. Quem quer melhorar o agente mês a mês segue com a Evolução Contínua. [Ver a continuidade](/continuidade).
 
@@ -218,7 +218,7 @@ O atendimento costuma seguir com as Integrações Monitoradas. Quem quer melhora
 
 [Ver todos os preços](/precos)
 
-## O que perguntam sobre Atendimento com IA antes de fechar.
+## O que perguntam sobre o Atendimento com IA antes de fechar.
 
 O que entra, quanto custa e o que fica de fora. O resto cabe no diagnóstico.
 
@@ -232,9 +232,9 @@ Responde na hora com as informações do seu negócio e, quando a conversa pede 
 
 E se o cliente perguntar algo que a base não tem?
 
-O agente diz que vai confirmar e chama uma pessoa. Inventar resposta é o que a V2O5 mais evita: ele só afirma o que a base confirma.
+O agente diz que vai verificar e chama uma pessoa. Ele só afirma o que está na base: inventar resposta é o que a V2O5 mais evita.
 
-Funciona no número que a empresa já usa?
+Funciona no número que eu já uso?
 
 Sim, pela API oficial do WhatsApp, com o número verificado no nome da empresa. Os testes rodam num número da V2O5 até a equipe aprovar.
 

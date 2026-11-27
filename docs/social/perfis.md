@@ -39,9 +39,9 @@ O endereço do LinkedIn precisa continuar `v2o5-consutoria` (é o que está no `
 - **Setor:** Serviços e consultoria de TI (ou manter Tecnologia, informação e internet)
 - **Botão:** "Fale conosco" para https://www.v2o5.com.br/diagnostico
 - **Sobre:**
-  > A V2O5 digitaliza pequenos negócios. Colocamos a empresa no mapa, com perfil no Google, redes e site, e organizamos o atendimento pelo WhatsApp, com agente de IA e integração com o sistema que a empresa já usa. Começa por um diagnóstico gratuito de 45 minutos com o fundador.
+  > A V2O5 digitaliza pequenos negócios. Colocamos a empresa no mapa, com perfil no Google, redes e site, e organizamos o atendimento pelo WhatsApp, com agente de IA e integração com o sistema que a empresa já usa. Tudo começa por um diagnóstico gratuito de 45 minutos com o fundador.
   >
-  > Cada solução tem escopo fechado e preço de referência público em v2o5.com.br/precos. O método roda em produção na Motors Store, revenda de seminovos, e na triagem do WhatsApp da 16ª Vara Cível, as duas em Curitiba. Atendimento on-line em todo o Brasil.
+  > Cada solução tem escopo fechado e preço de referência público em v2o5.com.br/precos. O método já funciona na Motors Store, revenda de seminovos, e na triagem do WhatsApp da 16ª Vara Cível, as duas em Curitiba. Atendimento on-line em todo o Brasil.
 - **Especialidades:** Presença digital local, Perfil da Empresa no Google, Criação de sites, Sites e integrações, Atendimento com IA, Agente de IA para WhatsApp, CRM com WhatsApp
 - **Logo:** `design/marca/bloco-1080.png`. **Banner** 1128 x 191 px: `design/marca/redes/linkedin-banner-empresa-1128x191.png`.
 - **Primeira publicação (apresentação):** o que a V2O5 faz, como o diagnóstico funciona e o link. Sem número que não seja do case.
@@ -72,8 +72,8 @@ Eu não consigo criar a página. Passo a passo (Meta Business Suite ou facebook.
 - **Nome:** V2O5 Vendas e Tecnologia
 - **Nome de usuário:** `v2o5vendasetecnologia` (se estiver ocupado, `v2o5consultoria`)
 - **Categoria:** Consultoria empresarial
-- **Sobre (209 caracteres, o limite da bio é maior no campo Descrição):**
-  > Digitalização para pequenos negócios. A V2O5 coloca o negócio no mapa e organiza o atendimento pelo WhatsApp, com site, agente de IA e integração. Diagnóstico gratuito de 45 minutos, on-line, em todo o Brasil.
+- **Sobre (217 caracteres, o limite da bio é maior no campo Descrição):**
+  > Digitalização para pequenos negócios. A V2O5 coloca o negócio no mapa, com Google, redes e site, e organiza o atendimento pelo WhatsApp, com agente de IA. Diagnóstico gratuito de 45 minutos, on-line, em todo o Brasil.
 - **Contato:** WhatsApp (41) 99808-9550, diagnostico@v2o5.com.br, site https://www.v2o5.com.br
 - **Endereço:** não preencher (negócio on-line). Horário: o mesmo do atendimento.
 - **Botão de ação:** "Enviar mensagem" pelo WhatsApp, ou "Agendar" para /diagnostico.
@@ -82,8 +82,8 @@ Eu não consigo criar a página. Passo a passo (Meta Business Suite ou facebook.
 
 ## Perfil da Empresa no Google (precisa da sua confirmação para eu alterar)
 
-Texto novo para o campo "Descrição" (512 caracteres, dentro do limite de 750; revisto em 25/11/2026):
-> A V2O5 Vendas e Tecnologia digitaliza pequenos negócios de todo o Brasil, com atendimento on-line. Coloca a empresa no mapa, com perfil no Google, redes e site, e organiza o atendimento pelo WhatsApp, com agente de IA e integração com o sistema que a empresa já usa. Começa por um diagnóstico gratuito de 45 minutos. Cada solução tem escopo fechado e preço de referência público. O método já roda em produção na Motors Store, revenda de seminovos, e na triagem do WhatsApp da 16ª Vara Cível, as duas em Curitiba.
+Texto novo para o campo "Descrição" (493 caracteres, dentro do limite de 750; revisto em 25/11/2026 e em 27/11/2026):
+> A V2O5 Vendas e Tecnologia digitaliza pequenos negócios de todo o Brasil, on-line. Coloca a empresa no mapa, com perfil no Google, redes e site, e organiza o atendimento pelo WhatsApp, com agente de IA e integração com o sistema que a empresa já usa. Tudo começa por um diagnóstico gratuito de 45 minutos. Cada solução tem escopo fechado e preço de referência público. O método já funciona na Motors Store, revenda de seminovos, e na triagem do WhatsApp da 16ª Vara Cível, as duas em Curitiba.
 
 - **Área de atendimento:** Brasil (negócio sem atendimento no local). Endereço de rua oculto.
 - **Verificação:** continua pendente; sem ela o resto não aparece.

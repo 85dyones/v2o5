@@ -135,7 +135,7 @@ describe("os dois grupos do catálogo, na ordem do H1: colocar no mapa e cuidar 
     expect(perguntas).not.toContain("Tem cobrança por usuário?");
     expect(perguntas).not.toContain("Os preços sobem com o dólar?");
     const custo = PERGUNTAS.find((p) => p.pergunta === "Quanto custa?")?.resposta ?? "";
-    for (const o of OFERTAS) expect(custo).toContain(`${o.nome} a partir de ${BRL(precoDeEntrada(o))}`);
+    for (const o of OFERTAS) expect(custo).toContain(`${o.nome}, a partir de ${BRL(precoDeEntrada(o))}`);
     expect(custo).toContain(mensalEmTexto(continuidadeAPartirDe()));
     expect(PERGUNTAS.find((p) => p.pergunta === "Preciso contratar tudo?")?.resposta).toMatch(/^Não\./);
   });

@@ -7,8 +7,8 @@ description: "O aviso e o pedido de avaliação que alguém manda à mão passam
 canonical: "https://www.v2o5.com.br/automacao-com-ia"
 robots: null
 h1: "Automação com IA para as tarefas repetidas do seu negócio."
-extraido_em: "2026-11-27T12:06:59.650Z"
-fonte: "build local da branch claude/kind-tesla-eefroe em 27/11/2026 (revisão do texto do site no foco em pequenos negócios), antes da publicação"
+extraido_em: "2026-11-27T12:45:09.800Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 27/11/2026 (revisão de português do site), antes da publicação"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 # Automação com IA para as tarefas repetidas do seu negócio.
@@ -33,7 +33,7 @@ Motors Store: 148 veículos sincronizados com o Revenda Mais
 
 ## A tarefa existe, mas mora na cabeça de uma pessoa.
 
-Avisar que o pedido está pronto, mandar o obrigado, pedir a avaliação no dia seguinte, lembrar quem comprou de voltar. Cada passo é feito à mão, quando dá tempo, e para quando a pessoa sai de férias.
+Avisar que o pedido está pronto, mandar o obrigado, pedir a avaliação no dia seguinte, lembrar quem comprou de voltar. Cada passo é feito à mão, quando dá tempo, e trava quando a pessoa sai de férias.
 
 Organizar
 
@@ -49,11 +49,11 @@ WhatsApp, planilha, agenda, e-mail, o CRM e o sistema de gestão que você já u
 
 ### IA onde faz diferença
 
-Classificar uma mensagem, resumir uma conversa, escrever um descritivo a partir da ficha. Sempre validado contra invenção de dado.
+Classificar uma mensagem, resumir uma conversa, escrever um descritivo a partir da ficha. O texto da IA é conferido antes de sair, para não inventar dado.
 
 ### Alertas para a equipe
 
-O cliente sem resposta, o orçamento sem retorno, o catálogo que não atualizou: a pessoa certa recebe o aviso no WhatsApp.
+O cliente sem resposta, o orçamento sem retorno, o catálogo que não se atualizou: a pessoa certa recebe o aviso no WhatsApp.
 
 ### Registro de cada execução
 
@@ -71,7 +71,7 @@ Começa pelo diagnóstico gratuito, com o escopo fechado antes da implantação.
 
 A tarefa como é hoje
 
-Anotamos com quem faz hoje cada passo da tarefa e onde ela costuma travar.
+Com quem faz a tarefa hoje, anotamos cada passo e onde ela costuma travar.
 
 02
 
@@ -99,7 +99,7 @@ veículos sincronizados com o estoque do Revenda Mais
 
 148
 
-Banco de dados da Motors Store, lido em 17/11/2026. Leads contados de 05/09 a 17/11/2026.
+Banco de dados da Motors Store, lido em 17/11/2026.
 
 [Ler o case completo](/cases/motors-store)
 
@@ -115,13 +115,13 @@ Sai da proposta do Atendimento com IA, depois de conhecer o atendimento de hoje,
 
 O diagnóstico inicial, de 45 minutos, é gratuito.
 
-## O que perguntam sobre automação de tarefas antes de fechar.
+## O que perguntam sobre a automação de tarefas antes de fechar.
 
-O que entra, onde encaixa no Atendimento com IA e o que fica de fora. O resto cabe no diagnóstico.
+O que entra, onde se encaixa no Atendimento com IA e o que fica de fora. O resto cabe no diagnóstico.
 
 O que conta como um fluxo?
 
-Uma tarefa do começo ao fim. O atendimento concluído na agenda que avisa a equipe, manda ao cliente o horário de retirada e, no dia seguinte, pede a avaliação é um fluxo. A proposta diz quantos fluxos entram.
+Uma tarefa do começo ao fim. Por exemplo: quando o atendimento é concluído na agenda, o fluxo avisa a equipe, manda ao cliente o horário de retirada e, no dia seguinte, pede a avaliação. Tudo isso é um fluxo só. A proposta diz quantos fluxos entram.
 
 Preciso trocar o sistema que já uso?
 

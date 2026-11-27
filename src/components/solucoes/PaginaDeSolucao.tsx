@@ -55,11 +55,11 @@ export default function PaginaDeSolucao({ rota, demonstracao }: { rota: string; 
         <Perguntas
           lista={s.perguntas}
           sobretitulo="Antes de contratar"
-          titulo={`O que perguntam sobre ${s.oferta ? nomeDaLinha : comecoMinusculo(nomeDaLinha)}`}
+          titulo={`O que perguntam sobre ${ARTIGO[s.linha] ?? ""}${s.oferta ? nomeDaLinha : comecoMinusculo(nomeDaLinha)}`}
           texto={
             s.oferta
               ? "O que entra, quanto custa e o que fica de fora. O resto cabe no diagnóstico."
-              : `O que entra, onde encaixa no ${ofertaDa("atendimento").nome} e o que fica de fora. O resto cabe no diagnóstico.`
+              : `O que entra, onde se encaixa no ${ofertaDa("atendimento").nome} e o que fica de fora. O resto cabe no diagnóstico.`
           }
         />
         <Relacionadas linhas={relacionadas} titulo={s.oferta ? "Recursos que combinam com esta solução." : undefined} />
@@ -72,6 +72,9 @@ export default function PaginaDeSolucao({ rota, demonstracao }: { rota: string; 
     </>
   );
 }
+
+/** O artigo antes do nome no título das perguntas ("sobre o Atendimento com IA"); Sites & Integrações fica sem. */
+const ARTIGO: Record<string, string> = { presenca: "a ", atendimento: "o ", crm: "o ", automacao: "a " };
 
 /**
  * O nome do recurso no meio da frase: só a primeira letra desce, e a sigla

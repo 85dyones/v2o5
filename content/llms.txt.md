@@ -3,8 +3,8 @@ rota: "/llms.txt"
 url: "https://www.v2o5.com.br/llms.txt"
 status: 200
 content_type: "text/plain; charset=utf-8"
-extraido_em: "2026-11-27T12:10:08.884Z"
-fonte: "build local da branch claude/kind-tesla-eefroe em 27/11/2026 (revisão do texto do site no foco em pequenos negócios), antes da publicação"
+extraido_em: "2026-11-27T12:45:09.800Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 27/11/2026 (revisão de português do site), antes da publicação"
 ---
 
 <!-- Corpo de /llms.txt exatamente como servido (gerado por src/app/llms.txt/route.ts). -->
@@ -23,7 +23,7 @@ Fundador: Dyones Oliveira. Formado em Administração pela FAE Business School, 
 A V2O5 vende três soluções, cada uma com pacotes de escopo claro, e a continuidade, opcional. São preços de referência para começar a conversa. O valor fechado sai em proposta e vale para um escopo conhecido. Cada pacote diz o que inclui e o que fica de fora. Nenhum tem escopo ilimitado. Custos de terceiros, como domínio, licenças, APIs, IA e mensagens do WhatsApp, ficam por fora e aparecem discriminados na proposta. Nenhuma solução obriga a comprar outra, e a continuidade é opcional. Aumento de vendas não é prometido. O que se mede é combinado antes de começar, com uma linha de base. O diagnóstico inicial, de 45 minutos, é gratuito e serve para escolher a solução que cabe no problema.
 
 ### [Presença Digital Local](https://www.v2o5.com.br/presenca-digital-local)
-Quando o cliente procura e encontra informação errada, perfil parado ou nenhum jeito fácil de chamar. Perfil no Google, redes e WhatsApp organizados, com pedido de avaliação, modelos de conteúdo e, se quiser, a rotina mensal.
+Quando o cliente procura o seu negócio e acha informação errada, perfil parado ou não acha como chamar. Perfil no Google, redes e WhatsApp organizados, com pedido de avaliação, modelos de conteúdo e, se quiser, a rotina mensal.
 - Presença Essencial: R$ 790; mensalidade opcional de R$ 390/mês (Suporte e até quatro pequenas atualizações por mês nos canais: horário, contato, foto ou informação.). Para o negócio local que precisa ser encontrado com as informações certas.
 - Presença Estruturada: R$ 1.490; mensalidade opcional de R$ 490/mês (Kit mensal com quatro peças de conteúdo e uma campanha, prontas para publicar.). Para quem quer usar os canais para vender, com calendário e campanhas.
 Fora dos pacotes: Verba de anúncios; Gravação presencial de fotos e vídeos; Resposta a comentários e mensagens; Ferramentas pagas e serviços externos sem contratação específica; Publicações ilimitadas.
@@ -36,21 +36,21 @@ Quando o negócio depende só de rede social ou de portal, ou tem um site que n�
 Fora dos pacotes: Domínio, e-mail, APIs pagas e licenças de terceiros; Mídia paga; Loja virtual com pagamento; Fotos e vídeos; Integrações novas depois da entrega.
 
 ### [Atendimento com IA](https://www.v2o5.com.br/agente-de-ia-para-whatsapp)
-Quando o cliente chama no WhatsApp e espera, se perde entre as conversas ou some sem que ninguém retome. WhatsApp organizado, um agente de IA que responde na hora e passa a conversa à pessoa certa e, no Integrado, o contato de volta com quem já comprou.
+Quando o cliente chama no WhatsApp e fica esperando, ou a conversa se perde e ninguém chama de volta. WhatsApp organizado e um agente de IA que responde na hora e passa a conversa à pessoa certa. No Integrado, entra também o contato de volta com quem já comprou.
 - Atendimento Essencial: a partir de R$ 3.900. Para o negócio que atende pelo WhatsApp e perde cliente na demora ou na confusão das conversas.
 - Atendimento Integrado: a partir de R$ 6.900. Para quem quer o agente fazendo as perguntas do seu negócio e levando cada contato ao sistema que já usa.
 Fora dos pacotes: Consumo de IA e mensagens do WhatsApp, pelo valor do provedor; Resposta da equipe: o agente passa a conversa, e a sua equipe atende; Respostas sobre o que a empresa não aprovou; Mensagem em massa para quem não consentiu; Integrações novas depois da entrega.
 
 ### [Continuidade](https://www.v2o5.com.br/continuidade)
-A implantação termina na entrega. Se o que foi entregue continua rodando, a continuidade cuida dele, com limites que cabem no contrato. Nenhum plano é obrigatório: a necessidade e o escopo decidem.
+A implantação termina na entrega. Se o que foi entregue continua rodando, a continuidade cuida dele, com limites escritos no contrato. Nenhum plano é obrigatório: a necessidade e o escopo decidem.
 - Cuidado Técnico: R$ 349/mês. Para manter no ar o site ou a página entregue. Hospedagem gerenciada e certificado SSL; Backup do código e do conteúdo, com restauração da última versão publicada; Monitoramento de disponibilidade do site e do formulário; Até 1 hora de suporte técnico por mês: correções e pequenas trocas de texto ou imagem; Resposta em até 2 dias úteis, por WhatsApp ou e-mail, em horário comercial.
 - Integrações Monitoradas: R$ 590/mês. Para o atendimento com IA ou o site ligado a outros sistemas. Tudo do Cuidado Técnico; Monitoramento das integrações entregues: estoque, envio de contatos e automações; Registro de erros e aviso quando algo para; Correção de falhas nas integrações entregues; Até 2 horas de suporte técnico por mês, com resposta a falha de integração em até 1 dia útil.
 - Evolução Contínua: R$ 990/mês. Para quem quer melhorar o que foi entregue mês a mês, como as respostas do agente de IA. Tudo das Integrações Monitoradas; Uma conversa mensal de 30 minutos para priorizar as melhorias; Até 2 horas por mês reservadas para pequenas intervenções, além do suporte; Registro do que mudou e da próxima prioridade.
 - As horas: As horas de cada plano valem no mês e não acumulam para o seguinte.
-- Correção ou novidade: Correção é fazer voltar a funcionar o que foi entregue e parou. Nova funcionalidade muda ou acrescenta algo, e é orçada à parte.
+- Correção ou novidade: Correção é fazer voltar a funcionar o que foi entregue e parou. Nova funcionalidade muda ou acrescenta algo e é orçada à parte.
 - Atendimento: Por WhatsApp ou e-mail, em horário comercial, no prazo de resposta de cada plano. Sem plantão fora desse horário.
-- Custos por fora: Banco de dados, servidor dedicado, consumo de IA e mensagens vêm pelo valor do provedor, discriminados, com teto mensal combinado e aviso antes de ultrapassá-lo. A V2O5 gerencia. Domínio e e-mail também ficam por fora.
-- Sua parte: Manter em dia os acessos e os pagamentos dos serviços de terceiros e avisar quando mudar o sistema que a solução usa.
+- Custos por fora: Banco de dados, servidor dedicado, consumo de IA e mensagens vêm pelo valor do provedor, discriminados, com teto mensal combinado e aviso antes de ultrapassá-lo. A V2O5 cuida dessas contas. Domínio e e-mail também ficam por fora.
+- Sua parte: Manter em dia os acessos e os pagamentos dos serviços de terceiros e avisar a V2O5 antes de trocar o sistema que a solução usa.
 - Saída: Com aviso prévio, a V2O5 entrega o código, os dados e os acessos nos termos do contrato.
 
 ## Recursos que um projeto pode usar
@@ -84,7 +84,7 @@ Atendimento com IA na loja: o Ney, agente de IA da Motors Store no WhatsApp. Ban
 - 37 leads qualificados pelo Ney entregues ao CRM do Revenda Mais desde 04/11.
 
 ## Case 16ª Vara Cível
-Um WhatsApp para onze setores e o gabinete. A V2O5 desenhou com a serventia a triagem que separa cada pedido antes de ele chegar à equipe. Uma triagem por menu, sem resposta jurídica automática, que registra cada pedido no sistema de atendimento com o setor e os dados que o servidor precisa para responder. Em uso desde outubro de 2025. Sistema de atendimento da serventia, lido em 14/10/2026. Conversas criadas de 07/01 a 13/10/2026; só contagens, sem dado pessoal. [Case completo](https://www.v2o5.com.br/cases/16-vara-civel).
+Um WhatsApp para onze setores e o gabinete. A V2O5 desenhou com a serventia a triagem que separa cada pedido antes de ele chegar à equipe. Uma triagem por menu, sem resposta jurídica automática, que registra cada pedido no sistema de atendimento com o setor e os dados de que o servidor precisa para responder. Em uso desde outubro de 2025. Sistema de atendimento da serventia, lido em 14/10/2026. Conversas criadas de 07/01 a 13/10/2026; só contagens, sem dado pessoal. [Case completo](https://www.v2o5.com.br/cases/16-vara-civel).
 - 950 conversas no WhatsApp da serventia de 07/01 a 13/10/2026.
 - 345 pedidos com os dados completos do fluxo: 128 consultas de processo, 110 dúvidas, 59 intimações e 48 assuntos do gabinete.
 - 118 pedidos encaminhados direto a um de oito setores específicos, de petições e alvarás a audiências e decurso de prazo.

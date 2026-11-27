@@ -7,8 +7,8 @@ description: "Quais dados a V2O5 Vendas e Tecnologia coleta neste site, para qu�
 canonical: "https://www.v2o5.com.br/privacidade"
 robots: null
 h1: "Política de privacidade"
-extraido_em: "2026-11-27T12:06:59.650Z"
-fonte: "build local da branch claude/kind-tesla-eefroe em 27/11/2026 (revisão do texto do site no foco em pequenos negócios), antes da publicação"
+extraido_em: "2026-11-27T12:45:09.800Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 27/11/2026 (revisão de português do site), antes da publicação"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 Privacidade e LGPD
@@ -41,13 +41,13 @@ Esta página explica quais dados a V2O5 Vendas e Tecnologia coleta quando você 
 
 ## Quem responde pelos seus dados
 
-A controladora dos dados pessoais tratados neste site é a V2O5 Tecnologia da Informação Ltda (nome fantasia V2O5 Vendas e Tecnologia), CNPJ 68.490.470/0001-14. “Controladora” é o termo que a Lei Geral de Proteção de Dados (Lei nº 13.709/2018) usa para quem decide como e por que os dados são tratados. O encarregado pelo tratamento é Dyones Oliveira, fundador da empresa, no endereço [privacidade@v2o5.com.br](mailto:privacidade@v2o5.com.br?subject=Meus%20dados%20pessoais).
+A controladora dos dados pessoais tratados neste site é a V2O5 Tecnologia da Informação Ltda. (nome fantasia V2O5 Vendas e Tecnologia), CNPJ 68.490.470/0001-14. “Controladora” é o termo que a Lei Geral de Proteção de Dados (Lei nº 13.709/2018) usa para quem decide como e por que os dados são tratados. O encarregado pelo tratamento é Dyones Oliveira, fundador da empresa, no endereço [privacidade@v2o5.com.br](mailto:privacidade@v2o5.com.br?subject=Meus%20dados%20pessoais).
 
 ## Quais dados este site coleta
 
 Coletamos dados em três momentos.
 
-Quando você pede o diagnóstico. O formulário pede nome, WhatsApp, e-mail, nome da empresa, segmento, quantas pessoas trabalham nela e o que você quer resolver primeiro. Se o segmento é revenda de veículos, pede também o tamanho do estoque e o sistema de gestão que a loja usa. Há um campo livre, opcional. Nada disso é exigido para navegar; só para ser atendido.
+Quando você pede o diagnóstico. O formulário pede nome, WhatsApp, e-mail, nome do negócio, segmento, quantas pessoas trabalham nele e o que você quer resolver primeiro. Se o segmento for revenda de veículos, pede também o tamanho do estoque e o sistema de gestão que a loja usa. Há um campo livre, opcional. Nada disso é exigido para navegar; só para ser atendido.
 
 Enquanto você navega. Se você chegou por um anúncio ou por um link de campanha, os parâmetros desse link (utm, gclid, gbraid, wbraid, fbclid), o site de onde veio e a primeira página aberta ficam guardados no seu navegador, no armazenamento da sessão, até a aba fechar. Eles só saem do navegador se você enviar o formulário, junto com ele, para sabermos qual canal trouxe o contato. As ferramentas de medição da [seção de medição](#medicao) recebem as páginas abertas e os cliques nos botões de contato, e gravam cookies próprios. A hospedagem registra, em logs técnicos, o endereço IP e o navegador de cada acesso.
 
@@ -86,7 +86,7 @@ Google Analytics 4 (Google LLC) recebe as páginas abertas, o tipo de cada pági
 
 Pixel da Meta (Meta Platforms) entra só quando a V2O5 anuncia na Meta, para medir o resultado desses anúncios. Recebe as páginas abertas, o clique no WhatsApp e o envio do formulário, sem a coleta automática de cliques e formulários que o Pixel oferece. Grava os cookies _fbp e _fbc, que duram até 90 dias, segundo a documentação da Meta. Os dados vão para connect.facebook.net e facebook.com.
 
-Pelo servidor, à Meta. Com o Pixel ligado, ao enviar o formulário o nosso servidor manda à Meta o mesmo evento, com um identificador comum para a conversão contar uma vez só. Vão e-mail, telefone e nome em hash (uma transformação que não se desfaz), o endereço IP, o navegador e os identificadores _fbp e _fbc, que também seguem com o pedido para a automação da V2O5. Com a medição desligada neste navegador, nada disso é enviado.
+Pelo servidor, à Meta. Com o Pixel ligado, quando você envia o formulário, o nosso servidor manda à Meta o mesmo evento, com um identificador comum para a conversão contar uma vez só. Vão e-mail, telefone e nome em hash (uma transformação que não se desfaz), o endereço IP, o navegador e os identificadores _fbp e _fbc, que também seguem com o pedido para a automação da V2O5. Com a medição desligada neste navegador, nada disso é enviado.
 
 Como se opor. Use o controle acima: ele grava a escolha neste navegador, apaga os cookies das ferramentas e a origem da visita, e vale até você religar. A escolha fica no armazenamento do navegador; limpar os dados do site a apaga. Você também pode pedir pelos canais da [seção de contato](#contato).
 
@@ -124,7 +124,7 @@ Respondemos pelos canais da [seção de contato](#contato). Se achar que o seu p
 
 ## Segurança
 
-O site só funciona por conexão criptografada (HTTPS) e aplica uma política de segurança de conteúdo que só permite scripts dos domínios nomeados nesta política (Google e Meta). O formulário é validado no servidor, e o envio para a automação da V2O5 vai assinado com um segredo que só os dois lados conhecem. O acesso aos dados é restrito à equipe que atende.
+O site só funciona por conexão criptografada (HTTPS) e aplica uma política de segurança de conteúdo que só permite scripts do próprio site e dos domínios do Google e da Meta citados acima. O formulário é validado no servidor, e o envio para a automação da V2O5 vai assinado com um segredo que só os dois lados conhecem. O acesso aos dados é restrito à equipe que atende.
 
 ## Como falar com a V2O5
 

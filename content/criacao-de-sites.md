@@ -7,8 +7,8 @@ description: "Site próprio para pequeno negócio, achado no Google e com o What
 canonical: "https://www.v2o5.com.br/criacao-de-sites"
 robots: null
 h1: "Criação de sites profissionais que levam o cliente até o seu WhatsApp."
-extraido_em: "2026-11-27T12:06:59.650Z"
-fonte: "build local da branch claude/kind-tesla-eefroe em 27/11/2026 (revisão do texto do site no foco em pequenos negócios), antes da publicação"
+extraido_em: "2026-11-27T12:45:09.800Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 27/11/2026 (revisão de português do site), antes da publicação"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 # Criação de sites profissionais que levam o cliente até o seu WhatsApp.
@@ -53,11 +53,11 @@ Next.js com o mínimo de JavaScript, imagens no tamanho certo e o título carreg
 
 ### SEO técnico
 
-Mapa do site, redirecionamentos do endereço antigo, robots e arquivo para assistentes de IA, enviados ao Search Console.
+Mapa do site enviado ao Search Console, redirecionamentos do endereço antigo, robots e arquivo para assistentes de IA.
 
 ### Perfil da Empresa no Google
 
-O antigo Google Meu Negócio, criado ou ajustado e ligado ao site, para quem busca perto aparecer no Maps. A verificação depende do Google.
+O antigo Google Meu Negócio, criado ou ajustado e ligado ao site, para o seu negócio aparecer no Maps de quem procura perto. A verificação depende do Google.
 
 ### Origem de cada contato
 
@@ -107,7 +107,7 @@ O pacote, as páginas e as integrações fechados por escrito. O mapa de página
 
 Construção e medição
 
-O site fica num endereço de teste, com as integrações conferidas e medido no celular antes de publicar.
+O site fica num endereço de teste, é medido no celular e tem as integrações conferidas antes de publicar.
 
 04
 
@@ -131,7 +131,7 @@ guias publicados, assinados pelo fundador da V2O5
 
 motorsstore.com.br, capturado em 19/10/2026
 
-Banco de dados da Motors Store, lido em 17/11/2026. Leads contados de 05/09 a 17/11/2026.
+Banco de dados da Motors Store, lido em 17/11/2026.
 
 ### O site entregue, tela por tela.
 
@@ -254,7 +254,7 @@ No Site Conectado, sim. A integração entra na proposta depois de verificar a d
 
 E depois que o site vai ao ar?
 
-A continuidade é opcional. O Cuidado Técnico (R$ 349/mês) cuida da hospedagem, do SSL, do backup e de até 1 hora de suporte por mês. Site com integração costuma seguir com as Integrações Monitoradas (R$ 590/mês).
+A continuidade é opcional. O Cuidado Técnico (R$ 349/mês) inclui hospedagem, SSL, backup e até 1 hora de suporte por mês. Site com integração costuma seguir com as Integrações Monitoradas (R$ 590/mês).
 
 O site fica no meu nome?
 

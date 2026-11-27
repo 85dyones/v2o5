@@ -22,11 +22,11 @@ export const SITE_PADRAO = {
     },
     {
       titulo: "SEO técnico",
-      texto: "Mapa do site, redirecionamentos do endereço antigo, robots e arquivo para assistentes de IA, enviados ao Search Console.",
+      texto: "Mapa do site enviado ao Search Console, redirecionamentos do endereço antigo, robots e arquivo para assistentes de IA.",
     },
     {
       titulo: "Perfil da Empresa no Google",
-      texto: "O antigo Google Meu Negócio, criado ou ajustado e ligado ao site, para quem busca perto aparecer no Maps. A verificação depende do Google.",
+      texto: "O antigo Google Meu Negócio, criado ou ajustado e ligado ao site, para o seu negócio aparecer no Maps de quem procura perto. A verificação depende do Google.",
     },
     {
       titulo: "Origem de cada contato",

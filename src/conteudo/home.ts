@@ -45,7 +45,7 @@ export const DORES = {
     {
       titulo: "Resposta que demora",
       texto:
-        "A mensagem chega no WhatsApp à noite ou no meio do movimento e fica para depois. Quando a resposta sai, o cliente já comprou em outro lugar.",
+        "A mensagem chega pelo WhatsApp à noite ou no meio do movimento e fica para depois. Quando a resposta sai, o cliente já comprou em outro lugar.",
     },
     {
       titulo: "Cliente que não volta",
@@ -64,7 +64,7 @@ export const INDICADORES = {
     { titulo: "Tempo de resposta", texto: "Quanto demora a primeira resposta no WhatsApp, no horário e fora dele." },
     { titulo: "Contatos perdidos", texto: "Quantas conversas ficam sem resposta ou sem próximo passo." },
     { titulo: "Avaliações", texto: "Quantas avaliações novas chegam ao Google e o que os clientes contam nelas." },
-    { titulo: "Clientes que voltam", texto: "Quantos clientes compram de novo depois do primeiro contato." },
+    { titulo: "Clientes que voltam", texto: "Quantos clientes compram de novo." },
   ],
   regra:
     "Ninguém aqui promete um percentual de melhoria. A gente anota como está hoje e, depois da entrega, compara com o que os dados mostram.",
@@ -134,7 +134,7 @@ export const ESCADA = {
     {
       tipo: "Depois da entrega",
       titulo: "Continuidade, se precisar",
-      texto: "Planos opcionais para manter e evoluir o que foi entregue, com horas e prazo de resposta escritos.",
+      texto: "Planos opcionais para manter e melhorar o que foi entregue, com horas e prazo de resposta escritos.",
       saida: `Planos a partir de ${mensalEmTexto(continuidadeAPartirDe())}. Não inclui desenvolvimento ilimitado nem novas integrações sem orçamento.`,
       href: "/continuidade",
     },
@@ -147,7 +147,7 @@ export const NOME = {
   titulo: "Um catalisador para a mudança.",
   paragrafos: [
     "O nome vem do pentóxido de vanádio, usado como catalisador em processos químicos: ele acelera a reação sem virar o produto final. É assim que a V2O5 usa a tecnologia no seu negócio, para a mudança acontecer com menos esforço.",
-    "O trabalho começa entendendo como o negócio funciona de fato: como o cliente acha a empresa e como ele é atendido. Depois a gente põe a tecnologia que resolve isso, num formato que a equipe consegue usar no dia a dia.",
+    "O trabalho começa entendendo como o negócio funciona de fato: como o cliente chega até ele e como é atendido. Depois a gente põe a tecnologia que resolve isso, num formato que a equipe consegue usar no dia a dia.",
   ],
 };
 
@@ -357,7 +357,7 @@ export const SOLUCOES = {
     "Cada uma resolve um tipo de problema e tem pacotes com preço de referência. Elas se completam, mas nenhuma obriga a comprar a seguinte.",
   continuidade: {
     titulo: "Continuidade",
-    texto: "Depois da entrega, planos opcionais para manter e evoluir o que foi entregue, com limites escritos.",
+    texto: "Depois do projeto, planos opcionais para manter e melhorar o que foi entregue, com limites escritos.",
   },
 };
 
@@ -658,7 +658,7 @@ export const FRENTES: Frente[] = [
   {
     id: "agente",
     aba: "Agente de IA",
-    resumo: "Uma mensagem chega no WhatsApp do pet shop às 21h e é respondida na hora.",
+    resumo: "Uma mensagem chega ao WhatsApp do pet shop às 21h e é respondida na hora.",
     passos: [
       {
         tipo: "entrada",
@@ -884,7 +884,7 @@ export const CHAMADA = {
 export const PERGUNTAS = [
   {
     pergunta: "Quanto custa?",
-    resposta: `O diagnóstico inicial, de 45 minutos, é gratuito. Os preços de entrada são ${OFERTAS.map((o) => `${o.nome} ${precoEmTexto({ valor: precoDeEntrada(o), aPartirDe: true })}`).join(", ")}, e a continuidade tem planos a partir de ${mensalEmTexto(continuidadeAPartirDe())}. São preços de referência: o valor fechado sai em proposta, para um escopo conhecido.`,
+    resposta: `O diagnóstico inicial, de 45 minutos, é gratuito. Preços de entrada: ${OFERTAS.map((o) => `${o.nome}, ${precoEmTexto({ valor: precoDeEntrada(o), aPartirDe: true })}`).join("; ")}. A continuidade tem planos a partir de ${mensalEmTexto(continuidadeAPartirDe())}. São preços de referência: o valor fechado sai em proposta, para um escopo conhecido.`,
   },
   {
     pergunta: "Preciso contratar tudo?",
@@ -894,7 +894,7 @@ export const PERGUNTAS = [
   {
     pergunta: "O que o Atendimento com IA entrega?",
     resposta:
-      "O WhatsApp organizado, um agente de IA que responde com as informações do seu negócio e passa a conversa à pessoa certa, e a lista de contatos com a origem. No Atendimento Integrado, o agente também faz as perguntas do seu negócio, agenda ou encaminha, leva cada contato ao sistema que você já usa e chama de volta quem já comprou, só para quem consentiu.",
+      "O WhatsApp organizado, um agente de IA que responde com as informações do seu negócio e passa a conversa à pessoa certa, e a lista de contatos com a origem. No Atendimento Integrado, o agente também faz as perguntas que importam para o seu negócio, agenda ou encaminha, leva cada contato ao sistema que você já usa e chama de volta quem já comprou e aceitou receber mensagem.",
   },
   {
     pergunta: "Como funciona o pagamento?",
@@ -902,7 +902,7 @@ export const PERGUNTAS = [
   },
   {
     pergunta: "E depois da entrega?",
-    resposta: `A implantação termina na entrega. Se o que foi entregue continua rodando, a continuidade cuida dele, em contrato à parte e com horas e prazo de resposta escritos, com planos a partir de ${mensalEmTexto(continuidadeAPartirDe())}. Banco de dados, servidor dedicado, IA e mensagens ficam por fora, pelo valor do provedor, e a V2O5 gerencia. Nenhum plano cobre desenvolvimento ilimitado.`,
+    resposta: `A implantação termina na entrega. Se o que foi entregue continua rodando, a continuidade cuida dele, em contrato à parte e com horas e prazo de resposta escritos, com planos a partir de ${mensalEmTexto(continuidadeAPartirDe())}. Banco de dados, servidor dedicado, IA e mensagens ficam por fora, pelo valor do provedor, e a V2O5 cuida dessas contas. Nenhum plano cobre desenvolvimento ilimitado.`,
   },
   {
     pergunta: "Preciso trocar o sistema que já uso?",
@@ -916,7 +916,7 @@ export const PERGUNTAS = [
   {
     pergunta: "Vocês fazem tráfego pago?",
     resposta:
-      "Não. A V2O5 cuida de o negócio ser encontrado no Google e de atender bem quem chega. Quem anuncia segue com a própria campanha, e o site grava de onde veio cada contato.",
+      "Não. A V2O5 cuida para o negócio ser achado no Google e para quem chega ser bem atendido. Quem anuncia segue com a própria campanha, e o site grava de onde veio cada contato.",
   },
   {
     pergunta: "Como funciona o diagnóstico gratuito?",

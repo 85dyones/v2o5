@@ -7,8 +7,8 @@ description: "O que a V2O5 montou para a Motors Store, revenda de seminovos em C
 canonical: "https://www.v2o5.com.br/cases/motors-store"
 robots: null
 h1: "Motors Store: o sistema inteiro numa revenda de seminovos."
-extraido_em: "2026-11-27T12:10:08.884Z"
-fonte: "build local da branch claude/kind-tesla-eefroe em 27/11/2026 (revisão do texto do site no foco em pequenos negócios), antes da publicação"
+extraido_em: "2026-11-27T12:45:09.800Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 27/11/2026 (revisão de português do site), antes da publicação"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 # Motors Store: o sistema inteiro numa revenda de seminovos.
@@ -38,17 +38,17 @@ Antes: diagnosticado
 O que a loja tinha de problema antes do projeto, na ordem do caminho do cliente: da busca ao atendimento.
 
 - A loja aparecia pouco no Google e nas respostas das IAs.
+- A presença digital era fraca.
+- O design do site era ruim.
+- O site era lento.
 - Chegava pouco contato pronto para comprar.
-- Presença digital fraca.
-- Design do site ruim.
-- Site lento.
 - O retorno a quem chamava não seguia uma rotina.
 
 Depois: implementado
 
 ## O que a V2O5 montou.
 
-As peças que a V2O5 montou, ligadas pela mesma base de dados: o que entra por uma aparece nas outras.
+Todas ligadas pela mesma base de dados: o que entra por uma peça aparece nas outras.
 
 ![Vitrine do site da Motors Store no celular: veículo em destaque, preço e a busca por marca e modelo.](/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fvitrine.2s6-vxquanhzs.webp&w=3840&q=75)
 
