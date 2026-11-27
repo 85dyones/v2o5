@@ -2,18 +2,18 @@
 rota: "/automacao-com-ia"
 url: "https://www.v2o5.com.br/automacao-com-ia"
 status: 200
-title: "Automação de processos com IA e n8n | V2O5 Vendas e Tecnologia"
-description: "Fluxos no n8n que ligam os sistemas que a empresa já usa, com IA validada contra invenção de dado e registro de cada execução. Recurso do Atendimento com IA."
+title: "Automação com IA para pequenos negócios | V2O5 Vendas e Tecnologia"
+description: "O aviso e o pedido de avaliação que alguém manda à mão passam a sair sozinhos, ligados ao WhatsApp e ao sistema que você já usa. Recurso do Atendimento com IA."
 canonical: "https://www.v2o5.com.br/automacao-com-ia"
 robots: null
-h1: "Automação de processos com IA e n8n."
-extraido_em: "2026-11-25T20:33:22.653Z"
-fonte: "build local da branch claude/kind-tesla-eefroe em 25/11/2026 (diagnóstico no foco em pequenos negócios), antes da publicação"
+h1: "Automação com IA para as tarefas repetidas do seu negócio."
+extraido_em: "2026-11-27T15:35:39.615Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 27/11/2026 (revisão de ganchos e conversão aprovada), antes da publicação"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
-# Automação de processos com IA e n8n.
+# Automação com IA para as tarefas repetidas do seu negócio.
 
-A tarefa que alguém faz à mão toda semana passa a rodar sozinha entre os sistemas que você já usa, com registro de cada execução.
+O aviso de pedido pronto e o convite para avaliar passam a sair sozinhos, pelo WhatsApp e pelo sistema que você já usa.
 
 [Pedir diagnóstico gratuito](/diagnostico)
 
@@ -27,33 +27,33 @@ Manutenção
 
 definida na proposta ou na continuidade, se contratada
 
-Em produção
+Funcionando
 
 Motors Store: 148 veículos sincronizados com o Revenda Mais
 
-## O processo existe, mas mora na cabeça de uma pessoa.
+## A tarefa existe, mas mora na cabeça de uma pessoa.
 
-Atualizar o estoque no site, avisar o vendedor, mandar o obrigado, conferir a venda que ficou pela metade. Cada passo é feito à mão, quando dá tempo, e para quando a pessoa sai de férias.
+Avisar que o pedido está pronto, mandar o obrigado, pedir a avaliação no dia seguinte, lembrar quem comprou de voltar. Cada passo é feito à mão, quando dá tempo, e trava quando a pessoa sai de férias.
 
-Gestão
+Organizar
 
-## O que a V2O5 entrega nesta linha.
+## O que você recebe.
 
-### Um fluxo por processo
+### Um fluxo por tarefa
 
 Cada rotina vira um fluxo no n8n, entregue, testado e documentado. Você vê o que ele faz e quando rodou.
 
 ### Integração com o que você usa
 
-ERP, planilha, CRM, WhatsApp, e-mail e os sistemas do seu setor. Em produção hoje: o estoque do Revenda Mais.
+WhatsApp, planilha, agenda, e-mail, o CRM e o sistema de gestão que você já usa. Já funciona hoje: o estoque do Revenda Mais.
 
 ### IA onde faz diferença
 
-Classificar uma mensagem, resumir uma conversa, escrever um descritivo a partir da ficha. Sempre validado contra invenção de dado.
+Classificar uma mensagem, resumir uma conversa, escrever um descritivo a partir da ficha. O texto da IA é conferido antes de sair, para não inventar dado.
 
 ### Alertas para a equipe
 
-O lead parado, a venda sem desfecho, o estoque que não atualizou: a pessoa certa recebe o aviso no WhatsApp.
+O cliente sem resposta, o orçamento sem retorno, o catálogo que não se atualizou: a pessoa certa recebe o aviso no WhatsApp.
 
 ### Registro de cada execução
 
@@ -65,19 +65,19 @@ Roda no n8n da infraestrutura da V2O5, com backup e monitoramento. Se sair, leva
 
 ## Do diagnóstico ao ar.
 
-Começa pelo diagnóstico gratuito, com o escopo fechado antes da implantação. Sem fidelidade.
+Começa pelo diagnóstico gratuito. O que entra e o preço ficam por escrito antes de começar. Sem fidelidade.
 
 01
 
-Mapa do processo
+A tarefa como é hoje
 
-Desenhamos o processo com quem faz hoje: entradas, decisões e saídas.
+Com quem faz a tarefa hoje, anotamos cada passo e onde ela costuma travar.
 
 02
 
 Fluxo em teste
 
-O fluxo roda em paralelo ao processo manual até os dois baterem.
+O fluxo roda junto com o jeito manual até os dois darem o mesmo resultado.
 
 03
 
@@ -99,11 +99,11 @@ veículos sincronizados com o estoque do Revenda Mais
 
 148
 
-Banco de dados da Motors Store, lido em 17/11/2026. Leads contados de 05/09 a 17/11/2026.
+Banco de dados da Motors Store, lido em 17/11/2026.
 
 [Ler o case completo](/cases/motors-store)
 
-## Automação de processos no Atendimento com IA.
+## Automação de tarefas no Atendimento com IA.
 
 A automação entra no Atendimento com IA quando uma tarefa repetida trava o atendimento: avisar a equipe, registrar o contato, atualizar o estoque ou o catálogo do site. A proposta diz quantos fluxos entram e o que cada um faz.
 
@@ -115,17 +115,17 @@ Sai da proposta do Atendimento com IA, depois de conhecer o atendimento de hoje,
 
 O diagnóstico inicial, de 45 minutos, é gratuito.
 
-## O que perguntam sobre automação de processos antes de fechar.
+## O que perguntam sobre a automação de tarefas antes de fechar.
 
-O que entra, onde encaixa no Atendimento com IA e o que fica de fora. O resto cabe no diagnóstico.
+O que entra, onde se encaixa no Atendimento com IA e o que fica de fora. O resto cabe no diagnóstico.
 
 O que conta como um fluxo?
 
-Uma rotina do começo ao fim. A venda marcada no CRM que tira o produto do site, avisa o grupo e manda o obrigado ao cliente é um fluxo. A proposta diz quantos fluxos entram.
+Uma tarefa do começo ao fim. Por exemplo: quando o atendimento é concluído na agenda, o fluxo avisa a equipe, manda ao cliente o horário de retirada e, no dia seguinte, pede a avaliação. Tudo isso é um fluxo só. A proposta diz quantos fluxos entram.
 
-Preciso trocar o sistema de gestão que já uso?
+Preciso trocar o sistema que já uso?
 
-Não. A V2O5 liga o que você já usa. Em produção hoje: o estoque do Revenda Mais sincronizado com o site da Motors Store. Autoconf, BNDV, Boom, Altimus e Syonet, entre outros, entram como fluxo de integração.
+Não. A V2O5 liga o que você já usa: a agenda, o catálogo, o estoque ou o CRM, depois de verificar a documentação e o acesso de cada um. Já funciona hoje: o estoque do Revenda Mais sincronizado com o site da Motors Store. Na revenda de veículos, Autoconf, BNDV, Boom, Altimus e Syonet entram do mesmo jeito, como fluxo de integração.
 
 E quando o fluxo quebra?
 
@@ -141,17 +141,17 @@ Roda na infraestrutura da V2O5, sem cobrança por tarefa executada, e o fluxo é
 
 ## Recursos que combinam com este.
 
-[Gestão CRM e sistemas sob medida Nenhum contato esquecido numa conversa: cada um num funil, com a origem, a etapa e o próximo passo à vista.](/crm-com-whatsapp)
+[Organizar CRM com WhatsApp Nenhum cliente esquecido numa conversa: cada um com a origem e o histórico, e o aviso de quando chamar de novo.](/crm-com-whatsapp)
 
-[Atendimento Agente de IA no WhatsApp Responde na hora, a qualquer hora, com as informações do seu negócio. Quando a conversa pede uma pessoa, chama alguém da equipe.](/agente-de-ia-para-whatsapp)
+[Responder Agente de IA no WhatsApp Responde na hora, a qualquer hora, com as informações do seu negócio. Quando a conversa pede uma pessoa, chama alguém da equipe.](/agente-de-ia-para-whatsapp)
 
-[Venda Pós-venda e recorrência Revisão, recompra ou retorno: a régua manda a mensagem na data certa e traz o cliente de volta.](/diagnostico)
+[Voltar a comprar Pós-venda e recorrência Contato de volta com quem já comprou, na hora da recompra ou do retorno, no Atendimento Integrado. Só para quem consentiu, dentro das regras do WhatsApp.](/agente-de-ia-para-whatsapp#titulo-pacotes)
 
-## Comece pelo diagnóstico, que é gratuito.
+## Descubra onde seu negócio perde cliente.
 
-Em 45 minutos de conversa com o fundador, a gente vê como o cliente acha o seu negócio e como ele é atendido, e mostra por onde começar. A sessão é gratuita e sem compromisso.
+Em 45 minutos de conversa, o fundador vê com você como o cliente acha o seu negócio e como ele é atendido, e mostra por onde começar. Sem custo e sem compromisso.
 
-[Pedir diagnóstico](/diagnostico)
+[Pedir diagnóstico gratuito](/diagnostico)
 
 [Ver os preços](/precos)
 
@@ -168,10 +168,10 @@ V · 6,8 <!-- texto em SVG; decorativo, aria-hidden -->
 O · 4,8 <!-- texto em SVG; decorativo, aria-hidden -->
 
 <!-- fora do <main>: botão fixo do WhatsApp (só abaixo de 768 px) -->
-[WhatsApp](https://wa.me/5541998089550?text=Ol%C3%A1!%20Vi%20a%20p%C3%A1gina%20de%20Automa%C3%A7%C3%A3o%20de%20processos%20no%20site%20da%20V2O5%20e%20quero%20conversar%20sobre%20a%20minha%20empresa.)
+[WhatsApp](https://wa.me/5541998089550?text=Ol%C3%A1!%20Vi%20a%20p%C3%A1gina%20de%20Automa%C3%A7%C3%A3o%20de%20tarefas%20no%20site%20da%20V2O5%20e%20quero%20conversar%20sobre%20a%20minha%20empresa.)
 
 <!-- rótulos de acessibilidade (aria-label) desta rota, fora topo e rodapé:
-- "Automação de processos" (section)
+- "Automação de tarefas" (section)
 - "O problema" (section)
 - "O que entra" (section)
 - "Como funciona" (section)

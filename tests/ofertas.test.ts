@@ -130,7 +130,7 @@ describe("continuidade", () => {
     expect(PLANOS_DE_CONTINUIDADE[0].inclui.join(" ")).toMatch(/2 dias úteis/);
     expect(PLANOS_DE_CONTINUIDADE[1].inclui.join(" ")).toMatch(/1 dia útil/);
     const limites = CONTINUIDADE.limites.map((l) => `${l.titulo}: ${l.texto}`).join(" ");
-    for (const exigido of [/não acumulam/, /Correção é/, /orçada à parte/, /horário comercial/, /valor do provedor/, /teto mensal/, /acessos e os pagamentos/, /aviso prévio/]) {
+    for (const exigido of [/não acumulam/, /Correção é/, /orçada à parte/, /horário comercial/, /valor do provedor/, /teto mensal/, /acessos e os pagamentos/, /avisar antes/]) {
       expect(limites).toMatch(exigido);
     }
     expect(JSON.stringify(PLANOS_DE_CONTINUIDADE)).not.toMatch(/ilimitad/i);

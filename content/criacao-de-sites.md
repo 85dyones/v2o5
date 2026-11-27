@@ -3,17 +3,17 @@ rota: "/criacao-de-sites"
 url: "https://www.v2o5.com.br/criacao-de-sites"
 status: 200
 title: "Criação de sites profissionais e integrações | V2O5 Vendas e Tecnologia"
-description: "Landing page, site personalizado e site conectado ao sistema que você já usa. Rápido no celular, achado no Google e medido."
+description: "Site próprio para pequeno negócio, achado no Google e com o WhatsApp a um toque. Da landing page ao site ligado ao sistema que você já usa."
 canonical: "https://www.v2o5.com.br/criacao-de-sites"
 robots: null
-h1: "Criação de sites profissionais, ligados ao sistema que você já usa."
-extraido_em: "2026-11-25T20:33:22.653Z"
-fonte: "build local da branch claude/kind-tesla-eefroe em 25/11/2026 (diagnóstico no foco em pequenos negócios), antes da publicação"
+h1: "Criação de sites profissionais que levam o cliente até o seu WhatsApp."
+extraido_em: "2026-11-27T15:35:39.615Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 27/11/2026 (revisão de ganchos e conversão aprovada), antes da publicação"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
-# Criação de sites profissionais, ligados ao sistema que você já usa.
+# Criação de sites profissionais que levam o cliente até o seu WhatsApp.
 
-Site próprio que carrega rápido no celular, aparece no Google e grava a origem de cada contato. Com integração quando o escopo pede.
+Site próprio, achado no Google e rápido no celular, que mostra de onde veio cada cliente. Se precisar, ele se liga ao seu sistema.
 
 [Pedir diagnóstico gratuito](/diagnostico)
 
@@ -21,7 +21,7 @@ Site próprio que carrega rápido no celular, aparece no Google e grava a origem
 
 Resolve
 
-Quando a empresa depende de perfil de terceiros, ou o site não conversa com o sistema que ela já usa.
+Quando o negócio depende só de rede social ou de portal, ou tem um site que não leva quem chega até a conversa.
 
 Preço de entrada
 
@@ -31,17 +31,17 @@ Entrega-base
 
 Onze itens iguais em todo site da V2O5, das páginas que o Google entende à entrega documentada
 
-Em produção
+Funcionando
 
 Motors Store: site de estoque com 148 veículos sincronizados e 26 guias
 
-## O site de template aparece bonito e some na busca.
+## Quem procura no Google acha o concorrente.
 
-Carrega devagar no celular, tem uma página só para todos os produtos ou serviços, e quem chega pelo Google vira um contato sem origem. O Google só acha o que existe como página, e o contato que chega pelo site não aparece no sistema da empresa.
+O site de template carrega devagar no celular, junta todos os produtos ou serviços numa página só e deixa o WhatsApp escondido no rodapé. O Google só acha o que existe como página, e quem não encontra o botão desiste antes de chamar.
 
-Gestão
+Ser achado
 
-## O que a V2O5 entrega nesta linha.
+## O que você recebe.
 
 ### Páginas que o Google entende
 
@@ -53,11 +53,11 @@ Next.js com o mínimo de JavaScript, imagens no tamanho certo e o título carreg
 
 ### SEO técnico
 
-Mapa do site, redirecionamentos do endereço antigo, robots e arquivo para assistentes de IA, enviados ao Search Console.
+Mapa do site enviado ao Search Console, redirecionamentos do endereço antigo, robots e arquivo para assistentes de IA.
 
 ### Perfil da Empresa no Google
 
-O antigo Google Meu Negócio, criado ou ajustado e ligado ao site, para quem busca perto aparecer no Maps. A verificação depende do Google.
+O antigo Google Meu Negócio, criado ou ajustado e ligado ao site, para o seu negócio aparecer no Maps de quem procura perto. A verificação depende do Google.
 
 ### Origem de cada contato
 
@@ -89,7 +89,7 @@ O que foi feito, onde está e como mudar, em linguagem de quem vai operar.
 
 ## Do diagnóstico ao ar.
 
-Começa pelo diagnóstico gratuito, com o escopo fechado antes da implantação. Sem fidelidade.
+Começa pelo diagnóstico gratuito. O que entra e o preço ficam por escrito antes de começar. Sem fidelidade.
 
 01
 
@@ -107,7 +107,7 @@ O pacote, as páginas e as integrações fechados por escrito. O mapa de página
 
 Construção e medição
 
-O site fica num endereço de teste, com as integrações conferidas e medido no celular antes de publicar.
+O site fica num endereço de teste, é medido no celular e tem as integrações conferidas antes de publicar.
 
 04
 
@@ -131,7 +131,7 @@ guias publicados, assinados pelo fundador da V2O5
 
 motorsstore.com.br, capturado em 19/10/2026
 
-Banco de dados da Motors Store, lido em 17/11/2026. Leads contados de 05/09 a 17/11/2026.
+Banco de dados da Motors Store, lido em 17/11/2026.
 
 ### O site entregue, tela por tela.
 
@@ -177,11 +177,11 @@ R$ 2.900
 
 Preço de referência da implantação.
 
-Para uma oferta, campanha ou serviço que precisa de uma página que leve ao contato.
+Para um serviço ou uma oferta que precisa de uma página que leve o cliente até a conversa.
 
 - Uma página comercial com textos escritos pela V2O5
 - Formulário ou botão de WhatsApp funcionando, com o contato chegando a quem atende
-- Rastreamento básico: de onde veio cada contato
+- A origem de cada contato gravada: Google, Instagram ou indicação
 - SEO técnico da página e publicação no domínio da empresa
 - Duas rodadas de revisão
 
@@ -193,7 +193,7 @@ R$ 5.900
 
 Preço de referência da implantação.
 
-Para a empresa que precisa de um site próprio, com estrutura comercial.
+Para o negócio que precisa de um site próprio, com as páginas dos seus serviços e o WhatsApp à mão.
 
 - Site institucional personalizado, com até seis páginas
 - A entrega-base de todo site da V2O5, descrita nesta página
@@ -254,7 +254,7 @@ No Site Conectado, sim. A integração entra na proposta depois de verificar a d
 
 E depois que o site vai ao ar?
 
-A continuidade é opcional. O Cuidado Técnico (R$ 349/mês) cuida da hospedagem, do SSL, do backup e de até 1 hora de suporte por mês. Site com integração costuma seguir com as Integrações Monitoradas (R$ 590/mês).
+A continuidade é opcional. O Cuidado Técnico (R$ 349/mês) inclui hospedagem, SSL, backup e até 1 hora de suporte por mês. Site com integração costuma seguir com as Integrações Monitoradas (R$ 590/mês).
 
 O site fica no meu nome?
 
@@ -270,17 +270,17 @@ Não. Loja com pagamento fica fora dos pacotes. O site vende por WhatsApp, formu
 
 ## Recursos que combinam com esta solução.
 
-[Atendimento Agente de IA no WhatsApp Responde na hora, a qualquer hora, com as informações do seu negócio. Quando a conversa pede uma pessoa, chama alguém da equipe.](/agente-de-ia-para-whatsapp)
+[Responder Agente de IA no WhatsApp Responde na hora, a qualquer hora, com as informações do seu negócio. Quando a conversa pede uma pessoa, chama alguém da equipe.](/agente-de-ia-para-whatsapp)
 
-[Venda Avaliações no Google Depois da venda, o cliente recebe no WhatsApp o pedido de avaliação com o link certo, e o painel mostra quem respondeu.](/diagnostico)
+[Ser achado Avaliações no Google Link direto e mensagem pronta para pedir a avaliação a quem comprou, na Presença Digital Local. Avaliação recente pesa na busca do bairro.](/presenca-digital-local)
 
-[Gestão CRM e sistemas sob medida Nenhum contato esquecido numa conversa: cada um num funil, com a origem, a etapa e o próximo passo à vista.](/crm-com-whatsapp)
+[Organizar CRM com WhatsApp Nenhum cliente esquecido numa conversa: cada um com a origem e o histórico, e o aviso de quando chamar de novo.](/crm-com-whatsapp)
 
-## Comece pelo diagnóstico, que é gratuito.
+## Descubra onde seu negócio perde cliente.
 
-Em 45 minutos de conversa com o fundador, a gente vê como o cliente acha o seu negócio e como ele é atendido, e mostra por onde começar. A sessão é gratuita e sem compromisso.
+Em 45 minutos de conversa, o fundador vê com você como o cliente acha o seu negócio e como ele é atendido, e mostra por onde começar. Sem custo e sem compromisso.
 
-[Pedir diagnóstico](/diagnostico)
+[Pedir diagnóstico gratuito](/diagnostico)
 
 [Ver os preços](/precos)
 

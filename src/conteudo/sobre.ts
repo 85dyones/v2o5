@@ -32,11 +32,11 @@ export const SOBRE = {
   proposito: {
     titulo: "O cliente bem atendido é o resultado.",
     texto:
-      "Pequeno negócio não precisa de sistema grande. Precisa ser achado por quem procura perto, responder rápido e lembrar de quem já comprou. Eu escolho o caminho mais simples para cada uma dessas coisas.",
+      "O pequeno negócio vive de quem procura perto e de quem volta a comprar. Para cuidar disso, quase nunca precisa de sistema grande. Eu escolho o caminho mais simples.",
     decisao: [
       "Às vezes basta arrumar o perfil no Google.",
-      "Às vezes é organizar o WhatsApp com um agente que responde na hora.",
-      "Às vezes é ligar o site ao sistema que a empresa já usa.",
+      "Em outros casos, um agente que responde na hora no WhatsApp.",
+      "Ou ligar o site ao sistema que você já usa.",
     ],
     fecho:
       "O que eu procuro é o que resolve com menos custo e menos esforço para quem vai usar todo dia. Pôr IA onde um perfil arrumado bastaria só gasta dinheiro.",
@@ -50,9 +50,9 @@ export const SOBRE = {
   visao: {
     titulo: "O que eu quero construir.",
     texto:
-      "Quero que o dono de um negócio de bairro tenha o atendimento que as grandes redes têm, num tamanho que ele consegue pagar e manter.",
+      "Quero que o dono de um negócio de bairro tenha o atendimento que as grandes redes têm, num tamanho que ele consiga pagar e manter.",
     sonho:
-      "A V2O5 é o jeito que encontrei de juntar o que aprendi em marca, marketing, vendas e gestão com o que a tecnologia permite hoje, para que cada projeto deixe algo funcionando no dia a dia e um cliente mais bem atendido.",
+      "A V2O5 é o jeito que encontrei de juntar o que aprendi em marca, marketing, vendas e gestão com o que a tecnologia permite hoje, para que cada projeto deixe algo funcionando no dia a dia e um cliente melhor atendido.",
   },
   /** Como um projeto anda, em quatro passos (25/11/2026; antes, o método em cinco perguntas do Sprint). */
   metodo: {
@@ -62,7 +62,7 @@ export const SOBRE = {
       { etapa: "Diagnóstico", pergunta: "O que pesa mais hoje: ser achado, responder ou fazer o cliente voltar?" },
       { etapa: "Proposta", pergunta: "O que muda, quanto custa e em quanto tempo?" },
       { etapa: "Implantação", pergunta: "O que fica pronto e quem da equipe usa?" },
-      { etapa: "Acompanhamento", pergunta: "O cliente está sendo mais bem atendido?" },
+      { etapa: "Acompanhamento", pergunta: "O cliente está sendo melhor atendido?" },
     ],
     saida: {
       titulo: "Todo projeto sai com três coisas.",
@@ -76,7 +76,7 @@ export const SOBRE = {
     tituloApagado: "e a implantação.",
     /** O mesmo fato de `VISAO_360.fundador.texto` (que o JSON-LD e a home usam em terceira pessoa), agora em primeira. */
     texto:
-      "Sou formado em Administração pela FAE Business School e estou na tecnologia desde 1992, quando ganhei um curso num concurso da escola. Em branding, fiz a mudança da Top Imóveis para Top Soluções Imobiliárias e assinei o blog da Top até agosto de 2024. Na Motors Store, assino os 26 guias do site. Sou eu quem conduz o diagnóstico gratuito.",
+      "Sou formado em Administração pela FAE Business School e estou na tecnologia desde 1992, quando ganhei um curso num concurso da escola. Fiz a mudança de marca da Top Imóveis para Top Soluções Imobiliárias e assinei o blog da Top até agosto de 2024. Na Motors Store, assino os 26 guias do site. Sou eu quem conduz o diagnóstico gratuito.",
     /** Do site antigo (página Jornada), nas palavras dele, resumidas. */
     origem:
       "Até os sete anos o meu mundo era de livros. Em 1992, um concurso da escola me rendeu um curso de informática, e os computadores 386 e os disquetes viraram o começo de tudo.",
@@ -96,14 +96,14 @@ export const SOBRE = {
   equipe: {
     titulo: "Quem faz o trabalho",
     texto:
-      "Eu conduzo o diagnóstico e respondo por cada projeto, do diagnóstico à entrega. O que muda e o que medir são decisões minhas; a IA e as automações entram como ferramenta, onde ajudam. Quando o projeto pede, indico parceiros especializados, como fotografia, contratados à parte.",
+      "Eu conduzo o diagnóstico e respondo por cada projeto, do diagnóstico à entrega. O que mudar e o que medir são decisões minhas; a IA e as automações entram como ferramenta, onde ajudam. Quando o projeto pede, indico parceiros, como um fotógrafo, contratados à parte.",
   },
   nome: {
     titulo: "O nome vem de um catalisador.",
     texto:
-      "V2O5 é o pentóxido de vanádio, o catalisador industrial da produção de ácido sulfúrico: acelera a reação e continua lá no fim, sem virar o produto final. Escolhi o nome porque é assim que eu quero trabalhar: ajudar a mudança a acontecer com menos esforço, sem ocupar o centro da operação. Tecnologia, automação e IA entram quando resolvem parte relevante do problema melhor do que uma alternativa mais simples.",
+      "V2O5 é o pentóxido de vanádio, o catalisador industrial da produção de ácido sulfúrico: acelera a reação e continua lá no fim, sem virar o produto final. Escolhi o nome porque é assim que eu quero trabalhar: ajudar a mudança a acontecer com menos esforço, sem ocupar o centro do seu negócio. A IA e a automação só entram quando resolvem melhor do que um jeito mais simples.",
     cores:
-      "O vanádio muda de cor conforme o estado de oxidação. As quatro cores do site são as quatro etapas do caminho do cliente: violeta na atração, verde no atendimento, azul na gestão e âmbar na venda.",
+      "O vanádio muda de cor conforme o estado de oxidação. No site, as quatro cores acompanham o caminho do cliente, de ser achado a voltar a comprar.",
     assinatura: ASSINATURA,
   },
   jeito: {
@@ -136,7 +136,7 @@ export const SOBRE = {
   motors: {
     titulo: "A relação com os dois cases.",
     texto:
-      "A Motors Store, revenda de seminovos em Curitiba, é cliente da V2O5 e um dos dois cases do site. A relação é de fornecedora: montei e mantenho o sistema da loja, e assino os guias publicados nela. Os números do case são lidos no banco de dados da Motors, com fonte e período, e a loja autorizou a publicação do nome, do logo e dos números. A 16ª Vara Cível de Curitiba também é cliente: montei a triagem do WhatsApp da serventia, e a vara autorizou o case.",
+      "A Motors Store, revenda de seminovos em Curitiba, é cliente da V2O5 e um dos dois cases do site. A V2O5 é fornecedora da loja: montei e mantenho o sistema e assino os guias publicados no site da Motors. Os números do case são lidos no banco de dados da Motors, com fonte e período, e a loja autorizou a publicação do nome, do logo e dos números. A 16ª Vara Cível de Curitiba também é cliente: montei a triagem do WhatsApp da serventia, e a vara autorizou o case.",
     href: CASE_MOTORS.rota,
     botao: "Ler o case da Motors Store",
   },
@@ -156,7 +156,7 @@ export const SOBRE = {
   ferramentas: {
     titulo: "Tecnologias e ecossistemas",
     texto:
-      "Eu escolho a combinação para cada operação. A ferramenta vem do problema, das integrações e do resultado esperado, e cada projeto usa só o que o problema pede. Automação, atendimento e WhatsApp rodam no meu servidor.",
+      "Eu escolho a combinação para cada negócio. A ferramenta vem do problema e do que você já usa, e cada projeto leva só o que precisa. Automação, atendimento e WhatsApp rodam no meu servidor.",
     categorias: [
       {
         titulo: "Sites, aplicações e dados",
@@ -167,17 +167,15 @@ export const SOBRE = {
         titulo: "Infraestrutura, hospedagem e DevOps",
         descricao: "Onde as soluções rodam, como são publicadas e mantidas.",
         itens: ["VPS", "Docker", "Easypanel", "Traefik", "Portainer", "GitHub Container Registry", "MinIO", "Hostinger", "DNS", "SSL/TLS", "Backups", "Monitoramento", "Gestão de domínios e hospedagem"],
-        nota: "VPS é uma modalidade de infraestrutura, não uma ferramenta; Docker é a tecnologia, Easypanel a plataforma de gestão e Hostinger o provedor.",
       },
       {
         titulo: "Inteligência artificial e agentes",
         descricao: "Assistentes, modelos, agentes especializados e desenvolvimento assistido por IA.",
         itens: ["OpenAI", "Anthropic Claude", "Claude Code", "Google Gemini"],
-        nota: "Modelos de linguagem, assistentes de produtividade, pesquisa e ferramentas de desenvolvimento não são a mesma coisa. Custo, privacidade e adequação técnica decidem o que entra em cada projeto.",
       },
       {
-        titulo: "Automação, integrações e processos",
-        descricao: "Conectar sistemas, eliminar tarefas manuais e estruturar fluxos.",
+        titulo: "Automação e integrações",
+        descricao: "Ligar os sistemas que o negócio já usa e tirar da mão da equipe a tarefa que se repete.",
         itens: ["n8n", "Typebot", "APIs REST", "Webhooks"],
       },
       {
@@ -186,9 +184,9 @@ export const SOBRE = {
         itens: ["WhatsApp", "Evolution API", "Chatwoot", "Typebot", "E-mail (SMTP)"],
       },
       {
-        titulo: "CRM, vendas e sistemas de gestão",
-        descricao: "Gestão comercial, funil de vendas, operação e relacionamento.",
-        itens: ["Revenda Mais", "Kenlo", "CRM sob medida"],
+        titulo: "CRM e sistemas de gestão",
+        descricao: "A lista de clientes, com a origem e o histórico de cada um, ligada ao sistema que o negócio já usa.",
+        itens: ["Revenda Mais", "Kenlo", "CRM da V2O5"],
       },
       {
         titulo: "Presença, busca e medição",
@@ -203,12 +201,12 @@ export const SOBRE = {
     razaoSocial: EMPRESA.razaoSocial,
     cnpj: EMPRESA.cnpj,
     fundacao: EMPRESA.fundacaoPorExtenso,
-    atendimento: "Atendimento remoto para empresas de todo o Brasil.",
+    atendimento: "Atendimento remoto para pequenos negócios de todo o Brasil.",
     antes: "Antes do site novo, a V2O5 se apresentava como V2O5 ConsultorIA.",
   },
   chamada: {
-    titulo: "Quer conversar comigo?",
-    texto: "O diagnóstico é comigo: 45 minutos sobre como o cliente acha o seu negócio, como é atendido e se volta a comprar.",
+    titulo: "Vamos ver onde o seu negócio perde cliente?",
+    texto: "São 45 minutos comigo, sem custo: como o cliente acha o seu negócio, como é atendido e se volta a comprar.",
     botao: "Pedir diagnóstico gratuito",
   },
 };

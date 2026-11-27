@@ -71,7 +71,7 @@ await gravar("v-diagnostico-passos", async (p) => {
   await rolar(p, 330, 1800); await p.waitForTimeout(900);
   await ir(p, "text=Você conta como vende hoje", 900); await p.waitForTimeout(900);
   await ir(p, "text=45 minutos com o fundador", 700); await p.waitForTimeout(900);
-  await ir(p, "text=O próximo passo, se houver", 700); await p.waitForTimeout(1200);
+  await ir(p, "text=Uma proposta, se fizer sentido", 700); await p.waitForTimeout(1200);
 });
 await gravar("v-diagnostico-topo", async (p) => {
   await p.waitForTimeout(1500);
@@ -107,7 +107,7 @@ await gravar("v-10-diagnostico", async (p) => {
   await para(p, "/diagnostico", 330, 1500);
   await ir(p, "text=Você conta como vende hoje", 800); await p.waitForTimeout(700);
   await ir(p, "text=45 minutos com o fundador", 600); await p.waitForTimeout(700);
-  await ir(p, "text=O próximo passo, se houver", 600); await p.waitForTimeout(800);
+  await ir(p, "text=Uma proposta, se fizer sentido", 600); await p.waitForTimeout(800);
   await para(p, "/criacao-de-sites", alvo(2693), 2200, 1200);
 });
 await gravar("v-21-fundador", async (p) => {

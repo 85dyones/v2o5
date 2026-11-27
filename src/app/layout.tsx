@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     template: `%s${SUFIXO_DO_TITULO}`,
   },
   description:
-    "A V2O5 digitaliza pequenos negócios: coloca a empresa no Google e organiza o atendimento no WhatsApp, com sites, integrações e IA. Comece pelo diagnóstico gratuito.",
+    "A V2O5 digitaliza pequenos negócios: coloca o negócio no Google e organiza o atendimento no WhatsApp, com sites, integrações e IA. Comece pelo diagnóstico gratuito.",
   applicationName: "V2O5 Vendas e Tecnologia",
   openGraph: { type: "website", siteName: "V2O5 Vendas e Tecnologia", locale: "pt_BR", url: "/" },
   twitter: { card: "summary" },

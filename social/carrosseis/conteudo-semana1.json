@@ -6,7 +6,7 @@
         "tipo": "capa",
         "estilo": "papel",
         "etiqueta": "O diferencial",
-        "titulo": "Antes de vender a solução, a V2O5 entende o problema.",
+        "titulo": "Antes de gastar com tecnologia, saiba onde você perde cliente.",
         "sub": "O diagnóstico gratuito de 45 minutos é a porta de entrada.",
         "rodape": "Deslize para ver como funciona"
       },
@@ -16,7 +16,7 @@
         "titulo": "45 minutos com o fundador.",
         "itens": [
           "Você conta como vende hoje, em um formulário de dois minutos.",
-          "A conversa vê como o cliente acha o seu negócio e como ele é atendido no WhatsApp.",
+          "Na conversa, vemos como o cliente acha o seu negócio e como ele é atendido no WhatsApp.",
           "Por vídeo ou WhatsApp, no dia combinado."
         ],
         "nota": "Sem custo e sem compromisso de contratação."
@@ -28,18 +28,17 @@
         "itens": [
           "O que pesa mais hoje: ser achado, responder ou fazer o cliente voltar.",
           "Uma recomendação de por onde começar.",
-          "Havendo um bom caso, a proposta por escrito, com escopo, entregáveis, prazo e investimento."
+          "Se fizer sentido seguir, a proposta por escrito, com escopo, entregáveis, prazo e investimento."
         ],
-        "nota": "Se não houver um bom caso, a conversa termina ali."
+        "nota": "Se não fizer sentido, a conversa termina ali."
       },
       {
         "tipo": "lista",
         "etiqueta": "Os limites combinados",
         "titulo": "O que o diagnóstico não inclui.",
         "itens": [
-          "Mapeamento completo.",
-          "Implementação.",
-          "Acompanhamento e mensuração de resultados."
+          "Implantação.",
+          "Acompanhamento de resultados."
         ],
         "nota": "Esses passos vêm depois, se houver projeto."
       },
@@ -48,7 +47,7 @@
         "etiqueta": "A lógica",
         "titulo": "A decisão parte do problema.",
         "corpo": [
-          "Comprar, integrar, automatizar ou desenvolver: a escolha depende do que o diagnóstico encontra.",
+          "A escolha depende do que o diagnóstico encontra.",
           "Nem todo problema pede um agente de IA ou um software novo."
         ]
       },
@@ -79,8 +78,8 @@
         "tipo": "capa",
         "estilo": "verde",
         "etiqueta": "Solução 1",
-        "titulo": "Presença Digital Local, por dentro.",
-        "sub": "Para o cliente que procura a empresa e encontra a informação certa.",
+        "titulo": "O cliente procura no Google e acha horário errado?",
+        "sub": "Presença Digital Local, por dentro: o que entra e quanto custa.",
         "rodape": "Deslize para ver o que está incluído"
       },
       {
@@ -128,7 +127,7 @@
         "etiqueta": "O que fica de fora",
         "titulo": "Limites do escopo.",
         "itens": [
-          "Verba de anúncios.",
+          "Verba de mídia paga.",
           "Gravação presencial de fotos e vídeos.",
           "Resposta a comentários e mensagens.",
           "Publicações ilimitadas."
@@ -151,8 +150,8 @@
         "tipo": "capa",
         "estilo": "tinta",
         "etiqueta": "Solução 2",
-        "titulo": "Sites & Integrações, por dentro.",
-        "sub": "Site próprio, rápido no celular, que leva o cliente até o WhatsApp.",
+        "titulo": "Seu site leva o cliente até o WhatsApp?",
+        "sub": "Sites & Integrações, por dentro: o que entra e quanto custa.",
         "rodape": "Deslize para ver o que está incluído"
       },
       {
@@ -160,7 +159,7 @@
         "etiqueta": "O problema",
         "titulo": "A empresa depende de perfil de terceiros, ou o site não conversa com o sistema.",
         "corpo": [
-          "A V2O5 entrega um site próprio, rápido e medido, ligado ao CRM, ao estoque ou ao sistema de gestão quando o escopo pede."
+          "A V2O5 entrega um site próprio, rápido e medido, ligado à agenda, ao estoque ou ao sistema de gestão quando o escopo pede."
         ]
       },
       {
@@ -179,7 +178,7 @@
         "titulo": "O que vem em qualquer pacote.",
         "itens": [
           "Contatos funcionando: WhatsApp, formulário e telefone.",
-          "Origem de cada contato anotada: de onde ele veio.",
+          "A origem de cada contato gravada: Google, Instagram ou indicação.",
           "SEO técnico e publicação no domínio da empresa.",
           "Duas rodadas de revisão."
         ]
@@ -189,8 +188,8 @@
         "etiqueta": "O Site Conectado",
         "titulo": "O que a integração liga.",
         "itens": [
-          "Um sistema que a empresa já usa: CRM, agenda, estoque, catálogo ou ERP.",
-          "Contatos medidos até o sistema, com a origem gravada.",
+          "Um sistema que a empresa já usa: lista de clientes, agenda, estoque, catálogo ou sistema de gestão.",
+          "Cada contato chega ao sistema com a origem gravada.",
           "Aviso quando a integração falha."
         ],
         "nota": "A integração entra depois de verificar a documentação e o acesso."
@@ -202,7 +201,7 @@
         "itens": [
           "O preço fechado vale para um escopo conhecido.",
           "Integração só entra na proposta depois de verificar documentação, credenciais, limites e custos do sistema.",
-          "O site se liga ao que a empresa já usa e não substitui o CRM nem o sistema de gestão."
+          "O site se liga ao sistema que a empresa já usa, sem substituí-lo."
         ],
         "nota": "Fora do escopo: domínio e e-mail, mídia paga e loja virtual com pagamento."
       },
@@ -222,8 +221,8 @@
         "tipo": "capa",
         "estilo": "ambar",
         "etiqueta": "Solução 3",
-        "titulo": "Atendimento com IA, por dentro.",
-        "sub": "Cada cliente respondido na hora e passado para a pessoa certa.",
+        "titulo": "Quem atende o seu WhatsApp fora do horário?",
+        "sub": "Atendimento com IA, por dentro: o que entra e quanto custa.",
         "rodape": "Deslize para ver o que está incluído"
       },
       {
@@ -240,7 +239,7 @@
         "etiqueta": "Os dois pacotes",
         "titulo": "Do WhatsApp organizado ao integrado.",
         "itens": [
-          "Atendimento Essencial, a partir de R$ 3.900: caixa organizada e um agente que responde as dúvidas frequentes a qualquer hora.",
+          "Atendimento Essencial, a partir de R$ 3.900: caixa organizada e um agente que responde às dúvidas frequentes a qualquer hora.",
           "Atendimento Integrado, a partir de R$ 6.900: o agente qualifica, agenda ou encaminha e leva o contato ao sistema que a empresa já usa."
         ]
       },

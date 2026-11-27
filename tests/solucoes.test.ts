@@ -28,8 +28,8 @@ describe("páginas de solução", () => {
     expect(SOLUCOES.map((s) => s.rota).sort()).toEqual([...ROTAS].sort());
     for (const rota of ROTAS) {
       expect(paginaDa(rota).pronta, rota).toBe(true);
-      // A de sites perdeu o Site Automotivo Integrado em 17/11/2026; as outras mudaram com o foco em pequenos negócios, em 25/11/2026.
-      const data = rota === "/criacao-de-sites" ? "2026-11-17" : "2026-11-25";
+      // As cinco mudaram na revisão do texto de 27/11/2026 (`docs/2026-11-26-revisao-do-texto-do-site.md`).
+      const data = "2026-11-27";
       expect(paginaDa(rota).atualizadaEm, rota).toBe(data);
       const pagina = semComentarios(ler(`src/app${rota}/page.tsx`));
       expect(pagina, rota).toContain("<PaginaDeSolucao rota={ROTA}");

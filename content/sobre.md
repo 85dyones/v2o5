@@ -3,12 +3,12 @@ rota: "/sobre"
 url: "https://www.v2o5.com.br/sobre"
 status: 200
 title: "Sobre a V2O5: quem faz e como trabalha | V2O5 Vendas e Tecnologia"
-description: "Quem é a V2O5 Vendas e Tecnologia, o fundador que conduz o diagnóstico, como um projeto anda, de onde vem o nome e a relação com os dois cases."
+description: "Dyones Oliveira, fundador da V2O5, ajuda pequenos negócios a serem achados no Google e a atenderem bem no WhatsApp. Como ele trabalha e os dois cases."
 canonical: "https://www.v2o5.com.br/sobre"
 robots: null
 h1: "Tecnologia que o pequeno negócio consegue usar."
-extraido_em: "2026-11-25T16:18:26.598Z"
-fonte: "build local da branch claude/kind-tesla-eefroe em 25/11/2026 (foco em pequenos negócios, Sobre alinhada), antes da publicação"
+extraido_em: "2026-11-27T15:35:39.615Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 27/11/2026 (revisão de ganchos e conversão aprovada), antes da publicação"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 # Tecnologia que o pequeno negócio consegue usar.
@@ -21,11 +21,11 @@ Ajudo pequenos negócios a serem achados no Google e a atenderem bem quem chega,
 
 ## O cliente bem atendido é o resultado.
 
-Pequeno negócio não precisa de sistema grande. Precisa ser achado por quem procura perto, responder rápido e lembrar de quem já comprou. Eu escolho o caminho mais simples para cada uma dessas coisas.
+O pequeno negócio vive de quem procura perto e de quem volta a comprar. Para cuidar disso, quase nunca precisa de sistema grande. Eu escolho o caminho mais simples.
 
 - Às vezes basta arrumar o perfil no Google.
-- Às vezes é organizar o WhatsApp com um agente que responde na hora.
-- Às vezes é ligar o site ao sistema que a empresa já usa.
+- Em outros casos, um agente que responde na hora no WhatsApp.
+- Ou ligar o site ao sistema que você já usa.
 
 O que eu procuro é o que resolve com menos custo e menos esforço para quem vai usar todo dia. Pôr IA onde um perfil arrumado bastaria só gasta dinheiro.
 
@@ -57,13 +57,13 @@ Conduzo o diagnóstico gratuito e a implantação de cada projeto
 
 ## Eu conduzo o diagnóstico e a implantação.
 
-Sou formado em Administração pela FAE Business School e estou na tecnologia desde 1992, quando ganhei um curso num concurso da escola. Em branding, fiz a mudança da Top Imóveis para Top Soluções Imobiliárias e assinei o blog da Top até agosto de 2024. Na Motors Store, assino os 26 guias do site. Sou eu quem conduz o diagnóstico gratuito.
+Sou formado em Administração pela FAE Business School e estou na tecnologia desde 1992, quando ganhei um curso num concurso da escola. Fiz a mudança de marca da Top Imóveis para Top Soluções Imobiliárias e assinei o blog da Top até agosto de 2024. Na Motors Store, assino os 26 guias do site. Sou eu quem conduz o diagnóstico gratuito.
 
 Até os sete anos o meu mundo era de livros. Em 1992, um concurso da escola me rendeu um curso de informática, e os computadores 386 e os disquetes viraram o começo de tudo.
 
 ### Quem faz o trabalho
 
-Eu conduzo o diagnóstico e respondo por cada projeto, do diagnóstico à entrega. O que muda e o que medir são decisões minhas; a IA e as automações entram como ferramenta, onde ajudam. Quando o projeto pede, indico parceiros especializados, como fotografia, contratados à parte.
+Eu conduzo o diagnóstico e respondo por cada projeto, do diagnóstico à entrega. O que mudar e o que medir são decisões minhas; a IA e as automações entram como ferramenta, onde ajudam. Quando o projeto pede, indico parceiros, como um fotógrafo, contratados à parte.
 
 Marca
 
@@ -75,7 +75,7 @@ Prática: Conteúdo e SEO da Motors Store
 
 Vendas
 
-Prática: Funil e CRM da Motors Store
+Prática: Atendimento e CRM da Motors Store
 
 Gestão
 
@@ -83,9 +83,9 @@ Formação: Administração na FAE Business School
 
 ## O que eu quero construir.
 
-Quero que o dono de um negócio de bairro tenha o atendimento que as grandes redes têm, num tamanho que ele consegue pagar e manter.
+Quero que o dono de um negócio de bairro tenha o atendimento que as grandes redes têm, num tamanho que ele consiga pagar e manter.
 
-A V2O5 é o jeito que encontrei de juntar o que aprendi em marca, marketing, vendas e gestão com o que a tecnologia permite hoje, para que cada projeto deixe algo funcionando no dia a dia e um cliente mais bem atendido.
+A V2O5 é o jeito que encontrei de juntar o que aprendi em marca, marketing, vendas e gestão com o que a tecnologia permite hoje, para que cada projeto deixe algo funcionando no dia a dia e um cliente melhor atendido.
 
 ## Como um projeto anda, em quatro passos.
 
@@ -113,7 +113,7 @@ O que fica pronto e quem da equipe usa?
 
 ### Acompanhamento
 
-O cliente está sendo mais bem atendido?
+O cliente está sendo melhor atendido?
 
 ### Todo projeto sai com três coisas.
 
@@ -123,17 +123,17 @@ O cliente está sendo mais bem atendido?
 
 ## O nome vem de um catalisador.
 
-V2O5 é o pentóxido de vanádio, o catalisador industrial da produção de ácido sulfúrico: acelera a reação e continua lá no fim, sem virar o produto final. Escolhi o nome porque é assim que eu quero trabalhar: ajudar a mudança a acontecer com menos esforço, sem ocupar o centro da operação. Tecnologia, automação e IA entram quando resolvem parte relevante do problema melhor do que uma alternativa mais simples.
+V2O5 é o pentóxido de vanádio, o catalisador industrial da produção de ácido sulfúrico: acelera a reação e continua lá no fim, sem virar o produto final. Escolhi o nome porque é assim que eu quero trabalhar: ajudar a mudança a acontecer com menos esforço, sem ocupar o centro do seu negócio. A IA e a automação só entram quando resolvem melhor do que um jeito mais simples.
 
-O vanádio muda de cor conforme o estado de oxidação. As quatro cores do site são as quatro etapas do caminho do cliente: violeta na atração, verde no atendimento, azul na gestão e âmbar na venda.
+O vanádio muda de cor conforme o estado de oxidação. No site, as quatro cores acompanham o caminho do cliente, de ser achado a voltar a comprar.
 
-Atração
+Ser achado
 
-Atendimento
+Responder
 
-Gestão
+Organizar
 
-Venda
+Voltar a comprar
 
 r 18 <!-- texto em SVG; decorativo, aria-hidden -->
 
@@ -199,13 +199,13 @@ Toda proposta define problema, entregáveis, exclusões, prazo, responsabilidade
 
 ## A relação com os dois cases.
 
-A Motors Store, revenda de seminovos em Curitiba, é cliente da V2O5 e um dos dois cases do site. A relação é de fornecedora: montei e mantenho o sistema da loja, e assino os guias publicados nela. Os números do case são lidos no banco de dados da Motors, com fonte e período, e a loja autorizou a publicação do nome, do logo e dos números. A 16ª Vara Cível de Curitiba também é cliente: montei a triagem do WhatsApp da serventia, e a vara autorizou o case.
+A Motors Store, revenda de seminovos em Curitiba, é cliente da V2O5 e um dos dois cases do site. A V2O5 é fornecedora da loja: montei e mantenho o sistema e assino os guias publicados no site da Motors. Os números do case são lidos no banco de dados da Motors, com fonte e período, e a loja autorizou a publicação do nome, do logo e dos números. A 16ª Vara Cível de Curitiba também é cliente: montei a triagem do WhatsApp da serventia, e a vara autorizou o case.
 
 [Ler o case da Motors Store](/cases/motors-store)
 
 ## Tecnologias e ecossistemas
 
-Eu escolho a combinação para cada operação. A ferramenta vem do problema, das integrações e do resultado esperado, e cada projeto usa só o que o problema pede. Automação, atendimento e WhatsApp rodam no meu servidor.
+Eu escolho a combinação para cada negócio. A ferramenta vem do problema e do que você já usa, e cada projeto leva só o que precisa. Automação, atendimento e WhatsApp rodam no meu servidor.
 
 01
 
@@ -248,8 +248,6 @@ Onde as soluções rodam, como são publicadas e mantidas.
 - Monitoramento
 - Gestão de domínios e hospedagem
 
-VPS é uma modalidade de infraestrutura, não uma ferramenta; Docker é a tecnologia, Easypanel a plataforma de gestão e Hostinger o provedor.
-
 03
 
 Inteligência artificial e agentes
@@ -263,15 +261,13 @@ Assistentes, modelos, agentes especializados e desenvolvimento assistido por IA.
 - Claude Code
 - Google Gemini
 
-Modelos de linguagem, assistentes de produtividade, pesquisa e ferramentas de desenvolvimento não são a mesma coisa. Custo, privacidade e adequação técnica decidem o que entra em cada projeto.
-
 04
 
-Automação, integrações e processos
+Automação e integrações
 
 + <!-- decorativo, aria-hidden -->
 
-Conectar sistemas, eliminar tarefas manuais e estruturar fluxos.
+Ligar os sistemas que o negócio já usa e tirar da mão da equipe a tarefa que se repete.
 
 - n8n
 - Typebot
@@ -294,15 +290,15 @@ WhatsApp, centralização de canais, triagem e atendimento com IA.
 
 06
 
-CRM, vendas e sistemas de gestão
+CRM e sistemas de gestão
 
 + <!-- decorativo, aria-hidden -->
 
-Gestão comercial, funil de vendas, operação e relacionamento.
+A lista de clientes, com a origem e o histórico de cada um, ligada ao sistema que o negócio já usa.
 
 - Revenda Mais
 - Kenlo
-- CRM sob medida
+- CRM da V2O5
 
 07
 
@@ -320,7 +316,7 @@ Ser encontrado por quem procura e saber de onde veio cada contato.
 
 ## A empresa
 
-Atendimento remoto para empresas de todo o Brasil.
+Atendimento remoto para pequenos negócios de todo o Brasil.
 
 Antes do site novo, a V2O5 se apresentava como V2O5 ConsultorIA.
 
@@ -348,9 +344,9 @@ E-mail
 
 [diagnostico@v2o5.com.br](mailto:diagnostico@v2o5.com.br?subject=Quero%20o%20diagn%C3%B3stico%20gratuito)
 
-## Quer conversar comigo?
+## Vamos ver onde o seu negócio perde cliente?
 
-O diagnóstico é comigo: 45 minutos sobre como o cliente acha o seu negócio, como é atendido e se volta a comprar.
+São 45 minutos comigo, sem custo: como o cliente acha o seu negócio, como é atendido e se volta a comprar.
 
 [Pedir diagnóstico gratuito](/diagnostico)
 

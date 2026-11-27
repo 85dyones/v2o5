@@ -7,8 +7,8 @@ description: "Recebemos o seu pedido de diagnóstico. O que acontece agora e com
 canonical: "https://www.v2o5.com.br/diagnostico/recebido"
 robots: "noindex, follow"
 h1: "Pedido recebido."
-extraido_em: "2026-10-27T14:34:01.868Z"
-fonte: "build local da branch claude/kind-tesla-eefroe em 27/10/2026 (portfólio das quatro soluções), antes da publicação"
+extraido_em: "2026-11-27T12:45:09.800Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 27/11/2026 (revisão de português do site), antes da publicação"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 # Pedido recebido.
@@ -21,7 +21,7 @@ Enquanto isso
 
 [Ver os preços](/precos)
 
-[Ler o case Motors Store](/cases/motors-store)
+[Ler o case da Motors Store](/cases/motors-store)
 
 [Voltar para a página inicial](/)
 

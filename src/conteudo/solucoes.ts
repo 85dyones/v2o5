@@ -36,6 +36,8 @@ export interface Solucao {
   linha: string;
   pilar: Pilar;
   etapa: Etapa;
+  /** A etapa que a etiqueta mostra, quando não é a da cor (`NOME_DA_ETAPA`, 26/11/2026). */
+  fase?: Etapa;
   vinheta: Vinheta;
   sobretitulo: string;
   /** H1: a busca-alvo da página, em frase. */
@@ -80,24 +82,25 @@ export const SOLUCOES: Solucao[] = [
     oferta: "sites",
     pilar: "mapa",
     etapa: "azul",
+    fase: "violeta",
     vinheta: "site",
     sobretitulo: "Sites & Integrações",
-    titulo: "Criação de sites profissionais, ligados ao sistema que você já usa.",
+    titulo: "Criação de sites profissionais que levam o cliente até o seu WhatsApp.",
     resumo:
-      "Site próprio que carrega rápido no celular, aparece no Google e grava a origem de cada contato. Com integração quando o escopo pede.",
+      "Site próprio, achado no Google e rápido no celular, que mostra de onde veio cada cliente. Se precisar, ele se liga ao seu sistema.",
     fatos: [
       { rotulo: "Resolve", valor: SITES.resolve },
       { rotulo: "Preço de entrada", valor: `${entrada(SITES)}, da landing page ao site conectado` },
       { rotulo: "Entrega-base", valor: "Onze itens iguais em todo site da V2O5, das páginas que o Google entende à entrega documentada" },
       {
-        rotulo: "Em produção",
+        rotulo: "Funcionando",
         valor: `Motors Store: site de estoque com ${CASE.numeros[1].valor} veículos sincronizados e ${CASE.numeros[0].valor} guias`,
       },
     ],
     problema: {
-      titulo: "O site de template aparece bonito e some na busca.",
+      titulo: "Quem procura no Google acha o concorrente.",
       texto:
-        "Carrega devagar no celular, tem uma página só para todos os produtos ou serviços, e quem chega pelo Google vira um contato sem origem. O Google só acha o que existe como página, e o contato que chega pelo site não aparece no sistema da empresa.",
+        "O site de template carrega devagar no celular, junta todos os produtos ou serviços numa página só e deixa o WhatsApp escondido no rodapé. O Google só acha o que existe como página, e quem não encontra o botão desiste antes de chamar.",
     },
     entregas: SITE_PADRAO.itens,
     comoFunciona: [
@@ -111,7 +114,7 @@ export const SOLUCOES: Solucao[] = [
       },
       {
         titulo: "Construção e medição",
-        texto: "O site fica num endereço de teste, com as integrações conferidas e medido no celular antes de publicar.",
+        texto: "O site fica num endereço de teste, é medido no celular e tem as integrações conferidas antes de publicar.",
       },
       {
         titulo: "Publicação",
@@ -123,6 +126,7 @@ export const SOLUCOES: Solucao[] = [
       texto:
         "Site de estoque com vitrine, ficha de veículo, páginas por marca e modelo e seis páginas locais. O estoque entra sozinho do Revenda Mais.",
       numeros: [CASE.numeros[1], CASE.numeros[0]],
+      fonte: "Banco de dados da Motors Store, lido em 17/11/2026.",
     },
     perguntas: [
       {
@@ -141,7 +145,7 @@ export const SOLUCOES: Solucao[] = [
       },
       {
         pergunta: "E depois que o site vai ao ar?",
-        resposta: `A continuidade é opcional. O ${continuidade(0).nome} (${mensalEmTexto(continuidade(0).mensal)}) cuida da hospedagem, do SSL, do backup e de até 1 hora de suporte por mês. Site com integração costuma seguir com as ${continuidade(1).nome} (${mensalEmTexto(continuidade(1).mensal)}).`,
+        resposta: `A continuidade é opcional. O ${continuidade(0).nome} (${mensalEmTexto(continuidade(0).mensal)}) inclui hospedagem, SSL, backup e até 1 hora de suporte por mês. Site com integração costuma seguir com as ${continuidade(1).nome} (${mensalEmTexto(continuidade(1).mensal)}).`,
       },
       {
         pergunta: "O site fica no meu nome?",
@@ -166,11 +170,12 @@ export const SOLUCOES: Solucao[] = [
     oferta: "atendimento",
     pilar: "operacao",
     etapa: "ambar",
+    fase: "verde",
     vinheta: "agente",
     sobretitulo: "Atendimento com IA",
-    titulo: "Agente de IA para WhatsApp que responde, qualifica e agenda.",
+    titulo: "Agente de IA para WhatsApp que responde na hora e chama a pessoa certa.",
     resumo:
-      "WhatsApp organizado e um agente de IA que responde na hora. Quando a conversa pede uma pessoa, chama alguém da equipe.",
+      "O cliente tem resposta à noite e no fim de semana, com as informações do seu negócio. A equipe entra quando a conversa pede.",
     fatos: [
       { rotulo: "Resolve", valor: ATENDIMENTO.resolve },
       { rotulo: "Preço de entrada", valor: `${entrada(ATENDIMENTO)}, do Atendimento Essencial ao Integrado` },
@@ -189,13 +194,13 @@ export const SOLUCOES: Solucao[] = [
           "Base de conhecimento com produtos, serviços, horários, condições e perguntas frequentes. O agente só fala do que está lá, e diz quando não sabe.",
       },
       {
-        titulo: "Qualifica antes de passar",
+        titulo: "Pergunta antes de passar",
         texto:
-          "Pergunta o que importa para o seu funil (interesse, prazo, forma de pagamento, região) e registra no CRM com a origem do contato.",
+          "Faz as perguntas que importam para o seu negócio (o que a pessoa procura, para quando, como quer pagar, o bairro) e anota no CRM com a origem do contato.",
       },
       {
         titulo: "Agenda e avisa",
-        texto: "Marca horário, visita ou reunião na agenda da equipe e avisa o responsável no WhatsApp.",
+        texto: "Marca o horário ou a visita na agenda e avisa no WhatsApp quem vai atender.",
       },
       {
         titulo: "Passa para uma pessoa",
@@ -204,7 +209,7 @@ export const SOLUCOES: Solucao[] = [
       },
       {
         titulo: "API oficial do WhatsApp",
-        texto: "Número verificado no nome da empresa, modelo de mensagem aprovado e saída fácil. O custo das mensagens é da Meta e fica discriminado na proposta.",
+        texto: "Número verificado no nome da empresa, modelos de mensagem aprovados e um jeito fácil de o cliente parar de receber. As mensagens são cobradas pela Meta, e o valor fica discriminado na proposta.",
       },
       {
         titulo: "Roteiro ajustado todo mês",
@@ -230,9 +235,9 @@ export const SOLUCOES: Solucao[] = [
       },
     ],
     naMotors: {
-      titulo: "O Ney, na Motors Store.",
+      titulo: "O Ney atende o WhatsApp da Motors Store.",
       texto:
-        "O agente de IA da loja responde com o estoque real, preenche a ficha do cliente e passa o lead pronto ao CRM do Revenda Mais quando ele marca a visita, chega à simulação ou pede uma pessoa.",
+        "O agente de IA da loja responde com o estoque real, preenche a ficha e passa o cliente pronto ao CRM do Revenda Mais quando ele marca a visita, chega à simulação ou pede uma pessoa.",
       numeros: [CASE_MOTORS.atendimento.numeros[1], CASE_MOTORS.atendimento.numeros[2]],
       fonte: CASE_MOTORS.atendimento.fonte,
     },
@@ -244,15 +249,15 @@ export const SOLUCOES: Solucao[] = [
       {
         pergunta: "O agente de IA atende sozinho?",
         resposta:
-          "Responde na hora com as informações do seu negócio e, quando a conversa pede uma pessoa, chama alguém da equipe. A conversa fica registrada no CRM, com a origem do contato.",
+          "Em parte. Responde sozinho na hora, com as informações do seu negócio, e chama alguém da equipe quando a conversa pede uma pessoa. A conversa fica registrada na lista de contatos, com a origem de cada um.",
       },
       {
         pergunta: "E se o cliente perguntar algo que a base não tem?",
         resposta:
-          "O agente diz que vai confirmar e chama uma pessoa. Inventar resposta é o que a V2O5 mais evita: ele só afirma o que a base confirma.",
+          "O agente diz que vai verificar e chama uma pessoa. Ele só afirma o que está na base: inventar resposta é o que a V2O5 mais evita.",
       },
       {
-        pergunta: "Funciona no número que a empresa já usa?",
+        pergunta: "Funciona no número que eu já uso?",
         resposta:
           "Sim, pela API oficial do WhatsApp, com o número verificado no nome da empresa. Os testes rodam num número da V2O5 até a equipe aprovar.",
       },
@@ -264,7 +269,7 @@ export const SOLUCOES: Solucao[] = [
       {
         pergunta: "Preciso de um CRM?",
         resposta:
-          "O agente registra cada conversa no CRM da V2O5 ou, por integração, no sistema que você já usa. Sem um lugar para registrar, a origem e o desfecho se perdem.",
+          "Não precisa ter um antes. O agente registra cada conversa na lista de contatos que a V2O5 entrega ou, por integração, no sistema que você já usa.",
       },
     ],
     relacionadas: ["crm", "automacao", "posvenda"],
@@ -275,37 +280,37 @@ export const SOLUCOES: Solucao[] = [
     pilar: "operacao",
     etapa: "azul",
     vinheta: "fluxo",
-    sobretitulo: "Automação de processos",
-    titulo: "Automação de processos com IA e n8n.",
+    sobretitulo: "Automação de tarefas",
+    titulo: "Automação com IA para as tarefas repetidas do seu negócio.",
     resumo:
-      "A tarefa que alguém faz à mão toda semana passa a rodar sozinha entre os sistemas que você já usa, com registro de cada execução.",
+      "O aviso de pedido pronto e o convite para avaliar passam a sair sozinhos, pelo WhatsApp e pelo sistema que você já usa.",
     fatos: [
       { rotulo: "Na solução", valor: "Entra no Atendimento com IA quando uma tarefa repetida trava o atendimento ou a venda" },
       { rotulo: "Manutenção", valor: "definida na proposta ou na continuidade, se contratada" },
-      { rotulo: "Em produção", valor: `Motors Store: ${CASE.numeros[1].valor} veículos sincronizados com o Revenda Mais` },
+      { rotulo: "Funcionando", valor: `Motors Store: ${CASE.numeros[1].valor} veículos sincronizados com o Revenda Mais` },
     ],
     problema: {
-      titulo: "O processo existe, mas mora na cabeça de uma pessoa.",
+      titulo: "A tarefa existe, mas mora na cabeça de uma pessoa.",
       texto:
-        "Atualizar o estoque no site, avisar o vendedor, mandar o obrigado, conferir a venda que ficou pela metade. Cada passo é feito à mão, quando dá tempo, e para quando a pessoa sai de férias.",
+        "Avisar que o pedido está pronto, mandar o obrigado, pedir a avaliação no dia seguinte, lembrar quem comprou de voltar. Cada passo é feito à mão, quando dá tempo, e trava quando a pessoa sai de férias.",
     },
     entregas: [
       {
-        titulo: "Um fluxo por processo",
+        titulo: "Um fluxo por tarefa",
         texto: "Cada rotina vira um fluxo no n8n, entregue, testado e documentado. Você vê o que ele faz e quando rodou.",
       },
       {
         titulo: "Integração com o que você usa",
-        texto: "ERP, planilha, CRM, WhatsApp, e-mail e os sistemas do seu setor. Em produção hoje: o estoque do Revenda Mais.",
+        texto: "WhatsApp, planilha, agenda, e-mail, o CRM e o sistema de gestão que você já usa. Já funciona hoje: o estoque do Revenda Mais.",
       },
       {
         titulo: "IA onde faz diferença",
         texto:
-          "Classificar uma mensagem, resumir uma conversa, escrever um descritivo a partir da ficha. Sempre validado contra invenção de dado.",
+          "Classificar uma mensagem, resumir uma conversa, escrever um descritivo a partir da ficha. O texto da IA é conferido antes de sair, para não inventar dado.",
       },
       {
         titulo: "Alertas para a equipe",
-        texto: "O lead parado, a venda sem desfecho, o estoque que não atualizou: a pessoa certa recebe o aviso no WhatsApp.",
+        texto: "O cliente sem resposta, o orçamento sem retorno, o catálogo que não se atualizou: a pessoa certa recebe o aviso no WhatsApp.",
       },
       {
         titulo: "Registro de cada execução",
@@ -317,8 +322,8 @@ export const SOLUCOES: Solucao[] = [
       },
     ],
     comoFunciona: [
-      { titulo: "Mapa do processo", texto: "Desenhamos o processo com quem faz hoje: entradas, decisões e saídas." },
-      { titulo: "Fluxo em teste", texto: "O fluxo roda em paralelo ao processo manual até os dois baterem." },
+      { titulo: "A tarefa como é hoje", texto: "Com quem faz a tarefa hoje, anotamos cada passo e onde ela costuma travar." },
+      { titulo: "Fluxo em teste", texto: "O fluxo roda junto com o jeito manual até os dois darem o mesmo resultado." },
       { titulo: "No ar", texto: "Passa a rodar sozinho, com alerta de erro e registro de cada execução." },
       { titulo: "Manutenção", texto: "Ajustes e correções dentro do período e do escopo definidos na proposta." },
     ],
@@ -327,18 +332,19 @@ export const SOLUCOES: Solucao[] = [
       texto:
         "Sincronização do estoque com o Revenda Mais, entrada das conversas do WhatsApp pela Evolution API, rodada do atendimento a cada 15 minutos e alerta de falha de integração.",
       numeros: [CASE.numeros[1]],
+      fonte: "Banco de dados da Motors Store, lido em 17/11/2026.",
     },
     naSolucao:
       "A automação entra no Atendimento com IA quando uma tarefa repetida trava o atendimento: avisar a equipe, registrar o contato, atualizar o estoque ou o catálogo do site. A proposta diz quantos fluxos entram e o que cada um faz.",
     perguntas: [
       {
         pergunta: "O que conta como um fluxo?",
-        resposta: `Uma rotina do começo ao fim. A venda marcada no CRM que tira o produto do site, avisa o grupo e manda o obrigado ao cliente é um fluxo. A proposta diz quantos fluxos entram.`,
+        resposta: `Uma tarefa do começo ao fim. Por exemplo: quando o atendimento é concluído na agenda, o fluxo avisa a equipe, manda ao cliente o horário de retirada e, no dia seguinte, pede a avaliação. Tudo isso é um fluxo só. A proposta diz quantos fluxos entram.`,
       },
       {
-        pergunta: "Preciso trocar o sistema de gestão que já uso?",
+        pergunta: "Preciso trocar o sistema que já uso?",
         resposta:
-          `Não. A V2O5 liga o que você já usa. Em produção hoje: o estoque do Revenda Mais sincronizado com o site da Motors Store. ${listaDeSistemasIntegraveis()}, entre outros, entram como fluxo de integração.`,
+          `Não. A V2O5 liga o que você já usa: a agenda, o catálogo, o estoque ou o CRM, depois de verificar a documentação e o acesso de cada um. Já funciona hoje: o estoque do Revenda Mais sincronizado com o site da Motors Store. Na revenda de veículos, ${listaDeSistemasIntegraveis()} entram do mesmo jeito, como fluxo de integração.`,
       },
       {
         pergunta: "E quando o fluxo quebra?",
@@ -364,82 +370,79 @@ export const SOLUCOES: Solucao[] = [
     pilar: "operacao",
     etapa: "azul",
     vinheta: "crm",
-    sobretitulo: "CRM e sistemas sob medida",
-    titulo: "CRM com WhatsApp integrado e IA.",
+    sobretitulo: "CRM com WhatsApp",
+    titulo: "CRM com WhatsApp para saber quem atender e quem chamar de volta.",
     resumo:
-      "Cada contato num funil, com a origem, a etapa e o próximo passo à vista, no nome da sua empresa.",
+      "Seus clientes num lugar só, com a conversa do WhatsApp e a origem de cada um, para saber quem atender e quem chamar de volta.",
     fatos: [
       { rotulo: "Na solução", valor: "Entra no Atendimento com IA quando os contatos ficam espalhados entre conversas e planilhas" },
-      { rotulo: "O que entra", valor: "Funil e campos do seu negócio, WhatsApp dentro do CRM, banco próprio, backups e treinamento da equipe, conforme o escopo" },
-      { rotulo: "Em produção", valor: "Motors Store: lead qualificado pelo agente de IA no CRM do Revenda Mais, com a origem e a ficha" },
+      { rotulo: "O que entra", valor: "Etapas e campos do seu negócio, WhatsApp dentro do CRM, banco de dados próprio, backups e treinamento da equipe, conforme o escopo" },
+      { rotulo: "Funcionando", valor: "Motors Store: o cliente atendido pelo agente de IA chega ao CRM do Revenda Mais com a origem e a ficha" },
     ],
     problema: {
-      titulo: "O funil vive no WhatsApp de cada vendedor.",
+      titulo: "Os clientes moram no celular de quem atende.",
       texto:
-        "Quando o vendedor sai, os contatos vão junto. Ninguém sabe quantos leads chegaram no mês, de onde vieram nem quantos viraram venda. O CRM de prateleira resolve metade e cobra por cabeça.",
+        "Quem já comprou e quem pediu orçamento e sumiu ficam espalhados entre as conversas e uma planilha. Ninguém sabe de onde veio cada cliente nem quem está na hora de voltar, e, quando quem atende troca de celular ou sai, os contatos vão junto. O CRM de prateleira resolve metade e cobra por cabeça.",
     },
     entregas: [
       {
-        titulo: "Funil com origem",
-        texto: "Cada contato entra com a origem: Google, Instagram, site ou indicação. A venda sai com a origem conhecida.",
+        titulo: "Cada cliente com a origem",
+        texto: "Cada cliente entra com a origem: Google, Instagram, site ou indicação. Você sabe de onde vem quem compra.",
       },
       {
         titulo: "WhatsApp dentro do CRM",
-        texto: "As conversas ficam no funil, com o histórico. O agente de IA e a equipe trabalham no mesmo lugar.",
+        texto: "As conversas ficam junto de cada cliente, com o histórico. O agente de IA e a equipe trabalham no mesmo lugar.",
       },
       {
-        titulo: "Régua de alertas",
-        texto: "Lead parado, visita marcada, proposta sem resposta: o responsável recebe o aviso.",
+        titulo: "Aviso na hora certa",
+        texto: "Cliente esperando resposta, horário marcado, orçamento sem retorno: quem cuida dele recebe o aviso.",
       },
       {
-        titulo: "Sob medida para o seu setor",
+        titulo: "Do jeito do seu negócio",
         texto:
-          "Os campos são os do seu negócio: veículo de interesse, imóvel, procedimento, contrato. A empresa não se adapta ao sistema.",
+          "Os campos são os do seu ramo: o pet e o porte, o procedimento da clínica, o carro da oficina, o veículo de interesse na revenda.",
       },
       {
-        titulo: "Banco próprio e backups",
-        texto: "Os dados ficam num banco só seu, com backup diário e exportação quando pedir.",
-      },
-      {
-        titulo: "Usuários e volume de dados",
-        texto: "Quantos usuários e quanto de dado entram é definido na proposta, conforme o tamanho da equipe e da base.",
+        titulo: "Banco de dados e backups",
+        texto: "Os dados ficam num banco de dados só seu, com backup diário e exportação quando você pedir.",
       },
     ],
     comoFunciona: [
-      { titulo: "Diagnóstico", texto: "Como a venda acontece hoje, da primeira mensagem ao fechamento." },
-      { titulo: "Funil e campos", texto: "Desenhamos as etapas e os campos com a equipe de vendas." },
+      { titulo: "Diagnóstico", texto: "Como o cliente é atendido hoje, da primeira mensagem à venda, e se ele volta a comprar." },
+      { titulo: "Etapas e campos", texto: "Desenhamos as etapas e os campos com você e com quem atende." },
       { titulo: "Importação", texto: "Os contatos que existem, em planilha ou no sistema antigo, entram com origem e etapa." },
-      { titulo: "Treinamento e ajuste", texto: "A equipe é treinada na implantação, e o primeiro mês ajusta o que a rotina pedir." },
+      { titulo: "Treinamento e ajuste", texto: "A equipe é treinada na implantação e, no primeiro mês, a V2O5 ajusta o que a rotina pedir." },
     ],
     naMotors: {
       titulo: "O painel da Motors Store.",
       texto:
-        "O lead qualificado pelo Ney vai ao CRM do Revenda Mais com a origem, o carro e a ficha, e o painel da loja mostra quem está com o agente, quem já foi ao CRM e quem precisa do dono.",
+        "O cliente que o Ney atende vai ao CRM do Revenda Mais com a origem, o carro e a ficha, e o painel da loja mostra quem está com o agente, quem já foi ao CRM e quem precisa do dono.",
       numeros: [CASE_MOTORS.numeros.itens[0], CASE_MOTORS.atendimento.numeros[2]],
+      fonte: `${CASE.fonte} Envios ao CRM de 04/11 a 17/11/2026.`,
     },
     naSolucao:
       "O CRM entra no Atendimento com IA quando os contatos se perdem entre conversas e planilhas. No Essencial, a lista de contatos com a origem; no Integrado, a ligação com o CRM ou o sistema que a empresa já usa, com as etapas e os campos desenhados com a equipe.",
     perguntas: [
       {
-        pergunta: "Como ficam os usuários e o volume de dados?",
-        resposta: "Definidos na proposta, conforme o tamanho da equipe e da base de contatos.",
-      },
-      {
         pergunta: "Posso integrar com o sistema que já uso?",
-        resposta: `Sim, por integração, no Atendimento Integrado. Em produção hoje: o estoque do Revenda Mais. Para revendas, ${listaDeSistemasIntegraveis()} entram do mesmo jeito.`,
+        resposta: `Sim, no Atendimento Integrado: a agenda, o catálogo, o estoque ou o CRM que você já usa, depois de verificar a documentação e o acesso. Já funciona hoje: o estoque do Revenda Mais. Na revenda de veículos, ${listaDeSistemasIntegraveis()} entram do mesmo jeito.`,
       },
       {
         pergunta: "O WhatsApp fica dentro do CRM?",
         resposta:
-          "Sim. As conversas entram no funil com o histórico, pela API oficial ou pelo Chatwoot, e o agente de IA trabalha no mesmo lugar que a equipe.",
+          "Sim. As conversas ficam junto de cada cliente, com o histórico, pela API oficial ou pelo Chatwoot, e o agente de IA trabalha no mesmo lugar que a equipe.",
       },
       {
         pergunta: "E se eu sair?",
-        resposta: "Os dados ficam num banco do seu negócio, com exportação quando você pedir. Os termos de saída e de continuidade ficam no contrato.",
+        resposta: "Os dados ficam num banco de dados do seu negócio, com exportação quando você pedir. Os termos de saída e de continuidade ficam no contrato.",
       },
       {
-        pergunta: "Serve para qualquer setor?",
-        resposta: "Serve. Os campos e as etapas são desenhados com você. Revenda de veículos é o segmento com case: a Motors Store.",
+        pergunta: "Serve para o meu tipo de negócio?",
+        resposta: "Serve. Os campos e as etapas são desenhados com você, do pet shop à oficina. O case em produção é o de uma revenda de veículos, a Motors Store.",
+      },
+      {
+        pergunta: "Quantas pessoas podem usar?",
+        resposta: "Quantas pessoas usam e quantos contatos entram fica definido na proposta, conforme o tamanho da equipe e da lista de clientes.",
       },
     ],
     relacionadas: ["agente", "automacao", "posvenda"],
@@ -450,9 +453,10 @@ export const SOLUCOES: Solucao[] = [
     oferta: "presenca",
     pilar: "mapa",
     etapa: "verde",
+    fase: "violeta",
     vinheta: "perfil",
     sobretitulo: "Presença Digital Local",
-    titulo: "Presença digital para negócios locais: Google, redes e WhatsApp.",
+    titulo: "Presença digital para negócios locais: o cliente acha você no Google e chama no WhatsApp.",
     resumo: "Perfil no Google, redes e WhatsApp organizados, com pedido de avaliação, modelos de conteúdo e, se quiser, a rotina mensal de publicações.",
     fatos: [
       { rotulo: "Resolve", valor: PRESENCA.resolve },
@@ -460,12 +464,12 @@ export const SOLUCOES: Solucao[] = [
         rotulo: "Preço de entrada",
         valor: `${entrada(PRESENCA)}, com mensalidade opcional a partir de ${mensalEmTexto(Math.min(...PRESENCA.pacotes.map((p) => p.mensal?.valor ?? Infinity)))}`,
       },
-      { rotulo: "Para quem", valor: "Padaria, oficina, distribuidora, comércio de bairro e outros negócios locais" },
+      { rotulo: "Para quem", valor: "Loja de bairro, pet shop, salão, clínica, oficina e outros negócios locais" },
     ],
     problema: {
       titulo: "O cliente procura e encontra o horário errado.",
       texto:
-        "Perfil no Google sem foto nem horário, rede social parada há meses e um WhatsApp que ninguém sabe se atende. Quem procura desiste antes de chamar, e a empresa nem fica sabendo.",
+        "Perfil no Google com o horário antigo e sem foto, rede social parada há meses e um WhatsApp que ninguém sabe se atende. Quem procura desiste antes de chamar, e você nem fica sabendo.",
     },
     entregas: [
       {
@@ -527,7 +531,7 @@ export const SOLUCOES: Solucao[] = [
           "No kit da Presença Estruturada, quatro peças e uma campanha por mês. Nenhum pacote tem publicação ilimitada.",
       },
       {
-        pergunta: "Vocês respondem os comentários e as mensagens?",
+        pergunta: "Vocês respondem aos comentários e às mensagens?",
         resposta:
           "A resposta a comentários e mensagens fica com a sua equipe. A V2O5 organiza os canais. Para o WhatsApp responder sozinho, existe o Atendimento com IA.",
       },
@@ -545,7 +549,7 @@ export const SOLUCOES: Solucao[] = [
         resposta: "A Presença cuida dos canais que já existem. O site próprio entra em Sites & Integrações, contratado à parte.",
       },
     ],
-    relacionadas: ["avaliacoes", "redes", "sites"],
+    relacionadas: ["sites", "agente", "posvenda"],
   },
 ];
 

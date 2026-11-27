@@ -188,7 +188,7 @@ export default function Formulario() {
           aria-describedby={erros.nome ? `${campo("nome")}-erro` : undefined}
         />
       </Campo>
-      <Campo id={campo("empresa")} rotulo="Empresa" erro={erros.empresa}>
+      <Campo id={campo("empresa")} rotulo="Nome do negócio" erro={erros.empresa}>
         <input
           id={campo("empresa")}
           name="empresa"
@@ -227,7 +227,7 @@ export default function Formulario() {
           aria-describedby={erros.email ? `${campo("email")}-erro` : undefined}
         />
       </Campo>
-      <Campo id={campo("segmento")} rotulo="Segmento" erro={erros.segmento}>
+      <Campo id={campo("segmento")} rotulo="Ramo do negócio" erro={erros.segmento}>
         <select
           id={campo("segmento")}
           name="segmento"
@@ -246,7 +246,7 @@ export default function Formulario() {
           ))}
         </select>
       </Campo>
-      <Campo id={campo("porte")} rotulo="Quantas pessoas trabalham na empresa">
+      <Campo id={campo("porte")} rotulo="Quantas pessoas trabalham no negócio">
         <select id={campo("porte")} name="porte" className="campo" defaultValue="">
           <option value="">Prefiro não dizer</option>
           {PORTES.map((p) => (

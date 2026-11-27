@@ -16,7 +16,7 @@
         "titulo": "Três sinais de que a conversa esfria.",
         "itens": [
           "A primeira resposta ao cliente demora.",
-          "Ninguém sabe quem responde cada conversa.",
+          "Ninguém sabe quem responde a cada conversa.",
           "Conversas ficam paradas sem aviso."
         ],
         "nota": "Mais dois sinais no próximo card."
@@ -26,7 +26,7 @@
         "etiqueta": "Sinais 4 e 5",
         "titulo": "Mais dois, e uma conta.",
         "itens": [
-          "O contato some e ninguém lembra de retomar.",
+          "O cliente some e ninguém retoma a conversa.",
           "Você não sabe de onde veio cada cliente."
         ],
         "nota": "Conte quantos você marcou. O resultado vem no card 5."
@@ -42,7 +42,7 @@
           },
           {
             "q": "Quarta, 9h40",
-            "t": "Ninguém respondeu ainda."
+            "t": "Você responde: “Bom dia!”"
           },
           {
             "q": "Quarta, 10h05",
@@ -58,7 +58,7 @@
         "linhas": [
           {
             "faixa": "0 a 1",
-            "texto": "Ponto de atenção. Vale acompanhar."
+            "texto": "Bom sinal. Vale acompanhar."
           },
           {
             "faixa": "2 a 3",
@@ -69,14 +69,14 @@
             "texto": "Vale organizar o WhatsApp e pôr um agente para responder."
           }
         ],
-        "nota": "Resultado de autoteste, não diagnóstico."
+        "nota": "Autoteste. O diagnóstico olha o seu caso."
       },
       {
         "tipo": "solucao",
         "cor": "#F2A516",
         "etiqueta": "O que resolve",
         "nome": "Atendimento com IA",
-        "quando": "Quando o cliente chama no WhatsApp e espera, se perde entre as conversas ou some sem que ninguém retome.",
+        "quando": "Quando o cliente chama no WhatsApp e fica esperando, ou a conversa se perde e ninguém chama de volta.",
         "recebe": "WhatsApp organizado e um agente de IA que responde e qualifica, com cada contato passado à pessoa certa.",
         "preco": "A partir de R$ 3.900"
       },
@@ -96,7 +96,7 @@
         "tipo": "capa",
         "estilo": "ambar",
         "etiqueta": "Autoteste",
-        "titulo": "Quantas vezes você digita o mesmo dado esta semana?",
+        "titulo": "Quantas vezes você anotou a mesma venda esta semana?",
         "sub": "Cinco sinais de que os seus sistemas não conversam.",
         "rodape": "Deslize e conte quantos você reconhece"
       },
@@ -152,7 +152,7 @@
         "linhas": [
           {
             "faixa": "0 a 1",
-            "texto": "Ponto de atenção. Vale acompanhar."
+            "texto": "Bom sinal. Vale acompanhar."
           },
           {
             "faixa": "2 a 3",
@@ -163,7 +163,7 @@
             "texto": "Vale ligar o WhatsApp ao sistema que você já usa."
           }
         ],
-        "nota": "Resultado de autoteste, não diagnóstico."
+        "nota": "Autoteste. O diagnóstico olha o seu caso."
       },
       {
         "tipo": "solucao",
@@ -171,7 +171,7 @@
         "etiqueta": "O que resolve",
         "nome": "Atendimento com IA",
         "quando": "Quando a venda fecha no WhatsApp e alguém digita tudo de novo no sistema.",
-        "recebe": "No Atendimento Integrado, o agente qualifica e leva cada contato ao sistema que você já usa: CRM, agenda, estoque ou catálogo.",
+        "recebe": "No Atendimento Integrado, o agente faz as perguntas do seu negócio e leva cada contato ao sistema que você já usa: lista de clientes, agenda, estoque ou catálogo.",
         "preco": "Integrado: a partir de R$ 6.900"
       },
       {
@@ -200,7 +200,7 @@
         "titulo": "Três sinais de um contato sem dono.",
         "itens": [
           "O formulário envia para um e-mail que ninguém olha.",
-          "Ninguém sabe quem responde o contato do site.",
+          "Ninguém sabe quem responde ao contato do site.",
           "O cliente espera dias por uma resposta."
         ],
         "nota": "Mais dois sinais no próximo card."
@@ -242,7 +242,7 @@
         "linhas": [
           {
             "faixa": "0 a 1",
-            "texto": "Ponto de atenção. Vale acompanhar."
+            "texto": "Bom sinal. Vale acompanhar."
           },
           {
             "faixa": "2 a 3",
@@ -253,16 +253,16 @@
             "texto": "O contato do site precisa chegar a uma pessoa."
           }
         ],
-        "nota": "Resultado de autoteste, não diagnóstico."
+        "nota": "Autoteste. O diagnóstico olha o seu caso."
       },
       {
         "tipo": "solucao",
         "cor": "#2457C5",
         "etiqueta": "O que resolve",
         "nome": "Sites & Integrações",
-        "quando": "Quando a empresa depende de perfil de terceiros, ou o site não conversa com o sistema que ela já usa.",
-        "recebe": "No Site Conectado, o contato chega ao sistema com a origem anotada e aviso quando a integração falha.",
-        "preco": "A partir de R$ 9.900"
+        "quando": "Quando o contato do site não chega a quem atende.",
+        "recebe": "Na Landing Page, o contato do formulário chega a quem atende, com a origem gravada.",
+        "preco": "A partir de R$ 2.900"
       },
       {
         "tipo": "cta",
@@ -332,7 +332,7 @@
         "linhas": [
           {
             "faixa": "0 a 1",
-            "texto": "Ponto de atenção. Vale acompanhar."
+            "texto": "Bom sinal. Vale acompanhar."
           },
           {
             "faixa": "2 a 3",
@@ -343,14 +343,14 @@
             "texto": "A presença local precisa ser reorganizada."
           }
         ],
-        "nota": "Resultado de autoteste, não diagnóstico."
+        "nota": "Autoteste. O diagnóstico olha o seu caso."
       },
       {
         "tipo": "solucao",
         "cor": "#17773F",
         "etiqueta": "O que resolve",
         "nome": "Presença Digital Local",
-        "quando": "Quando o cliente procura e encontra informação errada, perfil parado ou nenhum jeito fácil de chamar.",
+        "quando": "Quando o cliente procura o seu negócio e acha informação errada, perfil parado ou não acha como chamar.",
         "recebe": "Perfil no Google, uma rede e o WhatsApp Business organizados, com informações revisadas e o pedido de avaliação.",
         "preco": "A partir de R$ 790"
       },
@@ -390,7 +390,7 @@
         "etiqueta": "Sinais 4 e 5",
         "titulo": "Mais dois, e uma conta.",
         "itens": [
-          "O nome, a foto e a bio não seguem a identidade da empresa.",
+          "O nome, a foto e a bio mudam de uma rede para outra.",
           "Você publica só quando lembra."
         ],
         "nota": "Conte quantos você marcou. O resultado vem no card 5."
@@ -422,7 +422,7 @@
         "linhas": [
           {
             "faixa": "0 a 1",
-            "texto": "Ponto de atenção. Vale acompanhar."
+            "texto": "Bom sinal. Vale acompanhar."
           },
           {
             "faixa": "2 a 3",
@@ -433,15 +433,15 @@
             "texto": "O perfil precisa de uma rotina nova, com calendário."
           }
         ],
-        "nota": "Resultado de autoteste, não diagnóstico."
+        "nota": "Autoteste. O diagnóstico olha o seu caso."
       },
       {
         "tipo": "solucao",
         "cor": "#17773F",
         "etiqueta": "O que resolve",
         "nome": "Presença Digital Local",
-        "quando": "Quando o cliente procura e encontra informação errada, perfil parado ou nenhum jeito fácil de chamar.",
-        "recebe": "No pacote Estruturada, até duas redes, oito modelos de posts e stories, calendário de três meses e uma campanha de lançamento.",
+        "quando": "Quando o cliente procura o seu negócio e acha informação errada, perfil parado ou não acha como chamar.",
+        "recebe": "Na Presença Estruturada, até duas redes, oito modelos de posts e stories, calendário de três meses e uma campanha de lançamento.",
         "preco": "Estruturada: R$ 1.490"
       },
       {
@@ -512,7 +512,7 @@
         "linhas": [
           {
             "faixa": "0 a 1",
-            "texto": "Ponto de atenção. Vale acompanhar."
+            "texto": "Bom sinal. Vale acompanhar."
           },
           {
             "faixa": "2 a 3",
@@ -523,14 +523,14 @@
             "texto": "O site precisa ser refeito para levar ao WhatsApp."
           }
         ],
-        "nota": "Resultado de autoteste, não diagnóstico."
+        "nota": "Autoteste. O diagnóstico olha o seu caso."
       },
       {
         "tipo": "solucao",
         "cor": "#2457C5",
         "etiqueta": "O que resolve",
         "nome": "Sites & Integrações",
-        "quando": "Quando a empresa depende de perfil de terceiros, ou o site não conversa com o sistema que ela já usa.",
+        "quando": "Quando o site não leva quem chega até a conversa.",
         "recebe": "Site próprio, rápido no celular, com o WhatsApp à vista e a origem de cada contato anotada.",
         "preco": "A partir de R$ 2.900"
       },
@@ -602,7 +602,7 @@
         "linhas": [
           {
             "faixa": "0 a 1",
-            "texto": "Ponto de atenção. Vale acompanhar."
+            "texto": "Bom sinal. Vale acompanhar."
           },
           {
             "faixa": "2 a 3",
@@ -610,17 +610,17 @@
           },
           {
             "faixa": "4 a 5",
-            "texto": "Vale montar a lista e o contato de volta."
+            "texto": "Vale montar a lista e chamar o cliente de volta."
           }
         ],
-        "nota": "Resultado de autoteste, não diagnóstico."
+        "nota": "Autoteste. O diagnóstico olha o seu caso."
       },
       {
         "tipo": "solucao",
         "cor": "#F2A516",
         "etiqueta": "O que resolve",
         "nome": "Atendimento com IA",
-        "quando": "Quando o cliente chama no WhatsApp e espera, se perde entre as conversas ou some sem que ninguém retome.",
+        "quando": "Quando quem já comprou some e ninguém chama de volta.",
         "recebe": "No Atendimento Integrado, contato de volta com quem parou de responder ou já comprou, só para quem consentiu e dentro das regras do WhatsApp.",
         "preco": "Integrado: a partir de R$ 6.900"
       },
@@ -692,7 +692,7 @@
         "linhas": [
           {
             "faixa": "0 a 1",
-            "texto": "Ponto de atenção. Vale acompanhar."
+            "texto": "Bom sinal. Vale acompanhar."
           },
           {
             "faixa": "2 a 3",
@@ -703,14 +703,14 @@
             "texto": "Vale pedir a avaliação depois de cada venda."
           }
         ],
-        "nota": "Resultado de autoteste, não diagnóstico."
+        "nota": "Autoteste. O diagnóstico olha o seu caso."
       },
       {
         "tipo": "solucao",
         "cor": "#17773F",
         "etiqueta": "O que resolve",
         "nome": "Presença Digital Local",
-        "quando": "Quando o cliente procura e encontra informação errada, perfil parado ou nenhum jeito fácil de chamar.",
+        "quando": "Quando quem comprou sai satisfeito e ninguém pede a avaliação.",
         "recebe": "Na Presença Essencial, o pedido de avaliação no Google: link direto e mensagem pronta para mandar a quem comprou.",
         "preco": "A partir de R$ 790"
       },

@@ -30,8 +30,8 @@ describe("sistemas de revenda", () => {
       expect(lugar).toContain(listaDeSistemasIntegraveis());
       expect(lugar).toContain("Revenda Mais");
       for (const nome of SISTEMAS_INTEGRAVEIS) {
-        expect(lugar).not.toMatch(new RegExp(`${nome}[^.]{0,40}em produção`));
-        expect(lugar).not.toMatch(new RegExp(`em produção[^.]{0,60}${nome}`));
+        expect(lugar).not.toMatch(new RegExp(`${nome}[^.]{0,40}(em produção|já funciona)`));
+        expect(lugar).not.toMatch(new RegExp(`(em produção|já funciona)[^.]{0,60}${nome}`));
       }
     }
     expect(HUB_AUTOMOTIVO.fatos.map((f) => f.rotulo)).toContain("Integráveis por fluxo");

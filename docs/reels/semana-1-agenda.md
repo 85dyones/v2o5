@@ -50,9 +50,10 @@ Link na bio.
 ```
 Quanto custa colocar seu negócio no mapa? Aqui o preço aparece.
 
-A V2O5 digitaliza pequenos negócios que vendem pelo WhatsApp, on-line, em todo o Brasil. Três soluções, com escopo fechado e preço de referência público: Presença Digital Local (a partir de R$ 790), Sites & Integrações (a partir de R$ 2.900) e Atendimento com IA (a partir de R$ 3.900). Tudo começa por um diagnóstico gratuito de 45 minutos, sem compromisso de contratação.
+A V2O5 digitaliza pequenos negócios que vendem pelo WhatsApp. Atende on-line, em todo o Brasil. Três soluções, com escopo fechado e preço de referência público: Presença Digital Local (a partir de R$ 790), Sites & Integrações (a partir de R$ 2.900) e Atendimento com IA (a partir de R$ 3.900). Tudo começa por um diagnóstico gratuito de 45 minutos, sem compromisso de contratação.
 
-Descubra onde seu negócio perde cliente. Gratuitamente: https://www.v2o5.com.br/diagnostico?utm_source=facebook&utm_medium=post-fixo&utm_campaign=posts-fixos&utm_content=fixo-1
+Descubra onde seu negócio perde cliente. Gratuitamente.
+Peça pelo link: https://www.v2o5.com.br/diagnostico?utm_source=facebook&utm_medium=post-fixo&utm_campaign=posts-fixos&utm_content=fixo-1
 ```
 
 **LinkedIn** (documento `linkedin/fixo-1-o-que-fazemos.pdf`, junto com o Instagram; título do documento: "V2O5: o que fazemos")
@@ -74,9 +75,9 @@ Arquivos: `instagram/fixo-2-como-trabalhamos-01.png` a `-07.png` · `facebook/fi
 
 **Instagram** (carrossel)
 ```
-O que acontece depois que você pede um diagnóstico?
+Pedir o diagnóstico não obriga você a nada. Veja o que vem depois.
 
-São 45 minutos com o fundador, gratuitos e sem compromisso. A gente vê como o cliente acha o seu negócio e como ele é atendido no WhatsApp. O combinado vale antes de qualquer projeto: escopo fechado, preço de referência público, nenhum escopo ilimitado e nenhuma solução que obrigue a seguinte. Depois, um projeto anda em quatro passos, do diagnóstico ao acompanhamento.
+São 45 minutos com o fundador, gratuitos e sem compromisso. A gente vê como o cliente acha o seu negócio e como ele é atendido no WhatsApp. O combinado vale antes de qualquer projeto: escopo fechado, preço de referência público, nenhum escopo ilimitado e nenhuma solução que obrigue a seguinte. Um projeto anda em quatro passos, do diagnóstico ao acompanhamento.
 
 Descubra onde seu negócio perde cliente. Gratuitamente.
 Link na bio.
@@ -86,11 +87,12 @@ Link na bio.
 
 **Facebook** (várias fotos)
 ```
-O que acontece depois que você pede um diagnóstico?
+Pedir o diagnóstico não obriga você a nada. Veja o que vem depois.
 
 São 45 minutos com o fundador, gratuitos e sem compromisso. A gente vê como o cliente acha o seu negócio e como ele é atendido no WhatsApp. O combinado vale antes de qualquer projeto: escopo fechado, preço de referência público, nenhum escopo ilimitado e nenhuma solução que obrigue a seguinte.
 
-Descubra onde seu negócio perde cliente. Gratuitamente: https://www.v2o5.com.br/diagnostico?utm_source=facebook&utm_medium=post-fixo&utm_campaign=posts-fixos&utm_content=fixo-2
+Descubra onde seu negócio perde cliente. Gratuitamente.
+Peça pelo link: https://www.v2o5.com.br/diagnostico?utm_source=facebook&utm_medium=post-fixo&utm_campaign=posts-fixos&utm_content=fixo-2
 ```
 
 **LinkedIn:** sai na terça 01/12, 10:00 (texto no dia).
@@ -102,23 +104,24 @@ Arquivos: `instagram/fixo-3-case-motors-01.png` a `-07.png` · `facebook/fixo-3-
 ```
 93 de 100 conversas com a primeira resposta em até 1 minuto. A mediana é de 38 segundos.
 
-É o que o agente de IA da Motors Store, revenda de seminovos em Curitiba, registrou no WhatsApp entre 21/10 e 17/11/2026 (conversas lidas no banco de dados da loja). A V2O5 montou o site de estoque ligado ao sistema da loja, o agente que atende e qualifica, a entrega do lead ao CRM e as automações.
+É o que o agente de IA da Motors Store, revenda de seminovos em Curitiba, registrou no WhatsApp entre 21/10 e 17/11/2026 (conversas lidas no banco de dados da loja). A V2O5 montou o site de estoque ligado ao sistema da loja, o agente que atende e preenche a ficha, a passagem do cliente ao CRM e as automações.
 
-São contagens do sistema, não vendas, e a resposta humana não é medida. O resultado é o da Motors; o que cabe no seu negócio o diagnóstico mostra.
+São contagens do sistema, sem número de venda, e a resposta humana não é medida. O resultado é o da Motors; o que cabe no seu negócio, o diagnóstico mostra. O case completo está em v2o5.com.br/cases/motors-store.
 
 Descubra onde seu negócio perde cliente. Gratuitamente.
 Link na bio.
-
-O case completo está em v2o5.com.br/cases/motors-store.
 
 #atendimentoaocliente #whatsappbusiness #inteligenciaartificial #pequenosnegocios #v2o5
 ```
 
 **Facebook** (várias fotos)
 ```
-93 de 100 conversas com a primeira resposta em até 1 minuto, mediana de 38 segundos: o que o agente de IA da Motors Store registrou no WhatsApp entre 21/10 e 17/11/2026. A V2O5 montou o site de estoque ligado ao sistema da loja, o agente que atende e qualifica, a entrega do lead ao CRM e as automações.
+93 de 100 conversas com a primeira resposta em até 1 minuto, mediana de 38 segundos: o que o agente de IA da Motors Store registrou no WhatsApp entre 21/10 e 17/11/2026. A V2O5 montou o site de estoque ligado ao sistema da loja, o agente que atende e preenche a ficha, a passagem do cliente ao CRM e as automações.
 
-São contagens lidas no banco de dados da loja, não vendas, e a resposta humana não é medida. O resultado é o da Motors. Case completo: https://www.v2o5.com.br/cases/motors-store?utm_source=facebook&utm_medium=post-fixo&utm_campaign=posts-fixos&utm_content=fixo-3
+São contagens lidas no banco de dados da loja, sem número de venda, e a resposta humana não é medida. O resultado é o da Motors. Case completo: https://www.v2o5.com.br/cases/motors-store?utm_source=facebook&utm_medium=post-fixo&utm_campaign=posts-fixos&utm_content=fixo-3
+
+Descubra onde seu negócio perde cliente. Gratuitamente.
+Peça pelo link: https://www.v2o5.com.br/diagnostico?utm_source=facebook&utm_medium=post-fixo&utm_campaign=posts-fixos&utm_content=fixo-3
 ```
 
 **LinkedIn:** sai na sexta 27/11, 10:00 (texto no dia).
@@ -137,6 +140,7 @@ Arquivo `L1-01-v3.mp4` · Capa `capas/L1-01-v3.jpg`
 Seu cliente pediu o preço às 14h02. Quando você respondeu?
 Cena de exemplo.
 
+Diagnóstico de 45 minutos com o fundador.
 Descubra onde seu negócio perde cliente. Gratuitamente.
 Link na bio.
 
@@ -147,33 +151,36 @@ Link na bio.
 Seu cliente pediu o preço às 14h02. Quando você respondeu?
 Cena de exemplo.
 
-Descubra onde seu negócio perde cliente. Gratuitamente.: https://www.v2o5.com.br/diagnostico?utm_source=facebook&utm_medium=reel&utm_campaign=semana-1&utm_content=L1-01
+Diagnóstico de 45 minutos com o fundador.
+Descubra onde seu negócio perde cliente. Gratuitamente.
+Peça pelo link: https://www.v2o5.com.br/diagnostico?utm_source=facebook&utm_medium=reel&utm_campaign=semana-1&utm_content=L1-01
 ```
 
 ### 10:00 · LinkedIn: Fixo 3: Case Motors Store
 Documento `linkedin/fixo-3-case-motors.pdf` (do pacote dos fixos; título do documento: "V2O5: case Motors Store")
 
 ```
-93 de 100 conversas com a primeira resposta em até 1 minuto, mediana de 38 segundos. É o agente de IA da Motors Store, revenda de seminovos em Curitiba, no WhatsApp, entre 21/10 e 17/11/2026.
+93 de 100 conversas com a primeira resposta em até 1 minuto, mediana de 38 segundos. É o que o agente de IA da Motors Store, revenda de seminovos em Curitiba, registrou no WhatsApp entre 21/10 e 17/11/2026.
 
-A V2O5 montou o site de estoque ligado ao Revenda Mais, o agente que atende e qualifica, a entrega do lead qualificado ao CRM e as automações, na mesma base de dados. O banco da loja mostra 237 leads no funil de 05/09 a 17/11/2026 e, desde 21/10, 125 clientes atendidos pelo agente; desde 04/11, 37 leads qualificados entregues ao CRM.
+A V2O5 montou o site de estoque ligado ao Revenda Mais, o agente que atende e preenche a ficha, a passagem do cliente pronto ao CRM e as automações, na mesma base de dados. O banco da loja mostra 237 contatos de 05/09 a 17/11/2026 e, desde 21/10, 125 clientes atendidos pelo agente; desde 04/11, 37 contatos qualificados entregues ao CRM.
 
-Os números são contagens lidas no banco de dados da loja em 17/11/2026. Não são números de venda, a resposta humana não é medida e o resultado é o da Motors. O diagnóstico mostra o que cabe em outro negócio.
+Os números são contagens lidas no banco de dados da loja em 17/11/2026. Não incluem vendas, a resposta humana não é medida e o resultado é o da Motors.
 
-Case completo no primeiro comentário.
+Descubra onde seu negócio perde cliente. Gratuitamente.
+Diagnóstico e case completo no primeiro comentário.
 
 #Atendimento #WhatsAppBusiness #InteligênciaArtificial
 ```
-Primeiro comentário: `https://www.v2o5.com.br/cases/motors-store?utm_source=linkedin&utm_medium=post-fixo&utm_campaign=posts-fixos&utm_content=fixo-3`
+Primeiro comentário: `https://www.v2o5.com.br/diagnostico?utm_source=linkedin&utm_medium=post-fixo&utm_campaign=posts-fixos&utm_content=fixo-3` e `https://www.v2o5.com.br/cases/motors-store?utm_source=linkedin&utm_medium=post-fixo&utm_campaign=posts-fixos&utm_content=fixo-3`
 
 ### 11:30 · Carrossel: O diagnóstico como diferencial
 Arquivos `instagram/diagnostico-diferencial-01.png` a `-07.png`
 
 **Instagram** (carrossel)
 ```
-Antes de vender a solução, a V2O5 entende o problema.
+Antes de gastar com tecnologia, saiba onde você perde cliente.
 
-O diagnóstico gratuito de 45 minutos vê como o cliente acha o seu negócio e como ele é atendido, mostra o que pesa mais hoje e recomenda por onde começar. Havendo um bom caso, a proposta vem por escrito, com escopo, entregáveis, prazo e investimento. Se não houver, a conversa termina ali.
+O diagnóstico gratuito de 45 minutos vê como o cliente acha o seu negócio e como ele é atendido, mostra o que pesa mais hoje e recomenda por onde começar. Se fizer sentido seguir, a proposta vem por escrito, com escopo, entregáveis, prazo e investimento. Se não houver, a conversa termina ali.
 
 Descubra onde seu negócio perde cliente. Gratuitamente.
 Link na bio.
@@ -182,11 +189,12 @@ Link na bio.
 ```
 **Facebook** (várias fotos, 11:30; arquivos `facebook/diagnostico-diferencial-01.png` a `-07.png`)
 ```
-Antes de vender a solução, a V2O5 entende o problema.
+Antes de gastar com tecnologia, saiba onde você perde cliente.
 
-O diagnóstico gratuito de 45 minutos vê como o cliente acha o seu negócio e como ele é atendido, mostra o que pesa mais hoje e recomenda por onde começar. Havendo um bom caso, a proposta vem por escrito, com escopo, entregáveis, prazo e investimento. Se não houver, a conversa termina ali.
+O diagnóstico gratuito de 45 minutos vê como o cliente acha o seu negócio e como ele é atendido, mostra o que pesa mais hoje e recomenda por onde começar. Se fizer sentido seguir, a proposta vem por escrito, com escopo, entregáveis, prazo e investimento. Se não houver, a conversa termina ali.
 
-Descubra onde seu negócio perde cliente. Gratuitamente.: https://www.v2o5.com.br/diagnostico?utm_source=facebook&utm_medium=post&utm_campaign=semana-1&utm_content=diagnostico-diferencial
+Descubra onde seu negócio perde cliente. Gratuitamente.
+Peça pelo link: https://www.v2o5.com.br/diagnostico?utm_source=facebook&utm_medium=post&utm_campaign=semana-1&utm_content=diagnostico-diferencial
 ```
 
 ### 14:00 · Reel L1-21
@@ -194,7 +202,7 @@ Arquivo `L1-21-v3.mp4` · Capa `capas/L1-21-v3.jpg`
 
 **Instagram** (reel)
 ```
-45 minutos para ver onde seu negócio perde cliente.
+Você perde cliente. Em 45 minutos, vemos onde.
 
 Descubra onde seu negócio perde cliente. Gratuitamente.
 Link na bio.
@@ -207,9 +215,11 @@ Arquivos `instagram/presenca-por-dentro-01.png` a `-07.png`
 
 **Instagram** (carrossel)
 ```
+Quanto custa o cliente achar seu negócio no Google?
+
 Presença Digital Local, por dentro: os dois pacotes, o que o Essencial entrega, a mensalidade opcional e o que fica de fora.
 
-Para o cliente procurar o seu negócio e achar a informação certa, com o pedido de avaliação para quem comprou. A partir de R$ 790, com o valor fechado em proposta.
+É para o cliente procurar o seu negócio e achar a informação certa, com o pedido de avaliação para quem comprou. A partir de R$ 790, com o valor fechado em proposta.
 
 Descubra onde seu negócio perde cliente. Gratuitamente.
 Link na bio.
@@ -224,6 +234,9 @@ Arquivo `L1-17-v3.mp4` · Capa `capas/L1-17-v3.jpg`
 ```
 Orçamento escondido ou preço público?
 
+Presença Digital Local a partir de R$ 790, Sites & Integrações a partir de R$ 2.900 e Atendimento com IA a partir de R$ 3.900.
+
+Diagnóstico de 45 minutos com o fundador.
 Descubra onde seu negócio perde cliente. Gratuitamente.
 Link na bio.
 
@@ -241,6 +254,7 @@ Arquivo `L1-11-v3.mp4` · Capa `capas/L1-11-v3.jpg`
 ```
 Seu site está no ar. O cliente acha o seu WhatsApp?
 
+Diagnóstico de 45 minutos com o fundador.
 Descubra onde seu negócio perde cliente. Gratuitamente.
 Link na bio.
 
@@ -250,7 +264,9 @@ Link na bio.
 ```
 Seu site está no ar. O cliente acha o seu WhatsApp?
 
-Descubra onde seu negócio perde cliente. Gratuitamente.: https://www.v2o5.com.br/diagnostico?utm_source=facebook&utm_medium=reel&utm_campaign=semana-1&utm_content=L1-11
+Diagnóstico de 45 minutos com o fundador.
+Descubra onde seu negócio perde cliente. Gratuitamente.
+Peça pelo link: https://www.v2o5.com.br/diagnostico?utm_source=facebook&utm_medium=reel&utm_campaign=semana-1&utm_content=L1-11
 ```
 
 ### 11:30 · Carrossel: Sites & Integrações, por dentro
@@ -258,6 +274,8 @@ Arquivos `instagram/sites-por-dentro-01.png` a `-07.png`
 
 **Instagram** (carrossel)
 ```
+Quanto custa um site que leva o cliente até o WhatsApp?
+
 Sites & Integrações, por dentro: Landing Page, Site Personalizado e Site Conectado.
 
 Site próprio, rápido no celular, que leva o cliente até o WhatsApp e se liga à agenda, ao estoque ou ao sistema que você já usa quando o escopo pede. A partir de R$ 2.900, com o valor fechado em proposta.
@@ -269,11 +287,14 @@ Link na bio.
 ```
 **Facebook** (várias fotos, 11:30; arquivos `facebook/sites-por-dentro-01.png` a `-07.png`)
 ```
+Quanto custa um site que leva o cliente até o WhatsApp?
+
 Sites & Integrações, por dentro: Landing Page, Site Personalizado e Site Conectado.
 
 Site próprio, rápido no celular, que leva o cliente até o WhatsApp e se liga à agenda, ao estoque ou ao sistema que você já usa quando o escopo pede. A partir de R$ 2.900, com o valor fechado em proposta.
 
-Descubra onde seu negócio perde cliente. Gratuitamente.: https://www.v2o5.com.br/diagnostico?utm_source=facebook&utm_medium=post&utm_campaign=semana-1&utm_content=sites-por-dentro
+Descubra onde seu negócio perde cliente. Gratuitamente.
+Peça pelo link: https://www.v2o5.com.br/diagnostico?utm_source=facebook&utm_medium=post&utm_campaign=semana-1&utm_content=sites-por-dentro
 ```
 
 ### 14:00 · Reel L1-08
@@ -281,8 +302,9 @@ Arquivo `L1-08-v3.mp4` · Capa `capas/L1-08-v3.jpg`
 
 **Instagram** (reel)
 ```
-O cliente preencheu o formulário. Onde o pedido foi parar?
+Pedido no site, resposta no WhatsApp.
 
+Diagnóstico de 45 minutos com o fundador.
 Descubra onde seu negócio perde cliente. Gratuitamente.
 Link na bio.
 
@@ -314,6 +336,7 @@ Arquivo `L1-07-v3.mp4` · Capa `capas/L1-07-v3.jpg`
 O cliente pediu desconto. Quem respondeu?
 Cena de exemplo.
 
+Diagnóstico de 45 minutos com o fundador.
 Descubra onde seu negócio perde cliente. Gratuitamente.
 Link na bio.
 
@@ -329,8 +352,9 @@ Arquivo `L1-22-v3.mp4` · Capa `capas/L1-22-v3.jpg`
 
 **Instagram** (reel)
 ```
-O que a V2O5 olha primeiro num pequeno negócio.
+Onde olhar primeiro no seu negócio?
 
+Diagnóstico de 45 minutos com o fundador.
 Descubra onde seu negócio perde cliente. Gratuitamente.
 Link na bio.
 
@@ -338,9 +362,11 @@ Link na bio.
 ```
 **Facebook** (reel, 09:00)
 ```
-O que a V2O5 olha primeiro num pequeno negócio.
+Onde olhar primeiro no seu negócio?
 
-Descubra onde seu negócio perde cliente. Gratuitamente.: https://www.v2o5.com.br/diagnostico?utm_source=facebook&utm_medium=reel&utm_campaign=semana-1&utm_content=L1-22
+Diagnóstico de 45 minutos com o fundador.
+Descubra onde seu negócio perde cliente. Gratuitamente.
+Peça pelo link: https://www.v2o5.com.br/diagnostico?utm_source=facebook&utm_medium=reel&utm_campaign=semana-1&utm_content=L1-22
 ```
 
 ### 11:30 · Carrossel: Atendimento com IA, por dentro
@@ -348,9 +374,11 @@ Arquivos `instagram/atendimento-por-dentro-01.png` a `-07.png`
 
 **Instagram** (carrossel)
 ```
+Quanto custa um agente de IA no seu WhatsApp?
+
 Atendimento com IA, por dentro: os dois pacotes, o que o Essencial entrega, as regras do agente e o que fica de fora.
 
-WhatsApp organizado e um agente de IA que responde só com o que a empresa aprovou e passa cada conversa para a pessoa certa. A partir de R$ 3.900, com o valor fechado em proposta. IA e mensagens ficam pelo valor do provedor.
+WhatsApp organizado e um agente de IA que responde só com o que a empresa aprovou e passa a conversa para a pessoa certa quando precisa. A partir de R$ 3.900, com o valor fechado em proposta. IA e mensagens ficam pelo valor do provedor.
 
 Descubra onde seu negócio perde cliente. Gratuitamente.
 Link na bio.
@@ -359,11 +387,14 @@ Link na bio.
 ```
 **Facebook** (várias fotos, 11:30; arquivos `facebook/atendimento-por-dentro-01.png` a `-07.png`)
 ```
+Quanto custa um agente de IA no seu WhatsApp?
+
 Atendimento com IA, por dentro: os dois pacotes, o que o Essencial entrega, as regras do agente e o que fica de fora.
 
-WhatsApp organizado e um agente de IA que responde só com o que a empresa aprovou e passa cada conversa para a pessoa certa. A partir de R$ 3.900, com o valor fechado em proposta. IA e mensagens ficam pelo valor do provedor.
+WhatsApp organizado e um agente de IA que responde só com o que a empresa aprovou e passa a conversa para a pessoa certa quando precisa. A partir de R$ 3.900, com o valor fechado em proposta. IA e mensagens ficam pelo valor do provedor.
 
-Descubra onde seu negócio perde cliente. Gratuitamente.: https://www.v2o5.com.br/diagnostico?utm_source=facebook&utm_medium=post&utm_campaign=semana-1&utm_content=atendimento-por-dentro
+Descubra onde seu negócio perde cliente. Gratuitamente.
+Peça pelo link: https://www.v2o5.com.br/diagnostico?utm_source=facebook&utm_medium=post&utm_campaign=semana-1&utm_content=atendimento-por-dentro
 ```
 
 ### 14:00 · Reel L1-02
@@ -371,9 +402,10 @@ Arquivo `L1-02-v3.mp4` · Capa `capas/L1-02-v3.jpg`
 
 **Instagram** (reel)
 ```
-Você posta todo dia. Quem chamou foi respondido?
+Você posta todo dia. Quem chamou teve resposta?
 Cena de exemplo.
 
+Diagnóstico de 45 minutos com o fundador.
 Descubra onde seu negócio perde cliente. Gratuitamente.
 Link na bio.
 
@@ -405,6 +437,7 @@ Arquivo `L1-13-v3.mp4` · Capa `capas/L1-13-v3.jpg`
 O cliente preencheu o formulário. Quem viu?
 Cena de exemplo.
 
+Diagnóstico de 45 minutos com o fundador.
 Descubra onde seu negócio perde cliente. Gratuitamente.
 Link na bio.
 
@@ -420,7 +453,7 @@ Arquivo `L1-10-v3.mp4` · Capa `capas/L1-10-v3.jpg`
 
 **Instagram** (reel)
 ```
-Você sabe o que acontece nos 45 minutos?
+Como são os 45 minutos do diagnóstico gratuito?
 
 Descubra onde seu negócio perde cliente. Gratuitamente.
 Link na bio.
@@ -429,20 +462,21 @@ Link na bio.
 ```
 **Facebook** (reel, 09:00)
 ```
-Você sabe o que acontece nos 45 minutos?
+Como são os 45 minutos do diagnóstico gratuito?
 
-Descubra onde seu negócio perde cliente. Gratuitamente.: https://www.v2o5.com.br/diagnostico?utm_source=facebook&utm_medium=reel&utm_campaign=semana-1&utm_content=L1-10
+Descubra onde seu negócio perde cliente. Gratuitamente.
+Peça pelo link: https://www.v2o5.com.br/diagnostico?utm_source=facebook&utm_medium=reel&utm_campaign=semana-1&utm_content=L1-10
 ```
 
 ### 10:00 · LinkedIn: Atendimento com IA, por dentro
 Documento `linkedin/atendimento-por-dentro.pdf` (do pacote dos carrosséis; título do documento: "V2O5: atendimento com ia, por dentro")
 
 ```
-Atendimento com IA, por dentro.
+Quanto custa um agente de IA no seu WhatsApp?
 
-Para o negócio que atende pelo WhatsApp e perde cliente na demora ou na confusão das conversas. Dois pacotes: Atendimento Essencial (a partir de R$ 3.900), com a caixa organizada e um agente que responde as dúvidas frequentes, e Atendimento Integrado (a partir de R$ 6.900), que qualifica, agenda ou encaminha e leva o contato ao sistema que a empresa já usa. O agente responde só com o que a empresa aprovou e chama uma pessoa quando não sabe. IA e mensagens vêm pelo valor do provedor, com teto mensal combinado.
+Atendimento com IA, por dentro: para o negócio que atende pelo WhatsApp e perde cliente na demora ou na confusão das conversas. Dois pacotes: Atendimento Essencial (a partir de R$ 3.900), com a caixa organizada e um agente que responde às dúvidas frequentes, e Atendimento Integrado (a partir de R$ 6.900), que faz as perguntas do seu negócio, agenda ou encaminha e leva o contato ao sistema que a empresa já usa. O agente responde só com o que a empresa aprovou e chama uma pessoa quando não sabe. IA e mensagens vêm pelo valor do provedor, com teto mensal combinado.
 
-Link no primeiro comentário.
+Link do diagnóstico gratuito no primeiro comentário.
 
 #Atendimento #WhatsAppBusiness #InteligênciaArtificial
 ```
@@ -455,7 +489,7 @@ Arquivos `instagram/dor-formulario-01.png` a `-07.png`
 ```
 Para onde vai o contato que chega pelo seu site? Cinco sinais para conferir no seu negócio.
 
-O caminho do formulário até uma pessoa precisa estar desenhado. No Site Conectado, o contato chega ao sistema com a origem anotada e aviso quando a integração falha. A partir de R$ 9.900.
+O caminho do formulário até uma pessoa precisa estar desenhado. Na Landing Page, o contato do formulário chega a quem atende, com a origem gravada. A partir de R$ 2.900.
 
 Salve este carrossel para conferir com a equipe e envie para quem cuida disso.
 
@@ -468,9 +502,10 @@ Link na bio.
 ```
 Para onde vai o contato que chega pelo seu site? Cinco sinais para conferir no seu negócio.
 
-O caminho do formulário até uma pessoa precisa estar desenhado. No Site Conectado, o contato chega ao sistema com a origem anotada e aviso quando a integração falha. A partir de R$ 9.900.
+O caminho do formulário até uma pessoa precisa estar desenhado. Na Landing Page, o contato do formulário chega a quem atende, com a origem gravada. A partir de R$ 2.900.
 
-Descubra onde seu negócio perde cliente. Gratuitamente.: https://www.v2o5.com.br/diagnostico?utm_source=facebook&utm_medium=post&utm_campaign=semana-1&utm_content=dor-formulario
+Descubra onde seu negócio perde cliente. Gratuitamente.
+Peça pelo link: https://www.v2o5.com.br/diagnostico?utm_source=facebook&utm_medium=post&utm_campaign=semana-1&utm_content=dor-formulario
 ```
 
 ### 12:00 · LinkedIn: Reel L1-13
@@ -480,7 +515,7 @@ Arquivo `L1-13-v3.mp4` (vertical, o mesmo do Instagram)
 O cliente preencheu o formulário. Quem viu?
 Cena de exemplo.
 
-Muito site recebe o pedido e deixa ele parado numa caixa de entrada. O cliente esperou, ninguém respondeu e ele procurou outro. O caminho do formulário até uma pessoa precisa estar desenhado. É um dos pontos que olhamos no diagnóstico gratuito de 45 minutos.
+Muito site recebe o pedido e o deixa parado numa caixa de entrada. O cliente esperou, ninguém respondeu e ele procurou outro. O caminho do formulário até uma pessoa precisa estar desenhado. É um dos pontos que olhamos no diagnóstico gratuito de 45 minutos.
 
 Link do diagnóstico gratuito no primeiro comentário.
 
@@ -495,6 +530,7 @@ Arquivo `L1-14-v3.mp4` · Capa `capas/L1-14-v3.jpg`
 ```
 Todo mundo pode responder. Ninguém respondeu.
 
+Diagnóstico de 45 minutos com o fundador.
 Descubra onde seu negócio perde cliente. Gratuitamente.
 Link na bio.
 
@@ -506,9 +542,9 @@ Arquivos `instagram/dor-sistemas-separados-01.png` a `-07.png`
 
 **Instagram** (carrossel)
 ```
-Quantas vezes você digita o mesmo dado esta semana? Cinco sinais para conferir no seu negócio.
+Quantas vezes você anotou a mesma venda esta semana? Cinco sinais para conferir no seu negócio.
 
-Cada dado digitado à mão em mais de um lugar é um erro esperando para acontecer. No Atendimento Integrado, o contato que chega pelo WhatsApp vai direto para o sistema que você já usa. A partir de R$ 6.900.
+Cada dado digitado à mão em mais de um lugar é uma chance de erro. No Atendimento Integrado, o contato que chega pelo WhatsApp vai direto para o sistema que você já usa. A partir de R$ 6.900.
 
 Salve este carrossel para conferir com a equipe e envie para quem cuida disso.
 
@@ -526,6 +562,7 @@ Arquivo `L1-20-v3.mp4` · Capa `capas/L1-20-v3.jpg`
 Você digitou a mesma venda três vezes.
 Cena de exemplo.
 
+Diagnóstico de 45 minutos com o fundador.
 Descubra onde seu negócio perde cliente. Gratuitamente.
 Link na bio.
 
@@ -544,6 +581,7 @@ Arquivo `L1-09-v3.mp4` · Capa `capas/L1-09-v3.jpg`
 Pesquise o nome do seu negócio. O horário está certo?
 Cena de exemplo.
 
+Diagnóstico de 45 minutos com o fundador.
 Descubra onde seu negócio perde cliente. Gratuitamente.
 Link na bio.
 
@@ -554,20 +592,23 @@ Link na bio.
 Pesquise o nome do seu negócio. O horário está certo?
 Cena de exemplo.
 
-Descubra onde seu negócio perde cliente. Gratuitamente.: https://www.v2o5.com.br/diagnostico?utm_source=facebook&utm_medium=reel&utm_campaign=semana-1&utm_content=L1-09
+Diagnóstico de 45 minutos com o fundador.
+Descubra onde seu negócio perde cliente. Gratuitamente.
+Peça pelo link: https://www.v2o5.com.br/diagnostico?utm_source=facebook&utm_medium=reel&utm_campaign=semana-1&utm_content=L1-09
 ```
 
 ### 10:00 · LinkedIn: Fixo 2: Como trabalhamos
 Documento `linkedin/fixo-2-como-trabalhamos.pdf` (do pacote dos fixos; título do documento: "V2O5: como trabalhamos")
 
 ```
-O que acontece depois que você pede um diagnóstico?
+Pedir o diagnóstico não obriga você a nada. Veja o que vem depois.
 
-Primeiro, 45 minutos gratuitos com o fundador. A pergunta é o que pesa mais hoje no negócio: ser achado, responder ou fazer o cliente voltar. O diagnóstico não inclui mapeamento completo, implementação nem acompanhamento. Se houver um bom caso, a proposta vem por escrito, com escopo, prazo e investimento; se não houver, a conversa termina ali.
+Primeiro, 45 minutos gratuitos com o fundador. A pergunta é o que pesa mais hoje no negócio: ser achado, responder ou fazer o cliente voltar. O diagnóstico não inclui implantação nem acompanhamento de resultados. Se fizer sentido seguir, a proposta vem por escrito, com escopo, prazo e investimento; se não fizer, a conversa termina ali.
 
-O combinado vale antes de qualquer projeto: escopo fechado, preço de referência público, nenhum escopo ilimitado, nenhuma solução obriga a seguinte e nenhuma promessa de percentual de resultado. Um projeto anda em quatro passos: diagnóstico, proposta, implantação e acompanhamento.
+O combinado vale antes de qualquer projeto: escopo fechado, preço de referência público, nenhum escopo ilimitado, nenhuma solução que obrigue a seguinte e nenhuma promessa de percentual de resultado. Um projeto anda em quatro passos: diagnóstico, proposta, implantação e acompanhamento.
 
-Link no primeiro comentário.
+Descubra onde seu negócio perde cliente. Gratuitamente.
+Link do diagnóstico gratuito no primeiro comentário.
 
 #PequenosNegócios #Atendimento #Diagnóstico
 ```
@@ -595,7 +636,8 @@ O seu cliente procura o seu negócio no Google. O que ele encontra? Cinco sinais
 
 Horário errado, telefone antigo, fotos velhas, perfil sem verificação e nenhum botão de WhatsApp. A Presença Digital Local organiza o perfil, uma rede e o WhatsApp Business, com o pedido de avaliação, a partir de R$ 790.
 
-Descubra onde seu negócio perde cliente. Gratuitamente.: https://www.v2o5.com.br/diagnostico?utm_source=facebook&utm_medium=post&utm_campaign=semana-1&utm_content=dor-google
+Descubra onde seu negócio perde cliente. Gratuitamente.
+Peça pelo link: https://www.v2o5.com.br/diagnostico?utm_source=facebook&utm_medium=post&utm_campaign=semana-1&utm_content=dor-google
 ```
 
 ### 12:00 · LinkedIn: Reel L1-20
@@ -605,7 +647,7 @@ Arquivo `L1-20-v3.mp4` (vertical, o mesmo do Instagram)
 Você digitou a mesma venda três vezes.
 Cena de exemplo.
 
-Cada dado digitado à mão em mais de um lugar é um erro esperando para acontecer. No Atendimento Integrado, o contato que chega pelo WhatsApp vai direto para o sistema que você já usa.
+Cada dado digitado à mão em mais de um lugar é uma chance de erro. No Atendimento Integrado, o contato que chega pelo WhatsApp vai direto para o sistema que você já usa.
 
 Link do diagnóstico gratuito no primeiro comentário.
 
@@ -621,6 +663,7 @@ Arquivo `L1-12-v3.mp4` · Capa `capas/L1-12-v3.jpg`
 Quem comprou e gostou avaliou você no Google?
 Cena de exemplo.
 
+Diagnóstico de 45 minutos com o fundador.
 Descubra onde seu negócio perde cliente. Gratuitamente.
 Link na bio.
 
@@ -652,6 +695,7 @@ Arquivo `L1-23-v3.mp4` · Capa `capas/L1-23-v3.jpg`
 Ele comprou em março. Alguém chamou de novo?
 Cena de exemplo.
 
+Diagnóstico de 45 minutos com o fundador.
 Descubra onde seu negócio perde cliente. Gratuitamente.
 Link na bio.
 
@@ -669,6 +713,7 @@ Arquivo `L1-18-v3.mp4` · Capa `capas/L1-18-v3.jpg`
 ```
 Sua lista de clientes ainda é um caderno?
 
+Diagnóstico de 45 minutos com o fundador.
 Descubra onde seu negócio perde cliente. Gratuitamente.
 Link na bio.
 
@@ -678,18 +723,20 @@ Link na bio.
 ```
 Sua lista de clientes ainda é um caderno?
 
-Descubra onde seu negócio perde cliente. Gratuitamente.: https://www.v2o5.com.br/diagnostico?utm_source=facebook&utm_medium=reel&utm_campaign=semana-1&utm_content=L1-18
+Diagnóstico de 45 minutos com o fundador.
+Descubra onde seu negócio perde cliente. Gratuitamente.
+Peça pelo link: https://www.v2o5.com.br/diagnostico?utm_source=facebook&utm_medium=reel&utm_campaign=semana-1&utm_content=L1-18
 ```
 
 ### 10:00 · LinkedIn: O diagnóstico como diferencial
 Documento `linkedin/diagnostico-diferencial.pdf` (do pacote dos carrosséis; título do documento: "V2O5: o diagnóstico como diferencial")
 
 ```
-Antes de vender a solução, a V2O5 entende o problema.
+Antes de gastar com tecnologia, saiba onde você perde cliente.
 
-O diagnóstico gratuito de 45 minutos é a nossa porta de entrada: vemos como o cliente acha o negócio e como ele é atendido no WhatsApp, o que pesa mais hoje (ser achado, responder ou fazer o cliente voltar) e por onde começar. O diagnóstico não inclui mapeamento completo, implementação nem acompanhamento. Se houver um bom caso, a proposta vem por escrito; se não houver, a conversa termina ali.
+O diagnóstico gratuito de 45 minutos é a nossa porta de entrada: vemos como o cliente acha o negócio e como ele é atendido no WhatsApp, o que pesa mais hoje (ser achado, responder ou fazer o cliente voltar) e por onde começar. O diagnóstico não inclui implantação nem acompanhamento de resultados. Se fizer sentido seguir, a proposta vem por escrito; se não fizer, a conversa termina ali.
 
-Link no primeiro comentário.
+Link do diagnóstico gratuito no primeiro comentário.
 
 #Diagnóstico #PequenosNegócios #Atendimento
 ```
@@ -702,7 +749,7 @@ Arquivos `instagram/dor-recompra-01.png` a `-07.png`
 ```
 Quem comprou em março voltou a comprar? Cinco sinais para conferir no seu negócio.
 
-Cliente que ninguém chama compra de outro. No Atendimento Integrado, o contato de volta com quem já comprou, só para quem consentiu e dentro das regras do WhatsApp. A partir de R$ 6.900.
+Cliente que ninguém chama compra de outro. No Atendimento Integrado, entra o contato de volta com quem já comprou, só para quem consentiu e dentro das regras do WhatsApp. A partir de R$ 6.900.
 
 Salve este carrossel para conferir com a equipe e envie para quem cuida disso.
 
@@ -715,9 +762,10 @@ Link na bio.
 ```
 Quem comprou em março voltou a comprar? Cinco sinais para conferir no seu negócio.
 
-Cliente que ninguém chama compra de outro. No Atendimento Integrado, o contato de volta com quem já comprou, só para quem consentiu e dentro das regras do WhatsApp. A partir de R$ 6.900.
+Cliente que ninguém chama compra de outro. No Atendimento Integrado, entra o contato de volta com quem já comprou, só para quem consentiu e dentro das regras do WhatsApp. A partir de R$ 6.900.
 
-Descubra onde seu negócio perde cliente. Gratuitamente.: https://www.v2o5.com.br/diagnostico?utm_source=facebook&utm_medium=post&utm_campaign=semana-1&utm_content=dor-recompra
+Descubra onde seu negócio perde cliente. Gratuitamente.
+Peça pelo link: https://www.v2o5.com.br/diagnostico?utm_source=facebook&utm_medium=post&utm_campaign=semana-1&utm_content=dor-recompra
 ```
 
 ### 20:00 · Reel L1-16
@@ -727,6 +775,7 @@ Arquivo `L1-16-v3.mp4` · Capa `capas/L1-16-v3.jpg`
 ```
 Planilha e WhatsApp manual: até quando?
 
+Diagnóstico de 45 minutos com o fundador.
 Descubra onde seu negócio perde cliente. Gratuitamente.
 Link na bio.
 
@@ -745,6 +794,7 @@ Arquivo `L1-03-v3.mp4` · Capa `capas/L1-03-v3.jpg`
 93 de 100 conversas com a primeira resposta em até 1 minuto.
 Fonte do número: Motors Store, de 21/10 a 17/11/2026.
 
+Diagnóstico de 45 minutos com o fundador.
 Descubra onde seu negócio perde cliente. Gratuitamente.
 Link na bio.
 
@@ -755,7 +805,9 @@ Link na bio.
 93 de 100 conversas com a primeira resposta em até 1 minuto.
 Fonte do número: Motors Store, de 21/10 a 17/11/2026.
 
-Descubra onde seu negócio perde cliente. Gratuitamente.: https://www.v2o5.com.br/diagnostico?utm_source=facebook&utm_medium=reel&utm_campaign=semana-1&utm_content=L1-03
+Diagnóstico de 45 minutos com o fundador.
+Descubra onde seu negócio perde cliente. Gratuitamente.
+Peça pelo link: https://www.v2o5.com.br/diagnostico?utm_source=facebook&utm_medium=reel&utm_campaign=semana-1&utm_content=L1-03
 ```
 
 ### 10:00 · LinkedIn: O que o cliente encontra no Google
@@ -766,7 +818,7 @@ O seu cliente procura o seu negócio no Google. O que ele encontra?
 
 Horário errado, telefone ou endereço desatualizados, fotos antigas, perfil nunca verificado e nenhum botão de WhatsApp: cinco sinais de presença local a corrigir. A Presença Digital Local começa a partir de R$ 790, com o valor fechado em proposta.
 
-Link no primeiro comentário.
+Link do diagnóstico gratuito no primeiro comentário.
 
 #PresençaDigital #NegóciosLocais #PequenosNegócios
 ```
@@ -777,9 +829,10 @@ Arquivo `L1-19-v3.mp4` · Capa `capas/L1-19-v3.jpg`
 
 **Instagram** (reel)
 ```
-Você respondeu a mesma pergunta de novo hoje?
+Você respondeu à mesma pergunta de novo hoje?
 Cena de exemplo.
 
+Diagnóstico de 45 minutos com o fundador.
 Descubra onde seu negócio perde cliente. Gratuitamente.
 Link na bio.
 
@@ -795,9 +848,10 @@ Arquivo `L1-06-v3.mp4` · Capa `capas/L1-06-v3.jpg`
 
 **Instagram** (reel)
 ```
-Chegou um cliente novo. Como ele te achou?
+Como o último cliente achou você?
 Cena de exemplo.
 
+Diagnóstico de 45 minutos com o fundador.
 Descubra onde seu negócio perde cliente. Gratuitamente.
 Link na bio.
 
@@ -805,10 +859,12 @@ Link na bio.
 ```
 **Facebook** (reel, 09:00)
 ```
-Chegou um cliente novo. Como ele te achou?
+Como o último cliente achou você?
 Cena de exemplo.
 
-Descubra onde seu negócio perde cliente. Gratuitamente.: https://www.v2o5.com.br/diagnostico?utm_source=facebook&utm_medium=reel&utm_campaign=semana-1&utm_content=L1-06
+Diagnóstico de 45 minutos com o fundador.
+Descubra onde seu negócio perde cliente. Gratuitamente.
+Peça pelo link: https://www.v2o5.com.br/diagnostico?utm_source=facebook&utm_medium=reel&utm_campaign=semana-1&utm_content=L1-06
 ```
 
 ### 10:00 · LinkedIn: Avaliações no Google
@@ -817,9 +873,9 @@ Documento `linkedin/dor-avaliacoes.pdf` (do pacote dos carrosséis; título do d
 ```
 Quantas avaliações você pediu este mês?
 
-Nunca pedir avaliação a quem comprou, não ter o link direto, avaliações antigas, avaliação ruim sem resposta e não saber a própria nota: cinco sinais de que o Google não mostra o que o cliente acha do seu negócio. A Presença Essencial traz o pedido de avaliação pronto.
+Nunca pedir avaliação a quem comprou, não ter o link direto, ter só avaliações antigas, deixar avaliação ruim sem resposta e não saber a própria nota: cinco sinais de que o Google não mostra o que o cliente acha do seu negócio. A Presença Essencial traz o pedido de avaliação pronto.
 
-Link no primeiro comentário.
+Link do diagnóstico gratuito no primeiro comentário.
 
 #Avaliações #NegóciosLocais #PequenosNegócios
 ```
@@ -832,7 +888,7 @@ Arquivos `instagram/dor-perfil-parado-01.png` a `-07.png`
 ```
 Perfil parado: o cliente acha que o seu negócio fechou? Cinco sinais para conferir.
 
-Um perfil organizado e atualizado é o primeiro passo para o cliente chamar. No pacote Estruturada da Presença Digital Local: até duas redes, oito modelos de posts e stories, calendário de três meses e uma campanha de lançamento. R$ 1.490.
+Um perfil organizado e atualizado é o primeiro passo para o cliente chamar. Na Presença Estruturada: até duas redes, oito modelos de posts e stories, calendário de três meses e uma campanha de lançamento. R$ 1.490.
 
 Salve este carrossel para conferir com a equipe e envie para quem cuida disso.
 
@@ -845,9 +901,10 @@ Link na bio.
 ```
 Perfil parado: o cliente acha que o seu negócio fechou? Cinco sinais para conferir.
 
-Um perfil organizado e atualizado é o primeiro passo para o cliente chamar. No pacote Estruturada da Presença Digital Local: até duas redes, oito modelos de posts e stories, calendário de três meses e uma campanha de lançamento. R$ 1.490.
+Um perfil organizado e atualizado é o primeiro passo para o cliente chamar. Na Presença Estruturada: até duas redes, oito modelos de posts e stories, calendário de três meses e uma campanha de lançamento. R$ 1.490.
 
-Descubra onde seu negócio perde cliente. Gratuitamente.: https://www.v2o5.com.br/diagnostico?utm_source=facebook&utm_medium=post&utm_campaign=semana-1&utm_content=dor-perfil-parado
+Descubra onde seu negócio perde cliente. Gratuitamente.
+Peça pelo link: https://www.v2o5.com.br/diagnostico?utm_source=facebook&utm_medium=post&utm_campaign=semana-1&utm_content=dor-perfil-parado
 ```
 
 ### 20:00 · Reel L1-15
@@ -858,6 +915,7 @@ Arquivo `L1-15-v3.mp4` · Capa `capas/L1-15-v3.jpg`
 Você pagou por um site novo. O problema era outro.
 Cena de exemplo.
 
+Diagnóstico de 45 minutos com o fundador.
 Descubra onde seu negócio perde cliente. Gratuitamente.
 Link na bio.
 
@@ -876,6 +934,7 @@ Arquivo `L1-04-v3.mp4` · Capa `capas/L1-04-v3.jpg`
 Seu cliente esperou. Você nem percebeu.
 Cena de exemplo.
 
+Diagnóstico de 45 minutos com o fundador.
 Descubra onde seu negócio perde cliente. Gratuitamente.
 Link na bio.
 
@@ -886,7 +945,9 @@ Link na bio.
 Seu cliente esperou. Você nem percebeu.
 Cena de exemplo.
 
-Descubra onde seu negócio perde cliente. Gratuitamente.: https://www.v2o5.com.br/diagnostico?utm_source=facebook&utm_medium=reel&utm_campaign=semana-1&utm_content=L1-04
+Diagnóstico de 45 minutos com o fundador.
+Descubra onde seu negócio perde cliente. Gratuitamente.
+Peça pelo link: https://www.v2o5.com.br/diagnostico?utm_source=facebook&utm_medium=reel&utm_campaign=semana-1&utm_content=L1-04
 ```
 
 ### 20:00 · Reel L1-05
@@ -897,6 +958,7 @@ Arquivo `L1-05-v3.mp4` · Capa `capas/L1-05-v3.jpg`
 Quantas conversas ficaram sem resposta esta semana?
 Cena de exemplo.
 
+Diagnóstico de 45 minutos com o fundador.
 Descubra onde seu negócio perde cliente. Gratuitamente.
 Link na bio.
 
@@ -912,8 +974,9 @@ Arquivo `L1-24-v3.mp4` · Capa `capas/L1-24-v3.jpg`
 
 **Instagram** (reel)
 ```
-Por onde começar? A V2O5 escolhe com você.
+Google ou WhatsApp? Por onde começar?
 
+Diagnóstico de 45 minutos com o fundador.
 Descubra onde seu negócio perde cliente. Gratuitamente.
 Link na bio.
 
@@ -921,9 +984,11 @@ Link na bio.
 ```
 **Facebook** (reel, 09:00)
 ```
-Por onde começar? A V2O5 escolhe com você.
+Google ou WhatsApp? Por onde começar?
 
-Descubra onde seu negócio perde cliente. Gratuitamente.: https://www.v2o5.com.br/diagnostico?utm_source=facebook&utm_medium=reel&utm_campaign=semana-1&utm_content=L1-24
+Diagnóstico de 45 minutos com o fundador.
+Descubra onde seu negócio perde cliente. Gratuitamente.
+Peça pelo link: https://www.v2o5.com.br/diagnostico?utm_source=facebook&utm_medium=reel&utm_campaign=semana-1&utm_content=L1-24
 ```
 
 ### 20:00 · Reel L1-25
@@ -947,9 +1012,9 @@ Documento `linkedin/dor-formulario.pdf` (do pacote dos carrosséis; título do d
 ```
 Para onde vai o contato que chega pelo seu site?
 
-O formulário que envia para um e-mail que ninguém olha, a falta de dono para o contato e a pergunta repetida ao cliente são sinais de que o caminho até uma pessoa não está desenhado. No Site Conectado, o contato chega ao sistema com a origem anotada.
+O formulário que envia para um e-mail que ninguém olha, a falta de dono para o contato e a pergunta repetida ao cliente são sinais de que o caminho até uma pessoa não está desenhado. Na Landing Page, o contato do formulário chega a quem atende, com a origem gravada.
 
-Link no primeiro comentário.
+Link do diagnóstico gratuito no primeiro comentário.
 
 #Sites #Atendimento #PequenosNegócios
 ```

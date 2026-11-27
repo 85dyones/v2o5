@@ -5,11 +5,15 @@ import { BRL, mensalEmTexto } from "@/conteudo/precos";
 import { continuidadeAPartirDe, OFERTAS, precoDeEntrada } from "@/conteudo/ofertas";
 import type { Etapa } from "@/lib/tokens";
 
-/** A etiqueta da etapa de um serviço, na cor dela (páginas de solução também usam). */
-export function MarcaDeEtapa({ etapa }: { etapa: Etapa }) {
+/**
+ * A etiqueta da etapa de um serviço, na cor dele (páginas de solução também
+ * usam). O nome sai de `fase` quando a página fala de uma etapa que não é a
+ * da cor (26/11/2026): a Presença é verde e fala de ser achado.
+ */
+export function MarcaDeEtapa({ etapa, fase }: { etapa: Etapa; fase?: Etapa }) {
   return (
     <span className="rotulo" style={{ color: TEXTO_DA_ETAPA[etapa] }}>
-      {NOME_DA_ETAPA[etapa]}
+      {NOME_DA_ETAPA[fase ?? etapa]}
     </span>
   );
 }

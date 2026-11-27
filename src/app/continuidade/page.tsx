@@ -42,7 +42,7 @@ function CartaoDoPlano({ plano }: { plano: PlanoDeContinuidade }) {
       <p className="mt-4 text-[1.0625rem] font-semibold tabular-nums">
         <ComMarcas texto={preco} marcas={[preco]} etapa="ambar" />
       </p>
-      <p className="mt-1 text-[0.8125rem] text-texto-secundario">Preço de referência. Opcional, sem obrigação de contratar.</p>
+      <p className="mt-1 text-[0.8125rem] text-texto-secundario">Preço de referência. Opcional.</p>
       <p className="mt-4 text-[0.9375rem] leading-relaxed">{plano.para}</p>
       <ul className="mt-4 grid flex-1 content-start gap-2 border-t border-linha pt-4">
         {plano.inclui.map((i) => (

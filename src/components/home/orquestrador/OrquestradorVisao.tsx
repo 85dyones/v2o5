@@ -175,7 +175,7 @@ function CartaoCrmVisao({ cartao, pronto }: { cartao: CartaoDoCrm; pronto: boole
       </div>
       <p className="mt-5 text-2xl font-semibold tracking-[-0.03em]">{cartao.titulo}</p>
 
-      <ol aria-label="Etapa do funil" className="mt-5 grid grid-cols-4 gap-1.5">
+      <ol aria-label="Etapa do cliente" className="mt-5 grid grid-cols-4 gap-1.5">
         {ETAPAS.map((e, i) => {
           const feita = pronto && i <= ate;
           return (

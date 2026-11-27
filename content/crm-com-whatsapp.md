@@ -3,17 +3,17 @@ rota: "/crm-com-whatsapp"
 url: "https://www.v2o5.com.br/crm-com-whatsapp"
 status: 200
 title: "CRM com WhatsApp integrado | V2O5 Vendas e Tecnologia"
-description: "CRM sob medida com WhatsApp dentro do funil: cada contato com origem, etapa e próximo passo. Recurso do Atendimento com IA."
+description: "CRM simples com o WhatsApp dentro: cada cliente com a conversa e a origem num lugar só, e o aviso de quem chamar de volta. Recurso do Atendimento com IA."
 canonical: "https://www.v2o5.com.br/crm-com-whatsapp"
 robots: null
-h1: "CRM com WhatsApp integrado e IA."
-extraido_em: "2026-11-25T20:33:22.653Z"
-fonte: "build local da branch claude/kind-tesla-eefroe em 25/11/2026 (diagnóstico no foco em pequenos negócios), antes da publicação"
+h1: "CRM com WhatsApp para saber quem atender e quem chamar de volta."
+extraido_em: "2026-11-27T15:35:39.615Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 27/11/2026 (revisão de ganchos e conversão aprovada), antes da publicação"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
-# CRM com WhatsApp integrado e IA.
+# CRM com WhatsApp para saber quem atender e quem chamar de volta.
 
-Cada contato num funil, com a origem, a etapa e o próximo passo à vista, no nome da sua empresa.
+Seus clientes num lugar só, com a conversa do WhatsApp e a origem de cada um, para saber quem atender e quem chamar de volta.
 
 [Pedir diagnóstico gratuito](/diagnostico)
 
@@ -25,17 +25,17 @@ Entra no Atendimento com IA quando os contatos ficam espalhados entre conversas 
 
 O que entra
 
-Funil e campos do seu negócio, WhatsApp dentro do CRM, banco próprio, backups e treinamento da equipe, conforme o escopo
+Etapas e campos do seu negócio, WhatsApp dentro do CRM, banco de dados próprio, backups e treinamento da equipe, conforme o escopo
 
-Em produção
+Funcionando
 
-Motors Store: lead qualificado pelo agente de IA no CRM do Revenda Mais, com a origem e a ficha
+Motors Store: o cliente atendido pelo agente de IA chega ao CRM do Revenda Mais com a origem e a ficha
 
-## O funil vive no WhatsApp de cada vendedor.
+## Os clientes moram no celular de quem atende.
 
-Quando o vendedor sai, os contatos vão junto. Ninguém sabe quantos leads chegaram no mês, de onde vieram nem quantos viraram venda. O CRM de prateleira resolve metade e cobra por cabeça.
+Quem já comprou e quem pediu orçamento e sumiu ficam espalhados entre as conversas e uma planilha. Ninguém sabe de onde veio cada cliente nem quem está na hora de voltar, e, quando quem atende troca de celular ou sai, os contatos vão junto. O CRM de prateleira resolve metade e cobra por cabeça.
 
-Gestão
+Organizar
 
 exemplo
 
@@ -61,47 +61,43 @@ Pacote mensal <!-- decorativo, aria-hidden -->
 
 Indicação <!-- decorativo, aria-hidden -->
 
-## O que a V2O5 entrega nesta linha.
+## O que você recebe.
 
-### Funil com origem
+### Cada cliente com a origem
 
-Cada contato entra com a origem: Google, Instagram, site ou indicação. A venda sai com a origem conhecida.
+Cada cliente entra com a origem: Google, Instagram, site ou indicação. Você sabe de onde vem quem compra.
 
 ### WhatsApp dentro do CRM
 
-As conversas ficam no funil, com o histórico. O agente de IA e a equipe trabalham no mesmo lugar.
+As conversas ficam junto de cada cliente, com o histórico. O agente de IA e a equipe trabalham no mesmo lugar.
 
-### Régua de alertas
+### Aviso na hora certa
 
-Lead parado, visita marcada, proposta sem resposta: o responsável recebe o aviso.
+Cliente esperando resposta, horário marcado, orçamento sem retorno: quem cuida dele recebe o aviso.
 
-### Sob medida para o seu setor
+### Do jeito do seu negócio
 
-Os campos são os do seu negócio: veículo de interesse, imóvel, procedimento, contrato. A empresa não se adapta ao sistema.
+Os campos são os do seu ramo: o pet e o porte, o procedimento da clínica, o carro da oficina, o veículo de interesse na revenda.
 
-### Banco próprio e backups
+### Banco de dados e backups
 
-Os dados ficam num banco só seu, com backup diário e exportação quando pedir.
-
-### Usuários e volume de dados
-
-Quantos usuários e quanto de dado entram é definido na proposta, conforme o tamanho da equipe e da base.
+Os dados ficam num banco de dados só seu, com backup diário e exportação quando você pedir.
 
 ## Do diagnóstico ao ar.
 
-Começa pelo diagnóstico gratuito, com o escopo fechado antes da implantação. Sem fidelidade.
+Começa pelo diagnóstico gratuito. O que entra e o preço ficam por escrito antes de começar. Sem fidelidade.
 
 01
 
 Diagnóstico
 
-Como a venda acontece hoje, da primeira mensagem ao fechamento.
+Como o cliente é atendido hoje, da primeira mensagem à venda, e se ele volta a comprar.
 
 02
 
-Funil e campos
+Etapas e campos
 
-Desenhamos as etapas e os campos com a equipe de vendas.
+Desenhamos as etapas e os campos com você e com quem atende.
 
 03
 
@@ -113,11 +109,11 @@ Os contatos que existem, em planilha ou no sistema antigo, entram com origem e e
 
 Treinamento e ajuste
 
-A equipe é treinada na implantação, e o primeiro mês ajusta o que a rotina pedir.
+A equipe é treinada na implantação e, no primeiro mês, a V2O5 ajusta o que a rotina pedir.
 
 ## O painel da Motors Store.
 
-O lead qualificado pelo Ney vai ao CRM do Revenda Mais com a origem, o carro e a ficha, e o painel da loja mostra quem está com o agente, quem já foi ao CRM e quem precisa do dono.
+O cliente que o Ney atende vai ao CRM do Revenda Mais com a origem, o carro e a ficha, e o painel da loja mostra quem está com o agente, quem já foi ao CRM e quem precisa do dono.
 
 leads no funil de 05/09 a 17/11: 131 pelos formulários do site e 106 pelo WhatsApp direto
 
@@ -127,11 +123,11 @@ leads qualificados pelo Ney entregues ao CRM do Revenda Mais desde 04/11
 
 37
 
-Banco de dados da Motors Store, lido em 17/11/2026. Leads contados de 05/09 a 17/11/2026.
+Banco de dados da Motors Store, lido em 17/11/2026. Leads contados de 05/09 a 17/11/2026. Envios ao CRM de 04/11 a 17/11/2026.
 
 [Ler o case completo](/cases/motors-store)
 
-## CRM e sistemas sob medida no Atendimento com IA.
+## CRM com WhatsApp no Atendimento com IA.
 
 O CRM entra no Atendimento com IA quando os contatos se perdem entre conversas e planilhas. No Essencial, a lista de contatos com a origem; no Integrado, a ligação com o CRM ou o sistema que a empresa já usa, com as etapas e os campos desenhados com a equipe.
 
@@ -143,43 +139,43 @@ Sai da proposta do Atendimento com IA, depois de conhecer o atendimento de hoje,
 
 O diagnóstico inicial, de 45 minutos, é gratuito.
 
-## O que perguntam sobre crm e sistemas sob medida antes de fechar.
+## O que perguntam sobre o CRM com WhatsApp antes de fechar.
 
-O que entra, onde encaixa no Atendimento com IA e o que fica de fora. O resto cabe no diagnóstico.
-
-Como ficam os usuários e o volume de dados?
-
-Definidos na proposta, conforme o tamanho da equipe e da base de contatos.
+O que entra, onde se encaixa no Atendimento com IA e o que fica de fora. O resto cabe no diagnóstico.
 
 Posso integrar com o sistema que já uso?
 
-Sim, por integração, no Atendimento Integrado. Em produção hoje: o estoque do Revenda Mais. Para revendas, Autoconf, BNDV, Boom, Altimus e Syonet entram do mesmo jeito.
+Sim, no Atendimento Integrado: a agenda, o catálogo, o estoque ou o CRM que você já usa, depois de verificar a documentação e o acesso. Já funciona hoje: o estoque do Revenda Mais. Na revenda de veículos, Autoconf, BNDV, Boom, Altimus e Syonet entram do mesmo jeito.
 
 O WhatsApp fica dentro do CRM?
 
-Sim. As conversas entram no funil com o histórico, pela API oficial ou pelo Chatwoot, e o agente de IA trabalha no mesmo lugar que a equipe.
+Sim. As conversas ficam junto de cada cliente, com o histórico, pela API oficial ou pelo Chatwoot, e o agente de IA trabalha no mesmo lugar que a equipe.
 
 E se eu sair?
 
-Os dados ficam num banco do seu negócio, com exportação quando você pedir. Os termos de saída e de continuidade ficam no contrato.
+Os dados ficam num banco de dados do seu negócio, com exportação quando você pedir. Os termos de saída e de continuidade ficam no contrato.
 
-Serve para qualquer setor?
+Serve para o meu tipo de negócio?
 
-Serve. Os campos e as etapas são desenhados com você. Revenda de veículos é o segmento com case: a Motors Store.
+Serve. Os campos e as etapas são desenhados com você, do pet shop à oficina. O case em produção é o de uma revenda de veículos, a Motors Store.
+
+Quantas pessoas podem usar?
+
+Quantas pessoas usam e quantos contatos entram fica definido na proposta, conforme o tamanho da equipe e da lista de clientes.
 
 ## Recursos que combinam com este.
 
-[Atendimento Agente de IA no WhatsApp Responde na hora, a qualquer hora, com as informações do seu negócio. Quando a conversa pede uma pessoa, chama alguém da equipe.](/agente-de-ia-para-whatsapp)
+[Responder Agente de IA no WhatsApp Responde na hora, a qualquer hora, com as informações do seu negócio. Quando a conversa pede uma pessoa, chama alguém da equipe.](/agente-de-ia-para-whatsapp)
 
-[Gestão Automação de processos A tarefa que alguém faz à mão toda semana passa a rodar sozinha entre os sistemas que você já usa.](/automacao-com-ia)
+[Organizar Automação de tarefas A tarefa que alguém faz à mão toda semana passa a rodar sozinha entre os sistemas que você já usa.](/automacao-com-ia)
 
-[Venda Pós-venda e recorrência Revisão, recompra ou retorno: a régua manda a mensagem na data certa e traz o cliente de volta.](/diagnostico)
+[Voltar a comprar Pós-venda e recorrência Contato de volta com quem já comprou, na hora da recompra ou do retorno, no Atendimento Integrado. Só para quem consentiu, dentro das regras do WhatsApp.](/agente-de-ia-para-whatsapp#titulo-pacotes)
 
-## Comece pelo diagnóstico, que é gratuito.
+## Descubra onde seu negócio perde cliente.
 
-Em 45 minutos de conversa com o fundador, a gente vê como o cliente acha o seu negócio e como ele é atendido, e mostra por onde começar. A sessão é gratuita e sem compromisso.
+Em 45 minutos de conversa, o fundador vê com você como o cliente acha o seu negócio e como ele é atendido, e mostra por onde começar. Sem custo e sem compromisso.
 
-[Pedir diagnóstico](/diagnostico)
+[Pedir diagnóstico gratuito](/diagnostico)
 
 [Ver os preços](/precos)
 
@@ -196,10 +192,10 @@ V · 6,8 <!-- texto em SVG; decorativo, aria-hidden -->
 O · 4,8 <!-- texto em SVG; decorativo, aria-hidden -->
 
 <!-- fora do <main>: botão fixo do WhatsApp (só abaixo de 768 px) -->
-[WhatsApp](https://wa.me/5541998089550?text=Ol%C3%A1!%20Vi%20a%20p%C3%A1gina%20de%20CRM%20e%20sistemas%20sob%20medida%20no%20site%20da%20V2O5%20e%20quero%20conversar%20sobre%20a%20minha%20empresa.)
+[WhatsApp](https://wa.me/5541998089550?text=Ol%C3%A1!%20Vi%20a%20p%C3%A1gina%20de%20CRM%20com%20WhatsApp%20no%20site%20da%20V2O5%20e%20quero%20conversar%20sobre%20a%20minha%20empresa.)
 
 <!-- rótulos de acessibilidade (aria-label) desta rota, fora topo e rodapé:
-- "CRM e sistemas sob medida" (section)
+- "CRM com WhatsApp" (section)
 - "O problema" (section)
 - "O que entra" (section)
 - "Como funciona" (section)

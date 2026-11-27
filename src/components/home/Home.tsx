@@ -28,9 +28,9 @@ export default function Home({ titulo }: { titulo: string }) {
       <Topo />
       <main id="conteudo">
         <Hero titulo={titulo} />
+        <Dores />
         <Solucoes />
         <Escada />
-        <Dores />
         <Indicadores />
         <ProjetoReal />
         <Perguntas />

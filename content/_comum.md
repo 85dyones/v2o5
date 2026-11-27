@@ -1,7 +1,7 @@
 ---
 conteudo: "Topo, rodapé e peças presentes em todas as rotas"
-extraido_em: "2026-11-25T15:38:59.225Z"
-fonte: "build local da branch claude/kind-tesla-eefroe em 25/11/2026 (foco em pequenos negócios), antes da publicação"
+extraido_em: "2026-11-27T15:35:39.615Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 27/11/2026 (revisão de ganchos e conversão aprovada), antes da publicação"
 ---
 
 <!-- Topo e rodapé são idênticos nas 16 rotas extraídas (conferido no script). -->
@@ -24,13 +24,7 @@ Soluções
 
 [Ver as três soluções](/#solucoes)
 
-Continuidade
-
-[Manutenção técnica](/continuidade#manutencao-tecnica)
-
-[Monitoramento e otimização](/continuidade#monitoramento-e-otimizacao)
-
-[Ver a continuidade](/continuidade)
+[Continuidade](/continuidade)
 
 [Preços](/precos)
 
@@ -42,7 +36,7 @@ Cases
 
 [Sobre](/sobre)
 
-[Pedir diagnóstico](/diagnostico)
+[Pedir diagnóstico gratuito](/diagnostico)
 
 Menu <!-- oculto no desktop 1440 -->
 
@@ -55,10 +49,6 @@ Menu <!-- oculto no desktop 1440 -->
 [Atendimento com IA](/agente-de-ia-para-whatsapp) <!-- oculto no desktop 1440 -->
 
 [Continuidade](/continuidade) <!-- oculto no desktop 1440 -->
-
-[Manutenção técnica](/continuidade#manutencao-tecnica) <!-- oculto no desktop 1440 -->
-
-[Monitoramento e otimização](/continuidade#monitoramento-e-otimizacao) <!-- oculto no desktop 1440 -->
 
 [Preços](/precos) <!-- oculto no desktop 1440 -->
 
@@ -78,7 +68,7 @@ V2O5 Vendas e Tecnologia
 
 V2O5 | Digitalização para pequenos negócios.
 
-[Pedir diagnóstico](/diagnostico)
+[Pedir diagnóstico gratuito](/diagnostico)
 
 ## Soluções
 
@@ -103,7 +93,7 @@ V2O5 | Digitalização para pequenos negócios.
 
 ## Canais
 
-- [Pedir diagnóstico](/diagnostico)
+- [Pedir diagnóstico gratuito](/diagnostico)
 - [WhatsApp (41) 99808-9550](https://wa.me/5541998089550?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20V2O5%20e%20quero%20pedir%20o%20diagn%C3%B3stico%20gratuito.)
 - [diagnostico@v2o5.com.br](mailto:diagnostico@v2o5.com.br?subject=Quero%20o%20diagn%C3%B3stico%20gratuito)
 

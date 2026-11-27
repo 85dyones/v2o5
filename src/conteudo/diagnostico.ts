@@ -12,22 +12,22 @@ export const DIAGNOSTICO = {
   passos: [
     {
       titulo: "Você conta como vende hoje",
-      texto: "O formulário ao lado leva dois minutos. Com ele, a conversa já começa no que importa.",
+      texto: "O formulário desta página leva dois minutos. Com ele, a conversa já começa no que importa.",
     },
     {
       titulo: "45 minutos com o fundador",
       texto: "Por chamada de vídeo ou WhatsApp. Vemos como o cliente acha o seu negócio no Google, nas redes e no site, e como ele é atendido no WhatsApp.",
     },
     {
-      titulo: "O próximo passo, se houver",
-      texto: "Havendo um bom caso, a V2O5 propõe a solução que cabe no problema (Presença, Sites ou Atendimento com IA), com escopo, entregáveis, prazo e investimento por escrito. Se não houver, a conversa termina ali.",
+      titulo: "Uma proposta, se fizer sentido",
+      texto: "Se fizer sentido seguir, você recebe por escrito a solução que cabe no problema (Presença, Sites ou Atendimento com IA), o que entra, o prazo e o valor. Se não fizer, a conversa termina ali, sem custo.",
     },
   ],
   paraQuem:
     "Para o pequeno negócio que vende pelo WhatsApp ou no balcão e quer saber onde perde cliente antes de gastar com site ou sistema.",
   /** O que a sessão inicial não inclui (decisão de 25/10/2026; texto no foco em pequenos negócios desde 25/11/2026). */
   escopo:
-    "O diagnóstico é a sessão inicial, gratuita, de 45 minutos. Ele mostra o que pesa mais hoje (ser achado, responder ou fazer o cliente voltar) e por onde começar, mas não inclui mapeamento completo, implementação nem acompanhamento ou mensuração de resultados. Esses passos vêm depois, na solução contratada e, se fizer sentido, na continuidade, com escopo, valor e prazo definidos em proposta.",
+    "O diagnóstico é a sessão inicial, gratuita, de 45 minutos. Ele mostra o que pesa mais hoje (ser achado, responder ou fazer o cliente voltar) e por onde começar. Implementação e acompanhamento de resultados ficam para depois, na solução contratada e, se fizer sentido, na continuidade, com escopo, valor e prazo definidos em proposta.",
   formulario: {
     titulo: "Pedir o diagnóstico",
     enviar: "Pedir diagnóstico gratuito",
@@ -35,8 +35,8 @@ export const DIAGNOSTICO = {
     enviando: "Enviando...",
     consentimento:
       "Ao enviar, você concorda em receber o contato da V2O5 pelo WhatsApp e pelo e-mail informados, para marcar a conversa.",
-    erroGeral: "Não deu para enviar agora. Tente de novo em instantes.",
-    erroCanal: "O envio está em configuração. Tente de novo mais tarde.",
+    erroGeral: "Não deu para enviar agora. Tente de novo ou chame no WhatsApp.",
+    erroCanal: "O formulário está fora do ar agora. Chame no WhatsApp, que a gente marca por lá.",
   },
   recebido: {
     titulo: "Pedido recebido.",
@@ -46,12 +46,13 @@ export const DIAGNOSTICO = {
   },
 };
 
+/** Do pequeno negócio mais comum para o menos (26/11/2026); os valores são os que o n8n e o banco recebem. */
 export const SEGMENTOS = [
-  { valor: "automotivo", rotulo: "Revenda de veículos" },
-  { valor: "servicos", rotulo: "Serviços" },
   { valor: "comercio", rotulo: "Comércio" },
-  { valor: "imobiliario", rotulo: "Imobiliário" },
+  { valor: "servicos", rotulo: "Serviços" },
   { valor: "saude", rotulo: "Saúde" },
+  { valor: "automotivo", rotulo: "Revenda de veículos" },
+  { valor: "imobiliario", rotulo: "Imobiliário" },
   { valor: "industria", rotulo: "Indústria" },
   { valor: "outro", rotulo: "Outro" },
 ] as const;

@@ -120,7 +120,7 @@ export function validarLead(dados: unknown): Validacao {
   const erros: Partial<Record<keyof Lead, string>> = {};
 
   const nome = texto(d.nome, LIMITES.nome);
-  if (nome.length < 2) erros.nome = "Diga como podemos te chamar.";
+  if (nome.length < 2) erros.nome = "Diga como podemos chamar você.";
 
   const whatsapp = normalizarWhatsapp(d.whatsapp);
   if (!whatsapp) erros.whatsapp = "Informe o WhatsApp com DDD.";
@@ -129,10 +129,10 @@ export function validarLead(dados: unknown): Validacao {
   if (!emailValido(email)) erros.email = "Informe um e-mail válido.";
 
   const empresa = texto(d.empresa, LIMITES.empresa);
-  if (empresa.length < 2) erros.empresa = "Diga o nome da empresa.";
+  if (empresa.length < 2) erros.empresa = "Diga o nome do negócio.";
 
   const segmento = entre(SEGMENTOS, d.segmento);
-  if (!segmento) erros.segmento = "Escolha o segmento.";
+  if (!segmento) erros.segmento = "Escolha o ramo do negócio.";
 
   const objetivosBrutos = Array.isArray(d.objetivos) ? d.objetivos : [];
   const objetivos = [...new Set(objetivosBrutos.map((o) => entre(OBJETIVOS, o)).filter((o): o is NonNullable<typeof o> => !!o))];

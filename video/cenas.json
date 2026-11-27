@@ -113,7 +113,7 @@
       },
       {
         "de": "a",
-        "texto": "Oi, tudo bem? Claro, vou te ajudar. Qual carro te interessou?",
+        "texto": "Oi, tudo bem? Vou te ajudar. Qual carro te interessou?",
         "a": 0.9
       },
       {
@@ -241,7 +241,7 @@
       },
       {
         "rotulo": "Caixa de e-mail",
-        "sub": "parado, sem responsável",
+        "sub": "pedido parado, sem responsável",
         "a": 0.5,
         "destaque": true
       },

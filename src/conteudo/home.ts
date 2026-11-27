@@ -45,7 +45,7 @@ export const DORES = {
     {
       titulo: "Resposta que demora",
       texto:
-        "A mensagem chega no WhatsApp à noite ou no meio do movimento e fica para depois. Quando a resposta sai, o cliente já comprou em outro lugar.",
+        "A mensagem chega pelo WhatsApp à noite ou no meio do movimento e fica para depois. Quando a resposta sai, o cliente já comprou em outro lugar.",
     },
     {
       titulo: "Cliente que não volta",
@@ -56,18 +56,18 @@ export const DORES = {
 
 /** Indicadores possíveis. Nenhum percentual: `V2O5_CORE.md`, seção 2. */
 export const INDICADORES = {
-  sobretitulo: "Resultado antes de vaidade técnica",
+  sobretitulo: "Como saber se funcionou",
   titulo: "O que conta é o cliente bem atendido.",
   texto:
-    "O indicador depende do problema escolhido. Antes de implementar, combinamos o que acompanhar e como o resultado será observado.",
+    "O que acompanhar depende do problema do seu negócio. Antes de começar, a gente combina o que vai olhar e como.",
   itens: [
     { titulo: "Tempo de resposta", texto: "Quanto demora a primeira resposta no WhatsApp, no horário e fora dele." },
     { titulo: "Contatos perdidos", texto: "Quantas conversas ficam sem resposta ou sem próximo passo." },
     { titulo: "Avaliações", texto: "Quantas avaliações novas chegam ao Google e o que os clientes contam nelas." },
-    { titulo: "Clientes que voltam", texto: "Quantos clientes compram de novo depois do primeiro contato." },
+    { titulo: "Clientes que voltam", texto: "Quantos clientes compram de novo." },
   ],
   regra:
-    "Não prometemos um percentual de melhoria igual para todos. Definimos uma linha de base, implementamos dentro do escopo acordado e medimos o que os dados disponíveis permitem medir.",
+    "Ninguém aqui promete um percentual de melhoria. A gente anota como está hoje e, depois da entrega, compara com o que os dados mostram.",
 };
 
 /**
@@ -76,15 +76,15 @@ export const INDICADORES = {
  * dos cases, com fonte e período.
  */
 export const PROJETO = {
-  rotulo: "Projetos em ambiente real",
-  titulo: "Dois atendimentos no ar.",
+  rotulo: "Cases",
+  titulo: "Funcionando hoje em dois clientes.",
   apagado: "Um no comércio, outro no serviço público.",
   cases: [
     {
       nome: "Motors Store",
       texto:
-        "Revenda de seminovos em Curitiba. O site se liga ao estoque, o agente de IA atende e qualifica no WhatsApp, e o lead pronto chega ao CRM do Revenda Mais.",
-      pilulas: ["Site ligado ao estoque", "Agente de IA no WhatsApp", "Lead no CRM do Revenda Mais"],
+        "Revenda de seminovos em Curitiba. O site se liga ao estoque, o agente de IA atende no WhatsApp e cada cliente chega pronto, com a ficha preenchida, ao CRM do Revenda Mais.",
+      pilulas: ["Site ligado ao estoque", "Agente de IA no WhatsApp", "Cliente no CRM do Revenda Mais"],
       link: "Ler o case da Motors Store",
       href: "/cases/motors-store",
     },
@@ -98,7 +98,6 @@ export const PROJETO = {
     },
   ],
   provas: [
-    "Começamos pelo cliente que precisa ser atendido, não por uma lista de funcionalidades.",
     "Usamos os sistemas que já existem sempre que resolvem com menos atrito.",
     "Separamos o que foi implementado do que já tem resultado medido.",
   ],
@@ -119,8 +118,10 @@ export const ESCADA = {
       tipo: "Etapa inicial",
       titulo: "Diagnóstico gratuito",
       texto:
-        "Sessão inicial gratuita de 45 minutos para entender o problema e escolher por onde começar. Avalia se existe um projeto viável.",
-      saida: "Não inclui mapeamento completo do processo, implementação nem acompanhamento.",
+        "45 minutos com o fundador para ver onde o seu negócio perde cliente e por onde começar. Se não fizer sentido contratar, a conversa termina ali.",
+      saida: "Sem custo e sem compromisso.",
+      href: "/diagnostico",
+      link: "Pedir diagnóstico gratuito",
     },
     {
       tipo: "A solução",
@@ -129,14 +130,16 @@ export const ESCADA = {
         "Presença, Sites ou Atendimento com IA, com pacotes de escopo claro. O valor fechado sai em proposta, com entregáveis, exclusões, prazo e custos de terceiros.",
       saida: `Preços de entrada de ${precoEmTexto({ valor: Math.min(...entradas) })} a ${precoEmTexto({ valor: Math.max(...entradas) })}. Nenhuma solução obriga a comprar a seguinte.`,
       href: "/precos",
+      link: "Ver os preços das soluções",
       destaque: true,
     },
     {
       tipo: "Depois da entrega",
       titulo: "Continuidade, se precisar",
-      texto: "Planos opcionais para manter e evoluir o que foi entregue, com horas e prazo de resposta escritos.",
+      texto: "Planos opcionais para manter e melhorar o que foi entregue, com horas e prazo de resposta escritos.",
       saida: `Planos a partir de ${mensalEmTexto(continuidadeAPartirDe())}. Não inclui desenvolvimento ilimitado nem novas integrações sem orçamento.`,
       href: "/continuidade",
+      link: "Ver os planos de continuidade",
     },
   ],
 };
@@ -146,16 +149,16 @@ export const NOME = {
   rotulo: "Por que V2O5?",
   titulo: "Um catalisador para a mudança.",
   paragrafos: [
-    "O nome vem do pentóxido de vanádio, usado como catalisador em processos químicos. A imagem resume como a V2O5 pensa tecnologia: ela não precisa ser o centro da operação, precisa ajudar a mudança a acontecer com menos esforço.",
-    "O trabalho começa entendendo como o negócio funciona de fato. Depois a gente liga estratégia, processos e tecnologia para achar o caminho mais simples entre o problema e o resultado.",
+    "O nome vem do pentóxido de vanádio, usado como catalisador em processos químicos: ele acelera a reação sem virar o produto final. É assim que a V2O5 usa a tecnologia no seu negócio, para a mudança acontecer com menos esforço.",
+    "O trabalho começa entendendo como o negócio funciona de fato: como o cliente chega até ele e como é atendido. Depois a gente põe a tecnologia que resolve isso, num formato que a equipe consegue usar no dia a dia.",
   ],
 };
 
-/** O fecho da home: o CTA leva ao formulário de `/diagnostico`. */
+/** O fecho da home: o CTA leva ao formulário de `/diagnostico` (texto no foco em pequenos negócios desde 26/11/2026). */
 export const FECHO = {
-  titulo: "Por onde a sua empresa precisa começar?",
+  titulo: "Onde o seu negócio está perdendo cliente?",
   texto:
-    "Não precisa chegar com um briefing grande nem saber qual solução escolher. Traga o problema, como ele acontece hoje e o que deveria melhorar. A primeira conversa serve para avaliar se existe um bom caso para trabalhar.",
+    "Não precisa saber qual solução escolher. Conte como o cliente acha o seu negócio e como ele é atendido no WhatsApp. Em 45 minutos, o fundador mostra onde você perde cliente e por onde começar, sem custo e sem compromisso.",
   botao: "Pedir diagnóstico gratuito",
 };
 
@@ -188,15 +191,8 @@ export const NAVEGACAO: ItemDaNavegacao[] = [
     // (17/11/2026): a página segue no ar, ligada pelo rodapé (grupo Empresa).
     itens: OFERTAS.map((o) => ({ rotulo: o.nome, href: o.rota })),
   },
-  {
-    rotulo: "Continuidade",
-    href: "/continuidade",
-    todos: "Ver a continuidade",
-    itens: [
-      { rotulo: "Manutenção técnica", href: "/continuidade#manutencao-tecnica" },
-      { rotulo: "Monitoramento e otimização", href: "/continuidade#monitoramento-e-otimizacao" },
-    ],
-  },
+  // Continuidade é pós-venda: link simples, sem painel (27/11/2026).
+  { rotulo: "Continuidade", href: "/continuidade" },
   { rotulo: "Preços", href: "/precos" },
   {
     rotulo: "Cases",
@@ -209,11 +205,17 @@ export const NAVEGACAO: ItemDaNavegacao[] = [
   { rotulo: "Sobre", href: "/sobre" },
 ];
 
+/**
+ * As quatro etapas do caminho do cliente, nas quatro cores do vanádio
+ * (26/11/2026, aprovado pelo Dyones; antes, Atração, Atendimento, Gestão e
+ * Venda). A etiqueta de uma página diz a etapa dela (`fase`), que pode não
+ * ser a da cor: a Presença é verde e fala de ser achado.
+ */
 export const NOME_DA_ETAPA: Record<Etapa, string> = {
-  violeta: "Atração",
-  verde: "Atendimento",
-  azul: "Gestão",
-  ambar: "Venda",
+  violeta: "Ser achado",
+  verde: "Responder",
+  azul: "Organizar",
+  ambar: "Voltar a comprar",
 };
 
 export type Vinheta =
@@ -241,6 +243,8 @@ export interface Linha {
   frase: string;
   href: string;
   etapa: Etapa;
+  /** A etapa que a etiqueta mostra, quando não é a da cor (`NOME_DA_ETAPA`). */
+  fase?: Etapa;
   /** A cena de produto que ilustra o cartão (`Vinhetas.tsx`). */
   vinheta: Vinheta;
 }
@@ -273,9 +277,10 @@ export const LINHAS: Linha[] = [
     linha: "avaliacoes",
     titulo: "Avaliações no Google",
     frase:
-      "Depois da venda, o cliente recebe no WhatsApp o pedido de avaliação com o link certo, e o painel mostra quem respondeu.",
-    href: "/diagnostico",
+      "Link direto e mensagem pronta para pedir a avaliação a quem comprou, na Presença Digital Local. Avaliação recente pesa na busca do bairro.",
+    href: "/presenca-digital-local",
     etapa: "ambar",
+    fase: "violeta",
     vinheta: "avaliacoes",
   },
   {
@@ -289,15 +294,15 @@ export const LINHAS: Linha[] = [
   },
   {
     linha: "crm",
-    titulo: "CRM e sistemas sob medida",
-    frase: "Nenhum contato esquecido numa conversa: cada um num funil, com a origem, a etapa e o próximo passo à vista.",
+    titulo: "CRM com WhatsApp",
+    frase: "Nenhum cliente esquecido numa conversa: cada um com a origem e o histórico, e o aviso de quando chamar de novo.",
     href: "/crm-com-whatsapp",
     etapa: "azul",
     vinheta: "crm",
   },
   {
     linha: "automacao",
-    titulo: "Automação de processos",
+    titulo: "Automação de tarefas",
     frase: "A tarefa que alguém faz à mão toda semana passa a rodar sozinha entre os sistemas que você já usa.",
     href: "/automacao-com-ia",
     etapa: "azul",
@@ -307,16 +312,16 @@ export const LINHAS: Linha[] = [
     linha: "posvenda",
     titulo: "Pós-venda e recorrência",
     frase:
-      "Revisão, recompra ou retorno: a régua manda a mensagem na data certa e traz o cliente de volta.",
-    href: "/diagnostico",
+      "Contato de volta com quem já comprou, na hora da recompra ou do retorno, no Atendimento Integrado. Só para quem consentiu, dentro das regras do WhatsApp.",
+    href: "/agente-de-ia-para-whatsapp#titulo-pacotes",
     etapa: "ambar",
     vinheta: "posvenda",
   },
   {
     linha: "diagnostico",
-    titulo: "Diagnóstico e análise de operação",
+    titulo: "Diagnóstico gratuito",
     frase:
-      "Como o cliente acha a empresa hoje, quanto espera pela resposta e onde desiste. O diagnóstico de presença vira o mapa que decide por onde começar.",
+      "Como o cliente acha o seu negócio hoje, quanto espera pela resposta no WhatsApp e onde desiste. São 45 minutos com o fundador para ver por onde começar.",
     href: "/diagnostico",
     etapa: "verde",
     vinheta: "jornada",
@@ -348,7 +353,7 @@ export const SOLUCOES = {
     "Cada uma resolve um tipo de problema e tem pacotes com preço de referência. Elas se completam, mas nenhuma obriga a comprar a seguinte.",
   continuidade: {
     titulo: "Continuidade",
-    texto: "Depois da entrega, planos opcionais para manter e evoluir o que foi entregue, com limites escritos.",
+    texto: "Depois do projeto, planos opcionais para manter e melhorar o que foi entregue, com limites escritos.",
   },
 };
 
@@ -403,7 +408,7 @@ export const PILARES: { id: string; sobretitulo: string; titulo: string; frase: 
       {
         linha: "automacao",
         titulo: "Integrações entre sistemas",
-        frase: "Site, CRM, agenda e os sistemas do seu setor trocando dados sozinhos. Em produção hoje: o estoque do Revenda Mais.",
+        frase: "Site, CRM, agenda e os sistemas do seu setor trocando dados sozinhos. Já funciona hoje: o estoque do Revenda Mais.",
         href: "/automacao-com-ia",
         etapa: "azul",
         vinheta: "integracoes",
@@ -452,7 +457,7 @@ export const VISAO_360 = {
       nome: "Vendas",
       pergunta: "Quem responde, e quando?",
       acao: "O agente de IA responde na hora e passa ao vendedor a conversa, o interesse e a origem do cliente.",
-      base: { tipo: "Prática", texto: "Funil e CRM da Motors Store" },
+      base: { tipo: "Prática", texto: "Atendimento e CRM da Motors Store" },
     },
     {
       nome: "Gestão",
@@ -471,7 +476,7 @@ export const VISAO_360 = {
     nome: "Dyones Oliveira",
     papel: "Fundador da V2O5",
     texto:
-      "Formado em Administração pela FAE Business School, está na tecnologia desde 1992, quando ganhou um curso num concurso da escola. Em branding, fez a mudança da Top Imóveis para Top Soluções Imobiliárias e assinou o blog da Top até agosto de 2024; na Motors Store, assina os 26 guias do site. É ele quem conduz o diagnóstico gratuito.",
+      "Formado em Administração pela FAE Business School, está na tecnologia desde 1992, quando ganhou um curso num concurso da escola. Fez a mudança de marca da Top Imóveis para Top Soluções Imobiliárias e assinou o blog da Top até agosto de 2024; na Motors Store, assina os 26 guias do site. É ele quem conduz o diagnóstico gratuito.",
     escola: "FAE Business School",
   },
 };
@@ -649,7 +654,7 @@ export const FRENTES: Frente[] = [
   {
     id: "agente",
     aba: "Agente de IA",
-    resumo: "Uma mensagem chega no WhatsApp do pet shop às 21h e é respondida na hora.",
+    resumo: "Uma mensagem chega ao WhatsApp do pet shop às 21h e é respondida na hora.",
     passos: [
       {
         tipo: "entrada",
@@ -790,7 +795,7 @@ export const CASE = {
 export const AUTOMOTIVO = {
   titulo: "Para revendas de veículos",
   texto:
-    "As mesmas soluções aplicadas a revendas, a partir do que roda na Motors Store: site ligado ao estoque do sistema da loja (Revenda Mais, Autoconf e outros), atendimento e qualificação com IA no WhatsApp e o lead entregue ao CRM da loja.",
+    "As mesmas soluções de qualquer negócio, na revenda, a partir do que roda na Motors Store: site ligado ao estoque do sistema da loja (Revenda Mais, Autoconf e outros) e agente de IA que atende no WhatsApp e passa cada cliente ao CRM da loja.",
   href: "/segmentos/revendas-de-veiculos",
 };
 
@@ -847,6 +852,7 @@ export const WHATSAPP = {
     recebido: `Olá! Acabei de pedir o diagnóstico no ${MARCA_DO_SITE} e quero adiantar a conversa.`,
     revendas: `Olá! Vi a página de revendas no ${MARCA_DO_SITE} e quero conversar sobre a minha loja.`,
     sobre: `Olá! Vi a página Sobre no ${MARCA_DO_SITE} e quero conversar sobre a minha empresa.`,
+    privacidade: `Olá! Vim pelo ${MARCA_DO_SITE} e quero falar sobre os meus dados.`,
   },
 };
 
@@ -875,7 +881,7 @@ export const CHAMADA = {
 export const PERGUNTAS = [
   {
     pergunta: "Quanto custa?",
-    resposta: `O diagnóstico inicial, de 45 minutos, é gratuito. Os preços de entrada são ${OFERTAS.map((o) => `${o.nome} ${precoEmTexto({ valor: precoDeEntrada(o), aPartirDe: true })}`).join(", ")}, e a continuidade tem planos a partir de ${mensalEmTexto(continuidadeAPartirDe())}. São preços de referência: o valor fechado sai em proposta, para um escopo conhecido.`,
+    resposta: `O diagnóstico inicial, de 45 minutos, é gratuito. Preços de entrada: ${OFERTAS.map((o) => `${o.nome}, ${precoEmTexto({ valor: precoDeEntrada(o), aPartirDe: true })}`).join("; ")}. A continuidade tem planos a partir de ${mensalEmTexto(continuidadeAPartirDe())}. São preços de referência: o valor fechado sai em proposta, para um escopo conhecido.`,
   },
   {
     pergunta: "Preciso contratar tudo?",
@@ -885,7 +891,7 @@ export const PERGUNTAS = [
   {
     pergunta: "O que o Atendimento com IA entrega?",
     resposta:
-      "O WhatsApp organizado, um agente de IA que responde com as informações do seu negócio e passa a conversa à pessoa certa, e a lista de contatos com a origem. No Atendimento Integrado, o agente também qualifica e leva cada contato ao sistema que você já usa.",
+      "O WhatsApp organizado, um agente de IA que responde com as informações do seu negócio e passa a conversa à pessoa certa, e a lista de contatos com a origem. No Atendimento Integrado, o agente também faz as perguntas que importam para o seu negócio, agenda ou encaminha, leva cada contato ao sistema que você já usa e chama de volta quem já comprou e aceitou receber mensagem.",
   },
   {
     pergunta: "Como funciona o pagamento?",
@@ -893,30 +899,30 @@ export const PERGUNTAS = [
   },
   {
     pergunta: "E depois da entrega?",
-    resposta: `A implantação termina na entrega. Se o que foi entregue continua rodando, a continuidade cuida dele, em contrato à parte e com horas e prazo de resposta escritos, com planos a partir de ${mensalEmTexto(continuidadeAPartirDe())}. Banco de dados, servidor dedicado, IA e mensagens ficam por fora, pelo valor do provedor, e a V2O5 gerencia. Nenhum plano cobre desenvolvimento ilimitado.`,
+    resposta: `A implantação termina na entrega. Se o que foi entregue continua rodando, a continuidade cuida dele, em contrato à parte e com horas e prazo de resposta escritos, com planos a partir de ${mensalEmTexto(continuidadeAPartirDe())}. Banco de dados, servidor dedicado, IA e mensagens ficam por fora, pelo valor do provedor, e a V2O5 cuida dessas contas. Nenhum plano cobre desenvolvimento ilimitado.`,
   },
   {
-    pergunta: "Preciso trocar o sistema de gestão que já uso?",
-    resposta: `Não. A V2O5 liga o que você já usa. Em produção hoje: o estoque do Revenda Mais sincronizado com o site e o agente da Motors Store. ${listaDeSistemasIntegraveis()}, entre outros, entram como integração, depois de verificar a documentação e o acesso de cada um.`,
+    pergunta: "Preciso trocar o sistema que já uso?",
+    resposta: `Não. A V2O5 liga o que você já usa: a agenda, o catálogo, o estoque ou o CRM, depois de verificar a documentação e o acesso de cada um. Já funciona hoje: o estoque do Revenda Mais sincronizado com o site e o agente da Motors Store. Na revenda de veículos, ${listaDeSistemasIntegraveis()} entram do mesmo jeito.`,
   },
   {
     pergunta: "O agente de IA atende sozinho?",
     resposta:
-      "Responde na hora com as informações do seu negócio e, quando a conversa pede uma pessoa, chama alguém da equipe. A conversa fica registrada no CRM, com a origem do contato.",
+      "Em parte. Responde sozinho na hora, com as informações do seu negócio, e chama alguém da equipe quando a conversa pede uma pessoa. A conversa fica registrada na lista de contatos, com a origem de cada um.",
   },
   {
     pergunta: "Vocês fazem tráfego pago?",
     resposta:
-      "Não. A V2O5 cuida de o negócio ser encontrado no Google e de atender bem quem chega. Quem anuncia segue com a própria campanha, e o site grava de onde veio cada contato.",
+      "Não. A V2O5 cuida para o negócio ser achado no Google e para quem chega ser bem atendido. Quem anuncia segue com a própria campanha, e o site grava de onde veio cada contato.",
   },
   {
     pergunta: "Como funciona o diagnóstico gratuito?",
     resposta:
-      "São 45 minutos de conversa com o fundador sobre presença, atendimento e os sistemas que você já usa, para identificar e priorizar o problema e avaliar se existe um projeto viável. A sessão não inclui mapeamento completo do processo, implementação nem acompanhamento de resultados. Havendo um bom caso, o próximo passo é a proposta da solução que cabe no problema, com escopo, entregáveis, prazo e investimento.",
+      "São 45 minutos de conversa com o fundador sobre como o cliente acha o seu negócio, como ele é atendido no WhatsApp e os sistemas que você já usa, para ver onde você perde cliente e por onde começar. A sessão não inclui implementação nem acompanhamento de resultados. Se fizer sentido seguir, o próximo passo é a proposta da solução que cabe no problema, com escopo, entregáveis, prazo e investimento.",
   },
   {
     pergunta: "A V2O5 atende fora de Curitiba?",
     resposta:
-      "Sim. O atendimento é remoto, para empresas de todo o Brasil.",
+      "Sim. O atendimento é remoto, para pequenos negócios de todo o Brasil.",
   },
 ];

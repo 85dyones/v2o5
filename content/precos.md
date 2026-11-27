@@ -6,28 +6,28 @@ title: "Preços: três soluções e a continuidade | V2O5 Vendas e Tecnologia"
 description: "Preços de referência de Presença Digital Local, Sites & Integrações, Atendimento com IA e dos planos de continuidade. Diagnóstico gratuito."
 canonical: "https://www.v2o5.com.br/precos"
 robots: null
-h1: "Três soluções, com preço de referência."
-extraido_em: "2026-11-25T20:33:22.653Z"
-fonte: "build local da branch claude/kind-tesla-eefroe em 25/11/2026 (diagnóstico no foco em pequenos negócios), antes da publicação"
+h1: "O preço de cada solução, antes de qualquer conversa."
+extraido_em: "2026-11-27T15:35:39.615Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 27/11/2026 (revisão de ganchos e conversão aprovada), antes da publicação"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
-# Três soluções, com preço de referência.
+# O preço de cada solução, antes de qualquer conversa.
 
-O diagnóstico inicial é gratuito. Cada solução tem pacotes com escopo claro, e a continuidade é opcional.
+Cada pacote diz o que entra e o que fica de fora. Na dúvida, o diagnóstico gratuito ajuda a escolher.
 
 [Pedir diagnóstico gratuito](/diagnostico)
 
 [Ver todos os pacotes](#titulo-pacotes)
 
-## Três soluções e a continuidade. Nenhuma obriga a seguinte.
+## Três soluções e a continuidade. Nenhuma obriga a comprar a seguinte.
 
-[Presença Digital Local Quando o cliente procura e encontra informação errada, perfil parado ou nenhum jeito fácil de chamar. A partir de R$ 790](/presenca-digital-local)
+[Presença Digital Local Quando o cliente procura o seu negócio e acha informação errada, perfil parado ou não acha como chamar. A partir de R$ 790](/presenca-digital-local)
 
-[Sites & Integrações Quando a empresa depende de perfil de terceiros, ou o site não conversa com o sistema que ela já usa. A partir de R$ 2.900](/criacao-de-sites)
+[Sites & Integrações Quando o negócio depende só de rede social ou de portal, ou tem um site que não leva quem chega até a conversa. A partir de R$ 2.900](/criacao-de-sites)
 
-[Atendimento com IA Quando o cliente chama no WhatsApp e espera, se perde entre as conversas ou some sem que ninguém retome. A partir de R$ 3.900](/agente-de-ia-para-whatsapp)
+[Atendimento com IA Quando o cliente chama no WhatsApp e fica esperando, ou a conversa se perde e ninguém chama de volta. A partir de R$ 3.900](/agente-de-ia-para-whatsapp)
 
-[Continuidade Manter funcionando e evoluindo o que foi entregue, com limites escritos. Opcional. Planos a partir de R$ 349/mês](/continuidade)
+[Continuidade Manter funcionando e melhorar o que foi entregue, com limites escritos. Opcional. Planos a partir de R$ 349/mês](/continuidade)
 
 ## Todos os pacotes. O detalhe de cada um está na página da solução.
 
@@ -97,18 +97,18 @@ R$ 990/mês
 
 - São preços de referência para começar a conversa. O valor fechado sai em proposta e vale para um escopo conhecido.
 - Cada pacote diz o que inclui e o que fica de fora. Nenhum tem escopo ilimitado.
-- Custos de terceiros, como domínio, licenças, APIs, mídia paga, IA e mensagens, ficam por fora e aparecem discriminados na proposta.
+- Custos de terceiros, como domínio, licenças, APIs, IA e mensagens do WhatsApp, ficam por fora e aparecem discriminados na proposta.
 - Nenhuma solução obriga a comprar outra, e a continuidade é opcional.
 - Aumento de vendas não é prometido. O que se mede é combinado antes de começar, com uma linha de base.
 - O diagnóstico inicial, de 45 minutos, é gratuito e serve para escolher a solução que cabe no problema.
 
 ## O que todo mundo pergunta antes de fechar.
 
-Preço, pagamento, o que cada solução entrega e o que vem depois. Se a sua pergunta não está aqui, ela cabe no diagnóstico.
+Preço, pagamento, o que cada solução entrega e o que vem depois. Se a sua pergunta não estiver aqui, ela cabe no diagnóstico.
 
 Quanto custa?
 
-O diagnóstico inicial, de 45 minutos, é gratuito. Os preços de entrada são Presença Digital Local a partir de R$ 790, Sites & Integrações a partir de R$ 2.900, Atendimento com IA a partir de R$ 3.900, e a continuidade tem planos a partir de R$ 349/mês. São preços de referência: o valor fechado sai em proposta, para um escopo conhecido.
+O diagnóstico inicial, de 45 minutos, é gratuito. Preços de entrada: Presença Digital Local, a partir de R$ 790; Sites & Integrações, a partir de R$ 2.900; Atendimento com IA, a partir de R$ 3.900. A continuidade tem planos a partir de R$ 349/mês. São preços de referência: o valor fechado sai em proposta, para um escopo conhecido.
 
 Preciso contratar tudo?
 
@@ -116,7 +116,7 @@ Não. Cada solução resolve um tipo de problema e funciona sozinha. Elas se com
 
 O que o Atendimento com IA entrega?
 
-O WhatsApp organizado, um agente de IA que responde com as informações do seu negócio e passa a conversa à pessoa certa, e a lista de contatos com a origem. No Atendimento Integrado, o agente também qualifica e leva cada contato ao sistema que você já usa.
+O WhatsApp organizado, um agente de IA que responde com as informações do seu negócio e passa a conversa à pessoa certa, e a lista de contatos com a origem. No Atendimento Integrado, o agente também faz as perguntas que importam para o seu negócio, agenda ou encaminha, leva cada contato ao sistema que você já usa e chama de volta quem já comprou e aceitou receber mensagem.
 
 Como funciona o pagamento?
 
@@ -124,33 +124,33 @@ As condições saem na proposta, com o escopo, os entregáveis, o prazo e os cus
 
 E depois da entrega?
 
-A implantação termina na entrega. Se o que foi entregue continua rodando, a continuidade cuida dele, em contrato à parte e com horas e prazo de resposta escritos, com planos a partir de R$ 349/mês. Banco de dados, servidor dedicado, IA e mensagens ficam por fora, pelo valor do provedor, e a V2O5 gerencia. Nenhum plano cobre desenvolvimento ilimitado.
+A implantação termina na entrega. Se o que foi entregue continua rodando, a continuidade cuida dele, em contrato à parte e com horas e prazo de resposta escritos, com planos a partir de R$ 349/mês. Banco de dados, servidor dedicado, IA e mensagens ficam por fora, pelo valor do provedor, e a V2O5 cuida dessas contas. Nenhum plano cobre desenvolvimento ilimitado.
 
-Preciso trocar o sistema de gestão que já uso?
+Preciso trocar o sistema que já uso?
 
-Não. A V2O5 liga o que você já usa. Em produção hoje: o estoque do Revenda Mais sincronizado com o site e o agente da Motors Store. Autoconf, BNDV, Boom, Altimus e Syonet, entre outros, entram como integração, depois de verificar a documentação e o acesso de cada um.
+Não. A V2O5 liga o que você já usa: a agenda, o catálogo, o estoque ou o CRM, depois de verificar a documentação e o acesso de cada um. Já funciona hoje: o estoque do Revenda Mais sincronizado com o site e o agente da Motors Store. Na revenda de veículos, Autoconf, BNDV, Boom, Altimus e Syonet entram do mesmo jeito.
 
 O agente de IA atende sozinho?
 
-Responde na hora com as informações do seu negócio e, quando a conversa pede uma pessoa, chama alguém da equipe. A conversa fica registrada no CRM, com a origem do contato.
+Em parte. Responde sozinho na hora, com as informações do seu negócio, e chama alguém da equipe quando a conversa pede uma pessoa. A conversa fica registrada na lista de contatos, com a origem de cada um.
 
 Vocês fazem tráfego pago?
 
-Não. A V2O5 cuida de o negócio ser encontrado no Google e de atender bem quem chega. Quem anuncia segue com a própria campanha, e o site grava de onde veio cada contato.
+Não. A V2O5 cuida para o negócio ser achado no Google e para quem chega ser bem atendido. Quem anuncia segue com a própria campanha, e o site grava de onde veio cada contato.
 
 Como funciona o diagnóstico gratuito?
 
-São 45 minutos de conversa com o fundador sobre presença, atendimento e os sistemas que você já usa, para identificar e priorizar o problema e avaliar se existe um projeto viável. A sessão não inclui mapeamento completo do processo, implementação nem acompanhamento de resultados. Havendo um bom caso, o próximo passo é a proposta da solução que cabe no problema, com escopo, entregáveis, prazo e investimento.
+São 45 minutos de conversa com o fundador sobre como o cliente acha o seu negócio, como ele é atendido no WhatsApp e os sistemas que você já usa, para ver onde você perde cliente e por onde começar. A sessão não inclui implementação nem acompanhamento de resultados. Se fizer sentido seguir, o próximo passo é a proposta da solução que cabe no problema, com escopo, entregáveis, prazo e investimento.
 
 A V2O5 atende fora de Curitiba?
 
-Sim. O atendimento é remoto, para empresas de todo o Brasil.
+Sim. O atendimento é remoto, para pequenos negócios de todo o Brasil.
 
-## Comece pelo diagnóstico, que é gratuito.
+## Não sabe qual escolher? Comece pelo diagnóstico gratuito.
 
-Em 45 minutos de conversa com o fundador, a gente vê como o cliente acha o seu negócio e como ele é atendido, e mostra por onde começar. A sessão é gratuita e sem compromisso.
+Em 45 minutos de conversa, o fundador vê com você como o cliente acha o seu negócio e como ele é atendido, e mostra por onde começar. Sem custo e sem compromisso.
 
-[Pedir diagnóstico](/diagnostico)
+[Pedir diagnóstico gratuito](/diagnostico)
 
 r 18 <!-- texto em SVG; decorativo, aria-hidden -->
 

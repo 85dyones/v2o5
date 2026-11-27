@@ -7,8 +7,8 @@ description: "Digitalização para pequenos negócios: presença no Google, site
 canonical: "https://www.v2o5.com.br"
 robots: null
 h1: "Coloque seu negócio no mapa e cuide de cada cliente que chega."
-extraido_em: "2026-11-25T15:38:59.225Z"
-fonte: "build local da branch claude/kind-tesla-eefroe em 25/11/2026 (foco em pequenos negócios), antes da publicação"
+extraido_em: "2026-11-27T15:35:39.615Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 27/11/2026 (revisão de ganchos e conversão aprovada), antes da publicação"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 Digitalização para pequenos negócios
@@ -29,17 +29,33 @@ Três soluções
 - Sites & Integrações
 - Atendimento com IA
 
+## O cliente procura, chama e às vezes desiste. Quase sempre por um detalhe que dá para arrumar.
+
+Perfil desatualizado, mensagem que demora, cliente que comprou uma vez e nunca mais apareceu. A V2O5 começa por esses detalhes.
+
+### Difícil de achar
+
+Perfil no Google sem horário, sem foto ou com o telefone antigo. Quem procura perto de casa acaba no vizinho.
+
+### Resposta que demora
+
+A mensagem chega pelo WhatsApp à noite ou no meio do movimento e fica para depois. Quando a resposta sai, o cliente já comprou em outro lugar.
+
+### Cliente que não volta
+
+Ninguém lembra de quem comprou nem de chamar de novo na hora certa. A venda seguinte fica por conta do acaso.
+
 ## Três soluções. Escolha pelo problema que você tem.
 
 Cada uma resolve um tipo de problema e tem pacotes com preço de referência. Elas se completam, mas nenhuma obriga a comprar a seguinte.
 
-[Presença Digital Local → Quando o cliente procura e encontra informação errada, perfil parado ou nenhum jeito fácil de chamar. Perfil no Google, redes e WhatsApp organizados, com pedido de avaliação, modelos de conteúdo e, se quiser, a rotina mensal. A partir de R$ 790](/presenca-digital-local)
+[Presença Digital Local → Quando o cliente procura o seu negócio e acha informação errada, perfil parado ou não acha como chamar. Perfil no Google, redes e WhatsApp organizados, com pedido de avaliação, modelos de conteúdo e, se quiser, a rotina mensal. A partir de R$ 790](/presenca-digital-local)
 
-[Sites & Integrações → Quando a empresa depende de perfil de terceiros, ou o site não conversa com o sistema que ela já usa. Site próprio, rápido e medido, ligado ao CRM, ao estoque ou ao sistema de gestão quando o escopo pede. A partir de R$ 2.900](/criacao-de-sites)
+[Sites & Integrações → Quando o negócio depende só de rede social ou de portal, ou tem um site que não leva quem chega até a conversa. Site próprio, rápido no celular e achado no Google, que leva o cliente até o WhatsApp e, quando precisa, se liga ao sistema que você já usa. A partir de R$ 2.900](/criacao-de-sites)
 
-[Atendimento com IA → Quando o cliente chama no WhatsApp e espera, se perde entre as conversas ou some sem que ninguém retome. WhatsApp organizado e um agente de IA que responde e qualifica, com cada contato passado à pessoa certa ou ao sistema que você já usa. A partir de R$ 3.900](/agente-de-ia-para-whatsapp)
+[Atendimento com IA → Quando o cliente chama no WhatsApp e fica esperando, ou a conversa se perde e ninguém chama de volta. WhatsApp organizado e um agente de IA que responde na hora e passa a conversa à pessoa certa. No Integrado, entra também o contato de volta com quem já comprou. A partir de R$ 3.900](/agente-de-ia-para-whatsapp)
 
-[Continuidade Depois da entrega, planos opcionais para manter e evoluir o que foi entregue, com limites escritos. Planos a partir de R$ 349/mês](/continuidade)
+[Continuidade Depois do projeto, planos opcionais para manter e melhorar o que foi entregue, com limites escritos. Planos a partir de R$ 349/mês](/continuidade)
 
 Como começar
 
@@ -51,9 +67,11 @@ Etapa inicial
 
 ### Diagnóstico gratuito
 
-Sessão inicial gratuita de 45 minutos para entender o problema e escolher por onde começar. Avalia se existe um projeto viável.
+45 minutos com o fundador para ver onde o seu negócio perde cliente e por onde começar. Se não fizer sentido contratar, a conversa termina ali.
 
-Não inclui mapeamento completo do processo, implementação nem acompanhamento.
+Sem custo e sem compromisso.
+
+[Pedir diagnóstico gratuito](/diagnostico)
 
 A solução
 
@@ -63,39 +81,23 @@ Presença, Sites ou Atendimento com IA, com pacotes de escopo claro. O valor fec
 
 Preços de entrada de R$ 790 a R$ 3.900. Nenhuma solução obriga a comprar a seguinte.
 
-[Ver valores e condições](/precos)
+[Ver os preços das soluções](/precos)
 
 Depois da entrega
 
 ### Continuidade, se precisar
 
-Planos opcionais para manter e evoluir o que foi entregue, com horas e prazo de resposta escritos.
+Planos opcionais para manter e melhorar o que foi entregue, com horas e prazo de resposta escritos.
 
 Planos a partir de R$ 349/mês. Não inclui desenvolvimento ilimitado nem novas integrações sem orçamento.
 
-[Ver valores e condições](/continuidade)
+[Ver os planos de continuidade](/continuidade)
 
-## O cliente procura, chama e às vezes desiste. Quase sempre por um detalhe que dá para arrumar.
-
-Perfil desatualizado, mensagem que demora, cliente que comprou uma vez e nunca mais apareceu. A V2O5 começa por esses detalhes.
-
-### Difícil de achar
-
-Perfil no Google sem horário, sem foto ou com o telefone antigo. Quem procura perto de casa acaba no vizinho.
-
-### Resposta que demora
-
-A mensagem chega no WhatsApp à noite ou no meio do movimento e fica para depois. Quando a resposta sai, o cliente já comprou em outro lugar.
-
-### Cliente que não volta
-
-Ninguém lembra de quem comprou nem de chamar de novo na hora certa. A venda seguinte fica por conta do acaso.
-
-Resultado antes de vaidade técnica
+Como saber se funcionou
 
 ## O que conta é o cliente bem atendido.
 
-O indicador depende do problema escolhido. Antes de implementar, combinamos o que acompanhar e como o resultado será observado.
+O que acompanhar depende do problema do seu negócio. Antes de começar, a gente combina o que vai olhar e como.
 
 Tempo de resposta
 
@@ -111,21 +113,21 @@ Quantas avaliações novas chegam ao Google e o que os clientes contam nelas.
 
 Clientes que voltam
 
-Quantos clientes compram de novo depois do primeiro contato.
+Quantos clientes compram de novo.
 
-Não prometemos um percentual de melhoria igual para todos. Definimos uma linha de base, implementamos dentro do escopo acordado e medimos o que os dados disponíveis permitem medir.
+Ninguém aqui promete um percentual de melhoria. A gente anota como está hoje e, depois da entrega, compara com o que os dados mostram.
 
-Projetos em ambiente real
+Cases
 
-## Dois atendimentos no ar. Um no comércio, outro no serviço público.
+## Funcionando hoje em dois clientes. Um no comércio, outro no serviço público.
 
 ### Motors Store
 
-Revenda de seminovos em Curitiba. O site se liga ao estoque, o agente de IA atende e qualifica no WhatsApp, e o lead pronto chega ao CRM do Revenda Mais.
+Revenda de seminovos em Curitiba. O site se liga ao estoque, o agente de IA atende no WhatsApp e cada cliente chega pronto, com a ficha preenchida, ao CRM do Revenda Mais.
 
 - Site ligado ao estoque
 - Agente de IA no WhatsApp
-- Lead no CRM do Revenda Mais
+- Cliente no CRM do Revenda Mais
 
 [Ler o case da Motors Store](/cases/motors-store)
 
@@ -139,17 +141,16 @@ Um WhatsApp para os onze setores e o gabinete. A triagem pergunta o assunto e en
 
 [Ler o case da 16ª Vara Cível](/cases/16-vara-civel)
 
-- Começamos pelo cliente que precisa ser atendido, não por uma lista de funcionalidades.
 - Usamos os sistemas que já existem sempre que resolvem com menos atrito.
 - Separamos o que foi implementado do que já tem resultado medido.
 
 ## O que todo mundo pergunta antes de fechar.
 
-Preço, pagamento, o que cada solução entrega e o que vem depois. Se a sua pergunta não está aqui, ela cabe no diagnóstico.
+Preço, pagamento, o que cada solução entrega e o que vem depois. Se a sua pergunta não estiver aqui, ela cabe no diagnóstico.
 
 Quanto custa?
 
-O diagnóstico inicial, de 45 minutos, é gratuito. Os preços de entrada são Presença Digital Local a partir de R$ 790, Sites & Integrações a partir de R$ 2.900, Atendimento com IA a partir de R$ 3.900, e a continuidade tem planos a partir de R$ 349/mês. São preços de referência: o valor fechado sai em proposta, para um escopo conhecido.
+O diagnóstico inicial, de 45 minutos, é gratuito. Preços de entrada: Presença Digital Local, a partir de R$ 790; Sites & Integrações, a partir de R$ 2.900; Atendimento com IA, a partir de R$ 3.900. A continuidade tem planos a partir de R$ 349/mês. São preços de referência: o valor fechado sai em proposta, para um escopo conhecido.
 
 Preciso contratar tudo?
 
@@ -157,7 +158,7 @@ Não. Cada solução resolve um tipo de problema e funciona sozinha. Elas se com
 
 O que o Atendimento com IA entrega?
 
-O WhatsApp organizado, um agente de IA que responde com as informações do seu negócio e passa a conversa à pessoa certa, e a lista de contatos com a origem. No Atendimento Integrado, o agente também qualifica e leva cada contato ao sistema que você já usa.
+O WhatsApp organizado, um agente de IA que responde com as informações do seu negócio e passa a conversa à pessoa certa, e a lista de contatos com a origem. No Atendimento Integrado, o agente também faz as perguntas que importam para o seu negócio, agenda ou encaminha, leva cada contato ao sistema que você já usa e chama de volta quem já comprou e aceitou receber mensagem.
 
 Como funciona o pagamento?
 
@@ -165,39 +166,39 @@ As condições saem na proposta, com o escopo, os entregáveis, o prazo e os cus
 
 E depois da entrega?
 
-A implantação termina na entrega. Se o que foi entregue continua rodando, a continuidade cuida dele, em contrato à parte e com horas e prazo de resposta escritos, com planos a partir de R$ 349/mês. Banco de dados, servidor dedicado, IA e mensagens ficam por fora, pelo valor do provedor, e a V2O5 gerencia. Nenhum plano cobre desenvolvimento ilimitado.
+A implantação termina na entrega. Se o que foi entregue continua rodando, a continuidade cuida dele, em contrato à parte e com horas e prazo de resposta escritos, com planos a partir de R$ 349/mês. Banco de dados, servidor dedicado, IA e mensagens ficam por fora, pelo valor do provedor, e a V2O5 cuida dessas contas. Nenhum plano cobre desenvolvimento ilimitado.
 
-Preciso trocar o sistema de gestão que já uso?
+Preciso trocar o sistema que já uso?
 
-Não. A V2O5 liga o que você já usa. Em produção hoje: o estoque do Revenda Mais sincronizado com o site e o agente da Motors Store. Autoconf, BNDV, Boom, Altimus e Syonet, entre outros, entram como integração, depois de verificar a documentação e o acesso de cada um.
+Não. A V2O5 liga o que você já usa: a agenda, o catálogo, o estoque ou o CRM, depois de verificar a documentação e o acesso de cada um. Já funciona hoje: o estoque do Revenda Mais sincronizado com o site e o agente da Motors Store. Na revenda de veículos, Autoconf, BNDV, Boom, Altimus e Syonet entram do mesmo jeito.
 
 O agente de IA atende sozinho?
 
-Responde na hora com as informações do seu negócio e, quando a conversa pede uma pessoa, chama alguém da equipe. A conversa fica registrada no CRM, com a origem do contato.
+Em parte. Responde sozinho na hora, com as informações do seu negócio, e chama alguém da equipe quando a conversa pede uma pessoa. A conversa fica registrada na lista de contatos, com a origem de cada um.
 
 Vocês fazem tráfego pago?
 
-Não. A V2O5 cuida de o negócio ser encontrado no Google e de atender bem quem chega. Quem anuncia segue com a própria campanha, e o site grava de onde veio cada contato.
+Não. A V2O5 cuida para o negócio ser achado no Google e para quem chega ser bem atendido. Quem anuncia segue com a própria campanha, e o site grava de onde veio cada contato.
 
 Como funciona o diagnóstico gratuito?
 
-São 45 minutos de conversa com o fundador sobre presença, atendimento e os sistemas que você já usa, para identificar e priorizar o problema e avaliar se existe um projeto viável. A sessão não inclui mapeamento completo do processo, implementação nem acompanhamento de resultados. Havendo um bom caso, o próximo passo é a proposta da solução que cabe no problema, com escopo, entregáveis, prazo e investimento.
+São 45 minutos de conversa com o fundador sobre como o cliente acha o seu negócio, como ele é atendido no WhatsApp e os sistemas que você já usa, para ver onde você perde cliente e por onde começar. A sessão não inclui implementação nem acompanhamento de resultados. Se fizer sentido seguir, o próximo passo é a proposta da solução que cabe no problema, com escopo, entregáveis, prazo e investimento.
 
 A V2O5 atende fora de Curitiba?
 
-Sim. O atendimento é remoto, para empresas de todo o Brasil.
+Sim. O atendimento é remoto, para pequenos negócios de todo o Brasil.
 
 Por que V2O5?
 
 ## Um catalisador para a mudança.
 
-O nome vem do pentóxido de vanádio, usado como catalisador em processos químicos. A imagem resume como a V2O5 pensa tecnologia: ela não precisa ser o centro da operação, precisa ajudar a mudança a acontecer com menos esforço.
+O nome vem do pentóxido de vanádio, usado como catalisador em processos químicos: ele acelera a reação sem virar o produto final. É assim que a V2O5 usa a tecnologia no seu negócio, para a mudança acontecer com menos esforço.
 
-O trabalho começa entendendo como o negócio funciona de fato. Depois a gente liga estratégia, processos e tecnologia para achar o caminho mais simples entre o problema e o resultado.
+O trabalho começa entendendo como o negócio funciona de fato: como o cliente chega até ele e como é atendido. Depois a gente põe a tecnologia que resolve isso, num formato que a equipe consegue usar no dia a dia.
 
-## Por onde a sua empresa precisa começar?
+## Onde o seu negócio está perdendo cliente?
 
-Não precisa chegar com um briefing grande nem saber qual solução escolher. Traga o problema, como ele acontece hoje e o que deveria melhorar. A primeira conversa serve para avaliar se existe um bom caso para trabalhar.
+Não precisa saber qual solução escolher. Conte como o cliente acha o seu negócio e como ele é atendido no WhatsApp. Em 45 minutos, o fundador mostra onde você perde cliente e por onde começar, sem custo e sem compromisso.
 
 [Pedir diagnóstico gratuito](/diagnostico)
 

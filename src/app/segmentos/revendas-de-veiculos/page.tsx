@@ -95,7 +95,7 @@ export default function Pagina() {
                   <Icone nome="seta" className="seta size-4" />
                 </Link>
                 <a href="#titulo-pacote" className="link-sublinhado inline-flex min-h-11 items-center text-[0.9375rem] font-medium" data-evento="cta_click" data-local="hero">
-                  Ver o pacote
+                  Ver como funciona
                 </a>
               </div>
             </div>
@@ -110,7 +110,7 @@ export default function Pagina() {
               <ul className="mt-2 flex flex-wrap gap-x-5 gap-y-1 md:mt-0 md:min-w-0 md:flex-1 md:gap-0 xl:flex-nowrap">
                 <li className="flex items-center font-mono text-[0.8125rem] font-medium md:min-h-12 md:border-r md:border-linha md:px-5 xl:px-4">
                   <span>
-                    {h.sistemas.emProducao} <span className="text-etapa-atendimento">· em produção</span>
+                    {h.sistemas.emProducao} <span className="text-etapa-atendimento">· funcionando</span>
                   </span>
                 </li>
                 {h.sistemas.integraveis.map((s) => (

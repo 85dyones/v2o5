@@ -7,8 +7,8 @@ description: "Diagnóstico gratuito de 45 minutos com o fundador para ver onde o
 canonical: "https://www.v2o5.com.br/diagnostico"
 robots: null
 h1: "Descubra onde seu negócio perde cliente. Gratuitamente."
-extraido_em: "2026-11-25T20:33:22.653Z"
-fonte: "build local da branch claude/kind-tesla-eefroe em 25/11/2026 (diagnóstico no foco em pequenos negócios), antes da publicação"
+extraido_em: "2026-11-27T15:35:39.615Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 27/11/2026 (revisão de ganchos e conversão aprovada), antes da publicação"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 # Descubra onde seu negócio perde cliente. Gratuitamente.
@@ -19,7 +19,7 @@ Em 45 minutos, vemos como o cliente acha o seu negócio e como ele é atendido, 
 
 Seu nome
 
-Empresa
+Nome do negócio
 
 WhatsApp com DDD
 
@@ -27,20 +27,20 @@ WhatsApp com DDD
 
 E-mail
 
-Segmento
+Ramo do negócio
 
 <!-- opções do campo segmento -->
 
 - Escolha
-- Revenda de veículos
-- Serviços
 - Comércio
-- Imobiliário
+- Serviços
 - Saúde
+- Revenda de veículos
+- Imobiliário
 - Indústria
 - Outro
 
-Quantas pessoas trabalham na empresa
+Quantas pessoas trabalham no negócio
 
 <!-- opções do campo porte -->
 
@@ -78,7 +78,7 @@ Prefere conversar? [Chame no WhatsApp](https://wa.me/5541998089550?text=Ol%C3%A1
 
 Você conta como vende hoje
 
-O formulário ao lado leva dois minutos. Com ele, a conversa já começa no que importa.
+O formulário desta página leva dois minutos. Com ele, a conversa já começa no que importa.
 
 2
 
@@ -88,13 +88,13 @@ Por chamada de vídeo ou WhatsApp. Vemos como o cliente acha o seu negócio no G
 
 3
 
-O próximo passo, se houver
+Uma proposta, se fizer sentido
 
-Havendo um bom caso, a V2O5 propõe a solução que cabe no problema (Presença, Sites ou Atendimento com IA), com escopo, entregáveis, prazo e investimento por escrito. Se não houver, a conversa termina ali.
+Se fizer sentido seguir, você recebe por escrito a solução que cabe no problema (Presença, Sites ou Atendimento com IA), o que entra, o prazo e o valor. Se não fizer, a conversa termina ali, sem custo.
 
 Para o pequeno negócio que vende pelo WhatsApp ou no balcão e quer saber onde perde cliente antes de gastar com site ou sistema.
 
-O diagnóstico é a sessão inicial, gratuita, de 45 minutos. Ele mostra o que pesa mais hoje (ser achado, responder ou fazer o cliente voltar) e por onde começar, mas não inclui mapeamento completo, implementação nem acompanhamento ou mensuração de resultados. Esses passos vêm depois, na solução contratada e, se fizer sentido, na continuidade, com escopo, valor e prazo definidos em proposta.
+O diagnóstico é a sessão inicial, gratuita, de 45 minutos. Ele mostra o que pesa mais hoje (ser achado, responder ou fazer o cliente voltar) e por onde começar. Implementação e acompanhamento de resultados ficam para depois, na solução contratada e, se fizer sentido, na continuidade, com escopo, valor e prazo definidos em proposta.
 
 <!-- ===== Campos que aparecem quando o segmento escolhido é "Revenda de veículos" (entram depois de "Quantas pessoas trabalham na empresa") ===== -->
 Tamanho do estoque
@@ -129,15 +129,15 @@ Enviando...
 
 <!-- falha no envio -->
 
-Não deu para enviar agora. Tente de novo em instantes.
+Não deu para enviar agora. Tente de novo ou chame no WhatsApp.
 
 <!-- canal de entrega sem configuração (503) -->
 
-O envio está em configuração. Tente de novo mais tarde.
+O formulário está fora do ar agora. Chame no WhatsApp, que a gente marca por lá.
 
 <!-- erro do campo nome -->
 
-Diga como podemos te chamar.
+Diga como podemos chamar você.
 
 <!-- erro do campo whatsapp -->
 
@@ -149,11 +149,11 @@ Informe um e-mail válido.
 
 <!-- erro do campo empresa -->
 
-Diga o nome da empresa.
+Diga o nome do negócio.
 
 <!-- erro do campo segmento -->
 
-Escolha o segmento.
+Escolha o ramo do negócio.
 
 <!-- erro do campo objetivos -->
 

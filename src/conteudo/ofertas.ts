@@ -61,7 +61,7 @@ const PRESENCA: Oferta = {
   nome: "Presença Digital Local",
   rota: "/presenca-digital-local",
   etapa: "verde",
-  resolve: "Quando o cliente procura e encontra informação errada, perfil parado ou nenhum jeito fácil de chamar.",
+  resolve: "Quando o cliente procura o seu negócio e acha informação errada, perfil parado ou não acha como chamar.",
   recebe: "Perfil no Google, redes e WhatsApp organizados, com pedido de avaliação, modelos de conteúdo e, se quiser, a rotina mensal.",
   pacotes: [
     {
@@ -113,17 +113,17 @@ const SITES: Oferta = {
   nome: "Sites & Integrações",
   rota: "/criacao-de-sites",
   etapa: "azul",
-  resolve: "Quando a empresa depende de perfil de terceiros, ou o site não conversa com o sistema que ela já usa.",
-  recebe: "Site próprio, rápido e medido, ligado ao CRM, ao estoque ou ao sistema de gestão quando o escopo pede.",
+  resolve: "Quando o negócio depende só de rede social ou de portal, ou tem um site que não leva quem chega até a conversa.",
+  recebe: "Site próprio, rápido no celular e achado no Google, que leva o cliente até o WhatsApp e, quando precisa, se liga ao sistema que você já usa.",
   pacotes: [
     {
       nome: "Landing Page",
       preco: { valor: 2900 },
-      para: "Para uma oferta, campanha ou serviço que precisa de uma página que leve ao contato.",
+      para: "Para um serviço ou uma oferta que precisa de uma página que leve o cliente até a conversa.",
       inclui: [
         "Uma página comercial com textos escritos pela V2O5",
         "Formulário ou botão de WhatsApp funcionando, com o contato chegando a quem atende",
-        "Rastreamento básico: de onde veio cada contato",
+        "A origem de cada contato gravada: Google, Instagram ou indicação",
         "SEO técnico da página e publicação no domínio da empresa",
         "Duas rodadas de revisão",
       ],
@@ -131,7 +131,7 @@ const SITES: Oferta = {
     {
       nome: "Site Personalizado",
       preco: { valor: 5900 },
-      para: "Para a empresa que precisa de um site próprio, com estrutura comercial.",
+      para: "Para o negócio que precisa de um site próprio, com as páginas dos seus serviços e o WhatsApp à mão.",
       inclui: [
         "Site institucional personalizado, com até seis páginas",
         "A entrega-base de todo site da V2O5, descrita nesta página",
@@ -177,8 +177,8 @@ const ATENDIMENTO: Oferta = {
   nome: "Atendimento com IA",
   rota: "/agente-de-ia-para-whatsapp",
   etapa: "ambar",
-  resolve: "Quando o cliente chama no WhatsApp e espera, se perde entre as conversas ou some sem que ninguém retome.",
-  recebe: "WhatsApp organizado e um agente de IA que responde e qualifica, com cada contato passado à pessoa certa ou ao sistema que você já usa.",
+  resolve: "Quando o cliente chama no WhatsApp e fica esperando, ou a conversa se perde e ninguém chama de volta.",
+  recebe: "WhatsApp organizado e um agente de IA que responde na hora e passa a conversa à pessoa certa. No Integrado, entra também o contato de volta com quem já comprou.",
   pacotes: [
     {
       nome: "Atendimento Essencial",
@@ -186,7 +186,7 @@ const ATENDIMENTO: Oferta = {
       para: "Para o negócio que atende pelo WhatsApp e perde cliente na demora ou na confusão das conversas.",
       inclui: [
         "WhatsApp organizado numa caixa de atendimento, com etiquetas e respostas prontas",
-        "Agente de IA que responde as dúvidas frequentes a qualquer hora, só com o que a empresa aprovou",
+        "Agente de IA que responde às dúvidas frequentes a qualquer hora, só com o que a empresa aprovou",
         "Passagem para a pessoa certa da equipe, com o resumo da conversa",
         "Lista de contatos com a origem de cada um",
         "Treinamento da equipe e uma rodada de ajustes com as conversas reais",
@@ -195,10 +195,10 @@ const ATENDIMENTO: Oferta = {
     {
       nome: "Atendimento Integrado",
       preco: { valor: 6900, aPartirDe: true },
-      para: "Para quem precisa qualificar cada contato e levá-lo ao sistema que já usa.",
+      para: "Para quem quer o agente fazendo as perguntas do seu negócio e levando cada contato ao sistema que já usa.",
       inclui: [
         "Tudo do Atendimento Essencial",
-        "Agente de IA que qualifica com as perguntas do seu negócio e agenda ou encaminha",
+        "Agente de IA que faz as perguntas do seu negócio e agenda ou encaminha",
         "Integração com um sistema que a empresa já usa (CRM, agenda, estoque ou catálogo), depois de verificar a documentação e o acesso",
         "Contato de volta com quem parou de responder ou já comprou, só para quem consentiu e dentro das regras do WhatsApp",
         "Uma rodada de ajustes com as conversas reais",
@@ -216,7 +216,7 @@ const ATENDIMENTO: Oferta = {
   regras: [
     "O agente responde só com o que a empresa aprovou e chama uma pessoa quando não sabe ou quando o cliente pede.",
     "Integração só entra na proposta depois de verificar documentação, credenciais, limites e custos do sistema.",
-    "IA e mensagens vêm pelo valor do provedor, discriminados, com teto mensal combinado e aviso antes de ultrapassá-lo. A V2O5 gerencia.",
+    "IA e mensagens vêm pelo valor do provedor, discriminadas, com teto mensal combinado e aviso antes de ultrapassá-lo. A V2O5 cuida dessas contas.",
   ],
   continuidade: "O atendimento costuma seguir com as Integrações Monitoradas. Quem quer melhorar o agente mês a mês segue com a Evolução Contínua.",
 };
@@ -225,7 +225,7 @@ const ATENDIMENTO: Oferta = {
 export const REGRAS_DE_PRECO = [
   "São preços de referência para começar a conversa. O valor fechado sai em proposta e vale para um escopo conhecido.",
   "Cada pacote diz o que inclui e o que fica de fora. Nenhum tem escopo ilimitado.",
-  "Custos de terceiros, como domínio, licenças, APIs, mídia paga, IA e mensagens, ficam por fora e aparecem discriminados na proposta.",
+  "Custos de terceiros, como domínio, licenças, APIs, IA e mensagens do WhatsApp, ficam por fora e aparecem discriminados na proposta.",
   "Nenhuma solução obriga a comprar outra, e a continuidade é opcional.",
   "Aumento de vendas não é prometido. O que se mede é combinado antes de começar, com uma linha de base.",
   "O diagnóstico inicial, de 45 minutos, é gratuito e serve para escolher a solução que cabe no problema.",
@@ -275,7 +275,7 @@ export const PLANOS_DE_CONTINUIDADE: PlanoDeContinuidade[] = [
     nome: "Integrações Monitoradas",
     mensal: 590,
     frente: "monitoramento-e-otimizacao",
-    para: "Para site ou fluxo ligado a outros sistemas.",
+    para: "Para o atendimento com IA ou o site ligado a outros sistemas.",
     inclui: [
       "Tudo do Cuidado Técnico",
       "Monitoramento das integrações entregues: estoque, envio de contatos e automações",
@@ -288,11 +288,11 @@ export const PLANOS_DE_CONTINUIDADE: PlanoDeContinuidade[] = [
     nome: "Evolução Contínua",
     mensal: 990,
     frente: "monitoramento-e-otimizacao",
-    para: "Para quem quer melhorar o que foi entregue, mês a mês.",
+    para: "Para quem quer melhorar o que foi entregue mês a mês, como as respostas do agente de IA.",
     inclui: [
       "Tudo das Integrações Monitoradas",
       "Uma conversa mensal de 30 minutos para priorizar as melhorias",
-      "Até 2 horas por mês reservadas para pequenas intervenções, além do suporte",
+      "Até 2 horas por mês reservadas para pequenas melhorias, além do suporte",
       "Registro do que mudou e da próxima prioridade",
     ],
   },
@@ -301,14 +301,14 @@ export const PLANOS_DE_CONTINUIDADE: PlanoDeContinuidade[] = [
 export const CONTINUIDADE = {
   titulo: "Continuidade: o que segue depois da entrega.",
   resumo:
-    "Planos opcionais para manter funcionando e evoluindo o que foi entregue, com horas e prazo de resposta escritos.",
+    "Planos opcionais para manter funcionando e melhorar o que foi entregue, com horas e prazo de resposta escritos.",
   texto:
-    "A implantação termina na entrega. Se o que foi entregue continua rodando, a continuidade cuida dele, com limites que cabem no contrato. Nenhum plano é obrigatório: a necessidade e o escopo decidem.",
+    "A implantação termina na entrega. Se o que foi entregue continua rodando, a continuidade cuida dele, com limites escritos no contrato. Nenhum plano é obrigatório: a necessidade e o escopo decidem.",
   frentes: [
     {
       id: "manutencao-tecnica" as IdFrente,
       nome: "Manutenção técnica",
-      texto: "Hospedagem, segurança, backup e suporte para o site ou a página continuarem no ar.",
+      texto: "Hospedagem, segurança, backup e suporte para o site ou a página continuar no ar.",
     },
     {
       id: "monitoramento-e-otimizacao" as IdFrente,
@@ -324,7 +324,7 @@ export const CONTINUIDADE = {
     {
       titulo: "Correção ou novidade",
       texto:
-        "Correção é fazer voltar a funcionar o que foi entregue e parou. Nova funcionalidade muda ou acrescenta algo, e é orçada à parte.",
+        "Correção é fazer voltar a funcionar o que foi entregue e parou. Nova funcionalidade muda ou acrescenta algo e é orçada à parte.",
     },
     {
       titulo: "Atendimento",
@@ -333,15 +333,15 @@ export const CONTINUIDADE = {
     {
       titulo: "Custos por fora",
       texto:
-        "Banco de dados, servidor dedicado, consumo de IA e mensagens vêm pelo valor do provedor, discriminados, com teto mensal combinado e aviso antes de ultrapassá-lo. A V2O5 gerencia. Domínio e e-mail também ficam por fora.",
+        "Banco de dados, servidor dedicado, consumo de IA e mensagens vêm pelo valor do provedor, discriminados, com teto mensal combinado e aviso antes de ultrapassá-lo. A V2O5 cuida dessas contas. Domínio e e-mail também ficam por fora.",
     },
     {
       titulo: "Sua parte",
-      texto: "Manter em dia os acessos e os pagamentos dos serviços de terceiros e avisar quando mudar o sistema que a solução usa.",
+      texto: "Manter em dia os acessos e os pagamentos dos serviços de terceiros e avisar a V2O5 antes de trocar o sistema que a solução usa.",
     },
     {
       titulo: "Saída",
-      texto: "Com aviso prévio, a V2O5 entrega o código, os dados e os acessos nos termos do contrato.",
+      texto: "Se quiser sair, é só avisar antes: a V2O5 entrega o código, os dados e os acessos, nos termos do contrato.",
     },
   ],
 };
@@ -372,12 +372,12 @@ export const PERGUNTAS_DA_CONTINUIDADE = [
   {
     pergunta: "O que é correção e o que é novidade?",
     resposta:
-      "Correção é fazer voltar a funcionar o que foi entregue e parou. Nova funcionalidade muda ou acrescenta algo, e é orçada à parte.",
+      "Correção é fazer voltar a funcionar o que foi entregue e parou. Nova funcionalidade muda ou acrescenta algo e é orçada à parte.",
   },
   {
     pergunta: "IA, mensagens e servidor estão incluídos?",
     resposta:
-      "A hospedagem do site entra no Cuidado Técnico. Banco de dados, servidor dedicado, consumo de IA e mensagens vêm pelo valor do provedor, discriminados, com teto mensal combinado e aviso antes de ultrapassá-lo.",
+      "Não. A hospedagem do site entra no Cuidado Técnico, mas banco de dados, servidor dedicado, consumo de IA e mensagens vêm pelo valor do provedor, discriminados, com teto mensal combinado e aviso antes de ultrapassá-lo.",
   },
 ];
 

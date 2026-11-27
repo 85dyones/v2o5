@@ -3,17 +3,17 @@ rota: "/agente-de-ia-para-whatsapp"
 url: "https://www.v2o5.com.br/agente-de-ia-para-whatsapp"
 status: 200
 title: "Chatbot com IA para WhatsApp: agente que atende | V2O5 Vendas e Tecnologia"
-description: "Chatbot com IA no WhatsApp: um agente que responde na hora com as informações do negócio, qualifica, agenda e chama a equipe. Pacotes com preço de referência."
+description: "Chatbot com IA no WhatsApp: um agente que responde na hora com as informações do seu negócio e chama a pessoa certa da equipe. Pacotes com preço de referência."
 canonical: "https://www.v2o5.com.br/agente-de-ia-para-whatsapp"
 robots: null
-h1: "Agente de IA para WhatsApp que responde, qualifica e agenda."
-extraido_em: "2026-11-25T20:33:22.653Z"
-fonte: "build local da branch claude/kind-tesla-eefroe em 25/11/2026 (diagnóstico no foco em pequenos negócios), antes da publicação"
+h1: "Agente de IA para WhatsApp que responde na hora e chama a pessoa certa."
+extraido_em: "2026-11-27T15:35:39.615Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 27/11/2026 (revisão de ganchos e conversão aprovada), antes da publicação"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
-# Agente de IA para WhatsApp que responde, qualifica e agenda.
+# Agente de IA para WhatsApp que responde na hora e chama a pessoa certa.
 
-WhatsApp organizado e um agente de IA que responde na hora. Quando a conversa pede uma pessoa, chama alguém da equipe.
+O cliente tem resposta à noite e no fim de semana, com as informações do seu negócio. A equipe entra quando a conversa pede.
 
 [Pedir diagnóstico gratuito](/diagnostico)
 
@@ -21,7 +21,7 @@ WhatsApp organizado e um agente de IA que responde na hora. Quando a conversa pe
 
 Resolve
 
-Quando o cliente chama no WhatsApp e espera, se perde entre as conversas ou some sem que ninguém retome.
+Quando o cliente chama no WhatsApp e fica esperando, ou a conversa se perde e ninguém chama de volta.
 
 Preço de entrada
 
@@ -37,21 +37,21 @@ Quem manda mensagem fora do horário também está conversando com o concorrente
 
 Fonte: [Oldroyd, McElheran e Elkington, The Short Life of Online Sales Leads, Harvard Business Review, março de 2011](https://hbr.org/2011/03/the-short-life-of-online-sales-leads).
 
-Venda
+Responder
 
-## O que a V2O5 entrega nesta linha.
+## O que você recebe.
 
 ### Responde com o que a empresa sabe
 
 Base de conhecimento com produtos, serviços, horários, condições e perguntas frequentes. O agente só fala do que está lá, e diz quando não sabe.
 
-### Qualifica antes de passar
+### Pergunta antes de passar
 
-Pergunta o que importa para o seu funil (interesse, prazo, forma de pagamento, região) e registra no CRM com a origem do contato.
+Faz as perguntas que importam para o seu negócio (o que a pessoa procura, para quando, como quer pagar, o bairro) e anota no CRM com a origem do contato.
 
 ### Agenda e avisa
 
-Marca horário, visita ou reunião na agenda da equipe e avisa o responsável no WhatsApp.
+Marca o horário ou a visita na agenda e avisa no WhatsApp quem vai atender.
 
 ### Passa para uma pessoa
 
@@ -59,7 +59,7 @@ Quando a conversa pede alguém, o agente chama a pessoa certa da equipe com o hi
 
 ### API oficial do WhatsApp
 
-Número verificado no nome da empresa, modelo de mensagem aprovado e saída fácil. O custo das mensagens é da Meta e fica discriminado na proposta.
+Número verificado no nome da empresa, modelos de mensagem aprovados e um jeito fácil de o cliente parar de receber. As mensagens são cobradas pela Meta, e o valor fica discriminado na proposta.
 
 ### Roteiro ajustado todo mês
 
@@ -67,7 +67,7 @@ A V2O5 lê as conversas, corrige o roteiro e amplia a base de conhecimento. Faz 
 
 ## Do diagnóstico ao ar.
 
-Começa pelo diagnóstico gratuito, com o escopo fechado antes da implantação. Sem fidelidade.
+Começa pelo diagnóstico gratuito. O que entra e o preço ficam por escrito antes de começar. Sem fidelidade.
 
 01
 
@@ -105,7 +105,7 @@ Contato de volta
 
 Repetir a demonstração
 
-Uma mensagem chega no WhatsApp do pet shop às 21h e é respondida na hora.
+Uma mensagem chega ao WhatsApp do pet shop às 21h e é respondida na hora.
 
 Cliente 21:14
 
@@ -126,13 +126,13 @@ Aguardando
 
 Banho e tosa
 
-Atração
+Ser achado
 
-Atendimento
+Responder
 
-Gestão
+Organizar
 
-Venda
+Voltar a comprar
 
 Origem
 
@@ -146,9 +146,9 @@ Responsável
 
 …
 
-## O Ney, na Motors Store.
+## O Ney atende o WhatsApp da Motors Store.
 
-O agente de IA da loja responde com o estoque real, preenche a ficha do cliente e passa o lead pronto ao CRM do Revenda Mais quando ele marca a visita, chega à simulação ou pede uma pessoa.
+O agente de IA da loja responde com o estoque real, preenche a ficha e passa o cliente pronto ao CRM do Revenda Mais quando ele marca a visita, chega à simulação ou pede uma pessoa.
 
 primeiras mensagens respondidas pelo Ney em até um minuto, com mediana de 38 segundos
 
@@ -177,12 +177,12 @@ Preço de referência da implantação.
 Para o negócio que atende pelo WhatsApp e perde cliente na demora ou na confusão das conversas.
 
 - WhatsApp organizado numa caixa de atendimento, com etiquetas e respostas prontas
-- Agente de IA que responde as dúvidas frequentes a qualquer hora, só com o que a empresa aprovou
+- Agente de IA que responde às dúvidas frequentes a qualquer hora, só com o que a empresa aprovou
 - Passagem para a pessoa certa da equipe, com o resumo da conversa
 - Lista de contatos com a origem de cada um
 - Treinamento da equipe e uma rodada de ajustes com as conversas reais
 
-Oferta principal
+Mais completo
 
 ### Atendimento Integrado
 
@@ -190,10 +190,10 @@ A partir de R$ 6.900
 
 Preço de referência da implantação.
 
-Para quem precisa qualificar cada contato e levá-lo ao sistema que já usa.
+Para quem quer o agente fazendo as perguntas do seu negócio e levando cada contato ao sistema que já usa.
 
 - Tudo do Atendimento Essencial
-- Agente de IA que qualifica com as perguntas do seu negócio e agenda ou encaminha
+- Agente de IA que faz as perguntas do seu negócio e agenda ou encaminha
 - Integração com um sistema que a empresa já usa (CRM, agenda, estoque ou catálogo), depois de verificar a documentação e o acesso
 - Contato de volta com quem parou de responder ou já comprou, só para quem consentiu e dentro das regras do WhatsApp
 - Uma rodada de ajustes com as conversas reais
@@ -210,7 +210,7 @@ Para quem precisa qualificar cada contato e levá-lo ao sistema que já usa.
 
 - O agente responde só com o que a empresa aprovou e chama uma pessoa quando não sabe ou quando o cliente pede.
 - Integração só entra na proposta depois de verificar documentação, credenciais, limites e custos do sistema.
-- IA e mensagens vêm pelo valor do provedor, discriminados, com teto mensal combinado e aviso antes de ultrapassá-lo. A V2O5 gerencia.
+- IA e mensagens vêm pelo valor do provedor, discriminadas, com teto mensal combinado e aviso antes de ultrapassá-lo. A V2O5 cuida dessas contas.
 
 O atendimento costuma seguir com as Integrações Monitoradas. Quem quer melhorar o agente mês a mês segue com a Evolução Contínua. [Ver a continuidade](/continuidade).
 
@@ -218,7 +218,7 @@ O atendimento costuma seguir com as Integrações Monitoradas. Quem quer melhora
 
 [Ver todos os preços](/precos)
 
-## O que perguntam sobre Atendimento com IA antes de fechar.
+## O que perguntam sobre o Atendimento com IA antes de fechar.
 
 O que entra, quanto custa e o que fica de fora. O resto cabe no diagnóstico.
 
@@ -228,13 +228,13 @@ Os pacotes: Atendimento Essencial, a partir de R$ 3.900; Atendimento Integrado, 
 
 O agente de IA atende sozinho?
 
-Responde na hora com as informações do seu negócio e, quando a conversa pede uma pessoa, chama alguém da equipe. A conversa fica registrada no CRM, com a origem do contato.
+Em parte. Responde sozinho na hora, com as informações do seu negócio, e chama alguém da equipe quando a conversa pede uma pessoa. A conversa fica registrada na lista de contatos, com a origem de cada um.
 
 E se o cliente perguntar algo que a base não tem?
 
-O agente diz que vai confirmar e chama uma pessoa. Inventar resposta é o que a V2O5 mais evita: ele só afirma o que a base confirma.
+O agente diz que vai verificar e chama uma pessoa. Ele só afirma o que está na base: inventar resposta é o que a V2O5 mais evita.
 
-Funciona no número que a empresa já usa?
+Funciona no número que eu já uso?
 
 Sim, pela API oficial do WhatsApp, com o número verificado no nome da empresa. Os testes rodam num número da V2O5 até a equipe aprovar.
 
@@ -244,21 +244,21 @@ São custos de terceiros: o modelo de IA e as mensagens do WhatsApp. Ficam discr
 
 Preciso de um CRM?
 
-O agente registra cada conversa no CRM da V2O5 ou, por integração, no sistema que você já usa. Sem um lugar para registrar, a origem e o desfecho se perdem.
+Não precisa ter um antes. O agente registra cada conversa na lista de contatos que a V2O5 entrega ou, por integração, no sistema que você já usa.
 
 ## Recursos que combinam com esta solução.
 
-[Gestão CRM e sistemas sob medida Nenhum contato esquecido numa conversa: cada um num funil, com a origem, a etapa e o próximo passo à vista.](/crm-com-whatsapp)
+[Organizar CRM com WhatsApp Nenhum cliente esquecido numa conversa: cada um com a origem e o histórico, e o aviso de quando chamar de novo.](/crm-com-whatsapp)
 
-[Gestão Automação de processos A tarefa que alguém faz à mão toda semana passa a rodar sozinha entre os sistemas que você já usa.](/automacao-com-ia)
+[Organizar Automação de tarefas A tarefa que alguém faz à mão toda semana passa a rodar sozinha entre os sistemas que você já usa.](/automacao-com-ia)
 
-[Venda Pós-venda e recorrência Revisão, recompra ou retorno: a régua manda a mensagem na data certa e traz o cliente de volta.](/diagnostico)
+[Voltar a comprar Pós-venda e recorrência Contato de volta com quem já comprou, na hora da recompra ou do retorno, no Atendimento Integrado. Só para quem consentiu, dentro das regras do WhatsApp.](/agente-de-ia-para-whatsapp#titulo-pacotes)
 
-## Comece pelo diagnóstico, que é gratuito.
+## Descubra onde seu negócio perde cliente.
 
-Em 45 minutos de conversa com o fundador, a gente vê como o cliente acha o seu negócio e como ele é atendido, e mostra por onde começar. A sessão é gratuita e sem compromisso.
+Em 45 minutos de conversa, o fundador vê com você como o cliente acha o seu negócio e como ele é atendido, e mostra por onde começar. Sem custo e sem compromisso.
 
-[Pedir diagnóstico](/diagnostico)
+[Pedir diagnóstico gratuito](/diagnostico)
 
 [Ver os preços](/precos)
 
@@ -284,7 +284,7 @@ O · 4,8 <!-- texto em SVG; decorativo, aria-hidden -->
 - "Como funciona" (section)
 - "Demonstração" (section)
 - "Frentes da demonstração" (div role=tablist)
-- "Etapa do funil" (ol)
+- "Etapa do cliente" (ol)
 - "Case" (section)
 - "Antes de contratar" (section)
 - "Conversa no WhatsApp" (aside)

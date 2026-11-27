@@ -6,14 +6,14 @@ title: "Case Motors Store | V2O5 Vendas e Tecnologia"
 description: "O que a V2O5 montou para a Motors Store, revenda de seminovos em Curitiba, e os números do sistema rodando, lidos no banco de dados da loja."
 canonical: "https://www.v2o5.com.br/cases/motors-store"
 robots: null
-h1: "Motors Store: o sistema inteiro numa revenda de seminovos."
-extraido_em: "2026-11-25T20:33:22.653Z"
-fonte: "build local da branch claude/kind-tesla-eefroe em 25/11/2026 (diagnóstico no foco em pequenos negócios), antes da publicação"
+h1: "Motors Store: o caminho do cliente, do Google ao vendedor."
+extraido_em: "2026-11-27T15:35:39.615Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 27/11/2026 (revisão de ganchos e conversão aprovada), antes da publicação"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
-# Motors Store: o sistema inteiro numa revenda de seminovos.
+# Motors Store: o caminho do cliente, do Google ao vendedor.
 
-A V2O5 montou para a Motors Store, em Curitiba, o site de estoque, o agente de IA no WhatsApp, a entrega do lead ao CRM e as automações.
+A V2O5 montou para a Motors Store, em Curitiba, o site de estoque, o agente de IA no WhatsApp, a passagem do cliente ao CRM e as automações.
 
 Revenda de seminovos em Curitiba/PR.
 
@@ -35,20 +35,20 @@ Antes: diagnosticado
 
 ## O que travava a Motors Store.
 
-Os problemas identificados antes da intervenção, na ordem da jornada do comprador.
+O que a loja tinha de problema antes do projeto, na ordem do caminho do cliente: da busca ao atendimento.
 
-- Baixa visibilidade nas buscas orgânicas, nos buscadores e nas IAs.
-- Falta de leads qualificados.
-- Presença digital fraca.
-- Design do site ruim.
-- Site lento.
-- Acompanhamento comercial inconsistente.
+- A loja aparecia pouco no Google e nas respostas das IAs.
+- A presença digital era fraca.
+- O design do site era ruim.
+- O site era lento.
+- Chegava pouco contato pronto para comprar.
+- O retorno a quem chamava não seguia uma rotina.
 
 Depois: implementado
 
 ## O que a V2O5 montou.
 
-Cada peça é uma linha do cardápio da V2O5, ligada às outras pela mesma base de dados.
+Todas ligadas pela mesma base de dados: o que entra por uma peça aparece nas outras.
 
 ![Vitrine do site da Motors Store no celular: veículo em destaque, preço e a busca por marca e modelo.](/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fvitrine.2s6-vxquanhzs.webp&w=3840&q=75)
 
@@ -94,21 +94,21 @@ Atendimento com IA
 
 ### O Ney, agente da loja no WhatsApp
 
-Agente de IA feito para a Motors: responde com o estoque real, qualifica pela régua da loja e passa o cliente à equipe na hora certa.
+Agente de IA feito para a Motors: responde com o estoque real, dá a nota pela régua da loja e passa o cliente à equipe na hora certa.
 
 Integrações entre sistemas
 
-### Lead qualificado no CRM do Revenda Mais
+### Cliente pronto no CRM do Revenda Mais
 
-Na passagem, o lead vai ao CRM do Revenda Mais com a origem do contato, o carro de interesse e a qualificação do Ney, e o CRM distribui ao vendedor.
+Na passagem, o cliente vai ao CRM do Revenda Mais com a origem do contato, o carro de interesse e a nota do Ney, e o CRM distribui ao vendedor.
 
-CRM e sistemas sob medida
+CRM com WhatsApp
 
 ### Painel da loja
 
 A mesa do Ney: quem está com o agente, quem já foi ao CRM e quem precisa do dono, junto do estoque e das consultas de placa.
 
-Automação de processos
+Automação de tarefas
 
 ### Rotinas no n8n
 
@@ -146,7 +146,7 @@ Banco de dados da Motors Store, lido em 17/11/2026. Leads contados de 05/09 a 17
 
 Atendimento com IA
 
-## O Ney qualifica, o Revenda Mais distribui.
+## O Ney atende, o Revenda Mais distribui.
 
 O Ney é o agente de IA da Motors Store no WhatsApp, feito sob medida para a loja. Ele conversa com quem chega pelo site ou direto pelo WhatsApp, e só passa o cliente à equipe quando a conversa está pronta para o vendedor.
 
@@ -158,7 +158,7 @@ Lê o estoque que o Revenda Mais sincroniza, com o link de cada carro, e manda a
 
 02
 
-### Preenche a ficha e soma o aquecimento
+### Preenche a ficha e dá a nota
 
 Carro, forma de pagamento, entrada, troca, prazo e visita. Uma régua de pesos dá a nota de 0 a 100 e mostra o motivo de cada ponto.
 
@@ -172,7 +172,7 @@ Quando o cliente marca a visita, chega à simulação do financiamento, pede uma
 
 ### Entrega no CRM do Revenda Mais
 
-O lead vai ao CRM com a origem do contato, o carro de interesse e a qualificação do Ney, e o CRM escolhe o vendedor. Se o CRM recusar, o envio tenta de novo e o dono é avisado.
+O cliente vai ao CRM com a origem do contato, o carro de interesse e a nota do Ney, e o CRM escolhe o vendedor. Se o CRM recusar, o sistema tenta de novo e avisa o dono.
 
 05
 
@@ -243,13 +243,13 @@ Banco de dados da Motors Store, lido em 17/11/2026. Conversas de 21/10 a 17/11/2
 
 Quem assina os 26 guias da Motors Store é o fundador da V2O5, [Dyones Oliveira](/sobre). É ele quem conduz o diagnóstico gratuito.
 
-## Quer o mesmo sistema na sua revenda?
+## Quer o mesmo atendimento no seu negócio?
 
-Os caminhos da V2O5 para revendas partem deste sistema. O diagnóstico gratuito diz por onde começar.
+Vale para qualquer loja ou serviço que vende pelo WhatsApp: o agente responde na hora com o que você aprovou e passa cada cliente para a pessoa certa, com o resumo da conversa. O diagnóstico é gratuito: 45 minutos com o fundador para ver onde o seu negócio perde cliente.
 
 [Pedir diagnóstico gratuito](/diagnostico)
 
-[Ver os caminhos para revendas](/precos)
+[Ver os preços](/precos)
 
 r 18 <!-- texto em SVG; decorativo, aria-hidden -->
 

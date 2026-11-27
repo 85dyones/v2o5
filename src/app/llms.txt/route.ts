@@ -1,6 +1,6 @@
 import { CONTINUIDADE, mensalEmTexto, OFERTAS, PLANOS_DE_CONTINUIDADE, precoEmTexto, REGRAS_DE_PRECO } from "@/conteudo/ofertas";
 import { ASSINATURA, AUTOMOTIVO, CASE, EMPRESA, HERO, PILARES, VISAO_360 } from "@/conteudo/home";
-import { CASE_16VC } from "@/conteudo/case";
+import { CASE_16VC, CASE_MOTORS } from "@/conteudo/case";
 import { SITE_URL } from "@/lib/site";
 import { whatsappParaLer } from "@/lib/whatsapp";
 
@@ -16,15 +16,16 @@ export function textoDoLlms(): string {
     ...p.servicos.map((s) => `- [${s.titulo}](${SITE_URL}${s.href}): ${s.frase}`),
     "",
   ]);
-  const numeros = CASE.numeros.map(
-    (n) => `- ${n.valor}${n.complemento ? ` ${n.complemento}` : ""} ${n.texto}.`,
-  );
+  const linhaDe = (n: { valor: number; complemento: string; texto: string }) =>
+    `- ${n.valor}${n.complemento ? ` ${n.complemento}` : ""} ${n.texto}.`;
   return [
     `# ${EMPRESA.nome}`,
     "",
     `> ${ASSINATURA} ${HERO.subtitulo}`,
     "",
-    `${EMPRESA.razaoSocial}, CNPJ ${EMPRESA.cnpj}. Atende empresas em todo o Brasil.`,
+    `${EMPRESA.razaoSocial}, CNPJ ${EMPRESA.cnpj}. Atende pequenos negócios de todo o Brasil, com atendimento remoto.`,
+    "",
+    "Para quem: o negócio local que vende pelo WhatsApp e vive de cliente que volta, como loja de bairro, pet shop, salão, clínica, oficina e prestador de serviço. O que faz: deixa o negócio fácil de achar no Google, nas redes e no site, e cuida de quem chega pelo WhatsApp, com agente de IA, lista de clientes com a origem de cada um, integração com o sistema que o negócio já usa e o contato de volta com quem já comprou.",
     "",
     `Fundador: ${VISAO_360.fundador.nome}. ${VISAO_360.fundador.texto}`,
     "",
@@ -54,8 +55,10 @@ export function textoDoLlms(): string {
     `- [${AUTOMOTIVO.titulo}](${SITE_URL}${AUTOMOTIVO.href}): ${AUTOMOTIVO.texto}`,
     "",
     "## Case Motors Store",
-    `Revenda de seminovos em Curitiba. ${CASE.fonte} [Case completo](${SITE_URL}/cases/motors-store).`,
-    ...numeros,
+    `${CASE_MOTORS.resumo} ${CASE.fonte} [Case completo](${SITE_URL}${CASE_MOTORS.rota}).`,
+    ...CASE.numeros.map(linhaDe),
+    `Atendimento com IA na loja: o Ney, agente de IA da Motors Store no WhatsApp. ${CASE_MOTORS.atendimento.fonte}`,
+    ...CASE_MOTORS.atendimento.numeros.map(linhaDe),
     "",
     "## Case 16ª Vara Cível",
     `${CASE_16VC.resumo} ${CASE_16VC.construido.texto} Em uso ${CASE_16VC.fatos[2].valor}. ${CASE_16VC.numeros.fonte} [Case completo](${SITE_URL}${CASE_16VC.rota}).`,

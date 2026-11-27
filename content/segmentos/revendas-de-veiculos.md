@@ -2,26 +2,26 @@
 rota: "/segmentos/revendas-de-veiculos"
 url: "https://www.v2o5.com.br/segmentos/revendas-de-veiculos"
 status: 200
-title: "Sistema de vendas para revendas de veículos | V2O5 Vendas e Tecnologia"
-description: "Site ligado ao estoque do sistema da loja (Revenda Mais, Autoconf e outros) e agente de IA no WhatsApp que qualifica e entrega o lead ao CRM da loja."
+title: "Site e atendimento com IA para revendas de veículos | V2O5 Vendas e Tecnologia"
+description: "Site ligado ao estoque do sistema da loja (Revenda Mais, Autoconf e outros) e agente de IA no WhatsApp que atende e passa o cliente ao CRM da loja."
 canonical: "https://www.v2o5.com.br/segmentos/revendas-de-veiculos"
 robots: null
 h1: "Site de estoque e atendimento com IA para revendas de veículos."
-extraido_em: "2026-11-25T20:33:22.653Z"
-fonte: "build local da branch claude/kind-tesla-eefroe em 25/11/2026 (diagnóstico no foco em pequenos negócios), antes da publicação"
+extraido_em: "2026-11-27T15:35:39.615Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 27/11/2026 (revisão de ganchos e conversão aprovada), antes da publicação"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 # Site de estoque e atendimento com IA para revendas de veículos.
 
-Site de estoque ligado ao sistema da loja e um agente de IA que atende, qualifica e entrega o lead pronto ao CRM, com preço de referência.
+As mesmas soluções de qualquer negócio, na revenda: site ligado ao estoque da loja e agente de IA que atende e passa o cliente ao CRM.
 
 [Pedir diagnóstico gratuito](/diagnostico)
 
-[Ver o pacote](#titulo-pacote)
+[Ver como funciona](#titulo-pacote)
 
 Funciona com o sistema da loja
 
-Revenda Mais · em produção
+Revenda Mais · funcionando
 
 - Autoconf
 - BNDV
@@ -34,9 +34,9 @@ Dois caminhos
 
 O Site Conectado e o Atendimento Integrado, juntos ou um de cada vez
 
-Integração em produção
+Integração funcionando
 
-Revenda Mais: o estoque entra no site e no agente sozinho
+Revenda Mais: o estoque entra sozinho no site e no agente
 
 Integráveis por fluxo
 
@@ -44,7 +44,7 @@ Autoconf, BNDV, Boom, Altimus e Syonet
 
 Referência
 
-Motors Store, revenda de seminovos em Curitiba, com números lidos do banco
+Motors Store, revenda de seminovos em Curitiba, com números lidos do banco de dados da loja
 
 ## O que a V2O5 monta para revendas.
 
@@ -54,7 +54,7 @@ Sites e presença
 
 ### Site de estoque integrado ao sistema da loja
 
-Vitrine, ficha de veículo, páginas por marca e modelo e páginas locais. O carro entra no site quando entra no sistema de gestão e sai quando é vendido. Em produção com o Revenda Mais. Autoconf, BNDV, Boom, Altimus e Syonet entram por fluxo de integração.
+Vitrine, ficha de veículo, páginas por marca e modelo e páginas locais. O carro entra no site quando entra no sistema de gestão e sai quando é vendido. Já funciona com o Revenda Mais. Autoconf, BNDV, Boom, Altimus e Syonet entram por fluxo de integração.
 
 ![Vitrine do site da Motors Store no celular: veículo em destaque, preço e a busca por marca e modelo.](/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fvitrine.2s6-vxquanhzs.webp&w=3840&q=75)
 
@@ -72,13 +72,13 @@ Agente de IA no WhatsApp
 
 ### Atende à noite e no fim de semana
 
-Responde com o estoque real, qualifica com as perguntas da loja (interesse, prazo, forma de pagamento) e agenda a visita.
+Responde com o estoque real, faz as perguntas da loja (interesse, prazo, forma de pagamento) e agenda a visita.
 
 Integração com o sistema da loja
 
-### Lead pronto no CRM da loja
+### Cliente pronto no CRM da loja
 
-O lead qualificado entra no CRM que a loja já usa, com o carro de interesse, a origem e a conversa, e o vendedor segue dali. Em produção com o Revenda Mais.
+O cliente entra no CRM que a loja já usa, com o carro de interesse, a origem e a conversa, e o vendedor segue dali. Já funciona com o Revenda Mais.
 
 ## Dois caminhos para revendas.
 
@@ -91,7 +91,7 @@ Sites & Integrações
 Para a revenda que quer o site ligado ao estoque do sistema de gestão, com os contatos medidos.
 
 - Tudo do Site Personalizado, com a página de cada veículo e o tratamento dos vendidos
-- Estoque alimentado pelo sistema de gestão, por feed, API ou outro meio autorizado (Revenda Mais em produção)
+- Estoque alimentado pelo sistema de gestão, por feed, API ou outro meio autorizado (Revenda Mais já funcionando)
 - Contatos medidos até o sistema da loja, com a origem gravada
 - Aviso quando a integração falha
 
@@ -107,11 +107,11 @@ Atendimento com IA
 
 ### Atendimento Integrado
 
-Para responder na hora, a qualquer hora, qualificar e entregar o lead pronto ao vendedor.
+Para responder na hora, a qualquer hora, e passar o cliente pronto ao vendedor.
 
 - Agente de IA no WhatsApp com o estoque real
-- Qualificação com as perguntas da loja: interesse, prazo e forma de pagamento
-- Lead entregue ao CRM da loja, com a ficha e a conversa
+- As perguntas da loja antes de passar: interesse, prazo e forma de pagamento
+- Cliente entregue ao CRM da loja, com a ficha e a conversa
 - Treinamento da equipe
 
 Implantação
@@ -122,11 +122,11 @@ Continuidade opcional
 
 Integrações Monitoradas, R$ 590/mês, ou Evolução Contínua, R$ 990/mês
 
-Uso da IA e mensagens do WhatsApp ficam por fora, pelo valor do provedor, discriminados na fatura, com teto mensal combinado e aviso antes de ultrapassá-lo; a V2O5 gerencia.
+Uso da IA e mensagens do WhatsApp ficam por fora, pelo valor do provedor, discriminados na fatura, com teto mensal combinado e aviso antes de ultrapassá-lo; a V2O5 cuida dessas contas.
 
 ## A prova está no case.
 
-O que foi construído na Motors Store, os números lidos no banco da loja e o caminho de um lead, do estoque à venda, estão no case.
+O que foi construído na Motors Store, os números lidos no banco de dados da loja e o caminho de cada cliente, da primeira mensagem ao CRM da loja, estão no case.
 
 [Ler o case da Motors Store](/cases/motors-store)
 
@@ -136,7 +136,7 @@ Sistema de gestão, fotos, estoque no agente e de quem é o site. O resto cabe n
 
 Minha loja usa outro sistema de gestão. Funciona?
 
-O site lê o estoque do sistema que a loja já usa. Com o Revenda Mais a integração está em produção. Autoconf, BNDV, Boom, Altimus e Syonet entram como integração definida na proposta, depois de ver a API ou a exportação que cada um oferece; o mesmo vale para outro sistema.
+O site lê o estoque do sistema que a loja já usa. Com o Revenda Mais, a integração já funciona. Autoconf, BNDV, Boom, Altimus e Syonet entram como integração definida na proposta, depois de ver a API ou a exportação que cada um oferece; o mesmo vale para outro sistema.
 
 O agente responde com o estoque de verdade?
 
@@ -152,11 +152,11 @@ Pode. O Site Conectado funciona sozinho: o estoque no site e a origem dos contat
 
 O site e os dados são meus?
 
-Sim. Domínio, hospedagem e código ficam no nome da loja, e os dados ficam num banco do seu negócio, com exportação quando você pedir, nos termos do contrato.
+Sim. Domínio, hospedagem e código ficam no nome da loja, e os dados ficam num banco de dados da sua loja, com exportação quando você pedir, nos termos do contrato.
 
-## Quer ver o sistema rodando na sua revenda?
+## Descubra onde a sua revenda perde cliente.
 
-O diagnóstico é gratuito: 45 minutos com o fundador, que montou o sistema da Motors Store, para ver onde a sua revenda perde cliente.
+O diagnóstico é gratuito: 45 minutos com o fundador, que montou o site e o atendimento da Motors Store, para ver por onde começar na sua loja.
 
 [Pedir diagnóstico gratuito](/diagnostico)
 

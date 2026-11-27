@@ -91,9 +91,9 @@ describe("página Sobre", () => {
       "Sites, aplicações e dados",
       "Infraestrutura, hospedagem e DevOps",
       "Inteligência artificial e agentes",
-      "Automação, integrações e processos",
+      "Automação e integrações",
       "Atendimento, comunicação e relacionamento",
-      "CRM, vendas e sistemas de gestão",
+      "CRM e sistemas de gestão",
       "Presença, busca e medição",
     ]);
     for (const c of cats) {
@@ -108,7 +108,7 @@ describe("página Sobre", () => {
 
   it("no CRM, Revenda Mais e Kenlo são a experiência do Dyones (26/10/2026); branding e indicadores de eficiência saíram da lista (25/11/2026)", () => {
     const crm = SOBRE.ferramentas.categorias.find((c) => c.titulo.startsWith("CRM"))!;
-    expect(crm.itens).toEqual(["Revenda Mais", "Kenlo", "CRM sob medida"]);
+    expect(crm.itens).toEqual(["Revenda Mais", "Kenlo", "CRM da V2O5"]);
     expect(SOBRE.ferramentas.categorias.map((c) => c.titulo).join(" ")).not.toMatch(/Branding|Dados, inteligência/);
     expect(JSON.stringify(SOBRE.ferramentas)).not.toMatch(/Indicadores de eficiência|Análise antes e depois|Naming/);
   });
@@ -119,7 +119,7 @@ describe("página Sobre", () => {
     expect(SOBRE.resumo).toMatch(/^Ajudo pequenos negócios/);
     expect(SOBRE.resumo.length).toBeLessThanOrEqual(140);
     expect(SOBRE.fundador.titulo).toBe("Eu conduzo o diagnóstico");
-    expect(SOBRE.chamada.titulo).toBe("Quer conversar comigo?");
+    expect(SOBRE.chamada.titulo).toBe("Vamos ver onde o seu negócio perde cliente?");
     expect(SOBRE.jeito.titulo).toBe("Como eu trabalho.");
     for (const r of SOBRE.jeito.regras) expect(r.titulo).not.toMatch(/^Começa|^Só número/);
     expect(pagina).not.toMatch(/Conhecer o fundador/);

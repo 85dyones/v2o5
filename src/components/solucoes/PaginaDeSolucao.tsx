@@ -55,11 +55,11 @@ export default function PaginaDeSolucao({ rota, demonstracao }: { rota: string; 
         <Perguntas
           lista={s.perguntas}
           sobretitulo="Antes de contratar"
-          titulo={`O que perguntam sobre ${s.oferta ? nomeDaLinha : nomeDaLinha.toLowerCase()}`}
+          titulo={`O que perguntam sobre ${ARTIGO[s.linha] ?? ""}${s.oferta ? nomeDaLinha : comecoMinusculo(nomeDaLinha)}`}
           texto={
             s.oferta
               ? "O que entra, quanto custa e o que fica de fora. O resto cabe no diagnóstico."
-              : `O que entra, onde encaixa no ${ofertaDa("atendimento").nome} e o que fica de fora. O resto cabe no diagnóstico.`
+              : `O que entra, onde se encaixa no ${ofertaDa("atendimento").nome} e o que fica de fora. O resto cabe no diagnóstico.`
           }
         />
         <Relacionadas linhas={relacionadas} titulo={s.oferta ? "Recursos que combinam com esta solução." : undefined} />
@@ -71,6 +71,17 @@ export default function PaginaDeSolucao({ rota, demonstracao }: { rota: string; 
       <JsonLd grafo={grafoDaSolucao(rota)} />
     </>
   );
+}
+
+/** O artigo antes do nome no título das perguntas ("sobre o Atendimento com IA"); Sites & Integrações fica sem. */
+const ARTIGO: Record<string, string> = { presenca: "a ", atendimento: "o ", crm: "o ", automacao: "a " };
+
+/**
+ * O nome do recurso no meio da frase: só a primeira letra desce, e a sigla
+ * fica como está ("automação de tarefas", "CRM com WhatsApp").
+ */
+function comecoMinusculo(nome: string): string {
+  return /^\p{Lu}\p{Ll}/u.test(nome) ? nome[0].toLowerCase() + nome.slice(1) : nome;
 }
 
 /**
@@ -165,7 +176,7 @@ function Problema({ s }: { s: Solucao }) {
           ) : null}
           {comCena ? null : (
             <p className="mt-6 border-t border-linha pt-4">
-              <MarcaDeEtapa etapa={s.etapa} />
+              <MarcaDeEtapa etapa={s.etapa} fase={s.fase} />
             </p>
           )}
         </div>
@@ -174,7 +185,7 @@ function Problema({ s }: { s: Solucao }) {
         <div className="mt-12 grid grid-cols-12 md:mt-14">
           <figure className="col-span-12 border-2 border-texto bg-fundo lg:col-span-7 lg:col-start-6">
             <figcaption className="flex items-center justify-between gap-4 border-b border-linha px-4 py-3">
-              <MarcaDeEtapa etapa={s.etapa} />
+              <MarcaDeEtapa etapa={s.etapa} fase={s.fase} />
               <span className="rotulo text-texto-secundario">exemplo</span>
             </figcaption>
             <VinhetaDaLinha vinheta={s.vinheta} />
@@ -192,7 +203,7 @@ function Entregas({ s }: { s: Solucao }) {
       <div className="relative grid grid-cols-12 gap-x-6">
         <Parada />
         <h2 id="titulo-entregas" className="titulo-secao col-span-12 lg:col-span-8">
-          O que a V2O5 entrega <span className="apagado">nesta linha.</span>
+          O que você recebe.
         </h2>
       </div>
       <ul className="mt-12 border-t-2 border-texto md:mt-14">
@@ -218,7 +229,7 @@ function ComoFunciona({ s }: { s: Solucao }) {
             {s.como?.titulo ?? "Do diagnóstico"} <span className="apagado">{s.como?.apagado ?? "ao ar."}</span>
           </h2>
           <p className="texto-guia mt-6 max-w-[30rem]">
-            {s.como?.texto ?? "Começa pelo diagnóstico gratuito, com o escopo fechado antes da implantação. Sem fidelidade."}
+            {s.como?.texto ?? "Começa pelo diagnóstico gratuito. O que entra e o preço ficam por escrito antes de começar. Sem fidelidade."}
           </p>
         </div>
         <ol className="col-span-12 border-t-2 border-texto lg:col-span-7">
@@ -393,7 +404,7 @@ function Relacionadas({ linhas, titulo = "Recursos que combinam com este." }: { 
             <LinkOuAncora href={l.href} className="servico-celula grid grid-cols-12 gap-x-6 gap-y-3 border-b border-linha py-6 md:py-7">
               <Parada />
               <span className="col-span-10 md:col-span-11">
-                <MarcaDeEtapa etapa={l.etapa} />
+                <MarcaDeEtapa etapa={l.etapa} fase={l.fase} />
                 <span className="titulo-cartao mt-2 block">{l.titulo}</span>
                 <span className="mt-2 block max-w-[38rem] text-[0.9375rem] leading-relaxed text-texto-secundario">{l.frase}</span>
               </span>
