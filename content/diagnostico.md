@@ -7,8 +7,8 @@ description: "Diagnóstico gratuito de 45 minutos com o fundador para ver onde o
 canonical: "https://www.v2o5.com.br/diagnostico"
 robots: null
 h1: "Descubra onde seu negócio perde cliente. Gratuitamente."
-extraido_em: "2026-11-25T20:33:22.653Z"
-fonte: "build local da branch claude/kind-tesla-eefroe em 25/11/2026 (diagnóstico no foco em pequenos negócios), antes da publicação"
+extraido_em: "2026-11-27T12:06:59.650Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 27/11/2026 (revisão do texto do site no foco em pequenos negócios), antes da publicação"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 # Descubra onde seu negócio perde cliente. Gratuitamente.
@@ -19,7 +19,7 @@ Em 45 minutos, vemos como o cliente acha o seu negócio e como ele é atendido, 
 
 Seu nome
 
-Empresa
+Nome do negócio
 
 WhatsApp com DDD
 
@@ -32,15 +32,15 @@ Segmento
 <!-- opções do campo segmento -->
 
 - Escolha
-- Revenda de veículos
-- Serviços
 - Comércio
-- Imobiliário
+- Serviços
 - Saúde
+- Revenda de veículos
+- Imobiliário
 - Indústria
 - Outro
 
-Quantas pessoas trabalham na empresa
+Quantas pessoas trabalham no negócio
 
 <!-- opções do campo porte -->
 
@@ -94,7 +94,7 @@ Havendo um bom caso, a V2O5 propõe a solução que cabe no problema (Presença,
 
 Para o pequeno negócio que vende pelo WhatsApp ou no balcão e quer saber onde perde cliente antes de gastar com site ou sistema.
 
-O diagnóstico é a sessão inicial, gratuita, de 45 minutos. Ele mostra o que pesa mais hoje (ser achado, responder ou fazer o cliente voltar) e por onde começar, mas não inclui mapeamento completo, implementação nem acompanhamento ou mensuração de resultados. Esses passos vêm depois, na solução contratada e, se fizer sentido, na continuidade, com escopo, valor e prazo definidos em proposta.
+O diagnóstico é a sessão inicial, gratuita, de 45 minutos. Ele mostra o que pesa mais hoje (ser achado, responder ou fazer o cliente voltar) e por onde começar. Implementação e acompanhamento de resultados ficam para depois, na solução contratada e, se fizer sentido, na continuidade, com escopo, valor e prazo definidos em proposta.
 
 <!-- ===== Campos que aparecem quando o segmento escolhido é "Revenda de veículos" (entram depois de "Quantas pessoas trabalham na empresa") ===== -->
 Tamanho do estoque
@@ -149,7 +149,7 @@ Informe um e-mail válido.
 
 <!-- erro do campo empresa -->
 
-Diga o nome da empresa.
+Diga o nome do negócio.
 
 <!-- erro do campo segmento -->
 

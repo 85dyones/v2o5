@@ -242,11 +242,12 @@ export function servicoAutomotivo(): No {
   return {
     "@type": "Service",
     "@id": `${SITE_URL}${rota}#servico`,
-    name: "Site Conectado e Operação com IA para revendas de veículos",
+    // Os dois pacotes da página (26/11/2026; antes, "Operação com IA" e "rastreamento até a venda").
+    name: `${HUB_AUTOMOTIVO.planos.itens.map((i) => i.nome).join(" e ")} para revendas de veículos`,
     description: HUB_AUTOMOTIVO.resumo,
     url: `${SITE_URL}${rota}`,
     provider: ref(ID_DA_ORGANIZACAO),
-    serviceType: "Site de estoque, agente de IA no WhatsApp, CRM e rastreamento até a venda",
+    serviceType: "Site ligado ao estoque, agente de IA no WhatsApp e integração com o CRM da loja",
     audience: { "@type": "BusinessAudience", name: "Revendas de veículos" },
     areaServed: { "@type": "Country", name: "Brasil" },
   };

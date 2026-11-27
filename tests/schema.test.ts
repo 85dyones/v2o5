@@ -9,6 +9,7 @@ import {
   ID_DA_ORGANIZACAO,
   ID_DO_FUNDADOR,
   organizacao,
+  servicoAutomotivo,
 } from "@/lib/schema";
 import { PERGUNTAS } from "@/conteudo/home";
 import { OFERTAS, PLANOS_DE_CONTINUIDADE } from "@/conteudo/ofertas";
@@ -115,5 +116,10 @@ describe("bloco de JSON-LD", () => {
   it("não deixa < cru (não fecha o script por acidente)", () => {
     expect(blocoJsonLd({ texto: "</script><b>" })).not.toContain("<");
     expect(JSON.parse(blocoJsonLd({ texto: "</script>" }))).toEqual({ texto: "</script>" });
+  });
+  it("o serviço de revendas nomeia os pacotes de hoje, sem os termos que saíram do portfólio (27/11/2026)", () => {
+    const s = servicoAutomotivo();
+    expect(s.name).toBe("Site Conectado e Atendimento Integrado para revendas de veículos");
+    expect(JSON.stringify(s)).not.toMatch(/Operação com IA|rastreamento|Sprint|\blead\b/i);
   });
 });

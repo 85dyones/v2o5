@@ -178,7 +178,10 @@ describe("fluxo do diagnóstico", () => {
   it("traduz os códigos do formulário com os mesmos rótulos que a pessoa viu", () => {
     const mapa = (lista: readonly { valor: string; rotulo: string }[]) => Object.fromEntries(lista.map((o) => [o.valor, o.rotulo]));
     const rotulos = { segmento: mapa(SEGMENTOS), porte: mapa(PORTES), objetivos: mapa(OBJETIVOS), estoque: mapa(ESTOQUES), sistema: mapa(SISTEMAS) };
-    expect(js(diagnostico, "Lead")).toContain(`const ROTULOS = ${JSON.stringify(rotulos)};`);
+    // A ordem das opções no formulário pode mudar (26/11/2026: Comércio primeiro, sem republicar o fluxo); o que vale é cada código ter o rótulo que a pessoa viu.
+    const literal = js(diagnostico, "Lead").match(/const ROTULOS = (\{.*\});\n/)?.[1];
+    expect(literal, "ROTULOS no fluxo Lead").toBeDefined();
+    expect(JSON.parse(literal!)).toEqual(rotulos);
   });
 
   it("avisa o número público, usa a instância da Evolution e responde pelo e-mail público", () => {

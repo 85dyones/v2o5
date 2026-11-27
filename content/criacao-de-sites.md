@@ -3,17 +3,17 @@ rota: "/criacao-de-sites"
 url: "https://www.v2o5.com.br/criacao-de-sites"
 status: 200
 title: "Criação de sites profissionais e integrações | V2O5 Vendas e Tecnologia"
-description: "Landing page, site personalizado e site conectado ao sistema que você já usa. Rápido no celular, achado no Google e medido."
+description: "Site próprio para pequeno negócio, achado no Google e com o WhatsApp a um toque. Da landing page ao site ligado ao sistema que você já usa."
 canonical: "https://www.v2o5.com.br/criacao-de-sites"
 robots: null
-h1: "Criação de sites profissionais, ligados ao sistema que você já usa."
-extraido_em: "2026-11-25T20:33:22.653Z"
-fonte: "build local da branch claude/kind-tesla-eefroe em 25/11/2026 (diagnóstico no foco em pequenos negócios), antes da publicação"
+h1: "Criação de sites profissionais que levam o cliente até o seu WhatsApp."
+extraido_em: "2026-11-27T12:06:59.650Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 27/11/2026 (revisão do texto do site no foco em pequenos negócios), antes da publicação"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
-# Criação de sites profissionais, ligados ao sistema que você já usa.
+# Criação de sites profissionais que levam o cliente até o seu WhatsApp.
 
-Site próprio que carrega rápido no celular, aparece no Google e grava a origem de cada contato. Com integração quando o escopo pede.
+Site próprio, achado no Google e rápido no celular, com a origem de cada contato gravada. Ligado ao seu sistema quando o escopo pede.
 
 [Pedir diagnóstico gratuito](/diagnostico)
 
@@ -21,7 +21,7 @@ Site próprio que carrega rápido no celular, aparece no Google e grava a origem
 
 Resolve
 
-Quando a empresa depende de perfil de terceiros, ou o site não conversa com o sistema que ela já usa.
+Quando o negócio depende só de rede social ou de portal, ou tem um site que não leva quem chega até a conversa.
 
 Preço de entrada
 
@@ -37,9 +37,9 @@ Motors Store: site de estoque com 148 veículos sincronizados e 26 guias
 
 ## O site de template aparece bonito e some na busca.
 
-Carrega devagar no celular, tem uma página só para todos os produtos ou serviços, e quem chega pelo Google vira um contato sem origem. O Google só acha o que existe como página, e o contato que chega pelo site não aparece no sistema da empresa.
+Carrega devagar no celular, junta todos os produtos ou serviços numa página só e deixa o WhatsApp escondido no rodapé. O Google só acha o que existe como página, e quem não acha o botão desiste antes de chamar.
 
-Gestão
+Ser achado
 
 ## O que a V2O5 entrega nesta linha.
 
@@ -177,11 +177,11 @@ R$ 2.900
 
 Preço de referência da implantação.
 
-Para uma oferta, campanha ou serviço que precisa de uma página que leve ao contato.
+Para um serviço ou uma oferta que precisa de uma página que leve o cliente até a conversa.
 
 - Uma página comercial com textos escritos pela V2O5
 - Formulário ou botão de WhatsApp funcionando, com o contato chegando a quem atende
-- Rastreamento básico: de onde veio cada contato
+- A origem de cada contato gravada: Google, Instagram ou indicação
 - SEO técnico da página e publicação no domínio da empresa
 - Duas rodadas de revisão
 
@@ -193,7 +193,7 @@ R$ 5.900
 
 Preço de referência da implantação.
 
-Para a empresa que precisa de um site próprio, com estrutura comercial.
+Para o negócio que precisa de um site próprio, com as páginas dos seus serviços e o WhatsApp à mão.
 
 - Site institucional personalizado, com até seis páginas
 - A entrega-base de todo site da V2O5, descrita nesta página
@@ -270,11 +270,11 @@ Não. Loja com pagamento fica fora dos pacotes. O site vende por WhatsApp, formu
 
 ## Recursos que combinam com esta solução.
 
-[Atendimento Agente de IA no WhatsApp Responde na hora, a qualquer hora, com as informações do seu negócio. Quando a conversa pede uma pessoa, chama alguém da equipe.](/agente-de-ia-para-whatsapp)
+[Responder Agente de IA no WhatsApp Responde na hora, a qualquer hora, com as informações do seu negócio. Quando a conversa pede uma pessoa, chama alguém da equipe.](/agente-de-ia-para-whatsapp)
 
-[Venda Avaliações no Google Depois da venda, o cliente recebe no WhatsApp o pedido de avaliação com o link certo, e o painel mostra quem respondeu.](/diagnostico)
+[Ser achado Avaliações no Google Link direto e mensagem pronta para pedir a avaliação a quem comprou, na Presença Digital Local. Avaliação recente pesa na busca do bairro.](/presenca-digital-local)
 
-[Gestão CRM e sistemas sob medida Nenhum contato esquecido numa conversa: cada um num funil, com a origem, a etapa e o próximo passo à vista.](/crm-com-whatsapp)
+[Organizar CRM com WhatsApp Nenhum cliente esquecido numa conversa: cada um com a origem e o histórico, e o aviso de quando chamar de novo.](/crm-com-whatsapp)
 
 ## Comece pelo diagnóstico, que é gratuito.
 

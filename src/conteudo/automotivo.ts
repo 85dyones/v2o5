@@ -7,8 +7,9 @@ import { ofertaDa, PLANOS_DE_CONTINUIDADE } from "@/conteudo/ofertas";
  * revenda a partir do que roda na Motors Store. Desde 17/11/2026 não há
  * produto próprio para revendas (Dyones: revenda como prova, não como
  * produto). Desde 25/11/2026 (foco em pequenos negócios, sem anúncio) a
- * página fala de três peças: site ligado ao estoque, atendimento e
- * qualificação com IA no WhatsApp e o lead entregue ao CRM da loja. Os dois
+ * página fala de três peças: site ligado ao estoque, atendimento com IA
+ * no WhatsApp e o cliente entregue ao CRM da loja (26/11/2026: "lead" saiu
+ * do texto que fala com o dono da loja). Os dois
  * caminhos são o Site Conectado, de Sites & Integrações, e o Atendimento
  * Integrado, do Atendimento com IA. Os valores saem de `ofertas.ts`. Os
  * números do case moram em `/cases/motors-store`, que o hub só aponta.
@@ -24,7 +25,7 @@ export const HUB_AUTOMOTIVO = {
   titulo: "Site de estoque e atendimento com IA para revendas de veículos.",
   /** Curto de propósito: o LCP da página é o H1 (`tests/automotivo.test.ts`). */
   resumo:
-    "Site de estoque ligado ao sistema da loja e um agente de IA que atende, qualifica e entrega o lead pronto ao CRM, com preço de referência.",
+    "As mesmas soluções de qualquer negócio, na revenda: site ligado ao estoque da loja e agente de IA que atende e passa o cliente ao CRM.",
   /** Os sistemas de gestão com que a V2O5 trabalha para revendas: um em produção, os outros por fluxo (Dyones, 13/10). */
   sistemas: {
     rotulo: "Funciona com o sistema da loja",
@@ -53,13 +54,13 @@ export const HUB_AUTOMOTIVO = {
         linha: "Agente de IA no WhatsApp",
         titulo: "Atende à noite e no fim de semana",
         texto:
-          "Responde com o estoque real, qualifica com as perguntas da loja (interesse, prazo, forma de pagamento) e agenda a visita.",
+          "Responde com o estoque real, faz as perguntas da loja (interesse, prazo, forma de pagamento) e agenda a visita.",
       },
       {
         linha: "Integração com o sistema da loja",
-        titulo: "Lead pronto no CRM da loja",
+        titulo: "Cliente pronto no CRM da loja",
         texto:
-          "O lead qualificado entra no CRM que a loja já usa, com o carro de interesse, a origem e a conversa, e o vendedor segue dali. Em produção com o Revenda Mais.",
+          "O cliente entra no CRM que a loja já usa, com o carro de interesse, a origem e a conversa, e o vendedor segue dali. Em produção com o Revenda Mais.",
       },
     ],
   },
@@ -89,11 +90,11 @@ export const HUB_AUTOMOTIVO = {
         id: "operacao",
         nome: ATENDIMENTO_INTEGRADO.nome,
         solucao: ofertaDa("atendimento").nome,
-        para: "Para responder na hora, a qualquer hora, qualificar e entregar o lead pronto ao vendedor.",
+        para: "Para responder na hora, a qualquer hora, e passar o cliente pronto ao vendedor.",
         inclui: [
           "Agente de IA no WhatsApp com o estoque real",
-          "Qualificação com as perguntas da loja: interesse, prazo e forma de pagamento",
-          "Lead entregue ao CRM da loja, com a ficha e a conversa",
+          "As perguntas da loja antes de passar: interesse, prazo e forma de pagamento",
+          "Cliente entregue ao CRM da loja, com a ficha e a conversa",
           "Treinamento da equipe",
         ],
         rotuloDoPreco: "Implantação",
@@ -106,7 +107,7 @@ export const HUB_AUTOMOTIVO = {
       "Uso da IA e mensagens do WhatsApp ficam por fora, pelo valor do provedor, discriminados na fatura, com teto mensal combinado e aviso antes de ultrapassá-lo; a V2O5 gerencia.",
   },
   case: {
-    texto: "O que foi construído na Motors Store, os números lidos no banco da loja e o caminho de um lead, do estoque à venda, estão no case.",
+    texto: "O que foi construído na Motors Store, os números lidos no banco da loja e o caminho de cada cliente, da primeira mensagem ao CRM da loja, estão no case.",
     href: "/cases/motors-store",
     botao: "Ler o case da Motors Store",
   },
@@ -138,9 +139,9 @@ export const HUB_AUTOMOTIVO = {
     },
   ],
   chamada: {
-    titulo: "Quer ver o sistema rodando na sua revenda?",
+    titulo: "Descubra onde a sua revenda perde cliente.",
     texto:
-      "O diagnóstico é gratuito: 45 minutos com o fundador, que montou o sistema da Motors Store, para ver onde a sua revenda perde cliente.",
+      "O diagnóstico é gratuito: 45 minutos com o fundador, que montou o site e o atendimento da Motors Store, para ver por onde começar na sua loja.",
     botao: "Pedir diagnóstico gratuito",
     secundario: "Ver todos os preços",
   },

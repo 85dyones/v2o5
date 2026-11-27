@@ -27,47 +27,47 @@ export const PAGINAS: Pagina[] = [
     titulo: TITULO_PADRAO,
     descricao:
       "Digitalização para pequenos negócios: presença no Google, sites com integração e atendimento com IA no WhatsApp, com preço de referência.",
-    atualizadaEm: "2026-11-25",
+    atualizadaEm: "2026-11-27",
     pronta: true,
   },
   {
     rota: "/agente-de-ia-para-whatsapp",
     titulo: "Chatbot com IA para WhatsApp: agente que atende",
     descricao:
-      "Chatbot com IA no WhatsApp: um agente que responde na hora com as informações do negócio, qualifica, agenda e chama a equipe. Pacotes com preço de referência.",
-    atualizadaEm: "2026-11-25",
+      "Chatbot com IA no WhatsApp: um agente que responde na hora com as informações do seu negócio e chama a pessoa certa da equipe. Pacotes com preço de referência.",
+    atualizadaEm: "2026-11-27",
     pronta: true,
   },
   {
     rota: "/automacao-com-ia",
-    titulo: "Automação de processos com IA e n8n",
+    titulo: "Automação com IA para pequenos negócios",
     descricao:
-      "Fluxos no n8n que ligam os sistemas que a empresa já usa, com IA validada contra invenção de dado e registro de cada execução. Recurso do Atendimento com IA.",
-    atualizadaEm: "2026-11-25",
+      "O aviso e o pedido de avaliação que alguém manda à mão passam a sair sozinhos, ligados ao WhatsApp e ao sistema que você já usa. Recurso do Atendimento com IA.",
+    atualizadaEm: "2026-11-27",
     pronta: true,
   },
   {
     rota: "/criacao-de-sites",
     titulo: "Criação de sites profissionais e integrações",
     descricao:
-      "Landing page, site personalizado e site conectado ao sistema que você já usa. Rápido no celular, achado no Google e medido.",
-    atualizadaEm: "2026-11-17",
+      "Site próprio para pequeno negócio, achado no Google e com o WhatsApp a um toque. Da landing page ao site ligado ao sistema que você já usa.",
+    atualizadaEm: "2026-11-27",
     pronta: true,
   },
   {
     rota: "/crm-com-whatsapp",
     titulo: "CRM com WhatsApp integrado",
     descricao:
-      "CRM sob medida com WhatsApp dentro do funil: cada contato com origem, etapa e próximo passo. Recurso do Atendimento com IA.",
-    atualizadaEm: "2026-11-25",
+      "CRM simples com o WhatsApp dentro: cada cliente com a conversa e a origem num lugar só, e o aviso de quem chamar de volta. Recurso do Atendimento com IA.",
+    atualizadaEm: "2026-11-27",
     pronta: true,
   },
   {
     rota: "/segmentos/revendas-de-veiculos",
-    titulo: "Sistema de vendas para revendas de veículos",
+    titulo: "Site e atendimento com IA para revendas de veículos",
     descricao:
-      "Site ligado ao estoque do sistema da loja (Revenda Mais, Autoconf e outros) e agente de IA no WhatsApp que qualifica e entrega o lead ao CRM da loja.",
-    atualizadaEm: "2026-11-25",
+      "Site ligado ao estoque do sistema da loja (Revenda Mais, Autoconf e outros) e agente de IA no WhatsApp que atende e passa o cliente ao CRM da loja.",
+    atualizadaEm: "2026-11-27",
     pronta: true,
   },
   {
@@ -75,7 +75,7 @@ export const PAGINAS: Pagina[] = [
     titulo: "Case Motors Store",
     descricao:
       "O que a V2O5 montou para a Motors Store, revenda de seminovos em Curitiba, e os números do sistema rodando, lidos no banco de dados da loja.",
-    atualizadaEm: "2026-10-25",
+    atualizadaEm: "2026-11-27",
     pronta: true,
   },
   {
@@ -83,7 +83,7 @@ export const PAGINAS: Pagina[] = [
     titulo: "Case 16ª Vara Cível",
     descricao:
       "A triagem automatizada do WhatsApp da serventia da 16ª Vara Cível de Curitiba: cada pedido separado por assunto e setor, com os dados preenchidos.",
-    atualizadaEm: "2026-11-17",
+    atualizadaEm: "2026-11-27",
     pronta: true,
   },
   {
@@ -91,7 +91,7 @@ export const PAGINAS: Pagina[] = [
     titulo: "Presença digital para negócios locais",
     descricao:
       "Perfil da Empresa no Google, redes sociais e WhatsApp Business organizados, com pedido de avaliação, modelos de conteúdo e rotina mensal opcional.",
-    atualizadaEm: "2026-11-25",
+    atualizadaEm: "2026-11-27",
     pronta: true,
   },
   {
@@ -99,7 +99,7 @@ export const PAGINAS: Pagina[] = [
     titulo: "Continuidade: manutenção e monitoramento",
     descricao:
       "Planos opcionais para manter e evoluir o que foi entregue: Cuidado Técnico, Integrações Monitoradas e Evolução Contínua, com horas e prazos escritos.",
-    atualizadaEm: "2026-10-27",
+    atualizadaEm: "2026-11-27",
     pronta: true,
   },
   {
@@ -107,15 +107,15 @@ export const PAGINAS: Pagina[] = [
     titulo: "Preços: três soluções e a continuidade",
     descricao:
       "Preços de referência de Presença Digital Local, Sites & Integrações, Atendimento com IA e dos planos de continuidade. Diagnóstico gratuito.",
-    atualizadaEm: "2026-11-25",
+    atualizadaEm: "2026-11-27",
     pronta: true,
   },
   {
     rota: "/sobre",
     titulo: "Sobre a V2O5: quem faz e como trabalha",
     descricao:
-      "Quem é a V2O5 Vendas e Tecnologia, o fundador que conduz o diagnóstico, como um projeto anda, de onde vem o nome e a relação com os dois cases.",
-    atualizadaEm: "2026-11-25",
+      "Dyones Oliveira, fundador da V2O5, ajuda pequenos negócios a serem achados no Google e a atenderem bem no WhatsApp. Como ele trabalha e os dois cases.",
+    atualizadaEm: "2026-11-27",
     pronta: true,
   },
   {
@@ -123,7 +123,7 @@ export const PAGINAS: Pagina[] = [
     titulo: "Diagnóstico gratuito",
     descricao:
       "Diagnóstico gratuito de 45 minutos com o fundador para ver onde o seu negócio perde cliente: no Google, no site ou no WhatsApp.",
-    atualizadaEm: "2026-11-25",
+    atualizadaEm: "2026-11-27",
     pronta: true,
   },
   {
@@ -136,8 +136,8 @@ export const PAGINAS: Pagina[] = [
   {
     rota: "/guias",
     titulo: "Guias",
-    descricao: "Guias com dados de operação real para quem vende pelo WhatsApp e pela internet.",
-    atualizadaEm: "2026-10-09",
+    descricao: "Guias práticos para quem vende pelo WhatsApp: como aparecer no Google e atender bem quem chega.",
+    atualizadaEm: "2026-11-27",
     pronta: false,
   },
   {
@@ -145,7 +145,7 @@ export const PAGINAS: Pagina[] = [
     titulo: "Política de privacidade",
     descricao:
       "Quais dados a V2O5 Vendas e Tecnologia coleta neste site, para quê, com quem compartilha, por quanto tempo guarda e como pedir acesso, correção ou exclusão.",
-    atualizadaEm: "2026-10-13",
+    atualizadaEm: "2026-11-27",
     pronta: true,
   },
 ];

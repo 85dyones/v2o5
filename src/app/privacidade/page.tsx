@@ -15,7 +15,7 @@ const ROTA = "/privacidade";
 export const metadata = metadataDa(ROTA);
 
 /** Data da última revisão do texto. Muda sempre que o conteúdo mudar. */
-export const ULTIMA_ATUALIZACAO = "13 de outubro de 2026";
+export const ULTIMA_ATUALIZACAO = "27 de novembro de 2026";
 
 const SECOES = [
   ["controlador", "Quem responde pelos seus dados"],
@@ -129,13 +129,12 @@ export default function Pagina() {
             <Secao id="finalidades" titulo="Para que usamos">
               <ul className="grid gap-3 pl-5 [&>li]:list-disc">
                 <li>
-                  <strong>Atender o seu pedido.</strong> Marcar e fazer o diagnóstico, montar o mapa, enviar a proposta
-                  e continuar a conversa pelo WhatsApp ou pelo e-mail.
+                  <strong>Atender o seu pedido.</strong> Marcar e fazer o diagnóstico, enviar a proposta e continuar a
+                  conversa pelo WhatsApp ou pelo e-mail.
                 </li>
                 <li>
-                  <strong>Saber de onde veio o contato.</strong> Ligar o pedido ao anúncio, à busca ou ao site que o
-                  trouxe, para investir onde dá resultado. É o mesmo serviço que oferecemos aos clientes, aplicado a
-                  nós.
+                  <strong>Saber de onde veio o contato.</strong> Ligar o pedido à busca, ao anúncio ou ao site que o
+                  trouxe, para saber quais canais trazem cliente.
                 </li>
                 <li>
                   <strong>Segurança.</strong> Barrar envio automatizado de formulários: um campo escondido que só

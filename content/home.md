@@ -7,8 +7,8 @@ description: "Digitalização para pequenos negócios: presença no Google, site
 canonical: "https://www.v2o5.com.br"
 robots: null
 h1: "Coloque seu negócio no mapa e cuide de cada cliente que chega."
-extraido_em: "2026-11-26T21:26:01.140Z"
-fonte: "build local da branch claude/kind-tesla-eefroe em 26/11/2026 (fecho da home no foco em pequenos negócios), antes da publicação"
+extraido_em: "2026-11-27T12:06:59.650Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 27/11/2026 (revisão do texto do site no foco em pequenos negócios), antes da publicação"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 Digitalização para pequenos negócios
@@ -35,9 +35,9 @@ Cada uma resolve um tipo de problema e tem pacotes com preço de referência. El
 
 [Presença Digital Local → Quando o cliente procura e encontra informação errada, perfil parado ou nenhum jeito fácil de chamar. Perfil no Google, redes e WhatsApp organizados, com pedido de avaliação, modelos de conteúdo e, se quiser, a rotina mensal. A partir de R$ 790](/presenca-digital-local)
 
-[Sites & Integrações → Quando a empresa depende de perfil de terceiros, ou o site não conversa com o sistema que ela já usa. Site próprio, rápido e medido, ligado ao CRM, ao estoque ou ao sistema de gestão quando o escopo pede. A partir de R$ 2.900](/criacao-de-sites)
+[Sites & Integrações → Quando o negócio depende só de rede social ou de portal, ou tem um site que não leva quem chega até a conversa. Site próprio, rápido no celular e achado no Google, que leva o cliente até o WhatsApp e, quando precisa, se liga ao sistema que você já usa. A partir de R$ 2.900](/criacao-de-sites)
 
-[Atendimento com IA → Quando o cliente chama no WhatsApp e espera, se perde entre as conversas ou some sem que ninguém retome. WhatsApp organizado e um agente de IA que responde e qualifica, com cada contato passado à pessoa certa ou ao sistema que você já usa. A partir de R$ 3.900](/agente-de-ia-para-whatsapp)
+[Atendimento com IA → Quando o cliente chama no WhatsApp e espera, se perde entre as conversas ou some sem que ninguém retome. WhatsApp organizado, um agente de IA que responde na hora e passa a conversa à pessoa certa e, no Integrado, o contato de volta com quem já comprou. A partir de R$ 3.900](/agente-de-ia-para-whatsapp)
 
 [Continuidade Depois da entrega, planos opcionais para manter e evoluir o que foi entregue, com limites escritos. Planos a partir de R$ 349/mês](/continuidade)
 
@@ -51,9 +51,9 @@ Etapa inicial
 
 ### Diagnóstico gratuito
 
-Sessão inicial gratuita de 45 minutos para entender o problema e escolher por onde começar. Avalia se existe um projeto viável.
+45 minutos com o fundador para ver onde o seu negócio perde cliente e por onde começar. Se não houver um bom caso, a conversa termina ali.
 
-Não inclui mapeamento completo do processo, implementação nem acompanhamento.
+Não inclui implementação nem acompanhamento de resultados.
 
 A solução
 
@@ -95,7 +95,7 @@ Resultado antes de vaidade técnica
 
 ## O que conta é o cliente bem atendido.
 
-O indicador depende do problema escolhido. Antes de implementar, combinamos o que acompanhar e como o resultado será observado.
+O que acompanhar depende do problema do seu negócio. Antes de começar, a gente combina o que vai olhar e como.
 
 Tempo de resposta
 
@@ -113,19 +113,19 @@ Clientes que voltam
 
 Quantos clientes compram de novo depois do primeiro contato.
 
-Não prometemos um percentual de melhoria igual para todos. Definimos uma linha de base, implementamos dentro do escopo acordado e medimos o que os dados disponíveis permitem medir.
+Ninguém aqui promete um percentual de melhoria. A gente anota como está hoje e, depois da entrega, compara com o que os dados mostram.
 
-Projetos em ambiente real
+Cases
 
 ## Dois atendimentos no ar. Um no comércio, outro no serviço público.
 
 ### Motors Store
 
-Revenda de seminovos em Curitiba. O site se liga ao estoque, o agente de IA atende e qualifica no WhatsApp, e o lead pronto chega ao CRM do Revenda Mais.
+Revenda de seminovos em Curitiba. O site se liga ao estoque, o agente de IA atende no WhatsApp e cada cliente chega pronto, com a ficha preenchida, ao CRM do Revenda Mais.
 
 - Site ligado ao estoque
 - Agente de IA no WhatsApp
-- Lead no CRM do Revenda Mais
+- Cliente no CRM do Revenda Mais
 
 [Ler o case da Motors Store](/cases/motors-store)
 
@@ -157,7 +157,7 @@ Não. Cada solução resolve um tipo de problema e funciona sozinha. Elas se com
 
 O que o Atendimento com IA entrega?
 
-O WhatsApp organizado, um agente de IA que responde com as informações do seu negócio e passa a conversa à pessoa certa, e a lista de contatos com a origem. No Atendimento Integrado, o agente também qualifica e leva cada contato ao sistema que você já usa.
+O WhatsApp organizado, um agente de IA que responde com as informações do seu negócio e passa a conversa à pessoa certa, e a lista de contatos com a origem. No Atendimento Integrado, o agente também faz as perguntas do seu negócio, agenda ou encaminha, leva cada contato ao sistema que você já usa e chama de volta quem já comprou, só para quem consentiu.
 
 Como funciona o pagamento?
 
@@ -167,13 +167,13 @@ E depois da entrega?
 
 A implantação termina na entrega. Se o que foi entregue continua rodando, a continuidade cuida dele, em contrato à parte e com horas e prazo de resposta escritos, com planos a partir de R$ 349/mês. Banco de dados, servidor dedicado, IA e mensagens ficam por fora, pelo valor do provedor, e a V2O5 gerencia. Nenhum plano cobre desenvolvimento ilimitado.
 
-Preciso trocar o sistema de gestão que já uso?
+Preciso trocar o sistema que já uso?
 
-Não. A V2O5 liga o que você já usa. Em produção hoje: o estoque do Revenda Mais sincronizado com o site e o agente da Motors Store. Autoconf, BNDV, Boom, Altimus e Syonet, entre outros, entram como integração, depois de verificar a documentação e o acesso de cada um.
+Não. A V2O5 liga o que você já usa: a agenda, o catálogo, o estoque ou o CRM, depois de verificar a documentação e o acesso de cada um. Em produção hoje: o estoque do Revenda Mais sincronizado com o site e o agente da Motors Store. Na revenda de veículos, Autoconf, BNDV, Boom, Altimus e Syonet entram do mesmo jeito.
 
 O agente de IA atende sozinho?
 
-Responde na hora com as informações do seu negócio e, quando a conversa pede uma pessoa, chama alguém da equipe. A conversa fica registrada no CRM, com a origem do contato.
+Responde na hora com as informações do seu negócio e, quando a conversa pede uma pessoa, chama alguém da equipe. A conversa fica registrada na lista de contatos, com a origem de cada um.
 
 Vocês fazem tráfego pago?
 
@@ -181,17 +181,17 @@ Não. A V2O5 cuida de o negócio ser encontrado no Google e de atender bem quem 
 
 Como funciona o diagnóstico gratuito?
 
-São 45 minutos de conversa com o fundador sobre presença, atendimento e os sistemas que você já usa, para identificar e priorizar o problema e avaliar se existe um projeto viável. A sessão não inclui mapeamento completo do processo, implementação nem acompanhamento de resultados. Havendo um bom caso, o próximo passo é a proposta da solução que cabe no problema, com escopo, entregáveis, prazo e investimento.
+São 45 minutos de conversa com o fundador sobre como o cliente acha o seu negócio, como ele é atendido no WhatsApp e os sistemas que você já usa, para ver onde você perde cliente e por onde começar. A sessão não inclui implementação nem acompanhamento de resultados. Havendo um bom caso, o próximo passo é a proposta da solução que cabe no problema, com escopo, entregáveis, prazo e investimento.
 
 A V2O5 atende fora de Curitiba?
 
-Sim. O atendimento é remoto, para empresas de todo o Brasil.
+Sim. O atendimento é remoto, para pequenos negócios de todo o Brasil.
 
 Por que V2O5?
 
 ## Um catalisador para a mudança.
 
-O nome vem do pentóxido de vanádio, usado como catalisador em processos químicos. A imagem resume como a V2O5 pensa tecnologia: ela não precisa ser o centro do negócio, precisa ajudar a mudança a acontecer com menos esforço.
+O nome vem do pentóxido de vanádio, usado como catalisador em processos químicos: ele acelera a reação sem virar o produto final. É assim que a V2O5 usa a tecnologia no seu negócio, para a mudança acontecer com menos esforço.
 
 O trabalho começa entendendo como o negócio funciona de fato: como o cliente acha a empresa e como ele é atendido. Depois a gente põe a tecnologia que resolve isso, num formato que a equipe consegue usar no dia a dia.
 

@@ -55,7 +55,7 @@ export default function PaginaDeSolucao({ rota, demonstracao }: { rota: string; 
         <Perguntas
           lista={s.perguntas}
           sobretitulo="Antes de contratar"
-          titulo={`O que perguntam sobre ${s.oferta ? nomeDaLinha : nomeDaLinha.toLowerCase()}`}
+          titulo={`O que perguntam sobre ${s.oferta ? nomeDaLinha : comecoMinusculo(nomeDaLinha)}`}
           texto={
             s.oferta
               ? "O que entra, quanto custa e o que fica de fora. O resto cabe no diagnóstico."
@@ -71,6 +71,14 @@ export default function PaginaDeSolucao({ rota, demonstracao }: { rota: string; 
       <JsonLd grafo={grafoDaSolucao(rota)} />
     </>
   );
+}
+
+/**
+ * O nome do recurso no meio da frase: só a primeira letra desce, e a sigla
+ * fica como está ("automação de tarefas", "CRM com WhatsApp").
+ */
+function comecoMinusculo(nome: string): string {
+  return /^\p{Lu}\p{Ll}/u.test(nome) ? nome[0].toLowerCase() + nome.slice(1) : nome;
 }
 
 /**
@@ -165,7 +173,7 @@ function Problema({ s }: { s: Solucao }) {
           ) : null}
           {comCena ? null : (
             <p className="mt-6 border-t border-linha pt-4">
-              <MarcaDeEtapa etapa={s.etapa} />
+              <MarcaDeEtapa etapa={s.etapa} fase={s.fase} />
             </p>
           )}
         </div>
@@ -174,7 +182,7 @@ function Problema({ s }: { s: Solucao }) {
         <div className="mt-12 grid grid-cols-12 md:mt-14">
           <figure className="col-span-12 border-2 border-texto bg-fundo lg:col-span-7 lg:col-start-6">
             <figcaption className="flex items-center justify-between gap-4 border-b border-linha px-4 py-3">
-              <MarcaDeEtapa etapa={s.etapa} />
+              <MarcaDeEtapa etapa={s.etapa} fase={s.fase} />
               <span className="rotulo text-texto-secundario">exemplo</span>
             </figcaption>
             <VinhetaDaLinha vinheta={s.vinheta} />
@@ -393,7 +401,7 @@ function Relacionadas({ linhas, titulo = "Recursos que combinam com este." }: { 
             <LinkOuAncora href={l.href} className="servico-celula grid grid-cols-12 gap-x-6 gap-y-3 border-b border-linha py-6 md:py-7">
               <Parada />
               <span className="col-span-10 md:col-span-11">
-                <MarcaDeEtapa etapa={l.etapa} />
+                <MarcaDeEtapa etapa={l.etapa} fase={l.fase} />
                 <span className="titulo-cartao mt-2 block">{l.titulo}</span>
                 <span className="mt-2 block max-w-[38rem] text-[0.9375rem] leading-relaxed text-texto-secundario">{l.frase}</span>
               </span>

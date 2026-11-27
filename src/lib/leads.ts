@@ -129,7 +129,7 @@ export function validarLead(dados: unknown): Validacao {
   if (!emailValido(email)) erros.email = "Informe um e-mail válido.";
 
   const empresa = texto(d.empresa, LIMITES.empresa);
-  if (empresa.length < 2) erros.empresa = "Diga o nome da empresa.";
+  if (empresa.length < 2) erros.empresa = "Diga o nome do negócio.";
 
   const segmento = entre(SEGMENTOS, d.segmento);
   if (!segmento) erros.segmento = "Escolha o segmento.";

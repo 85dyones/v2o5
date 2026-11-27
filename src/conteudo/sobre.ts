@@ -76,7 +76,7 @@ export const SOBRE = {
     tituloApagado: "e a implantação.",
     /** O mesmo fato de `VISAO_360.fundador.texto` (que o JSON-LD e a home usam em terceira pessoa), agora em primeira. */
     texto:
-      "Sou formado em Administração pela FAE Business School e estou na tecnologia desde 1992, quando ganhei um curso num concurso da escola. Em branding, fiz a mudança da Top Imóveis para Top Soluções Imobiliárias e assinei o blog da Top até agosto de 2024. Na Motors Store, assino os 26 guias do site. Sou eu quem conduz o diagnóstico gratuito.",
+      "Sou formado em Administração pela FAE Business School e estou na tecnologia desde 1992, quando ganhei um curso num concurso da escola. Fiz a mudança de marca da Top Imóveis para Top Soluções Imobiliárias e assinei o blog da Top até agosto de 2024. Na Motors Store, assino os 26 guias do site. Sou eu quem conduz o diagnóstico gratuito.",
     /** Do site antigo (página Jornada), nas palavras dele, resumidas. */
     origem:
       "Até os sete anos o meu mundo era de livros. Em 1992, um concurso da escola me rendeu um curso de informática, e os computadores 386 e os disquetes viraram o começo de tudo.",
@@ -101,9 +101,9 @@ export const SOBRE = {
   nome: {
     titulo: "O nome vem de um catalisador.",
     texto:
-      "V2O5 é o pentóxido de vanádio, o catalisador industrial da produção de ácido sulfúrico: acelera a reação e continua lá no fim, sem virar o produto final. Escolhi o nome porque é assim que eu quero trabalhar: ajudar a mudança a acontecer com menos esforço, sem ocupar o centro da operação. Tecnologia, automação e IA entram quando resolvem parte relevante do problema melhor do que uma alternativa mais simples.",
+      "V2O5 é o pentóxido de vanádio, o catalisador industrial da produção de ácido sulfúrico: acelera a reação e continua lá no fim, sem virar o produto final. Escolhi o nome porque é assim que eu quero trabalhar: ajudar a mudança a acontecer com menos esforço, sem ocupar o centro do seu negócio. A IA e a automação só entram quando resolvem melhor do que um jeito mais simples.",
     cores:
-      "O vanádio muda de cor conforme o estado de oxidação. As quatro cores do site são as quatro etapas do caminho do cliente: violeta na atração, verde no atendimento, azul na gestão e âmbar na venda.",
+      "O vanádio muda de cor conforme o estado de oxidação. No site, as quatro cores acompanham o caminho do cliente, de ser achado a voltar a comprar.",
     assinatura: ASSINATURA,
   },
   jeito: {
@@ -156,7 +156,7 @@ export const SOBRE = {
   ferramentas: {
     titulo: "Tecnologias e ecossistemas",
     texto:
-      "Eu escolho a combinação para cada operação. A ferramenta vem do problema, das integrações e do resultado esperado, e cada projeto usa só o que o problema pede. Automação, atendimento e WhatsApp rodam no meu servidor.",
+      "Eu escolho a combinação para cada negócio. A ferramenta vem do problema e do que você já usa, e cada projeto leva só o que precisa. Automação, atendimento e WhatsApp rodam no meu servidor.",
     categorias: [
       {
         titulo: "Sites, aplicações e dados",
@@ -176,8 +176,8 @@ export const SOBRE = {
         nota: "Modelos de linguagem, assistentes de produtividade, pesquisa e ferramentas de desenvolvimento não são a mesma coisa. Custo, privacidade e adequação técnica decidem o que entra em cada projeto.",
       },
       {
-        titulo: "Automação, integrações e processos",
-        descricao: "Conectar sistemas, eliminar tarefas manuais e estruturar fluxos.",
+        titulo: "Automação e integrações",
+        descricao: "Ligar os sistemas que o negócio já usa e tirar da mão da equipe a tarefa que se repete.",
         itens: ["n8n", "Typebot", "APIs REST", "Webhooks"],
       },
       {
@@ -186,9 +186,9 @@ export const SOBRE = {
         itens: ["WhatsApp", "Evolution API", "Chatwoot", "Typebot", "E-mail (SMTP)"],
       },
       {
-        titulo: "CRM, vendas e sistemas de gestão",
-        descricao: "Gestão comercial, funil de vendas, operação e relacionamento.",
-        itens: ["Revenda Mais", "Kenlo", "CRM sob medida"],
+        titulo: "CRM e sistemas de gestão",
+        descricao: "A lista de clientes, com a origem e o histórico de cada um, ligada ao sistema que o negócio já usa.",
+        itens: ["Revenda Mais", "Kenlo", "CRM da V2O5"],
       },
       {
         titulo: "Presença, busca e medição",
@@ -203,7 +203,7 @@ export const SOBRE = {
     razaoSocial: EMPRESA.razaoSocial,
     cnpj: EMPRESA.cnpj,
     fundacao: EMPRESA.fundacaoPorExtenso,
-    atendimento: "Atendimento remoto para empresas de todo o Brasil.",
+    atendimento: "Atendimento remoto para pequenos negócios de todo o Brasil.",
     antes: "Antes do site novo, a V2O5 se apresentava como V2O5 ConsultorIA.",
   },
   chamada: {

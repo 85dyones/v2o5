@@ -71,34 +71,25 @@ Links com fragmento são `<a>` nativos (`LinkOuAncora`) e rolam sem suavidade; `
 
 | Âncora | Existe na rota | Linkada de |
 |---|---|---|
-| `/#como-se-liga` | sim | `/` |
-| `/#solucoes` | sim | 15 rotas (topo/rodapé) |
-| `/agente-de-ia-para-whatsapp#titulo-preco` | sim | `/agente-de-ia-para-whatsapp` |
-| `/automacao-com-ia#titulo-preco` | sim | `/automacao-com-ia` |
-| `/criacao-de-sites#titulo-preco` | sim | `/criacao-de-sites` |
-| `/crm-com-whatsapp#titulo-preco` | sim | `/crm-com-whatsapp` |
-| `/precos#perguntas` | sim | `/precos` |
-| `/precos#titulo-modulos` | sim | `/segmentos/revendas-de-veiculos` |
-| `/precos#titulo-trafego` | sim | `/segmentos/revendas-de-veiculos` |
-| `/privacidade#bases-legais` | sim | `/privacidade` |
-| `/privacidade#compartilhamento` | sim | `/privacidade` |
-| `/privacidade#contato` | sim | `/privacidade` |
-| `/privacidade#controlador` | sim | `/privacidade` |
-| `/privacidade#dados` | sim | `/privacidade` |
-| `/privacidade#direitos` | sim | `/privacidade` |
-| `/privacidade#finalidades` | sim | `/privacidade` |
-| `/privacidade#medicao` | sim | `/privacidade` |
-| `/privacidade#retencao` | sim | `/privacidade` |
-| `/privacidade#seguranca` | sim | `/privacidade` |
-| `/rastreamento-de-conversoes#titulo-preco` | sim | `/rastreamento-de-conversoes` |
-| `/segmentos/revendas-de-veiculos#titulo-pacote` | sim | `/segmentos/revendas-de-veiculos` |
-| `/sobre#autor` | sim | `/sobre` |
+| `/#solucoes` | sim | topo, rodapé, 404 e vitrine |
+| `/#case` | sim | topo (grupo Cases) |
+| `/agente-de-ia-para-whatsapp#titulo-pacotes` | sim | cartão Pós-venda e recorrência, nas páginas de solução (26/11/2026) |
+| `/continuidade#manutencao-tecnica` | sim | topo (grupo Continuidade) |
+| `/continuidade#monitoramento-e-otimizacao` | sim | topo (grupo Continuidade) |
+| `/privacidade#medicao` | sim | aviso de medição |
+| `#titulo-pacotes` | sim, nas três soluções | botão "Ver os pacotes" da abertura |
+| `#titulo-na-solucao` | sim, em CRM e automação | botão "Ver como entra no Atendimento com IA" |
+| `/segmentos/revendas-de-veiculos#titulo-pacote` | sim | botão "Ver como funciona" da abertura |
+| `/privacidade#bases-legais`, `#compartilhamento`, `#contato`, `#controlador`, `#dados`, `#direitos`, `#finalidades`, `#medicao`, `#retencao`, `#seguranca` | sim | índice de `/privacidade` |
+| `/sobre#autor` | sim | schema (autor dos cases) |
+
+Saíram com as rotas e seções do posicionamento anterior: `/#como-se-liga`, `#titulo-preco` das páginas de solução, `/precos#titulo-modulos`, `/precos#titulo-trafego` e `/precos#titulo-sprint`.
 
 Fora da tabela: `#conteudo`, alvo do link "Pular para o conteúdo" e `id` do `<main>`, presente nas 16 rotas.
 
 ### Quem aponta para o site de fora
 
-A vitrine de `diagnostico.v2o5.com.br` (`subdominios/diagnostico/`, publicada pelo projeto `v2o5-diagnosticos` na Vercel) linka para `/`, `/diagnostico`, `/precos`, `/sobre`, `/privacidade`, `/cases/motors-store`, `/gestao-de-trafego` (hoje 307 para `/precos#titulo-trafego`) e as cinco páginas de solução prontas, com `utm_source=diagnostico.v2o5.com.br`. Renomear ou tirar qualquer uma dessas rotas quebra links publicados; se precisar, entra um 301 em `next.config.ts`.
+A vitrine de `diagnostico.v2o5.com.br` (`subdominios/diagnostico/`, publicada pelo projeto `v2o5-diagnosticos` na Vercel) linka para `/`, `/diagnostico`, `/precos`, `/sobre`, `/privacidade`, `/cases/motors-store`, `/gestao-de-trafego` (hoje 301 para `/criacao-de-sites`) e as páginas de solução prontas, com `utm_source=diagnostico.v2o5.com.br`. Renomear ou tirar qualquer uma dessas rotas quebra links publicados; se precisar, entra um 301 em `next.config.ts`.
 
 ## 2. Title e description de cada rota
 
@@ -106,22 +97,22 @@ Como o site serve hoje. Saem de `PAGINAS` em `src/conteudo/paginas.ts` (`metadat
 
 | Rota | `<title>` | `meta description` |
 |---|---|---|
-| `/` | V2O5 Vendas e Tecnologia \| Catalisador de vendas com IA | Site, Perfil no Google, anúncios, agente de IA no WhatsApp e CRM montados por uma equipe só, num sistema que mostra de onde veio cada venda. Sem fidelidade. |
-| `/agente-de-ia-para-whatsapp` | Agente de IA para WhatsApp \| V2O5 Vendas e Tecnologia | Agente de IA no WhatsApp que responde na hora com as informações do seu negócio, qualifica, agenda e passa para a equipe. A partir de R$ 3.900 + R$ 790/mês. |
-| `/automacao-com-ia` | Automação de processos com IA e n8n \| V2O5 Vendas e Tecnologia | Fluxos no n8n que ligam os sistemas que a sua empresa já usa, com IA validada contra invenção de dado e registro de cada execução. R$ 1.900 por fluxo. |
-| `/criacao-de-sites` | Criação de site profissional com SEO \| V2O5 Vendas e Tecnologia | Site rápido no celular, achado no Google e nas respostas das IAs, que grava de onde veio cada contato. Hospedagem e manutenção na mensalidade de R$ 690. |
-| `/crm-com-whatsapp` | CRM com WhatsApp integrado \| V2O5 Vendas e Tecnologia | CRM sob medida com WhatsApp dentro do funil: cada contato com origem, etapa e próximo passo. 5 usuários inclusos, sem licença por pessoa, a partir de R$ 4.900. |
-| `/rastreamento-de-conversoes` | Rastreamento de conversões até a venda \| V2O5 Vendas e Tecnologia | GA4, API de Conversões da Meta e conversões offline do Google Ads: cada lead e cada venda ligados ao anúncio que trouxe o cliente. A partir de R$ 2.900. |
-| `/gestao-de-trafego` | Tráfego pago no Google e na Meta \| V2O5 Vendas e Tecnologia | Campanhas no Google Ads e na Meta (Instagram e Facebook), ajustadas pelo que virou venda. |
-| `/segmentos/revendas-de-veiculos` | Sistema de vendas para revendas de veículos \| V2O5 Vendas e Tecnologia | Site de estoque ligado ao sistema da loja (Revenda Mais, Autoconf e outros), agente de IA no WhatsApp, CRM e rastreamento até a venda, a partir de R$ 14.900. |
+| `/` | V2O5 Vendas e Tecnologia \| Digitalização para pequenos negócios | Digitalização para pequenos negócios: presença no Google, sites com integração e atendimento com IA no WhatsApp, com preço de referência. |
+| `/agente-de-ia-para-whatsapp` | Chatbot com IA para WhatsApp: agente que atende \| V2O5 Vendas e Tecnologia | Chatbot com IA no WhatsApp: um agente que responde na hora com as informações do seu negócio e chama a pessoa certa da equipe. Pacotes com preço de referência. |
+| `/automacao-com-ia` | Automação com IA para pequenos negócios \| V2O5 Vendas e Tecnologia | O aviso e o pedido de avaliação que alguém manda à mão passam a sair sozinhos, ligados ao WhatsApp e ao sistema que você já usa. Recurso do Atendimento com IA. |
+| `/criacao-de-sites` | Criação de sites profissionais e integrações \| V2O5 Vendas e Tecnologia | Site próprio para pequeno negócio, achado no Google e com o WhatsApp a um toque. Da landing page ao site ligado ao sistema que você já usa. |
+| `/crm-com-whatsapp` | CRM com WhatsApp integrado \| V2O5 Vendas e Tecnologia | CRM simples com o WhatsApp dentro: cada cliente com a conversa e a origem num lugar só, e o aviso de quem chamar de volta. Recurso do Atendimento com IA. |
+| `/segmentos/revendas-de-veiculos` | Site e atendimento com IA para revendas de veículos \| V2O5 Vendas e Tecnologia | Site ligado ao estoque do sistema da loja (Revenda Mais, Autoconf e outros) e agente de IA no WhatsApp que atende e passa o cliente ao CRM da loja. |
 | `/cases/motors-store` | Case Motors Store \| V2O5 Vendas e Tecnologia | O que a V2O5 montou para a Motors Store, revenda de seminovos em Curitiba, e os números do sistema rodando, lidos no banco de dados da loja. |
-| `/precos` | Preços e planos \| V2O5 Vendas e Tecnologia | Três planos com preço fechado: Presença a partir de R$ 8.900 + R$ 990/mês, Atendimento com agente de IA e CRM, e o Completo. Sem fidelidade. |
-| `/sobre` | Sobre a V2O5: quem faz e como trabalha \| V2O5 Vendas e Tecnologia | Quem é a V2O5 Vendas e Tecnologia, o fundador que conduz o diagnóstico, como um projeto anda, de onde vem o nome e a relação com os dois cases. |
-| `/diagnostico` | Diagnóstico gratuito \| V2O5 Vendas e Tecnologia | 45 minutos de conversa com o fundador e, em até 24 horas, um mapa do que fazer primeiro na sua empresa, com custo e prazo. Sem compromisso. |
+| `/cases/16-vara-civel` | Case 16ª Vara Cível \| V2O5 Vendas e Tecnologia | A triagem automatizada do WhatsApp da serventia da 16ª Vara Cível de Curitiba: cada pedido separado por assunto e setor, com os dados preenchidos. |
+| `/presenca-digital-local` | Presença digital para negócios locais \| V2O5 Vendas e Tecnologia | Perfil da Empresa no Google, redes sociais e WhatsApp Business organizados, com pedido de avaliação, modelos de conteúdo e rotina mensal opcional. |
+| `/continuidade` | Continuidade: manutenção e monitoramento \| V2O5 Vendas e Tecnologia | Planos opcionais para manter e evoluir o que foi entregue: Cuidado Técnico, Integrações Monitoradas e Evolução Contínua, com horas e prazos escritos. |
+| `/precos` | Preços: três soluções e a continuidade \| V2O5 Vendas e Tecnologia | Preços de referência de Presença Digital Local, Sites & Integrações, Atendimento com IA e dos planos de continuidade. Diagnóstico gratuito. |
+| `/sobre` | Sobre a V2O5: quem faz e como trabalha \| V2O5 Vendas e Tecnologia | Dyones Oliveira, fundador da V2O5, ajuda pequenos negócios a serem achados no Google e a atenderem bem no WhatsApp. Como ele trabalha e os dois cases. |
+| `/diagnostico` | Diagnóstico gratuito \| V2O5 Vendas e Tecnologia | Diagnóstico gratuito de 45 minutos com o fundador para ver onde o seu negócio perde cliente: no Google, no site ou no WhatsApp. |
 | `/diagnostico/recebido` | Pedido recebido \| V2O5 Vendas e Tecnologia | Recebemos o seu pedido de diagnóstico. O que acontece agora e como a V2O5 entra em contato. |
-| `/guias` | Guias \| V2O5 Vendas e Tecnologia | Guias com dados de operação real para quem vende pelo WhatsApp e pela internet. |
+| `/guias` | Guias \| V2O5 Vendas e Tecnologia | Guias práticos para quem vende pelo WhatsApp: como aparecer no Google e atender bem quem chega. |
 | `/privacidade` | Política de privacidade \| V2O5 Vendas e Tecnologia | Quais dados a V2O5 Vendas e Tecnologia coleta neste site, para quê, com quem compartilha, por quanto tempo guarda e como pedir acesso, correção ou exclusão. |
-| 404 | Página não encontrada \| V2O5 Vendas e Tecnologia | Site, Perfil no Google, anúncios, agente de IA no WhatsApp e CRM montados por uma equipe só, num sistema que mostra de onde veio cada venda. Sem fidelidade. |
 
 Não há Open Graph nem Twitter Card em nenhuma rota hoje (nenhuma `og:*` ou `twitter:*` no HTML). Acrescentar não quebra nada; só registro para ninguém procurar o que não existe.
 

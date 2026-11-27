@@ -3,12 +3,12 @@ rota: "/sobre"
 url: "https://www.v2o5.com.br/sobre"
 status: 200
 title: "Sobre a V2O5: quem faz e como trabalha | V2O5 Vendas e Tecnologia"
-description: "Quem é a V2O5 Vendas e Tecnologia, o fundador que conduz o diagnóstico, como um projeto anda, de onde vem o nome e a relação com os dois cases."
+description: "Dyones Oliveira, fundador da V2O5, ajuda pequenos negócios a serem achados no Google e a atenderem bem no WhatsApp. Como ele trabalha e os dois cases."
 canonical: "https://www.v2o5.com.br/sobre"
 robots: null
 h1: "Tecnologia que o pequeno negócio consegue usar."
-extraido_em: "2026-11-25T16:18:26.598Z"
-fonte: "build local da branch claude/kind-tesla-eefroe em 25/11/2026 (foco em pequenos negócios, Sobre alinhada), antes da publicação"
+extraido_em: "2026-11-27T12:10:08.884Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 27/11/2026 (revisão do texto do site no foco em pequenos negócios), antes da publicação"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 # Tecnologia que o pequeno negócio consegue usar.
@@ -57,7 +57,7 @@ Conduzo o diagnóstico gratuito e a implantação de cada projeto
 
 ## Eu conduzo o diagnóstico e a implantação.
 
-Sou formado em Administração pela FAE Business School e estou na tecnologia desde 1992, quando ganhei um curso num concurso da escola. Em branding, fiz a mudança da Top Imóveis para Top Soluções Imobiliárias e assinei o blog da Top até agosto de 2024. Na Motors Store, assino os 26 guias do site. Sou eu quem conduz o diagnóstico gratuito.
+Sou formado em Administração pela FAE Business School e estou na tecnologia desde 1992, quando ganhei um curso num concurso da escola. Fiz a mudança de marca da Top Imóveis para Top Soluções Imobiliárias e assinei o blog da Top até agosto de 2024. Na Motors Store, assino os 26 guias do site. Sou eu quem conduz o diagnóstico gratuito.
 
 Até os sete anos o meu mundo era de livros. Em 1992, um concurso da escola me rendeu um curso de informática, e os computadores 386 e os disquetes viraram o começo de tudo.
 
@@ -75,7 +75,7 @@ Prática: Conteúdo e SEO da Motors Store
 
 Vendas
 
-Prática: Funil e CRM da Motors Store
+Prática: Atendimento e CRM da Motors Store
 
 Gestão
 
@@ -123,17 +123,17 @@ O cliente está sendo mais bem atendido?
 
 ## O nome vem de um catalisador.
 
-V2O5 é o pentóxido de vanádio, o catalisador industrial da produção de ácido sulfúrico: acelera a reação e continua lá no fim, sem virar o produto final. Escolhi o nome porque é assim que eu quero trabalhar: ajudar a mudança a acontecer com menos esforço, sem ocupar o centro da operação. Tecnologia, automação e IA entram quando resolvem parte relevante do problema melhor do que uma alternativa mais simples.
+V2O5 é o pentóxido de vanádio, o catalisador industrial da produção de ácido sulfúrico: acelera a reação e continua lá no fim, sem virar o produto final. Escolhi o nome porque é assim que eu quero trabalhar: ajudar a mudança a acontecer com menos esforço, sem ocupar o centro do seu negócio. A IA e a automação só entram quando resolvem melhor do que um jeito mais simples.
 
-O vanádio muda de cor conforme o estado de oxidação. As quatro cores do site são as quatro etapas do caminho do cliente: violeta na atração, verde no atendimento, azul na gestão e âmbar na venda.
+O vanádio muda de cor conforme o estado de oxidação. No site, as quatro cores acompanham o caminho do cliente, de ser achado a voltar a comprar.
 
-Atração
+Ser achado
 
-Atendimento
+Responder
 
-Gestão
+Organizar
 
-Venda
+Voltar a comprar
 
 r 18 <!-- texto em SVG; decorativo, aria-hidden -->
 
@@ -205,7 +205,7 @@ A Motors Store, revenda de seminovos em Curitiba, é cliente da V2O5 e um dos do
 
 ## Tecnologias e ecossistemas
 
-Eu escolho a combinação para cada operação. A ferramenta vem do problema, das integrações e do resultado esperado, e cada projeto usa só o que o problema pede. Automação, atendimento e WhatsApp rodam no meu servidor.
+Eu escolho a combinação para cada negócio. A ferramenta vem do problema e do que você já usa, e cada projeto leva só o que precisa. Automação, atendimento e WhatsApp rodam no meu servidor.
 
 01
 
@@ -267,11 +267,11 @@ Modelos de linguagem, assistentes de produtividade, pesquisa e ferramentas de de
 
 04
 
-Automação, integrações e processos
+Automação e integrações
 
 + <!-- decorativo, aria-hidden -->
 
-Conectar sistemas, eliminar tarefas manuais e estruturar fluxos.
+Ligar os sistemas que o negócio já usa e tirar da mão da equipe a tarefa que se repete.
 
 - n8n
 - Typebot
@@ -294,15 +294,15 @@ WhatsApp, centralização de canais, triagem e atendimento com IA.
 
 06
 
-CRM, vendas e sistemas de gestão
+CRM e sistemas de gestão
 
 + <!-- decorativo, aria-hidden -->
 
-Gestão comercial, funil de vendas, operação e relacionamento.
+A lista de clientes, com a origem e o histórico de cada um, ligada ao sistema que o negócio já usa.
 
 - Revenda Mais
 - Kenlo
-- CRM sob medida
+- CRM da V2O5
 
 07
 
@@ -320,7 +320,7 @@ Ser encontrado por quem procura e saber de onde veio cada contato.
 
 ## A empresa
 
-Atendimento remoto para empresas de todo o Brasil.
+Atendimento remoto para pequenos negócios de todo o Brasil.
 
 Antes do site novo, a V2O5 se apresentava como V2O5 ConsultorIA.
 

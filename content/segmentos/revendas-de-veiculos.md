@@ -2,22 +2,22 @@
 rota: "/segmentos/revendas-de-veiculos"
 url: "https://www.v2o5.com.br/segmentos/revendas-de-veiculos"
 status: 200
-title: "Sistema de vendas para revendas de veículos | V2O5 Vendas e Tecnologia"
-description: "Site ligado ao estoque do sistema da loja (Revenda Mais, Autoconf e outros) e agente de IA no WhatsApp que qualifica e entrega o lead ao CRM da loja."
+title: "Site e atendimento com IA para revendas de veículos | V2O5 Vendas e Tecnologia"
+description: "Site ligado ao estoque do sistema da loja (Revenda Mais, Autoconf e outros) e agente de IA no WhatsApp que atende e passa o cliente ao CRM da loja."
 canonical: "https://www.v2o5.com.br/segmentos/revendas-de-veiculos"
 robots: null
 h1: "Site de estoque e atendimento com IA para revendas de veículos."
-extraido_em: "2026-11-25T20:33:22.653Z"
-fonte: "build local da branch claude/kind-tesla-eefroe em 25/11/2026 (diagnóstico no foco em pequenos negócios), antes da publicação"
+extraido_em: "2026-11-27T12:06:59.650Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 27/11/2026 (revisão do texto do site no foco em pequenos negócios), antes da publicação"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 # Site de estoque e atendimento com IA para revendas de veículos.
 
-Site de estoque ligado ao sistema da loja e um agente de IA que atende, qualifica e entrega o lead pronto ao CRM, com preço de referência.
+As mesmas soluções de qualquer negócio, na revenda: site ligado ao estoque da loja e agente de IA que atende e passa o cliente ao CRM.
 
 [Pedir diagnóstico gratuito](/diagnostico)
 
-[Ver o pacote](#titulo-pacote)
+[Ver como funciona](#titulo-pacote)
 
 Funciona com o sistema da loja
 
@@ -72,13 +72,13 @@ Agente de IA no WhatsApp
 
 ### Atende à noite e no fim de semana
 
-Responde com o estoque real, qualifica com as perguntas da loja (interesse, prazo, forma de pagamento) e agenda a visita.
+Responde com o estoque real, faz as perguntas da loja (interesse, prazo, forma de pagamento) e agenda a visita.
 
 Integração com o sistema da loja
 
-### Lead pronto no CRM da loja
+### Cliente pronto no CRM da loja
 
-O lead qualificado entra no CRM que a loja já usa, com o carro de interesse, a origem e a conversa, e o vendedor segue dali. Em produção com o Revenda Mais.
+O cliente entra no CRM que a loja já usa, com o carro de interesse, a origem e a conversa, e o vendedor segue dali. Em produção com o Revenda Mais.
 
 ## Dois caminhos para revendas.
 
@@ -107,11 +107,11 @@ Atendimento com IA
 
 ### Atendimento Integrado
 
-Para responder na hora, a qualquer hora, qualificar e entregar o lead pronto ao vendedor.
+Para responder na hora, a qualquer hora, e passar o cliente pronto ao vendedor.
 
 - Agente de IA no WhatsApp com o estoque real
-- Qualificação com as perguntas da loja: interesse, prazo e forma de pagamento
-- Lead entregue ao CRM da loja, com a ficha e a conversa
+- As perguntas da loja antes de passar: interesse, prazo e forma de pagamento
+- Cliente entregue ao CRM da loja, com a ficha e a conversa
 - Treinamento da equipe
 
 Implantação
@@ -126,7 +126,7 @@ Uso da IA e mensagens do WhatsApp ficam por fora, pelo valor do provedor, discri
 
 ## A prova está no case.
 
-O que foi construído na Motors Store, os números lidos no banco da loja e o caminho de um lead, do estoque à venda, estão no case.
+O que foi construído na Motors Store, os números lidos no banco da loja e o caminho de cada cliente, da primeira mensagem ao CRM da loja, estão no case.
 
 [Ler o case da Motors Store](/cases/motors-store)
 
@@ -154,9 +154,9 @@ O site e os dados são meus?
 
 Sim. Domínio, hospedagem e código ficam no nome da loja, e os dados ficam num banco do seu negócio, com exportação quando você pedir, nos termos do contrato.
 
-## Quer ver o sistema rodando na sua revenda?
+## Descubra onde a sua revenda perde cliente.
 
-O diagnóstico é gratuito: 45 minutos com o fundador, que montou o sistema da Motors Store, para ver onde a sua revenda perde cliente.
+O diagnóstico é gratuito: 45 minutos com o fundador, que montou o site e o atendimento da Motors Store, para ver por onde começar na sua loja.
 
 [Pedir diagnóstico gratuito](/diagnostico)
 

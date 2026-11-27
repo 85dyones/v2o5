@@ -2,11 +2,15 @@ import { describe, expect, it } from "vitest";
 import {
   CASE,
   CHAMADA,
+  ESCADA,
   FRENTES,
   HERO,
+  INDICADORES,
   LINHAS,
+  NOME_DA_ETAPA,
   PERGUNTAS,
   PILARES,
+  PROJETO,
   SOLUCOES,
   TITULO_DA_HOME,
   VISAO_360,
@@ -111,7 +115,7 @@ describe("os dois grupos do catálogo, na ordem do H1: colocar no mapa e cuidar 
   it("cuidar de cada cliente traz o agente primeiro, o diagnóstico, CRM, automação e integrações, e o pós-venda por último; sem consultoria nem indicadores", () => {
     const operacao = PILARES[1].servicos.map((s) => s.titulo);
     expect(operacao[0]).toBe("Agente de IA no WhatsApp");
-    expect(operacao).toContain("Diagnóstico e análise de operação");
+    expect(operacao).toContain("Diagnóstico gratuito");
     expect(operacao).not.toContain("Consultoria de processos");
     expect(operacao).not.toContain("Indicadores e painéis");
     expect(operacao[operacao.length - 1]).toBe("Pós-venda e recorrência");
@@ -238,5 +242,10 @@ describe("a rota do catálogo só sobe de etapa (26/10/2026)", () => {
       const etapas = g.servicos.map((s) => ordem[s.etapa]);
       expect(etapas, g.sobretitulo).toEqual([...etapas].sort((a, b) => a - b));
     }
+  });
+  it("cartões, perguntas e etapas saíram da fala de consultoria e de funil (revisão de 27/11/2026)", () => {
+    const publico = JSON.stringify({ LINHAS, PERGUNTAS, ESCADA, INDICADORES, PROJETO, NOME_DA_ETAPA });
+    expect(publico).not.toMatch(/análise de operação|projeto viável|mapeamento completo|sob medida|Automação de processos|o painel mostra|régua|funil|Atração/i);
+    expect(Object.values(NOME_DA_ETAPA)).toEqual(["Ser achado", "Responder", "Organizar", "Voltar a comprar"]);
   });
 });

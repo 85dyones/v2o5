@@ -7,8 +7,8 @@ description: "A triagem automatizada do WhatsApp da serventia da 16ª Vara Cíve
 canonical: "https://www.v2o5.com.br/cases/16-vara-civel"
 robots: null
 h1: "16ª Vara Cível: a triagem do WhatsApp da serventia."
-extraido_em: "2026-11-25T20:33:22.653Z"
-fonte: "build local da branch claude/kind-tesla-eefroe em 25/11/2026 (diagnóstico no foco em pequenos negócios), antes da publicação"
+extraido_em: "2026-11-27T12:06:59.650Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 27/11/2026 (revisão do texto do site no foco em pequenos negócios), antes da publicação"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 # 16ª Vara Cível: a triagem do WhatsApp da serventia.
@@ -204,9 +204,9 @@ Sistema de atendimento da serventia, lido em 14/10/2026. Conversas criadas de 07
 
 O projeto é conduzido pelo fundador da V2O5, [Dyones Oliveira](/sobre). É ele quem conduz o diagnóstico gratuito.
 
-## Sua equipe tria pedidos um por um no WhatsApp?
+## Seu WhatsApp recebe de tudo pelo mesmo número?
 
-O diagnóstico é gratuito: 45 minutos com o fundador para ver onde o seu negócio perde cliente.
+O que a serventia fez serve para qualquer negócio que atende pelo WhatsApp: perguntar o assunto logo na entrada e passar a conversa para quem resolve, com os dados já preenchidos. O diagnóstico é gratuito: 45 minutos com o fundador para ver onde o seu negócio perde cliente.
 
 [Pedir diagnóstico gratuito](/diagnostico)
 

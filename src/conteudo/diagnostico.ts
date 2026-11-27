@@ -27,7 +27,7 @@ export const DIAGNOSTICO = {
     "Para o pequeno negócio que vende pelo WhatsApp ou no balcão e quer saber onde perde cliente antes de gastar com site ou sistema.",
   /** O que a sessão inicial não inclui (decisão de 25/10/2026; texto no foco em pequenos negócios desde 25/11/2026). */
   escopo:
-    "O diagnóstico é a sessão inicial, gratuita, de 45 minutos. Ele mostra o que pesa mais hoje (ser achado, responder ou fazer o cliente voltar) e por onde começar, mas não inclui mapeamento completo, implementação nem acompanhamento ou mensuração de resultados. Esses passos vêm depois, na solução contratada e, se fizer sentido, na continuidade, com escopo, valor e prazo definidos em proposta.",
+    "O diagnóstico é a sessão inicial, gratuita, de 45 minutos. Ele mostra o que pesa mais hoje (ser achado, responder ou fazer o cliente voltar) e por onde começar. Implementação e acompanhamento de resultados ficam para depois, na solução contratada e, se fizer sentido, na continuidade, com escopo, valor e prazo definidos em proposta.",
   formulario: {
     titulo: "Pedir o diagnóstico",
     enviar: "Pedir diagnóstico gratuito",
@@ -46,12 +46,13 @@ export const DIAGNOSTICO = {
   },
 };
 
+/** Do pequeno negócio mais comum para o menos (26/11/2026); os valores são os que o n8n e o banco recebem. */
 export const SEGMENTOS = [
-  { valor: "automotivo", rotulo: "Revenda de veículos" },
-  { valor: "servicos", rotulo: "Serviços" },
   { valor: "comercio", rotulo: "Comércio" },
-  { valor: "imobiliario", rotulo: "Imobiliário" },
+  { valor: "servicos", rotulo: "Serviços" },
   { valor: "saude", rotulo: "Saúde" },
+  { valor: "automotivo", rotulo: "Revenda de veículos" },
+  { valor: "imobiliario", rotulo: "Imobiliário" },
   { valor: "industria", rotulo: "Indústria" },
   { valor: "outro", rotulo: "Outro" },
 ] as const;

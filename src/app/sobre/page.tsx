@@ -10,7 +10,7 @@ import BotaoWhatsAppFixo from "@/components/layout/BotaoWhatsAppFixo";
 import Entradas from "@/components/layout/Entradas";
 import Construcao from "@/components/marca/Construcao";
 import { COR_DA_ROTA, ComMarcas, Parada, TEXTO_DA_ETAPA, Trecho } from "@/components/rota/Rota";
-import { VISAO_360 } from "@/conteudo/home";
+import { NOME_DA_ETAPA, VISAO_360 } from "@/conteudo/home";
 import { metadataDa } from "@/conteudo/paginas";
 import { SOBRE } from "@/conteudo/sobre";
 import { linkEmail } from "@/lib/email";
@@ -23,13 +23,11 @@ const ROTA = SOBRE.rota;
 
 export const metadata = metadataDa(ROTA);
 
-/** As quatro etapas do caminho do cliente, na ordem e na cor da rota. */
-const ETAPAS: { nome: string; etapa: Etapa }[] = [
-  { nome: "Atração", etapa: "violeta" },
-  { nome: "Atendimento", etapa: "verde" },
-  { nome: "Gestão", etapa: "azul" },
-  { nome: "Venda", etapa: "ambar" },
-];
+/** As quatro etapas do caminho do cliente, na ordem e na cor da rota (nomes de `NOME_DA_ETAPA`, 26/11/2026). */
+const ETAPAS: { nome: string; etapa: Etapa }[] = (["violeta", "verde", "azul", "ambar"] as const).map((etapa) => ({
+  nome: NOME_DA_ETAPA[etapa],
+  etapa,
+}));
 
 /** O que decide na regra: o prazo do diagnóstico e o da saída. */
 const PRAZOS = ["45 minutos"];

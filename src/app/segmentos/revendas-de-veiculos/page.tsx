@@ -95,7 +95,7 @@ export default function Pagina() {
                   <Icone nome="seta" className="seta size-4" />
                 </Link>
                 <a href="#titulo-pacote" className="link-sublinhado inline-flex min-h-11 items-center text-[0.9375rem] font-medium" data-evento="cta_click" data-local="hero">
-                  Ver o pacote
+                  Ver como funciona
                 </a>
               </div>
             </div>

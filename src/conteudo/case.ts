@@ -40,20 +40,20 @@ export const CASE_MOTORS = {
   diagnosticado: {
     sobretitulo: "Antes: diagnosticado",
     titulo: "O que travava a Motors Store.",
-    texto: "Os problemas identificados antes da intervenção, na ordem da jornada do comprador.",
+    texto: "O que a loja tinha de problema antes do projeto, na ordem do caminho do cliente: da busca ao atendimento.",
     itens: [
-      "Baixa visibilidade nas buscas orgânicas, nos buscadores e nas IAs.",
-      "Falta de leads qualificados.",
+      "A loja aparecia pouco no Google e nas respostas das IAs.",
+      "Chegava pouco contato pronto para comprar.",
       "Presença digital fraca.",
       "Design do site ruim.",
       "Site lento.",
-      "Acompanhamento comercial inconsistente.",
+      "O retorno a quem chamava não seguia uma rotina.",
     ],
   },
   construido: {
     sobretitulo: "Depois: implementado",
     titulo: "O que a V2O5 montou.",
-    texto: "Cada peça é uma linha do cardápio da V2O5, ligada às outras pela mesma base de dados.",
+    texto: "As peças que a V2O5 montou, ligadas pela mesma base de dados: o que entra por uma aparece nas outras.",
     pecas: [
       {
         linha: "Sites e presença",
@@ -80,13 +80,13 @@ export const CASE_MOTORS = {
           "Na passagem, o lead vai ao CRM do Revenda Mais com a origem do contato, o carro de interesse e a qualificação do Ney, e o CRM distribui ao vendedor.",
       },
       {
-        linha: "CRM e sistemas sob medida",
+        linha: "CRM com WhatsApp",
         titulo: "Painel da loja",
         texto:
           "A mesa do Ney: quem está com o agente, quem já foi ao CRM e quem precisa do dono, junto do estoque e das consultas de placa.",
       },
       {
-        linha: "Automação de processos",
+        linha: "Automação de tarefas",
         titulo: "Rotinas no n8n",
         texto:
           "Sincronização do estoque com o Revenda Mais, entrada das conversas do WhatsApp pela Evolution API, rodada do atendimento a cada 15 minutos e alerta de falha de integração.",
@@ -184,10 +184,11 @@ export const CASE_MOTORS = {
   assinatura:
     "Quem assina os 26 guias da Motors Store é o fundador da V2O5, Dyones Oliveira. É ele quem conduz o diagnóstico gratuito.",
   chamada: {
-    titulo: "Quer o mesmo sistema na sua revenda?",
-    texto: "Os caminhos da V2O5 para revendas partem deste sistema. O diagnóstico gratuito diz por onde começar.",
+    titulo: "Quer o mesmo atendimento no seu negócio?",
+    texto:
+      "Não precisa ser revenda. Em qualquer loja ou serviço que vende pelo WhatsApp, o agente responde na hora com as suas informações e passa cada cliente para a pessoa certa, com o resumo da conversa. O diagnóstico é gratuito: 45 minutos com o fundador para ver onde o seu negócio perde cliente.",
     botao: "Pedir diagnóstico gratuito",
-    secundario: "Ver os caminhos para revendas",
+    secundario: "Ver os preços",
   },
 };
 
@@ -373,8 +374,9 @@ export const CASE_16VC = {
   },
   assinatura: "O projeto é conduzido pelo fundador da V2O5, Dyones Oliveira. É ele quem conduz o diagnóstico gratuito.",
   chamada: {
-    titulo: "Sua equipe tria pedidos um por um no WhatsApp?",
-    texto: "O diagnóstico é gratuito: 45 minutos com o fundador para ver onde o seu negócio perde cliente.",
+    titulo: "Seu WhatsApp recebe de tudo pelo mesmo número?",
+    texto:
+      "O que a serventia fez serve para qualquer negócio que atende pelo WhatsApp: perguntar o assunto logo na entrada e passar a conversa para quem resolve, com os dados já preenchidos. O diagnóstico é gratuito: 45 minutos com o fundador para ver onde o seu negócio perde cliente.",
     botao: "Pedir diagnóstico gratuito",
     secundario: "Ver todos os preços",
   },

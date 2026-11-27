@@ -7,8 +7,8 @@ description: "Quais dados a V2O5 Vendas e Tecnologia coleta neste site, para qu�
 canonical: "https://www.v2o5.com.br/privacidade"
 robots: null
 h1: "Política de privacidade"
-extraido_em: "2026-10-27T14:34:01.868Z"
-fonte: "build local da branch claude/kind-tesla-eefroe em 27/10/2026 (portfólio das quatro soluções), antes da publicação"
+extraido_em: "2026-11-27T12:06:59.650Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 27/11/2026 (revisão do texto do site no foco em pequenos negócios), antes da publicação"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 Privacidade e LGPD
@@ -17,7 +17,7 @@ Privacidade e LGPD
 
 Esta página explica quais dados a V2O5 Vendas e Tecnologia coleta quando você usa este site, por que coleta, com quem compartilha, por quanto tempo guarda e como você pede acesso, correção ou exclusão.
 
-Última atualização: 13 de outubro de 2026.
+Última atualização: 27 de novembro de 2026.
 
 [01 Quem responde pelos seus dados](#controlador)
 
@@ -57,8 +57,8 @@ Não coletamos dados sensíveis (origem racial, convicção religiosa, opinião 
 
 ## Para que usamos
 
-- Atender o seu pedido. Marcar e fazer o diagnóstico, montar o mapa, enviar a proposta e continuar a conversa pelo WhatsApp ou pelo e-mail.
-- Saber de onde veio o contato. Ligar o pedido ao anúncio, à busca ou ao site que o trouxe, para investir onde dá resultado. É o mesmo serviço que oferecemos aos clientes, aplicado a nós.
+- Atender o seu pedido. Marcar e fazer o diagnóstico, enviar a proposta e continuar a conversa pelo WhatsApp ou pelo e-mail.
+- Saber de onde veio o contato. Ligar o pedido à busca, ao anúncio ou ao site que o trouxe, para saber quais canais trazem cliente.
 - Segurança. Barrar envio automatizado de formulários: um campo escondido que só robô preenche e um limite de envios por endereço IP em dez minutos.
 - Melhorar o site e os anúncios. Entender o que as pessoas procuram e quais anúncios trazem contatos, com as ferramentas da [seção de medição](#medicao).
 

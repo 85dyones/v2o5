@@ -7,8 +7,8 @@ description: "Perfil da Empresa no Google, redes sociais e WhatsApp Business org
 canonical: "https://www.v2o5.com.br/presenca-digital-local"
 robots: null
 h1: "Presença digital para negócios locais: Google, redes e WhatsApp."
-extraido_em: "2026-11-25T20:33:22.653Z"
-fonte: "build local da branch claude/kind-tesla-eefroe em 25/11/2026 (diagnóstico no foco em pequenos negócios), antes da publicação"
+extraido_em: "2026-11-27T12:06:59.650Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 27/11/2026 (revisão do texto do site no foco em pequenos negócios), antes da publicação"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 # Presença digital para negócios locais: Google, redes e WhatsApp.
@@ -29,13 +29,13 @@ a partir de R$ 790, com mensalidade opcional a partir de R$ 390/mês
 
 Para quem
 
-Padaria, oficina, distribuidora, comércio de bairro e outros negócios locais
+Loja de bairro, pet shop, salão, clínica, oficina e outros negócios locais
 
 ## O cliente procura e encontra o horário errado.
 
-Perfil no Google sem foto nem horário, rede social parada há meses e um WhatsApp que ninguém sabe se atende. Quem procura desiste antes de chamar, e a empresa nem fica sabendo.
+Perfil no Google sem foto nem horário, rede social parada há meses e um WhatsApp que ninguém sabe se atende. Quem procura desiste antes de chamar, e você nem fica sabendo.
 
-Atendimento
+Ser achado
 
 ## O que a V2O5 entrega nesta linha.
 
@@ -193,11 +193,11 @@ A Presença cuida dos canais que já existem. O site próprio entra em Sites & I
 
 ## Recursos que combinam com esta solução.
 
-[Venda Avaliações no Google Depois da venda, o cliente recebe no WhatsApp o pedido de avaliação com o link certo, e o painel mostra quem respondeu.](/diagnostico)
+[Ser achado Sites & Integrações Site próprio, rápido no celular e achado no Google, que grava de onde veio cada contato e se liga ao sistema que você já usa.](/criacao-de-sites)
 
-[Atração Conteúdo e redes sociais Perfis organizados, modelos com a identidade da empresa e, se quiser, a rotina mensal de conteúdo e campanhas, na Presença Digital Local.](/presenca-digital-local)
+[Responder Agente de IA no WhatsApp Responde na hora, a qualquer hora, com as informações do seu negócio. Quando a conversa pede uma pessoa, chama alguém da equipe.](/agente-de-ia-para-whatsapp)
 
-[Atração Sites & Integrações Site próprio, rápido no celular e achado no Google, que grava de onde veio cada contato e se liga ao sistema que você já usa.](/criacao-de-sites)
+[Voltar a comprar Pós-venda e recorrência Contato de volta com quem já comprou, na hora da recompra ou do retorno, no Atendimento Integrado. Só para quem consentiu, dentro das regras do WhatsApp.](/agente-de-ia-para-whatsapp#titulo-pacotes)
 
 ## Comece pelo diagnóstico, que é gratuito.
 

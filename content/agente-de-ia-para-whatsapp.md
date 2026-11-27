@@ -3,15 +3,15 @@ rota: "/agente-de-ia-para-whatsapp"
 url: "https://www.v2o5.com.br/agente-de-ia-para-whatsapp"
 status: 200
 title: "Chatbot com IA para WhatsApp: agente que atende | V2O5 Vendas e Tecnologia"
-description: "Chatbot com IA no WhatsApp: um agente que responde na hora com as informações do negócio, qualifica, agenda e chama a equipe. Pacotes com preço de referência."
+description: "Chatbot com IA no WhatsApp: um agente que responde na hora com as informações do seu negócio e chama a pessoa certa da equipe. Pacotes com preço de referência."
 canonical: "https://www.v2o5.com.br/agente-de-ia-para-whatsapp"
 robots: null
-h1: "Agente de IA para WhatsApp que responde, qualifica e agenda."
-extraido_em: "2026-11-25T20:33:22.653Z"
-fonte: "build local da branch claude/kind-tesla-eefroe em 25/11/2026 (diagnóstico no foco em pequenos negócios), antes da publicação"
+h1: "Agente de IA para WhatsApp que responde na hora e chama a pessoa certa."
+extraido_em: "2026-11-27T12:10:08.884Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 27/11/2026 (revisão do texto do site no foco em pequenos negócios), antes da publicação"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
-# Agente de IA para WhatsApp que responde, qualifica e agenda.
+# Agente de IA para WhatsApp que responde na hora e chama a pessoa certa.
 
 WhatsApp organizado e um agente de IA que responde na hora. Quando a conversa pede uma pessoa, chama alguém da equipe.
 
@@ -37,7 +37,7 @@ Quem manda mensagem fora do horário também está conversando com o concorrente
 
 Fonte: [Oldroyd, McElheran e Elkington, The Short Life of Online Sales Leads, Harvard Business Review, março de 2011](https://hbr.org/2011/03/the-short-life-of-online-sales-leads).
 
-Venda
+Responder
 
 ## O que a V2O5 entrega nesta linha.
 
@@ -45,13 +45,13 @@ Venda
 
 Base de conhecimento com produtos, serviços, horários, condições e perguntas frequentes. O agente só fala do que está lá, e diz quando não sabe.
 
-### Qualifica antes de passar
+### Pergunta antes de passar
 
-Pergunta o que importa para o seu funil (interesse, prazo, forma de pagamento, região) e registra no CRM com a origem do contato.
+Faz as perguntas que o seu negócio precisa (o que a pessoa procura, para quando, como quer pagar, o bairro) e anota no CRM com a origem do contato.
 
 ### Agenda e avisa
 
-Marca horário, visita ou reunião na agenda da equipe e avisa o responsável no WhatsApp.
+Marca o horário ou a visita na agenda e avisa no WhatsApp quem vai atender.
 
 ### Passa para uma pessoa
 
@@ -126,13 +126,13 @@ Aguardando
 
 Banho e tosa
 
-Atração
+Ser achado
 
-Atendimento
+Responder
 
-Gestão
+Organizar
 
-Venda
+Voltar a comprar
 
 Origem
 
@@ -148,7 +148,7 @@ Responsável
 
 ## O Ney, na Motors Store.
 
-O agente de IA da loja responde com o estoque real, preenche a ficha do cliente e passa o lead pronto ao CRM do Revenda Mais quando ele marca a visita, chega à simulação ou pede uma pessoa.
+O agente de IA da loja responde com o estoque real, preenche a ficha do cliente e passa o cliente pronto ao CRM do Revenda Mais quando ele marca a visita, chega à simulação ou pede uma pessoa.
 
 primeiras mensagens respondidas pelo Ney em até um minuto, com mediana de 38 segundos
 
@@ -190,10 +190,10 @@ A partir de R$ 6.900
 
 Preço de referência da implantação.
 
-Para quem precisa qualificar cada contato e levá-lo ao sistema que já usa.
+Para quem quer o agente fazendo as perguntas do seu negócio e levando cada contato ao sistema que já usa.
 
 - Tudo do Atendimento Essencial
-- Agente de IA que qualifica com as perguntas do seu negócio e agenda ou encaminha
+- Agente de IA que faz as perguntas do seu negócio e agenda ou encaminha
 - Integração com um sistema que a empresa já usa (CRM, agenda, estoque ou catálogo), depois de verificar a documentação e o acesso
 - Contato de volta com quem parou de responder ou já comprou, só para quem consentiu e dentro das regras do WhatsApp
 - Uma rodada de ajustes com as conversas reais
@@ -228,7 +228,7 @@ Os pacotes: Atendimento Essencial, a partir de R$ 3.900; Atendimento Integrado, 
 
 O agente de IA atende sozinho?
 
-Responde na hora com as informações do seu negócio e, quando a conversa pede uma pessoa, chama alguém da equipe. A conversa fica registrada no CRM, com a origem do contato.
+Responde na hora com as informações do seu negócio e, quando a conversa pede uma pessoa, chama alguém da equipe. A conversa fica registrada na lista de contatos, com a origem de cada um.
 
 E se o cliente perguntar algo que a base não tem?
 
@@ -248,11 +248,11 @@ O agente registra cada conversa no CRM da V2O5 ou, por integração, no sistema 
 
 ## Recursos que combinam com esta solução.
 
-[Gestão CRM e sistemas sob medida Nenhum contato esquecido numa conversa: cada um num funil, com a origem, a etapa e o próximo passo à vista.](/crm-com-whatsapp)
+[Organizar CRM com WhatsApp Nenhum cliente esquecido numa conversa: cada um com a origem e o histórico, e o aviso de quando chamar de novo.](/crm-com-whatsapp)
 
-[Gestão Automação de processos A tarefa que alguém faz à mão toda semana passa a rodar sozinha entre os sistemas que você já usa.](/automacao-com-ia)
+[Organizar Automação de tarefas A tarefa que alguém faz à mão toda semana passa a rodar sozinha entre os sistemas que você já usa.](/automacao-com-ia)
 
-[Venda Pós-venda e recorrência Revisão, recompra ou retorno: a régua manda a mensagem na data certa e traz o cliente de volta.](/diagnostico)
+[Voltar a comprar Pós-venda e recorrência Contato de volta com quem já comprou, na hora da recompra ou do retorno, no Atendimento Integrado. Só para quem consentiu, dentro das regras do WhatsApp.](/agente-de-ia-para-whatsapp#titulo-pacotes)
 
 ## Comece pelo diagnóstico, que é gratuito.
 
@@ -284,7 +284,7 @@ O · 4,8 <!-- texto em SVG; decorativo, aria-hidden -->
 - "Como funciona" (section)
 - "Demonstração" (section)
 - "Frentes da demonstração" (div role=tablist)
-- "Etapa do funil" (ol)
+- "Etapa do cliente" (ol)
 - "Case" (section)
 - "Antes de contratar" (section)
 - "Conversa no WhatsApp" (aside)

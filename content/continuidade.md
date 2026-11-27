@@ -7,8 +7,8 @@ description: "Planos opcionais para manter e evoluir o que foi entregue: Cuidado
 canonical: "https://www.v2o5.com.br/continuidade"
 robots: null
 h1: "Continuidade: o que segue depois da entrega."
-extraido_em: "2026-11-25T20:33:22.653Z"
-fonte: "build local da branch claude/kind-tesla-eefroe em 25/11/2026 (diagnóstico no foco em pequenos negócios), antes da publicação"
+extraido_em: "2026-11-27T12:06:59.650Z"
+fonte: "build local da branch claude/kind-tesla-eefroe em 27/11/2026 (revisão do texto do site no foco em pequenos negócios), antes da publicação"
 ---
 <!-- Texto do <main>, na ordem do DOM de produção. Topo e rodapé: content/_comum.md. -->
 # Continuidade: o que segue depois da entrega.
@@ -49,7 +49,7 @@ R$ 590/mês
 
 Preço de referência. Opcional, sem obrigação de contratar.
 
-Para site ou fluxo ligado a outros sistemas.
+Para o atendimento com IA ou o site ligado a outros sistemas.
 
 - Tudo do Cuidado Técnico
 - Monitoramento das integrações entregues: estoque, envio de contatos e automações
@@ -63,7 +63,7 @@ R$ 990/mês
 
 Preço de referência. Opcional, sem obrigação de contratar.
 
-Para quem quer melhorar o que foi entregue, mês a mês.
+Para quem quer melhorar o que foi entregue mês a mês, como as respostas do agente de IA.
 
 - Tudo das Integrações Monitoradas
 - Uma conversa mensal de 30 minutos para priorizar as melhorias

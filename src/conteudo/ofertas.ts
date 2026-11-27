@@ -113,17 +113,17 @@ const SITES: Oferta = {
   nome: "Sites & Integrações",
   rota: "/criacao-de-sites",
   etapa: "azul",
-  resolve: "Quando a empresa depende de perfil de terceiros, ou o site não conversa com o sistema que ela já usa.",
-  recebe: "Site próprio, rápido e medido, ligado ao CRM, ao estoque ou ao sistema de gestão quando o escopo pede.",
+  resolve: "Quando o negócio depende só de rede social ou de portal, ou tem um site que não leva quem chega até a conversa.",
+  recebe: "Site próprio, rápido no celular e achado no Google, que leva o cliente até o WhatsApp e, quando precisa, se liga ao sistema que você já usa.",
   pacotes: [
     {
       nome: "Landing Page",
       preco: { valor: 2900 },
-      para: "Para uma oferta, campanha ou serviço que precisa de uma página que leve ao contato.",
+      para: "Para um serviço ou uma oferta que precisa de uma página que leve o cliente até a conversa.",
       inclui: [
         "Uma página comercial com textos escritos pela V2O5",
         "Formulário ou botão de WhatsApp funcionando, com o contato chegando a quem atende",
-        "Rastreamento básico: de onde veio cada contato",
+        "A origem de cada contato gravada: Google, Instagram ou indicação",
         "SEO técnico da página e publicação no domínio da empresa",
         "Duas rodadas de revisão",
       ],
@@ -131,7 +131,7 @@ const SITES: Oferta = {
     {
       nome: "Site Personalizado",
       preco: { valor: 5900 },
-      para: "Para a empresa que precisa de um site próprio, com estrutura comercial.",
+      para: "Para o negócio que precisa de um site próprio, com as páginas dos seus serviços e o WhatsApp à mão.",
       inclui: [
         "Site institucional personalizado, com até seis páginas",
         "A entrega-base de todo site da V2O5, descrita nesta página",
@@ -178,7 +178,7 @@ const ATENDIMENTO: Oferta = {
   rota: "/agente-de-ia-para-whatsapp",
   etapa: "ambar",
   resolve: "Quando o cliente chama no WhatsApp e espera, se perde entre as conversas ou some sem que ninguém retome.",
-  recebe: "WhatsApp organizado e um agente de IA que responde e qualifica, com cada contato passado à pessoa certa ou ao sistema que você já usa.",
+  recebe: "WhatsApp organizado, um agente de IA que responde na hora e passa a conversa à pessoa certa e, no Integrado, o contato de volta com quem já comprou.",
   pacotes: [
     {
       nome: "Atendimento Essencial",
@@ -195,10 +195,10 @@ const ATENDIMENTO: Oferta = {
     {
       nome: "Atendimento Integrado",
       preco: { valor: 6900, aPartirDe: true },
-      para: "Para quem precisa qualificar cada contato e levá-lo ao sistema que já usa.",
+      para: "Para quem quer o agente fazendo as perguntas do seu negócio e levando cada contato ao sistema que já usa.",
       inclui: [
         "Tudo do Atendimento Essencial",
-        "Agente de IA que qualifica com as perguntas do seu negócio e agenda ou encaminha",
+        "Agente de IA que faz as perguntas do seu negócio e agenda ou encaminha",
         "Integração com um sistema que a empresa já usa (CRM, agenda, estoque ou catálogo), depois de verificar a documentação e o acesso",
         "Contato de volta com quem parou de responder ou já comprou, só para quem consentiu e dentro das regras do WhatsApp",
         "Uma rodada de ajustes com as conversas reais",
@@ -225,7 +225,7 @@ const ATENDIMENTO: Oferta = {
 export const REGRAS_DE_PRECO = [
   "São preços de referência para começar a conversa. O valor fechado sai em proposta e vale para um escopo conhecido.",
   "Cada pacote diz o que inclui e o que fica de fora. Nenhum tem escopo ilimitado.",
-  "Custos de terceiros, como domínio, licenças, APIs, mídia paga, IA e mensagens, ficam por fora e aparecem discriminados na proposta.",
+  "Custos de terceiros, como domínio, licenças, APIs, IA e mensagens do WhatsApp, ficam por fora e aparecem discriminados na proposta.",
   "Nenhuma solução obriga a comprar outra, e a continuidade é opcional.",
   "Aumento de vendas não é prometido. O que se mede é combinado antes de começar, com uma linha de base.",
   "O diagnóstico inicial, de 45 minutos, é gratuito e serve para escolher a solução que cabe no problema.",
@@ -275,7 +275,7 @@ export const PLANOS_DE_CONTINUIDADE: PlanoDeContinuidade[] = [
     nome: "Integrações Monitoradas",
     mensal: 590,
     frente: "monitoramento-e-otimizacao",
-    para: "Para site ou fluxo ligado a outros sistemas.",
+    para: "Para o atendimento com IA ou o site ligado a outros sistemas.",
     inclui: [
       "Tudo do Cuidado Técnico",
       "Monitoramento das integrações entregues: estoque, envio de contatos e automações",
@@ -288,7 +288,7 @@ export const PLANOS_DE_CONTINUIDADE: PlanoDeContinuidade[] = [
     nome: "Evolução Contínua",
     mensal: 990,
     frente: "monitoramento-e-otimizacao",
-    para: "Para quem quer melhorar o que foi entregue, mês a mês.",
+    para: "Para quem quer melhorar o que foi entregue mês a mês, como as respostas do agente de IA.",
     inclui: [
       "Tudo das Integrações Monitoradas",
       "Uma conversa mensal de 30 minutos para priorizar as melhorias",
